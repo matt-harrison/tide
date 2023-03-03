@@ -1,0 +1,11 @@
+/* RV Realm Colors */
+:root {
+  --primary:      #336600;
+  --primary-dark: #1A3300;
+  --secondary:    #162916;
+  --accent:       #F7941D;
+
+  --primary:   var(--black);
+  --secondary: var(--white);
+  --tertiary:  var(--gray);
+}

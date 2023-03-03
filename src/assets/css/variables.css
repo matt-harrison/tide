@@ -1,0 +1,29 @@
+/*.CSS Variables */
+:root {
+  /* Global Colors */
+  --black:      #000000;
+  --blue:       #669EDC;
+  --blue-dark:  #2971EA;
+  --blue-light: #CCDEF3;
+  --gray:       #B2B2B2;
+  --gray-dark:  #3D3D3D;
+  --gray-light: #E5E5E5;
+  --green:      #336600;
+  --red:        #FF0000;
+  --white:      #FFFFFF;
+
+  /* Realm-specific colors (placeholders) */
+  --primary:   var(--black);
+  --secondary: var(--white);
+  --tertiary:  var(--gray);
+
+  /* Fonts */
+  --font-default: Montserrat;
+  --font-title:   Montserrat;
+
+  /* Animation */
+  --animate: 300ms ease-in-out;
+
+  /* Shadow */
+  --shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
