@@ -27,6 +27,7 @@
   const searchResultStore = useSearchResultStore();
 
   featuredListingStore.getVehicles();
+  searchResultStore.getVehicles();
   filterStore.setPagesTotal(5);
 
   const breadCrumbs: BreadCrumb[] = [
