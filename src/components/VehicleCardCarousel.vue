@@ -28,8 +28,4 @@
   </SiteCarousel>
 </template>
 
-<style scoped>
-  .vehicle-card-carousel {
-    /* height: 129px; */
-  }
-</style>
+<style scoped></style>
