@@ -4,22 +4,28 @@
   import type { VehicleRaw } from '@/types/Vehicle';
 
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
+
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { formatPrice } from '@/utilities/format';
 
   type Props = {
     vehicle: VehicleRaw;
   };
 
+  const favoriteStore = useFavoriteStore();
+
   const props = defineProps<Props>();
 
-  let isFavorite = ref(false);
+  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.id.raw));
 
   const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
     ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
     : null;
 
   const toggleIsFavorite = () => {
-    isFavorite.value = !isFavorite.value;
+    favoriteStore.toggleFavorite(props.vehicle.id.raw);
+
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.id.raw);
   };
 </script>
 
@@ -56,7 +62,7 @@
           <SiteIconToggle
             :is-active="isFavorite"
             :is-solid="isFavorite"
-            :onclick="toggleIsFavorite"
+            @click.prevent="toggleIsFavorite"
             class-button="p-1/4"
             icon="heart"
             is-restyled
