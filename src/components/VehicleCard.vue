@@ -9,6 +9,10 @@
   };
 
   const props = defineProps<Props>();
+
+  const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
+    ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
+    : null;
 </script>
 
 <template>
@@ -19,7 +23,11 @@
     >
       <div class="flex column axis1-between h-full">
         <div>
-          <div class="site-carousel-card-img mb-1/2 w-full bg-gray" />
+          <img
+            :src="thumbnail"
+            class="site-carousel-card-img mb-1/2 w-full bg-gray"
+            v-if="thumbnail"
+          />
 
           <div class="flex column gap-1/4 mb-1">
             <div class="font-12">
