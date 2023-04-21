@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import { ref } from 'vue';
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { RvDetail } from '@/types/RvDetail';
 
@@ -10,13 +11,16 @@
   import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
+  import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { formatPrice } from '@/utilities/format';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
+  const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
   const vehicleDetailStore = useVehicleDetailStore();
 
@@ -97,6 +101,8 @@
     },
   ];
 
+  let isFavorite = ref(favoriteStore.isFavorite(vehicle.id));
+
   const searchPills = [
     {
       label: 'Airstream Flying Cloud in Washington',
@@ -127,6 +133,12 @@
       url: '/rvs-for-sale',
     },
   ];
+
+  const toggleIsFavorite = () => {
+    favoriteStore.toggleFavorite(vehicle.id);
+
+    isFavorite.value = favoriteStore.isFavorite(vehicle.id);
+  };
 </script>
 
 <template>
@@ -176,7 +188,10 @@
                 is-solid
               />
 
-              <SiteButtonIcon
+              <SiteIconToggle
+                :is-active="isFavorite"
+                :is-solid="isFavorite"
+                @click.prevent="toggleIsFavorite"
                 class-button="icon-button border-2 border-gray-dark"
                 icon="heart"
                 is-restyled

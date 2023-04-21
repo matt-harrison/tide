@@ -5,18 +5,30 @@
 
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
+  import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import { formatPhone, formatPrice } from '@/utilities/format';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
 
   type Props = {
     vehicle: Vehicle;
   };
 
+  const favoriteStore = useFavoriteStore();
+
   const showPhone = ref(false);
 
   const props = defineProps<Props>();
 
+  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.id));
+
   const setShowPhone = (showPhoneValue: boolean) => {
     showPhone.value = showPhoneValue;
+  };
+
+  const toggleIsFavorite = () => {
+    favoriteStore.toggleFavorite(props.vehicle.id);
+
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.id);
   };
 </script>
 
@@ -102,9 +114,13 @@
       </div>
 
       <div class="absolute top-0 right-0 mt-1 mr-1">
-        <SiteButtonIcon
-          class="p-1/2 font-18"
+        <SiteIconToggle
+          :is-active="isFavorite"
+          :is-solid="isFavorite"
+          @click.prevent="toggleIsFavorite"
+          class-button="p-1/2 font-18"
           icon="heart"
+          is-restyled
           is-secondary
         />
       </div>

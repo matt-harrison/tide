@@ -8,7 +8,7 @@ export type Vehicle = {
   milesAway: number;
   floorplan: boolean;
   hasHiddenPhone: boolean;
-  id: number;
+  id: string;
   isUsed: boolean;
   label?: string; // Enumerate
   location: string;
