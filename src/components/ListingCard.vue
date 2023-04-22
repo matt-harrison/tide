@@ -77,7 +77,10 @@
             </div>
 
             <div class="font-12">
-              <span>{{ props.vehicle.city?.raw ? formatCamelCase(props.vehicle.city.raw) : '' }}</span>
+              <span>
+                {{ props.vehicle.city?.raw ? formatCamelCase(props.vehicle.city.raw) : '' }},
+                {{ props.vehicle.state_code.raw }}
+              </span>
               <span> · </span>
               <span>{{ milesAway }} miles away</span>
             </div>

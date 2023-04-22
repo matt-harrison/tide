@@ -15,7 +15,7 @@
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
-  import { formatPrice } from '@/utilities/format';
+  import { formatCamelCase, formatPrice } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
@@ -45,6 +45,8 @@
       label: '2019 Airstream Flying Cloud 25R',
     },
   ];
+
+  const cityState = vehicle ? `${formatCamelCase(vehicle.city.raw)}, ${vehicle.state_code.raw}` : '';
 
   const details: RvDetail[] = [
     {
@@ -101,7 +103,14 @@
     },
   ];
 
-  let isFavorite = ref(favoriteStore.isFavorite(vehicle.id));
+  const dummy = {
+    address: '123 Main St',
+    milesAway: 21,
+    stockNumber: '326303',
+    zip: '12345',
+  };
+
+  let isFavorite = ref(vehicle ? favoriteStore.isFavorite(vehicle.id.raw) : false);
 
   const searchPills = [
     {
@@ -135,9 +144,11 @@
   ];
 
   const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(vehicle.id);
+    if (vehicle) {
+      favoriteStore.toggleFavorite(vehicle.id.raw);
 
-    isFavorite.value = favoriteStore.isFavorite(vehicle.id);
+      isFavorite.value = favoriteStore.isFavorite(vehicle.id.raw);
+    }
   };
 </script>
 
@@ -160,7 +171,9 @@
         <main class="vehicle-detail-main w-full">
           <section class="flex axis1-between axis2-end mb-1">
             <header>
-              <h1 class="mb-1 font-24">{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}</h1>
+              <h1 class="mb-1 font-24">
+                {{ vehicle?.year.raw }} {{ vehicle?.make_name.raw }} {{ vehicle?.model_name.raw }}
+              </h1>
 
               <div class="flex axis2-center gap-1 font-12">
                 <div class="flex axis2-center gap-1/4">
@@ -170,12 +183,12 @@
                     is-solid
                     to="/rvs-for-sale"
                   >
-                    {{ vehicle.dealer }}
+                    {{ vehicle?.dealer_group_name.raw }}
                   </SiteLinkWithIcon>
                 </div>
 
-                <span>{{ vehicle.location }} - 21 miles away</span>
-                <span>Stock #: {{ vehicle.stock }}</span>
+                <span>{{ cityState }} - {{ dummy.milesAway }} miles away</span>
+                <span>Stock #: {{ dummy.stockNumber }}</span>
               </div>
             </header>
 
@@ -242,7 +255,7 @@
 
           <section class="flex axis1-between axis2-start mb-2 border-b border-gray pb-2">
             <div class="flex column gap-1/2">
-              <div class="mb-1/2 font-20 font-700">{{ formatPrice(vehicle.price) }}</div>
+              <div class="mb-1/2 font-20 font-700">{{ vehicle ? formatPrice(vehicle?.price.raw) : '' }}</div>
 
               <div class="flex axis1-between gap-1 font-14">
                 <SiteLinkWithIcon
@@ -325,17 +338,17 @@
                       class="font-700"
                       to="/rvs-for-sale"
                     >
-                      {{ vehicle.dealer }}
+                      {{ vehicle?.dealer_group_name.raw }}
                     </router-link>
 
                     <router-link
                       class="font-14 font-600"
                       to="/rvs-for-sale"
                     >
-                      <div>{{ vehicle.address }}</div>
+                      <div>{{ dummy.address }}</div>
                       <div>
-                        <span>{{ vehicle.location }} </span>
-                        <span>&nbsp;{{ vehicle.zip }}</span>
+                        <span>{{ cityState }}</span>
+                        <span>&nbsp;{{ dummy.zip }}</span>
                       </div>
                     </router-link>
                   </div>

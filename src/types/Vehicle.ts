@@ -1,26 +1,3 @@
-export type Vehicle = {
-  address: string;
-  adType: string; // Enumerate
-  bunkhouseFloorplan: boolean;
-  class: string;
-  condition: string;
-  dealer: string;
-  milesAway: number;
-  floorplan: boolean;
-  hasHiddenPhone: boolean;
-  id: string;
-  isUsed: boolean;
-  label?: string; // Enumerate
-  location: string;
-  make: string;
-  model: string;
-  phone: number;
-  price: number;
-  stock: number;
-  year: number;
-  zip: string;
-};
-
 export type VehicleNew = {
   ad_attribs: string;
   ad_detail_url: string;

@@ -28,13 +28,12 @@ export default defineConfig({
     },
   },
   server: {
-    host: true,
     port: 5174,
     proxy: {
       '/api': {
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        secure: false,
+        secure: true,
         target: 'https://www.rvtrader.com/',
         ws: true,
       },

@@ -8,7 +8,9 @@
 
   const { vehicle } = vehicleDetailStore;
 
-  const comments = ref(`Is this ${vehicle.year} ${vehicle.make} ${vehicle.model} for sale?`);
+  const comments = ref(
+    vehicle ? `Is this ${vehicle.year} ${vehicle.make_name.raw} ${vehicle.model_name.raw} for sale?` : ''
+  );
 </script>
 
 <template>

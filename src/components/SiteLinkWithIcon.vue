@@ -23,7 +23,7 @@
       type: Boolean,
     },
     target: {
-      default: undefined,
+      default: '_self',
       required: false,
       type: String,
     },

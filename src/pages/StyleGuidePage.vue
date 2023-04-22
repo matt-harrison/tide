@@ -17,9 +17,8 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { useDarkModeStore } from '@/stores/DarkModeStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
+  import { useSearchResultStore } from '@/stores/SearchResultStore';
   import { formatKebabCase } from '@/utilities/format';
-
-  import dummyVehicles from '@/data/dummy-vehicles.json';
 
   type ColorGroups = {
     global: string[];
@@ -28,8 +27,10 @@
 
   const darkModeStore = useDarkModeStore();
   const featuredListingStore = useFeaturedListingStore();
+  const searchResultStore = useSearchResultStore();
 
   featuredListingStore.getVehicles();
+  searchResultStore.getVehicles();
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -670,7 +671,7 @@
             <div
               :class="darkModeStore.isDarkMode ? 'border-white font-white' : 'border-gray-dark bg-white'"
               :key="card"
-              class="site-carousel-card-demo flex axis1-center shrink-none border-1 p-1 radius-1/2"
+              class="site-carousel-card-demo flex axis1-center shrink-none border-1 p-1 radius-1/2 snap-start"
               v-for="card in cards"
             >
               Card demo {{ card }}
@@ -695,7 +696,7 @@
         <div class="mb-2">
           <h4 class="mb-1">Listing Card</h4>
           <ListingCard
-            :vehicle="dummyVehicles[0]"
+            :vehicle="searchResultStore.vehicles[0]"
             class="font-gray-dark"
           />
         </div>
