@@ -2,11 +2,13 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "*.ts"],
   "compilerOptions": {
+    "allowJs": true,
     "baseUrl": ".",
+    "module": "esnext",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "allowJs": true,
+    "target": "esnext",
   },
 
   "references": [
