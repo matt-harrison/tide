@@ -25,7 +25,7 @@
     adType = 'Premium';
   }
 
-  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.id.raw));
+  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
 
   const hasHiddenPhone = Math.floor(Math.random() * 2);
 
@@ -43,9 +43,9 @@
   };
 
   const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.id.raw);
+    favoriteStore.toggleFavorite(props.vehicle.ad_id.raw);
 
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.id.raw);
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.ad_id.raw);
   };
 </script>
 
@@ -61,6 +61,11 @@
             :src="thumbnail"
             class="w-full bg-gray ratio-3/2"
             v-if="thumbnail"
+          />
+
+          <div
+            class="w-full bg-gray ratio-3/2"
+            v-else
           />
 
           <div class="flex column gap-1/4">

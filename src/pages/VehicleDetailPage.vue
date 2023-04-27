@@ -110,7 +110,7 @@
     zip: '12345',
   };
 
-  let isFavorite = ref(vehicle ? favoriteStore.isFavorite(vehicle.id.raw) : false);
+  let isFavorite = ref(vehicle ? favoriteStore.isFavorite(vehicle.ad_id.raw) : false);
 
   const searchPills = [
     {
@@ -145,9 +145,9 @@
 
   const toggleIsFavorite = () => {
     if (vehicle) {
-      favoriteStore.toggleFavorite(vehicle.id.raw);
+      favoriteStore.toggleFavorite(vehicle.ad_id.raw);
 
-      isFavorite.value = favoriteStore.isFavorite(vehicle.id.raw);
+      isFavorite.value = favoriteStore.isFavorite(vehicle.ad_id.raw);
     }
   };
 </script>

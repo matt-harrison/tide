@@ -1,0 +1,1519 @@
+{
+  "meta": {
+    "alerts": [],
+    "warnings": [],
+    "precision": 3,
+    "page": {
+      "current": 1,
+      "total_pages": 8,
+      "total_results": 304,
+      "size": 38
+    },
+    "engine": {
+      "name": "rvads-prod",
+      "type": "default"
+    }
+  },
+  "results": [
+    {
+      "ad_id": {
+        "raw": 0
+      },
+      "ad_listing_position": 0,
+      "city": {
+        "raw": "Springwells Township"
+      },
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": true
+      },
+      "make_name": {
+        "raw": [
+          "Ford"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Model-T"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 850
+      },
+      "state_code": {
+        "raw": "MI"
+      },
+      "year": {
+        "raw": 1904
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 1
+      },
+      "ad_listing_position": 1,
+      "city": {
+        "raw": "Pittsburgh"
+      },
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "make_name": {
+        "raw": [
+          "Fisher-Price"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Power Wheels"
+        ]
+      },
+      "phone": {
+        "raw": 7575551234
+      },
+      "price": {
+        "raw": 334
+      },
+      "state_code": {
+        "raw": "PA"
+      },
+      "year": {
+        "raw": 1994
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 2
+      },
+      "ad_listing_position": 2,
+      "city": {
+        "raw": "Norfolk"
+      },
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "make_name": {
+        "raw": [
+          "Honda"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Fit"
+        ]
+      },
+      "phone": {
+        "raw": 5551234
+      },
+      "price": {
+        "raw": 8000
+      },
+      "state_code": {
+        "raw": "VA"
+      },
+      "year": {
+        "raw": 2008
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 3
+      },
+      "ad_listing_position": 3,
+      "city": {
+        "raw": "Virginia Beach"
+      },
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "make_name": {
+        "raw": [
+          "Honda"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Goldwing"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 16000
+      },
+      "state_code": {
+        "raw": "VA"
+      },
+      "year": {
+        "raw": 2018
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 4
+      },
+      "ad_listing_position": 4,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "The Moon"
+      },
+      "make_name": {
+        "raw": [
+          "Telsa"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Cybertruck"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 50000
+      },
+      "year": {
+        "raw": 2023
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 5
+      },
+      "ad_listing_position": 5,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "The Batcave"
+      },
+      "make_name": {
+        "raw": [
+          "Wayne Industries"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Batmobile"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 123456789
+      },
+      "year": {
+        "raw": 2023
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 6
+      },
+      "ad_listing_position": 6,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "Real Life"
+      },
+      "make_name": {
+        "raw": [
+          "Acme"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Motorcar"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 10000
+      },
+      "year": {
+        "raw": 2000
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 7
+      },
+      "ad_listing_position": 7,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "Real Life"
+      },
+      "make_name": {
+        "raw": [
+          "Acme"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Motorcar"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 10000
+      },
+      "year": {
+        "raw": 2000
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 8
+      },
+      "ad_listing_position": 8,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "Real Life"
+      },
+      "make_name": {
+        "raw": [
+          "Acme"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Motorcar"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 10000
+      },
+      "year": {
+        "raw": 2000
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    },
+    {
+      "ad_id": {
+        "raw": 9
+      },
+      "ad_listing_position": 9,
+      "condition": {
+        "raw": "New"
+      },
+      "dealer_group_name": {
+        "raw": "Fake Dealer"
+      },
+      "is_premium": {
+        "raw": {
+          "raw": true
+        }
+      },
+      "city": {
+        "raw": "Real Life"
+      },
+      "make_name": {
+        "raw": [
+          "Acme"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Motorcar"
+        ]
+      },
+      "phone": {
+        "raw": 18005551234
+      },
+      "price": {
+        "raw": 10000
+      },
+      "year": {
+        "raw": 2000
+      },
+      "_meta": {
+        "engine": "",
+        "id": "",
+        "score": 100
+      },
+      "ad_attribs": {
+        "raw": ""
+      },
+      "ad_detail_url": {
+        "raw": ""
+      },
+      "ad_features": {
+        "raw": ""
+      },
+      "category_name": {
+        "raw": []
+      },
+      "city_state_facet": {
+        "raw": ""
+      },
+      "class_id": {
+        "raw": ""
+      },
+      "class_name": {
+        "raw": ""
+      },
+      "company_name": {
+        "raw": ""
+      },
+      "create_date": {
+        "raw": ""
+      },
+      "create_date_formatted": {
+        "raw": ""
+      },
+      "customer_id": {
+        "raw": ""
+      },
+      "dealer_features": {
+        "raw": ""
+      },
+      "dealer_group_dealer_count": {
+        "raw": ""
+      },
+      "dealer_group_id": {
+        "raw": ""
+      },
+      "dealer_id": {
+        "raw": ""
+      },
+      "dealer_phone": {
+        "raw": []
+      },
+      "dealer_website_url": {
+        "raw": ""
+      },
+      "description": {
+        "raw": ""
+      },
+      "is_buynow": {
+        "raw": ""
+      },
+      "is_featured": {
+        "raw": ""
+      },
+      "is_toppremium": {
+        "raw": ""
+      },
+      "latitude": {
+        "raw": ""
+      },
+      "longitude": {
+        "raw": ""
+      },
+      "make_facet": {
+        "raw": []
+      },
+      "make_id": {
+        "raw": []
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": []
+      },
+      "msrp": {
+        "raw": null
+      },
+      "photo_count": {
+        "raw": 0
+      },
+      "photo_ids": {
+        "raw": []
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": ""
+      },
+      "seller_type": {
+        "raw": ""
+      },
+      "trim_name": {
+        "raw": []
+      },
+      "website_url": {
+        "raw": null
+      }
+    }
+  ]
+}

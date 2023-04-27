@@ -2,6 +2,7 @@
   import { onMounted, ref } from 'vue';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
+  import type { VehicleRaw } from '@/types/Vehicle';
 
   import AccordionItem from '@/components/AccordionItem.vue';
   import BreadCrumbs from '@/components/BreadCrumbs.vue';
@@ -16,9 +17,12 @@
   import VehicleCard from '@/components/VehicleCard.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { useDarkModeStore } from '@/stores/DarkModeStore';
-  import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
-  import { useSearchResultStore } from '@/stores/SearchResultStore';
   import { formatKebabCase } from '@/utilities/format';
+
+  import dummyResponse from '@/data/dummy-search-results.json';
+
+  const dummyResults: unknown = dummyResponse.results;
+  const dummyVehicles: VehicleRaw[] = dummyResults as VehicleRaw[];
 
   type ColorGroups = {
     global: string[];
@@ -26,11 +30,6 @@
   };
 
   const darkModeStore = useDarkModeStore();
-  const featuredListingStore = useFeaturedListingStore();
-  const searchResultStore = useSearchResultStore();
-
-  featuredListingStore.getVehicles();
-  searchResultStore.getVehicles();
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -684,7 +683,7 @@
 
           <VehicleCardCarousel
             :offset-x="48"
-            :vehicles="featuredListingStore.vehicles"
+            :vehicles="dummyVehicles"
             class="flex wrap gap-1 font-gray-dark"
           />
         </div>
@@ -696,7 +695,7 @@
         <div class="mb-2">
           <h4 class="mb-1">Listing Card</h4>
           <ListingCard
-            :vehicle="searchResultStore.vehicles[0]"
+            :vehicle="dummyVehicles[0]"
             class="font-gray-dark"
           />
         </div>
@@ -704,7 +703,7 @@
         <div>
           <h4 class="mb-1">Vehicle Card</h4>
           <VehicleCard
-            :vehicle="featuredListingStore.vehicles[0]"
+            :vehicle="dummyVehicles[0]"
             class="font-gray-dark"
           />
         </div>

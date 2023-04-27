@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia';
 
 type State = {
-  favorites: string[];
+  favorites: number[];
 };
 
 export const useFavoriteStore = defineStore('favoriteStore', {
   actions: {
-    isFavorite(favorite: string) {
+    isFavorite(favorite: number) {
       return this.favorites.includes(favorite);
     },
-    toggleFavorite(favoriteNew: string) {
+    toggleFavorite(favoriteNew: number) {
       if (this.favorites.includes(favoriteNew)) {
         this.favorites = this.favorites.filter((favorite) => favorite !== favoriteNew);
       } else {

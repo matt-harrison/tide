@@ -16,16 +16,16 @@
 
   const props = defineProps<Props>();
 
-  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.id.raw));
+  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
 
   const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
     ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
     : null;
 
   const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.id.raw);
+    favoriteStore.toggleFavorite(props.vehicle.ad_id.raw);
 
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.id.raw);
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.ad_id.raw);
   };
 </script>
 
@@ -41,6 +41,11 @@
             :src="thumbnail"
             class="site-carousel-card-img mb-1/2 w-full bg-gray"
             v-if="thumbnail"
+          />
+
+          <div
+            class="site-carousel-card-img mb-1/2 w-full bg-gray"
+            v-else
           />
 
           <div class="flex column gap-1/4 mb-1">

@@ -21,7 +21,7 @@
     class="vehicle-card-carousel"
   >
     <VehicleCard
-      :key="vehicle.id.raw"
+      :key="vehicle.ad_id.raw"
       :vehicle="vehicle"
       v-for="vehicle in props.vehicles"
     />

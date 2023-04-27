@@ -1,0 +1,1676 @@
+{
+  "meta": {
+    "alerts": [],
+    "warnings": [],
+    "precision": 3,
+    "page": {
+      "current": 1,
+      "size": 38,
+      "total_pages": 8,
+      "total_results": 304
+    },
+    "engine": {
+      "name": "rvads-prod",
+      "type": "default"
+    }
+  },
+  "results": [
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5024784383",
+        "score": 48.694065
+      },
+      "ad_attribs": {
+        "raw": "{\"5000000011\":\"644248181\",\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-high-country-381th-in-amelia-court-house-virginia-326303?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"VERY NICE UNIT READY TO GO CAMPING! LOTS OF ROOM THROUGHOUT WITH 4 SLIDES! LOTS OF BASEMENT STORAGE AND THROUGHOUT! CLEAN! TRIPLE AXLE AND MUCH MORE!!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2017-Keystone-Montana+High+Country+381TH-5024784383"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5024784383
+      },
+      "ad_listing_position": 1,
+      "category_name": {
+        "raw": [
+          "Fifth Wheel"
+        ]
+      },
+      "city": {
+        "raw": "amelia court house"
+      },
+      "city_state_facet": {
+        "raw": "amelia court house|VA"
+      },
+      "class_id": {
+        "raw": "139350904"
+      },
+      "class_name": {
+        "raw": "Toy Hauler"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2023-02-11T16:32:39+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Feb 11 2023"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2017 Keystone Montana High Country 381TH, Stock #326303 - <br><br> <strong>VERY NICE UNIT READY TO GO CAMPING! LOTS OF ROOM THROUGHOUT WITH 4 SLIDES! LOTS OF BASEMENT STORAGE AND THROUGHOUT! CLEAN! TRIPLE AXLE AND MUCH MORE!!</strong> <br><br>2017 MONTANA HIGH COUNTRY (BY KEYSTONE) 381TH available in Amelia Court House, Virginia!<br><br>This Toy Hauler is ready to take you and your favorite toy on your next adventure and many more!<br><br>This Montana is well-equipped inside and out with a great mix of luxury and functionality. The garage is in the rear and loaded by ramp. The garage space can fit a full-size golf cart, motorcycle, or four-wheeler and has a motorcycle wheel chock installed and several tie-down eyes on the floor.<br><br>Walking in via the Lippert Solid Steps, you enter a large open kitchen with wood-style flooring, a skylight, a ceiling fan, and a hutch. The kitchen also features loads of cabinets and drawers, a table with extension, four chairs, a residential stainless-steel refrigerator with an ice maker, a three-burner gas stove, a double sink, a microwave, and more!<br><br>From the kitchen, step up to the front living room with dual leather recliners, two leather sleeper sofas, a fireplace, a large screen tv, plenty of cabinet space, and two sliders for a huge carpeted living space.<br><br>Going toward the rear of the RV, you see the full bath with lots of cabinets, a vanity, a medicine cabinet with a mirror, and a large shower.<br><br>Continue down the hall into a large bedroom with a queen bed and full closet space. The bedroom also features accent lighting over the cabinets and a TV.<br><br>Outside are two awnings for comfort, four new slide-out cover awnings, an exterior shower, tons of storage, and exterior speakers.<br><br>This Montana also has a TST 6 Tire TPMS, a Progressive Industries Power Management System and Surge Protector, and a Furrion Vision 5 backup camera.<br> <br>Call today to schedule a showing of this great Toy Hauler!<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> This listing has now been on the market a couple months. Please submit any and all offers today! <br><br> Reason for selling is no longe using1. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter Backsplash, Counter- Material, Double Kitchen Sink, Hood Fan, Microwave, Oven, Refrigerator/freezer, Stove, Bluetooth/aux., Digital TV Antenna, Entertainment Center, Exterior TV Source, Interior Lighting, "
+      },
+      "id": {
+        "raw": "5024784383"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "37.34980"
+      },
+      "longitude": {
+        "raw": "-77.96610"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA HIGH COUNTRY|764954171"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana High Country 381TH"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "29a2ed53-e7d8-44a0-9a7a-bb69a54f7958-1"
+        ]
+      },
+      "price": {
+        "raw": 53400
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "VA"
+      },
+      "trim_name": {
+        "raw": [
+          "381TH"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2017
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5015117487",
+        "score": 53.894066
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/travel-trailers-for-sale/keystone-springdale-summerland-2820-bh-in-brownstown-twp-michigan-r7-232036?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"Y\",\"tagLineValue\":\"2017 Keystone RV Summerland Series M-2820BH; all season RV ready to travel anywhere for summer or winter vacations.\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2017-Keystone-Springdale+Summerland+2820+BH-5015117487"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5015117487
+      },
+      "ad_listing_position": 2,
+      "city": {
+        "raw": "brownstown twp"
+      },
+      "city_state_facet": {
+        "raw": "brownstown twp|MI"
+      },
+      "class_id": {
+        "raw": "198073"
+      },
+      "class_name": {
+        "raw": "Travel Trailer"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2021-01-05T08:42:28+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Jan 5 2021"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2017 Keystone Springdale Summerland 2820 BH, Stock #232036 - <br><br> <strong>2017 Keystone RV Summerland Series M-2820BH, all season RV ready to travel anywhere for summer or winter vacations.</strong> <br><br>The 2017 Springdale Summerland 2820 BH by Keystone is a lightweight trailer that features plenty of accommodations, well-built solid construction, and bunk beds for the kids.<br><br>The exterior standards include full exterior pass-thru storage, a power tongue jack, an exterior grill, and exterior speakers.<br><br>There is an electronic patio awning with LED lights and pull-out steps.<br><br>There are two entry doors. One into the bathroom, the other into the main living area. <br><br>Just inside the entry door into the main living area to the right is the master bedroom.<br><br>To the left are the kitchen, sofa, and dinette.<br><br>The kitchen is equipped with a refrigerator/freezer, a microwave with a hood, a 3-burner stove, an oven, a large kitchen sink with a high pull-out faucet, and drawer and cabinet storage.<br><br>Opposite the kitchen area is the single slide that contains the sofa and dinette.<br><br>The leatherette sofa is also a jack-knife style bed. It easily opens to create additional sleeping. There is a large window behind it that allows in natural light with overhead storage and lighting.<br><br>Next to the sofa is the dinette. The U-shaped dinette provides lots of seating with its U-shape configuration. The dinette table can be dropped to create additional sleeping.<br><br>The bunks are located in the rear left side of the Summerland 2820 BH. The bunk beds feature a pull-out ladder easy access to the top bunk. There is also a light in each bunk and separate privacy curtains.<br><br>To the right rear of the trailer is where the enclosed bathroom is located.<br><br>The bathroom is outfitted with a foot flush toilet, a shower with a skylight, a vanity sink with medicine cabinet, and a ceiling vent with electric fan. As mentioned, there is also a door leading to the outside.<br><br>An entertainment center is located at the center of the master bedroom entrance.<br><br>The entertainment center has cabinet storage at the top of bottom, a LED TV mounted to a bracket in the center, and an AM/FM/CD/DVD player just below the TV.<br><br>The master bedroom is at the front of the trailer.<br><br>The queen bed, with an upgraded mattress, has a wardrobe on either side of the bed and also features overhead lighting and a storage shelf.<br><br>There are windows on the left and right side of the master bedroom that allows in natural light.<br><br>There are shades with curtains on the windows in the trailer.<br><br>The exterior sides has the paint protection applied from the dealership at purchase to provide a long-lasting finish.<br><br>The electric stabilizing jacks are a very nice addition when setting up your camp.<br><br>We are looking for people all ove"
+      },
+      "floorplan_mediaid": {
+        "raw": "60dc582ab0d49824441a73c8"
+      },
+      "id": {
+        "raw": "5015117487"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "42.07250"
+      },
+      "longitude": {
+        "raw": "-83.21690"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "SPRINGDALE SUMMERLAND|764974411"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Springdale Summerland 2820 BH"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "3bb7a4a8-5c4f-4939-bafe-19f2b1ed4018-1"
+        ]
+      },
+      "price": {
+        "raw": 24650
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "MI"
+      },
+      "trim_name": {
+        "raw": [
+          "2820BH"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2017
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5023973957",
+        "score": 42.296043
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3121rl-in-east-sandwich-massachusetts-r2-316375?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2019 Montana by Keystone very well maintained. Self-leveling; full size fridge; fireplace; washer/dryer hook up; ambient lighting.\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2019-Keystone-Montana+3121RL-5023973957"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5023973957
+      },
+      "ad_listing_position": 3,
+      "city": {
+        "raw": "east sandwich"
+      },
+      "city_state_facet": {
+        "raw": "east sandwich|MA"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2022-11-21T16:32:52+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Nov 21 2022"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2019 Keystone Montana 3121RL, Stock #316375 - <br><br> <strong>2019 Montana by Keystone very well maintained. Self-leveling, full size fridge, fireplace, washer/dryer hook up, ambient lighting.</strong> <br><br>This is a great example of the 2019 Montana 3121RL. Its single owner has kept it in beautiful condition both inside and out.<br><br>Walking around its exterior, the condition shows no scratches, dents, or dings. The tires are in great shape. The roof is well-seated and appears completely seated at its edges.<br><br>Entering through the exterior door with a full-screen door, turning right, puts you in the short hallway to the master bedroom. Halfway there is the bathroom with a toilet, full shower, sink, vanity, and mirror. <br><br>The bedroom has an upgraded king-sized bed, a full hanging closet behind two sliding doors with mirrors, a small dresser, and a TV...quite a large TV!<br><br>Turning left puts you into a great kitchen, dining, and lounging area. The kitchen boasts a full-size, two-door refrigerator with a large pull-out freezer compartment next to a pantry and a small cubby with drawers and a work surface. The island has two sinks and loads of storage space, with the gas stove, full oven, and small wine rack opposite, and to the other side, a nice 4-place dining table with a pullout allowing for two more seats gives the space for a great meal.<br><br>The large TV in the lounge is over a very nice rectangular gas fireplace; opposite that are two large reclining lounge chairs. With a three-place couch in between that converts to a twin bed, loads of storage all around, beautiful wood moldings throughout, and tons of room, you'll be set to go.<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> Please submit any and ALL offers - your offer may be accepted! Submit your offer today! <br><br> Reason for selling is not using it enough. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Hood Fan, Ice Maker, Microwave, Oven, Stove, Refrigerator/freezer, Cabinets, Bluetooth/aux., CD Player, DVD Player, Exterior TV Source (Cable), Stereo System, TV (3), Power Charging Center (3), Interior Lighting, Central Vacuum, Fireplace, Skylight (2), Water Heater (Gas/electfric), 4 Seasons, Air Conditioning (X2), Bathroom Sink, Bed - King, Clothes Washer Dryer Prep, Heat, Leather Furniture, Shower, Sink, Slide-out (3), Sofa Sleeper, Storage, Storage - Under Bed, Toilet, USB Charging Port, Vanity, Medicine Cabinet, Recliner (2), Inverter, 110 O"
+      },
+      "id": {
+        "raw": "5023973957"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "41.72820"
+      },
+      "longitude": {
+        "raw": "-70.43980"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3121RL"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "3fbb055d-bbef-4eab-a36b-e8ca160eb071-1"
+        ]
+      },
+      "price": {
+        "raw": 65000
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "MA"
+      },
+      "trim_name": {
+        "raw": [
+          "3121RL"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2019
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5023802425",
+        "score": 42.49802
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3931fb-in-salisbury-massachusetts-r2-308336?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2021 Keystone Montana (3931FB) - Like New & in Excellent Condition w/Brand New Washer & Dryer\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2021-Keystone-Montana+3931FB-5023802425"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5023802425
+      },
+      "ad_listing_position": 4,
+      "city": {
+        "raw": "salisbury"
+      },
+      "city_state_facet": {
+        "raw": "salisbury|MA"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2022-11-04T15:44:03+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Nov 4 2022"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2021 Keystone Montana 3931FB, Stock #308336 - <br><br> <strong>2021 Keystone Montana (3931FB) - Like New & in Excellent Condition w/Brand New Washer & Dryer</strong> <br><br>The Keystone Montana is like most Keystone fifth wheels, laid out extremely well for space and comfort. The transition from the living room to the kitchen is well thought out and surprisingly separated.<br><br>The interior colors with light whites and grays have the new earth color accents like new home styles you would expect.<br><br>The master bedroom is laid out with a nice comfortable King Bed, a ton of closet and drawer storage and more storage under bed.<br><br>The washer dryer in this unit is located in the kitchen area and allows for more closet space in the bedroom.<br><br>Central Vacuum system is great for quick clean up!<br><br>With 1 1/2 baths when you have guests you won't have to worry about guests using your private master bath area.<br><br>Don't let this one get away. It is modern and turnkey<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> Please submit any and ALL offers - your offer may be accepted! Submit your offer today! <br><br> Reason for selling is finished with the usage purchased for. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter Backsplash, Counter- Material (Hard Surface), Dinette, Double Kitchen Sink, Hood Fan, Kitchen Island, Microwave, Oven, Pantry, Refrigerator/freezer, Stove, Bluetooth/aux., Digital TV Antenna, Exterior TV Source, Interior Lighting, Power Charging Center, Stereo System, TV, 4 Seasons, Air Conditioning (30000 BTU), Bathroom Sink, Bed - Full/queen, Bed - King, Ceiling Fan, Ceiling Vents, Central Heat, Central Vacuum, Clothes W/D Combo, Control Center, Dining Table W/chairs, Fans, Fireplace, Flooring (Vinyl), Heat, Interior Sun Screens, Recliner, Shower, Sink, Skylight, Slide-out (3), Sofa Sleeper, Storage, Storage - Under Bed, Tinted Windows, Toilet, USB Charging Port, Vanity, Water Heater, Windows- Day Night Shades, 110 Outlets, Batteries - House, Battery Charger - Solar, City Water Hook Up, GFI Circuit Breakers, Heated Basement Storage, Inverter (200w), Power Cord, Power Jacks, Awning, Awning - Patio, Entry Assist Grab Handle, Entry Steps - Pull Out, Exterior 110 Outlet, Exterior Storage, Leveling Jacks, Propane Tanks, Roof Access Ladder, Tire Covers, Brakes, Co2 Detector, Smoke Detector, Spare Tire Kit, Combination Construction, 2-Axle, Waste capacity: 88 gals, Gray water cap"
+      },
+      "floorplan_mediaid": {
+        "raw": "636542e3d66b1821357e8650"
+      },
+      "id": {
+        "raw": "5023802425"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "42.85010"
+      },
+      "longitude": {
+        "raw": "-70.86330"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3931FB"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "01f9c603-b78b-4ec7-87a8-7663fb710da7-1"
+        ]
+      },
+      "price": {
+        "raw": 83000
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "MA"
+      },
+      "trim_name": {
+        "raw": [
+          "3931FB"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2021
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5022361911",
+        "score": 39.895054
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3731fl-in-waynesboro-georgia-r6-299201?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2018 MONTANA fifth wheel in PRISTINE Condition! RESIDENTIAL FRIDGE! REMOTES for EVERYTHING! KING BED!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2018-Keystone-Montana+3731FL-5022361911"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5022361911
+      },
+      "ad_listing_position": 5,
+      "city": {
+        "raw": "waynesboro"
+      },
+      "city_state_facet": {
+        "raw": "waynesboro|GA"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2022-07-20T15:33:18+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Jul 20 2022"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2018 Keystone Montana 3731FL, Stock #299201 - <br><br> <strong>2018 MONTANA fifth wheel in PRISTINE Condition! RESIDENTIAL FRIDGE! REMOTES for EVERYTHING! KING BED!</strong> <br><br> <strong>********************** CERTIFIED SINGLE OWNER **********************</strong> <br><br>If you're ready for a MONTANA QUALITY fifth wheel, don't miss this 3731 FL by Keystone RV that has traveled only 120 miles!<br><br>Inside this beautiful RV you will find a large Samsung double-door refrigerator with ice maker, 3 TVs including an outdoor set, and clothes washer/dryer hookups!<br><br>Thanks to 6 slide-outs - each with awning covers - the living area, dining table area, kitchen, and master bedroom have massive space available!<br><br>Cabinets are EVERYWHERE - If you don't need the clothes washer/dryer hookups, this large cabinet next to the residential refrigerator/freezer has plenty of room to expand your kitchen pantry usage.<br><br>The owner replaced the king bed with an upgraded Memory Foam mattress.<br><br>You'll also find cool modern amenities, such as two pop-up power charging stations (one next to the stove, and the other next to the dining table), surround speakers for the stereo and master TV,<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> Please submit any and ALL offers - your offer may be accepted! Submit your offer today! <br><br> Reason for selling is not using. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter Backsplash, Ice Maker, Kitchen Island, Microwave, Oven, Pantry, Refrigerator/freezer, Stove, Double Kitchen Sink, Bluetooth/aux., Entertainment Center, Exterior TV Source, Interior Lighting, Power Charging Center, Stereo System, Surround Sound System, TV, 4 Seasons, Air Conditioning, Bathroom Sink, Bed - King, Carpet, Ceiling Fan, Ceiling Vents, Clothes Washer Dryer Prep, Control Center, Dining Table W/chairs, Fireplace, Heat, Leather Furniture, Medicine Cabinet, Recliner, Shower, Skylight, Slide-out, Sofa Sleeper, Storage, Storage - Under Bed, Tinted Windows, Toilet, USB Charging Port, Water Heater, Windows- Day Night Shades, 110 Outlets, Backup Monitor, Batteries - House, City Water Hook Up, Electric Panel, Power Cord, Alum Wheels, Automatic Leveling Jacks, Awning, Awning - Slide-out, Entry Assist Grab Handle, Entry Steps - Pull Out, Exterior 110 Outlet, Exterior Speakers, Exterior Storage, Exterior TV, Porch Light,"
+      },
+      "id": {
+        "raw": "5022361911"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "33.08940"
+      },
+      "longitude": {
+        "raw": "-81.97800"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3731FL"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "77ce7489-0fe1-40e1-9ce9-3cf830a4a7a4-1"
+        ]
+      },
+      "price": {
+        "raw": 59000
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "GA"
+      },
+      "trim_name": {
+        "raw": [
+          "3731FL"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2018
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5025654557",
+        "score": 36.295055
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3701lk-in-apache-junction-arizona-r1-331582?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"Sweet Montana 3701LK! 4 Slides; 4-Seasons; Rear Kitchen; 3 TVs; King Bed; Ready for Living!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2018-Keystone-Montana+3701LK-5025654557"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5025654557
+      },
+      "ad_listing_position": 6,
+      "city": {
+        "raw": "apache junction"
+      },
+      "city_state_facet": {
+        "raw": "apache junction|AZ"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2023-03-31T15:32:53+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Mar 31 2023"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2018 Keystone Montana 3701LK, Stock #331582 - <br><br>***SALE PENDING*** <strong>Sweet Montana 3701LK! 4 Slides, 4-Seasons, Rear Kitchen, 3 TVs, King Bed, Ready for Living!</strong> <br><br>If you are in the market for a fifth wheel, look no further than this 2018 Montana 3701LK, just reduced to $51,900. Non-smoking. This Fifth Wheel is located in Apache Junction, Arizona and is in great condition.<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> This listing is new to market. Any reasonable offer may be accepted. Submit an offer today! <br><br> Reason for selling is not using enough to justify keeping. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Counter Backsplash, Counter- Material, Double Kitchen Sink, Hood Fan, Microwave/convection Oven, Refrigerator/freezer (Residential), Stove, Gas Convection Oven, Oven, Digital TV Antenna, Entertainment Center, Exterior TV Source, Interior Lighting, Power Charging Center, Stereo System, Surround Sound System, TV (3), TV Antenna, 4 Seasons, Air Conditioning, Bathroom Sink, Black Water Flush System, Carpet (Bedroom), Ceiling Vents, Control Center, Dining Table W/chairs, Fans (2), Fireplace, Flooring, Heat, Interior Sun Screens, Medicine Cabinet, Recliner - Stadium Style, Shower, Sink, Skylight (Shower), Slide-out (4), Sofa Sleeper (2), Storage, Tinted Windows, Toilet, USB Charging Port, Vanity, Water Heater, Windows - Blinds, Clothes Dryer, Clothes Washer, Leather Furniture (Ultraleather), Bed - King, Central Vacuum, Ceiling Fan, 110 Outlets, Batteries - House, Braking System, City Water Hook Up, Electric Panel, Generator Pre-wire, GFI Circuit Breakers, Hitch, Power Jacks, Waste Water Washout, Backup Monitor (Wiring), Battery Charger - Solar (Wiring), 110 Lighting, AC Electrical Power, Awning, Awning - Slide-out (4), Entry Assist Grab Handle, Exterior 110 Outlet, Exterior TV, Leveling Jacks, Porch Light, Propane Tanks, Roof Access Ladder, Exterior Shower, Exterior Speakers, Exterior Storage, Tire Covers, Large Wooden Custom Steps, Morryde Entry Steps (Not Shown In Photos, In Owners Possession), Custom Wooden Entry Stair, Awnings- High Wind Sensor, Brakes, CO Detector, Emergency Exit, LPG Leak Detector, Running Lights, Smoke Detector, Vinyl Floor, Fiberglass Construction, 2-Axle, Waste capacity: 49 gals, Gray water capacity: 88 gals, Width: 8', Height: 13' 5\"<br><br><strong>\"Sweet Montana 3701LK! 4 Slides, 4-Seasons, Rear Kitchen, 3 TVs, King Bed, Ready for Living!\"</strong>"
+      },
+      "id": {
+        "raw": "5025654557"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "33.41510"
+      },
+      "longitude": {
+        "raw": "-111.54860"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3701LK"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "0501e0be-27da-4e70-86dc-dea5fcc10858-1"
+        ]
+      },
+      "price": {
+        "raw": 51900
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "AZ"
+      },
+      "trim_name": {
+        "raw": [
+          "3701LK"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2018
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5022849999",
+        "score": 42.49011
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-big-sky-3402rl-in-dry-ridge-kentucky-r1-305613?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2013 Montana 5th Wheel camper. 39 foot long. 4 seasons all weather. Brand new washer/dryer. 4 slide outs. King size bed with lots of closet space.\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2013-Keystone-Montana+Big+Sky+3402RL-5022849999"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5022849999
+      },
+      "ad_listing_position": 7,
+      "city": {
+        "raw": "dry ridge"
+      },
+      "city_state_facet": {
+        "raw": "dry ridge|KY"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2022-09-01T15:32:51+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Sep 1 2022"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2013 Keystone Montana Big Sky 3402RL, Stock #305613 - <br><br> <strong>2013 Montana 5th Wheel camper. 39 foot long. 4 seasons all weather. Brand new washer/dryer. 4 slide outs. King size bed with lots of closet space.</strong> <br><br>This 2013 Montana Big Sky Series 3402RL by Keystone offers a flexible and spacious floorplan sure to be attractive to a variety of different buyers.<br><br>Full timers and seasonal campers will love the open floor plan and ample storage both inside and out. The solid wood cabinetry and trim are also sure to be popular highlights of the trailer.<br><br>The sellers used the trailer for full time living while building a home and as such no longer have the original sofa or recliners for the living room giving the new owners an opportunity to outfit the living room to suit their needs.<br><br>The full kitchen is sure to be a hit as well and is highlighted by a residential size 4-dr refrigerator / freezer. You'll be eating those meals in comfort at the dinette featuring chairs with storage under the seats!<br><br>The combo washer dryer, new last year, is tucked in the utility closet opposite the kitchen and by the entry door.<br><br>Upstairs you'll find the full bath with pocket doors at each end. The toilet is in a separate room with a wash sink and the full shower is across the hall.<br><br>The main bedroom will have the owners enjoying the comfort of the king size bed. Additional features include:<br><br> - In-suite vanity with a wet sink<br> - Entertainment center and flat screen TV<br> - Cedar lined closet<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> Please submit any and ALL offers - your offer may be accepted! Submit your offer today! <br><br> Reason for selling is ft living while building a house. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter Backsplash, Counter- Material (Solid Surface), Double Kitchen Sink, Hood Fan, Microwave, Oven, Pantry, Refrigerator/freezer (4dr.), Stove, Digital TV Antenna, Entertainment Center, Exterior TV Source, Interior Lighting, Surround Sound System, TV, Air Conditioning (2 - 15k BTU), Bathroom Sink, Bed - King, Carpet, Cedar Lined Closet, Ceiling Fan, Ceiling Vents, Central Heat, Central Vacuum, Clothes W/D Combo, Control Center, Dining Table W/chairs, Fireplace, Heat, Medicine Cabinet, Shower, Sink, Skylight, Slide-out (4), Storage, Tinted Windows, Toilet, Vanity, Water Heater (12 Gal), Windows- Day Night Shades, 110 Lighting, 1"
+      },
+      "id": {
+        "raw": "5022849999"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "38.70920"
+      },
+      "longitude": {
+        "raw": "-84.65670"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana Big Sky 3402RL"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "b12b8f8b-4c8e-449a-a7fd-bf1c524ceea2-1"
+        ]
+      },
+      "price": {
+        "raw": 29500
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "KY"
+      },
+      "trim_name": {
+        "raw": [
+          "3402RL"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2013
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5025451015",
+        "score": 33.293076
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3721rl-in-mcdavid-florida-r1-329216?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2016 Keystone Montana 3721RL with three slide-outs!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2016-Keystone-Montana+3721RL-5025451015"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5025451015
+      },
+      "ad_listing_position": 8,
+      "city": {
+        "raw": "mcdavid"
+      },
+      "city_state_facet": {
+        "raw": "mcdavid|FL"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2023-03-14T15:34:00+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Mar 14 2023"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2016 Keystone Montana 3721RL, Stock #329216 - <br><br> <strong>2016 Keystone Montana 3721RL with three slide-outs!</strong> <br><br>2016 Keystone Montana 3721RL Legacy Edition fifth wheel, front king bedroom, full bathroom, and stored under roof.<br><br>This RV was built with four season living tested at zero degrees. The roof is R-38, the walls are R-11, and the floor is R-21.<br><br>The kitchen has an island sink in the middle of the room, a 3 door residential refrigerator/freezer/ice maker, a large pantry, central vacuum, front-to-rear interior vaulted ceiling, and back-lit crown molding ceiling lighting.<br><br>The sofa sleeper is in the rear, beside the theater seating, to enjoy the fireplace and large-screen TV.<br><br>The washer and dryer are behind the matching cabinetry on the way to the master bedroom.<br><br>The full bathroom has an entry from the hallway and from the bedroom. The shower is 48\" by 30\".<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> This listing is new to market. Any reasonable offer may be accepted. Submit an offer today! <br><br> Reason for selling is not using. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter- Material (Solid Surface), Kitchen Island W/sink, Microwave/convection Oven (Highpointe), Oven/stove (Wedgewood), Pantry, Refrigerator/freezer (Samsung 3 Door), Digital TV Antenna, Entertainment Center, Interior Lighting (LED), 2 Insignia Tv;s (40\" & 48\"), TV Antenna, 4 Seasons Living, Air Conditioning (2), Bathroom Sink, Black Water Flush System, Ceiling Fan, Ceiling Vents, Central Heat, Clothes Dryer (Ariston), Clothes Washer (Ariston), Control Center, Dining Table W/chair, Fireplace, Vinyl Furniture, Medicine Cabinet, Shower, Skylight, Slide-out (3), Sofa Sleeper, Thermal Pane Windows, Toilet, Vanity, Windows - Blinds, Bed - King, Water Heater, Battery Converter (75 Amps), Power Cord (50 Amp), Water Heater 12G (W/tank Bypass), 110 Outlets, Batteries - House, City Water Hook Up, GFI Circuit Breakers, Tire Date Code (4217), Waste Water Washout, Water Filter, 110 Lighting, AC Electrical Power, Power Jacks, Alum Wheels, Electronic Leveling Jacks, Awning (2), Awning - Slide-out (3), Entry Assist Grab Handle, Entry Steps - Pull Out, Exterior 110 Outlet, Exterior Shower, Flush Mount Windows, Porch Light, Propane Tanks, Roof Access Ladder, Rear Receiver Hitch, Exterior Storage, Awnings- High Wind Sensor, Co2 Detector, Smoke Detector, 2-Axle, Waste capacity: 49 gals, Gr"
+      },
+      "floorplan_mediaid": {
+        "raw": "64121c14657bec261754f036"
+      },
+      "id": {
+        "raw": "5025451015"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "30.86970"
+      },
+      "longitude": {
+        "raw": "-87.46630"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3721RL"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "d2c95f3a-73b5-48f1-b95b-231df7cb4198-1"
+        ]
+      },
+      "price": {
+        "raw": 44500
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "FL"
+      },
+      "trim_name": {
+        "raw": [
+          "3721RL"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2016
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5021177506",
+        "score": 31.490108
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-3455sa-in-lenoir-city-tennessee-r1-269827?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"2013 Montana 3455SA by Keystone! Sleeps up to 4 w/ 4 Slides! Electric Fireplace; Central Vac; Dual A/C Units; & Much More!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2013-Keystone-Montana+3455sa-5021177506"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5021177506
+      },
+      "ad_listing_position": 9,
+      "city": {
+        "raw": "lenoir city"
+      },
+      "city_state_facet": {
+        "raw": "lenoir city|TN"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2022-04-15T15:34:54+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Apr 15 2022"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2013 Keystone Montana 3455sa, Stock #269827 - <br><br> <strong>2013 Montana 3455SA by Keystone! Sleeps up to 4 w/ 4 Slides! Electric Fireplace, Central Vac, Dual A/C Units, & Much More!</strong> <br><br>This is a well cared for 2013 Montana fifth wheel. It is a one owner, and has been stored under cover when not in use. The decals are still very colorful.<br><br>One of the first things you notice about this unit is the amount of storage space. There are cabinets everywhere!<br><br>The living area is in the rear of the unit. The sleeper sofa with a blow up mattress is at the very back. There are two recliners on the left looking at the sofa, and they are facing the television and the fireplace. The television is on a lift and goes into the cabinet when traveling. Above it there is a DVD player and a sound bar.<br><br>Going forward you have a dining table and four chairs on your right, and the kitchen island is on the left. The central vacuum system is stored under the sink, and the hose can reach all the way to the bedroom.<br><br>The kitchen island gives you lots of food prep space, and contains a double sink. The kitchen itself has a three burner stove with a conventional oven as well as a microwave oven. The refrigerator is a mid size with four doors. A writing table/workstation is next to the pantry.<br><br>Going up the stairs you have your controls on the left just before you reach the bathroom. In the bath you have a sink, shower with a skylight and toiletry shelves, a medicine cabinet and of course the toilet. It can be accessed from the hallway, or the bedroom.<br><br>The bedroom has a queen size bed with storage underneath. It also has another television, chest of drawers and a huge cedar lined closet. There is another closet with shelving, and it is prepped for a washer and dryer.<br><br>Outside you have four slideouts with each one having a topper to keep debris out. It has auto leveling jacks, and it is set up to have an outdoor television if you desire.<br><br>This one is in prime condition. Call me today to schedule your showing, or to make an offer using our buyer friendly process.<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> Please submit any and ALL offers - your offer may be accepted! Submit your offer today! <br><br> Reason for selling is not using. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Counter Backsplash, Double Kitchen Sink, Kitchen Peninsula, Microwave, Oven, Pantry, Refri"
+      },
+      "floorplan_mediaid": {
+        "raw": "62623f5f1fefa815b6053b8a"
+      },
+      "id": {
+        "raw": "5021177506"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "35.81180"
+      },
+      "longitude": {
+        "raw": "-84.26140"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA|764843037"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 3455sa"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "341d41be-f599-4aeb-a26e-dd12adeb9b92-1"
+        ]
+      },
+      "price": {
+        "raw": 47000
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "TN"
+      },
+      "trim_name": {
+        "raw": [
+          "3455SA"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2013
+      }
+    },
+    {
+      "_meta": {
+        "engine": "rvads-prod",
+        "id": "5025451028",
+        "score": 29.884174
+      },
+      "ad_attribs": {
+        "raw": "{\"itemUrl\":\"https://www.poprvs.com/fifth-wheel-trailers-for-sale/keystone-montana-336rlt-in-mount-pleasant-wisconsin-327606?channel=11&source=35&ref=rvtrader\",\"msrp\":\"N\",\"makeAnOffer\":\"Y\",\"requestAPrice\":\"N\",\"tagLineValue\":\"Well maintained and cared for. Motivated seller. Nice rig for the money!\"}"
+      },
+      "ad_detail_url": {
+        "raw": "https://www.rvtrader.com/listing/2007-Keystone-Montana+336RLT-5025451028"
+      },
+      "ad_features": {
+        "raw": "{\"buyNow\":false,\"premium\":true,\"featuredHomepage\":false,\"featuredSearch\":false,\"hideFloorPlans\":false,\"paaVideo\":false,\"oneYearPackage\":false,\"topPremium\":false}"
+      },
+      "ad_id": {
+        "raw": 5025451028
+      },
+      "ad_listing_position": 10,
+      "city": {
+        "raw": "mount pleasant"
+      },
+      "city_state_facet": {
+        "raw": "mount pleasant|WI"
+      },
+      "class_id": {
+        "raw": "198070"
+      },
+      "class_name": {
+        "raw": "Fifth Wheel"
+      },
+      "company_name": {
+        "raw": "Pop RVs"
+      },
+      "condition": {
+        "raw": "Used"
+      },
+      "create_date": {
+        "raw": "2023-03-14T15:34:35+00:00"
+      },
+      "create_date_formatted": {
+        "raw": "Mar 14 2023"
+      },
+      "customer_id": {
+        "raw": "9235540"
+      },
+      "dealer_features": {
+        "raw": "{\"hasHideTaglines\":false,\"hasHideDealerWebsiteLink\":false,\"hasRemoveLoanCalcDealerFinancing\":true,\"removeRequestPhotoVideo\":false,\"hasRemoveVinFromDisplay\":false,\"hasRequestQuoteWeBuy\":false,\"hasRequestQuotePreorder\":false,\"hasDealerCoreLeadManager\":true,\"hasCoreLite\":false,\"hasTradertraxxCombinedExperience\":true,\"hasVideo\":true,\"hasVideoChatRequest\":true,\"hasMakeAnOffer\":true,\"hasRequestBestPrice\":true,\"hasRequestPrice\":true,\"hasRequestTradeIn\":false,\"hasContactAtOnce\":false,\"hasContactAtOnceTexting\":false,\"hasTalkingBrochure\":true,\"hasAdPearance\":true,\"hasVr\":true,\"hasMapIt\":true,\"hasClickToWeb\":true,\"hasSuggestedTrucks\":false,\"hasDealDesignation\":true,\"isHibernate\":false,\"hasDigitalRetailingBuyNow\":false,\"hasDigitalRetailingEnhancedLead\":true,\"hasOptOutDealerGroupWebsite\":false,\"hasOptOutDealerGroupRollup\":false,\"hasOptOutDealerGroupLeaderboard\":false,\"hasOptOutDealerGroupSharedLogin\":false,\"deactivateContactDealer\":false,\"hasAccessIndustryAero\":false,\"hasAccessIndustryCycle\":false,\"hasAccessIndustryEquipment\":false,\"hasAccessIndustryRentalsCycle\":false,\"hasAccessIndustryRentalsRv\":false,\"hasAccessIndustryRV\":true,\"hasAccessIndustryTrailer\":false,\"hasAccessIndustryTruck\":false,\"hasAccessIndustryBoatline\":false,\"hasAccessIndustryNextruck\":false,\"hasAccessIndustryRockAndDirt\":false,\"hasAccessIndustryTradeAPlane\":false,\"hasAccessIndustryTradeEquip\":false,\"hasAutoSelectUnusedBundle\":false,\"hasHideFinance\":false,\"hasHideInspection\":false,\"hasHideLoanCalculator\":false,\"hasHideShipping\":false,\"hasHideFactorySpecs\":false,\"hasHideStandardFeatures\":true,\"hasInternetAdvertising\":true,\"hasRental\":false,\"hasShiftDigital\":false,\"hasFacebookRetargeting\":false,\"hasGreenFlag\":false,\"hasClickToCall\":false,\"hasShowListingAddress\":false,\"hasTradeIn\":true,\"hasTradeInFeature\":false,\"hasOctaneFinance\":false,\"hasTiChatManaged\":true,\"hasTiChat\":true,\"hasAdLocationLockdown\":false,\"hasShutOffAdvertising\":false,\"hasMakeAnOfferPrice\":false,\"hasTiChatGuestDisabled\":false,\"hasShutOffDigitRetailVDP\":false}"
+      },
+      "dealer_group_dealer_count": {
+        "raw": "2"
+      },
+      "dealer_group_id": {
+        "raw": "5000002023"
+      },
+      "dealer_group_name": {
+        "raw": "Pop Yachts & RV"
+      },
+      "dealer_id": {
+        "raw": "3018596"
+      },
+      "dealer_phone": {
+        "raw": [
+          "8886139535|0|Toll Free|CS",
+          "9418943215|0|Business|FD",
+          "8886139535|1|OVERRIDE|OV"
+        ]
+      },
+      "dealer_website_url": {
+        "raw": "https://www.poprvs.com/"
+      },
+      "description": {
+        "raw": "2007 Keystone Montana 336RLT, Stock #327606 - <br><br> <strong>Well maintained and cared for. Motivated seller. Nice rig for the money!</strong> <br><br>Affordable Summer camping fun awaits in this wonderful well maintained Montana Mountaineer edition!! <br><br>When you enter the camper you'll be amazed at the spacious interior the 3 slide layout provides. The main living room has 2 recliners and a pullout sofa sleeper in front of the entertainment center. Also included in this space is a desk for all your remote office needs while on the road.<br>The kitchen has lots of storage and counter space complete with a dining room table and chairs. And keeping things cool while you're baking dinner in the oven are 2 rooftop A/C units! Not to be outdone the bedroom has lots of closet and dresser storage space along with a TV. Just outside the bedroom there are two sinks in the huge bathroom area for added convenience.<br><br>She looks fantastic and is ready to travel, make your offer today before it sold!!<br><br>We are looking for people all over the country who share our love for boats/RVs. If you have a passion for our product and like the idea of working from home, please visit WhereFreedomTakesYou [dot] com to learn more.<br><br> This listing is new to market. Any reasonable offer may be accepted. Submit an offer today! <br><br> Reason for selling is no longer using it.. <br><br>You have questions? We have answers. Call us at (941) 200-1260 to discuss this RV.<br><br>Selling your RV has never been easier. At Pop RVs, we literally sell thousands of units every year all over the country. Call (855) 200-7880 and we'll get started selling your RV today.<br><br> Cabinets, Cooktop Cover, Double Kitchen Sink, Hood Fan, Kitchen Sink, Microwave, Oven, Refrigerator/freezer (New), Stove, CD Player, DVD Player, Entertainment Center, TV, Air Conditioning, Bathroom Sink, Bed - Full/queen, Ceiling Fan, Ceiling Vents, Dining Table W/chairs, Shower, Sink, Skylight, Slide-out, Sofa Sleeper, Storage, Tinted Windows, Water Heater, Windows - Blinds, Recliner (2), 110 Outlets, City Water Hook Up, Power Cord, Alloy Wheels, Awning - Patio, Entry Assist Grab Handle, Entry Steps - Pull Out, Exterior Shower, Propane Tanks, Roof Access Ladder, Stabilizer Jacks, Co2 Detector, Running Lights, Smoke Detector, 2-Axle, Waste capacity: 76 gals, Gray water capacity: 38 gals, Width: 8' 6\", Height: 12' 9\"<br><br><strong>\"Well maintained and cared for. Motivated seller. Nice rig for the money!\"</strong>"
+      },
+      "id": {
+        "raw": "5025451028"
+      },
+      "is_buynow": {
+        "raw": "false"
+      },
+      "is_featured": {
+        "raw": "0"
+      },
+      "is_premium": {
+        "raw": "1"
+      },
+      "is_toppremium": {
+        "raw": "0"
+      },
+      "latitude": {
+        "raw": "42.73050"
+      },
+      "longitude": {
+        "raw": "-87.86460"
+      },
+      "make_facet": {
+        "raw": [
+          "Keystone|2273942"
+        ]
+      },
+      "make_id": {
+        "raw": [
+          "2273942"
+        ]
+      },
+      "make_name": {
+        "raw": [
+          "Keystone"
+        ]
+      },
+      "mfr_serial_num": {
+        "raw": null
+      },
+      "model_facet": {
+        "raw": [
+          "MONTANA MOUNTAINEER|764951885"
+        ]
+      },
+      "model_name": {
+        "raw": [
+          "Montana 336RLT"
+        ]
+      },
+      "msrp": {
+        "raw": null
+      },
+      "phone": {
+        "raw": "9412001260"
+      },
+      "photo_count": {
+        "raw": 1
+      },
+      "photo_ids": {
+        "raw": [
+          "196ce8a6-029e-4145-a784-31d8ac1d6ebe-1"
+        ]
+      },
+      "price": {
+        "raw": 12750
+      },
+      "rebate": {
+        "raw": null
+      },
+      "scheme_code": {
+        "raw": "AD"
+      },
+      "seller_type": {
+        "raw": "Dealer"
+      },
+      "state_code": {
+        "raw": "WI"
+      },
+      "trim_name": {
+        "raw": [
+          "336RLT"
+        ]
+      },
+      "website_url": {
+        "raw": null
+      },
+      "year": {
+        "raw": 2007
+      }
+    }
+  ]
+}
