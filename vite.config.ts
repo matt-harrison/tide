@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '',
   build: {
     emptyOutDir: true,
     outDir: 'dist',
@@ -12,6 +13,7 @@ export default defineConfig({
         'app-carousel': resolve(`${__dirname}/src/contexts`, 'app-carousel.ts'),
         'app-search-results': resolve(`${__dirname}/src/contexts`, 'app-search-results.ts'),
         'app-single': resolve(`${__dirname}/src/contexts`, 'app-single.ts'),
+        'app-style-guide': resolve(`${__dirname}/src/contexts`, 'app-style-guide.ts'),
       },
       output: {
         assetFileNames: 'assets/[name].css',

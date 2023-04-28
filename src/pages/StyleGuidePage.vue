@@ -700,12 +700,15 @@
           />
         </div>
 
-        <div>
+        <div class="mb-2">
           <h4 class="mb-1">Vehicle Card</h4>
-          <VehicleCard
-            :vehicle="dummyVehicles[0]"
-            class="font-gray-dark"
-          />
+
+          <ul class="list-none">
+            <VehicleCard
+              :vehicle="dummyVehicles[0]"
+              class="font-gray-dark"
+            />
+          </ul>
         </div>
       </section>
 

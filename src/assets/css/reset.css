@@ -1,6 +1,5 @@
 html,
-body,
-#app-carousel {
+body {
   color: var(--gray-dark);
 }
 
@@ -20,7 +19,12 @@ h4 {font-size: 1.25rem;}  /* 20px */
 h5 {font-size: 1rem;}     /* 16px */
 h6 {font-size: 0.75rem;}  /* 12px */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-title);
   font-weight: 700;
 }
