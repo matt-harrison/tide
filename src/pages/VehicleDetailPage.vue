@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { computed, ref } from 'vue';
+  import { storeToRefs } from 'pinia';
+
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { RvDetail } from '@/types/RvDetail';
 
@@ -25,8 +27,9 @@
   const vehicleDetailStore = useVehicleDetailStore();
 
   featuredListingStore.getVehicles();
+  vehicleDetailStore.getVehicle();
 
-  const { vehicle } = vehicleDetailStore;
+  const { vehicle } = storeToRefs(vehicleDetailStore);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -46,7 +49,9 @@
     },
   ];
 
-  const cityState = vehicle ? `${formatTitleCase(vehicle.city.raw)}, ${vehicle.state_code.raw}` : null;
+  const cityState = computed(() =>
+    vehicle?.value ? `${formatTitleCase(vehicle.value.city.raw)}, ${vehicle.value.state_code.raw}` : ''
+  );
 
   const details: RvDetail[] = [
     {
@@ -110,7 +115,7 @@
     zip: '12345',
   };
 
-  let isFavorite = ref(vehicle ? favoriteStore.isFavorite(vehicle.ad_id.raw) : false);
+  let isFavorite = ref(vehicle?.value ? favoriteStore.isFavorite(vehicle.value.ad_id.raw) : false);
 
   const searchPills = [
     {
@@ -144,10 +149,10 @@
   ];
 
   const toggleIsFavorite = () => {
-    if (vehicle) {
-      favoriteStore.toggleFavorite(vehicle.ad_id.raw);
+    if (vehicle?.value) {
+      favoriteStore.toggleFavorite(vehicle.value.ad_id.raw);
 
-      isFavorite.value = favoriteStore.isFavorite(vehicle.ad_id.raw);
+      isFavorite.value = favoriteStore.isFavorite(vehicle.value.ad_id.raw);
     }
   };
 </script>
@@ -172,18 +177,21 @@
           <section class="flex axis1-between axis2-end mb-1">
             <header>
               <h1 class="mb-1 font-24">
-                {{ vehicle?.year.raw }} {{ vehicle?.make_name.raw }} {{ vehicle?.model_name.raw }}
+                {{ vehicle?.year.raw }} {{ vehicle?.make_name.raw[0] }} {{ vehicle?.model_name.raw[0] }}
               </h1>
 
               <div class="flex axis2-center gap-1 font-12">
-                <div class="flex axis2-center gap-1/4">
+                <div
+                  class="flex axis2-center gap-1/4"
+                  v-if="vehicle?.dealer_group_name"
+                >
                   <SiteLinkWithIcon
                     class="font-12"
                     icon-leading="circle-check"
                     is-solid
                     to="/rvs-for-sale"
                   >
-                    {{ vehicle?.dealer_group_name.raw }}
+                    {{ vehicle.dealer_group_name.raw }}
                   </SiteLinkWithIcon>
                 </div>
 
@@ -338,8 +346,9 @@
                     <router-link
                       class="font-700"
                       to="/rvs-for-sale"
+                      v-if="vehicle?.dealer_group_name"
                     >
-                      {{ vehicle?.dealer_group_name.raw }}
+                      {{ vehicle.dealer_group_name.raw }}
                     </router-link>
 
                     <router-link

@@ -50,5 +50,7 @@ export const useVehicleDetailStore = defineStore('vehicleDetailStore', {
       this.vehicle = vehicle;
     },
   },
-  state: (): State => ({}),
+  state: (): State => ({
+    vehicle: undefined,
+  }),
 });
