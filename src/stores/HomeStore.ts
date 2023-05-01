@@ -1,7 +1,10 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { defineStore } from 'pinia';
 
 import type { VehicleRaw } from '@/types/Vehicle';
+
+// Dummy API response to circumvent local/prod cross origin violation.
+import dummyResponse from '@/data/dummy-search-results.json';
 
 type State = {
   featuredListings: VehicleRaw[];
@@ -11,6 +14,12 @@ type State = {
 export const useHomeStore = defineStore('homeStore', {
   actions: {
     getVehicles() {
+      const results: unknown = dummyResponse.results;
+      const vehicles: VehicleRaw[] = results as VehicleRaw[];
+
+      this.setVehicles(vehicles);
+
+      /*
       const adDataRaw = document.querySelector('[data-vue-selector="ad-data"]')?.innerHTML;
       const adData = adDataRaw ? JSON.parse(adDataRaw) : {};
 
@@ -36,6 +45,7 @@ export const useHomeStore = defineStore('homeStore', {
         .catch((error) => {
           console.error(error);
         });
+      */
     },
     setVehicles(vehicles: VehicleRaw[]) {
       this.featuredListings = vehicles;
