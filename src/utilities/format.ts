@@ -8,10 +8,6 @@ type Formatted = {
   [key: string]: string | string[] | number;
 };
 
-const formatKebabCase = (input: string): string => {
-  return input.toLowerCase().replace(/[\s_-]/g, '-');
-};
-
 const formatCamelCase = (input: string): string => {
   return input
     .toLowerCase()
@@ -19,6 +15,32 @@ const formatCamelCase = (input: string): string => {
     .split(' ')
     .map((word, index) => (index === 0 ? word : word.slice(0, 1).toUpperCase() + word.slice(1)))
     .join('');
+};
+
+const formatKebabCase = (input: string): string => {
+  return input.toLowerCase().replace(/[\s_-]/g, '-');
+};
+
+const formatNumber = (input: Number) => {
+  const digits = input.toString();
+  const remainder = digits.length % 3;
+  const digitsInitial = digits.slice(0, remainder);
+  const digitsRemaining: string[] = digits.slice(remainder).match(/\d{3}/g) || [];
+
+  if (digitsInitial) {
+    digitsRemaining.unshift(digitsInitial);
+  }
+
+  return digitsRemaining.join(',');
+};
+
+const formatPascalCase = (input: string): string => {
+  return input
+    .toLowerCase()
+    .replace(/[\s_-]/g, ' ')
+    .split(' ')
+    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(' ');
 };
 
 const formatPhone = (input: number) => {
@@ -50,19 +72,6 @@ const formatPrice = (price: Number): string => {
   return `$${number}`;
 };
 
-const formatNumber = (input: Number) => {
-  const digits = input.toString();
-  const remainder = digits.length % 3;
-  const digitsInitial = digits.slice(0, remainder);
-  const digitsRemaining: string[] = digits.slice(remainder).match(/\d{3}/g) || [];
-
-  if (digitsInitial) {
-    digitsRemaining.unshift(digitsInitial);
-  }
-
-  return digitsRemaining.join(',');
-};
-
 const formatResult = (resultRaw: Raw) => {
   const resultFormatted: Formatted = {};
 
@@ -77,4 +86,23 @@ const formatResults = (resultsRaw: Raw[]) => {
   return resultsRaw.map((resultRaw) => formatResult(resultRaw));
 };
 
-export { formatCamelCase, formatKebabCase, formatNumber, formatPhone, formatPrice, formatResult, formatResults };
+const formatTitleCase = (input: string): string => {
+  return input
+    .toLowerCase()
+    .replace(/[\s_-]/g, ' ')
+    .split(' ')
+    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+export {
+  formatCamelCase,
+  formatKebabCase,
+  formatNumber,
+  formatPascalCase,
+  formatPhone,
+  formatPrice,
+  formatResult,
+  formatResults,
+  formatTitleCase,
+};

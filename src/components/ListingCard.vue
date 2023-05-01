@@ -6,7 +6,7 @@
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
-  import { formatPhone, formatPrice, formatCamelCase } from '@/utilities/format';
+  import { formatPhone, formatPrice, formatTitleCase } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
 
   type Props = {
@@ -15,24 +15,24 @@
 
   const favoriteStore = useFavoriteStore();
 
-  const showPhone = ref(false);
-
   const props = defineProps<Props>();
 
-  let adType: string | undefined = undefined;
+  const isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
+  const showPhone = ref(false);
 
-  if (props.vehicle.is_premium?.raw === '1') {
-    adType = 'Premium';
-  }
+  const dummy = {
+    address: '123 Main St',
+    hasHiddenPhone: Math.floor(Math.random() * 2),
+    label: Math.floor(Math.random() * 10) === 0 ? 'Delivery Available' : undefined,
+    milesAway: 21,
+    stockNumber: '326303',
+    zip: '12345',
+  };
 
-  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
-
-  const hasHiddenPhone = Math.floor(Math.random() * 2);
-
-  const label: string | undefined = props.vehicle.ad_attribs?.raw
-    ? JSON.parse(props.vehicle.ad_attribs.raw).tagLineValu
-    : undefined;
-  const milesAway = Math.floor(Math.random() * 5);
+  const adType: string | undefined = props.vehicle.is_premium?.raw === '1' ? 'Premium' : undefined;
+  const cityState = props.vehicle
+    ? `${formatTitleCase(props.vehicle.city.raw)}, ${props.vehicle.state_code.raw}`
+    : null;
 
   const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
     ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
@@ -76,18 +76,13 @@
             <div class="font-14 font-600">{{ props.vehicle.model_name?.raw[0] || '' }}</div>
 
             <div class="font-12">
-              <span>{{ adType }}</span>
-              <span> ad by </span>
+              <span v-if="adType">{{ adType }} ad by </span>
               <span>{{ props.vehicle.dealer_group_name?.raw || '' }}</span>
             </div>
 
             <div class="font-12">
-              <span>
-                {{ props.vehicle.city?.raw ? formatCamelCase(props.vehicle.city.raw) : '' }},
-                {{ props.vehicle.state_code.raw }}
-              </span>
-              <span> · </span>
-              <span>{{ milesAway }} miles away</span>
+              <span v-if="cityState">{{ cityState }} . </span>
+              <span>{{ dummy.milesAway }} miles away</span>
             </div>
           </div>
         </div>
@@ -112,7 +107,7 @@
               <button
                 @click.stop.prevent="setShowPhone(true)"
                 class="font-700 underline"
-                v-if="!showPhone && hasHiddenPhone"
+                v-if="!showPhone && dummy.hasHiddenPhone"
               >
                 Show phone number
               </button>
@@ -121,7 +116,7 @@
                 @click.stop
                 class="font-700"
                 href="tel:+{{ props.vehicle.phone }}"
-                v-if="showPhone || !hasHiddenPhone"
+                v-if="showPhone || !dummy.hasHiddenPhone"
               >
                 Call {{ formatPhone(parseInt(props.vehicle.phone.raw)) }}
               </a>
@@ -139,10 +134,10 @@
 
       <div
         class="absolute top-0 flex gap-1/2 mt-1 p-1/2 bg-white"
-        v-if="label"
+        v-if="dummy.label"
       >
         <SiteIcon icon="bookmark" />
-        <span class="font-12 font-600">{{ label }}</span>
+        <span class="font-12 font-600">{{ dummy.label }}</span>
       </div>
 
       <div class="absolute top-0 right-0 mt-1 mr-1">

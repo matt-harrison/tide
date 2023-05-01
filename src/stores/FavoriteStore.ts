@@ -9,11 +9,11 @@ export const useFavoriteStore = defineStore('favoriteStore', {
     isFavorite(favorite: number) {
       return this.favorites.includes(favorite);
     },
-    toggleFavorite(favoriteNew: number) {
-      if (this.favorites.includes(favoriteNew)) {
-        this.favorites = this.favorites.filter((favorite) => favorite !== favoriteNew);
+    toggleFavorite(favorite: number) {
+      if (this.favorites.includes(favorite)) {
+        this.favorites = this.favorites.filter((favoriteNext) => favoriteNext !== favorite);
       } else {
-        this.favorites.push(favoriteNew);
+        this.favorites.push(favorite);
       }
     },
   },

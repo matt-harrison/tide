@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+  import { onMounted, ref } from 'vue';
+  import { storeToRefs } from 'pinia';
+
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { VehicleType } from '@/types/VehicleType';
 
@@ -14,9 +17,10 @@
   import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
+  import SiteSwitchButtons from '@/components/SiteSwitchButtons.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
-  import VehicleTypeToggle from '@/components/VehicleTypeToggle.vue';
+  import VehicleToggle from '@/components/VehicleToggle.vue';
   import { formatNumber } from '@/utilities/format';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
@@ -56,14 +60,13 @@
     model: 0,
     type: 0,
   };
+  const { isBrowseByType, makes, types } = storeToRefs(filterStore);
+
+  let browseButtons = ref();
 
   const floorplanResults = 98430;
 
   const paginationButtons = new Array(filterStore.pagesTotal).fill('').map((empty, index) => index + 1);
-
-  const topMakes = new Array(9).fill('').map((item, index) => {
-    return `Top Make ${index + 1}`;
-  });
 
   const rvTypes = new Array(9).fill('').map((item, index) => {
     return `RV Type ${index + 1}`;
@@ -88,11 +91,15 @@
     return `Top City ${index + 1}`;
   });
 
+  const topMakes = new Array(9).fill('').map((item, index) => {
+    return `Top Make ${index + 1}`;
+  });
+
   const topStates = new Array(12).fill('').map((item, index) => {
     return `State ${index + 1}`;
   });
 
-  const vehicleTypes: VehicleType[] = [
+  const dummyVehicleMakes: VehicleType[] = [
     { label: 'Travel trailer' },
     { label: 'Fifth wheel' },
     { label: 'Class A' },
@@ -104,6 +111,41 @@
     { label: 'Park model' },
     { label: 'Fish house' },
   ];
+
+  const dummyVehicleTypes: VehicleType[] = [
+    { label: 'Airstream' },
+    { label: 'Alliance Rv' },
+    { label: 'Coachmen' },
+    { label: 'Fleetwood' },
+    { label: 'Forest River' },
+  ];
+
+  const setBrowseButtons = () => {
+    browseButtons.value = [
+      {
+        callback: () => {
+          filterStore.setIsBrowseByType(true);
+          setBrowseButtons();
+        },
+        count: filterCounts.type,
+        isActive: isBrowseByType.value,
+        label: 'Type',
+      },
+      {
+        callback: () => {
+          filterStore.setIsBrowseByType(false);
+          setBrowseButtons();
+        },
+        count: filterCounts.make,
+        isActive: !isBrowseByType.value,
+        label: 'Make',
+      },
+    ];
+  };
+
+  onMounted(() => {
+    setBrowseButtons();
+  });
 </script>
 
 <template>
@@ -117,25 +159,7 @@
       <section class="flex axis2-center gap-1 mb-2">
         <span class="font-20 font-700">Browse</span>
 
-        <div class="flex gap-1/4 border-1 border-gray radius-1/4 p-1/4 bg-gray-light">
-          <button
-            :class="filterStore.isBrowseByType ? 'bg-white' : 'border-gray-light bg-gray-light'"
-            @click="filterStore.setIsBrowseByType(true)"
-            class="border-1 border-gray radius-1/4 py-1/2 px-2 font-14 font-600"
-          >
-            <span>RV type </span>
-            <span v-if="filterCounts.type">({{ filterCounts.type }})</span>
-          </button>
-
-          <button
-            :class="filterStore.isBrowseByType ? 'border-gray-light bg-gray-light' : 'bg-white'"
-            @click="filterStore.setIsBrowseByType(false)"
-            class="border-1 border-gray radius-1/4 py-1/2 px-2 font-14 font-600"
-          >
-            <span>Make </span>
-            <span v-if="filterCounts.make">({{ filterCounts.make }})</span>
-          </button>
-        </div>
+        <SiteSwitchButtons :buttons="browseButtons" />
       </section>
     </SiteContainer>
 
@@ -144,11 +168,30 @@
       :gap="16"
       :offset-x="32"
       class="axis1-center mb-2"
+      v-if="isBrowseByType"
     >
-      <VehicleTypeToggle
+      <VehicleToggle
+        :is-active="types.includes(vehicleType.label)"
         :key="vehicleType.label"
         :vehicle-type="vehicleType"
-        v-for="vehicleType in vehicleTypes"
+        @click="filterStore.toggleType(vehicleType.label)"
+        v-for="vehicleType in dummyVehicleMakes"
+      />
+    </SiteCarousel>
+
+    <SiteCarousel
+      :card-width="125"
+      :gap="16"
+      :offset-x="32"
+      class="axis1-center mb-2"
+      v-if="!isBrowseByType"
+    >
+      <VehicleToggle
+        :is-active="makes.includes(vehicleMake.label)"
+        :key="vehicleMake.label"
+        :vehicle-type="vehicleMake"
+        @click="filterStore.toggleMake(vehicleMake.label)"
+        v-for="vehicleMake in dummyVehicleTypes"
       />
     </SiteCarousel>
 

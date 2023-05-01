@@ -656,6 +656,9 @@
       "price": {
         "raw": 50000
       },
+      "state_code": {
+        "raw": "N/A"
+      },
       "year": {
         "raw": 2023
       },
@@ -804,6 +807,9 @@
       },
       "price": {
         "raw": 123456789
+      },
+      "state_code": {
+        "raw": "N/A"
       },
       "year": {
         "raw": 2023
@@ -954,6 +960,9 @@
       "price": {
         "raw": 10000
       },
+      "state_code": {
+        "raw": "N/A"
+      },
       "year": {
         "raw": 2000
       },
@@ -1102,6 +1111,9 @@
       },
       "price": {
         "raw": 10000
+      },
+      "state_code": {
+        "raw": "N/A"
       },
       "year": {
         "raw": 2000
@@ -1252,6 +1264,9 @@
       "price": {
         "raw": 10000
       },
+      "state_code": {
+        "raw": "N/A"
+      },
       "year": {
         "raw": 2000
       },
@@ -1400,6 +1415,9 @@
       },
       "price": {
         "raw": 10000
+      },
+      "state_code": {
+        "raw": "N/A"
       },
       "year": {
         "raw": 2000

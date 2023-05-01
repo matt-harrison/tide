@@ -15,7 +15,7 @@
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
-  import { formatCamelCase, formatPrice } from '@/utilities/format';
+  import { formatPrice, formatTitleCase } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
@@ -46,7 +46,7 @@
     },
   ];
 
-  const cityState = vehicle ? `${formatCamelCase(vehicle.city.raw)}, ${vehicle.state_code.raw}` : '';
+  const cityState = vehicle ? `${formatTitleCase(vehicle.city.raw)}, ${vehicle.state_code.raw}` : null;
 
   const details: RvDetail[] = [
     {
@@ -187,7 +187,8 @@
                   </SiteLinkWithIcon>
                 </div>
 
-                <span>{{ cityState }} - {{ dummy.milesAway }} miles away</span>
+                <span v-if="cityState">{{ cityState }} - </span>
+                <span>{{ dummy.milesAway }} miles away</span>
                 <span>Stock #: {{ dummy.stockNumber }}</span>
               </div>
             </header>
