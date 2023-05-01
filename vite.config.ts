@@ -10,13 +10,13 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        'app-carousel': resolve(`${__dirname}/src/contexts`, 'app-carousel.ts'),
-        'app-search-results': resolve(`${__dirname}/src/contexts`, 'app-search-results.ts'),
-        'app-single': resolve(`${__dirname}/src/contexts`, 'app-single.ts'),
-        'app-style-guide': resolve(`${__dirname}/src/contexts`, 'app-style-guide.ts'),
+        'app-carousel': resolve(__dirname, 'app-carousel.html'),
+        'app-search-results': resolve(__dirname, 'app-search-results.html'),
+        'app-style-guide': resolve(__dirname, 'app-style-guide.html'),
+        'index': resolve(__dirname, 'index.html'),
       },
       output: {
-        assetFileNames: 'assets/[name].css',
+        assetFileNames: 'assets/[name].[ext]',
         chunkFileNames: 'chunks/[name].js',
         dir: 'dist',
         entryFileNames: '[name].js',
@@ -32,9 +32,8 @@ export default defineConfig({
   server: {
     port: 5174,
     proxy: {
-      '/api': {
+      '^/search-results-data/.*': {
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
         secure: true,
         target: 'https://www.rvtrader.com/',
         ws: true,

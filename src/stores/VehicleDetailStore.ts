@@ -26,7 +26,7 @@ export const useVehicleDetailStore = defineStore('vehicleDetailStore', {
       const querystring = query.toString();
 
       axios
-        .get(`/api/search-results-data/vdp-featured?${querystring}`)
+        .get(`/search-results-data/vdp-featured?${querystring}`)
         .then((response) => {
           const vehiclesRaw: VehicleRaw[] = response.data.results;
 
