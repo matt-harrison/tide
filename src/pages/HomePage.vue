@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { onMounted, onUnmounted } from 'vue';
+
   import type { VehicleType } from '@/types/VehicleType';
 
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
@@ -6,13 +8,14 @@
   import SiteButton from '@/components/SiteButton.vue';
   import SiteCarousel from '@/components/SiteCarousel.vue';
   import SiteContainer from '@/components/SiteContainer.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
   import SiteLinkAsButton from '@/components/SiteLinkAsButton.vue';
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { formatNumber } from '@/utilities/format';
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
 
+  const breakpointStore = useBreakpointStore();
   const featuredListingStore = useFeaturedListingStore();
 
   featuredListingStore.getVehicles();
@@ -31,6 +34,14 @@
     { label: 'Park model' },
     { label: 'Fish house' },
   ];
+
+  onMounted(() => {
+    breakpointStore.initialize();
+  });
+
+  onUnmounted(() => {
+    breakpointStore.cleanup();
+  });
 </script>
 
 <template>
@@ -80,12 +91,18 @@
     </SiteContainer>
 
     <section class="mb-4">
-      <div class="flex axis1-center mb-4">
-        <h2 class="mr-1 border-r border-gray pr-1 font-32">Every RV type</h2>
-        <p class="home-vehicle-type-description">
-          Whether you're looking for something drivable or towable, we have the RV type for you.
-        </p>
-      </div>
+      <SiteContainer class="flex column s-row axis1-center axis2-center mb-4 gap-1">
+        <h2
+          :class="{
+            'border-r pr-1': !breakpointStore.isExtraSmall,
+          }"
+          class="border-gray font-32 whitespace-nowrap"
+        >
+          Every RV type
+        </h2>
+
+        <p>Whether you're looking for something drivable or towable, we have the RV type for you.</p>
+      </SiteContainer>
 
       <SiteCarousel
         :card-width="280"
@@ -110,22 +127,20 @@
     </section>
 
     <SiteContainer class="mb-4">
-      <section class="flex gap-2 mb-4 radius-1/2 p-4 bg-gray-light y-hidden">
-        <div class="flex column axis2-start gap-1 w-1/2">
+      <section class="home-sell-your-vehicle flex column s-row gap-2 mb-4 radius-1/2 p-2 s-p-4 bg-gray-light y-hidden">
+        <div class="home-sell-your-rv-content flex column axis2-center gap-1 s-w-1/2">
           <h2 class="font-32">Sell your RV on RV Trader</h2>
-          <p class="home-sell-your-vehicle-description">
-            Millions of buyers are looking for their next RV on RV Trader this month.
-          </p>
+          <p>Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <SiteButton
-            class="px-4"
+            class="px-4 whitespace-nowrap"
             is-primary
           >
             Sell my RV
           </SiteButton>
         </div>
 
-        <div class="relative flex axis1-center w-1/2">
-          <div class="home-sell-your-vehicle-img absolute top-0 mx-auto radius-1/2 bg-gray" />
+        <div class="relative flex axis1-center s-w-1/2">
+          <div class="home-sell-your-vehicle-img absolute top-0 mx-auto radius-1/2 w-full bg-gray" />
         </div>
       </section>
 
@@ -153,6 +168,7 @@
         <AdPlaceholder
           class="shrink-none"
           height="250"
+          v-if="!breakpointStore.isExtraSmall"
           width="300"
         />
       </div>
@@ -178,44 +194,41 @@
             class="flex column gap-1 m-1/4 p-1/2 w-full m-w-1/2 shadow-box underline-none"
             to="#"
           >
-            <div class="w-full bg-gray ratio-3/2" />
+            <div class="bg-gray ratio-3/2" />
 
             <div class="flex column gap-1/2">
               <span class="font-12 font-600">Blog date {{ blogPosts[0] }}</span>
-              <h3 class="font-24">Blog headline {{ blogPosts[0] }}</h3>
-              <p class="font-14">
-                <span class="home-blog-preview y-hidden">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam iure officia, nostrum
-                  labore qui eligendi! Incidunt, obcaecati adipisci. Quibusdam doloribus at minus culpa autem eaque
-                  odit. Earum, cum esse.
-                </span>
-                <a
-                  class="inline-flex axis2-center gap-1/4 font-700 underline-none"
-                  href="#"
-                >
-                  <span class="underline">Learn more </span>
-                  <SiteIcon
-                    icon="chevron-right"
-                    is-solid
-                  />
-                </a>
+              <h3 class="font-20">Blog headline {{ blogPosts[0] }}</h3>
+              <p class="home-blog-preview font-14 y-hidden">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam iure officia, nostrum labore
+                qui eligendi! Incidunt, obcaecati adipisci. Quibusdam doloribus at minus culpa autem eaque odit. Earum,
+                cum esse.
               </p>
+
+              <SiteLinkWithIcon
+                class="font-14 font-700"
+                icon-trailing="chevron-right"
+                is-solid
+                to="#"
+              >
+                Learn more
+              </SiteLinkWithIcon>
             </div>
           </router-link>
 
           <div class="flex column gap-1 w-full m-w-1/2">
             <router-link
               :key="blogPost"
-              class="flex gap-1 m-1/4 p-1/2 shadow-box underline-none"
+              class="flex column s-row gap-1 m-1/4 p-1/2 shadow-box underline-none"
               to="#"
               v-for="blogPost in blogPosts.slice(1)"
             >
-              <div class="home-blog-thumb-small shrink-none bg-gray" />
+              <div class="home-blog-thumb-small shrink-none bg-gray ratio-3/2" />
 
               <div class="flex column gap-1/2">
                 <span class="font-12 font-600">Blog date {{ blogPost }}</span>
 
-                <h3 class="font-24">Blog headline {{ blogPost }}</h3>
+                <h3 class="font-20">Blog headline {{ blogPost }}</h3>
 
                 <p class="home-blog-preview y-hidden font-14">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam iure officia, nostrum
@@ -237,7 +250,10 @@
         </div>
       </section>
 
-      <section class="flex axis1-center mb-4">
+      <section
+        class="flex axis1-center mb-4"
+        v-if="!breakpointStore.isExtraSmall"
+      >
         <AdPlaceholder
           height="90"
           width="728"
@@ -260,6 +276,7 @@
 
         <AdPlaceholder
           height="250"
+          v-if="!breakpointStore.isExtraSmall"
           width="300"
         />
       </section>
@@ -334,27 +351,17 @@
     -webkit-box-orient: vertical;
   }
 
-  .home-blog-thumb-small {
-    width: 228px;
-    height: 165px;
-  }
-
-  .home-featured-listings {
-    width: calc(100% - 300px - 2rem);
-  }
-
   .home-search-form {
     min-width: 325px;
   }
 
-  .home-sell-your-vehicle-description,
-  .home-vehicle-type-description {
-    max-width: 400px;
+  .home-sell-your-vehicle {
+    min-height: 500px;
   }
 
   .home-sell-your-vehicle-img {
-    width: 277px;
-    height: 562px;
+    max-width: 277px;
+    aspect-ratio: 1 / 2;
   }
 
   .home-vehicle-type {
@@ -366,11 +373,31 @@
     height: 90px;
   }
 
+  @media (min-width: 768px) {
+    .s-p-4 {
+      padding: 4rem;
+    }
+
+    .s-w-1\/2 {
+      width: 50%;
+    }
+
+    .home-blog-thumb-small {
+      max-width: 228px;
+    }
+
+    .home-featured-listings {
+      width: calc(100% - 300px - 2rem);
+    }
+
+    .home-sell-your-vehicle {
+      min-height: unset;
+    }
+  }
+
   @media (min-width: 992px) {
     .m-inline {
       display: unset;
     }
   }
 </style>
-
-<style></style>

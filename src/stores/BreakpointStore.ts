@@ -14,6 +14,7 @@ export const useBreakpointStore = defineStore('breakpointStore', {
     },
     initialize() {
       window.addEventListener('resize', this.setWindowWidth);
+      this.setWindowWidth();
     },
     removeListener(callback: () => void) {
       window.removeEventListener('resize', callback);

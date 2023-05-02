@@ -8,8 +8,9 @@
   import SiteFooter from '@/components/SiteFooter.vue';
   import SiteHeader from '@/components/SiteHeader.vue';
 
-  const breakpointStore = useBreakpointStore();
   const route = useRoute();
+
+  const breakpointStore = useBreakpointStore();
   const userAgentStore = useUserAgentStore();
 
   let isHomepage = ref(false);
