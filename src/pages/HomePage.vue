@@ -47,43 +47,91 @@
 <template>
   <div class="home-page">
     <SiteContainer class="flex column m-row axis1-center gap-2 mt-2 mx-2 mb-4">
-      <div class="home-search-form flex column axis1-center shrink radius-1/2 p-2 bg-gray-light">
+      <form class="home-search-form flex column axis1-center shrink radius-1/2 p-2 bg-gray-light">
         <h1 class="flex axis1-center axis2-center row m-column gap-1/2 mb-1 font-32 x-center">
           <span class="contents m-inline">Where you go </span>
           <span class="contents m-inline">for an RV</span>
         </h1>
 
-        <form>
-          <input
-            class="mb-1 border-1 border-gray p-1 w-full bg-white"
-            type="text"
-          />
-
-          <select class="mb-1 border-1 border-gray p-1 w-full bg-white" />
-
-          <div class="flex gap-1">
-            <select
-              class="mb-1 border-1 border-gray p-1 w-full bg-white"
-              type="text"
-            />
+        <fieldset class="mb-1 border-1 border-gray radius-1/2 bg-white xy-hidden">
+          <fieldset class="flex column gap-1/4 border-b border-gray p-1">
+            <label
+              class="font-14 font-600"
+              for="keyword"
+            >
+              Find any RV
+            </label>
 
             <input
-              class="mb-1 border-1 border-gray p-1 w-full bg-white"
+              class="w-full bg-white font-14"
+              id="keyword"
+              placeholder="Enter keyword or model"
               type="text"
             />
-          </div>
+          </fieldset>
 
-          <SiteLinkAsButton
-            class="mb-1 radius-1/2 p-1 w-full"
-            icon-leading="search"
-            is-primary
-            is-solid
-            to="/rvs-for-sale"
-          >
-            Search
-          </SiteLinkAsButton>
-        </form>
-      </div>
+          <fieldset class="flex column gap-1/4 border-b border-gray p-1">
+            <label
+              class="font-14 font-600"
+              for="type"
+            >
+              RV type
+            </label>
+
+            <select
+              class="w-full bg-white font-14"
+              id="type"
+            >
+              <option>All RV types</option>
+            </select>
+          </fieldset>
+
+          <div class="flex">
+            <fieldset class="flex column gap-1/4 border-r border-gray p-1 w-1/2">
+              <label
+                class="font-14 font-600"
+                for="distance"
+              >
+                Search within
+              </label>
+
+              <select
+                class="w-full bg-white font-14"
+                id="distance"
+                type="text"
+              >
+                <option>Any dist.</option>
+              </select>
+            </fieldset>
+
+            <fieldset class="flex column gap-1/4 p-1 w-1/2">
+              <label
+                class="font-14 font-600"
+                for="location"
+              >
+                Location
+              </label>
+
+              <input
+                class="w-full bg-white font-14"
+                id="location"
+                type="text"
+                value="Seattle, WA"
+              />
+            </fieldset>
+          </div>
+        </fieldset>
+
+        <SiteLinkAsButton
+          class="mb-1 radius-1/2 p-1 w-full"
+          icon-leading="search"
+          is-primary
+          is-solid
+          to="/rvs-for-sale"
+        >
+          Search
+        </SiteLinkAsButton>
+      </form>
 
       <div class="home-alpha-dma-ad flex axis1-center axis2-center radius-1/2 w-full bg-gray-light font-gray font-700">
         Alpha-DMA
@@ -352,7 +400,7 @@
   }
 
   .home-search-form {
-    min-width: 325px;
+    min-width: 350px;
   }
 
   .home-sell-your-vehicle {

@@ -44,13 +44,15 @@ p {
 
 button,
 input,
+option,
 select {
   background-color: unset;
   font-family: inherit;
   font-size: inherit;
 }
 
-button:enabled {
+button:enabled,
+select {
   cursor: pointer;
 }
 
