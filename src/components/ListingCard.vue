@@ -20,6 +20,7 @@
   const isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
   const showPhone = ref(false);
 
+  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummy = {
     address: '123 Main St',
     hasHiddenPhone: Math.floor(Math.random() * 2),

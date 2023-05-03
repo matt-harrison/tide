@@ -21,7 +21,10 @@
   featuredListingStore.getVehicles();
 
   const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
+
+  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummies: number[] = new Array(10);
+
   const vehicleTypes: VehicleType[] = [
     { label: 'Travel trailer' },
     { label: 'Fifth wheel' },

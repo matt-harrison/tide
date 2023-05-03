@@ -21,6 +21,7 @@
 
   import dummyResponse from '@/data/dummy-search-results.json';
 
+  // Permanent reference to dummy data for demonstration purposes.
   const dummyResults: unknown = dummyResponse.results;
   const dummyVehicles: VehicleRaw[] = dummyResults as VehicleRaw[];
 

@@ -99,6 +99,7 @@
     return `State ${index + 1}`;
   });
 
+  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummyVehicleMakes: VehicleType[] = [
     { label: 'Travel trailer' },
     { label: 'Fifth wheel' },
@@ -112,6 +113,7 @@
     { label: 'Fish house' },
   ];
 
+  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummyVehicleTypes: VehicleType[] = [
     { label: 'Airstream' },
     { label: 'Alliance Rv' },
