@@ -11,6 +11,8 @@ type State = {
   recommendedVehicles: VehicleRaw[];
 };
 
+// const adData = (window as any).adData || null;
+
 export const useHomeStore = defineStore('homeStore', {
   actions: {
     getVehicles() {

@@ -13,12 +13,12 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { formatNumber } from '@/utilities/format';
   import { useBreakpointStore } from '@/stores/BreakpointStore';
-  import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
+  import { useHomeStore } from '@/stores/HomeStore';
 
   const breakpointStore = useBreakpointStore();
-  const featuredListingStore = useFeaturedListingStore();
+  const homeStore = useHomeStore();
 
-  featuredListingStore.getVehicles();
+  homeStore.getVehicles();
 
   const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
 
@@ -212,7 +212,7 @@
       <div class="flex gap-2">
         <VehicleCardCarousel
           :offset-x="32"
-          :vehicles="featuredListingStore.vehicles"
+          :vehicles="homeStore.featuredListings"
           class="home-featured-listings"
         />
 
@@ -232,7 +232,7 @@
 
       <VehicleCardCarousel
         :offset-x="32"
-        :vehicles="featuredListingStore.vehicles"
+        :vehicles="homeStore.recommendedVehicles"
       />
     </section>
 

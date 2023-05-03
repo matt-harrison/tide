@@ -10,6 +10,8 @@ type State = {
   vehicles: VehicleRaw[];
 };
 
+// const adData = (window as any).adData || null;
+
 export const useSearchResultStore = defineStore('searchResultStore', {
   actions: {
     getVehicles() {

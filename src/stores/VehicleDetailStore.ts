@@ -10,6 +10,8 @@ type State = {
   vehicle?: VehicleRaw;
 };
 
+// const adData = (window as any).adData || null;
+
 export const useVehicleDetailStore = defineStore('vehicleDetailStore', {
   actions: {
     getVehicle() {
