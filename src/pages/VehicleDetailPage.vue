@@ -14,9 +14,11 @@
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
+  import SiteImage from '@/components/SiteImage.vue';
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
+  import { cdnDomain, cdnVersion } from '@/config/rv.config';
   import { formatPrice, formatTitleCase } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
@@ -149,6 +151,10 @@
     },
   ];
 
+  const thumbnail: string = vehicle?.value
+    ? `https://${cdnDomain}/${cdnVersion}/media/${vehicle.value.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
+    : '';
+
   const toggleIsFavorite = () => {
     if (vehicle?.value) {
       favoriteStore.toggleFavorite(vehicle.value.ad_id.raw);
@@ -226,7 +232,12 @@
           <section class="mb-2">
             <div class="radius-1/2 xy-hidden">
               <div class="relative">
-                <div class="mb-1 bg-gray ratio-3/2" />
+                <div class="flex axis1-center axis2-center mb-1">
+                  <SiteImage
+                    :src="thumbnail"
+                    class="ratio-3/2"
+                  />
+                </div>
 
                 <span class="absolute right-0 bottom-0 m-1/2 radius-1/2 py-1/2 px-1 bg-gray-dark font-12 font-white">
                   1/28
@@ -234,30 +245,64 @@
               </div>
 
               <ul class="flex gap-1 list-none">
-                <li class="w-1/4 bg-gray ratio-3/2" />
-
-                <li class="flex axis1-center axis2-center p-1 w-1/4 bg-gray ratio-3/2">
-                  <SiteButtonIcon
-                    class-button="icon-button border-2 border-gray-dark"
-                    icon="play"
-                    is-primary
-                    is-restyled
-                    is-solid
+                <li class="relative w-1/4 ratio-3/2">
+                  <SiteImage
+                    :src="thumbnail"
+                    class="absolute w-full h-full"
                   />
+
+                  <div class="overlay absolute w-full h-full" />
                 </li>
 
-                <li class="flex axis1-center axis2-center p-1 w-1/4 bg-gray ratio-3/2">
-                  <SiteButtonIcon
-                    class-button="icon-button border-2 border-gray-dark"
-                    icon="cube"
-                    is-primary
-                    is-restyled
-                    is-solid
+                <li class="relative w-1/4 ratio-3/2">
+                  <SiteImage
+                    :src="thumbnail"
+                    class="absolute w-full h-full"
                   />
+
+                  <div class="overlay absolute w-full h-full" />
+
+                  <div class="absolute flex axis1-center axis2-center w-full h-full">
+                    <SiteButtonIcon
+                      class-button="icon-button border-2 border-gray-dark"
+                      icon="play"
+                      is-primary
+                      is-restyled
+                      is-solid
+                    />
+                  </div>
                 </li>
 
-                <li class="flex axis1-center axis2-center p-1 w-1/4 bg-gray ratio-3/2">
-                  <span class="font-14 font-white font-700 x-center">See all 28 photos</span>
+                <li class="relative w-1/4 ratio-3/2">
+                  <SiteImage
+                    :src="thumbnail"
+                    class="absolute w-full h-full"
+                  />
+
+                  <div class="overlay absolute w-full h-full" />
+
+                  <div class="absolute flex axis1-center axis2-center w-full h-full">
+                    <SiteButtonIcon
+                      class-button="icon-button border-2 border-gray-dark"
+                      icon="cube"
+                      is-primary
+                      is-restyled
+                      is-solid
+                    />
+                  </div>
+                </li>
+
+                <li class="relative w-1/4 ratio-3/2">
+                  <SiteImage
+                    :src="thumbnail"
+                    class="absolute w-full h-full"
+                  />
+
+                  <div class="overlay absolute w-full h-full" />
+
+                  <div class="absolute flex axis1-center axis2-center p-1 w-full h-full">
+                    <span class="font-14 font-white font-700 shadow-text x-center">See all 28 photos</span>
+                  </div>
                 </li>
               </ul>
             </div>
@@ -631,6 +676,11 @@
   .logo {
     width: 140px;
     height: 65px;
+  }
+
+  .overlay {
+    background-color: var(--black);
+    opacity: 50%;
   }
 
   .rv-insider-logo {

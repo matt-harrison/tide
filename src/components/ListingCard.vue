@@ -6,6 +6,8 @@
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
   import SiteIcon from '@/components/SiteIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
+  import SiteImage from '@/components/SiteImage.vue';
+  import { cdnDomain, cdnVersion } from '@/config/rv.config';
   import { formatPhone, formatPrice, formatTitleCase } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
 
@@ -35,9 +37,7 @@
     ? `${formatTitleCase(props.vehicle.city.raw)}, ${props.vehicle.state_code.raw}`
     : null;
 
-  const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
-    ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
-    : null;
+  const thumbnail: string = `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`;
 
   const setShowPhone = (showPhoneValue: boolean) => {
     showPhone.value = showPhoneValue;
@@ -58,15 +58,12 @@
     >
       <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
         <div class="flex column gap-1/2">
-          <img
+          <SiteImage
+            :offset="200"
             :src="thumbnail"
-            class="w-full bg-gray ratio-3/2"
-            v-if="thumbnail"
-          />
-
-          <div
-            class="w-full bg-gray ratio-3/2"
-            v-else
+            assume-horizontal
+            class="site-carousel-card-img mb-1/2 w-full"
+            is-lazy-load
           />
 
           <div class="flex column gap-1/4">

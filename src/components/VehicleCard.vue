@@ -4,6 +4,8 @@
   import type { VehicleRaw } from '@/types/Vehicle';
 
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
+  import SiteImage from '@/components/SiteImage.vue';
+  import { cdnDomain, cdnVersion } from '@/config/rv.config';
 
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { formatPrice } from '@/utilities/format';
@@ -18,9 +20,7 @@
 
   let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
 
-  const thumbnail: string | null = props.vehicle.photo_ids.raw[0]
-    ? `https://media.traderonline.com/vLatest/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
-    : null;
+  const thumbnail: string = `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`;
 
   const toggleIsFavorite = () => {
     favoriteStore.toggleFavorite(props.vehicle.ad_id.raw);
@@ -37,15 +37,12 @@
     >
       <div class="flex column axis1-between h-full">
         <div>
-          <img
+          <SiteImage
+            :offset="200"
             :src="thumbnail"
-            class="site-carousel-card-img mb-1/2 w-full bg-gray"
-            v-if="thumbnail"
-          />
-
-          <div
-            class="site-carousel-card-img mb-1/2 w-full bg-gray"
-            v-else
+            assume-horizontal
+            class="site-carousel-card-img mb-1/2 w-full"
+            is-lazy-load
           />
 
           <div class="flex column gap-1/4 mb-1">

@@ -241,6 +241,10 @@
 
 .list-none {list-style-type: none;}
 
+.object-center {object-position: center;}
+
+.object-cover {object-fit: cover;}
+
 .pointer {cursor: pointer;}
 
 .pointer-events      {pointer-events: auto;}
