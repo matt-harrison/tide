@@ -1,10 +1,11 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
   import type { VehicleRaw } from '@/types/Vehicle';
 
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteImage from '@/components/SiteImage.vue';
   import { cdnDomain, cdnVersion } from '@/config/rv.config';
@@ -131,16 +132,18 @@
       </div>
 
       <div
-        class="absolute top-0 flex gap-1/2 mt-1 p-1/2 bg-white"
+        class="absolute top-0 flex mt-1"
         v-if="dummy.label"
       >
-        <SiteIcon icon="bookmark" />
-        <span class="font-12 font-600">{{ dummy.label }}</span>
-      </div>
+        <div class="flex gap-1/2 p-1/2 bg-white">
+          <FontAwesomeIcon icon="fa-solid fa-bookmark" />
+          <span class="font-12 font-600">{{ dummy.label }}</span>
+        </div>
 
+        <div class="flag" />
+      </div>
       <div class="absolute top-0 right-0 mt-1 mr-1">
         <SiteIconToggle
-          :is-active="isFavorite"
           :is-solid="isFavorite"
           @click.prevent="toggleIsFavorite"
           class-button="p-1/2 font-18"
@@ -154,6 +157,13 @@
 </template>
 
 <style scoped>
+  .flag {
+    border-top: 16px solid white;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 8px solid white;
+  }
+
   .listing-card {
     max-width: calc(33.3333% - (2rem / 3));
   }

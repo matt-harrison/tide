@@ -16,11 +16,6 @@
       required: true,
       type: String,
     },
-    isActive: {
-      default: false,
-      required: true,
-      type: Boolean,
-    },
     isPrimary: {
       default: false,
       required: false,

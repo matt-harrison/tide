@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
 
-  import SiteIcon from '@/components/SiteIcon.vue';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   const props = defineProps({
     classLabel: {
@@ -59,10 +59,7 @@
         :class="isExpanded ? 'up' : ''"
         class="chevron"
       >
-        <SiteIcon
-          icon="chevron-down"
-          is-solid
-        />
+        <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
       </div>
     </div>
 

@@ -79,8 +79,9 @@
 
           <div class="flex gap-1/2 font-24">
             <SiteButtonIcon
-              class-icon="site-footer-social fa-brands"
+              class-icon="site-footer-social"
               icon="twitter"
+              is-brand
               is-restyled
               is-secondary
             />
@@ -88,6 +89,7 @@
             <SiteButtonIcon
               class-icon="site-footer-social fa-brands"
               icon="facebook-f"
+              is-brand
               is-restyled
               is-secondary
             />
@@ -95,6 +97,7 @@
             <SiteButtonIcon
               class-icon="site-footer-social fa-brands"
               icon="instagram"
+              is-brand
               is-restyled
               is-secondary
             />
@@ -102,6 +105,7 @@
             <SiteButtonIcon
               class-icon="site-footer-social fa-brands"
               icon="youtube"
+              is-brand
               is-restyled
               is-secondary
             />
@@ -109,6 +113,7 @@
             <SiteButtonIcon
               class-icon="site-footer-social fa-brands"
               icon="pinterest-p"
+              is-brand
               is-restyled
               is-secondary
             />
@@ -116,6 +121,7 @@
             <SiteButtonIcon
               class-icon="site-footer-social fa-brands"
               icon="linkedin-in"
+              is-brand
               is-restyled
               is-secondary
             />

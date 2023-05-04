@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import type { PropType } from 'vue';
 
-  import type { BreadCrumb } from '@/types/BreadCrumb';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-  import SiteIcon from '@/components/SiteIcon.vue';
+  import type { BreadCrumb } from '@/types/BreadCrumb';
 
   const props = defineProps({
     breadCrumbs: {
@@ -31,10 +31,7 @@
         </li>
 
         <li v-if="crumb.url">
-          <SiteIcon
-            icon="angle-right"
-            is-solid
-          />
+          <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
         </li>
 
         <li v-if="!crumb.url">{{ crumb.label }}</li>

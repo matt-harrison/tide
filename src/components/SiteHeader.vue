@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import SiteIcon from '@/components/SiteIcon.vue';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   const props = defineProps({
     showSearchbar: {
@@ -81,7 +81,7 @@
 
     <div class="flex axis2-center gap-1">
       <div
-        class="relative"
+        class="site-header-search-bar relative"
         v-if="props.showSearchbar"
       >
         <input
@@ -90,12 +90,11 @@
           type="text"
         />
 
-        <router-link to="/rvs-for-sale">
-          <SiteIcon
-            class="site-header-search-icon relative top-0 radius-full p-1/2 bg-gray-light"
-            icon="search"
-            is-solid
-          />
+        <router-link
+          class="site-header-search-icon absolute flex axis1-center axis2-center radius-full p-1/2 bg-gray-light"
+          to="/rvs-for-sale"
+        >
+          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
         </router-link>
       </div>
 
@@ -103,7 +102,7 @@
         class="flex column axis2-center gap-1/4 underline-none"
         to="/style-guide"
       >
-        <SiteIcon icon="user" />
+        <FontAwesomeIcon icon="user" />
         <span class="font-12 font-500">Sign In</span>
       </router-link>
     </div>
@@ -111,12 +110,17 @@
 </template>
 
 <style scoped>
+  .site-header-search-bar {
+    width: 200px;
+  }
+
   .site-header-logo {
     width: 30px;
     height: 30px;
   }
 
   .site-header-search-icon {
-    right: 34px;
+    top: 3px;
+    right: 3px;
   }
 </style>

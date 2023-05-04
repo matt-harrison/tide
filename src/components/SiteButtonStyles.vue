@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import SiteIcon from '@/components/SiteIcon.vue';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   const props = defineProps({
     class: {
@@ -50,17 +50,15 @@
     ]"
     class="site-button-styles"
   >
-    <SiteIcon
-      :icon="props.iconLeading"
-      :is-solid="props.isSolid"
+    <FontAwesomeIcon
+      :icon="[props.isSolid ? 'fa-solid' : 'fa-regular', `fa-${props.iconLeading}`]"
       v-if="props.iconLeading"
     />
 
     <slot />
 
-    <SiteIcon
-      :icon="props.iconTrailing"
-      :is-solid="props.isSolid"
+    <FontAwesomeIcon
+      :icon="[props.isSolid ? 'fa-solid' : 'fa-regular', `fa-${props.iconTrailing}`]"
       v-if="props.iconTrailing"
     />
   </div>

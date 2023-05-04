@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
 
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { VehicleRaw } from '@/types/Vehicle';
 
@@ -13,7 +15,6 @@
   import SiteLinkAsButton from '@/components/SiteLinkAsButton.vue';
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
   import SiteCarousel from '@/components/SiteCarousel.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
   import VehicleCard from '@/components/VehicleCard.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { useDarkModeStore } from '@/stores/DarkModeStore';
@@ -54,7 +55,6 @@
   };
 
   const icons: string[] = [
-    'angle-right',
     'arrow-circle-left',
     'arrow-circle-right',
     'arrow-right-arrow-left',
@@ -65,6 +65,7 @@
     'chevron-down',
     'chevron-left',
     'chevron-right',
+    'chevron-up',
     'circle-check',
     'cube',
     'eye',
@@ -649,10 +650,7 @@
             class="site-icon-demo flex axis1-center axis2-center border-1 radius-1/2 p-1"
             v-for="icon in icons"
           >
-            <SiteIcon
-              :icon="icon"
-              is-solid
-            />
+            <FontAwesomeIcon :icon="`fa-solid fa-${icon}`" />
           </div>
         </div>
       </section>
@@ -666,7 +664,7 @@
           <SiteCarousel
             :card-width="150"
             :gap="16"
-            :offset-x="48"
+            :offset-x="64"
           >
             <div
               :class="darkModeStore.isDarkMode ? 'border-white font-white' : 'border-gray-dark bg-white'"
@@ -683,7 +681,7 @@
           <h4 class="mx-2 mb-1 pl-1">Vehicle Card Carousel</h4>
 
           <VehicleCardCarousel
-            :offset-x="48"
+            :offset-x="64"
             :vehicles="dummyVehicles"
             class="flex wrap gap-1 font-gray-dark"
           />

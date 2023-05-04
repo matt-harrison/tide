@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import { onMounted, ref, withDefaults } from 'vue';
 
+  import { cdnDomain } from '@/config/rv.config';
+
   type Props = {
     alt?: string;
     isLazyLoad?: boolean;
@@ -8,8 +10,6 @@
     src: string;
     assumeHorizontal?: boolean;
   };
-
-  import { cdnDomain } from '@/config/rv.config';
 
   const props = withDefaults(defineProps<Props>(), {
     alt: '',

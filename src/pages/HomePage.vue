@@ -127,7 +127,7 @@
 
         <SiteLinkAsButton
           class="mb-1 radius-1/2 p-1 w-full"
-          icon-leading="search"
+          icon-leading="magnifying-glass"
           is-primary
           is-solid
           to="/rvs-for-sale"

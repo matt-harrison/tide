@@ -2,6 +2,8 @@
   import { onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { VehicleType } from '@/types/VehicleType';
 
@@ -16,7 +18,6 @@
   import SiteCarousel from '@/components/SiteCarousel.vue';
   import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
   import SiteSwitchButtons from '@/components/SiteSwitchButtons.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
@@ -211,21 +212,17 @@
 
         <div class="flex wrap axis2-center gap-1">
           <button class="flex axis2-center gap-1/4">
-            <SiteIcon icon="heart" />
+            <FontAwesomeIcon icon="fa-heart" />
             <span>Save search</span>
           </button>
 
           <button class="flex axis2-center gap-1/4">
-            <SiteIcon
+            <FontAwesomeIcon
               class="rotate-90"
-              icon="arrow-right-arrow-left"
-              is-solid
+              icon="fa-solid fa-arrow-right-arrow-left"
             />
             <span>Sort by: Premium</span>
-            <SiteIcon
-              icon="chevron-down"
-              is-solid
-            />
+            <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
           </button>
         </div>
       </header>
@@ -500,7 +497,7 @@
             >
               <SiteButton
                 class="radius-full underline-none"
-                icon-leading="search"
+                icon-leading="magnifying-glass"
                 is-secondary
                 is-solid
               >

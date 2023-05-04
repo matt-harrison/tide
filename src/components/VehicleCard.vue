@@ -62,7 +62,6 @@
           </span>
 
           <SiteIconToggle
-            :is-active="isFavorite"
             :is-solid="isFavorite"
             @click.prevent="toggleIsFavorite"
             class-button="p-1/4"

@@ -1,6 +1,9 @@
 <script lang="ts" setup>
+  import { computed } from 'vue';
+
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
   import SiteButtonStyles from '@/components/SiteButton.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
 
   const props = defineProps({
     classButton: {
@@ -16,6 +19,11 @@
     icon: {
       required: true,
       type: String,
+    },
+    isBrand: {
+      default: false,
+      required: false,
+      type: Boolean,
     },
     isPrimary: {
       default: false,
@@ -38,6 +46,8 @@
       type: Boolean,
     },
   });
+
+  const iconSet = computed(() => (props.isBrand ? 'brands' : props.isSolid ? 'solid' : 'regular'));
 </script>
 
 <template>
@@ -48,10 +58,9 @@
     class="flex axis1-center axis2-center radius-full ratio-1/1 underline-none"
     is-restyled
   >
-    <SiteIcon
+    <FontAwesomeIcon
       :class="props.classIcon"
-      :icon="icon"
-      :is-solid="props.isSolid"
+      :icon="[`fa-${iconSet}`, `fa-${props.icon}`]"
     />
   </SiteButtonStyles>
 </template>

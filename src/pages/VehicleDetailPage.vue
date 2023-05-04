@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { computed, ref } from 'vue';
   import { storeToRefs } from 'pinia';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { RvDetail } from '@/types/RvDetail';
@@ -12,7 +13,6 @@
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
   import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
-  import SiteIcon from '@/components/SiteIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteImage from '@/components/SiteImage.vue';
   import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
@@ -331,10 +331,7 @@
             <h2 class="mb-1 font-20">RV details</h2>
 
             <div class="flex axis2-center gap-1/2 mb-1">
-              <SiteIcon
-                icon="bookmark"
-                is-solid
-              />
+              <FontAwesomeIcon icon="fa-solid fa-bookmark" />
               <span class="font-14 font-600">Under warranty</span>
             </div>
 
@@ -382,10 +379,7 @@
 
                   <div class="flex column gap-1/2 mb-1">
                     <div class="flex axis2-center gap-1/2">
-                      <SiteIcon
-                        icon="circle-check"
-                        is-solid
-                      />
+                      <FontAwesomeIcon icon="fa-solid fa-circle-check" />
                       <span class="font-12 font-700">15 year trusted partner</span>
                     </div>
 
@@ -534,9 +528,9 @@
             </div>
 
             <div>
-              <SiteIcon
+              <FontAwesomeIcon
                 class="mr-1/2"
-                icon="eye"
+                icon="fa-solid fa-eye"
               />
               <span>
                 <span>Seen </span>
@@ -549,10 +543,7 @@
             </div>
 
             <div class="flex gap-1/2">
-              <SiteIcon
-                icon="heart"
-                is-solid
-              />
+              <FontAwesomeIcon icon="fa-solid fa-heart" />
 
               <div>
                 <span>Saved by </span>
@@ -562,10 +553,9 @@
             </div>
 
             <div>
-              <SiteIcon
+              <FontAwesomeIcon
                 class="mr-1/2"
-                icon="calendar"
-                is-solid
+                icon="fa-solid fa-calendar"
               />
               <span>
                 <span>Listed for </span>
@@ -577,10 +567,9 @@
             </div>
 
             <div>
-              <SiteIcon
+              <FontAwesomeIcon
                 class="mr-1/2"
-                icon="tag"
-                is-solid
+                icon="fa-solid fa-tag"
               />
               <span class="font-12">The price has not decreased recently</span>
             </div>
@@ -641,7 +630,7 @@
         >
           <SiteButton
             class="radius-full underline-none"
-            icon-leading="search"
+            icon-leading="magnifying-glass"
             is-secondary
             is-solid
           >

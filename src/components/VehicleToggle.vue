@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import type { VehicleType } from '@/types/VehicleType';
+  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-  import SiteIcon from '@/components/SiteIcon.vue';
+  import type { VehicleType } from '@/types/VehicleType';
 
   type Props = {
     isActive: boolean;
@@ -20,11 +20,9 @@
 
     <div class="flex axis1-center axis2-center gap-1/4">
       <span class="font-12 font-700 whitespace-nowrap">{{ props.vehicleType.label }}</span>
-
-      <SiteIcon
+      <FontAwesomeIcon
         class="vehicle-type-check"
-        icon="check"
-        is-solid
+        icon="fa-solid fa-check"
         v-if="props.isActive"
       />
     </div>
