@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
-  import type { VehicleRaw } from '@/types/Vehicle';
+  import type { Vehicle } from '@/types/Vehicle';
 
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteImage from '@/components/SiteImage.vue';
@@ -11,21 +11,24 @@
   import { formatPrice } from '@/utilities/format';
 
   type Props = {
-    vehicle: VehicleRaw;
+    vehicle: Vehicle;
   };
 
   const favoriteStore = useFavoriteStore();
 
   const props = defineProps<Props>();
 
-  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
+  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.adId));
 
-  const thumbnail: string = `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`;
+  const thumbnail: string | undefined =
+    props.vehicle.photoIds.length > 0
+      ? `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
+      : undefined;
 
   const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.ad_id.raw);
+    favoriteStore.toggleFavorite(props.vehicle.adId);
 
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.ad_id.raw);
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.adId);
   };
 </script>
 
@@ -47,18 +50,18 @@
 
           <div class="flex column gap-1/4 mb-1">
             <div class="font-12">
-              {{ props.vehicle.condition.raw }} {{ props.vehicle.year.raw }} {{ props.vehicle.make_name.raw[0] }}
+              {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] }}
             </div>
 
-            <div class="font-14 font-600">{{ props.vehicle.model_name.raw[0] }}</div>
+            <div class="font-14 font-600">{{ props.vehicle.modelName[0] }}</div>
 
-            <div class="font-12">{{ props.vehicle.dealer_group_name?.raw }}</div>
+            <div class="font-12">{{ props.vehicle.dealerGroupName }}</div>
           </div>
         </div>
 
         <div class="flex axis1-between axis2-center">
           <span class="font-14 font-700">
-            {{ formatPrice(props.vehicle.price.raw) }}
+            {{ formatPrice(props.vehicle.price) }}
           </span>
 
           <SiteIconToggle

@@ -3,7 +3,7 @@
 
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-  import type { VehicleRaw } from '@/types/Vehicle';
+  import type { Vehicle } from '@/types/Vehicle';
 
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
@@ -13,14 +13,14 @@
   import { useFavoriteStore } from '@/stores/FavoriteStore';
 
   type Props = {
-    vehicle: VehicleRaw;
+    vehicle: Vehicle;
   };
 
   const favoriteStore = useFavoriteStore();
 
   const props = defineProps<Props>();
 
-  const isFavorite = ref(favoriteStore.isFavorite(props.vehicle.ad_id.raw));
+  const isFavorite = ref(favoriteStore.isFavorite(props.vehicle.adId));
   const showPhone = ref(false);
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
@@ -33,21 +33,22 @@
     zip: '12345',
   };
 
-  const adType: string | undefined = props.vehicle.is_premium?.raw === '1' ? 'Premium' : undefined;
-  const cityState = props.vehicle
-    ? `${formatTitleCase(props.vehicle.city.raw)}, ${props.vehicle.state_code.raw}`
-    : null;
+  const adType: string | undefined = props.vehicle.isPremium === '1' ? 'Premium' : undefined;
+  const cityState = props.vehicle ? `${formatTitleCase(props.vehicle.city)}, ${props.vehicle.stateCode}` : null;
 
-  const thumbnail: string = `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`;
+  const thumbnail: string | undefined =
+    props.vehicle.photoIds.length > 0
+      ? `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
+      : undefined;
 
   const setShowPhone = (showPhoneValue: boolean) => {
     showPhone.value = showPhoneValue;
   };
 
   const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.ad_id.raw);
+    favoriteStore.toggleFavorite(props.vehicle.adId);
 
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.ad_id.raw);
+    isFavorite.value = favoriteStore.isFavorite(props.vehicle.adId);
   };
 </script>
 
@@ -69,14 +70,14 @@
 
           <div class="flex column gap-1/4">
             <div class="font-12">
-              {{ props.vehicle.condition.raw }} {{ props.vehicle.year.raw }} {{ props.vehicle.make_name?.raw[0] || '' }}
+              {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] || '' }}
             </div>
 
-            <div class="font-14 font-600">{{ props.vehicle.model_name?.raw[0] || '' }}</div>
+            <div class="font-14 font-600">{{ props.vehicle.modelName[0] || '' }}</div>
 
             <div class="font-12">
               <span v-if="adType">{{ adType }} ad by </span>
-              <span>{{ props.vehicle.dealer_group_name?.raw || '' }}</span>
+              <span>{{ props.vehicle.dealerGroupName || '' }}</span>
             </div>
 
             <div class="font-12">
@@ -88,12 +89,12 @@
 
         <div class="flex wrap axis1-between axis2-center gap-1/4 font-12">
           <span class="font-700">
-            {{ props.vehicle.price?.raw ? formatPrice(props.vehicle.price.raw) : '' }}
+            {{ props.vehicle.price ? formatPrice(props.vehicle.price) : '' }}
           </span>
 
           <div
             class="flex wrap axis1-end axis2-center gap-1/2 grow"
-            v-if="props.vehicle.phone.raw"
+            v-if="props.vehicle.phone"
           >
             <div class="flex axis2-center gap-1/4">
               <SiteButtonIcon
@@ -117,7 +118,7 @@
                 href="tel:+{{ props.vehicle.phone }}"
                 v-if="showPhone || !dummy.hasHiddenPhone"
               >
-                Call {{ formatPhone(parseInt(props.vehicle.phone.raw)) }}
+                Call {{ formatPhone(parseInt(props.vehicle.phone)) }}
               </a>
             </div>
 

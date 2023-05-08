@@ -52,7 +52,7 @@
   ];
 
   const cityState = computed(() =>
-    vehicle?.value ? `${formatTitleCase(vehicle.value.city.raw)}, ${vehicle.value.state_code.raw}` : ''
+    vehicle?.value ? `${formatTitleCase(vehicle.value.city)}, ${vehicle.value.stateCode}` : ''
   );
 
   const details: RvDetail[] = [
@@ -118,7 +118,7 @@
     zip: '12345',
   };
 
-  let isFavorite = ref(vehicle?.value ? favoriteStore.isFavorite(vehicle.value.ad_id.raw) : false);
+  let isFavorite = ref(vehicle?.value ? favoriteStore.isFavorite(vehicle.value.adId) : false);
 
   const searchPills = [
     {
@@ -151,15 +151,16 @@
     },
   ];
 
-  const thumbnail: string = vehicle?.value
-    ? `https://${cdnDomain}/${cdnVersion}/media/${vehicle.value.photo_ids.raw[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
-    : '';
+  const thumbnail: string | undefined =
+    vehicle?.value && vehicle?.value?.photoIds?.length > 0
+      ? `https://${cdnDomain}/${cdnVersion}/media/${vehicle.value.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
+      : undefined;
 
   const toggleIsFavorite = () => {
     if (vehicle?.value) {
-      favoriteStore.toggleFavorite(vehicle.value.ad_id.raw);
+      favoriteStore.toggleFavorite(vehicle.value.adId);
 
-      isFavorite.value = favoriteStore.isFavorite(vehicle.value.ad_id.raw);
+      isFavorite.value = favoriteStore.isFavorite(vehicle.value.adId);
     }
   };
 </script>
@@ -183,14 +184,12 @@
         <main class="vehicle-detail-main w-full">
           <section class="flex axis1-between axis2-end mb-1">
             <header>
-              <h1 class="mb-1 font-24">
-                {{ vehicle?.year.raw }} {{ vehicle?.make_name.raw[0] }} {{ vehicle?.model_name.raw[0] }}
-              </h1>
+              <h1 class="mb-1 font-24">{{ vehicle?.year }} {{ vehicle?.makeName[0] }} {{ vehicle?.modelName[0] }}</h1>
 
               <div class="flex axis2-center gap-1 font-12">
                 <div
                   class="flex axis2-center gap-1/4"
-                  v-if="vehicle?.dealer_group_name"
+                  v-if="vehicle?.dealerGroupName"
                 >
                   <SiteLinkWithIcon
                     class="font-12"
@@ -198,7 +197,7 @@
                     is-solid
                     to="/rvs-for-sale"
                   >
-                    {{ vehicle.dealer_group_name.raw }}
+                    {{ vehicle.dealerGroupName }}
                   </SiteLinkWithIcon>
                 </div>
 
@@ -235,7 +234,7 @@
                 <div class="flex axis1-center axis2-center mb-1">
                   <SiteImage
                     :src="thumbnail"
-                    class="ratio-3/2"
+                    class="w-full ratio-3/2"
                   />
                 </div>
 
@@ -310,7 +309,7 @@
 
           <section class="flex axis1-between axis2-start mb-2 border-b border-gray pb-2">
             <div class="flex column gap-1/2">
-              <div class="mb-1/2 font-20 font-700">{{ vehicle ? formatPrice(vehicle?.price.raw) : '' }}</div>
+              <div class="mb-1/2 font-20 font-700">{{ vehicle ? formatPrice(vehicle?.price) : '' }}</div>
 
               <div class="flex axis1-between gap-1 font-14">
                 <SiteLinkWithIcon
@@ -386,9 +385,9 @@
                     <router-link
                       class="font-700"
                       to="/rvs-for-sale"
-                      v-if="vehicle?.dealer_group_name"
+                      v-if="vehicle?.dealerGroupName"
                     >
-                      {{ vehicle.dealer_group_name.raw }}
+                      {{ vehicle.dealerGroupName }}
                     </router-link>
 
                     <router-link

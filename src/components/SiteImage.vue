@@ -7,7 +7,7 @@
     alt?: string;
     isLazyLoad?: boolean;
     offset?: number;
-    src: string;
+    src: string | undefined;
     assumeHorizontal?: boolean;
   };
 
@@ -20,8 +20,10 @@
 
   const siteImage = ref();
 
+  const imageDefault = `https://${cdnDomain}/image-coming-soon-512.png`;
+
   const getIsInViewport = () => {
-    const rect = siteImage.value.getBoundingClientRect();
+    const rect = siteImage.value?.getBoundingClientRect();
 
     const isInViewport = props.assumeHorizontal
       ? rect.top + props.offset >= 0 - rect.height &&
@@ -44,15 +46,17 @@
   };
 
   const loadImage = () => {
-    const imageLoader = new Image();
+    if (props.src) {
+      const imageLoader = new Image();
 
-    imageLoader.onload = setImageFromSrc;
-    imageLoader.onerror = setImageFromDefault;
-    imageLoader.src = props.src;
+      imageLoader.onload = setImageFromSrc;
+      imageLoader.onerror = setImageFromDefault;
+      imageLoader.src = props.src;
+    }
   };
 
   const setImageFromDefault = () => {
-    siteImage.value.src = `https://${cdnDomain}/image-coming-soon-512.png`;
+    siteImage.value.src = imageDefault;
   };
 
   const setImageFromSrc = () => {
@@ -76,7 +80,7 @@
   <img
     :alt="props.alt"
     ref="siteImage"
-    :src="props.isLazyLoad ? props.src : undefined"
+    :src="props.isLazyLoad && props.src ? props.src : imageDefault"
     class="site-image object-center object-cover"
   />
 </template>

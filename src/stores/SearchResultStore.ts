@@ -1,13 +1,16 @@
 // import axios from 'axios';
 import { defineStore } from 'pinia';
 
-import type { VehicleRaw } from '@/types/Vehicle';
+import type { Raw } from '@/types/Raw';
+import type { Vehicle } from '@/types/Vehicle';
+
+import { mapResults } from '@/utilities/map';
 
 // Dummy API response to circumvent local/prod cross origin violation.
 import dummyResponse from '@/data/dummy-search-results.json';
 
 type State = {
-  vehicles: VehicleRaw[];
+  vehicles: Vehicle[];
 };
 
 // const adData = (window as any).adData || null;
@@ -39,16 +42,17 @@ export const useSearchResultStore = defineStore('searchResultStore', {
       axios
         .get(`/search-results-data/vdp-featured?${querystring}`)
         .then((response) => {
-          const vehiclesRaw: VehicleRaw[] = response.data.results;
+          const vehiclesRaw: Raw[] = response.data.results;
+          const vehicles: Vehicle[] = mapResults(vehiclesRaw);
 
-          this.setVehicles(vehiclesRaw);
+          this.setVehicles(vehicles);
         })
         .catch((error) => {
           console.error(error);
         });
       */
     },
-    setVehicles(vehicles: VehicleRaw[]) {
+    setVehicles(vehicles: Vehicle[]) {
       this.vehicles = vehicles;
     },
   },

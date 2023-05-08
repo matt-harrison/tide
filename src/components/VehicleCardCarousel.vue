@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-  import type { VehicleRaw } from '@/types/Vehicle';
+  import type { Vehicle } from '@/types/Vehicle';
+
   import SiteCarousel from '@/components/SiteCarousel.vue';
   import VehicleCard from '@/components/VehicleCard.vue';
 
   type Props = {
     offsetX?: number;
-    vehicles: VehicleRaw[];
+    vehicles: Vehicle[];
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -21,7 +22,7 @@
     class="vehicle-card-carousel"
   >
     <VehicleCard
-      :key="vehicle.ad_id.raw"
+      :key="vehicle.adId"
       :vehicle="vehicle"
       v-for="vehicle in props.vehicles"
     />

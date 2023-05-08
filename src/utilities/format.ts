@@ -1,13 +1,3 @@
-type Raw = {
-  [key: string]: {
-    raw: string | string[] | number;
-  };
-};
-
-type Formatted = {
-  [key: string]: string | string[] | number;
-};
-
 const formatCamelCase = (input: string): string => {
   return input
     .toLowerCase()
@@ -72,20 +62,6 @@ const formatPrice = (price: Number): string => {
   return `$${number}`;
 };
 
-const formatResult = (resultRaw: Raw) => {
-  const resultFormatted: Formatted = {};
-
-  Object.keys(resultRaw).forEach((key: string) => {
-    resultFormatted[key] = resultRaw[key].raw;
-  });
-
-  return resultFormatted as unknown;
-};
-
-const formatResults = (resultsRaw: Raw[]) => {
-  return resultsRaw.map((resultRaw) => formatResult(resultRaw));
-};
-
 const formatTitleCase = (input: string): string => {
   return input
     .toLowerCase()
@@ -95,14 +71,4 @@ const formatTitleCase = (input: string): string => {
     .join(' ');
 };
 
-export {
-  formatCamelCase,
-  formatKebabCase,
-  formatNumber,
-  formatPascalCase,
-  formatPhone,
-  formatPrice,
-  formatResult,
-  formatResults,
-  formatTitleCase,
-};
+export { formatCamelCase, formatKebabCase, formatNumber, formatPascalCase, formatPhone, formatPrice, formatTitleCase };

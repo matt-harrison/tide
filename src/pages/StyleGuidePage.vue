@@ -4,7 +4,6 @@
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
-  import type { VehicleRaw } from '@/types/Vehicle';
 
   import AccordionItem from '@/components/AccordionItem.vue';
   import BreadCrumbs from '@/components/BreadCrumbs.vue';
@@ -20,11 +19,8 @@
   import { useDarkModeStore } from '@/stores/DarkModeStore';
   import { formatKebabCase } from '@/utilities/format';
 
-  import dummyResponse from '@/data/dummy-search-results.json';
-
   // Permanent reference to dummy data for demonstration purposes.
-  const dummyResults: unknown = dummyResponse.results;
-  const dummyVehicles: VehicleRaw[] = dummyResults as VehicleRaw[];
+  import { dummyVehicles } from '@/data/dummy-vehicles';
 
   type ColorGroups = {
     global: string[];
@@ -68,6 +64,7 @@
     'chevron-up',
     'circle-check',
     'cube',
+    'envelope',
     'eye',
     'heart',
     'message',
