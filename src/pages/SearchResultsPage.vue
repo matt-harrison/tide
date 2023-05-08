@@ -23,17 +23,24 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import VehicleToggle from '@/components/VehicleToggle.vue';
   import { formatNumber } from '@/utilities/format';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
   import { useSearchResultStore } from '@/stores/SearchResultStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
 
+  const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
   const filterStore = useFilterStore();
   const searchResultStore = useSearchResultStore();
+  const userAgentStore = useUserAgentStore();
 
   featuredListingStore.getVehicles();
   searchResultStore.getVehicles();
   filterStore.setPagesTotal(5);
+
+  const { isBrowseByType, makes, types } = storeToRefs(filterStore);
+  const { isTouchscreen } = storeToRefs(userAgentStore);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -61,7 +68,6 @@
     model: 0,
     type: 0,
   };
-  const { isBrowseByType, makes, types } = storeToRefs(filterStore);
 
   let browseButtons = ref();
 
@@ -169,6 +175,7 @@
     <SiteCarousel
       :card-width="125"
       :gap="16"
+      :is-touchscreen="isTouchscreen"
       :offset-x="32"
       class="axis1-center mb-2"
       v-if="isBrowseByType"
@@ -185,6 +192,7 @@
     <SiteCarousel
       :card-width="125"
       :gap="16"
+      :is-touchscreen="isTouchscreen"
       :offset-x="32"
       class="axis1-center mb-2"
       v-if="!isBrowseByType"
@@ -388,12 +396,17 @@
           <section class="mb-2 border-b border-gray pb-2">
             <h2 class="mb-1 font-16">Featured listings</h2>
 
-            <VehicleCardCarousel :vehicles="featuredListingStore.vehicles" />
+            <VehicleCardCarousel
+              :get-is-favorite="favoriteStore.getIsFavorite"
+              :handle-favorite-click="favoriteStore.toggleIsFavorite"
+              :is-touchscreen="isTouchscreen"
+              :vehicles="featuredListingStore.vehicles"
+            />
           </section>
 
           <ul class="flex wrap gap-1 mb-2 list-none">
             <template
-              :key="vehicle.id"
+              :key="vehicle.adId"
               v-for="(vehicle, index) in [
                 ...searchResultStore.vehicles,
                 ...searchResultStore.vehicles,
@@ -401,7 +414,11 @@
                 ...searchResultStore.vehicles.slice(0, 6),
               ]"
             >
-              <ListingCard :vehicle="vehicle" />
+              <ListingCard
+                :is-favorite="favoriteStore.getIsFavorite(vehicle.adId)"
+                :vehicle="vehicle"
+                @handle-favorite-click="favoriteStore.toggleIsFavorite"
+              />
 
               <li
                 class="flex axis1-center w-full no-shrink"
@@ -439,6 +456,9 @@
                 </aside>
 
                 <VehicleCardCarousel
+                  :get-is-favorite="favoriteStore.getIsFavorite"
+                  :handle-favorite-click="favoriteStore.toggleIsFavorite"
+                  :is-touchscreen="isTouchscreen"
                   :vehicles="featuredListingStore.vehicles"
                   class="search-results-dealer-ad-carousel"
                 />

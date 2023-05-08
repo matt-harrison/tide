@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { onMounted, onUnmounted } from 'vue';
+  import { storeToRefs } from 'pinia';
 
   import type { VehicleType } from '@/types/VehicleType';
 
@@ -13,14 +13,20 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { formatNumber } from '@/utilities/format';
   import { useBreakpointStore } from '@/stores/BreakpointStore';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useHomeStore } from '@/stores/HomeStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
 
   const breakpointStore = useBreakpointStore();
+  const favoriteStore = useFavoriteStore();
   const homeStore = useHomeStore();
+  const userAgentStore = useUserAgentStore();
 
   homeStore.getVehicles();
 
   const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
+
+  const { isTouchscreen } = storeToRefs(userAgentStore);
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummies: number[] = new Array(10);
@@ -37,14 +43,6 @@
     { label: 'Park model' },
     { label: 'Fish house' },
   ];
-
-  onMounted(() => {
-    breakpointStore.initialize();
-  });
-
-  onUnmounted(() => {
-    breakpointStore.cleanup();
-  });
 </script>
 
 <template>
@@ -158,6 +156,7 @@
       <SiteCarousel
         :card-width="280"
         :gap="16"
+        :is-touchscreen="isTouchscreen"
         :offset-x="32"
       >
         <li
@@ -211,6 +210,9 @@
 
       <div class="flex gap-2">
         <VehicleCardCarousel
+          :get-is-favorite="favoriteStore.getIsFavorite"
+          :handle-favorite-click="favoriteStore.toggleIsFavorite"
+          :is-touchscreen="isTouchscreen"
           :offset-x="32"
           :vehicles="homeStore.featuredListings"
           class="home-featured-listings"
@@ -231,6 +233,9 @@
       </SiteContainer>
 
       <VehicleCardCarousel
+        :get-is-favorite="favoriteStore.getIsFavorite"
+        :handle-favorite-click="favoriteStore.toggleIsFavorite"
+        :is-touchscreen="isTouchscreen"
         :offset-x="32"
         :vehicles="homeStore.recommendedVehicles"
       />

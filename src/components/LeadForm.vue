@@ -1,14 +1,19 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
+  import type { Vehicle } from '@/types/Vehicle';
+
   import SiteButton from '@/components/SiteButton.vue';
-  import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
-  const vehicleDetailStore = useVehicleDetailStore();
+  type Props = {
+    vehicle: Vehicle | undefined;
+  };
 
-  const { vehicle } = vehicleDetailStore;
+  const props = defineProps<Props>();
 
-  const comments = ref(vehicle ? `Is this ${vehicle.year} ${vehicle.makeName} ${vehicle.modelName} for sale?` : '');
+  const comments = ref(
+    props.vehicle ? `Is this ${props.vehicle.year} ${props.vehicle.makeName} ${props.vehicle.modelName} for sale?` : ''
+  );
 </script>
 
 <template>

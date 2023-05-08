@@ -10,17 +10,16 @@
   import SiteImage from '@/components/SiteImage.vue';
   import { cdnDomain, cdnVersion } from '@/config/rv.config';
   import { formatPhone, formatPrice, formatTitleCase } from '@/utilities/format';
-  import { useFavoriteStore } from '@/stores/FavoriteStore';
 
   type Props = {
+    isFavorite: boolean;
     vehicle: Vehicle;
   };
 
-  const favoriteStore = useFavoriteStore();
+  const emit = defineEmits(['handleFavoriteClick']);
 
   const props = defineProps<Props>();
 
-  const isFavorite = ref(favoriteStore.isFavorite(props.vehicle.adId));
   const showPhone = ref(false);
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
@@ -45,10 +44,8 @@
     showPhone.value = showPhoneValue;
   };
 
-  const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.adId);
-
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.adId);
+  const handleFavoriteClick = () => {
+    emit('handleFavoriteClick', props.vehicle.adId);
   };
 </script>
 
@@ -146,7 +143,7 @@
       <div class="absolute top-0 right-0 mt-1 mr-1">
         <SiteIconToggle
           :is-solid="isFavorite"
-          @click.prevent="toggleIsFavorite"
+          @click.prevent="handleFavoriteClick"
           class-button="p-1/2 font-18"
           icon="heart"
           is-restyled

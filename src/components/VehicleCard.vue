@@ -1,34 +1,28 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
-
   import type { Vehicle } from '@/types/Vehicle';
 
   import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteImage from '@/components/SiteImage.vue';
   import { cdnDomain, cdnVersion } from '@/config/rv.config';
 
-  import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { formatPrice } from '@/utilities/format';
 
   type Props = {
+    isFavorite: boolean;
     vehicle: Vehicle;
   };
 
-  const favoriteStore = useFavoriteStore();
+  const emit = defineEmits(['handleFavoriteClick']);
 
   const props = defineProps<Props>();
-
-  let isFavorite = ref(favoriteStore.isFavorite(props.vehicle.adId));
 
   const thumbnail: string | undefined =
     props.vehicle.photoIds.length > 0
       ? `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
       : undefined;
 
-  const toggleIsFavorite = () => {
-    favoriteStore.toggleFavorite(props.vehicle.adId);
-
-    isFavorite.value = favoriteStore.isFavorite(props.vehicle.adId);
+  const handleFavoriteClick = () => {
+    emit('handleFavoriteClick', props.vehicle.adId);
   };
 </script>
 
@@ -66,7 +60,7 @@
 
           <SiteIconToggle
             :is-solid="isFavorite"
-            @click.prevent="toggleIsFavorite"
+            @click.prevent="handleFavoriteClick"
             class-button="p-1/4"
             icon="heart"
             is-restyled

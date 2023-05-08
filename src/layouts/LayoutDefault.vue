@@ -1,28 +1,13 @@
 <script lang="ts" setup>
-  import { onMounted, onUnmounted, ref, watch } from 'vue';
+  import { ref, watch } from 'vue';
   import { useRoute } from 'vue-router';
-
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
-  import { useUserAgentStore } from '@/stores/UserAgentStore';
 
   import SiteFooter from '@/components/SiteFooter.vue';
   import SiteHeader from '@/components/SiteHeader.vue';
 
   const route = useRoute();
 
-  const breakpointStore = useBreakpointStore();
-  const userAgentStore = useUserAgentStore();
-
   let isHomepage = ref(false);
-
-  onMounted(() => {
-    breakpointStore.initialize();
-    userAgentStore.initialize();
-  });
-
-  onUnmounted(() => {
-    breakpointStore.cleanup();
-  });
 
   watch(
     () => route.name,

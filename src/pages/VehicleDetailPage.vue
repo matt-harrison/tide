@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { computed, ref } from 'vue';
   import { storeToRefs } from 'pinia';
+
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
@@ -22,15 +23,18 @@
   import { formatPrice, formatTitleCase } from '@/utilities/format';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
+  const userAgentStore = useUserAgentStore();
   const vehicleDetailStore = useVehicleDetailStore();
 
   featuredListingStore.getVehicles();
   vehicleDetailStore.getVehicle();
 
+  const { isTouchscreen } = storeToRefs(userAgentStore);
   const { vehicle } = storeToRefs(vehicleDetailStore);
 
   const breadCrumbs: BreadCrumb[] = [
@@ -118,7 +122,7 @@
     zip: '12345',
   };
 
-  let isFavorite = ref(vehicle?.value ? favoriteStore.isFavorite(vehicle.value.adId) : false);
+  let isFavorite = ref(vehicle?.value ? favoriteStore.getIsFavorite(vehicle.value.adId) : false);
 
   const searchPills = [
     {
@@ -158,9 +162,9 @@
 
   const toggleIsFavorite = () => {
     if (vehicle?.value) {
-      favoriteStore.toggleFavorite(vehicle.value.adId);
+      favoriteStore.toggleIsFavorite(vehicle.value.adId);
 
-      isFavorite.value = favoriteStore.isFavorite(vehicle.value.adId);
+      isFavorite.value = favoriteStore.getIsFavorite(vehicle.value.adId);
     }
   };
 </script>
@@ -444,7 +448,12 @@
               </SiteLinkWithIcon>
             </div>
 
-            <VehicleCardCarousel :vehicles="featuredListingStore.vehicles" />
+            <VehicleCardCarousel
+              :get-is-favorite="favoriteStore.getIsFavorite"
+              :handle-favorite-click="favoriteStore.toggleIsFavorite"
+              :is-touchscreen="isTouchscreen"
+              :vehicles="featuredListingStore.vehicles"
+            />
           </section>
 
           <section class="mb-4">
@@ -507,7 +516,7 @@
 
             <div class="p-1 bg-gray-light">
               <h2 class="mb-1">Email the seller</h2>
-              <LeadForm />
+              <LeadForm :vehicle="vehicle" />
             </div>
           </div>
 
@@ -611,6 +620,9 @@
       </SiteContainer>
 
       <VehicleCardCarousel
+        :get-is-favorite="favoriteStore.getIsFavorite"
+        :handle-favorite-click="favoriteStore.toggleIsFavorite"
+        :is-touchscreen="isTouchscreen"
         :offset-x="64"
         :vehicles="featuredListingStore.vehicles"
         class="pb-4"

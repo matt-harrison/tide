@@ -6,10 +6,10 @@ type State = {
 
 export const useFavoriteStore = defineStore('favoriteStore', {
   actions: {
-    isFavorite(favorite: number) {
+    getIsFavorite(favorite: number) {
       return this.favorites.includes(favorite);
     },
-    toggleFavorite(favorite: number) {
+    toggleIsFavorite(favorite: number) {
       if (this.favorites.includes(favorite)) {
         this.favorites = this.favorites.filter((favoriteNext) => favoriteNext !== favorite);
       } else {

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
+  import { storeToRefs } from 'pinia';
 
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -17,6 +18,8 @@
   import VehicleCard from '@/components/VehicleCard.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { useDarkModeStore } from '@/stores/DarkModeStore';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { formatKebabCase } from '@/utilities/format';
 
   // Permanent reference to dummy data for demonstration purposes.
@@ -28,6 +31,10 @@
   };
 
   const darkModeStore = useDarkModeStore();
+  const favoriteStore = useFavoriteStore();
+  const userAgentStore = useUserAgentStore();
+
+  const { isTouchscreen } = storeToRefs(userAgentStore);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -661,6 +668,7 @@
           <SiteCarousel
             :card-width="150"
             :gap="16"
+            :is-touchscreen="isTouchscreen"
             :offset-x="64"
           >
             <div
@@ -678,6 +686,9 @@
           <h4 class="mx-2 mb-1 pl-1">Vehicle Card Carousel</h4>
 
           <VehicleCardCarousel
+            :get-is-favorite="favoriteStore.getIsFavorite"
+            :handle-favorite-click="favoriteStore.toggleIsFavorite"
+            :is-touchscreen="isTouchscreen"
             :offset-x="64"
             :vehicles="dummyVehicles"
             class="flex wrap gap-1 font-gray-dark"
@@ -691,7 +702,9 @@
         <div class="mb-2">
           <h4 class="mb-1">Listing Card</h4>
           <ListingCard
+            :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
             :vehicle="dummyVehicles[0]"
+            @handle-favorite-click="favoriteStore.toggleIsFavorite"
             class="font-gray-dark"
           />
         </div>
@@ -701,7 +714,9 @@
 
           <ul class="list-none">
             <VehicleCard
+              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
               :vehicle="dummyVehicles[0]"
+              @handle-favorite-click="favoriteStore.toggleIsFavorite"
               class="font-gray-dark"
             />
           </ul>

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
 type State = {
-  isTouchscreen: Boolean | undefined;
+  isTouchscreen: boolean | undefined;
 };
 
 export const useUserAgentStore = defineStore('userAgentStore', {

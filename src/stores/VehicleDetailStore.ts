@@ -10,7 +10,7 @@ import { mapResult } from '@/utilities/map';
 import dummyResponse from '@/data/dummy-search-results.json';
 
 type State = {
-  vehicle?: Vehicle;
+  vehicle: Vehicle | undefined;
 };
 
 // const adData = (window as any).adData || null;

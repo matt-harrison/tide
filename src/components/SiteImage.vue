@@ -23,15 +23,18 @@
   const imageDefault = `https://${cdnDomain}/image-coming-soon-512.png`;
 
   const getIsInViewport = () => {
+    let isInViewport = false;
     const rect = siteImage.value?.getBoundingClientRect();
 
-    const isInViewport = props.assumeHorizontal
-      ? rect.top + props.offset >= 0 - rect.height &&
-        rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height
-      : rect.top + props.offset >= 0 - rect.height &&
-        rect.left + props.offset >= 0 - rect.width &&
-        rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height &&
-        rect.right - props.offset <= (window.innerWidth || document.documentElement.clientWidth) + rect.width;
+    if (rect) {
+      isInViewport = props.assumeHorizontal
+        ? rect.top + props.offset >= 0 - rect.height &&
+          rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height
+        : rect.top + props.offset >= 0 - rect.height &&
+          rect.left + props.offset >= 0 - rect.width &&
+          rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height &&
+          rect.right - props.offset <= (window.innerWidth || document.documentElement.clientWidth) + rect.width;
+    }
 
     return isInViewport;
   };

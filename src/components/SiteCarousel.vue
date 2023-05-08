@@ -2,17 +2,13 @@
   import { onMounted, onUnmounted, onUpdated, ref } from 'vue';
 
   import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
-  import { useUserAgentStore } from '@/stores/UserAgentStore';
 
   type Props = {
     cardWidth: number;
     gap: number;
+    isTouchscreen: boolean | undefined;
     offsetX?: number;
   };
-
-  const breakpointStore = useBreakpointStore();
-  const userAgentStore = useUserAgentStore();
 
   const props = withDefaults(defineProps<Props>(), {
     gap: 0,
@@ -34,10 +30,10 @@
     frameWidth.value = frameRef.value.clientWidth;
     hasOverflow.value = contentWidth.value > frameWidth.value;
     lastPosition.value = frameRef.value.scrollWidth - frameRef.value.clientWidth;
-    showButtons.value = hasOverflow.value && !userAgentStore.isTouchscreen;
+    showButtons.value = hasOverflow.value && !props.isTouchscreen;
   };
 
-  breakpointStore.addListener(measureDom);
+  window.addEventListener('resize', measureDom);
 
   const showNextSlide = () => {
     if (frameRef.value.scrollLeft === lastPosition.value) {
@@ -56,12 +52,11 @@
   };
 
   onMounted(() => {
-    userAgentStore.initialize();
     measureDom();
   });
 
   onUnmounted(() => {
-    breakpointStore.removeListener(measureDom);
+    window.removeEventListener('resize', measureDom);
   });
 
   onUpdated(() => {
@@ -79,7 +74,7 @@
       class="site-carousel-frame snap"
     >
       <ul
-        :class="userAgentStore.isTouchscreen ? 'x-auto' : ''"
+        :class="props.isTouchscreen ? 'x-auto' : ''"
         ref="contentRef"
         class="flex gap-1 list-none"
       >
