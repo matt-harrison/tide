@@ -24,10 +24,10 @@ export const useBreakpointStore = defineStore('breakpointStore', {
     },
   },
   getters: {
-    isExtraSmall: (state) => (state.windowWidth ? state.windowWidth <= 767 : false),
+    isExtraSmall: (state) => (state.windowWidth ? state.windowWidth < 768 : false),
     isLarge: (state) => (state.windowWidth ? state.windowWidth >= 1232 : false),
-    isMedium: (state) => (state.windowWidth ? state.windowWidth >= 991 && state.windowWidth < 1231 : false),
-    isSmall: (state) => (state.windowWidth ? state.windowWidth >= 768 && state.windowWidth < 991 : false),
+    isMedium: (state) => (state.windowWidth ? state.windowWidth >= 992 && state.windowWidth < 1232 : false),
+    isSmall: (state) => (state.windowWidth ? state.windowWidth >= 768 && state.windowWidth < 992 : false),
   },
   state: (): State => ({
     windowWidth: undefined,

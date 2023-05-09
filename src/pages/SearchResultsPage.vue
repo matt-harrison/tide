@@ -23,12 +23,14 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import VehicleToggle from '@/components/VehicleToggle.vue';
   import { formatNumber } from '@/utilities/format';
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
   import { useSearchResultStore } from '@/stores/SearchResultStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
 
+  const breakpointStore = useBreakpointStore();
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
   const filterStore = useFilterStore();
@@ -39,6 +41,7 @@
   searchResultStore.getVehicles();
   filterStore.setPagesTotal(5);
 
+  const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(breakpointStore);
   const { isBrowseByType, makes, types } = storeToRefs(filterStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
@@ -206,13 +209,14 @@
       />
     </SiteCarousel>
 
-    <SiteContainer>
+    <SiteContainer class="mb-1">
       <BreadCrumbs
         :bread-crumbs="breadCrumbs"
         class="mb-1"
+        v-if="!breakpointStore.isExtraSmall"
       />
 
-      <header class="flex wrap axis1-between gap-1 mb-1">
+      <header class="flex wrap axis1-between gap-1">
         <div class="flex wrap axis2-center gap-1">
           <h1 class="font-24">New and used Grand Design travel trailers for sale</h1>
           <span class="font-14">123,456 results</span>
@@ -234,7 +238,12 @@
           </button>
         </div>
       </header>
+    </SiteContainer>
 
+    <div
+      :class="[isExtraSmall || isSmall ? '' : 'mx-2', isLarge ? 'mx-auto w-container' : '']"
+      class="search-results-columns"
+    >
       <section class="flex gap-2 mb-2">
         <aside class="search-results-aside shrink-none hidden m-initial pt-1 bg-white">
           <div class="mb-2">
@@ -376,7 +385,7 @@
             </AccordionItem>
           </div>
 
-          <section class="mb-2">
+          <section>
             <h2 class="mb-1 font-16">Partner center</h2>
 
             <AdPlaceholder
@@ -393,16 +402,27 @@
         </aside>
 
         <main class="search-results-main pt-1">
-          <section class="mb-2 border-b border-gray pb-2">
-            <h2 class="mb-1 font-16">Featured listings</h2>
+          <section class="mb-2">
+            <h2
+              :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+              class="mb-1 font-16"
+            >
+              Featured listings
+            </h2>
 
             <VehicleCardCarousel
               :get-is-favorite="favoriteStore.getIsFavorite"
               :handle-favorite-click="favoriteStore.toggleIsFavorite"
               :is-touchscreen="isTouchscreen"
+              :offset-x="isExtraSmall || isSmall ? 32 : undefined"
               :vehicles="featuredListingStore.vehicles"
             />
           </section>
+
+          <div
+            :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+            class="mb-2 border-b border-gray"
+          />
 
           <ul class="flex wrap gap-1 mb-2 list-none">
             <template
@@ -415,6 +435,7 @@
               ]"
             >
               <ListingCard
+                :class="isExtraSmall || isSmall ? 'mx-2' : ''"
                 :is-favorite="favoriteStore.getIsFavorite(vehicle.adId)"
                 :vehicle="vehicle"
                 @handle-favorite-click="favoriteStore.toggleIsFavorite"
@@ -425,12 +446,22 @@
                 v-if="[12, 24].includes(index + 1)"
               >
                 <AdPlaceholder
+                  class="mx-2"
                   height="90"
+                  v-if="!isExtraSmall || isSmall"
                   width="728"
+                />
+
+                <AdPlaceholder
+                  class="mx-2"
+                  height="250"
+                  v-if="isExtraSmall || isSmall"
+                  width="300"
                 />
               </li>
 
               <li
+                :class="isExtraSmall || isSmall ? 'mx-2' : ''"
                 class="flex axis1-between axis2-center gap-2 w-full no-shrink"
                 v-if="[3, 18].includes(index + 1)"
               >
@@ -467,7 +498,8 @@
           </ul>
 
           <section
-            class="flex axis1-center axis2-center gap-1 mx-auto mb-2 w-full"
+            :class="isExtraSmall || isSmall ? 'px-2' : ''"
+            class="flex axis1-center axis2-center gap-1 mb-2 w-full"
             v-if="filterStore.pagesTotal > 1"
           >
             <SiteButtonIcon
@@ -508,7 +540,10 @@
             />
           </section>
 
-          <section class="flex wrap gap-1 mb-2 font-14">
+          <section
+            :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+            class="flex wrap gap-1 mb-2 font-14"
+          >
             <router-link
               :key="searchPill.label"
               :to="searchPill.url"
@@ -526,9 +561,12 @@
             </router-link>
           </section>
 
-          <SiteDisclaimer class="mb-2" />
+          <SiteDisclaimer :class="isExtraSmall || isSmall ? 'mx-2 flex axis1-center' : ''" />
 
-          <div class="flex column axis1-center mb-2">
+          <div
+            class="flex column axis1-center mt-2"
+            v-if="isMedium || isLarge"
+          >
             <AdPlaceholder
               class="mb-1"
               height="216"
@@ -549,86 +587,87 @@
               height="216"
             />
 
-            <AdPlaceholder
-              class="mb-1"
-              height="148"
-            />
+            <AdPlaceholder height="148" />
           </div>
         </main>
       </section>
 
-      <SeoContent
-        class="mb-2"
-        heading="Top RV makes for sale"
-      >
-        <li
-          :key="topMake"
-          class="flex column gap-1/4 w-1/4 font-14"
-          v-for="topMake in topMakes"
-        >
-          <span>{{ topMake }}</span>
-          <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-        </li>
-      </SeoContent>
+      <SiteContainer class="mb-4">
+        <section v-if="isMedium || isLarge">
+          <SeoContent
+            class="mb-2"
+            heading="Top RV makes for sale"
+          >
+            <li
+              :key="topMake"
+              class="flex column gap-1/4 w-1/4 font-14"
+              v-for="topMake in topMakes"
+            >
+              <span>{{ topMake }}</span>
+              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
+            </li>
+          </SeoContent>
 
-      <SeoContent
-        class="mb-2"
-        heading="States with RVs for sale"
-      >
-        <li
-          :key="topState"
-          class="flex column gap-1/4 w-1/4 font-14"
-          v-for="topState in topStates"
-        >
-          <span>{{ topState }}</span>
-          <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-        </li>
-      </SeoContent>
+          <SeoContent
+            class="mb-2"
+            heading="States with RVs for sale"
+          >
+            <li
+              :key="topState"
+              class="flex column gap-1/4 w-1/4 font-14"
+              v-for="topState in topStates"
+            >
+              <span>{{ topState }}</span>
+              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
+            </li>
+          </SeoContent>
 
-      <SeoContent
-        class="mb-2"
-        heading="Top cities with RVs for sale"
-      >
-        <li
-          :key="topCity"
-          class="flex column gap-1/4 w-1/4 font-14"
-          v-for="topCity in topCities"
-        >
-          <span>{{ topCity }}</span>
-          <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-        </li>
-      </SeoContent>
+          <SeoContent
+            class="mb-2"
+            heading="Top cities with RVs for sale"
+          >
+            <li
+              :key="topCity"
+              class="flex column gap-1/4 w-1/4 font-14"
+              v-for="topCity in topCities"
+            >
+              <span>{{ topCity }}</span>
+              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
+            </li>
+          </SeoContent>
 
-      <SeoContent
-        class="mb-2"
-        heading="RV sleeping capacity"
-      >
-        <li
-          :key="sleepingCapacity"
-          class="flex column gap-1/4 w-1/4 font-14"
-          v-for="sleepingCapacity in sleepingCapacities"
-        >
-          <span>{{ sleepingCapacity }}</span>
-          <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-        </li>
-      </SeoContent>
+          <SeoContent
+            class="mb-2"
+            heading="RV sleeping capacity"
+          >
+            <li
+              :key="sleepingCapacity"
+              class="flex column gap-1/4 w-1/4 font-14"
+              v-for="sleepingCapacity in sleepingCapacities"
+            >
+              <span>{{ sleepingCapacity }}</span>
+              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
+            </li>
+          </SeoContent>
 
-      <SeoContent
-        class="mb-4"
-        heading="RV types"
-      >
-        <li
-          :key="rvType"
-          class="flex column gap-1/4 w-full w-1/4 font-14"
-          v-for="rvType in rvTypes"
-        >
-          <span>{{ rvType }}</span>
-          <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-        </li>
-      </SeoContent>
+          <SeoContent
+            class="mb-4"
+            heading="RV types"
+          >
+            <li
+              :key="rvType"
+              class="flex column gap-1/4 w-full w-1/4 font-14"
+              v-for="rvType in rvTypes"
+            >
+              <span>{{ rvType }}</span>
+              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
+            </li>
+          </SeoContent>
+        </section>
 
-      <SubscribeToNewsletter class="mb-4" />
-    </SiteContainer>
+        <SubscribeToNewsletter />
+      </SiteContainer>
+    </div>
   </div>
 </template>
 

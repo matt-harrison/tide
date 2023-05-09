@@ -40,6 +40,13 @@
         class="site-header-link p-1 font-700 underline-none"
         to="/"
       >
+        Value
+      </router-link>
+
+      <router-link
+        class="site-header-link p-1 font-700 underline-none"
+        to="/"
+      >
         RV Reviews
       </router-link>
 
@@ -99,7 +106,7 @@
       </div>
 
       <router-link
-        class="flex column axis2-center gap-1/4 underline-none"
+        class="flex axis2-center gap-1/4 underline-none"
         to="/style-guide"
       >
         <FontAwesomeIcon icon="user" />

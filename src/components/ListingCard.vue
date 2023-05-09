@@ -130,7 +130,7 @@
       </div>
 
       <div
-        class="absolute top-0 flex mt-1"
+        class="listing-card-label absolute top-0 flex mt-1"
         v-if="dummy.label"
       >
         <div class="flex gap-1/2 p-1/2 bg-white">
@@ -138,7 +138,7 @@
           <span class="font-12 font-600">{{ dummy.label }}</span>
         </div>
 
-        <div class="flag" />
+        <div class="listing-card-label-flag" />
       </div>
       <div class="absolute top-0 right-0 mt-1 mr-1">
         <SiteIconToggle
@@ -155,14 +155,20 @@
 </template>
 
 <style scoped>
-  .flag {
+  .listing-card-label {
+    filter: drop-shadow(var(--shadow));
+  }
+
+  .listing-card-label-flag {
     border-top: 16px solid white;
     border-right: 8px solid transparent;
     border-bottom: 16px solid transparent;
     border-left: 8px solid white;
   }
 
-  .listing-card {
-    max-width: calc(33.3333% - (2rem / 3));
+  @media (min-width: 992px) {
+    .listing-card {
+      max-width: calc(33.3333% - (2rem / 3));
+    }
   }
 </style>

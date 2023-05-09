@@ -1,10 +1,20 @@
 <script lang="ts" setup>
+  import { storeToRefs } from 'pinia';
+
   import SiteButton from '@/components/SiteButton.vue';
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
+
+  const breakpointStore = useBreakpointStore();
+
+  const { isExtraSmall, isSmall } = storeToRefs(breakpointStore);
 </script>
 
 <template>
-  <div class="flex column m-row axis1-center gap-2">
-    <h2 class="m-pt-1">Subscribe to our newsletter</h2>
+  <div
+    :class="isExtraSmall || isSmall ? 'axis2-center' : ''"
+    class="flex column m-row axis1-center gap-2"
+  >
+    <h2 :class="isExtraSmall || isSmall ? 'font-20' : 'pt-1/2'">Subscribe to our newsletter</h2>
 
     <div class="flex column gap-1/2">
       <div class="flex axis2-center gap-1">
@@ -42,10 +52,4 @@
   </div>
 </template>
 
-<style scoped>
-  @media (min-width: 992px) {
-    .m-pt-1 {
-      padding-top: 1rem;
-    }
-  }
-</style>
+<style scoped></style>
