@@ -48,7 +48,7 @@
 <template>
   <div class="home-page">
     <SiteContainer class="flex column m-row axis1-center gap-2 mt-2 mx-2 mb-4">
-      <form class="home-search-form flex column axis1-center shrink radius-1/2 p-2 bg-gray-light">
+      <form class="home-search-form flex column axis1-center shrink radius-1/2 p-2 w-full bg-gray-light">
         <h1 class="flex axis1-center axis2-center row m-column gap-1/2 mb-1 font-32 x-center">
           <span class="contents m-inline">Where you go </span>
           <span class="contents m-inline">for an RV</span>
@@ -407,10 +407,6 @@
     -webkit-box-orient: vertical;
   }
 
-  .home-search-form {
-    min-width: 350px;
-  }
-
   .home-sell-your-vehicle {
     min-height: 500px;
   }
@@ -454,6 +450,11 @@
   @media (min-width: 992px) {
     .m-inline {
       display: unset;
+    }
+
+    .home-search-form {
+      width: unset;
+      min-width: 350px;
     }
   }
 </style>
