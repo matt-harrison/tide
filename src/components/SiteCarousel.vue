@@ -123,7 +123,12 @@
   }
 
   .site-carousel-frame {
+    -ms-overflow-style: none;
     overflow-x: scroll;
     scrollbar-width: none;
+  }
+
+  .site-carousel-frame::-webkit-scrollbar {
+    display: none;
   }
 </style>
