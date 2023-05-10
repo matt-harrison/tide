@@ -11,17 +11,8 @@ const formatKebabCase = (input: string): string => {
   return input.toLowerCase().replace(/[\s_-]/g, '-');
 };
 
-const formatNumber = (input: Number) => {
-  const digits = input.toString();
-  const remainder = digits.length % 3;
-  const digitsInitial = digits.slice(0, remainder);
-  const digitsRemaining: string[] = digits.slice(remainder).match(/\d{3}/g) || [];
-
-  if (digitsInitial) {
-    digitsRemaining.unshift(digitsInitial);
-  }
-
-  return digitsRemaining.join(',');
+const formatNumber = (input: number) => {
+  return new Intl.NumberFormat().format(input);
 };
 
 const formatPascalCase = (input: string): string => {
@@ -56,7 +47,7 @@ const formatPhone = (input: number) => {
   return output;
 };
 
-const formatPrice = (price: Number): string => {
+const formatPrice = (price: number): string => {
   const number = formatNumber(price);
 
   return `$${number}`;
