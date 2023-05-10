@@ -30,22 +30,18 @@
 
     isExpanded.value = !isExpanded.value;
 
-    element.style.height = 'auto';
-    element.style.setProperty('--height-full', `${element.getBoundingClientRect().height}px`);
-    element.style.height = '';
-    element.style.animation = `${isExpanded.value ? 'expand' : 'collapse'} 300ms ease-in-out`;
-    element.style.height = isExpanded.value ? 'auto' : '0';
+    element.style.gridTemplateRows = isExpanded.value ? '1fr' : '0fr';
   };
 
   onMounted(() => {
     const element = accordionBody.value as HTMLElement;
 
-    element.style.height = isExpanded.value ? 'auto' : '0';
+    element.style.gridTemplateRows = isExpanded.value ? '1fr' : '0fr';
   });
 </script>
 
 <template>
-  <div class="border-b border-gray">
+  <div class="accordion-item border-b border-gray">
     <div
       :class="classLabel"
       @click="toggleIsExpanded"
@@ -65,41 +61,21 @@
 
     <div
       ref="accordionBody"
-      class="accordion-body y-hidden"
+      class="accordion-body grid"
     >
-      <slot />
+      <div class="y-hidden">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+  .accordion-body {
+    transition: grid-template-rows var(--animate);
+  }
+
   .chevron.up {
     rotate: 180deg;
-  }
-</style>
-
-<style>
-  :root {
-    --height-full: 0;
-  }
-
-  @keyframes collapse {
-    from {
-      height: var(--height-full);
-    }
-
-    to {
-      height: 0px;
-    }
-  }
-
-  @keyframes expand {
-    from {
-      height: 0px;
-    }
-
-    to {
-      height: var(--height-full);
-    }
   }
 </style>
