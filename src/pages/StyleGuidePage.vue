@@ -701,12 +701,15 @@
 
         <div class="mb-2">
           <h4 class="mb-1">Listing Card</h4>
-          <ListingCard
-            :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
-            :vehicle="dummyVehicles[0]"
-            @handle-favorite-click="favoriteStore.toggleIsFavorite"
-            class="font-gray-dark"
-          />
+
+          <ul class="list-none">
+            <ListingCard
+              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
+              :vehicle="dummyVehicles[0]"
+              @handle-favorite-click="favoriteStore.toggleIsFavorite"
+              class="font-gray-dark"
+            />
+          </ul>
         </div>
 
         <div class="mb-2">
