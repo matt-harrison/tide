@@ -5,7 +5,7 @@
 
   type Props = {
     alt?: string;
-    isLazyLoad?: boolean;
+    isLazy?: boolean;
     offset?: number;
     src: string | undefined;
     assumeHorizontal?: boolean;
@@ -14,7 +14,7 @@
   const props = withDefaults(defineProps<Props>(), {
     alt: '',
     assumeHorizontal: false,
-    isLazyLoad: false,
+    isLazy: false,
     offset: 0,
   });
 
@@ -69,7 +69,7 @@
   defineExpose(siteImage);
 
   onMounted(() => {
-    if (props.isLazyLoad) {
+    if (props.isLazy) {
       window.addEventListener('scroll', checkLazyLoad);
     } else {
       loadImage();
@@ -83,7 +83,7 @@
   <img
     :alt="props.alt"
     ref="siteImage"
-    :src="props.isLazyLoad && props.src ? props.src : imageDefault"
+    :src="props.isLazy && props.src ? props.src : imageDefault"
     class="site-image object-center object-cover"
   />
 </template>
