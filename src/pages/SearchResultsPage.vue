@@ -132,6 +132,16 @@
     { label: 'Forest River' },
   ];
 
+  const handleMakeToggleClick = (label: string) => {
+    filterStore.toggleMake(label);
+    setBrowseButtons();
+  };
+
+  const handleTypeToggleClick = (label: string) => {
+    filterStore.toggleType(label);
+    setBrowseButtons();
+  };
+
   const setBrowseButtons = () => {
     browseButtons.value = [
       {
@@ -141,7 +151,7 @@
         },
         count: filterCounts.type,
         isActive: isBrowseByType.value,
-        label: 'Type',
+        label: types.value.length > 0 ? `Type (${types.value.length})` : 'Type',
       },
       {
         callback: () => {
@@ -150,7 +160,7 @@
         },
         count: filterCounts.make,
         isActive: !isBrowseByType.value,
-        label: 'Make',
+        label: makes.value.length > 0 ? `Make (${makes.value.length})` : 'Make',
       },
     ];
   };
@@ -187,7 +197,7 @@
         :is-active="types.includes(vehicleType.label)"
         :key="vehicleType.label"
         :vehicle-type="vehicleType"
-        @click="filterStore.toggleType(vehicleType.label)"
+        @click="handleTypeToggleClick(vehicleType.label)"
         v-for="vehicleType in dummyVehicleMakes"
       />
     </SiteCarousel>
@@ -204,7 +214,7 @@
         :is-active="makes.includes(vehicleMake.label)"
         :key="vehicleMake.label"
         :vehicle-type="vehicleMake"
-        @click="filterStore.toggleMake(vehicleMake.label)"
+        @click="handleMakeToggleClick(vehicleMake.label)"
         v-for="vehicleMake in dummyVehicleTypes"
       />
     </SiteCarousel>

@@ -19,7 +19,7 @@
       :class="button.isActive ? 'bg-white' : 'border-gray-light bg-gray-light'"
       :key="button.label"
       @click="button.callback"
-      class="switch-button border-1 border-gray radius-1/4 py-1/2 px-2 font-14 font-600"
+      class="switch-button border-1 border-gray radius-1/4 py-1/2 px-2 font-14 font-600 whitespace-nowrap"
       v-for="button in props.buttons"
     >
       <span>{{ button.label }} </span>
