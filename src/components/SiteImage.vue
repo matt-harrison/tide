@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { onMounted, ref, withDefaults } from 'vue';
+  import { onMounted, onBeforeUnmount, ref, withDefaults } from 'vue';
 
   import { cdnDomain } from '@/config/rv.config';
 
@@ -8,45 +8,17 @@
     isLazy?: boolean;
     offset?: number;
     src: string | undefined;
-    assumeHorizontal?: boolean;
   };
 
   const props = withDefaults(defineProps<Props>(), {
     alt: '',
-    assumeHorizontal: false,
-    isLazy: false,
+    isLazy: true,
     offset: 0,
   });
 
   const siteImage = ref();
 
   const imageDefault = `https://${cdnDomain}/image-coming-soon-512.png`;
-
-  const getIsInViewport = () => {
-    let isInViewport = false;
-    const rect = siteImage.value?.getBoundingClientRect();
-
-    if (rect) {
-      isInViewport = props.assumeHorizontal
-        ? rect.top + props.offset >= 0 - rect.height &&
-          rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height
-        : rect.top + props.offset >= 0 - rect.height &&
-          rect.left + props.offset >= 0 - rect.width &&
-          rect.bottom - props.offset <= (window.innerHeight || document.documentElement.clientHeight) + rect.height &&
-          rect.right - props.offset <= (window.innerWidth || document.documentElement.clientWidth) + rect.width;
-    }
-
-    return isInViewport;
-  };
-
-  const checkLazyLoad = () => {
-    const isInViewport = getIsInViewport();
-
-    if (isInViewport) {
-      window.removeEventListener('scroll', checkLazyLoad);
-      loadImage();
-    }
-  };
 
   const loadImage = () => {
     if (props.src) {
@@ -68,14 +40,30 @@
 
   defineExpose(siteImage);
 
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(
+      (entry) => {
+        if (entry.isIntersecting) {
+          loadImage();
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: `${props.offset}px`,
+      }
+    );
+  });
+
   onMounted(() => {
     if (props.isLazy) {
-      window.addEventListener('scroll', checkLazyLoad);
+      observer.observe(siteImage.value);
     } else {
       loadImage();
     }
+  });
 
-    checkLazyLoad();
+  onBeforeUnmount(() => {
+    observer.unobserve(siteImage.value);
   });
 </script>
 
