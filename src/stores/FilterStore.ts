@@ -1,6 +1,13 @@
 import { defineStore } from 'pinia';
 
+type Filter = {
+  callback: () => void;
+  label: string;
+  type: string;
+};
+
 type State = {
+  filters: Filter[];
   isBrowseByType: boolean;
   isFilterByFloorplans: boolean;
   makes: string[];
@@ -11,6 +18,31 @@ type State = {
 
 export const useFilterStore = defineStore('filterStore', {
   actions: {
+    setFilters() {
+      const filters: Filter[] = [];
+
+      this.makes.forEach((make) => {
+        filters.push({
+          callback: () => {
+            this.toggleMake(make);
+          },
+          label: make,
+          type: 'make',
+        });
+      });
+
+      this.types.forEach((type) => {
+        filters.push({
+          callback: () => {
+            this.toggleType(type);
+          },
+          label: type,
+          type: 'type',
+        });
+      });
+
+      this.filters = filters;
+    },
     setIsBrowseByType(isBrowseByType: boolean) {
       this.isBrowseByType = isBrowseByType;
     },
@@ -39,6 +71,8 @@ export const useFilterStore = defineStore('filterStore', {
       } else {
         this.makes.push(make);
       }
+
+      this.setFilters();
     },
     toggleType(type: string) {
       if (this.types.includes(type)) {
@@ -46,9 +80,12 @@ export const useFilterStore = defineStore('filterStore', {
       } else {
         this.types.push(type);
       }
+
+      this.setFilters();
     },
   },
   state: (): State => ({
+    filters: [],
     isBrowseByType: true,
     isFilterByFloorplans: false,
     makes: [],

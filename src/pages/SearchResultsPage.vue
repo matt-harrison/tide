@@ -42,7 +42,7 @@
   filterStore.setPagesTotal(5);
 
   const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(breakpointStore);
-  const { isBrowseByType, makes, types } = storeToRefs(filterStore);
+  const { filters, isBrowseByType, makes, types } = storeToRefs(filterStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
   const breadCrumbs: BreadCrumb[] = [
@@ -131,6 +131,14 @@
     { label: 'Fleetwood' },
     { label: 'Forest River' },
   ];
+
+  const handleClearAllClick = () => {
+    filters.value.forEach((filter) => {
+      filter.callback();
+    });
+
+    setBrowseButtons();
+  };
 
   const handleMakeToggleClick = (label: string) => {
     filterStore.toggleMake(label);
@@ -412,6 +420,36 @@
         </aside>
 
         <main class="search-results-main pt-1">
+          <ul
+            class="flex wrap axis2-center gap-1/2 mb-2 list-none"
+            v-if="filters.length > 0"
+          >
+            <li
+              :key="filter.label"
+              v-for="filter in filters"
+            >
+              <SiteButton
+                @click="filter.callback"
+                class="radius-full px-1 py-1/2 font-500"
+                icon-trailing="times"
+                is-secondary
+                is-solid
+              >
+                {{ filter.label }}
+              </SiteButton>
+            </li>
+
+            <li>
+              <SiteButton
+                @click="handleClearAllClick"
+                class="font-700 underline"
+                is-restyled
+              >
+                Clear All
+              </SiteButton>
+            </li>
+          </ul>
+
           <section class="mb-2">
             <h2
               :class="isExtraSmall || isSmall ? 'mx-2' : ''"
