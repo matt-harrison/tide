@@ -18,6 +18,7 @@
   import SiteCarousel from '@/components/SiteCarousel.vue';
   import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
+  import SiteIconToggle from '@/components/SiteIconToggle.vue';
   import SiteSwitchButtons from '@/components/SiteSwitchButtons.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
@@ -75,6 +76,7 @@
   };
 
   let browseButtons = ref();
+  let isSavedSearch = ref();
 
   const floorplanResults = 98430;
 
@@ -137,6 +139,7 @@
   const handleFilterChipClick = (callback: () => void) => {
     callback();
     setBrowseButtons();
+    setIsSavedSearch();
   };
 
   const handleClearAllClick = () => {
@@ -145,16 +148,19 @@
     });
 
     setBrowseButtons();
+    setIsSavedSearch();
   };
 
   const handleMakeToggleClick = (label: string) => {
     filterStore.toggleMake(label);
     setBrowseButtons();
+    setIsSavedSearch();
   };
 
   const handleTypeToggleClick = (label: string) => {
     filterStore.toggleType(label);
     setBrowseButtons();
+    setIsSavedSearch();
   };
 
   const setBrowseButtons = () => {
@@ -178,6 +184,22 @@
         label: makes.value.length > 0 ? `Make (${makes.value.length})` : 'Make',
       },
     ];
+  };
+
+  const setIsSavedSearch = () => {
+    isSavedSearch.value = filters?.value ? filterStore.getIsSavedSearch(filters.value) : false;
+  };
+
+  const toggleIsSavedSearch = () => {
+    const isSavedSearch = filterStore.getIsSavedSearch(filters.value);
+
+    if (isSavedSearch) {
+      filterStore.removeSavedSearch(filters.value);
+    } else {
+      filterStore.addSavedSearch(filters.value);
+    }
+
+    setIsSavedSearch();
   };
 
   onMounted(() => {
@@ -249,7 +271,15 @@
 
         <div class="flex wrap axis2-center gap-1">
           <button class="flex axis2-center gap-1/4">
-            <FontAwesomeIcon icon="fa-heart" />
+            <SiteIconToggle
+              :is-active="isSavedSearch"
+              :is-solid="isSavedSearch"
+              @click="toggleIsSavedSearch"
+              class-button="icon-button"
+              icon="heart"
+              is-restyled
+              is-secondary
+            />
             <span>Save search</span>
           </button>
 
@@ -741,6 +771,10 @@
 </style>
 
 <style>
+  .icon-button {
+    width: 24px;
+  }
+
   .pagination-button {
     width: 32px;
   }

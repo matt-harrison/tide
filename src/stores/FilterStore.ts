@@ -13,11 +13,42 @@ type State = {
   makes: string[];
   pageCurrent: number;
   pagesTotal: number;
+  savedSearches: string[];
   types: string[];
+};
+
+const formatSavedSearch = (filters: Filter[]) => {
+  const filtersFormatted = filters.map((filter) => `${filter.type}:${filter.label}`);
+
+  filtersFormatted.sort();
+
+  return filtersFormatted.join('|');
 };
 
 export const useFilterStore = defineStore('filterStore', {
   actions: {
+    addSavedSearch(filters: Filter[]) {
+      const search = formatSavedSearch(filters);
+
+      this.savedSearches.push(search);
+    },
+    getIsSavedSearch(filters: Filter[]) {
+      const search = formatSavedSearch(filters);
+      let isSavedSearch = false;
+
+      this.savedSearches.forEach((savedSearch) => {
+        if (search === savedSearch) {
+          isSavedSearch = true;
+        }
+      });
+
+      return isSavedSearch;
+    },
+    removeSavedSearch(filters: Filter[]) {
+      const search = formatSavedSearch(filters);
+
+      this.savedSearches = this.savedSearches.filter((savedSearch) => search !== savedSearch);
+    },
     setFilters() {
       const filters: Filter[] = [];
 
@@ -91,6 +122,7 @@ export const useFilterStore = defineStore('filterStore', {
     makes: [],
     pageCurrent: 1,
     pagesTotal: 0,
+    savedSearches: [],
     types: [],
   }),
 });
