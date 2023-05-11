@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue';
+  import { computed, onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -41,9 +41,11 @@
   searchResultStore.getVehicles();
   filterStore.setPagesTotal(5);
 
-  const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(breakpointStore);
+  const { isExtraSmall, isSmall, isLarge } = storeToRefs(breakpointStore);
   const { filters, isBrowseByType, makes, types } = storeToRefs(filterStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
+
+  const isSingleColumn = computed(() => isExtraSmall.value || isSmall.value);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -236,7 +238,7 @@
       <BreadCrumbs
         :bread-crumbs="breadCrumbs"
         class="mb-1"
-        v-if="!breakpointStore.isExtraSmall"
+        v-if="!isSingleColumn"
       />
 
       <header class="flex wrap axis1-between gap-1">
@@ -264,7 +266,7 @@
     </SiteContainer>
 
     <div
-      :class="[isExtraSmall || isSmall ? '' : 'mx-2', isLarge ? 'mx-auto w-container' : '']"
+      :class="[isSingleColumn ? '' : 'mx-2', isLarge ? 'mx-auto w-container' : '']"
       class="search-results-columns"
     >
       <section class="flex gap-2 mb-2">
@@ -457,7 +459,7 @@
 
           <section class="mb-2">
             <h2
-              :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+              :class="isSingleColumn ? 'mx-2' : ''"
               class="mb-1 font-16"
             >
               Featured listings
@@ -467,13 +469,13 @@
               :get-is-favorite="favoriteStore.getIsFavorite"
               :handle-favorite-click="favoriteStore.toggleIsFavorite"
               :is-touchscreen="isTouchscreen"
-              :offset-x="isExtraSmall || isSmall ? 32 : undefined"
+              :offset-x="isSingleColumn ? 32 : undefined"
               :vehicles="featuredListingStore.vehicles"
             />
           </section>
 
           <div
-            :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+            :class="isSingleColumn ? 'mx-2' : ''"
             class="mb-2 border-b border-gray"
           />
 
@@ -488,7 +490,7 @@
               ]"
             >
               <ListingCard
-                :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+                :class="isSingleColumn ? 'mx-2' : ''"
                 :is-favorite="favoriteStore.getIsFavorite(vehicle.adId)"
                 :vehicle="vehicle"
                 @handle-favorite-click="favoriteStore.toggleIsFavorite"
@@ -501,20 +503,20 @@
                 <AdPlaceholder
                   class="mx-2"
                   height="90"
-                  v-if="!isExtraSmall || isSmall"
+                  v-if="!isSingleColumn"
                   width="728"
                 />
 
                 <AdPlaceholder
                   class="mx-2"
                   height="250"
-                  v-if="isExtraSmall || isSmall"
+                  v-if="isSingleColumn"
                   width="300"
                 />
               </li>
 
               <li
-                :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+                :class="isSingleColumn ? 'mx-2' : ''"
                 class="flex axis1-between axis2-center gap-2 w-full no-shrink"
                 v-if="[3, 18].includes(index + 1)"
               >
@@ -551,7 +553,7 @@
           </ul>
 
           <section
-            :class="isExtraSmall || isSmall ? 'px-2' : ''"
+            :class="isSingleColumn ? 'px-2' : ''"
             class="flex axis1-center axis2-center gap-1 mb-2 w-full"
             v-if="filterStore.pagesTotal > 1"
           >
@@ -594,7 +596,7 @@
           </section>
 
           <section
-            :class="isExtraSmall || isSmall ? 'mx-2' : ''"
+            :class="isSingleColumn ? 'mx-2' : ''"
             class="flex wrap gap-1 mb-2 font-14"
           >
             <router-link
@@ -614,11 +616,11 @@
             </router-link>
           </section>
 
-          <SiteDisclaimer :class="isExtraSmall || isSmall ? 'mx-2 flex axis1-center' : ''" />
+          <SiteDisclaimer :class="isSingleColumn ? 'mx-2 flex axis1-center' : ''" />
 
           <div
             class="flex column axis1-center mt-2"
-            v-if="isMedium || isLarge"
+            v-if="!isSingleColumn"
           >
             <AdPlaceholder
               class="mb-1"
@@ -646,7 +648,7 @@
       </section>
 
       <SiteContainer class="mb-4">
-        <section v-if="isMedium || isLarge">
+        <section v-if="!isSingleColumn">
           <SeoContent
             class="mb-2"
             heading="Top RV makes for sale"
