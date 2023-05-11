@@ -1,13 +1,10 @@
 // import axios from 'axios';
 import { defineStore } from 'pinia';
 
-import type { Raw } from '@/types/Raw';
 import type { Vehicle } from '@/types/Vehicle';
 
-import { mapResults } from '@/utilities/map';
-
 // Dummy API response to circumvent local/prod cross origin violation.
-import dummyResponse from '@/data/dummy-search-results.json';
+import { dummyVehicles } from '@/data/dummy-vehicles';
 
 type State = {
   featuredListings: Vehicle[];
@@ -19,11 +16,7 @@ type State = {
 export const useHomeStore = defineStore('homeStore', {
   actions: {
     getVehicles() {
-      const results: unknown = dummyResponse.results;
-      const vehiclesRaw: Raw[] = results as Raw[];
-      const vehicles: Vehicle[] = mapResults(vehiclesRaw);
-
-      this.setVehicles(vehicles);
+      this.setVehicles(dummyVehicles);
     },
     setVehicles(vehicles: Vehicle[]) {
       this.featuredListings = vehicles;

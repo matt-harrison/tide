@@ -5,7 +5,7 @@
   import VehicleCard from '@/components/VehicleCard.vue';
 
   type Props = {
-    getIsFavorite: boolean;
+    getIsFavorite: (adId: number) => boolean;
     handleFavoriteClick: (adId: number) => void;
     isTouchscreen: boolean | undefined;
     offsetX?: number;

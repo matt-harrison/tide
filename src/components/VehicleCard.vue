@@ -17,7 +17,7 @@
   const props = defineProps<Props>();
 
   const thumbnail: string | undefined =
-    props.vehicle.photoIds.length > 0
+    props.vehicle.photoIds?.length > 0
       ? `https://${cdnDomain}/${cdnVersion}/media/${props.vehicle.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
       : undefined;
 

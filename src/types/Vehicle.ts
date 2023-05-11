@@ -25,7 +25,7 @@ export type Vehicle = {
   classId: string;
   className: string;
   companyName: string;
-  condition: string[];
+  condition: string;
   createDate: string;
   createDateFormatted: string;
   customerId: string;
@@ -125,7 +125,7 @@ export type Vehicle = {
   msrp: null;
   phone: string;
   photoCount: number;
-  photoIds: String[];
+  photoIds: string[];
   price: number;
   rebate: null;
   schemeCode: string;
