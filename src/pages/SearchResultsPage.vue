@@ -132,6 +132,11 @@
     { label: 'Forest River' },
   ];
 
+  const handleFilterChipClick = (callback: () => void) => {
+    callback();
+    setBrowseButtons();
+  };
+
   const handleClearAllClick = () => {
     filters.value.forEach((filter) => {
       filter.callback();
@@ -429,7 +434,7 @@
               v-for="filter in filters"
             >
               <SiteButton
-                @click="filter.callback"
+                @click="handleFilterChipClick(filter.callback)"
                 class="radius-full px-1 py-1/2 font-500"
                 icon-trailing="times"
                 is-secondary
