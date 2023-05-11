@@ -39,8 +39,8 @@
   const userAgentStore = useUserAgentStore();
 
   featuredListingStore.getVehicles();
-  searchResultStore.getVehicles();
   filterStore.setPagesTotal(5);
+  searchResultStore.getVehicles();
 
   const { isExtraSmall, isSmall, isLarge } = storeToRefs(breakpointStore);
   const { filters, isBrowseByType, makes, types } = storeToRefs(filterStore);
@@ -78,7 +78,12 @@
   let browseButtons = ref();
   let isSavedSearch = ref();
 
-  const floorplanResults = 98430;
+  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
+  const dummy = {
+    floorplanResults: 98430,
+    headline: 'New and used Grand Design travel trailers for sale',
+    resultCount: 123456,
+  };
 
   const paginationButtons = new Array(filterStore.pagesTotal).fill('').map((empty, index) => index + 1);
 
@@ -214,93 +219,143 @@
       height="150"
     />
 
-    <SiteContainer class="mb-2">
-      <section class="flex axis2-center gap-1 mb-2">
-        <span class="font-20 font-700">Browse</span>
+    <div
+      :class="isSingleColumn ? 'column' : 'column-reverse'"
+      class="flex gap-2 mb-2"
+    >
+      <SiteContainer :class="isLarge ? 'w-full' : ''">
+        <BreadCrumbs
+          :bread-crumbs="breadCrumbs"
+          class="mb-1"
+          v-if="!isSingleColumn"
+        />
 
-        <SiteSwitchButtons :buttons="browseButtons" />
+        <header class="flex wrap axis1-between gap-1">
+          <div class="flex wrap axis2-center gap-1">
+            <h1 class="font-24">{{ dummy.headline }}</h1>
+            <span class="font-14">{{ formatNumber(dummy.resultCount) }} results</span>
+          </div>
+
+          <div
+            :class="isSingleColumn ? 'axis1-between w-full' : ''"
+            class="flex wrap axis2-center gap-1"
+          >
+            <div class="relative">
+              <SiteButton
+                class="border-2 border-dark-gray radius-1/4 py-1/2 px-1"
+                is-primary
+                is-restyled
+                v-if="isSingleColumn"
+              >
+                Filters
+              </SiteButton>
+
+              <div
+                class="search-results-filter-count absolute top-0 right-0 flex axis1-center axis2-center radius-full bg-gray-light font-14 font-700 ratio-1/1"
+                v-if="filters.length > 0"
+              >
+                {{ filters.length }}
+              </div>
+            </div>
+
+            <div class="flex gap-1">
+              <button class="flex axis2-center gap-1/4">
+                <SiteIconToggle
+                  :class="isSingleColumn ? 'border-2 border-dark-gray p-1/2' : 'p-1/4'"
+                  :is-active="isSavedSearch"
+                  :is-solid="isSavedSearch"
+                  @click="toggleIsSavedSearch"
+                  class-button="icon-button"
+                  icon="heart"
+                  is-restyled
+                  is-secondary
+                />
+                <span v-if="!isSingleColumn">Save search</span>
+              </button>
+
+              <SiteButton
+                :class="isSingleColumn ? 'border-2 border-dark-gray radius-1/4 py-1/2 px-1' : ''"
+                :is-secondary="isSingleColumn"
+                class="flex axis2-center gap-1/4 p-1/4"
+                is-restyled
+              >
+                <FontAwesomeIcon
+                  class="rotate-90"
+                  icon="fa-solid fa-arrow-right-arrow-left"
+                />
+                <span>Sort by{{ !isSingleColumn ? ':' : '' }}</span>
+                <span
+                  class="flex gap-1/4"
+                  v-if="!isSingleColumn"
+                >
+                  <span>Premium</span>
+                  <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
+                </span>
+              </SiteButton>
+            </div>
+          </div>
+        </header>
+      </SiteContainer>
+
+      <section>
+        <SiteContainer class="mb-2">
+          <section class="flex axis2-center gap-1">
+            <span
+              class="font-20 font-700"
+              v-if="!isSingleColumn"
+            >
+              Browse
+            </span>
+
+            <SiteSwitchButtons
+              :buttons="browseButtons"
+              :class="isSingleColumn ? 'w-full' : ''"
+            />
+          </section>
+        </SiteContainer>
+
+        <SiteCarousel
+          :card-width="125"
+          :gap="16"
+          :is-touchscreen="isTouchscreen"
+          :offset-x="32"
+          class="axis1-center"
+          v-if="isBrowseByType"
+        >
+          <VehicleToggle
+            :is-active="types.includes(vehicleType.label)"
+            :key="vehicleType.label"
+            :vehicle-type="vehicleType"
+            @click="handleTypeToggleClick(vehicleType.label)"
+            v-for="vehicleType in dummyVehicleMakes"
+          />
+        </SiteCarousel>
+
+        <SiteCarousel
+          :card-width="125"
+          :gap="16"
+          :is-touchscreen="isTouchscreen"
+          :offset-x="32"
+          class="axis1-center"
+          v-if="!isBrowseByType"
+        >
+          <VehicleToggle
+            :is-active="makes.includes(vehicleMake.label)"
+            :key="vehicleMake.label"
+            :vehicle-type="vehicleMake"
+            @click="handleMakeToggleClick(vehicleMake.label)"
+            v-for="vehicleMake in dummyVehicleTypes"
+          />
+        </SiteCarousel>
       </section>
-    </SiteContainer>
-
-    <SiteCarousel
-      :card-width="125"
-      :gap="16"
-      :is-touchscreen="isTouchscreen"
-      :offset-x="32"
-      class="axis1-center mb-2"
-      v-if="isBrowseByType"
-    >
-      <VehicleToggle
-        :is-active="types.includes(vehicleType.label)"
-        :key="vehicleType.label"
-        :vehicle-type="vehicleType"
-        @click="handleTypeToggleClick(vehicleType.label)"
-        v-for="vehicleType in dummyVehicleMakes"
-      />
-    </SiteCarousel>
-
-    <SiteCarousel
-      :card-width="125"
-      :gap="16"
-      :is-touchscreen="isTouchscreen"
-      :offset-x="32"
-      class="axis1-center mb-2"
-      v-if="!isBrowseByType"
-    >
-      <VehicleToggle
-        :is-active="makes.includes(vehicleMake.label)"
-        :key="vehicleMake.label"
-        :vehicle-type="vehicleMake"
-        @click="handleMakeToggleClick(vehicleMake.label)"
-        v-for="vehicleMake in dummyVehicleTypes"
-      />
-    </SiteCarousel>
-
-    <SiteContainer class="mb-1">
-      <BreadCrumbs
-        :bread-crumbs="breadCrumbs"
-        class="mb-1"
-        v-if="!isSingleColumn"
-      />
-
-      <header class="flex wrap axis1-between gap-1">
-        <div class="flex wrap axis2-center gap-1">
-          <h1 class="font-24">New and used Grand Design travel trailers for sale</h1>
-          <span class="font-14">123,456 results</span>
-        </div>
-
-        <div class="flex wrap axis2-center gap-1">
-          <button class="flex axis2-center gap-1/4">
-            <SiteIconToggle
-              :is-active="isSavedSearch"
-              :is-solid="isSavedSearch"
-              @click="toggleIsSavedSearch"
-              class-button="icon-button"
-              icon="heart"
-              is-restyled
-              is-secondary
-            />
-            <span>Save search</span>
-          </button>
-
-          <button class="flex axis2-center gap-1/4">
-            <FontAwesomeIcon
-              class="rotate-90"
-              icon="fa-solid fa-arrow-right-arrow-left"
-            />
-            <span>Sort by: Premium</span>
-            <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
-          </button>
-        </div>
-      </header>
-    </SiteContainer>
+    </div>
 
     <div
       :class="[isSingleColumn ? '' : 'mx-2', isLarge ? 'mx-auto w-container' : '']"
       class="search-results-columns"
     >
       <section class="flex gap-2 mb-2">
-        <aside class="search-results-aside shrink-none hidden m-initial pt-1 bg-white">
+        <aside class="search-results-aside shrink-none hidden m-initial bg-white">
           <div class="mb-2">
             <AccordionItem
               :label="`Location ${filterCounts.location ? '(' + filterCounts.location + ')' : ''}`"
@@ -339,7 +394,7 @@
                 <div class="flex axis1-between axis2-center gap-1">
                   <span>
                     <span class="font-14">Only show listings with a floor plan image </span>
-                    <span v-if="floorplanResults">({{ formatNumber(floorplanResults) }})</span>
+                    <span v-if="dummy.floorplanResults">({{ formatNumber(dummy.floorplanResults) }})</span>
                   </span>
 
                   <SiteButtonToggle
@@ -456,10 +511,11 @@
           </section>
         </aside>
 
-        <main class="search-results-main pt-1">
+        <main class="search-results-main">
           <ul
+            :class="isSingleColumn ? 'mx-2' : ''"
             class="flex wrap axis2-center gap-1/2 mb-2 list-none"
-            v-if="filters.length > 0"
+            v-if="!isSingleColumn && filters.length > 0"
           >
             <li
               :key="filter.label"
@@ -765,16 +821,18 @@
     width: 350px;
   }
 
+  .search-results-filter-count {
+    margin-top: -0.5rem;
+    margin-right: -0.5rem;
+    height: 1.25rem;
+  }
+
   .search-results-main {
     min-width: calc(100% - 350px - 4rem);
   }
 </style>
 
 <style>
-  .icon-button {
-    width: 24px;
-  }
-
   .pagination-button {
     width: 32px;
   }

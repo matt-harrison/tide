@@ -20,8 +20,10 @@
 .hidden       {display: none;}
 
 /* Flex Box */
-.column {flex-direction: column;}
-.row    {flex-direction: row;}
+.column         {flex-direction: column;}
+.column-reverse {flex-direction: column-reverse;}
+.row            {flex-direction: row;}
+.row-reverse    {flex-direction: row-reverse;}
 
 .grow      {flex-grow: 1;}
 .grow-none {flex-grow: 0;}
