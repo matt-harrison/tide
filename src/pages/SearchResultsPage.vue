@@ -355,7 +355,10 @@
       class="search-results-columns"
     >
       <section class="flex gap-2 mb-2">
-        <aside class="search-results-aside shrink-none hidden m-initial bg-white">
+        <aside
+          :class="isSingleColumn ? '' : 'initial'"
+          class="search-results-aside shrink-none hidden bg-white"
+        >
           <div class="mb-2">
             <AccordionItem
               :label="`Location ${filterCounts.location ? '(' + filterCounts.location + ')' : ''}`"

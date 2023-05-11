@@ -7,6 +7,11 @@
       required: false,
       type: String,
     },
+    classButton: {
+      default: '',
+      required: false,
+      type: String,
+    },
     iconLeading: {
       default: undefined,
       required: false,
@@ -41,7 +46,10 @@
 </script>
 
 <template>
-  <button class="site-button">
+  <button
+    :class="classButton"
+    class="site-button"
+  >
     <SiteButtonStyles
       :class="props.class"
       :icon-leading="props.iconLeading"

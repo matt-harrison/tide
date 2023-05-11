@@ -17,6 +17,7 @@
   import SiteCarousel from '@/components/SiteCarousel.vue';
   import VehicleCard from '@/components/VehicleCard.vue';
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
   import { useDarkModeStore } from '@/stores/DarkModeStore';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
@@ -30,10 +31,12 @@
     realm: string[];
   };
 
+  const breakpointStore = useBreakpointStore();
   const darkModeStore = useDarkModeStore();
   const favoriteStore = useFavoriteStore();
   const userAgentStore = useUserAgentStore();
 
+  const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(breakpointStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
   const breadCrumbs: BreadCrumb[] = [
@@ -70,6 +73,7 @@
     'chevron-right',
     'chevron-up',
     'circle-check',
+    'comments',
     'cube',
     'envelope',
     'eye',
@@ -179,8 +183,14 @@
     </header>
 
     <section
-      :class="[darkModeStore.isDarkMode ? ' l-bg-gray-dark' : ' l-bg-white']"
-      class="mb-1 py-1 px-2 bg-blue-dark s-bg-blue m-bg-blue-light"
+      :class="[
+        darkModeStore.isDarkMode ? ' l-bg-gray-dark' : ' l-bg-white',
+        isExtraSmall ? 'bg-blue-dark' : '',
+        isSmall ? 'bg-blue' : '',
+        isMedium ? 'bg-blue-light' : '',
+        isLarge ? 'bg-white' : '',
+      ]"
+      class="mb-1 py-1 px-2"
     >
       <h2 class="mb-1 font-28">Breakpoints</h2>
 
@@ -827,28 +837,6 @@
   .radius-demo {
     width: 50px;
     height: 50px;
-  }
-
-  @media (min-width: 768px) {
-    .s-bg-blue {
-      background-color: var(--blue);
-    }
-  }
-
-  @media (min-width: 992px) {
-    .m-bg-blue-light {
-      background-color: var(--blue-light);
-    }
-  }
-
-  @media (min-width: 1232px) {
-    .l-bg-gray-dark {
-      background-color: var(--gray-dark);
-    }
-
-    .l-bg-white {
-      background-color: var(--white);
-    }
   }
 </style>
 

@@ -14,10 +14,11 @@
 .contents     {display: contents;}
 .flex         {display: flex;}
 .grid         {display: grid;}
+.hidden       {display: none;}
 .inline       {display: inline;}
 .inline-block {display: inline-block;}
 .inline-flex  {display: inline-flex;}
-.hidden       {display: none;}
+.initial      {display: initial;}
 
 /* Flex Box */
 .column         {flex-direction: column;}
@@ -307,32 +308,3 @@
 .x-hidden  {overflow-x: hidden;}
 .y-hidden  {overflow-y: hidden;}
 .xy-hidden {overflow: hidden;}
-
-/* Responsive Design */
-/* Small and Above */
-@media (min-width: 768px) {
-  .s-initial {display: initial;}
-
-  .s-column {flex-direction: column;}
-  .s-row    {flex-direction: row;}
-}
-
-/* Medium and Above */
-@media (min-width: 992px) {
-  .m-initial {display: initial;}
-
-  .m-column {flex-direction: column;}
-  .m-row    {flex-direction: row;}
-
-  .m-mx-auto {margin-right: auto; margin-left: auto;}
-}
-
-/* Large and Above */
-@media (min-width: 1232px) {
-  .l-initial {display: initial;}
-
-  .l-column {flex-direction: column;}
-  .l-row    {flex-direction: row;}
-
-  .l-mx-auto {margin-right: auto; margin-left: auto;}
-}

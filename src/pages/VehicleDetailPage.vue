@@ -21,21 +21,27 @@
   import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
   import { cdnDomain, cdnVersion } from '@/config/rv.config';
   import { formatPrice, formatTitleCase } from '@/utilities/format';
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
+  const breakpointStore = useBreakpointStore();
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
   const userAgentStore = useUserAgentStore();
   const vehicleDetailStore = useVehicleDetailStore();
+
+  const { isExtraSmall, isSmall, isLarge } = storeToRefs(breakpointStore);
 
   featuredListingStore.getVehicles();
   vehicleDetailStore.getVehicle();
 
   const { isTouchscreen } = storeToRefs(userAgentStore);
   const { vehicle } = storeToRefs(vehicleDetailStore);
+
+  const isSingleColumn = computed(() => isExtraSmall.value || isSmall.value);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -170,9 +176,12 @@
 </script>
 
 <template>
-  <div class="vehicle-detail-page mt-4">
-    <SiteContainer>
-      <section class="flex axis1-center mb-2 border-b border-gray-light pb-1">
+  <div class="vehicle-detail-page mt-2">
+    <div>
+      <section
+        class="flex axis1-center mx-2 mb-2 border-b border-gray-light pb-2"
+        v-if="!isSingleColumn"
+      >
         <AdPlaceholder
           height="90"
           width="728"
@@ -181,12 +190,57 @@
 
       <BreadCrumbs
         :bread-crumbs="breadCrumbs"
-        class="mb-2"
+        class="mx-2 mb-2"
+        v-if="!isSingleColumn"
       />
 
-      <section class="flex column m-row gap-2 mb-4">
-        <main class="vehicle-detail-main w-full">
-          <section class="flex axis1-between axis2-end mb-1">
+      <section
+        :class="[isSingleColumn ? 'column' : 'row mx-2', isLarge ? 'mx-auto w-container' : '']"
+        class="vehicle-detail-columns flex gap-2 mb-2"
+      >
+        <main
+          :class="isSingleColumn ? 'contents' : 'flex column gap-2'"
+          class="vehicle-detail-main w-full"
+        >
+          <section
+            :class="isSingleColumn ? 'column order-1 mx-2' : 'row-reverse axis2-end mb-1'"
+            class="flex axis1-between gap-2"
+          >
+            <div class="flex axis1-between gap-1">
+              <router-link
+                to="/rvs-for-sale"
+                v-if="isSingleColumn"
+              >
+                <SiteButtonIcon
+                  class-button="icon-button border-2 border-gray-dark"
+                  icon="chevron-left"
+                  is-restyled
+                  is-secondary
+                  is-solid
+                />
+              </router-link>
+
+              <div class="flex gap-1">
+                <SiteButtonIcon
+                  class-button="icon-button border-2 border-gray-dark"
+                  icon="arrow-up-from-bracket"
+                  is-restyled
+                  is-secondary
+                  is-solid
+                />
+
+                <SiteIconToggle
+                  :is-active="isFavorite"
+                  :is-solid="isFavorite"
+                  @click.prevent="toggleIsFavorite"
+                  class-button="icon-button border-2 border-gray-dark"
+                  icon="heart"
+                  is-restyled
+                  is-secondary
+                />
+              </div>
+            </div>
+
             <header>
               <h1 class="mb-1 font-24">{{ vehicle?.year }} {{ vehicle?.makeName[0] }} {{ vehicle?.modelName[0] }}</h1>
 
@@ -210,32 +264,12 @@
                 <span>Stock #: {{ dummy.stockNumber }}</span>
               </div>
             </header>
-
-            <div class="flex gap-1">
-              <SiteButtonIcon
-                class-button="icon-button border-2 border-gray-dark"
-                icon="arrow-up-from-bracket"
-                is-restyled
-                is-secondary
-                is-solid
-              />
-
-              <SiteIconToggle
-                :is-active="isFavorite"
-                :is-solid="isFavorite"
-                @click.prevent="toggleIsFavorite"
-                class-button="icon-button border-2 border-gray-dark"
-                icon="heart"
-                is-restyled
-                is-secondary
-              />
-            </div>
           </section>
 
-          <section class="mb-2">
+          <section :class="isSingleColumn ? 'order-1' : ''">
             <div class="radius-1/2 xy-hidden">
               <div class="relative">
-                <div class="flex axis1-center axis2-center mb-1">
+                <div class="flex axis1-center axis2-center">
                   <SiteImage
                     :src="thumbnail"
                     class="w-full ratio-3/2"
@@ -247,7 +281,10 @@
                 </span>
               </div>
 
-              <ul class="flex gap-1 list-none">
+              <ul
+                class="flex gap-1 mt-1 list-none"
+                v-if="!isSingleColumn"
+              >
                 <li class="relative w-1/4 ratio-3/2">
                   <SiteImage
                     :src="thumbnail"
@@ -311,26 +348,83 @@
             </div>
           </section>
 
-          <section class="flex axis1-between axis2-start mb-2 border-b border-gray pb-2">
-            <div class="flex column gap-1/2">
-              <div class="mb-1/2 font-20 font-700">{{ vehicle ? formatPrice(vehicle?.price) : '' }}</div>
+          <section
+            class="flex gap-1/2 mx-2 order-1"
+            v-if="isSingleColumn"
+          >
+            <SiteButton
+              class="flex column"
+              class-button="vehicle-detail-text-cta"
+              icon-leading="message"
+              is-secondary
+              is-solid
+            >
+              <span class="font-12 font-600">text</span>
+            </SiteButton>
 
-              <div class="flex axis1-between gap-1 font-14">
+            <SiteButton
+              class="flex column"
+              class-button="vehicle-detail-call-cta"
+              icon-leading="phone"
+              is-primary
+              is-solid
+            >
+              <span class="font-12 font-600">call</span>
+            </SiteButton>
+
+            <SiteButton
+              class="flex column"
+              class-button="vehicle-detail-email-cta"
+              icon-leading="envelope"
+              is-primary
+              is-solid
+            >
+              <span class="font-12 font-600">email</span>
+            </SiteButton>
+
+            <SiteButton
+              class="flex column"
+              class-button="vehicle-detail-chat-cta"
+              icon-leading="comments"
+              is-secondary
+              is-solid
+            >
+              <span class="font-12 font-600">chat</span>
+            </SiteButton>
+          </section>
+
+          <section
+            :class="isSingleColumn ? 'order-1 mx-2' : ''"
+            class="flex axis1-between axis2-start gap-1 border-b border-gray pb-2"
+          >
+            <div class="flex column gap-1/2">
+              <div class="font-20 font-700">{{ vehicle ? formatPrice(vehicle?.price) : '' }}</div>
+
+              <div class="flex wrap gap-1/4 font-14">
+                <router-link to="#">Estimated Payment: </router-link>
+
                 <SiteLinkWithIcon
                   icon-trailing="calculator"
                   is-solid
                   to="#"
                 >
-                  <span>Estimated Payment: </span>
                   <span class="font-700">$50/month</span>
                 </SiteLinkWithIcon>
               </div>
             </div>
 
-            <SiteButton is-secondary>Make an offer</SiteButton>
+            <SiteButton
+              class-button="shrink-none"
+              is-secondary
+            >
+              Make an offer
+            </SiteButton>
           </section>
 
-          <section class="mb-2 border-b border-gray pb-2">
+          <section
+            :class="isSingleColumn ? 'order-3 mx-2' : ''"
+            class="border-b border-gray pb-2"
+          >
             <h2 class="mb-1 font-20">RV details</h2>
 
             <div class="flex axis2-center gap-1/2 mb-1">
@@ -338,7 +432,10 @@
               <span class="font-14 font-600">Under warranty</span>
             </div>
 
-            <div class="flex column s-row axis2-start gap-2">
+            <div
+              :class="isExtraSmall ? 'column' : 'row'"
+              class="flex axis2-start gap-2"
+            >
               <div class="floorplan-thumb shrink-none radius-1/2 bg-gray" />
               <ul class="flex wrap gap-1 w-full font-14 list-none">
                 <li
@@ -353,7 +450,10 @@
             </div>
           </section>
 
-          <section class="flex column gap-1 mb-2 border-b border-gray pb-2">
+          <section
+            :class="isSingleColumn ? 'order-3 mx-2' : ''"
+            class="flex column gap-1 border-b border-gray pb-2"
+          >
             <p>
               Start your next trip away in the Flying Cloud 25R travel trailer by Airstream! This model features a rear
               bath and rear bed. As you enter the travel trailer Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -372,15 +472,18 @@
             </SiteButton>
           </section>
 
-          <section class="mb-4">
+          <section :class="isSingleColumn ? 'order-3 mx-2' : ''">
             <h2 class="mb-1 font-20">About the dealership</h2>
 
-            <div class="flex gap-2">
+            <div
+              :class="isSingleColumn ? 'column' : ''"
+              class="flex gap-2"
+            >
               <div class="w-full m-w-1/2">
-                <div class="flex gap-1">
+                <div class="flex gap-1 mb-1">
                   <div class="dealership-logo radius-1/2 bg-gray" />
 
-                  <div class="flex column gap-1/2 mb-1">
+                  <div class="flex column gap-1/2">
                     <div class="flex axis2-center gap-1/2">
                       <FontAwesomeIcon icon="fa-solid fa-circle-check" />
                       <span class="font-12 font-700">15 year trusted partner</span>
@@ -434,8 +537,11 @@
             </div>
           </section>
 
-          <section class="mb-2 border-b border-gray pb-2">
-            <div class="flex axis1-between">
+          <section :class="isSingleColumn ? 'order-3' : ''">
+            <div
+              :class="isSingleColumn ? 'mx-2' : ''"
+              class="flex axis1-between"
+            >
               <h3 class="mb-1 font-16">More from this dealer</h3>
 
               <SiteLinkWithIcon
@@ -452,32 +558,45 @@
               :get-is-favorite="favoriteStore.getIsFavorite"
               :handle-favorite-click="favoriteStore.toggleIsFavorite"
               :is-touchscreen="isTouchscreen"
+              :offset-x="isSingleColumn ? 32 : undefined"
               :vehicles="featuredListingStore.vehicles"
             />
           </section>
 
-          <section class="mb-4">
+          <div
+            :class="isSingleColumn ? 'order-3 mx-2' : ''"
+            class="border-b border-gray"
+          />
+
+          <section v-if="!isSingleColumn">
             <h2 class="mb-1 font-20">Resources</h2>
 
-            <AdPlaceholder
-              class="mb-4"
-              height="87"
-              width="512"
-            >
-              <div>Geico Ad</div>
-            </AdPlaceholder>
+            <div class="flex column gap-2">
+              <AdPlaceholder
+                height="87"
+                width="512"
+              >
+                <div>Geico Ad</div>
+              </AdPlaceholder>
 
-            <AdPlaceholder
-              height="90"
-              width="720"
-            />
+              <AdPlaceholder
+                height="90"
+                width="720"
+              />
+            </div>
           </section>
 
-          <SiteDisclaimer />
+          <SiteDisclaimer :class="isSingleColumn ? 'order-5 mx-2' : ''" />
         </main>
 
-        <aside class="vehicle-detail-aside">
-          <div class="mb-2 radius-1/2 xy-hidden">
+        <aside
+          :class="isSingleColumn ? 'contents' : 'flex column gap-2'"
+          class="vehicle-detail-aside"
+        >
+          <section
+            class="radius-1/2 xy-hidden"
+            v-if="!isSingleColumn"
+          >
             <div class="mb-1/4 p-1 bg-gray-light">
               <div class="flex wrap axis1-between gap-1/2">
                 <button class="flex axis2-center gap-1/2 shrink-none">
@@ -518,9 +637,12 @@
               <h2 class="mb-1">Email the seller</h2>
               <LeadForm :vehicle="vehicle" />
             </div>
-          </div>
+          </section>
 
-          <div class="flex column gap-1 mb-2 font-12">
+          <section
+            :class="isSingleColumn ? 'order-2 mx-2' : ''"
+            class="flex column gap-1 border-b border-gray pb-2 font-12"
+          >
             <div class="flex axis2-center gap-1/2">
               <SiteLinkWithIcon
                 class="font-700"
@@ -581,32 +703,36 @@
               />
               <span class="font-12">The price has not decreased recently</span>
             </div>
-          </div>
+          </section>
 
-          <AdPlaceholder
-            class="mb-2"
-            height="600"
-            width="300"
-          />
-
-          <AdPlaceholder
-            class="mb-2"
-            height="250"
-            width="300"
-          />
-
-          <AdPlaceholder
-            height="250"
-            width="490"
+          <section
+            :class="isSingleColumn ? 'axis2-center order-4 mx-2' : ''"
+            class="flex column gap-2"
           >
-            Customizable web link ad
-          </AdPlaceholder>
+            <AdPlaceholder
+              height="600"
+              v-if="!isSingleColumn"
+              width="300"
+            />
+
+            <AdPlaceholder
+              height="250"
+              width="300"
+            />
+
+            <AdPlaceholder
+              height="250"
+              width="490"
+            >
+              Customizable web link ad
+            </AdPlaceholder>
+          </section>
         </aside>
       </section>
-    </SiteContainer>
+    </div>
 
-    <div class="mb-4 pt-4 bg-gray-light">
-      <SiteContainer class="flex axis1-between mx-4 mb-1">
+    <div class="mb-2 py-2 bg-gray-light">
+      <SiteContainer class="flex axis1-between mb-1">
         <h2 class="font-20">More RVs like this</h2>
 
         <SiteLinkWithIcon
@@ -623,16 +749,15 @@
         :get-is-favorite="favoriteStore.getIsFavorite"
         :handle-favorite-click="favoriteStore.toggleIsFavorite"
         :is-touchscreen="isTouchscreen"
-        :offset-x="64"
+        :offset-x="32"
         :vehicles="featuredListingStore.vehicles"
-        class="pb-4"
       />
     </div>
 
-    <SiteContainer class="mb-4">
+    <SiteContainer class="mb-2">
       <h2 class="mb-1 font-20">Related categories</h2>
 
-      <div class="flex wrap gap-1 mb-4 font-14">
+      <div class="flex wrap gap-1 mb-2 font-14">
         <router-link
           :key="searchPill.label"
           :to="searchPill.url"
@@ -650,14 +775,14 @@
         </router-link>
       </div>
 
-      <div class="flex axis1-center mb-4 border-b border-gray pb-4">
+      <div class="flex axis1-center mb-2 border-b border-gray pb-2">
         <AdPlaceholder
-          height="90"
-          width="728"
+          :height="isSingleColumn ? '250' : '90'"
+          :width="isSingleColumn ? '300' : '720'"
         />
       </div>
 
-      <SubscribeToNewsletter class="mb-4" />
+      <SubscribeToNewsletter />
     </SiteContainer>
   </div>
 </template>
@@ -676,6 +801,26 @@
   .logo {
     width: 140px;
     height: 65px;
+  }
+
+  .order-1 {
+    order: 1;
+  }
+
+  .order-2 {
+    order: 2;
+  }
+
+  .order-3 {
+    order: 3;
+  }
+
+  .order-4 {
+    order: 4;
+  }
+
+  .order-5 {
+    order: 5;
   }
 
   .overlay {
@@ -708,5 +853,18 @@
 <style>
   .icon-button {
     width: 36px;
+  }
+
+  .vehicle-detail-call-cta {
+    flex: 3;
+  }
+
+  .vehicle-detail-chat-cta,
+  .vehicle-detail-text-cta {
+    flex: 1;
+  }
+
+  .vehicle-detail-email-cta {
+    flex: 2;
   }
 </style>

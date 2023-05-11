@@ -1,7 +1,18 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+  import { storeToRefs } from 'pinia';
+
+  import { useBreakpointStore } from '@/stores/BreakpointStore';
+
+  const breakpointStore = useBreakpointStore();
+
+  const { isLarge } = storeToRefs(breakpointStore);
+</script>
 
 <template>
-  <div class="mx-2 l-mx-auto w-container">
+  <div
+    :class="isLarge ? 'mx-auto' : 'mx-2'"
+    class="w-container"
+  >
     <slot />
   </div>
 </template>

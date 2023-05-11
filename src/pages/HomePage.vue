@@ -22,6 +22,8 @@
   const homeStore = useHomeStore();
   const userAgentStore = useUserAgentStore();
 
+  const { isExtraSmall } = storeToRefs(breakpointStore);
+
   homeStore.getVehicles();
 
   const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
@@ -47,9 +49,15 @@
 
 <template>
   <div class="home-page">
-    <SiteContainer class="flex column m-row axis1-center gap-2 mt-2 mx-2 mb-4">
+    <SiteContainer
+      :class="isExtraSmall ? 'column' : 'row'"
+      class="flex axis1-center gap-2 mt-2 mx-2 mb-4"
+    >
       <form class="home-search-form flex column axis1-center shrink radius-1/2 p-2 w-full bg-gray-light">
-        <h1 class="flex axis1-center axis2-center row m-column gap-1/2 mb-1 font-32 x-center">
+        <h1
+          :class="isExtraSmall ? 'qrow' : 'column'"
+          class="flex axis1-center axis2-center gap-1/2 mb-1 font-32 x-center"
+        >
           <span class="contents m-inline">Where you go </span>
           <span class="contents m-inline">for an RV</span>
         </h1>
@@ -140,7 +148,10 @@
     </SiteContainer>
 
     <section class="mb-4">
-      <SiteContainer class="flex column s-row axis1-center axis2-center mb-4 gap-1">
+      <SiteContainer
+        :class="isExtraSmall ? 'column' : 'row'"
+        class="flex axis1-center axis2-center mb-4 gap-1"
+      >
         <h2
           :class="{
             'border-r pr-1': !breakpointStore.isExtraSmall,
@@ -177,8 +188,14 @@
     </section>
 
     <SiteContainer class="mb-4">
-      <section class="home-sell-your-vehicle flex column s-row gap-2 mb-4 radius-1/2 p-2 s-p-4 bg-gray-light y-hidden">
-        <div class="home-sell-your-rv-content flex column axis2-center gap-1 s-w-1/2">
+      <section
+        :class="isExtraSmall ? 'column p-2' : 'row p-4'"
+        class="home-sell-your-vehicle flex gap-2 mb-4 radius-1/2 bg-gray-light y-hidden"
+      >
+        <div
+          :class="isExtraSmall ? '' : 'w-1/2'"
+          class="home-sell-your-rv-content flex column axis2-center gap-1"
+        >
           <h2 class="font-32">Sell your RV on RV Trader</h2>
           <p>Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <SiteButton
@@ -189,7 +206,10 @@
           </SiteButton>
         </div>
 
-        <div class="relative flex axis1-center s-w-1/2">
+        <div
+          :class="isExtraSmall ? '' : 'w-1/2'"
+          class="relative flex axis1-center"
+        >
           <div class="home-sell-your-vehicle-img absolute top-0 mx-auto radius-1/2 w-full bg-gray" />
         </div>
       </section>
@@ -245,7 +265,10 @@
       <section class="mb-4">
         <h2 class="mb-1 font-32">Fresh from the blog</h2>
 
-        <div class="flex column m-row gap-1">
+        <div
+          :class="isExtraSmall ? 'column' : 'row'"
+          class="flex gap-1"
+        >
           <router-link
             class="flex column gap-1 m-1/4 p-1/2 w-full m-w-1/2 shadow-box underline-none"
             to="#"
@@ -274,8 +297,9 @@
 
           <div class="flex column gap-1 w-full m-w-1/2">
             <router-link
+              :class="isExtraSmall ? 'column' : 'row'"
               :key="blogPost"
-              class="flex column s-row gap-1 m-1/4 p-1/2 shadow-box underline-none"
+              class="flex gap-1 m-1/4 p-1/2 shadow-box underline-none"
               to="#"
               v-for="blogPost in blogPosts.slice(1)"
             >
@@ -426,14 +450,6 @@
   }
 
   @media (min-width: 768px) {
-    .s-p-4 {
-      padding: 4rem;
-    }
-
-    .s-w-1\/2 {
-      width: 50%;
-    }
-
     .home-blog-thumb-small {
       max-width: 228px;
     }

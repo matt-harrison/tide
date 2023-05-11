@@ -11,8 +11,8 @@
 
 <template>
   <div
-    :class="isExtraSmall || isSmall ? 'axis2-center' : ''"
-    class="flex column m-row axis1-center gap-2"
+    :class="isExtraSmall || isSmall ? 'column axis2-center' : 'row'"
+    class="flex column axis1-center gap-2"
   >
     <h2 :class="isExtraSmall || isSmall ? 'font-20' : 'pt-1/2'">Subscribe to our newsletter</h2>
 
