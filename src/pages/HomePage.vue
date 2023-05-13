@@ -22,7 +22,7 @@
   const homeStore = useHomeStore();
   const userAgentStore = useUserAgentStore();
 
-  const { isExtraSmall } = storeToRefs(breakpointStore);
+  const { isExtraSmall, isSmall } = storeToRefs(breakpointStore);
 
   homeStore.getVehicles();
 
@@ -48,7 +48,7 @@
 </script>
 
 <template>
-  <div class="home-page">
+  <div class="home-page mb-2">
     <SiteContainer
       :class="isExtraSmall ? 'column' : 'row'"
       class="flex axis1-center gap-2 mt-2 mx-2 mb-4"
@@ -303,7 +303,10 @@
               to="#"
               v-for="blogPost in blogPosts.slice(1)"
             >
-              <div class="home-blog-thumb-small shrink-none bg-gray ratio-3/2" />
+              <div
+                :class="isSmall ? 'w-1/3' : ''"
+                class="home-blog-thumb-small shrink-none bg-gray ratio-3/2"
+              />
 
               <div class="flex column gap-1/2">
                 <span class="font-12 font-600">Blog date {{ blogPost }}</span>
@@ -361,7 +364,7 @@
         />
       </section>
 
-      <SeoContent class="mb-4">
+      <SeoContent>
         <li class="w-1/4">
           <h2 class="mb-1 font-20">Top RV makes</h2>
 

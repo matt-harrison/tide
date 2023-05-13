@@ -176,7 +176,7 @@
 </script>
 
 <template>
-  <div class="vehicle-detail-page mt-2">
+  <div class="vehicle-detail-page my-2">
     <div>
       <section
         class="flex axis1-center mx-2 mb-2 border-b border-gray-light pb-2"
@@ -754,7 +754,7 @@
       />
     </div>
 
-    <SiteContainer class="mb-2">
+    <SiteContainer>
       <h2 class="mb-1 font-20">Related categories</h2>
 
       <div class="flex wrap gap-1 mb-2 font-14">

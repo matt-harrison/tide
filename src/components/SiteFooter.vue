@@ -11,55 +11,148 @@
 </script>
 
 <template>
-  <footer class="site-footer py-2 font-14 bg-gray-light">
-    <SiteContainer>
-      <div class="flex wrap axis1-between axis2-start gap-2 mb-4">
+  <footer class="site-footer flex column gap-1/4 font-14">
+    <div class="py-2 bg-gray-light">
+      <SiteContainer class="flex wrap axis1-between axis2-start gap-2">
         <div
-          :class="isExtraSmall ? 'order-2' : ''"
+          :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-explore"
         >
           <h2 class="mb-1 font-18">Explore RV Trader</h2>
 
           <div class="flex wrap gap-1 axis1-between">
             <div class="flex column gap-1">
-              <span>About RVTrader.com</span>
-              <span>RVTrader.com Blog</span>
-              <span>Site Map</span>
-              <span>Need Help?</span>
-              <span>Email Us Feedback</span>
-              <span>Security Center</span>
-              <span>Community Guidelines</span>
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                About RVTrader.com
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                RVTrader.com Blog
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                Site Map
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                Need Help?
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                Email Us Feedback
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                Security Center
+              </router-link>
+
+              <router-link
+                class="underline-none"
+                to="#"
+              >
+                Community Guidelines
+              </router-link>
             </div>
           </div>
         </div>
 
         <div
-          :class="isExtraSmall ? 'order-2' : ''"
+          :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-affiliates"
         >
           <h2 class="mb-1 font-18">RV Trader affiliates</h2>
 
           <div class="flex column gap-1 axis1-between">
-            <span>Airplanes For Sale</span>
-            <span>ATVs For Sale</span>
-            <span>Trucks For Sale</span>
-            <span>Motorcycles For Sale</span>
-            <span>Heavy Equipment For Sale</span>
-            <span>Jet Skis For Sale</span>
-            <span>Snowmobiles For Sale</span>
-            <span>Boats For Sale</span>
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Airplanes For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              ATVs For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Trucks For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Motorcycles For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Heavy Equipment For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Jet Skis For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Snowmobiles For Sale
+            </router-link>
+
+            <router-link
+              class="underline-none"
+              to="#"
+            >
+              Boats For Sale
+            </router-link>
           </div>
         </div>
 
         <div
-          :class="isExtraSmall ? 'order-1' : ''"
+          :class="isExtraSmall ? 'order-1 w-full' : ''"
           class="site-footer-dealers-sellers"
         >
-          <div class="mb-2">
-            <h2 class="mb-1 font-18">Dealers</h2>
+          <div class="flex column gap-1 mb-2">
+            <h2 class="font-18">Dealers</h2>
 
-            <div class="flex column gap-1">
-              <SiteButton is-secondary> TraderTraxx Login </SiteButton>
+            <div class="flex column axis2-start gap-1">
+              <SiteButton
+                :class-button="isExtraSmall ? '' : 'w-full'"
+                is-secondary
+              >
+                TraderTraxx Login
+              </SiteButton>
 
               <p>
                 <router-link
@@ -76,10 +169,15 @@
           <div>
             <h2 class="mb-1 font-18">Private sellers</h2>
 
-            <div class="flex column gap-1">
+            <div class="flex column axis2-start gap-1">
               <span>Sell your RV fro $69.95</span>
 
-              <SiteButton is-secondary> Sell my RV </SiteButton>
+              <SiteButton
+                :class-button="isExtraSmall ? '' : 'w-full'"
+                is-secondary
+              >
+                Sell my RV
+              </SiteButton>
 
               <router-link
                 class="font-600"
@@ -143,17 +241,37 @@
             is-secondary
           />
         </div>
-      </div>
+      </SiteContainer>
+    </div>
 
-      <div class="flex axis1-center">
-        <div class="flex wrap gap-1">
-          <span>RVTrader.com © 2023 Trader Interactive | All rights reserved.</span>
-          <router-link to="#">Privacy Policy</router-link>
-          <router-link to="#">Terms of Use</router-link>
-          <router-link to="#">Advertiser Agreement</router-link>
-        </div>
-      </div>
-    </SiteContainer>
+    <div class="py-2 bg-gray-light">
+      <SiteContainer
+        :class="isExtraSmall ? 'column axis2-center' : 'row'"
+        class="flex wrap gap-1"
+      >
+        <span>RVTrader.com © 2023 Trader Interactive | All rights reserved.</span>
+        <router-link
+          class="underline-none"
+          to="#"
+        >
+          Privacy Policy
+        </router-link>
+
+        <router-link
+          class="underline-none"
+          to="#"
+        >
+          Terms of Use
+        </router-link>
+
+        <router-link
+          class="underline-none"
+          to="#"
+        >
+          Advertiser Agreement
+        </router-link>
+      </SiteContainer>
+    </div>
     <slot />
   </footer>
 </template>

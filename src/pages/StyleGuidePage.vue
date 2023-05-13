@@ -176,7 +176,7 @@
 <template>
   <div
     :class="darkModeStore.isDarkMode ? 'bg-gray-dark font-white' : ''"
-    class="style-guide-page py-2"
+    class="style-guide-page my-2"
   >
     <header class="mx-2 mb-2">
       <h1 class="font-32">Style Guide</h1>
@@ -509,7 +509,7 @@
       </section>
     </section>
 
-    <section class="mb-2">
+    <section>
       <h2 class="mx-2 mb-1">Components</h2>
 
       <section class="mx-2 mb-2">

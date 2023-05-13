@@ -213,7 +213,7 @@
 </script>
 
 <template>
-  <div class="search-results-page">
+  <div class="search-results-page mb-2">
     <AdPlaceholder
       class="mb-2"
       height="150"
@@ -736,7 +736,7 @@
         </main>
       </section>
 
-      <SiteContainer class="mb-4">
+      <SiteContainer>
         <section v-if="!isSingleColumn">
           <SeoContent
             class="mb-2"
@@ -794,10 +794,7 @@
             </li>
           </SeoContent>
 
-          <SeoContent
-            class="mb-4"
-            heading="RV types"
-          >
+          <SeoContent heading="RV types">
             <li
               :key="rvType"
               class="flex column gap-1/4 w-full w-1/4 font-14"
