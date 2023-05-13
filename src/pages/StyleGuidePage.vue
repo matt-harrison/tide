@@ -65,6 +65,7 @@
     'arrow-circle-right',
     'arrow-right-arrow-left',
     'arrow-up-from-bracket',
+    'bars',
     'bookmark',
     'calculator',
     'calendar',

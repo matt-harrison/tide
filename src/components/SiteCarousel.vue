@@ -71,7 +71,7 @@
   >
     <div
       ref="frameRef"
-      class="site-carousel-frame snap"
+      class="scrollbar-none snap x-scroll"
     >
       <ul
         :class="props.isTouchscreen ? 'x-auto' : ''"
@@ -120,15 +120,5 @@
 <style>
   .site-carousel-button {
     width: 36px;
-  }
-
-  .site-carousel-frame {
-    -ms-overflow-style: none;
-    overflow-x: scroll;
-    scrollbar-width: none;
-  }
-
-  .site-carousel-frame::-webkit-scrollbar {
-    display: none;
   }
 </style>

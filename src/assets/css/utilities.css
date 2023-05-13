@@ -267,6 +267,12 @@
 .rotate-180 {transform: rotate(180deg);}
 .rotate-270 {transform: rotate(270deg);}
 
+.scrollbar-none::-webkit-scrollbar {display: none;}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .snap {
   scroll-snap-stop: always;
   scroll-snap-type: both mandatory;
@@ -299,12 +305,14 @@
 
 .whitespace-nowrap {white-space: nowrap;}
 
-.x-auto  {overflow-x: auto;}
-.y-auto  {overflow-y: auto;}
-.xy-auto {overflow: auto;}
+.x-auto   {overflow-x: auto;}
+.x-hidden {overflow-x: hidden;}
+.x-scroll  {overflow-x: scroll;}
+
+.xy-auto   {overflow: auto;}
+.xy-hidden {overflow: hidden;}
+
+.y-auto   {overflow-y: auto;}
+.y-hidden {overflow-y: hidden;}
 
 .x-center {text-align: center;}
-
-.x-hidden  {overflow-x: hidden;}
-.y-hidden  {overflow-y: hidden;}
-.xy-hidden {overflow: hidden;}
