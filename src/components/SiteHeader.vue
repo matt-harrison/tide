@@ -151,7 +151,6 @@
         v-if="isExtraSmall"
       >
         <SiteButtonIcon
-          @click="toggleShowMobileMenu"
           class="site-header-icon"
           icon="magnifying-glass"
           is-secondary

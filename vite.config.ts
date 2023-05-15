@@ -3,22 +3,24 @@ import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 import { resolve } from 'path';
 
+const dist = '../sites/rv/public/vue3';
+
 export default defineConfig({
   base: '',
   build: {
     emptyOutDir: true,
-    outDir: 'dist',
+    outDir: dist,
     rollupOptions: {
       input: {
-        'app-carousel': resolve(__dirname, 'app-carousel.html'),
-        'app-search-results': resolve(__dirname, 'app-search-results.html'),
-        'app-style-guide': resolve(__dirname, 'app-style-guide.html'),
-        'index': resolve(__dirname, 'index.html'),
+        'app-carousel': resolve(`${__dirname}/src/contexts`, 'app-carousel.ts'),
+        'app-search-results': resolve(`${__dirname}/src/contexts`, 'app-search-results.ts'),
+        'app-single': resolve(`${__dirname}/src/contexts`, 'app-single.ts'),
+        'app-style-guide': resolve(`${__dirname}/src/contexts`, 'app-style-guide.ts'),
       },
       output: {
         assetFileNames: 'assets/[name].[ext]',
         chunkFileNames: 'chunks/[name].js',
-        dir: 'dist',
+        dir: dist,
         entryFileNames: '[name].js',
       },
     },
@@ -30,7 +32,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 5174,
+    port: 5173,
     proxy: {
       '^/search-results-data/.*': {
         changeOrigin: true,

@@ -1,4 +1,4 @@
-# marketplace2
+# Marketplace Vue 3 Proof-of-concept
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -39,8 +39,28 @@ npm run dev
 npm run build
 ```
 
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
+
+## Project Demo
+
+1. `cd frontend/`
+2. `npm install`
+3. `npm run dev`
+
+[SPA](http://localhost:5173/)
+
+[Carousel](http://localhost:5173/app-carousel.html)
+
+[SRP](http://localhost:5173/app-search-results.html)
+
+[Style Guide](http://localhost:5173/app-style-guide.html)
