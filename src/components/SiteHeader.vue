@@ -127,10 +127,10 @@
       </nav>
     </div>
 
-    <div class="flex axis2-center gap-1/4">
+    <div class="flex axis2-center gap-1">
       <div
         class="site-header-search-bar relative"
-        v-if="props.showSearchbar"
+        v-if="props.showSearchbar && !isExtraSmall"
       >
         <input
           class="border-1 border-gray radius-full py-1/2 pr-4 pl-1 w-full bg-white"
