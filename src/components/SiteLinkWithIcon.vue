@@ -38,7 +38,7 @@
   <router-link
     :target="props.target"
     :to="props.to"
-    class="site-link-with-icon underline-none"
+    class="site-link-with-icon inline-block underline-none"
   >
     <SiteButtonStyles
       :class="props.class"

@@ -209,7 +209,7 @@
 
   .site-header-search-icon {
     top: 3px;
-    left: 3px;
+    right: 3px;
   }
 </style>
 

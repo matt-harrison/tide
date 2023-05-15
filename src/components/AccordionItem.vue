@@ -51,12 +51,7 @@
         {{ props.label }}
       </span>
 
-      <div
-        :class="isExpanded ? 'up' : ''"
-        class="chevron"
-      >
-        <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
-      </div>
+      <FontAwesomeIcon :icon="`fa-solid fa-${isExpanded ? 'chevron-up' : 'chevron-down'}`" />
     </div>
 
     <div
@@ -73,9 +68,5 @@
 <style scoped>
   .accordion-body {
     transition: grid-template-rows var(--animate);
-  }
-
-  .chevron.up {
-    rotate: 180deg;
   }
 </style>

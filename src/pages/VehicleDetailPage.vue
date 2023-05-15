@@ -7,6 +7,7 @@
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { RvDetail } from '@/types/RvDetail';
 
+  import ReadMore from '@/components/ReadMore.vue';
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BreadCrumbs from '@/components/BreadCrumbs.vue';
   import LeadForm from '@/components/LeadForm.vue';
@@ -454,22 +455,11 @@
             :class="isSingleColumn ? 'order-3 mx-2' : ''"
             class="flex column gap-1 border-b border-gray pb-2"
           >
-            <p>
-              Start your next trip away in the Flying Cloud 25R travel trailer by Airstream! This model features a rear
-              bath and rear bed. As you enter the travel trailer Lorem ipsum dolor sit amet, consectetur adipiscing
-              elit. Pellentesque vel tortor enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-              posuere cubilia curae; Aliquam suscipit interdum bibendum. Integer massa dolor, feugiat ac odio vitae,
-              malesuada accumsan ex. Fusce maximus...
-            </p>
-
-            <SiteButton
-              :is-restyled="true"
-              class="flex gap-1/4 font-700"
-              icon-trailing="chevron-down"
-              is-solid
-            >
-              <span class="underline">Read more</span>
-            </SiteButton>
+            <ReadMore heightCollapsed="72px">
+              <p class="mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus, sapien semper vestibulum vestibulum, metus purus commodo massa, et tristique elit metus pretium odio. Sed eget metus erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur erat augue, congue sit amet laoreet quis, scelerisque at tortor. Morbi non eleifend mi. Integer ut felis volutpat, rutrum leo ut, cursus sem. Donec fermentum lacus at leo finibus, hendrerit finibus augue venenatis. Aliquam sed iaculis augue, vitae faucibus nunc.</p>
+              <p class="mb-1">Aenean eleifend bibendum faucibus. Vivamus tortor arcu, venenatis id aliquam nec, cursus ut sem. Sed sodales, metus in convallis ultrices, tortor urna porta augue, eget aliquam dui lectus non erat. Cras non vestibulum lorem. Proin sem massa, porttitor vel mollis vel, porttitor eget nisl. Aliquam consectetur lorem sit amet mollis imperdiet. In eu elit facilisis, facilisis leo sed, eleifend nisl. Sed quis justo eu mi suscipit semper at vel orci. Cras ornare nisi semper purus volutpat finibus.</p>
+              <p>Donec ac augue nec est sodales placerat in id magna. Fusce eu faucibus orci. Nunc ac iaculis neque. Ut vestibulum massa sit amet mi imperdiet rhoncus. In quam ligula, lacinia vitae fermentum eu, rhoncus nec ante. Fusce vel sollicitudin orci, eget aliquet risus. Nunc vitae auctor lectus, vel rhoncus ex. </p>
+            </ReadMore>
           </section>
 
           <section :class="isSingleColumn ? 'order-3 mx-2' : ''">

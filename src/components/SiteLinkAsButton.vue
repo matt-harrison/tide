@@ -53,7 +53,7 @@
   <router-link
     :target="props.target"
     :to="props.to"
-    class="underline-none"
+    class="site-link-as-button underline-none"
   >
     <SiteButtonStyles
       :class="props.class"
