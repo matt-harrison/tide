@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { computed, ref } from 'vue';
+  import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
   import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -129,7 +129,10 @@
     zip: '12345',
   };
 
+  let isStickyFooter = ref(false);
   let isFavorite = ref(vehicle?.value ? favoriteStore.getIsFavorite(vehicle.value.adId) : false);
+  let stickyFooterRef = ref();
+  let stickableFooterRef = ref();
 
   const searchPills = [
     {
@@ -167,6 +170,15 @@
       ? `https://${cdnDomain}/${cdnVersion}/media/${vehicle.value.photoIds[0]}.jpg?width=245&height=151&quality=60&bestfit=true&upsize=true&blurBackground=true&blurValue=100`
       : undefined;
 
+  const getIsStickyFooter = () => {
+    if (stickyFooterRef.value) {
+      const stickyFooterRect = stickyFooterRef.value.getBoundingClientRect();
+      const stickableFooterRect = stickableFooterRef.value.getBoundingClientRect();
+
+      isStickyFooter.value = stickyFooterRect.y + stickableFooterRect.height <= screen.height;
+    }
+  };
+
   const toggleIsFavorite = () => {
     if (vehicle?.value) {
       favoriteStore.toggleIsFavorite(vehicle.value.adId);
@@ -174,6 +186,17 @@
       isFavorite.value = favoriteStore.getIsFavorite(vehicle.value.adId);
     }
   };
+
+  onMounted(() => {
+    window.addEventListener('resize', getIsStickyFooter);
+    window.addEventListener('scroll', getIsStickyFooter);
+    getIsStickyFooter();
+  });
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', getIsStickyFooter);
+    window.removeEventListener('scroll', getIsStickyFooter);
+  });
 </script>
 
 <template>
@@ -350,48 +373,55 @@
           </section>
 
           <section
-            class="flex gap-1/2 mx-2 order-1"
+            ref="stickyFooterRef"
+            class="order-1"
             v-if="isSingleColumn"
           >
-            <SiteButton
-              class="flex column"
-              class-button="vehicle-detail-text-cta"
-              icon-leading="message"
-              is-secondary
-              is-solid
+            <div
+              :class="isStickyFooter ? 'fixed bottom-0 shadow-box' : ''"
+              ref="stickableFooterRef"
+              class="stickable-footer flex gap-1/2 p-2 w-full bg-white"
             >
-              <span class="font-12 font-600">text</span>
-            </SiteButton>
+              <SiteButton
+                class="flex column"
+                class-button="vehicle-detail-text-cta"
+                icon-leading="message"
+                is-secondary
+                is-solid
+              >
+                <span class="font-12 font-600">text</span>
+              </SiteButton>
 
-            <SiteButton
-              class="flex column"
-              class-button="vehicle-detail-call-cta"
-              icon-leading="phone"
-              is-primary
-              is-solid
-            >
-              <span class="font-12 font-600">call</span>
-            </SiteButton>
+              <SiteButton
+                class="flex column"
+                class-button="vehicle-detail-call-cta"
+                icon-leading="phone"
+                is-primary
+                is-solid
+              >
+                <span class="font-12 font-600">call</span>
+              </SiteButton>
 
-            <SiteButton
-              class="flex column"
-              class-button="vehicle-detail-email-cta"
-              icon-leading="envelope"
-              is-primary
-              is-solid
-            >
-              <span class="font-12 font-600">email</span>
-            </SiteButton>
+              <SiteButton
+                class="flex column"
+                class-button="vehicle-detail-email-cta"
+                icon-leading="envelope"
+                is-primary
+                is-solid
+              >
+                <span class="font-12 font-600">email</span>
+              </SiteButton>
 
-            <SiteButton
-              class="flex column"
-              class-button="vehicle-detail-chat-cta"
-              icon-leading="comments"
-              is-secondary
-              is-solid
-            >
-              <span class="font-12 font-600">chat</span>
-            </SiteButton>
+              <SiteButton
+                class="flex column"
+                class-button="vehicle-detail-chat-cta"
+                icon-leading="comments"
+                is-secondary
+                is-solid
+              >
+                <span class="font-12 font-600">chat</span>
+              </SiteButton>
+            </div>
           </section>
 
           <section
@@ -455,10 +485,27 @@
             :class="isSingleColumn ? 'order-3 mx-2' : ''"
             class="flex column gap-1 border-b border-gray pb-2"
           >
-            <ReadMore heightCollapsed="72px">
-              <p class="mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus, sapien semper vestibulum vestibulum, metus purus commodo massa, et tristique elit metus pretium odio. Sed eget metus erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur erat augue, congue sit amet laoreet quis, scelerisque at tortor. Morbi non eleifend mi. Integer ut felis volutpat, rutrum leo ut, cursus sem. Donec fermentum lacus at leo finibus, hendrerit finibus augue venenatis. Aliquam sed iaculis augue, vitae faucibus nunc.</p>
-              <p class="mb-1">Aenean eleifend bibendum faucibus. Vivamus tortor arcu, venenatis id aliquam nec, cursus ut sem. Sed sodales, metus in convallis ultrices, tortor urna porta augue, eget aliquam dui lectus non erat. Cras non vestibulum lorem. Proin sem massa, porttitor vel mollis vel, porttitor eget nisl. Aliquam consectetur lorem sit amet mollis imperdiet. In eu elit facilisis, facilisis leo sed, eleifend nisl. Sed quis justo eu mi suscipit semper at vel orci. Cras ornare nisi semper purus volutpat finibus.</p>
-              <p>Donec ac augue nec est sodales placerat in id magna. Fusce eu faucibus orci. Nunc ac iaculis neque. Ut vestibulum massa sit amet mi imperdiet rhoncus. In quam ligula, lacinia vitae fermentum eu, rhoncus nec ante. Fusce vel sollicitudin orci, eget aliquet risus. Nunc vitae auctor lectus, vel rhoncus ex. </p>
+            <ReadMore height-collapsed="72px">
+              <p class="mb-1">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus, sapien semper vestibulum
+                vestibulum, metus purus commodo massa, et tristique elit metus pretium odio. Sed eget metus erat.
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur
+                erat augue, congue sit amet laoreet quis, scelerisque at tortor. Morbi non eleifend mi. Integer ut felis
+                volutpat, rutrum leo ut, cursus sem. Donec fermentum lacus at leo finibus, hendrerit finibus augue
+                venenatis. Aliquam sed iaculis augue, vitae faucibus nunc.
+              </p>
+              <p class="mb-1">
+                Aenean eleifend bibendum faucibus. Vivamus tortor arcu, venenatis id aliquam nec, cursus ut sem. Sed
+                sodales, metus in convallis ultrices, tortor urna porta augue, eget aliquam dui lectus non erat. Cras
+                non vestibulum lorem. Proin sem massa, porttitor vel mollis vel, porttitor eget nisl. Aliquam
+                consectetur lorem sit amet mollis imperdiet. In eu elit facilisis, facilisis leo sed, eleifend nisl. Sed
+                quis justo eu mi suscipit semper at vel orci. Cras ornare nisi semper purus volutpat finibus.
+              </p>
+              <p>
+                Donec ac augue nec est sodales placerat in id magna. Fusce eu faucibus orci. Nunc ac iaculis neque. Ut
+                vestibulum massa sit amet mi imperdiet rhoncus. In quam ligula, lacinia vitae fermentum eu, rhoncus nec
+                ante. Fusce vel sollicitudin orci, eget aliquet risus. Nunc vitae auctor lectus, vel rhoncus ex.
+              </p>
             </ReadMore>
           </section>
 
@@ -843,6 +890,10 @@
 <style>
   .icon-button {
     width: 36px;
+  }
+
+  .stickable-footer {
+    z-index: 100;
   }
 
   .vehicle-detail-call-cta {

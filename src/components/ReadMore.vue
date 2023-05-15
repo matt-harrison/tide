@@ -51,7 +51,10 @@
       ref="readMoreContent"
       class="site-read-more-content grid"
     >
-      <div class="y-hidden" :style="{minHeight: props.heightCollapsed}">
+      <div
+        :style="{ minHeight: props.heightCollapsed }"
+        class="y-hidden"
+      >
         <slot />
       </div>
     </div>
@@ -64,7 +67,7 @@
         class="flex axis2-center gap-1/4 font-700"
         is-solid
       >
-        <span class="underline">{{ isExpanded? props.labelExpanded : props.labelCollapsed }}</span>
+        <span class="underline">{{ isExpanded ? props.labelExpanded : props.labelCollapsed }}</span>
       </SiteButton>
     </div>
   </div>
