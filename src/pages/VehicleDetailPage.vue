@@ -62,7 +62,7 @@
   const shareModalIsOpen = ref(false);
   const videoCallModalIsOpen = ref(false);
 
-  const breadCrumbs = getBreadcrumbs();
+  const breadCrumbs = getBreadcrumbs(vehicle.value);
   const isSingleColumn = computed(() => isExtraSmall.value || isSmall.value);
   const price = computed(() => getVehiclePrice(vehicle.value));
   const details = computed(() => getDetailItems(vehicle.value));
@@ -307,7 +307,9 @@
         height-collapsed="4.5em"
         v-if="vehicle.description"
       >
-        <div v-html="vehicle.description" />
+        <div>
+          {{ vehicle.description }}
+        </div>
       </ReadMore>
 
       <h2 class="font-20 mt-2">About the dealership</h2>
@@ -380,10 +382,9 @@
             Schedule a video call
           </BasicModal>
         </div>
-        <p
-          class="w-0 grow font-14"
-          v-html="vehicle.dealerRepeatTag"
-        />
+        <p class="w-0 grow font-14">
+          {{ vehicle.dealerRepeatTag }}
+        </p>
       </div>
       <h2 class="font-16 mt-2">More from this dealer</h2>
       <CardCarouselListingFeatured

@@ -23,7 +23,7 @@
   const emailFormData = ref(dummyEmailFormFields);
   const textAreaMessage = computed(() => dummyEmailFormFields.textAreaMessage ?? '');
   const fields = computed(() => emailFormData.value.fields ?? []);
-  const recaptchaKey = (document as any).getElementById('recaptchaKey').value;
+  const recaptchaKey = (document as any).getElementById('recaptchaKey')?.value;
   const recaptcha = ref();
   const showRecaptcha = ref(false);
   const isSubmitting = ref(false);
