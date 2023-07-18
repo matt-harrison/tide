@@ -2,19 +2,19 @@
   import { onMounted, onUnmounted } from 'vue';
 
   import LayoutDefault from '@/layouts/LayoutDefault.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
-  const breakpointStore = useBreakpointStore();
   const userAgentStore = useUserAgentStore();
+  const viewportStore = useViewportStore();
 
   onMounted(() => {
-    breakpointStore.initialize();
     userAgentStore.initialize();
+    viewportStore.initialize();
   });
 
   onUnmounted(() => {
-    breakpointStore.cleanup();
+    viewportStore.cleanup();
   });
 </script>
 

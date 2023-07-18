@@ -1,0 +1,35 @@
+<script lang="ts" setup>
+  import type { Tier } from '@/types/Tier';
+
+  import SvgIcon from '@/components/SvgIcon.vue';
+  import { ICON } from '@/types/Icon';
+  import { SIZE_ICON } from '@/types/Size';
+
+  type Props = {
+    href: string;
+    label: string;
+    tier?: Tier;
+  };
+
+  const props = defineProps<Props>();
+</script>
+
+<template>
+  <a
+    :class="[
+      'basic-chip-action primary-variant',
+      props.tier ? props.tier : 'tier-2',
+      'flex axis2-center gap-1/2 radius-full py-1/2 px-1 font-14 font-600 underline-none',
+    ]"
+    :href="props.href"
+  >
+    <SvgIcon
+      :icon="ICON.MAGNIFYING_GLASS"
+      :size="SIZE_ICON.SMALL"
+    />
+
+    <span>{{ props.label }}</span>
+  </a>
+</template>
+
+<style scoped src="@/assets/css/dynamic-buttons.css" />

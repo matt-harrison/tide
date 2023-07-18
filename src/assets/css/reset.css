@@ -3,7 +3,9 @@ body {
   color: var(--gray-dark);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   border: 0;
@@ -56,6 +58,20 @@ select {
   cursor: pointer;
 }
 
-button:not(:enabled) {
+button:disabled {
   cursor: not-allowed;
+}
+
+/* cross-browser normalization */
+input::placeholder {
+  color: var(--gray); /* TODO: replace with an accessible light text color from design system */
+  opacity: 1;
+}
+
+/* Clears the ‘X’ from Chrome */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
 }

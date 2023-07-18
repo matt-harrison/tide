@@ -1,7 +1,9 @@
 import vue from '@vitejs/plugin-vue';
-import { defineConfig } from 'vite';
+import { configDefaults, defineConfig } from 'vitest/config';
 import { fileURLToPath, URL } from 'node:url';
 import { resolve } from 'path';
+
+// TODO: Replace references to "RV" with dynamic vehicle type.
 
 const dist = '../sites/rv/public/vue3';
 
@@ -12,10 +14,10 @@ export default defineConfig({
     outDir: dist,
     rollupOptions: {
       input: {
-        'app-carousel': resolve(`${__dirname}/src/contexts`, 'app-carousel.ts'),
-        'app-search-results': resolve(`${__dirname}/src/contexts`, 'app-search-results.ts'),
         'app-single': resolve(`${__dirname}/src/contexts`, 'app-single.ts'),
+        'app-srp': resolve(`${__dirname}/src/contexts`, 'app-srp.ts'),
         'app-style-guide': resolve(`${__dirname}/src/contexts`, 'app-style-guide.ts'),
+        'app-vdp': resolve(`${__dirname}/src/contexts`, 'app-vdp.ts'),
       },
       output: {
         assetFileNames: 'assets/[name].[ext]',
@@ -32,6 +34,7 @@ export default defineConfig({
     },
   },
   server: {
+    host: true,
     port: 5173,
     proxy: {
       '^/search-results-data/.*': {
@@ -41,5 +44,11 @@ export default defineConfig({
         ws: true,
       },
     },
+  },
+  test: {
+    environment: 'jsdom',
+    exclude: [...configDefaults.exclude, 'e2e/*'],
+    globals: true,
+    root: fileURLToPath(new URL('./', import.meta.url)),
   },
 });

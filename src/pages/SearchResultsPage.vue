@@ -2,47 +2,53 @@
   import { computed, onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
-  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
   import type { BreadCrumb } from '@/types/BreadCrumb';
   import type { VehicleType } from '@/types/VehicleType';
 
   import AccordionItem from '@/components/AccordionItem.vue';
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
+  import BasicButton from '@/components/BasicButton.vue';
+  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
+  import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicButtonTabs from '@/components/BasicButtonTabs.vue';
+  import BasicCarousel from '@/components/BasicCarousel.vue';
+  import BasicChipInput from '@/components/BasicChipInput.vue';
+  import BasicContainer from '@/components/BasicContainer.vue';
+  import BasicToggle from '@/components/BasicToggle.vue';
   import BreadCrumbs from '@/components/BreadCrumbs.vue';
-  import ListingCard from '@/components/ListingCard.vue';
+  import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
+  import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
+  import CardListing from '@/components/CardListing.vue';
+  import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
+  import ChipFilterGuidedSearch from '@/components/ChipFilterGuidedSearch.vue';
   import SeoContent from '@/components/SeoContent.vue';
-  import SiteButton from '@/components/SiteButton.vue';
-  import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import SiteButtonToggle from '@/components/SiteButtonToggle.vue';
-  import SiteCarousel from '@/components/SiteCarousel.vue';
-  import SiteContainer from '@/components/SiteContainer.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
-  import SiteIconToggle from '@/components/SiteIconToggle.vue';
-  import SiteSwitchButtons from '@/components/SiteSwitchButtons.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
-  import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
-  import VehicleToggle from '@/components/VehicleToggle.vue';
-  import { formatNumber } from '@/utilities/format';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
+  import { SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
+  import { formatKebabCase, formatNumber } from '@/utilities/format';
+  import { realm } from '@/config/main.config';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
   import { useSearchResultStore } from '@/stores/SearchResultStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
-  const breakpointStore = useBreakpointStore();
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
   const filterStore = useFilterStore();
   const searchResultStore = useSearchResultStore();
   const userAgentStore = useUserAgentStore();
+  const viewportStore = useViewportStore();
 
   featuredListingStore.getVehicles();
   filterStore.setPagesTotal(5);
   searchResultStore.getVehicles();
 
-  const { isExtraSmall, isSmall, isLarge } = storeToRefs(breakpointStore);
+  const { isExtraSmall, isSmall, isLarge } = storeToRefs(viewportStore);
   const { filters, isBrowseByType, makes, types } = storeToRefs(filterStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
@@ -54,7 +60,7 @@
       url: '#',
     },
     {
-      label: 'Browse RVs',
+      label: `Browse ${realm.label.plural}`,
       url: '#',
     },
     {
@@ -75,7 +81,7 @@
     type: 0,
   };
 
-  let browseButtons = ref();
+  let guidedSearchTabs = ref();
   let isSavedSearch = ref();
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
@@ -87,18 +93,18 @@
 
   const paginationButtons = new Array(filterStore.pagesTotal).fill('').map((empty, index) => index + 1);
 
-  const rvTypes = new Array(9).fill('').map((item, index) => {
-    return `RV Type ${index + 1}`;
+  const vehicleTypes = new Array(9).fill('').map((item, index) => {
+    return `${realm.label.singular} Type ${index + 1}`;
   });
 
   const searchPills = [
     {
       label: 'New travel trailers',
-      url: '/rvs-for-sale',
+      url: `/${formatKebabCase(realm.label.plural)}-for-sale`,
     },
     {
       label: 'Used travel trailers',
-      url: '/rvs-for-sale',
+      url: `/${formatKebabCase(realm.label.plural)}-for-sale`,
     },
   ];
 
@@ -135,7 +141,7 @@
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummyVehicleTypes: VehicleType[] = [
     { label: 'Airstream' },
-    { label: 'Alliance Rv' },
+    { label: 'Alliance' },
     { label: 'Coachmen' },
     { label: 'Fleetwood' },
     { label: 'Forest River' },
@@ -169,7 +175,7 @@
   };
 
   const setBrowseButtons = () => {
-    browseButtons.value = [
+    guidedSearchTabs.value = [
       {
         callback: () => {
           filterStore.setIsBrowseByType(true);
@@ -223,7 +229,7 @@
       :class="isSingleColumn ? 'column' : 'column-reverse'"
       class="flex gap-2 mb-2"
     >
-      <SiteContainer :class="isLarge ? 'w-full' : ''">
+      <BasicContainer :class="isLarge ? 'w-full' : ''">
         <BreadCrumbs
           :bread-crumbs="breadCrumbs"
           class="mb-1"
@@ -240,65 +246,62 @@
             :class="isSingleColumn ? 'axis1-between w-full' : ''"
             class="flex wrap axis2-center gap-1"
           >
-            <div class="relative">
-              <SiteButton
-                class="border-2 border-dark-gray radius-1/4 py-1/2 px-1"
-                is-primary
-                is-restyled
-                v-if="isSingleColumn"
+            <div
+              class="relative"
+              v-if="isSingleColumn"
+            >
+              <BasicButton
+                :icon-leading="ICON.SLIDERS"
+                :priority="PRIORITY.PRIMARY"
+                :tier="TIER.TIER_2"
               >
                 Filters
-              </SiteButton>
+              </BasicButton>
 
               <div
-                class="search-results-filter-count absolute top-0 right-0 flex axis1-center axis2-center radius-full bg-gray-light font-14 font-700 ratio-1/1"
-                v-if="filters.length > 0"
+                class="search-results-filter-count absolute top-0 right-0 flex axis1-center axis2-center radius-full bg-primary-tier-1 font-14 font-700"
+                v-if="isSingleColumn && filters.length > 0"
               >
                 {{ filters.length }}
               </div>
             </div>
 
-            <div class="flex gap-1">
-              <button class="flex axis2-center gap-1/4">
-                <SiteIconToggle
-                  :class="isSingleColumn ? 'border-2 border-dark-gray p-1/2' : 'p-1/4'"
-                  :is-active="isSavedSearch"
-                  :is-solid="isSavedSearch"
-                  @click="toggleIsSavedSearch"
-                  class-button="icon-button"
-                  icon="heart"
-                  is-restyled
-                  is-secondary
-                />
-                <span v-if="!isSingleColumn">Save search</span>
-              </button>
-
-              <SiteButton
-                :class="isSingleColumn ? 'border-2 border-dark-gray radius-1/4 py-1/2 px-1' : ''"
-                :is-secondary="isSingleColumn"
-                class="flex axis2-center gap-1/4 p-1/4"
-                is-restyled
+            <div class="flex axis2-center gap-1/2">
+              <BasicButton
+                :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
+                :is-active="isSavedSearch"
+                :priority="PRIORITY.SECONDARY"
+                :size="SIZE_ICON.SMALL"
+                @click="toggleIsSavedSearch"
+                v-if="isSingleColumn"
               >
-                <FontAwesomeIcon
-                  class="rotate-90"
-                  icon="fa-solid fa-arrow-right-arrow-left"
-                />
-                <span>Sort by{{ !isSingleColumn ? ':' : '' }}</span>
-                <span
-                  class="flex gap-1/4"
-                  v-if="!isSingleColumn"
-                >
-                  <span>Premium</span>
-                  <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
-                </span>
-              </SiteButton>
+                <span>Save search</span>
+              </BasicButton>
+
+              <BasicButton
+                :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
+                :is-active="isSavedSearch"
+                :priority="PRIORITY.TERTIARY"
+                @click="toggleIsSavedSearch"
+                v-else
+              >
+                <span>Save search</span>
+              </BasicButton>
+
+              <BasicButton
+                :icon-leading="ICON.ARROW_UP_ARROW_DOWN"
+                :icon-trailing="!isSingleColumn ? ICON.CHEVRON_DOWN : undefined"
+                :priority="isSingleColumn ? PRIORITY.SECONDARY : PRIORITY.TERTIARY"
+              >
+                <span>Sort by<span v-if="!isSingleColumn">: Premium</span></span>
+              </BasicButton>
             </div>
           </div>
         </header>
-      </SiteContainer>
+      </BasicContainer>
 
-      <section>
-        <SiteContainer class="mb-2">
+      <section v-if="guidedSearchTabs">
+        <BasicContainer class="mb-2">
           <section class="flex axis2-center gap-1">
             <span
               class="font-20 font-700"
@@ -307,14 +310,14 @@
               Browse
             </span>
 
-            <SiteSwitchButtons
-              :buttons="browseButtons"
+            <BasicButtonTabs
+              :buttons="guidedSearchTabs"
               :class="isSingleColumn ? 'w-full' : ''"
             />
           </section>
-        </SiteContainer>
+        </BasicContainer>
 
-        <SiteCarousel
+        <BasicCarousel
           :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
@@ -322,16 +325,16 @@
           class="axis1-center"
           v-if="isBrowseByType"
         >
-          <VehicleToggle
+          <ChipFilterGuidedSearch
             :is-active="types.includes(vehicleType.label)"
             :key="vehicleType.label"
             :vehicle-type="vehicleType"
             @click="handleTypeToggleClick(vehicleType.label)"
             v-for="vehicleType in dummyVehicleMakes"
           />
-        </SiteCarousel>
+        </BasicCarousel>
 
-        <SiteCarousel
+        <BasicCarousel
           :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
@@ -339,14 +342,14 @@
           class="axis1-center"
           v-if="!isBrowseByType"
         >
-          <VehicleToggle
+          <ChipFilterGuidedSearch
             :is-active="makes.includes(vehicleMake.label)"
             :key="vehicleMake.label"
             :vehicle-type="vehicleMake"
             @click="handleMakeToggleClick(vehicleMake.label)"
             v-for="vehicleMake in dummyVehicleTypes"
           />
-        </SiteCarousel>
+        </BasicCarousel>
       </section>
     </div>
 
@@ -356,16 +359,17 @@
     >
       <section class="flex gap-2 mb-2">
         <aside
-          :class="isSingleColumn ? '' : 'initial'"
-          class="search-results-aside shrink-none hidden bg-white"
+          class="search-results-aside shrink-none bg-white"
+          v-if="!isSingleColumn"
         >
           <div class="mb-2">
             <AccordionItem
+              :is-expanded-initial="true"
               :label="`Location ${filterCounts.location ? '(' + filterCounts.location + ')' : ''}`"
               class-label="pb-1"
             >
               <div class="mb-1">
-                <div class="flex axis1-between gap-1 my-1 border-b border-gray pb-1">
+                <div class="flex axis1-between gap-1 my-1 border-b border-gray-light pb-1">
                   <div class="flex column gap-1/2 w-1/2">
                     <label
                       class="font-14"
@@ -373,8 +377,9 @@
                     >
                       Zip code
                     </label>
+
                     <input
-                      class="border-1 border-gray p-1 w-full"
+                      class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
                       name="zip"
                       type="text"
                     />
@@ -383,13 +388,14 @@
                   <div class="flex column gap-1/2 w-1/2">
                     <label
                       class="font-14"
-                      for="radius-1/2"
+                      for="radius"
                     >
                       Search within
                     </label>
+
                     <select
-                      class="border-1 border-gray p-1 w-full"
-                      name="radius-1/2"
+                      class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                      name="radius"
                     />
                   </div>
                 </div>
@@ -400,7 +406,7 @@
                     <span v-if="dummy.floorplanResults">({{ formatNumber(dummy.floorplanResults) }})</span>
                   </span>
 
-                  <SiteButtonToggle
+                  <BasicToggle
                     :is-active="filterStore.isFilterByFloorplans"
                     @click="filterStore.toggleIsFilterByFloorplans"
                     class="shrink-none"
@@ -425,7 +431,7 @@
                   </label>
 
                   <input
-                    class="border-1 border-gray p-1 w-full"
+                    class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
                     name="make"
                     type="text"
                   />
@@ -469,13 +475,13 @@
                   </a>
                 </div>
 
-                <SiteButton is-secondary> Select models and floor plans </SiteButton>
+                <BasicButton>Select models and floor plans</BasicButton>
               </div>
             </AccordionItem>
 
             <AccordionItem
+              :label="`${realm.label.singular} type`"
               class-label="py-1"
-              label="RV type"
             >
               <div class="flex column gap-1/4 mb-1">
                 <div
@@ -491,7 +497,7 @@
                     :for="`type${index}`"
                     class="font-14"
                   >
-                    RV type {{ index + 1 }}
+                    {{ realm.label.singular }} type {{ index + 1 }}
                   </label>
                 </div>
               </div>
@@ -524,37 +530,26 @@
               :key="filter.label"
               v-for="filter in filters"
             >
-              <SiteButton
+              <BasicChipInput
+                :label="filter.label"
                 @click="handleFilterChipClick(filter.callback)"
-                class="radius-full px-1 py-1/2 font-500"
-                icon-trailing="times"
-                is-secondary
-                is-solid
-              >
-                {{ filter.label }}
-              </SiteButton>
+              />
             </li>
 
             <li>
-              <SiteButton
-                @click="handleClearAllClick"
-                class="font-700 underline"
-                is-restyled
-              >
-                Clear All
-              </SiteButton>
+              <BasicButtonAsLink @click="handleClearAllClick"> Clear all </BasicButtonAsLink>
             </li>
           </ul>
 
-          <section class="mb-2">
+          <section class="mb-2 border-b border-gray-light pb-2 font-16">
             <h2
               :class="isSingleColumn ? 'mx-2' : ''"
-              class="mb-1 font-16"
+              class="mb-1"
             >
               Featured listings
             </h2>
 
-            <VehicleCardCarousel
+            <CardCarouselListingFeatured
               :get-is-favorite="favoriteStore.getIsFavorite"
               :handle-favorite-click="favoriteStore.toggleIsFavorite"
               :is-touchscreen="isTouchscreen"
@@ -562,11 +557,6 @@
               :vehicles="featuredListingStore.vehicles"
             />
           </section>
-
-          <div
-            :class="isSingleColumn ? 'mx-2' : ''"
-            class="mb-2 border-b border-gray"
-          />
 
           <ul class="flex wrap gap-1 mb-2 list-none">
             <template
@@ -578,11 +568,11 @@
                 ...searchResultStore.vehicles.slice(0, 6),
               ]"
             >
-              <ListingCard
+              <CardListing
                 :class="isSingleColumn ? 'mx-2' : ''"
                 :is-favorite="favoriteStore.getIsFavorite(vehicle.adId)"
                 :vehicle="vehicle"
-                @handle-favorite-click="favoriteStore.toggleIsFavorite"
+                @favorite-click="favoriteStore.toggleIsFavorite"
               />
 
               <li
@@ -605,37 +595,12 @@
               </li>
 
               <li
-                :class="isSingleColumn ? 'mx-2' : ''"
-                class="flex axis1-between axis2-center gap-2 w-full no-shrink"
+                class="w-full"
                 v-if="[3, 18].includes(index + 1)"
               >
-                <aside class="search-results-dealer-ad flex column gap-1/2">
-                  <div class="search-results-dealer-ad-img radius-1/2 bg-gray" />
-                  <span class="font-12">Sponsored · Atlanta, GA</span>
-                  <span class="font-20 font-700">Roy Robinson RV</span>
-                  <span class="font-14">Largest premium pre-owned inventory</span>
-                  <a
-                    class="font-700"
-                    href="tel:+18775551234"
-                  >
-                    Call 1-877-555-1234
-                  </a>
-
-                  <SiteButton
-                    class="border-2 border-primary radius-1/2 p-1/2 font-14 font-700"
-                    is-restyled
-                    is-secondary
-                  >
-                    View Inventory
-                  </SiteButton>
-                </aside>
-
-                <VehicleCardCarousel
-                  :get-is-favorite="favoriteStore.getIsFavorite"
-                  :handle-favorite-click="favoriteStore.toggleIsFavorite"
-                  :is-touchscreen="isTouchscreen"
+                <CardCarouselListingDealer
+                  :class="isSingleColumn ? 'mx-2' : ''"
                   :vehicles="featuredListingStore.vehicles"
-                  class="search-results-dealer-ad-carousel"
                 />
               </li>
             </template>
@@ -646,41 +611,45 @@
             class="flex axis1-center axis2-center gap-1 mb-2 w-full"
             v-if="filterStore.pagesTotal > 1"
           >
-            <SiteButtonIcon
+            <BasicButtonIcon
               :disabled="filterStore.pageCurrent === 1"
+              :icon="ICON.CHEVRON_LEFT"
+              :priority="PRIORITY.TERTIARY"
+              :size="SIZE_ICON.SMALL"
               @click="filterStore.setPagePrevious"
-              class="pagination-button ratio-1/1"
-              icon="chevron-left"
-              is-secondary
-              is-solid
             />
 
-            <ul class="flex gap-1/4 mx-2 list-none">
+            <ul class="flex axis2-center gap-1/4 mx-2 list-none">
               <li
                 :key="paginationButton"
                 v-for="paginationButton in paginationButtons"
               >
-                <SiteButton
-                  :class="`pagination-button relative flex axis1-center axis2-center radius-full p-1/2 ratio-1/1 ${
-                    paginationButton === filterStore.pageCurrent ? 'border-2' : ''
-                  }`"
-                  :is-primary="paginationButton === filterStore.pageCurrent"
-                  :is-secondary="paginationButton !== filterStore.pageCurrent"
-                  @click="filterStore.setPageCurrent(paginationButton)"
-                  is-restyled
+                <span
+                  class="pagination-label flex axis1-center axis2-center border-primary-tier-2 radius-full p-1 bg-primary-tier-2 font-primary-tier-2 font-700"
+                  v-if="filterStore.pageCurrent === paginationButton"
                 >
-                  <span class="absolute">{{ paginationButton }}</span>
-                </SiteButton>
+                  {{ paginationButton }}
+                </span>
+
+                <BasicButtonIcon
+                  :priority="PRIORITY.TERTIARY"
+                  :size="SIZE_ICON.SMALL"
+                  @click="filterStore.setPageCurrent(paginationButton)"
+                  v-else
+                >
+                  <span class="pagination-label flex axis1-center axis2-center">
+                    {{ paginationButton }}
+                  </span>
+                </BasicButtonIcon>
               </li>
             </ul>
 
-            <SiteButtonIcon
+            <BasicButtonIcon
               :disabled="filterStore.pageCurrent === paginationButtons[paginationButtons.length - 1]"
+              :icon="ICON.CHEVRON_RIGHT"
+              :priority="PRIORITY.TERTIARY"
+              :size="SIZE_ICON.SMALL"
               @click="filterStore.setPageNext"
-              class="pagination-button"
-              icon="chevron-right"
-              is-secondary
-              is-solid
             />
           </section>
 
@@ -688,21 +657,12 @@
             :class="isSingleColumn ? 'mx-2' : ''"
             class="flex wrap gap-1 mb-2 font-14"
           >
-            <router-link
+            <ChipActionRelatedSearch
+              :href="searchPill.url"
               :key="searchPill.label"
-              :to="searchPill.url"
-              class="underline-none"
+              :label="searchPill.label"
               v-for="searchPill in searchPills"
-            >
-              <SiteButton
-                class="radius-full underline-none"
-                icon-leading="magnifying-glass"
-                is-secondary
-                is-solid
-              >
-                {{ searchPill.label }}
-              </SiteButton>
-            </router-link>
+            />
           </section>
 
           <SiteDisclaimer :class="isSingleColumn ? 'mx-2 flex axis1-center' : ''" />
@@ -736,11 +696,11 @@
         </main>
       </section>
 
-      <SiteContainer>
+      <BasicContainer>
         <section v-if="!isSingleColumn">
           <SeoContent
             class="mb-2"
-            heading="Top RV makes for sale"
+            heading="Top {{ realm.label.singular }} makes for sale"
           >
             <li
               :key="topMake"
@@ -754,7 +714,7 @@
 
           <SeoContent
             class="mb-2"
-            heading="States with RVs for sale"
+            heading="States with {{ realm.label.plural }} for sale"
           >
             <li
               :key="topState"
@@ -768,7 +728,7 @@
 
           <SeoContent
             class="mb-2"
-            heading="Top cities with RVs for sale"
+            heading="Top cities with {{ realm.label.plural }} for sale"
           >
             <li
               :key="topCity"
@@ -782,7 +742,7 @@
 
           <SeoContent
             class="mb-2"
-            heading="RV sleeping capacity"
+            heading="{{ realm.label.singular }} sleeping capacity"
           >
             <li
               :key="sleepingCapacity"
@@ -794,20 +754,20 @@
             </li>
           </SeoContent>
 
-          <SeoContent heading="RV types">
+          <SeoContent heading="{{ realm.label.singular }} types">
             <li
-              :key="rvType"
+              :key="vehicleType"
               class="flex column gap-1/4 w-full w-1/4 font-14"
-              v-for="rvType in rvTypes"
+              v-for="vehicleType in vehicleTypes"
             >
-              <span>{{ rvType }}</span>
+              <span>{{ vehicleType }}</span>
               <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
             </li>
           </SeoContent>
         </section>
 
         <SubscribeToNewsletter />
-      </SiteContainer>
+      </BasicContainer>
     </div>
   </div>
 </template>
@@ -824,6 +784,7 @@
   .search-results-filter-count {
     margin-top: -0.5rem;
     margin-right: -0.5rem;
+    width: 1.25rem;
     height: 1.25rem;
   }
 
@@ -833,15 +794,8 @@
 </style>
 
 <style>
-  .pagination-button {
-    width: 32px;
-  }
-
-  .search-results-dealer-ad-aside {
-    width: 157px;
-  }
-
-  .search-results-dealer-ad-carousel {
-    width: calc(100% - 157px - 2rem);
+  .pagination-label {
+    width: 1rem;
+    height: 1rem;
   }
 </style>

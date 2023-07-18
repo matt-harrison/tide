@@ -1,7 +1,176 @@
 /* Cycle Realm Colors */
 :root {
-  --primary:      #000000;
-  --primary-dark: #000000;
-  --secondary:    #253E51;
-  --accent:       #C50000;
+  --black-100: #dcdcdc;
+  --black-200: #b9b9b9;
+  --black-300: #969696;
+  --black-400: #737373;
+  --black-500: #565656;
+  --black-600: #3a3a3a;
+  --black-700: #1d1d1d;
+
+  --steel-blue-100: #c9cfd4;
+  --steel-blue-200: #929fa8;
+  --steel-blue-300: #5c6e7d;
+  --steel-blue-400: #253e51;
+  --steel-blue-500: #1c2f3d;
+  --steel-blue-600: #131f29;
+  --steel-blue-700: #091014;
+
+  --blood-orange-100: #f1bfbf;
+  --blood-orange-200: #e28080;
+  --blood-orange-300: #d44040;
+  --blood-orange-400: #c50000;
+  --blood-orange-500: #940000;
+  --blood-orange-600: #630000;
+  --blood-orange-700: #310000;
+
+  --blue-100: #c9dde5;
+  --blue-200: #94bccb;
+  --blue-300: #5e9ab0;
+  --blue-400: #287896;
+  --blue-500: #1e5a71;
+  --blue-600: #143c4b;
+  --blue-700: #0a1e26;
+
+  --steel-100: #f2f3f4;
+  --steel-200: #e4e7e9;
+  --steel-300: #d7dbde;
+  --steel-400: #c9cfd3;
+  --steel-500: #979b9e;
+  --steel-600: #65686a;
+  --steel-700: #323435;
+}
+
+/* Realm Palette: These variables will be declared separately for each realm. */
+:root {
+  /* Light Theme Primary Button Tiers */
+  --ti-primary-button-tier-1-background-rest: var(--black-700);
+  --ti-primary-button-tier-1-border-rest: var(--black-700);
+  --ti-primary-button-tier-1-foreground-rest: var(--white);
+
+  --ti-primary-button-tier-1-background-hover: var(--black-700);
+  --ti-primary-button-tier-1-border-hover: var(--black-600);
+  --ti-primary-button-tier-1-foreground-hover: var(--white);
+
+  --ti-primary-button-tier-2-background-rest: var(--blood-orange-400);
+  --ti-primary-button-tier-2-border-rest: var(--blood-orange-400);
+  --ti-primary-button-tier-2-foreground-rest: var(--white);
+
+  --ti-primary-button-tier-2-background-hover: var(--blood-orange-400);
+  --ti-primary-button-tier-2-border-hover: var(--blood-orange-500);
+  --ti-primary-button-tier-2-foreground-hover: var(--white);
+
+  --ti-primary-button-tier-3-background-rest: var(--steel-blue-400);
+  --ti-primary-button-tier-3-border-rest: var(--steel-blue-400);
+  --ti-primary-button-tier-3-foreground-rest: var(--white);
+
+  --ti-primary-button-tier-3-background-hover: var(--steel-blue-400);
+  --ti-primary-button-tier-3-border-hover: var(--steel-blue-300);
+  --ti-primary-button-tier-3-foreground-hover: var(--white);
+
+  /* Light Theme Primary Button Tier Variants */
+  --ti-primary-button-tier-1-variant-background-rest: var(--blood-orange-100);
+  --ti-primary-button-tier-1-variant-border-rest: var(--blood-orange-100);
+  --ti-primary-button-tier-1-variant-foreground-rest: var(--black);
+
+  --ti-primary-button-tier-1-variant-background-hover: var(--blood-orange-100);
+  --ti-primary-button-tier-1-variant-border-hover: var(--blood-orange-200);
+  --ti-primary-button-tier-1-variant-foreground-hover: var(--black);
+
+  --ti-primary-button-tier-2-variant-background-rest: var(--blood-orange-100);
+  --ti-primary-button-tier-2-variant-border-rest: var(--blood-orange-100);
+  --ti-primary-button-tier-2-variant-foreground-rest: var(--black);
+
+  --ti-primary-button-tier-2-variant-background-hover: var(--blood-orange-100);
+  --ti-primary-button-tier-2-variant-border-hover: var(--blood-orange-200);
+  --ti-primary-button-tier-2-variant-foreground-hover: var(--black);
+
+  --ti-primary-button-tier-3-variant-background-rest: var(--blue-100);
+  --ti-primary-button-tier-3-variant-border-rest: var(--blue-100);
+  --ti-primary-button-tier-3-variant-foreground-rest:  var(--black);
+
+  --ti-primary-button-tier-3-variant-background-hover: var(--blue-100);
+  --ti-primary-button-tier-3-variant-border-hover: var(--blue-200);
+  --ti-primary-button-tier-3-variant-foreground-hover:  var(--black);
+
+  /* Light Theme Secondary Buttons */
+  --ti-secondary-button-border-rest: var(--black);
+  --ti-secondary-button-foreground-rest: var(--black);
+
+  --ti-secondary-button-border-hover: var(--black);
+  --ti-secondary-button-foreground-hover: var(--black);
+
+  /* Light Theme Tertiary Buttons */
+  --ti-tertiary-button-background-rest: var(--white);
+  --ti-tertiary-button-border-rest: var(--white);
+  --ti-tertiary-button-foreground-rest: var(--black);
+
+  --ti-tertiary-button-background-hover: var(--white);
+  --ti-tertiary-button-border-hover: var(--gray);
+  --ti-tertiary-button-foreground-hover: var(--teal-700);
+
+  /* Light Theme Surface BGs */
+  --ti-surface-background-default: var(--steel-100);
+  --ti-surface-background-dark: var(--steel-400);
+  --ti-surface-background-light: var(--white);
+
+  /* Light Theme Surface Variant BGs */
+  --ti-surface-variant-background-lightest: var(--steel-100);
+  --ti-surface-variant-background-light: var(--steel-200);
+  --ti-surface-variant-background-default: var(--steel-300);
+  --ti-surface-variant-background-dark: var(--steel-400);
+  --ti-surface-variant-background-darkest: var(--steel-500);
+
+  /* Light Theme Surface FGs */
+  --ti-surface-foreground: var(--black);
+  --ti-surface-variant-foreground: #ABCDE;
+
+  /* Light Theme Borders */
+  --ti-surface-border-dark: var(--black);
+  --ti-surface-border-default: var(--black-400);
+  --ti-surface-border-light: var(--steel-300);
+  --ti-surface-border-save-active: var(--blood-orange-400); /* Naming convention? */
+}
+
+/* DARK THEME CONTEXT VARIABLES */
+:root .theme-dark {
+  /* Dark Theme Primary Tiers (Tier 1 and Tier 3 identical) */
+  --ti-primary-button-tier-2-background-rest: var(--blood-orange-400);
+  --ti-primary-button-tier-2-border-rest: var(--blood-orange-400);
+  --ti-primary-button-tier-2-foreground-rest: var(--white);
+
+  --ti-primary-button-tier-2-background-hover: var(--blood-orange-400);
+  --ti-primary-button-tier-2-border-hover: var(--blood-orange-500);
+  --ti-primary-button-tier-2-foreground-hover: var(--white);
+
+  /* Dark Theme Primary Tier Variants (Identical) */
+
+  /* Dark Theme Secondary Buttons */
+  --ti-secondary-button-border-rest: var(--white);
+  --ti-secondary-button-foreground-rest: var(--white);
+
+  --ti-secondary-button-border-hover: var(--black-100);
+  --ti-secondary-button-foreground-hover: var(--white);
+
+  /* Dark Theme Tertiary Buttons (Identical) */
+
+  /* Dark Theme Surface BGs */
+  --ti-surface-background-dark: var(--blue-600);
+  --ti-surface-background-default: #2f414b;
+  --ti-surface-background-light: #4b5b63;
+
+  /* Dark Theme Surface Variant BGs */
+  --ti-surface-variant-background-dark: #41525b;
+  --ti-surface-variant-background-darkest: #293c46;
+  --ti-surface-variant-background-default: #41525b;
+  --ti-surface-variant-background-light: #54636b;
+  --ti-surface-variant-background-lightest: #717d84;
+
+  --ti-surface-foreground: var(--white);
+  --ti-surface-variant-foreground: #c4c9cc;
+
+  /* Dark Theme Borders */
+  --ti-surface-border-dark: #4d5d65;
+  --ti-surface-border-default: #65727a;
+  --ti-surface-border-light: var(--white);
 }

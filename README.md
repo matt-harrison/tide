@@ -58,9 +58,3 @@ npm run lint
 3. `npm run dev`
 
 [SPA](http://localhost:5173/)
-
-[Carousel](http://localhost:5173/app-carousel.html)
-
-[SRP](http://localhost:5173/app-search-results.html)
-
-[Style Guide](http://localhost:5173/app-style-guide.html)

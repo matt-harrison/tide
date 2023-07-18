@@ -1,21 +1,17 @@
 /*.CSS Variables */
 :root {
   /* Global Colors */
+  --beige:      #f9f5f2;
   --black:      #000000;
-  --blue:       #669EDC;
   --blue-dark:  #2971EA;
   --blue-light: #CCDEF3;
-  --gray:       #B2B2B2;
+  --blue:       #669EDC;
   --gray-dark:  #3D3D3D;
   --gray-light: #E5E5E5;
+  --gray:       #B2B2B2;
   --green:      #336600;
   --red:        #FF0000;
   --white:      #FFFFFF;
-
-  /* Realm-specific colors (placeholders) */
-  --primary:   var(--black);
-  --secondary: var(--white);
-  --tertiary:  var(--gray);
 
   /* Fonts */
   --font-default: Montserrat;
@@ -28,10 +24,18 @@
   --shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 
   /* Spacing */
-  --spacing-0: 0;
+  --spacing-0: 0rem;
   --spacing-1\/4: 0.25rem;
   --spacing-1\/2: 0.5rem;
+  --spacing-3\/4: 0.75rem;
   --spacing-1: 1rem;
+  --spacing-3\/2: 1.5rem;
   --spacing-2: 2rem;
   --spacing-4: 4rem;
+
+  /* Border */
+  --border-w-1: 1px;
+  --border-w-2: 2px;
+  --border-1: var(--border-w-1) solid var(--black);
+  --border-2: var(--border-w-2) solid var(--black);
 }

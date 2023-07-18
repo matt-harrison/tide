@@ -1,220 +1,373 @@
 <script lang="ts" setup>
-  import { ref } from 'vue';
+  import { ref, watch, defineAsyncComponent } from 'vue';
 
-  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-  import { storeToRefs } from 'pinia';
+  import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
+  import { SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
+  import { realm } from '@/config/main.config';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
-  import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
-  import SiteLinkAsButton from '@/components/SiteLinkAsButton.vue';
-  import { useModalStore } from '@/stores/ModalStore';
+  const viewportStore = useViewportStore();
 
-  const breakpointStore = useBreakpointStore();
-  const modalStore = useModalStore();
-
-  const { isExtraSmall } = storeToRefs(breakpointStore);
-
-  let showMobileMenu = ref(false);
-
-  const toggleShowMobileMenu = () => {
-    showMobileMenu.value = !showMobileMenu.value;
-
-    modalStore.setIsScrollLocked(showMobileMenu.value);
+  type Props = {
+    showSearchBar?: boolean;
   };
 
-  const props = defineProps({
-    showSearchbar: {
-      required: true,
-      type: Boolean,
-    },
+  const props = withDefaults(defineProps<Props>(), {
+    showSearchBar: true,
+  });
+
+  const realmLogo = defineAsyncComponent(() => import('@/assets/logos/RvLogo.vue'));
+  // const realmLogo = defineAsyncComponent(() => import(`@/assets/logos/${formatPascalCase(realm.id)}Logo.vue`));
+
+  const navItems = [
+    { href: '#', label: 'Reviews' },
+    { href: '#', label: 'Research' },
+    { href: '#', label: 'Dealers' },
+    { href: '#', label: 'Parts' },
+    { href: '#', label: 'Parks' },
+    { href: '#', label: 'Blog' },
+  ];
+
+  const navItemsPriority = [
+    { href: '#', label: `Find ${realm.label.plural}` },
+    { href: '#', label: 'Sell' },
+    { href: '#', label: 'Value' },
+  ];
+
+  const isNavOpen = ref(false);
+  const isSearchOpen = ref(false);
+  const searchBarForm = ref<HTMLFormElement | null>(null);
+  const searchInput = ref<HTMLInputElement | null>(null);
+
+  const handleBurgerClick = () => {
+    isNavOpen.value = true;
+  };
+
+  const handleNavMenuClose = () => {
+    isNavOpen.value = false;
+  };
+
+  const handleNavMenuClick = (e: MouseEvent) => {
+    if (e.target !== e.currentTarget) return;
+    isNavOpen.value = false;
+  };
+
+  const handleTopSearchClick = (e: MouseEvent) => {
+    if (!searchBarForm.value?.contains(e.target as Node)) {
+      isSearchOpen.value = false;
+    }
+  };
+
+  const handleSearchBarTriggerClick = () => {
+    isSearchOpen.value = true;
+  };
+
+  const handleNavMenuKeydown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      isNavOpen.value = false;
+    }
+  };
+
+  watch(isNavOpen, (isOpen) => {
+    if (isOpen) {
+      document.body.addEventListener('keydown', handleNavMenuKeydown);
+    } else {
+      document.body.removeEventListener('keydown', handleNavMenuKeydown);
+    }
+  });
+
+  const handleSearchBarKeydown = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      isSearchOpen.value = false;
+    }
+  };
+
+  watch(isSearchOpen, (isOpen) => {
+    if (isOpen) {
+      document.body.addEventListener('keydown', handleSearchBarKeydown);
+      requestAnimationFrame(() => {
+        searchInput.value?.focus();
+      });
+    } else {
+      document.body.removeEventListener('keydown', handleSearchBarKeydown);
+    }
   });
 </script>
 
 <template>
   <header
-    class="flex axis1-between axis2-center gap-1 border-b border-gray py-1 px-2 bg-white font-14 whitespace-nowrap"
+    :class="[
+      'site-header flex',
+      viewportStore.isLarge ? '' : 'wrap',
+      'axis1-between axis2-center gap-2 border-b border-gray-light p-1',
+    ]"
   >
-    <div class="flex axis2-center x-hidden">
-      <router-link
-        class="site-header-link shrink-none mr-1 underline-none"
-        to="/"
-      >
-        <div class="flex axis2-center">
-          <div class="site-header-logo mr-1/4 radius-1/2 bg-gray-dark" />
-          <span class="font-32 font-700">RV Trader</span>
-        </div>
-      </router-link>
+    <a
+      :class="viewportStore.isExtraSmall ? '' : 's'"
+      class="realm-logo flex axis2-center gap-1/2"
+      href="/"
+    >
+      <component :is="realmLogo" />
+    </a>
 
-      <nav
+    <nav
+      :class="viewportStore.isLarge ? '' : 'axis1-end order-1 w-full'"
+      class="flex axis2-center gap-1 font-14 font-600"
+    >
+      <ul
+        :class="viewportStore.isLarge ? '' : 'top-0 left-0 axis1-around w-full'"
+        class="flex gap-1 list-none"
+      >
+        <li
+          :key="item.href"
+          v-for="item in navItemsPriority"
+        >
+          <a
+            :href="item.href"
+            class="underline-hover"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+
+      <div
         :class="[
-          isExtraSmall
-            ? 'site-header-links absolute column top-0 pt-4 px-1 pb-1 w-full h-full bg-gray-dark font-white'
-            : 'row scrollbar-none snap x-auto',
-          isExtraSmall && showMobileMenu ? 'left-0' : 'offscreen',
+          !viewportStore.isLarge && isNavOpen ? 'open' : 'pointer-events-none',
+          !viewportStore.isLarge && !isNavOpen && 'hidden',
+          viewportStore.isLarge ? '' : 'absolute top-0 left-0 flex axis1-end w-full h-full z-1',
         ]"
-        class="flex"
       >
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Find RVs
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Sell
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Value
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          RV Reviews
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Research
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          RV Dealers
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Parts
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          RV Parks
-        </router-link>
-
-        <router-link
-          class="site-header-link p-1 font-700 underline-none"
-          to="/"
-        >
-          Blog
-        </router-link>
-
-        <SiteButtonIcon
-          @click="toggleShowMobileMenu"
-          class-button="site-header-icon absolute top-0 right-0 mt-1 mr-1 font-20"
-          icon="xmark"
-          is-solid
-          v-if="isExtraSmall"
+        <div
+          :class="isNavOpen ? 'pointer-events' : ''"
+          @click="handleNavMenuClick"
+          class="overlay absolute top-0 left-0 w-full h-full"
         />
-      </nav>
+
+        <nav
+          :class="[
+            !viewportStore.isLarge && isNavOpen && 'relative left-0',
+            !viewportStore.isLarge && !isNavOpen && 'relative left-full',
+            viewportStore.isLarge ? '' : 'absolute top-0 pt-4 px-2 h-full bg-gray-dark',
+          ]"
+          class="nav-menu h-full pointer-events"
+        >
+          <BasicButtonIcon
+            :icon="ICON.XMARK"
+            :priority="PRIORITY.TERTIARY"
+            :size="SIZE_ICON.SMALL"
+            @click="handleNavMenuClose"
+            aria-label="Close menu"
+            class="absolute top-0 right-0 mt-1 mr-1 ml-auto"
+            v-if="!viewportStore.isLarge"
+          />
+
+          <ul
+            :class="viewportStore.isLarge ? '' : 'column font-white'"
+            class="flex gap-1 list-none"
+          >
+            <li
+              :key="item.href"
+              v-for="item in navItems"
+            >
+              <a
+                :href="item.href"
+                class="underline-hover"
+              >
+                {{ item.label }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </nav>
+
+    <div class="flex gap-1/2 ml-auto">
+      <BasicButtonIcon
+        :icon="ICON.MAGNIFYING_GLASS"
+        :priority="PRIORITY.TERTIARY"
+        :size="SIZE_ICON.SMALL"
+        @click="handleSearchBarTriggerClick"
+        class="font-20"
+        title="Search"
+        v-if="props.showSearchBar"
+      />
+
+      <BasicButtonIcon
+        :icon="ICON.USER"
+        :priority="PRIORITY.TERTIARY"
+        :size="SIZE_ICON.SMALL"
+        class="font-20"
+        href="/style-guide"
+        title="Sign in"
+      />
+
+      <BasicButtonIcon
+        :icon="ICON.BARS"
+        :priority="PRIORITY.TERTIARY"
+        :size="SIZE_ICON.SMALL"
+        @click="handleBurgerClick"
+        class="font-20"
+        title="Menu"
+        v-if="!viewportStore.isLarge"
+      />
     </div>
 
-    <div class="flex axis2-center gap-1">
+    <div
+      :class="{ open: isSearchOpen }"
+      class="top-search absolute top-0 left-0 w-full h-full font-white pointer-events-none z-1"
+      v-if="props.showSearchBar && isSearchOpen"
+    >
       <div
-        class="site-header-search-bar relative"
-        v-if="props.showSearchbar && !isExtraSmall"
+        :class="isSearchOpen ? 'pointer-events' : ''"
+        @click="handleTopSearchClick"
+        class="overlay absolute top-0 left-0 w-full h-full"
+      />
+
+      <form
+        :class="viewportStore.isExtraSmall ? 'radius-bottom-1/2 w-full' : 'mt-1 mr-1 radius-1/2 w-475'"
+        ref="searchBarForm"
+        class="search-form absolute top-0 right-0 p-2 bg-gray-dark pointer-events shadow-box"
       >
-        <input
-          class="border-1 border-gray radius-full py-1/2 pr-4 pl-1 w-full bg-white"
-          placeholder="Search for an RV"
-          type="text"
-        />
+        <div class="search-bar relative mb-2">
+          <input
+            ref="searchInput"
+            class="search-bar-input border-2 border-white radius-full py-1 pr-2 pl-1 w-full"
+            placeholder="Search for {{ realm.label.singularWithArticle }}"
+            type="search"
+          />
 
-        <router-link
-          class="site-header-search-icon absolute flex axis1-center axis2-center radius-full p-1/2 bg-gray-light"
-          to="/rvs-for-sale"
-        >
-          <FontAwesomeIcon icon="fa-solid fa-magnifying-glass" />
-        </router-link>
-      </div>
+          <BasicButtonIcon
+            :icon="ICON.MAGNIFYING_GLASS"
+            :priority="PRIORITY.PRIMARY"
+            :size="SIZE_ICON.SMALL"
+            :tier="TIER.TIER_1"
+            @click="handleSearchBarTriggerClick"
+            aria-label="Search"
+            class="search-bar-submit absolute top-0 right-0 mt-1/2 mr-1/2 p-1/2"
+            title="Search"
+          />
+        </div>
 
-      <div
-        class="flex gap-1/4"
-        v-if="isExtraSmall"
-      >
-        <SiteButtonIcon
-          class="site-header-icon"
-          icon="magnifying-glass"
-          is-secondary
-          is-solid
-        />
+        <div class="suggestions">
+          <div class="mb-1 font-700">Recent searches</div>
 
-        <SiteButtonIcon
-          @click="toggleShowMobileMenu"
-          class="site-header-icon"
-          icon="bars"
-          is-secondary
-          is-solid
-        />
-      </div>
-
-      <SiteLinkAsButton
-        :class="
-          isExtraSmall
-            ? 'site-header-icon flex axis1-center axis2-center radius-full ratio-1/1'
-            : 'flex axis2-center gap-1/4 underline-none'
-        "
-        :is-secondary="isExtraSmall"
-        icon-leading="user"
-        is-restyled
-        is-solid
-        to="/style-guide"
-      >
-        <span
-          class="font-12 font-600"
-          v-if="!isExtraSmall"
-        >
-          Sign In
-        </span>
-      </SiteLinkAsButton>
+          <ul class="flex column list-none">
+            <li class="mb-1 border-b border-gray pb-1">Travel trailer</li>
+            <li class="mb-1 border-b border-gray pb-1">Toy hauler travel trailer</li>
+            <li class="mb-1 border-b border-gray pb-1">Fifth wheel livestock trailer</li>
+            <li class="mb-1 border-b border-gray pb-1">Bunkhouse</li>
+            <li class="mb-1 border-b border-gray pb-1">Dutchmen Aspen Trail</li>
+            <li class="mb-1 border-b border-gray pb-1">Heartland North Trail</li>
+            <li>Dutchmen Aspen Trail 17bh</li>
+          </ul>
+        </div>
+      </form>
     </div>
   </header>
 </template>
 
-<style scoped>
-  .site-header-links {
-    transition: left var(--animate);
-  }
-
-  .site-header-links.offscreen {
+<style lang="scss" scoped>
+  .left-full {
     left: 100%;
   }
 
-  .site-header-search-bar {
-    width: 200px;
+  .order-1 {
+    order: 1;
   }
 
-  .site-header-logo {
-    width: 30px;
-    height: 30px;
+  .radius-bottom-1\/2 {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
   }
 
-  .site-header-search-icon {
-    top: 3px;
-    right: 3px;
+  .w-475 {
+    width: 475px;
   }
-</style>
 
-<style>
-  .site-header-icon {
-    width: 2rem;
+  .z-1 {
+    z-index: 1;
+  }
+
+  .site-header {
+    :deep(.realm-logo .realm-logo-icon) {
+      width: 32px;
+      height: 32px;
+    }
+
+    :deep(.realm-logo .realm-logo-name) {
+      width: 132px;
+      height: auto;
+    }
+
+    :deep(.realm-logo.s .realm-logo-icon) {
+      width: 38px;
+      height: 38px;
+    }
+
+    :deep(.realm-logo.s .realm-logo-name) {
+      width: 154px;
+      height: auto;
+    }
+
+    .nav-menu {
+      width: 275px;
+    }
+
+    .open {
+      .overlay {
+        animation: 500ms blurAndDarken ease forwards;
+      }
+
+      .nav-menu {
+        animation: slideInRight 350ms ease forwards;
+      }
+
+      .search-form {
+        animation: fadeIn 350ms ease forwards;
+      }
+    }
+
+    .search-bar-input {
+      height: 52px;
+    }
+  }
+
+  // TODO: smooth animation on the way out
+  @keyframes blurAndDarken {
+    from {
+      background-color: rgba(26, 48, 53, 0);
+      backdrop-filter: blur(0px);
+    }
+
+    to {
+      background-color: rgba(26, 48, 53, 0.37);
+      backdrop-filter: blur(var(--blur-radius, 4px));
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translate(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      backdrop-filter: blur(0px);
+      opacity: 0;
+    }
+
+    to {
+      backdrop-filter: blur(var(--blur-radius, 4px));
+      opacity: 1;
+    }
   }
 </style>

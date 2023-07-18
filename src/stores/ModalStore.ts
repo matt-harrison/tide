@@ -2,10 +2,18 @@ import { defineStore } from 'pinia';
 
 type State = {
   isScrollLocked: boolean;
+  offsetBottom: number | null;
+  offsetTop: number | null;
 };
 
 export const useModalStore = defineStore('modalStore', {
   actions: {
+    clearOffsetBottom() {
+      this.offsetBottom = null;
+    },
+    clearOffsetTop() {
+      this.offsetTop = null;
+    },
     setIsScrollLocked(isScrollLocked: boolean) {
       this.isScrollLocked = isScrollLocked;
 
@@ -15,8 +23,16 @@ export const useModalStore = defineStore('modalStore', {
         document.querySelector('body')?.classList.remove('y-hidden');
       }
     },
+    setOffsetBottom(offsetBottom: number) {
+      this.offsetBottom = offsetBottom;
+    },
+    setOffsetTop(offsetTop: number) {
+      this.offsetTop = offsetTop;
+    },
   },
   state: (): State => ({
     isScrollLocked: false,
+    offsetBottom: null,
+    offsetTop: null,
   }),
 });

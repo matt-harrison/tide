@@ -1,21 +1,21 @@
 export type Vehicle = {
   adAttribs: {
-    itemUrl?: string;
-    makeAnOffer?: string;
-    priceDisclaimer?: string;
-    requestAPrice?: string;
-    videoBorchueNarationStyle?: string;
+    itemUrl: string;
+    makeAnOffer: string;
+    priceDisclaimer: string;
+    requestAPrice: string;
+    videoBorchueNarationStyle: string;
   };
   adDetailUrl: string;
   adFeatures: {
-    buyNow?: boolean;
-    featuredHomepage?: boolean;
-    featuredSearch?: boolean;
-    hideFloorPlans?: boolean;
-    oneYearPackage?: boolean;
-    paaVideo?: boolean;
-    premium?: boolean;
-    topPremium?: boolean;
+    buyNow: boolean;
+    featuredHomepage: boolean;
+    featuredSearch: boolean;
+    hideFloorPlans: boolean;
+    oneYearPackage: boolean;
+    paaVideo: boolean;
+    premium: boolean;
+    topPremium: boolean;
   };
   adId: number;
   adListingPosition: number;
@@ -25,7 +25,7 @@ export type Vehicle = {
   classId: string;
   className: string;
   companyName: string;
-  condition: string;
+  condition: string[];
   createDate: string;
   createDateFormatted: string;
   customerId: string;
@@ -108,8 +108,6 @@ export type Vehicle = {
   dealerPhone: string[];
   dealerWebsiteUrl: string;
   description: string;
-  engine: string;
-  id: string;
   isBuynow: string;
   isFeatured: string;
   isPremium: string;
@@ -119,6 +117,11 @@ export type Vehicle = {
   makeFacet: string[];
   makeId: string[];
   makeName: string[];
+  meta: {
+    engine: string;
+    id: string;
+    score: number;
+  };
   mfrSerialNum: null;
   modelFacet: string[];
   modelName: string[];
@@ -129,7 +132,6 @@ export type Vehicle = {
   price: number;
   rebate: null;
   schemeCode: string;
-  score: number;
   sellerType: string;
   stateCode: string;
   trimName: string[];

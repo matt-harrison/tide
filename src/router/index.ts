@@ -12,8 +12,43 @@ const router = createRouter({
     },
     {
       component: () => import('../pages/SearchResultsPage.vue'),
-      name: 'search-results-page',
+      name: 'aircraft-for-sale',
+      path: '/aircraft-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'boats-for-sale',
+      path: '/boats-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'motorcycles-for-sale',
+      path: '/motorcycles-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'equipment-for-sale',
+      path: '/equipment-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'jet-skis-for-sale',
+      path: '/jet-skis-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'rvs-for-sale',
       path: '/rvs-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'snowmobiles-for-sale',
+      path: '/snowmobiles-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'trucks-for-sale',
+      path: '/trucks-for-sale',
     },
     {
       component: () => import('../pages/StyleGuidePage.vue'),

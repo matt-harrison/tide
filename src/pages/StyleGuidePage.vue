@@ -2,42 +2,61 @@
   import { onMounted, ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
-  import type { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
   import type { BreadCrumb } from '@/types/BreadCrumb';
 
   import AccordionItem from '@/components/AccordionItem.vue';
+  import BasicButton from '@/components/BasicButton.vue';
+  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
+  import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicButtonTabs from '@/components/BasicButtonTabs.vue';
+  import BasicCarousel from '@/components/BasicCarousel.vue';
+  import BasicChipAction from '@/components/BasicChipAction.vue';
+  import BasicChipFilter from '@/components/BasicChipFilter.vue';
+  import BasicChipInput from '@/components/BasicChipInput.vue';
+  import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+  import BasicModal from '@/components/BasicModal.vue';
+  import BasicToggle from '@/components/BasicToggle.vue';
   import BreadCrumbs from '@/components/BreadCrumbs.vue';
-  import ListingCard from '@/components/ListingCard.vue';
-  import SiteButton from '@/components/SiteButton.vue';
-  import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import SiteButtonToggle from '@/components/SiteButtonToggle.vue';
-  import SiteLinkAsButton from '@/components/SiteLinkAsButton.vue';
-  import SiteLinkWithIcon from '@/components/SiteLinkWithIcon.vue';
-  import SiteCarousel from '@/components/SiteCarousel.vue';
-  import VehicleCard from '@/components/VehicleCard.vue';
-  import VehicleCardCarousel from '@/components/VehicleCardCarousel.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
-  import { useDarkModeStore } from '@/stores/DarkModeStore';
+  import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
+  import CardListing from '@/components/CardListing.vue';
+  import CardListingFeatured from '@/components/CardListingFeatured.vue';
+  import SvgIcon from '@/components/SvgIcon.vue';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
+  import { SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
-  import { formatKebabCase } from '@/utilities/format';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
   // Permanent reference to dummy data for demonstration purposes.
   import { dummyVehicles } from '@/data/dummy-vehicles';
 
-  type ColorGroups = {
-    global: string[];
-    realm: string[];
+  type Swatch = {
+    background: string;
+    border?: string;
+    foreground: string;
   };
 
-  const breakpointStore = useBreakpointStore();
-  const darkModeStore = useDarkModeStore();
+  type SwatchSet = {
+    name: string;
+    swatches: Swatch[];
+  };
+
   const favoriteStore = useFavoriteStore();
   const userAgentStore = useUserAgentStore();
+  const viewportStore = useViewportStore();
 
-  const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(breakpointStore);
+  const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(viewportStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
+
+  const buttonTabs = ref();
+  const isActiveChipTier2 = ref(true);
+  const isActiveChipTier3 = ref(true);
+  const isDarkTheme = ref(false);
+  const isToggleActive = ref(false);
+  const modalIsOpen = ref(false);
+  const tabActive = ref(1);
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -55,90 +74,246 @@
 
   const cards = new Array(15).fill('').map((empty, index) => index + 1);
 
-  const colors: ColorGroups = {
-    global: ['Black', 'Blue', 'Blue Dark', 'Blue Light', 'Gray', 'Gray Dark', 'Gray Light', 'Green', 'Red', 'White'],
-    realm: ['Primary', 'Secondary', 'Tertiary'],
-  };
-
-  const icons: string[] = [
-    'arrow-circle-left',
-    'arrow-circle-right',
-    'arrow-right-arrow-left',
-    'arrow-up-from-bracket',
-    'bars',
-    'bookmark',
-    'calculator',
-    'calendar',
-    'chevron-down',
-    'chevron-left',
-    'chevron-right',
-    'chevron-up',
-    'circle-check',
-    'comments',
-    'cube',
-    'envelope',
-    'eye',
-    'heart',
-    'message',
-    'phone',
-    'play',
-    'search',
-    'star',
-    'tag',
-    'times',
-    'trash-alt',
-    'up-right-from-square',
-    'user',
-    'video',
-  ];
-
   const increments: string[] = ['1/4', '1/2', '1', '2', '4'];
-
-  const isToggleActive = ref(false);
-
   const sides: string[] = ['', 'y', 'x', 't', 'r', 'b', 'l'];
 
-  const getBackgroundColorClass = (name: string): string => {
-    return `bg-${formatKebabCase(name)}`;
+  const swatchSets: SwatchSet[] = [
+    {
+      name: 'Realm Primary',
+      swatches: [
+        {
+          background: 'bg-primary-tier-1',
+          border: 'border-primary-tier-1',
+          foreground: 'font-primary-tier-1',
+        },
+        {
+          background: 'bg-primary-tier-2',
+          border: 'border-primary-tier-2',
+          foreground: 'font-primary-tier-2',
+        },
+        {
+          background: 'bg-primary-tier-3',
+          border: 'border-primary-tier-3',
+          foreground: 'font-primary-tier-3',
+        },
+      ],
+    },
+    {
+      name: 'Realm Primary Variant',
+      swatches: [
+        {
+          background: 'bg-primary-variant-tier-2',
+          border: 'border-primary-variant-tier-2',
+          foreground: 'font-primary-variant-tier-2',
+        },
+        {
+          background: 'bg-primary-variant-tier-3',
+          border: 'border-primary-variant-tier-3',
+          foreground: 'font-primary-variant-tier-3',
+        },
+      ],
+    },
+    {
+      name: 'Realm Surface',
+      swatches: [
+        {
+          background: 'bg-surface-light',
+          border: 'border-surface-light',
+          foreground: 'font-surface-light',
+        },
+        {
+          background: 'bg-surface',
+          border: 'border-surface',
+          foreground: 'font-surface',
+        },
+        {
+          background: 'bg-surface-dark',
+          border: 'border-surface-dark',
+          foreground: 'font-surface-dark',
+        },
+      ],
+    },
+    {
+      name: 'Realm Surface Variant',
+      swatches: [
+        {
+          background: 'bg-surface-variant-lightest',
+          foreground: 'font-surface-variant-light',
+        },
+        {
+          background: 'bg-surface-variant-light',
+          foreground: 'font-surface-variant-light',
+        },
+        {
+          background: 'bg-surface-variant',
+          foreground: 'font-surface-variant-light',
+        },
+        {
+          background: 'bg-surface-variant-dark',
+          foreground: 'font-surface-variant-light',
+        },
+        {
+          background: 'bg-surface-variant-darkest',
+          foreground: 'font-surface-variant-light',
+        },
+      ],
+    },
+  ];
+
+  const swatchSetsGlobalBackground: SwatchSet[] = [
+    {
+      name: 'Global',
+      swatches: [
+        {
+          background: 'bg-black',
+          foreground: 'font-white',
+        },
+        {
+          background: 'bg-gray-dark',
+          foreground: 'font-white',
+        },
+        {
+          background: 'bg-gray',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-gray-light',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-white',
+          foreground: 'font-black',
+        },
+      ],
+    },
+  ];
+
+  const swatchSetsGlobalBorder: SwatchSet[] = [
+    {
+      name: 'Global',
+      swatches: [
+        {
+          background: 'bg-black',
+          border: 'border-black',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-gray-dark',
+          border: 'border-gray-dark',
+          foreground: 'font-white',
+        },
+        {
+          background: 'bg-gray',
+          border: 'border-gray',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-gray-light',
+          border: 'border-gray-light',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-white',
+          border: 'border-white',
+          foreground: 'font-black',
+        },
+      ],
+    },
+  ];
+
+  const swatchSetsGlobalForeground: SwatchSet[] = [
+    {
+      name: 'Global',
+      swatches: [
+        {
+          background: 'bg-gray-light',
+          foreground: 'font-black',
+        },
+        {
+          background: 'bg-gray-light',
+          foreground: 'font-gray-dark',
+        },
+        {
+          background: 'bg-gray-dark',
+          foreground: 'font-gray',
+        },
+        {
+          background: 'bg-gray-dark',
+          foreground: 'font-gray-light',
+        },
+        {
+          background: 'bg-gray-dark',
+          foreground: 'font-white',
+        },
+      ],
+    },
+  ];
+
+  const swatchSetsBackground = [...swatchSetsGlobalBackground, ...swatchSets];
+  const swatchSetsBorder = [...swatchSetsGlobalBorder, ...swatchSets.slice(0, 3)];
+  const swatchSetsForeground = [...swatchSetsGlobalForeground, ...swatchSets];
+
+  const closeModal = () => {
+    modalIsOpen.value = false;
   };
 
-  const getBorderColorClass = (name: string): string => {
-    return `border-${formatKebabCase(name)}`;
+  const handleButtonClick = () => {
+    alert('Button clicked.');
   };
 
-  const getFontColorClass = (name: string): string => {
-    return `font-${formatKebabCase(name)}`;
+  const handleChipClickFilterTier2 = () => {
+    isActiveChipTier2.value = !isActiveChipTier2.value;
   };
 
-  const getIsDark = (target: Element) => {
-    const rgb = getRgb(target);
-    let isDark = false;
-
-    rgb?.forEach((factor) => {
-      if (Number(factor) < 128) {
-        isDark = true;
-      }
-    });
-
-    return isDark;
+  const handleChipClickFilterTier3 = () => {
+    isActiveChipTier3.value = !isActiveChipTier3.value;
   };
 
-  const getHex = (target: Element) => {
-    const rgb = getRgb(target);
-    const hexes = rgb?.map((decimal) => {
-      const hex = Number(decimal).toString(16);
+  const handleChipClickInput = (event: Event) => {
+    const target = event.currentTarget as Element;
 
-      return hex === '0' ? '00' : hex;
-    });
+    target.classList.add('hidden');
 
-    return hexes ? `#${hexes[0]}${hexes[1]}${hexes[2]}`.toUpperCase() : '';
+    setTimeout(() => {
+      target.classList.remove('hidden');
+    }, 1000);
   };
 
-  const getRgb = (target: Element) => {
-    const bgColor = window.getComputedStyle(target).backgroundColor;
-    const rgb = bgColor.match(/\d+/g);
+  const toggleIsDarkTheme = () => {
+    isDarkTheme.value = !isDarkTheme.value;
+  };
 
-    return rgb;
+  const openModal = () => {
+    modalIsOpen.value = true;
+  };
+
+  const setButtonTabs = () => {
+    buttonTabs.value = [
+      {
+        callback: () => {
+          tabActive.value = 1;
+          setButtonTabs();
+        },
+        isActive: tabActive.value === 1,
+        label: 'Tab 1',
+      },
+      {
+        callback: () => {
+          tabActive.value = 2;
+          setButtonTabs();
+        },
+        isActive: tabActive.value === 2,
+        label: 'Tab 2',
+      },
+      {
+        callback: () => {
+          tabActive.value = 3;
+          setButtonTabs();
+        },
+        isActive: tabActive.value === 3,
+        label: 'Tab 3',
+      },
+    ];
   };
 
   const toggleIsToggleActive = () => {
@@ -146,57 +321,32 @@
   };
 
   onMounted(() => {
-    const swatches = document.querySelectorAll('.swatch');
-
-    swatches.forEach((swatch) => {
-      const hex = getHex(swatch);
-      const isDark = getIsDark(swatch);
-      const isWhite = hex === '#FFFFFF';
-      const nameNode = swatch.querySelector('.name');
-      const hexNode = swatch.querySelector('.hex');
-
-      if (hexNode) {
-        hexNode.innerHTML = hex;
-      }
-
-      if (isDark) {
-        swatch.classList.remove('font-black');
-        swatch.classList.add('font-white');
-      }
-
-      if (isWhite && nameNode) {
-        const borderClass = getBorderColorClass(nameNode.innerHTML);
-
-        swatch.classList.remove(borderClass);
-        swatch.classList.add('border-gray');
-      }
-    });
+    setButtonTabs();
   });
 </script>
 
 <template>
   <div
-    :class="darkModeStore.isDarkMode ? 'bg-gray-dark font-white' : ''"
-    class="style-guide-page my-2"
+    :class="isDarkTheme ? 'theme-dark bg-surface-dark' : ''"
+    class="style-guide-page fluid py-2 border-surface font-surface"
   >
-    <header class="mx-2 mb-2">
+    <header class="mx-2 mb-1/2">
       <h1 class="font-32">Style Guide</h1>
     </header>
 
     <section
       :class="[
-        darkModeStore.isDarkMode ? ' l-bg-gray-dark' : ' l-bg-white',
-        isExtraSmall ? 'bg-blue-dark' : '',
-        isSmall ? 'bg-blue' : '',
-        isMedium ? 'bg-blue-light' : '',
-        isLarge ? 'bg-white' : '',
+        'mb-1/2 py-1/2 px-2',
+        isExtraSmall && 'bg-blue-dark font-white',
+        isSmall && 'bg-blue font-gray-dark',
+        isMedium && 'bg-blue-light font-gray-dark',
+        isLarge && 'bg-white font-gray-dark',
       ]"
-      class="mb-1 py-1 px-2"
     >
       <h2 class="mb-1 font-28">Breakpoints</h2>
 
       <div class="flex wrap gap-1 ml-1">
-        <div class="flex column gap-1/4 border-1 border-white radius-1/2 p-1 bg-blue-dark font-black">
+        <div class="flex column gap-1/4 border-1 border-white radius-1/2 p-1 bg-blue-dark font-white">
           <span>Extra Small</span>
           <span>0-767px</span>
         </div>
@@ -212,8 +362,8 @@
         </div>
 
         <div
-          :class="darkModeStore.isDarkMode ? 'bg-gray-dark' : 'bg-white'"
-          class="flex column gap-1/4 border-1 border-white radius-1/2 p-1"
+          :class="viewportStore.isLarge ? 'border-gray-light' : 'border-white'"
+          class="flex column gap-1/4 border-1 radius-1/2 p-1 bg-white font-black"
         >
           <span>Large</span>
           <span>1232+px</span>
@@ -224,92 +374,56 @@
     <section class="mx-2 mb-2">
       <h2 class="mb-1">Foundation</h2>
 
-      <section class="mb-2">
-        <h3 class="mb-1">Color</h3>
+      <section class="mb-1">
+        <h3 class="mb-1">Background Color</h3>
 
-        <section class="mb-2">
-          <h4 class="mb-1">Global</h4>
+        <section
+          :key="swatchSet.name"
+          class="mb-1"
+          v-for="swatchSet in swatchSetsBackground"
+        >
+          <h4 class="mb-1">{{ swatchSet.name }}</h4>
 
           <ul class="flex wrap gap-1 ml-1 list-none">
             <li
-              :class="[getBackgroundColorClass(color), getBorderColorClass(color)]"
-              :key="color"
-              class="swatch flex column gap-1/4 border-1 radius-1/2 p-1 font-black"
-              v-for="color in colors.global"
+              :class="[swatch.background, swatch.foreground]"
+              :key="swatch.background"
+              class="swatch flex column gap-1/4 radius-1/2 p-1"
+              v-for="swatch in swatchSet.swatches"
             >
-              <span>
-                <span>Name: </span>
-                <span class="name">{{ color }}</span>
-              </span>
-
-              <span>
-                <span>Hex: </span>
-                <span class="hex" />
-              </span>
+              <span>.{{ swatch.background }}</span>
             </li>
           </ul>
         </section>
-
-        <section>
-          <h4 class="mb-1 font-20">Realm</h4>
-
-          <div class="flex wrap gap-1 ml-1">
-            <div
-              :class="[getBackgroundColorClass(color), getBorderColorClass(color)]"
-              :key="color"
-              class="swatch flex column gap-1/4 border-1 radius-1/2 p-1 font-black"
-              v-for="color in colors.realm"
-            >
-              <span>
-                <span>Name: </span>
-                <span class="name">{{ color }}</span>
-              </span>
-
-              <span>
-                <span>Hex: </span>
-                <span class="hex" />
-              </span>
-            </div>
-          </div>
-        </section>
       </section>
 
-      <section class="mb-2">
+      <section class="mb-1">
         <h3 class="mb-1">Typography</h3>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Font Color</h4>
 
-          <section class="mb-1">
-            <h5 class="mb-1">Global</h5>
+          <section
+            :key="swatchSet.name"
+            class="mb-1"
+            v-for="swatchSet in swatchSetsForeground"
+          >
+            <h5 class="mb-1">{{ swatchSet.name }}</h5>
 
-            <div class="ml-1">
-              <p
-                :class="getFontColorClass(color)"
-                :key="color"
-                v-for="color in colors.global"
+            <ul class="flex wrap gap-1 ml-1 list-none">
+              <li
+                :class="[swatch.background, swatch.foreground]"
+                :key="swatch.foreground"
+                class="swatch flex column gap-1/4 radius-1/2 p-1"
+                v-for="swatch in swatchSet.swatches"
               >
-                .{{ getFontColorClass(color) }}
-              </p>
-            </div>
-          </section>
-
-          <section class="mb-2">
-            <h5 class="mb-1">Realm</h5>
-
-            <div class="ml-1">
-              <p
-                :class="getFontColorClass(color)"
-                :key="color"
-                v-for="color in colors.realm"
-              >
-                .{{ getFontColorClass(color) }}
-              </p>
-            </div>
+                <span>.{{ swatch.foreground }}</span>
+              </li>
+            </ul>
           </section>
         </section>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Font Family</h4>
 
           <div class="ml-1">
@@ -318,7 +432,7 @@
           </div>
         </section>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Font Size</h4>
 
           <div class="ml-1 flex column">
@@ -343,10 +457,10 @@
         </section>
       </section>
 
-      <section class="mb-2">
+      <section class="mb-1">
         <h3 class="mb-1">Spacing</h3>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Margin</h4>
 
           <div
@@ -361,7 +475,7 @@
               v-for="side in sides"
             >
               <div
-                :class="[`m${side}-${increment}`, darkModeStore.isDarkMode ? 'bg-gray-dark' : 'bg-white']"
+                :class="[`m${side}-${increment}`, isDarkTheme ? 'bg-gray-dark' : 'bg-white']"
                 class="border-1 border-blue-dark p-1 bg-white font-gray-dark"
               >
                 .{{ `m${side}-${increment}` }}
@@ -388,7 +502,7 @@
                 class="border-1 border-blue-dark bg-blue-light"
               >
                 <div
-                  :class="darkModeStore.isDarkMode ? 'bg-gray-dark' : 'bg-white'"
+                  :class="isDarkTheme ? 'bg-gray-dark' : 'bg-white'"
                   class="p-1/4 bg-white font-gray-dark"
                 >
                   .{{ `p${side}-${increment}` }}
@@ -399,49 +513,40 @@
         </section>
       </section>
 
-      <section class="mb-2">
+      <section class="mb-1">
         <h3 class="mb-1">Border</h3>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Color</h4>
 
-          <section class="mb-2">
-            <h5 class="mb-1">Global</h5>
-            <div class="flex wrap gap-1 ml-1">
-              <div
-                :class="getBorderColorClass(color)"
-                :key="color"
-                class="border-1 radius-1/2 p-1"
-                v-for="color in colors.global"
-              >
-                .{{ getBorderColorClass(color) }}
-              </div>
-            </div>
-          </section>
+          <section
+            :key="swatchSet.name"
+            class="mb-1"
+            v-for="swatchSet in swatchSetsBorder"
+          >
+            <h5 class="mb-1">{{ swatchSet.name }}</h5>
 
-          <section>
-            <h5 class="mb-1">Realm</h5>
             <div class="flex wrap gap-1 ml-1">
               <div
-                :class="getBorderColorClass(color)"
-                :key="color"
-                class="border-1 radius-1/2 p-1"
-                v-for="color in colors.realm"
+                :class="swatch.border"
+                :key="swatch.border"
+                class="flex column gap-1/4 border-2 radius-1/2 p-1"
+                v-for="swatch in swatchSet.swatches"
               >
-                .{{ getBorderColorClass(color) }}
+                <span>.{{ swatch.border }}</span>
               </div>
             </div>
           </section>
         </section>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Radius</h4>
 
           <div class="flex wrap axis2-start gap-1 ml-1">
             <div class="flex axis2-center column">
               <span class="mb-1/2">.radius-1/4</span>
               <div
-                :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
                 class="radius-demo border-1 radius-1/4"
               />
             </div>
@@ -449,7 +554,7 @@
             <div class="flex axis2-center column">
               <span class="mb-1/2">.radius-1/2</span>
               <div
-                :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
                 class="radius-demo border-1 radius-1/2"
               />
             </div>
@@ -457,7 +562,7 @@
             <div class="flex axis2-center column">
               <span class="mb-1/2">.radius-1</span>
               <div
-                :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
                 class="radius-demo border-1 radius-1"
               />
             </div>
@@ -465,14 +570,14 @@
             <div class="flex axis2-center column">
               <span class="mb-1/2">.radius-full</span>
               <div
-                :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
                 class="radius-demo border-1 radius-full"
               />
             </div>
           </div>
         </section>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Side</h4>
 
           <div class="flex wrap axis2-start gap-1 ml-1 font-black">
@@ -488,19 +593,19 @@
           </div>
         </section>
 
-        <section class="mb-2">
+        <section class="mb-1">
           <h4 class="mb-1">Width</h4>
 
           <div class="flex wrap axis2-start gap-1 ml-1">
             <div
-              :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+              :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
               class="border-1 radius-1/2 p-1"
             >
               .border-1
             </div>
 
             <div
-              :class="darkModeStore.isDarkMode ? 'border-white' : 'border-gray-dark'"
+              :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
               class="border-2 radius-1/2 p-1"
             >
               .border-2
@@ -513,12 +618,11 @@
     <section>
       <h2 class="mx-2 mb-1">Components</h2>
 
-      <section class="mx-2 mb-2">
+      <section class="mx-2 mb-1">
         <h3 class="mb-1">Accordion</h3>
 
         <div class="ml-1 border-t border-gray">
           <AccordionItem
-            :is-expanded-initial="index === 1"
             :key="index"
             :label="`Accordion Item ${index} Label`"
             class-label="py-1"
@@ -561,7 +665,7 @@
         </div>
       </section>
 
-      <section class="mx-2 mb-2">
+      <section class="mx-2 mb-1">
         <h3 class="mb-1">Breadcrumbs</h3>
 
         <BreadCrumbs
@@ -570,133 +674,283 @@
         />
       </section>
 
-      <section class="mx-2 mb-2">
+      <section class="mx-2 mb-1">
         <h3 class="mb-1">Button</h3>
 
-        <div class="flex wrap gap-1 mb-1 ml-1">
-          <SiteButton is-primary>Primary</SiteButton>
-          <SiteButton is-secondary>Secondary</SiteButton>
-          <SiteButton disabled>Inactive</SiteButton>
+        <div class="mb-1">
+          <h4 class="mb-1">Basic Button</h4>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_1"
+              @click="handleButtonClick"
+            >
+              Primary Tier 1
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_2"
+              @click="handleButtonClick"
+            >
+              Primary Tier 2
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_3"
+              @click="handleButtonClick"
+            >
+              Primary Tier 3
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.SECONDARY"
+              @click="handleButtonClick"
+            >
+              Secondary
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.TERTIARY"
+              @click="handleButtonClick"
+            >
+              Tertiary
+            </BasicButton>
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_1"
+              @click="handleButtonClick"
+              disabled
+            >
+              Primary Tier 1
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_2"
+              @click="handleButtonClick"
+              disabled
+            >
+              Primary Tier 2
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_3"
+              @click="handleButtonClick"
+              disabled
+            >
+              Primary Tier 3
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.SECONDARY"
+              @click="handleButtonClick"
+              disabled
+            >
+              Secondary
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.TERTIARY"
+              @click="handleButtonClick"
+              disabled
+            >
+              Tertiary
+            </BasicButton>
+          </div>
+
+          <div class="flex wrap gap-1 ml-1">
+            <BasicButton
+              :icon-leading="ICON.STAR"
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_1"
+              @click="handleButtonClick"
+            >
+              Leading Icon
+            </BasicButton>
+
+            <BasicButton
+              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_2"
+              @click="handleButtonClick"
+            >
+              Trailing Icon
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_3"
+            >
+              No Icon
+            </BasicButton>
+          </div>
         </div>
 
-        <div class="flex wrap gap-1 ml-1">
-          <SiteButton
-            icon-leading="star"
-            is-primary
-            is-solid
-          >
-            Leading Icon
-          </SiteButton>
+        <div class="mb-1">
+          <h4 class="mb-1">Button As Link</h4>
 
-          <SiteButton
-            icon-trailing="up-right-from-square"
-            is-secondary
-            is-solid
-          >
-            Trailing Icon
-          </SiteButton>
+          <div class="flex wrap gap-1 ml-1">
+            <BasicButtonAsLink
+              :icon-leading="ICON.STAR"
+              @click="handleButtonClick"
+            >
+              Leading Icon
+            </BasicButtonAsLink>
 
-          <SiteButton disabled>No Icon</SiteButton>
-        </div>
-      </section>
+            <BasicButtonAsLink
+              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              @click="handleButtonClick"
+            >
+              Trailing Icon
+            </BasicButtonAsLink>
 
-      <section class="mx-2 mb-2">
-        <h3 class="mb-1">Button Icon</h3>
-
-        <div class="flex wrap gap-1 mb-1 ml-1">
-          <SiteButtonIcon
-            :icon="icon"
-            :key="icon"
-            :title="icon"
-            class-button="site-icon-demo border-2 border-gray-dark"
-            is-primary
-            is-restyled
-            is-solid
-            v-for="icon in icons"
-          />
+            <BasicButtonAsLink @click="handleButtonClick">No Icon</BasicButtonAsLink>
+          </div>
         </div>
 
-        <div class="flex wrap gap-1 mb-1 ml-1">
-          <SiteButtonIcon
-            :icon="icon"
-            :key="icon"
-            :title="icon"
-            class-button="site-icon-demo border-2 border-gray-dark"
-            is-restyled
-            is-secondary
-            is-solid
-            v-for="icon in icons"
-          />
+        <div class="mb-1">
+          <h4 class="mb-1">Button Icon</h4>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_1"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_2"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_3"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.SECONDARY"
+              :size="SIZE_ICON.SMALL"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.TERTIARY"
+              :size="SIZE_ICON.SMALL"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
         </div>
 
-        <div class="flex wrap gap-1 ml-1">
-          <SiteButtonIcon
-            :icon="icon"
-            :key="icon"
-            :title="icon"
-            class="site-icon-demo"
-            is-restyled
-            is-secondary
-            is-solid
-            v-for="icon in icons"
-          />
-        </div>
-      </section>
+        <div class="mb-1">
+          <h4 class="mb-1">Button Tabs</h4>
 
-      <section class="mx-2 mb-2">
-        <h3 class="mb-1">Button Toggle</h3>
-
-        <div class="flex wrap gap-1 mb-1 ml-1">
-          <SiteButtonToggle
-            :is-active="isToggleActive"
-            @click="toggleIsToggleActive"
-          />
-        </div>
-      </section>
-
-      <section class="mx-2 mb-2">
-        <h3 class="mb-1">Icon</h3>
-
-        <div class="flex wrap gap-1 ml-1">
-          <div
-            :class="darkModeStore.isDarkMode ? 'border-white font-white' : 'border-gray-dark'"
-            :key="icon"
-            :title="icon"
-            class="site-icon-demo flex axis1-center axis2-center border-1 radius-1/2 p-1"
-            v-for="icon in icons"
-          >
-            <FontAwesomeIcon :icon="`fa-solid fa-${icon}`" />
+          <div class="flex ml-1">
+            <BasicButtonTabs
+              :buttons="buttonTabs"
+              class="font-gray-dark"
+            />
           </div>
         </div>
       </section>
 
-      <section class="mb-2">
+      <section class="mx-2 mb-1">
+        <h3 class="mb-1">Card</h3>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Featured Listing Card</h4>
+
+          <ul class="ml-1 list-none">
+            <CardListingFeatured
+              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
+              :vehicle="dummyVehicles[0]"
+              @favorite-click="favoriteStore.toggleIsFavorite(dummyVehicles[0].adId)"
+              class="font-gray-dark"
+            />
+          </ul>
+        </div>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Listing Card</h4>
+
+          <ul class="ml-1 list-none">
+            <CardListing
+              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
+              :vehicle="dummyVehicles[0]"
+              @favorite-click="favoriteStore.toggleIsFavorite(dummyVehicles[0].adId)"
+              class="font-gray-dark"
+            />
+          </ul>
+        </div>
+      </section>
+
+      <section class="mb-1">
         <h3 class="mx-2 mb-1">Carousel</h3>
 
-        <div class="mb-2">
-          <h4 class="mx-2 mb-1">Site Carousel</h4>
+        <div class="mb-1">
+          <h4 class="mx-2 mb-1">Basic Carousel</h4>
 
-          <SiteCarousel
+          <BasicCarousel
             :card-width="150"
             :gap="16"
             :is-touchscreen="isTouchscreen"
             :offset-x="64"
           >
             <div
-              :class="darkModeStore.isDarkMode ? 'border-white font-white' : 'border-gray-dark bg-white'"
+              :class="isDarkTheme ? 'border-white font-white' : 'border-gray-dark bg-white'"
               :key="card"
               class="site-carousel-card-demo flex axis1-center shrink-none border-1 p-1 radius-1/2 snap-start"
               v-for="card in cards"
             >
               Card demo {{ card }}
             </div>
-          </SiteCarousel>
+          </BasicCarousel>
         </div>
 
         <div>
-          <h4 class="mx-2 mb-1 pl-1">Vehicle Card Carousel</h4>
+          <h4 class="mx-2 mb-1 pl-1">Featured Listing Carousel</h4>
 
-          <VehicleCardCarousel
+          <CardCarouselListingFeatured
             :get-is-favorite="favoriteStore.getIsFavorite"
             :handle-favorite-click="favoriteStore.toggleIsFavorite"
             :is-touchscreen="isTouchscreen"
@@ -707,134 +961,398 @@
         </div>
       </section>
 
-      <section class="mx-2 mb-2">
-        <h3 class="mb-1">Cards</h3>
+      <section class="mx-2 mb-1">
+        <h3
+          class="mb-1"
+          id="chip"
+        >
+          Chip
+        </h3>
 
-        <div class="mb-2">
-          <h4 class="mb-1">Listing Card</h4>
+        <div class="mb-1">
+          <h4 class="mb-1">Basic Action Chip</h4>
 
-          <ul class="list-none">
-            <ListingCard
-              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
-              :vehicle="dummyVehicles[0]"
-              @handle-favorite-click="favoriteStore.toggleIsFavorite"
-              class="font-gray-dark"
+          <div class="flex gap-1 ml-1">
+            <BasicChipAction
+              href="#chip"
+              label="Tier 2"
             />
-          </ul>
+
+            <BasicChipAction
+              :tier="TIER.TIER_3"
+              href="#chip"
+              label="Tier 3"
+            />
+          </div>
         </div>
 
-        <div class="mb-2">
-          <h4 class="mb-1">Vehicle Card</h4>
+        <div class="mb-1">
+          <h4 class="mb-1">Basic Filter Chip</h4>
 
-          <ul class="list-none">
-            <VehicleCard
-              :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
-              :vehicle="dummyVehicles[0]"
-              @handle-favorite-click="favoriteStore.toggleIsFavorite"
-              class="font-gray-dark"
+          <div class="flex gap-1 ml-1">
+            <BasicChipFilter
+              :is-active="isActiveChipTier2"
+              @click="handleChipClickFilterTier2"
+              label="Tier 2"
             />
-          </ul>
+
+            <BasicChipFilter
+              :is-active="isActiveChipTier3"
+              :tier="TIER.TIER_3"
+              @click="handleChipClickFilterTier3"
+              label="Tier 3"
+            />
+          </div>
+        </div>
+
+        <div>
+          <h4 class="mb-1">Basic Input Chip</h4>
+
+          <div class="flex gap-1 ml-1">
+            <BasicChipInput
+              @click="handleChipClickInput"
+              label="Tier 2"
+            />
+
+            <BasicChipInput
+              :tier="TIER.TIER_3"
+              @click="handleChipClickInput"
+              label="Tier 3"
+            />
+          </div>
         </div>
       </section>
 
-      <section class="mx-2">
+      <section class="mx-2 mb-1">
+        <h3 class="mb-1">Icon</h3>
+
+        <section class="mb-1">
+          <h4 class="mb-1">Medium (24px)</h4>
+          <div class="flex wrap gap-1 ml-1">
+            <SvgIcon
+              :icon="icon"
+              :key="icon"
+              :size="SIZE_ICON.MEDIUM"
+              :title="icon"
+              class="border-1 border-blue-dark bg-blue-light font-gray-dark"
+              v-for="icon in ICON"
+            />
+          </div>
+        </section>
+
+        <section class="mb-1">
+          <h4 class="mb-1">Small (16px)</h4>
+          <div class="flex wrap gap-1 ml-1">
+            <SvgIcon
+              :icon="icon"
+              :key="icon"
+              :size="SIZE_ICON.SMALL"
+              :title="icon"
+              class="border-1 border-blue-dark bg-blue-light font-gray-dark"
+              v-for="icon in ICON"
+            />
+          </div>
+        </section>
+      </section>
+
+      <section class="mx-2 mb-1">
         <h3 class="mb-1">Link</h3>
 
-        <div class="ml-1">
-          <div class="mb-2">
-            <h4 class="mb-1">Standard Link</h4>
+        <div class="mb-1">
+          <h4 class="mb-1">Basic Link</h4>
 
-            <router-link to="#"> Standard link </router-link>
+          <div class="ml-1">
+            <RouterLink to="#">Standard link</RouterLink>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Link with Icon</h4>
+
+          <div class="flex wrap gap-2 ml-1">
+            <BasicLinkWithIcon
+              :icon-leading="ICON.STAR"
+              to="#"
+            >
+              Leading Icon
+            </BasicLinkWithIcon>
+
+            <BasicLinkWithIcon
+              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              to="#"
+            >
+              Trailing Icon
+            </BasicLinkWithIcon>
+          </div>
+        </div>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Link as Button</h4>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_1"
+              href="https://www.google.com"
+              target="_blank"
+            >
+              Primary Tier 1
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_2"
+              href="https://www.google.com"
+            >
+              Primary Tier 2
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_3"
+              href="#"
+            >
+              Primary Tier 3
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.SECONDARY"
+              href="#"
+            >
+              Secondary
+            </BasicButton>
+
+            <BasicButton
+              :priority="PRIORITY.TERTIARY"
+              href="#"
+            >
+              Tertiary
+            </BasicButton>
           </div>
 
-          <div class="mb-2">
-            <h4 class="mb-1">Link with Icon</h4>
+          <div class="flex wrap gap-1 ml-1">
+            <BasicButton
+              :icon-leading="ICON.STAR"
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_1"
+              href="#"
+            >
+              Leading Icon
+            </BasicButton>
 
-            <div class="flex wrap gap-2">
-              <SiteLinkWithIcon
-                icon-leading="star"
-                is-solid
-                to="#"
-              >
-                Leading Icon
-              </SiteLinkWithIcon>
+            <BasicButton
+              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_2"
+              href="#"
+            >
+              Trailing Icon
+            </BasicButton>
 
-              <SiteLinkWithIcon
-                icon-trailing="up-right-from-square"
-                is-solid
-                to="#"
-              >
-                Trailing Icon
-              </SiteLinkWithIcon>
-            </div>
+            <BasicButton
+              :priority="PRIORITY.PRIMARY"
+              :tier="TIER.TIER_3"
+              href="#"
+            >
+              No Icon
+            </BasicButton>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="mb-1">Link As Button Icon</h4>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_1"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
           </div>
 
-          <div>
-            <h4 class="mb-1">Link as Button</h4>
-
-            <div class="flex wrap gap-1 mb-1">
-              <SiteLinkAsButton
-                is-primary
-                to="#"
-              >
-                Primary
-              </SiteLinkAsButton>
-
-              <SiteLinkAsButton
-                is-secondary
-                to="#"
-              >
-                Secondary
-              </SiteLinkAsButton>
-            </div>
-
-            <div class="flex wrap gap-1">
-              <SiteLinkAsButton
-                icon-leading="star"
-                is-primary
-                is-solid
-                to="#"
-              >
-                Leading Icon
-              </SiteLinkAsButton>
-
-              <SiteLinkAsButton
-                icon-trailing="up-right-from-square"
-                is-secondary
-                is-solid
-                to="#"
-              >
-                Trailing Icon
-              </SiteLinkAsButton>
-
-              <SiteLinkAsButton
-                is-secondary
-                to="#"
-              >
-                No Icon
-              </SiteLinkAsButton>
-            </div>
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_2"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
           </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.PRIMARY"
+              :size="SIZE_ICON.SMALL"
+              :tier="TIER.TIER_3"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.SECONDARY"
+              :size="SIZE_ICON.SMALL"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.TERTIARY"
+              :size="SIZE_ICON.SMALL"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-2 mb-1">
+        <h3 class="mb-1">Modal</h3>
+
+        <BasicButton
+          :priority="PRIORITY.PRIMARY"
+          :tier="TIER.TIER_1"
+          @click="openModal"
+          class="ml-1"
+        >
+          Open modal
+        </BasicButton>
+
+        <BasicModal
+          :is-open="modalIsOpen"
+          @close="closeModal"
+          title="Modal Title"
+          width="32rem"
+        >
+          <span>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae expedita sed in ea, voluptatem dolore
+            quia soluta delectus earum repellat voluptatibus dolorum magni voluptatum laboriosam dignissimos tenetur
+            porro numquam? Fugiat. Beatae obcaecati voluptate, enim temporibus veritatis illo magni vero alias quod, ab
+            corrupti sint assumenda praesentium eius! Explicabo vel consectetur ullam molestiae. Quam ipsa illo, saepe
+            doloremque sunt nam fuga! Aspernatur unde tempora esse porro, totam quod, facilis, cupiditate error in ipsam
+            eos dignissimos. Autem dignissimos non, tempore placeat ipsa recusandae debitis, expedita animi nostrum,
+            mollitia itaque est provident minima. Porro excepturi cupiditate beatae quasi fuga? Repellat, aliquam. Ad
+            veniam sequi, repellat quibusdam aperiam quod ex fugit. Placeat fugit asperiores earum sed! Voluptas
+            nesciunt voluptatibus est molestiae earum ducimus natus. Numquam quis sunt repellendus nisi ullam omnis
+            consequatur doloribus corrupti sapiente, nam odio distinctio ex magnam est vel libero fugiat esse labore
+            eligendi aspernatur laudantium ducimus quae quos neque. Quos? Perferendis pariatur distinctio perspiciatis,
+            quibusdam reprehenderit, voluptatem enim libero at dolorem quam ab eius. Earum numquam debitis temporibus
+            accusamus possimus adipisci ipsum totam tempore repudiandae quaerat? Similique aliquam commodi corrupti! At
+            consectetur ea modi eligendi sint necessitatibus suscipit quisquam cupiditate nostrum inventore. Quos
+            inventore perspiciatis quaerat ducimus architecto cumque ipsa? Inventore optio eaque aliquam? Reprehenderit
+            aperiam dignissimos veniam quisquam soluta. Ducimus harum, cupiditate itaque nisi enim id aliquid pariatur
+            ad, ipsum, rem inventore. Veritatis maiores, exercitationem dignissimos esse officia laboriosam modi
+            deserunt facilis eaque incidunt laborum fugiat, in inventore quam. Adipisci vel aspernatur saepe autem nobis
+            tempore, recusandae repellat, quae tempora, iste incidunt! Provident expedita similique qui ullam aut libero
+            distinctio vel nesciunt esse, beatae temporibus iusto nisi cupiditate sequi? Necessitatibus, accusantium
+            recusandae! Iure perspiciatis quibusdam porro in facilis, nemo deleniti blanditiis vel voluptas adipisci
+            reiciendis pariatur explicabo atque commodi architecto reprehenderit consequatur, sapiente dolorum soluta
+            enim dolore. Ducimus, laudantium. Voluptatem itaque aliquid quae repellendus! Harum molestias ea debitis
+            saepe et sint accusantium incidunt, ipsa delectus est. Obcaecati voluptatibus ad itaque dicta, neque esse
+            quae reprehenderit in velit consequatur. Quasi. Iure magni excepturi eaque, mollitia facilis maiores impedit
+            distinctio nostrum tempore unde id non molestias quibusdam voluptatum consequatur numquam facere repellat
+            praesentium neque sequi. Eaque recusandae minima in sequi veniam? Voluptates, possimus. Pariatur et dolore
+            sequi ullam? Nobis ex recusandae dolor quas deserunt natus dignissimos maxime? Voluptatibus, quibusdam. Sunt
+            excepturi explicabo nemo ut dolores doloremque impedit dignissimos eaque dolorem rerum. Sint corrupti facere
+            dignissimos. Labore facere id omnis ex? Recusandae, ut corporis numquam fuga ex iste atque nobis alias
+            tempore quaerat! Delectus est eligendi saepe esse, blanditiis nam voluptatum! In. Velit enim modi
+            consectetur quaerat suscipit accusantium perspiciatis molestiae? Natus esse ex nisi architecto voluptates
+            mollitia magnam modi aperiam velit, atque illo, voluptatum sequi non adipisci neque porro expedita eius?
+            Natus laborum suscipit veritatis nemo? Reiciendis, nemo inventore facere dolore non excepturi error vel
+            illum odio, qui aliquid quasi et fugiat assumenda sit. Tempore assumenda et ea deserunt, eveniet libero?
+            Culpa sapiente dolore et blanditiis commodi pariatur quod dignissimos accusamus, repe libero exercitationem
+            non accusamus dolorum! Architecto ipsa facere asperiores voluptate possimus maiores assumenda? Voluptate,
+            voluptates? Dolorem eveniet laudantium delectus illo ullam cupiditate natus cumque dolorum veritatis maiores
+            nesciunt, molestiae architecto obcaecati iure repellat ducimus vero libero et impedit qui vel labore
+            explicabo. Blanditiis? Dicta totam molestiae eveniet delectus deleniti, harum nulla nam? Doloremque
+            laudantium eos rerum veniam labore aspernatur blanditiis! Aut, possimus quibusdam est facere hic quod eaque
+            ratione quasi ipsam voluptates error? Recusandae tenetur nostrum dolorem cum. Voluptatem accusamus
+            distinctio, maxime quae voluptatum unde sapiente nihil soluta quis sint eius impedit reprehenderit molestiae
+            cupiditate ex! Necessitatibus alias ipsa quod quo, quibusdam fugiat. Consequuntur, eveniet, hic qui suscipit
+            voluptas, enim nesciunt impedit unde dignissimos similique illum libero ducimus vel asperiores! Incidunt
+            quia voluptate ut inventore temporibus quo, dolor itaque dicta fugit. Voluptate, itaque! At accusantium odit
+            dolorum mollitia perferendis cumque? Cumque quibusdam nostrum illo ducimus earum, dolorum repellendus,
+            doloremque molestias voluptas at dolores saepe ex soluta ut minima? Quas quos aspernatur nesciunt illo.
+            Numquam perspiciatis nostrum ex cumque repellendus, harum fugiat eveniet ut quidem dolores deserunt iure
+            repudiandae, velit ipsam odit consequatur officiis sapiente, libero ad nulla accusamus. Magni asperiores
+            unde vero optio. Laboriosam possimus alias cumque delectus, eos odit, explicabo quod eveniet asperiores,
+            laudantium autem aliquid! Odit incidunt quisquam sit voluptatem veritatis ipsa consectetur nostrum unde,
+            sint est molestiae aperiam cum in. Magni aliquid rerum incidunt natus voluptatibus quibusdam reiciendis,
+            alias libero tempore unde omnis totam veritatis eaque debitis minus laborum minima. Dolore amet temporibus
+            vitae? Possimus obcaecati corporis repellat sit sequi! Dolorum aperiam possimus quasi dolores ullam porro
+            nihil modi suscipit explicabo obcaecati. Similique quos provident ipsa totam excepturi veritatis optio ad
+            recusandae? Vero, provident labore laudantium quam aspernatur nemo atque!llendus eum doloremque magnam
+            delectus aliquid impedit unde recusandae, quis laborum reprehenderit. Voluptate at similique earum quisquam
+            explicabo sunt incidunt. Totam modi eos aliquid quidem fugit, officia cumque optio nam, quam eius ipsam
+            harum eveniet, corrupti nihil. Laudantium et amet qui dolorem? Placeat quo cupiditate eveniet aspernatur
+            minus earum voluptatibus. Sed, ipsum nam. Pariatur magnam voluptatem eum quam ducimus, facilis quia nam
+            assumenda cum architecto? Reprehenderit doloribus, autem magnam dicta expedita laudantium ad odit, quo error
+            illo inventore maiores laboriosam! Temporibus ab deleniti, quod, magnam iure dicta minima amet voluptates
+            distinctio error quos? Similique dolorem ducimus nesciunt? Quisquam sapiente quibusdam, et sint sunt
+            dignissimos cumque nostrum doloremque quidem ducimus quod. Vero sint, maiores debitis ad ullam, maxime omnis
+            in laudantium aliquam quam nobis quod obcaecati illum nulla autem quas porro ut eos quasi laborum officiis
+            cum? Laudantium nisi asperiores tempora! Nam aperiam exercitationem non facilis velit et error
+            necessitatibus dicta est eum odit, tempora porro vero qui omnis nesciunt officiis, modi quam, debitis
+            cupiditate dolorem! Mollitia nesciunt atque ad eius. Iure ad vel modi reprehenderit exercitationem
+            laboriosam laborum incidunt accusamus fugit. Magni esse dolore maxime perspiciatis ab
+          </span>
+          <template #footer>
+            <BasicButtonAsLink @click="closeModal">Cancel</BasicButtonAsLink>
+            <BasicButton class="ml-auto"> Confirm </BasicButton>
+          </template>
+        </BasicModal>
+      </section>
+
+      <section class="mx-2">
+        <h3 class="mb-1">Toggle</h3>
+
+        <div class="flex wrap gap-1 mb-1 ml-1">
+          <BasicToggle
+            :is-active="isToggleActive"
+            @click="toggleIsToggleActive"
+          />
         </div>
       </section>
     </section>
 
-    <button
-      :class="darkModeStore.isDarkMode ? 'border-white font-white' : 'border-gray-dark bg-white'"
-      @click="darkModeStore.toggleIsDarkMode"
-      class="dark-mode-toggle fixed border-1 radius-1/2 p-1/2 bg-gray-dark"
+    <BasicButton
+      :priority="PRIORITY.PRIMARY"
+      :tier="TIER.TIER_2"
+      @click="toggleIsDarkTheme"
+      class="fixed right-0 bottom-0 mr-1/2 mb-1/2"
     >
-      Dark Mode: {{ darkModeStore.isDarkMode ? 'On' : 'Off' }}
-    </button>
+      Dark Theme: {{ isDarkTheme ? 'On' : 'Off' }}
+    </BasicButton>
   </div>
 </template>
 
 <style scoped>
-  .dark-mode-toggle {
-    bottom: 0.5rem;
-    right: 0.5rem;
-  }
-
   .radius-demo {
     width: 50px;
     height: 50px;
@@ -842,11 +1360,6 @@
 </style>
 
 <style>
-  .site-icon-demo {
-    width: 36px;
-    height: 36px;
-  }
-
   .site-carousel-card-demo {
     width: 150px;
   }

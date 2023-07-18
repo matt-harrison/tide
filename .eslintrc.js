@@ -76,7 +76,14 @@ module.exports = {
         ignores: ['pre', 'textarea'],
       },
     ],
-    'vue/script-indent': ['warn', 2, { baseIndent: 1 }],
+    'vue/script-indent': [
+      'warn',
+      2,
+      {
+        baseIndent: 1,
+        switchCase: 1,
+      },
+    ],
     'vue/sort-keys': ['warn', 'asc'],
   },
 };

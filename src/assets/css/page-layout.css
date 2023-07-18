@@ -1,17 +1,20 @@
 .page-layout {
-  --max-content-width: 73rem; /* 1168px */
-  --gap: 1rem;
-  --column-count: 12;
-  --gutter-width: minmax(var(--gap), 1fr);
-  --max-column-size: calc((var(--max-content-width) - (var(--gap) * (var(--column-count) - 1))) / var(--column-count));
-  --content-width: repeat(var(--column-count), minmax(0px, var(--max-column-size)));
+  --max-content-width:  1168px;
+  --gap:                0px;
+  --column-count:       12;
+  --min-gutter-width:   var(--spacing-1);
+  --gutter-width:       minmax(var(--min-gutter-width), 1fr);
+  --max-column-size:    calc((var(--max-content-width) - (var(--gap) * (var(--column-count) - 1))) / var(--column-count));
+  --content-columns:    repeat(var(--column-count), minmax(0px, var(--max-column-size)));
 
-  gap: 0 var(--gap);
-  grid-auto-rows: min-content;
-  grid-template-columns: [start] var(--gutter-width) [content-start] var(--content-width) [content-end] var(--gutter-width) [end];
+  display:                grid;
+  gap:                    0 var(--gap);
+  grid-auto-rows:         min-content;
+  grid-template-columns:  [start] var(--gutter-width) [content-start] var(--content-columns) [content-end] var(--gutter-width) [end];
 }
 
-.page-layout > * {
+.page-layout > *,
+.layout-item {
   --start:      calc(var(--column-start) + 1);
   --end:        calc(var(--column-end) + 2);
   --start-end:  var(--start, content-start) / var(--end, content-end);
@@ -19,9 +22,7 @@
   grid-column:  var(--column, var(--start-end));
 }
 
-.page-layout > .column {
-  grid-column: calc(var(--column-start) + 1) / calc(var(--column-end) + 2);
-}
+.fluid {grid-column: 1 / -1;}
 
 .start-0 {--column-start: 0;}
 .start-1 {--column-start: 1;}
@@ -50,3 +51,7 @@
 .end-11 {--column-end: 11;}
 .end-12 {--column-end: 12;}
 .end-13 {--column-end: 13;}
+
+.site-main {
+  isolation: isolate;
+}

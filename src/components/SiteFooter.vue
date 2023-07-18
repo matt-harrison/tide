@@ -1,76 +1,113 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
 
-  import SiteButton from '@/components/SiteButton.vue';
-  import SiteButtonIcon from '@/components/SiteButtonIcon.vue';
-  import SiteContainer from '@/components/SiteContainer.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
+  import type { Icon } from '@/types/Icon';
 
-  const breakpointStore = useBreakpointStore();
+  import BasicButton from '@/components/BasicButton.vue';
+  import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicContainer from '@/components/BasicContainer.vue';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
+  import { realm } from '@/config/main.config';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
-  const { isExtraSmall } = storeToRefs(breakpointStore);
+  const viewportStore = useViewportStore();
+
+  type SocialLink = {
+    icon: Icon;
+    url: string;
+  };
+
+  const socialLinks: SocialLink[] = [
+    {
+      icon: ICON.TWITTER,
+      url: `https://twitter.com/${realm.id}Trder`,
+    },
+    {
+      icon: ICON.FACEBOOK,
+      url: `https://www.facebook.com/${realm.id}trader`,
+    },
+    {
+      icon: ICON.INSTAGRAM,
+      url: `https://www.instagram.com/${realm.id}Trader`,
+    },
+    {
+      icon: ICON.YOUTUBE,
+      url: `https://www.youtube.com/${realm.id}TraderVideo`,
+    },
+    {
+      icon: ICON.PINTEREST,
+      url: `https://www.pinterest.com/${realm.id}Trader`,
+    },
+    {
+      icon: ICON.LINKED_IN,
+      url: `https://www.linkedin.com/showcase/${realm.id}trader`,
+    },
+  ];
+
+  const { isExtraSmall } = storeToRefs(viewportStore);
 </script>
 
 <template>
   <footer class="site-footer flex column gap-1/4 font-14">
-    <div class="py-2 bg-gray-light">
-      <SiteContainer class="flex wrap axis1-between axis2-start gap-2">
+    <div class="py-2 bg-beige">
+      <BasicContainer class="flex wrap axis1-between axis2-start gap-2">
         <div
           :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-explore"
         >
-          <h2 class="mb-1 font-18">Explore RV Trader</h2>
+          <h2 class="mb-1 font-18">Explore {{ realm.label.singular }} Trader</h2>
 
           <div class="flex wrap gap-1 axis1-between">
             <div class="flex column gap-1">
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                About RVTrader.com
-              </router-link>
+                About {{ realm.label.singular }}Trader.com
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                RVTrader.com Blog
-              </router-link>
+                {{ realm.label.singular }}Trader.com blog
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                Site Map
-              </router-link>
+                Site map
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                Need Help?
-              </router-link>
+                Need help?
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                Email Us Feedback
-              </router-link>
+                Email us feedback
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                Security Center
-              </router-link>
+                Security center
+              </RouterLink>
 
-              <router-link
+              <RouterLink
                 class="underline-none"
                 to="#"
               >
-                Community Guidelines
-              </router-link>
+                Community guidelines
+              </RouterLink>
             </div>
           </div>
         </div>
@@ -79,64 +116,64 @@
           :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-affiliates"
         >
-          <h2 class="mb-1 font-18">RV Trader affiliates</h2>
+          <h2 class="mb-1 font-18">{{ realm.label.singular }} Trader affiliates</h2>
 
           <div class="flex column gap-1 axis1-between">
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Airplanes For Sale
-            </router-link>
+              Airplanes for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              ATVs For Sale
-            </router-link>
+              ATVs for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Trucks For Sale
-            </router-link>
+              Trucks for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Motorcycles For Sale
-            </router-link>
+              Motorcycles for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Heavy Equipment For Sale
-            </router-link>
+              Heavy Equipment for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Jet Skis For Sale
-            </router-link>
+              Jet Skis for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Snowmobiles For Sale
-            </router-link>
+              Snowmobiles for sale
+            </RouterLink>
 
-            <router-link
+            <RouterLink
               class="underline-none"
               to="#"
             >
-              Boats For Sale
-            </router-link>
+              Boats for sale
+            </RouterLink>
           </div>
         </div>
 
@@ -148,20 +185,21 @@
             <h2 class="font-18">Dealers</h2>
 
             <div class="flex column axis2-start gap-1">
-              <SiteButton
-                :class-button="isExtraSmall ? '' : 'w-full'"
-                is-secondary
+              <BasicButton
+                :class="isExtraSmall ? 'w-full' : ''"
+                :priority="PRIORITY.SECONDARY"
+                href="#"
               >
-                TraderTraxx Login
-              </SiteButton>
+                TraderTraxx login
+              </BasicButton>
 
               <p>
-                <router-link
+                <RouterLink
                   class="font-600"
                   to="#"
                 >
                   Advertise your inventory
-                </router-link>
+                </RouterLink>
                 <span> with us!</span>
               </p>
             </div>
@@ -171,107 +209,69 @@
             <h2 class="mb-1 font-18">Private sellers</h2>
 
             <div class="flex column axis2-start gap-1">
-              <span>Sell your RV fro $69.95</span>
+              <span>Sell your {{ realm.label.singular }} for $69.95</span>
 
-              <SiteButton
-                :class-button="isExtraSmall ? '' : 'w-full'"
-                is-secondary
+              <BasicButton
+                :class="isExtraSmall ? 'w-full' : ''"
+                :priority="PRIORITY.SECONDARY"
+                href="#"
               >
-                Sell my RV
-              </SiteButton>
+                Sell my {{ realm.label.singular }}
+              </BasicButton>
 
-              <router-link
+              <RouterLink
                 class="font-600"
                 to="#"
               >
                 Edit my listing
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>
 
         <div
           :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''"
-          class="site-footer-socials flex gap-1/2 font-24"
+          class="site-footer-socials flex gap-1 font-20"
         >
-          <SiteButtonIcon
-            class-icon="site-footer-social"
-            icon="twitter"
-            is-brand
-            is-restyled
-            is-secondary
-          />
-
-          <SiteButtonIcon
-            class-icon="site-footer-social fa-brands"
-            icon="facebook-f"
-            is-brand
-            is-restyled
-            is-secondary
-          />
-
-          <SiteButtonIcon
-            class-icon="site-footer-social fa-brands"
-            icon="instagram"
-            is-brand
-            is-restyled
-            is-secondary
-          />
-
-          <SiteButtonIcon
-            class-icon="site-footer-social fa-brands"
-            icon="youtube"
-            is-brand
-            is-restyled
-            is-secondary
-          />
-
-          <SiteButtonIcon
-            class-icon="site-footer-social fa-brands"
-            icon="pinterest-p"
-            is-brand
-            is-restyled
-            is-secondary
-          />
-
-          <SiteButtonIcon
-            class-icon="site-footer-social fa-brands"
-            icon="linkedin-in"
-            is-brand
-            is-restyled
-            is-secondary
+          <BasicButtonIcon
+            :href="socialLink.url"
+            :icon="socialLink.icon"
+            :key="socialLink.url"
+            :priority="PRIORITY.TERTIARY"
+            target="_blank"
+            v-for="socialLink in socialLinks"
           />
         </div>
-      </SiteContainer>
+      </BasicContainer>
     </div>
 
-    <div class="py-2 bg-gray-light">
-      <SiteContainer
+    <div class="py-2 bg-beige">
+      <BasicContainer
         :class="isExtraSmall ? 'column axis2-center' : 'row'"
         class="flex wrap gap-1"
       >
-        <span>RVTrader.com © 2023 Trader Interactive | All rights reserved.</span>
-        <router-link
+        <span>{{ realm.label.singular }}Trader.com © 2023 Trader Interactive | All rights reserved.</span>
+        <RouterLink
           class="underline-none"
           to="#"
         >
           Privacy Policy
-        </router-link>
+        </RouterLink>
 
-        <router-link
+        <RouterLink
           class="underline-none"
           to="#"
         >
           Terms of Use
-        </router-link>
+        </RouterLink>
 
-        <router-link
+        <RouterLink
           class="underline-none"
           to="#"
         >
           Advertiser Agreement
-        </router-link>
-      </SiteContainer>
+        </RouterLink>
+      </BasicContainer>
     </div>
     <slot />
   </footer>
@@ -284,11 +284,5 @@
 
   .order-2 {
     order: 2;
-  }
-</style>
-
-<style>
-  .site-footer-social {
-    width: 36px;
   }
 </style>

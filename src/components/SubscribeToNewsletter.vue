@@ -1,18 +1,24 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
 
-  import SiteButton from '@/components/SiteButton.vue';
-  import { useBreakpointStore } from '@/stores/BreakpointStore';
+  import BasicButton from '@/components/BasicButton.vue';
+  import { PRIORITY } from '@/types/Priority';
+  import { SIZE_BUTTON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
-  const breakpointStore = useBreakpointStore();
+  const viewportStore = useViewportStore();
 
-  const { isExtraSmall, isSmall } = storeToRefs(breakpointStore);
+  const { isExtraSmall, isSmall } = storeToRefs(viewportStore);
 </script>
 
 <template>
   <div
-    :class="isExtraSmall || isSmall ? 'column axis2-center' : 'row'"
-    class="flex column axis1-center gap-2"
+    :class="[
+      'subscribe-to-newsletter flex',
+      isExtraSmall || isSmall ? 'column axis2-center' : 'row',
+      'axis1-center gap-2',
+    ]"
   >
     <h2 :class="isExtraSmall || isSmall ? 'font-20' : 'pt-1/2'">Subscribe to our newsletter</h2>
 
@@ -24,29 +30,30 @@
           type="text"
         />
 
-        <SiteButton
-          class="px-2"
-          is-primary
+        <BasicButton
+          :priority="PRIORITY.PRIMARY"
+          :size="SIZE_BUTTON.LARGE"
+          :tier="TIER.TIER_1"
         >
           Submit
-        </SiteButton>
+        </BasicButton>
       </div>
 
       <p class="font-12 font-600">
         <span>By using this site, you agree to our </span>
-        <router-link
+        <RouterLink
           class="font-700"
           to="#"
         >
           Terms of Use
-        </router-link>
+        </RouterLink>
         <span> & our </span>
-        <router-link
+        <RouterLink
           class="font-700"
           to="#"
         >
           Privacy Policy.
-        </router-link>
+        </RouterLink>
       </p>
     </div>
   </div>

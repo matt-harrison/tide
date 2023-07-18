@@ -1,7 +1,18 @@
-const cdnDomain = 'cdn.rvtrader.com';
-const cdnVersion = 'vLatest';
+import type { RealmConfig } from '../types/RealmConfig';
 
-const vehicleTypePlural = 'RVs';
-const vehicleTypeSingular = 'RV';
+import { REALM } from '../types/Realm';
 
-export { cdnDomain, cdnVersion, vehicleTypePlural, vehicleTypeSingular };
+const realm: RealmConfig = {
+  cdn: {
+    domain: 'rvtrader',
+    version: 'vLatest',
+  },
+  id: REALM.RV,
+  label: {
+    plural: 'RVs',
+    singular: 'RV',
+    singularWithArticle: 'an RV',
+  },
+};
+
+export { realm };

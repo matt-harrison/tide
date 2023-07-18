@@ -1,0 +1,54 @@
+/* Atomic Utilities */
+/* Background */
+.bg-primary-tier-1 {background-color: var(--ti-primary-button-tier-1-background-rest);}
+.bg-primary-tier-2 {background-color: var(--ti-primary-button-tier-2-background-rest);}
+.bg-primary-tier-3 {background-color: var(--ti-primary-button-tier-3-background-rest);}
+
+.bg-primary-variant-tier-1 {background-color: var(--ti-primary-button-tier-1-variant-background-rest);}
+.bg-primary-variant-tier-2 {background-color: var(--ti-primary-button-tier-2-variant-background-rest);}
+.bg-primary-variant-tier-3 {background-color: var(--ti-primary-button-tier-3-variant-background-rest);}
+
+.bg-secondary {background-color: var(--ti-tertiary-button-background-rest);}
+.bg-tertiary  {background-color: var(--ti-tertiary-button-background-rest);}
+
+.bg-surface       {background-color: var(--ti-surface-background-default);}
+.bg-surface-dark  {background-color: var(--ti-surface-background-dark);}
+.bg-surface-light {background-color: var(--ti-surface-background-light);}
+
+.bg-surface-variant          {background-color: var(--ti-surface-variant-background-default);}
+.bg-surface-variant-dark     {background-color: var(--ti-surface-variant-background-dark);}
+.bg-surface-variant-darkest  {background-color: var(--ti-surface-variant-background-darkest);}
+.bg-surface-variant-light    {background-color: var(--ti-surface-variant-background-light);}
+.bg-surface-variant-lightest {background-color: var(--ti-surface-variant-background-lightest);}
+
+/* Border */
+.border-primary-tier-1 {border-color: var(--ti-primary-button-tier-1-border-rest);}
+.border-primary-tier-2 {border-color: var(--ti-primary-button-tier-2-border-rest);}
+.border-primary-tier-3 {border-color: var(--ti-primary-button-tier-3-border-rest);}
+
+.border-primary-variant-tier-1 {border-color: var(--ti-primary-button-tier-1-variant-border-rest);}
+.border-primary-variant-tier-2 {border-color: var(--ti-primary-button-tier-2-variant-border-rest);}
+.border-primary-variant-tier-3 {border-color: var(--ti-primary-button-tier-3-variant-border-rest);}
+
+.border-secondary {border-color: var(--ti-secondary-button-border-rest);}
+.border-tertiary  {border-color: var(--ti-tertiary-button-border-rest);}
+
+.border-surface       {border-color: var(--ti-surface-border-default);}
+.border-surface-dark  {border-color: var(--ti-surface-border-dark);}
+.border-surface-light {border-color: var(--ti-surface-border-light);}
+.border-surface-save  {border-color: var(--ti-surface-border-save-active);}
+
+/* Foreground */
+.font-primary-tier-1 {color: var(--ti-primary-button-tier-1-foreground-rest);}
+.font-primary-tier-2 {color: var(--ti-primary-button-tier-2-foreground-rest);}
+.font-primary-tier-3 {color: var(--ti-primary-button-tier-3-foreground-rest);}
+
+.font-primary-variant-tier-1 {color: var(--ti-primary-button-tier-1-variant-foreground-rest);}
+.font-primary-variant-tier-2 {color: var(--ti-primary-button-tier-2-variant-foreground-rest);}
+.font-primary-variant-tier-3 {color: var(--ti-primary-button-tier-3-variant-foreground-rest);}
+
+.font-secondary {color: var(--ti-secondary-button-foreground-rest);}
+.font-tertiary  {color: var(--ti-tertiary-button-foreground-rest);}
+
+.font-surface         {color: var(--ti-surface-foreground);}
+.font-surface-variant {color: var(--ti-surface-variant-foreground);}

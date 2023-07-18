@@ -1,27 +1,19 @@
-// import axios from 'axios';
 import { defineStore } from 'pinia';
 
-import type { Vehicle } from '@/types/Vehicle';
-
-// Dummy API response to circumvent local/prod cross origin violation.
-import { dummyVehicles } from '@/data/dummy-vehicles';
+import type { VehicleDetail } from '@/types/VehicleDetail';
+import { getVehicleDetail } from '@/utilities/vehicle';
 
 type State = {
-  vehicle: Vehicle | undefined;
+  vehicle: VehicleDetail;
 };
-
-// const adData = (window as any).adData || null;
 
 export const useVehicleDetailStore = defineStore('vehicleDetailStore', {
   actions: {
-    getVehicle() {
-      this.setVehicle(dummyVehicles[0]);
-    },
-    setVehicle(vehicle: Vehicle) {
+    setVehicleDetail(vehicle: VehicleDetail) {
       this.vehicle = vehicle;
     },
   },
   state: (): State => ({
-    vehicle: undefined,
+    vehicle: getVehicleDetail(),
   }),
 });

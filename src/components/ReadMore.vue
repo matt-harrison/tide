@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
 
-  import SiteButton from '@/components/SiteButton.vue';
+  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
+  import { ICON } from '@/types/Icon';
 
   const props = defineProps({
     classLabel: {
@@ -46,10 +47,10 @@
 </script>
 
 <template>
-  <div class="site-read-more flex column gap-1">
+  <div class="read-more flex column gap-1">
     <div
       ref="readMoreContent"
-      class="site-read-more-content grid"
+      class="read-more-content grid"
     >
       <div
         :style="{ minHeight: props.heightCollapsed }"
@@ -60,21 +61,18 @@
     </div>
 
     <div>
-      <SiteButton
-        :icon-trailing="isExpanded ? 'chevron-up' : 'chevron-down'"
-        :is-restyled="true"
+      <BasicButtonAsLink
+        :icon-trailing="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN"
         @click="toggleIsExpanded"
-        class="flex axis2-center gap-1/4 font-700"
-        is-solid
       >
-        <span class="underline">{{ isExpanded ? props.labelExpanded : props.labelCollapsed }}</span>
-      </SiteButton>
+        {{ isExpanded ? props.labelExpanded : props.labelCollapsed }}
+      </BasicButtonAsLink>
     </div>
   </div>
 </template>
 
 <style scoped>
-  .site-read-more-content {
+  .read-more-content {
     transition: grid-template-rows var(--animate);
   }
 </style>

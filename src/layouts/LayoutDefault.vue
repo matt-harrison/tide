@@ -18,19 +18,11 @@
 </script>
 
 <template>
-  <div class="site-wrapper flex column">
-    <SiteHeader :show-searchbar="!isHomepage" />
+  <SiteHeader />
 
-    <section class="site-body">
-      <router-view />
-    </section>
-
-    <SiteFooter />
+  <div class="page-layout">
+    <router-view />
   </div>
-</template>
 
-<style scoped>
-  .site-wrapper {
-    min-height: 100vh;
-  }
-</style>
+  <SiteFooter />
+</template>

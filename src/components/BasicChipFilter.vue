@@ -1,0 +1,44 @@
+<script lang="ts" setup>
+  import { TIER, type Tier } from '@/types/Tier';
+
+  import SvgIcon from '@/components/SvgIcon.vue';
+  import { ICON } from '@/types/Icon';
+  import { SIZE_ICON } from '@/types/Size';
+
+  type Props = {
+    isActive: boolean;
+    label: string;
+    tier: Tier;
+  };
+
+  const props = withDefaults(defineProps<Props>(), {
+    tier: TIER.TIER_2,
+  });
+</script>
+
+<template>
+  <button
+    :class="[
+      'basic-chip-input',
+      props.isActive && `primary-variant ${props.tier}`,
+      'flex column axis2-center',
+      !props.isActive && 'border-1 border-gray',
+      'radius-1/2 px-1 py-1/2',
+      !props.isActive && 'bg-gray-light',
+      'font-14 font-600',
+    ]"
+    class=""
+  >
+    <div class="flex axis1-center axis2-center gap-1/2">
+      <span class="font-700 whitespace-nowrap">{{ props.label }}</span>
+
+      <SvgIcon
+        :icon="ICON.CHECK"
+        :size="SIZE_ICON.SMALL"
+        v-if="props.isActive"
+      />
+    </div>
+  </button>
+</template>
+
+<style scoped src="@/assets/css/dynamic-buttons.css" />

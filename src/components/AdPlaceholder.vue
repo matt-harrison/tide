@@ -19,7 +19,7 @@
       maxWidth: props.width ? `${props.width}px` : undefined,
       height: props.width ? undefined : `${props.height}px`,
     }"
-    class="flex column axis1-center axis2-center gap-1/4 w-full bg-gray-light font-gray font-700"
+    class="ad-placeholder flex column axis1-center axis2-center gap-1/4 w-full bg-gray-light font-gray font-700"
   >
     <div>*Advertisement {{ props.width ? `${props.width}px` : '100%' }} x {{ props.height }}px</div>
     <slot />
