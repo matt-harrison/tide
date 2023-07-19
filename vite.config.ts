@@ -5,7 +5,7 @@ import { resolve } from 'path';
 
 // TODO: Replace references to "RV" with dynamic vehicle type.
 
-const dist = '../sites/rv/public/vue3';
+const dist = 'dist/';
 
 export default defineConfig({
   base: '',
