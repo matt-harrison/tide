@@ -14,7 +14,7 @@ export default defineConfig({
     outDir: dist,
     rollupOptions: {
       input: {
-        'app-single': resolve(`${__dirname}/src/contexts`, 'app-single.ts'),
+        'app-single': resolve(`${__dirname}/`, 'index.html'),
       },
       output: {
         assetFileNames: 'assets/[name].[ext]',
