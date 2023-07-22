@@ -5,6 +5,10 @@
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useViewportStore } from '@/stores/ViewportStore';
 
+  import { realm } from '@/config/main.config';
+
+  import(`@/assets/css/realm/${realm.id}.css`);
+
   const userAgentStore = useUserAgentStore();
   const viewportStore = useViewportStore();
 

@@ -2,7 +2,6 @@
 
 /* Replace with dynamic reference to realm-specific CSS */
 @import './variables.css';
-@import './realm/rv.css';
 @import './dynamic-utilities.css';
 
 @import './reset.css';
