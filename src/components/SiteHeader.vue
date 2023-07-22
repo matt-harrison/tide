@@ -4,8 +4,10 @@
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
+  import { REALM } from '@/types/Realm';
   import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
+  import { formatPascalCase } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useViewportStore } from '@/stores/ViewportStore';
 
@@ -19,8 +21,8 @@
     showSearchBar: true,
   });
 
-  const realmLogo = defineAsyncComponent(() => import('@/assets/logos/RvLogo.vue'));
-  // const realmLogo = defineAsyncComponent(() => import(`@/assets/logos/${formatPascalCase(realm.id)}Logo.vue`));
+  const logosTall: string[] = [REALM.BOATLINE, REALM.EQUIP, REALM.TRUCK];
+  const realmLogo = defineAsyncComponent(() => import(`@/assets/logos/${formatPascalCase(realm.id)}Logo.vue`));
 
   const navItems = [
     { href: '#', label: 'Reviews' },
@@ -106,7 +108,7 @@
     ]"
   >
     <a
-      :class="viewportStore.isExtraSmall ? '' : 's'"
+      :class="[viewportStore.isExtraSmall ? '' : 's', logosTall.includes(realm.id) ? 'tall' : '']"
       class="realm-logo flex axis2-center gap-1/2"
       href="/"
     >
@@ -294,23 +296,28 @@
 
   .site-header {
     :deep(.realm-logo .realm-logo-icon) {
-      width: 32px;
+      width: auto;
       height: 32px;
     }
 
     :deep(.realm-logo .realm-logo-name) {
-      width: 132px;
-      height: auto;
+      width: auto;
+      height: 20px;
     }
 
-    :deep(.realm-logo.s .realm-logo-icon) {
-      width: 38px;
+    :deep(.realm-logo.tall .realm-logo-name) {
+      width: auto;
+      height: 32px;
+    }
+
+    :deep(.s.realm-logo .realm-logo-icon) {
+      width: auto;
       height: 38px;
     }
 
-    :deep(.realm-logo.s .realm-logo-name) {
-      width: 154px;
-      height: auto;
+    :deep(.s.tall.realm-logo .realm-logo-name) {
+      width: auto;
+      height: 38px;
     }
 
     .nav-menu {
