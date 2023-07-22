@@ -699,8 +699,8 @@
       <BasicContainer>
         <section v-if="!isSingleColumn">
           <SeoContent
+            :heading="`Top ${realm.label.singular} makes for sale`"
             class="mb-2"
-            heading="Top {{ realm.label.singular }} makes for sale"
           >
             <li
               :key="topMake"
@@ -713,8 +713,8 @@
           </SeoContent>
 
           <SeoContent
+            :heading="`States with ${realm.label.plural} for sale`"
             class="mb-2"
-            heading="States with {{ realm.label.plural }} for sale"
           >
             <li
               :key="topState"
@@ -727,8 +727,8 @@
           </SeoContent>
 
           <SeoContent
+            :heading="`Top cities with ${realm.label.plural} for sale`"
             class="mb-2"
-            heading="Top cities with {{ realm.label.plural }} for sale"
           >
             <li
               :key="topCity"
@@ -741,8 +741,8 @@
           </SeoContent>
 
           <SeoContent
+            :heading="`${realm.label.singular} sleeping capacity`"
             class="mb-2"
-            heading="{{ realm.label.singular }} sleeping capacity"
           >
             <li
               :key="sleepingCapacity"
@@ -754,7 +754,7 @@
             </li>
           </SeoContent>
 
-          <SeoContent heading="{{ realm.label.singular }} types">
+          <SeoContent :heading="`${realm.label.singular} types`">
             <li
               :key="vehicleType"
               class="flex column gap-1/4 w-full w-1/4 font-14"
