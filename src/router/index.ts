@@ -17,6 +17,11 @@ const router = createRouter({
     },
     {
       component: () => import('../pages/SearchResultsPage.vue'),
+      name: 'atvs-for-sale',
+      path: '/atvs-for-sale',
+    },
+    {
+      component: () => import('../pages/SearchResultsPage.vue'),
       name: 'boats-for-sale',
       path: '/boats-for-sale',
     },
