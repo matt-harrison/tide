@@ -25,7 +25,7 @@
     () => {
       const id = props.icon as unknown;
       const name = formatPascalCase(id as string);
-      const component = defineAsyncComponent(() => import(`@/assets/svg/Icon${name}.vue`));
+      const component = defineAsyncComponent(() => import(`@/assets/svg/icons/Icon${name}.vue`));
 
       innerSVG.value = markRaw(component);
     },

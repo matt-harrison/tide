@@ -22,7 +22,7 @@
   });
 
   const logosTall: string[] = [REALM.BOATLINE, REALM.EQUIP, REALM.TRUCK];
-  const realmLogo = defineAsyncComponent(() => import(`@/assets/logos/${formatPascalCase(realm.id)}Logo.vue`));
+  const realmLogo = defineAsyncComponent(() => import(`@/assets/svg/logos/${formatPascalCase(realm.id)}Logo.vue`));
 
   const navItems = [
     { href: '#', label: 'Reviews' },
