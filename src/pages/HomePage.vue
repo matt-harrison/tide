@@ -8,7 +8,6 @@
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
-  import PatternTopography from '@/assets/svg/patterns/PatternTopography.vue';
   import SeoContent from '@/components/SeoContent.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -37,6 +36,7 @@
 
   const bgAdventure = new URL('@/assets/images/realm/rv/bg-adventure.jpg', import.meta.url).href;
   const fgSellYourVehicle = new URL('@/assets/images/realm/rv/fg-sell-your-vehicle.png', import.meta.url).href;
+  const patternTopography = new URL('@/assets/svg/patterns/pattern-topography.svg', import.meta.url).href;
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummyAlphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
@@ -49,8 +49,11 @@
       :class="!isLarge ? 'column' : 'row'"
       class="flex axis1-center axis2-center gap-2 mt-2 mb-4"
     >
-      <form class="home-search-form relative radius-1/2 p-2 bg-primary-variant-tier-3 xy-hidden">
-        <PatternTopography class="absolute top-0 left-0 font-secondary" />
+      <form class="home-search-form relative radius-1/2 p-2 bg-gradient xy-hidden">
+        <img
+          :src="patternTopography"
+          class="absolute top-0 left-0 w-full h-full object-cover font-secondary"
+        />
 
         <div class="relative radius-1/4 p-1 bg-white">
           <h1
@@ -221,10 +224,11 @@
       :class="isLarge ? 'row' : 'column axis2-center'"
       class="flex gap-1 mb-4"
     >
-      <section
-        class="home-section-sell-your-vehicle relative radius-1/2 w-full p-3/2 bg-primary-variant-tier-3 xy-hidden"
-      >
-        <PatternTopography class="absolute top-0 left-0 font-secondary" />
+      <section class="home-section-sell-your-vehicle relative radius-1/2 w-full p-3/2 bg-gradient xy-hidden">
+        <img
+          :src="patternTopography"
+          class="absolute top-0 left-0 w-full h-full object-cover font-secondary"
+        />
 
         <img
           :src="fgSellYourVehicle"

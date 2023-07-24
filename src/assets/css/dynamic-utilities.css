@@ -4,6 +4,14 @@
 .bg-primary-tier-2 {background-color: var(--ti-primary-button-tier-2-background-rest);}
 .bg-primary-tier-3 {background-color: var(--ti-primary-button-tier-3-background-rest);}
 
+.bg-gradient {
+  background: linear-gradient(
+    to bottom right,
+    var(--ti-primary-button-tier-3-variant-background-rest) 50%,
+    var(--ti-primary-button-tier-1-background-rest) 150%
+  );
+}
+
 .bg-primary-variant-tier-1 {background-color: var(--ti-primary-button-tier-1-variant-background-rest);}
 .bg-primary-variant-tier-2 {background-color: var(--ti-primary-button-tier-2-variant-background-rest);}
 .bg-primary-variant-tier-3 {background-color: var(--ti-primary-button-tier-3-variant-background-rest);}
