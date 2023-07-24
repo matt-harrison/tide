@@ -1,18 +1,19 @@
 <script lang="ts" setup>
   import { ref, computed } from 'vue';
 
-  import BasicButton from '@/components/BasicButton.vue';
-  import BasicCheckbox from '@/components/BasicCheckbox.vue';
-  import BasicTextarea from '@/components/BasicTextarea.vue';
-  import BasicTextInput from '@/components/BasicTextInput.vue';
   import type { VehicleDetail } from '@/types/VehicleDetail';
 
+  import BasicButton from '@/components/BasicButton.vue';
+  import BasicCheckbox from '@/components/BasicCheckbox.vue';
+  import BasicTextInput from '@/components/BasicTextInput.vue';
+  import BasicTextarea from '@/components/BasicTextarea.vue';
+  import dummyEmailFormFields from '@/data/dummy-emailform-fields.json';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_BUTTON } from '@/types/Size';
-  import dummyEmailFormFields from '@/data/dummy-emailform-fields.json';
+  import { formatSentenceCase } from '@/utilities/format';
+  import { getVehicleTitle } from '@/utilities/vehicle';
   import { submitEmailSellerForm } from '@/utilities/leads';
   import { useViewportStore } from '@/stores/ViewportStore';
-  import { getVehicleTitle } from '@/utilities/vehicle';
 
   type Props = {
     vehicle: VehicleDetail;
@@ -216,7 +217,7 @@
       />
 
       <BasicTextInput
-        :label="field.field"
+        :label="formatSentenceCase(field.field)"
         :name="field.field"
         :type="field.type"
         :value="field.value ?? undefined"
