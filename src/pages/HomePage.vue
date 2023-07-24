@@ -31,7 +31,7 @@
   const userAgentStore = useUserAgentStore();
   const viewportStore = useViewportStore();
 
-  const { isExtraSmall, isSmall } = storeToRefs(viewportStore);
+  const { isExtraSmall, isSmall, isLarge } = storeToRefs(viewportStore);
 
   featuredListingStore.getVehicles();
   homeStore.getVehicles();
@@ -42,6 +42,7 @@
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummies: number[] = new Array(10);
+  const alphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
 
   const vehicleTypes: VehicleType[] = [
     { label: 'Travel trailer' },
@@ -60,15 +61,13 @@
 <template>
   <div class="home-page mb-2">
     <BasicContainer
-      :class="isExtraSmall ? 'column' : 'row'"
-      class="flex axis1-center gap-2 mt-2 mx-2 mb-4"
+      :class="!isLarge ? 'column' : 'row'"
+      class="flex axis1-center axis2-center gap-2 mt-2 mb-4"
     >
-      <form
-        class="home-search-form relative flex column axis1-center axis2-center shrink radius-1/2 p-2 w-full bg-primary-variant-tier-3 xy-hidden"
-      >
+      <form class="home-search-form relative radius-1/2 p-2 bg-primary-variant-tier-3 xy-hidden">
         <PatternTopography class="absolute top-0 left-0 font-primary-tier-1" />
 
-        <div class="absolute radius-1/4 p-1 bg-white">
+        <div class="relative radius-1/4 p-1 bg-white">
           <h1
             :class="isExtraSmall ? 'row' : 'column'"
             class="flex axis1-center axis2-center gap-1/2 mb-3/2 font-24 text-center"
@@ -161,8 +160,42 @@
         </div>
       </form>
 
-      <div class="home-alpha-dma-ad flex axis1-center axis2-center radius-1/2 w-full bg-gray-light font-gray font-700">
-        Alpha-DMA
+      <div class="flex axis2-center w-full">
+        <div class="relative flex column gap-1 radius-1/2 xy-hidden">
+          <img
+            :src="alphaDmaAd"
+            alt="Alpha DMA"
+            class="w-full"
+          />
+
+          <div
+            :class="isExtraSmall ? 'relative' : 'absolute p-1'"
+            class="bottom-0 flex wrap axis1-between axis2-center gap-1 w-full"
+          >
+            <span class="font-14">Sponsored by Uwharrie RV • Seattle, WA</span>
+
+            <div
+              :class="isExtraSmall ? 'axis1-between w-full' : ''"
+              class="flex wrap gap-1"
+            >
+              <BasicLinkWithIcon
+                :icon-leading="ICON.PHONE"
+                class="whitespace-nowrap"
+                href="tel:17575551234"
+              >
+                757 555-1234
+              </BasicLinkWithIcon>
+
+              <BasicButton
+                :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
+                :tier="isExtraSmall ? TIER.TIER_2 : undefined"
+                class="whitespace-nowrap"
+              >
+                View inventory
+              </BasicButton>
+            </div>
+          </div>
+        </div>
       </div>
     </BasicContainer>
 
@@ -455,10 +488,6 @@
 </template>
 
 <style scoped>
-  .home-alpha-dma-ad {
-    aspect-ratio: 3 / 2;
-  }
-
   .home-blog-preview {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -497,14 +526,8 @@
     }
   }
 
-  @media (min-width: 992px) {
-    .m-inline {
-      display: unset;
-    }
-
-    .home-search-form {
-      width: unset;
-      min-width: 350px;
-    }
+  .home-search-form {
+    max-width: 500px;
+    min-width: 350px;
   }
 </style>
