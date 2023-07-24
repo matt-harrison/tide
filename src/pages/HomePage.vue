@@ -29,7 +29,7 @@
   const userAgentStore = useUserAgentStore();
   const viewportStore = useViewportStore();
 
-  const { isExtraSmall, isSmall, isLarge } = storeToRefs(viewportStore);
+  const { isExtraSmall, isLarge } = storeToRefs(viewportStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
   featuredListingStore.getVehicles();
@@ -37,7 +37,6 @@
 
   const bgAdventure = new URL('@/assets/images/realm/rv/bg-adventure.jpg', import.meta.url).href;
   const fgSellYourVehicle = new URL('@/assets/images/realm/rv/fg-sell-your-vehicle.png', import.meta.url).href;
-  const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
 
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummyAlphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
@@ -311,67 +310,6 @@
     </section>
 
     <BasicContainer>
-      <section class="mb-4">
-        <h2 class="mb-1 font-32">Fresh from the blog</h2>
-
-        <div
-          :class="isExtraSmall ? 'column' : 'row'"
-          class="flex gap-1"
-        >
-          <a
-            class="flex column gap-1 m-1/4 p-1/2 w-full m-w-1/2 shadow-box underline-none"
-            href="#"
-          >
-            <div class="border-overlay radius-1/4 bg-gray ratio-3/2" />
-
-            <div class="flex column">
-              <span class="mb-1/2 font-12 font-600">Blog date {{ blogPosts[0] }}</span>
-              <h3 class="mb-1 font-20">Blog headline {{ blogPosts[0] }}</h3>
-              <p class="home-blog-preview mb-1 font-14 y-hidden">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam iure officia, nostrum labore
-                qui eligendi! Incidunt, obcaecati adipisci. Quibusdam doloribus at minus culpa autem eaque odit. Earum,
-                cum esse.
-              </p>
-            </div>
-          </a>
-
-          <div class="flex column w-full m-w-1/2">
-            <a
-              :class="isExtraSmall ? 'column' : 'row'"
-              :key="blogPost"
-              class="flex gap-1 m-1/4 p-1/2 shadow-box underline-none"
-              href="#"
-              v-for="blogPost in blogPosts.slice(1)"
-            >
-              <div
-                :class="isSmall ? 'w-1/3' : ''"
-                class="home-blog-thumb-small shrink-none border-overlay radius-1/4 w-full bg-gray ratio-3/2"
-              />
-
-              <div class="flex column">
-                <span class="mb-1/2 font-12 font-600">Blog date {{ blogPost }}</span>
-
-                <h3 class="mb-1 font-20">Blog headline {{ blogPost }}</h3>
-
-                <p class="home-blog-preview mb-1 y-hidden font-14">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda aperiam iure officia, nostrum
-                  labore qui eligendi! Incidunt, obcaecati adipisci. Quibusdam doloribus at minus culpa autem eaque
-                  odit. Earum, cum esse.
-                </p>
-
-                <BasicLinkWithIcon
-                  :icon-trailing="ICON.CHEVRON_RIGHT"
-                  class="font-14 font-700"
-                  href="#"
-                >
-                  Learn more
-                </BasicLinkWithIcon>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section
         class="flex axis1-center mb-4"
         v-if="!viewportStore.isExtraSmall"
@@ -474,12 +412,6 @@
 </template>
 
 <style scoped>
-  .home-blog-preview {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-  }
-
   .home-section-live-the-adventure,
   .home-section-sell-your-vehicle {
     flex: 0 0 50%;
@@ -511,10 +443,6 @@
   }
 
   @media (min-width: 768px) {
-    .home-blog-thumb-small {
-      max-width: 228px;
-    }
-
     .home-featured-listings {
       width: calc(100% - 300px - 2rem);
     }
