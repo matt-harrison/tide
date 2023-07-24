@@ -12,7 +12,6 @@
   import SeoContent from '@/components/SeoContent.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatKebabCase } from '@/utilities/format';
   import { formatNumber } from '@/utilities/format';
@@ -217,47 +216,6 @@
         </li>
       </BasicCarousel>
     </section>
-
-    <BasicContainer class="mb-4">
-      <section
-        :class="isExtraSmall ? 'column p-2' : 'row p-4'"
-        class="home-sell-your-vehicle flex gap-2 mb-4 radius-1/2 bg-primary-variant-tier-3 y-hidden"
-      >
-        <div
-          :class="isExtraSmall ? '' : 'w-1/2'"
-          class="home-sell-your-vehicle-content flex column axis2-center gap-1"
-        >
-          <h2 class="font-32">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
-          <p>
-            Millions of buyers are looking for their next {{ realm.label.singular }} on
-            {{ realm.label.singular }} Trader this month.
-          </p>
-          <BasicButton
-            :priority="PRIORITY.PRIMARY"
-            :size="SIZE_BUTTON.LARGE"
-            :tier="TIER.TIER_2"
-            class="whitespace-nowrap"
-          >
-            Sell my {{ realm.label.singular }}
-          </BasicButton>
-        </div>
-
-        <div
-          :class="isExtraSmall ? '' : 'w-1/2'"
-          class="relative flex axis1-center"
-        >
-          <div class="home-sell-your-vehicle-img absolute top-0 mx-auto radius-1/2 w-full bg-gray" />
-        </div>
-      </section>
-
-      <AdPlaceholder
-        class="shrink-none mb-4"
-        height="250"
-        width="1168"
-      >
-        Native summit showcase banner
-      </AdPlaceholder>
-    </BasicContainer>
 
     <section class="mb-4">
       <CardCarouselListingDealer :vehicles="featuredListingStore.vehicles" />
@@ -471,15 +429,6 @@
     -webkit-box-orient: vertical;
   }
 
-  .home-sell-your-vehicle {
-    min-height: 500px;
-  }
-
-  .home-sell-your-vehicle-img {
-    max-width: 277px;
-    aspect-ratio: 1 / 2;
-  }
-
   .home-vehicle-type {
     width: 280px;
   }
@@ -496,10 +445,6 @@
 
     .home-featured-listings {
       width: calc(100% - 300px - 2rem);
-    }
-
-    .home-sell-your-vehicle {
-      min-height: unset;
     }
   }
 
