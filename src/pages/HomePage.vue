@@ -10,6 +10,7 @@
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
+  import PatternTopography from '@/assets/svg/patterns/PatternTopography.vue';
   import SeoContent from '@/components/SeoContent.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -62,14 +63,15 @@
       :class="isExtraSmall ? 'column' : 'row'"
       class="flex axis1-center gap-2 mt-2 mx-2 mb-4"
     >
-      <form class="home-search-form flex column axis1-center shrink radius-1/2 p-2 w-full bg-primary-variant-tier-3">
-        <div class="radius-1/4 p-1 bg-white">
+      <form class="home-search-form relative flex column axis1-center axis2-center shrink radius-1/2 p-2 w-full bg-primary-variant-tier-3 xy-hidden">
+        <PatternTopography class="absolute top-0 left-0 font-primary-tier-1" />
+
+        <div class="absolute radius-1/4 p-1 bg-white">
           <h1
             :class="isExtraSmall ? 'row' : 'column'"
-            class="flex axis1-center axis2-center gap-1/2 mb-1 font-32 text-center"
+            class="flex axis1-center axis2-center gap-1/2 mb-3/2 font-24 text-center"
           >
-            <span class="contents m-inline">Where you go </span>
-            <span class="contents m-inline">for {{ realm.label.singularWithArticle }}</span>
+            Let's find your next {{ realm.label.singular }}
           </h1>
 
           <fieldset class="flex column gap-1 mb-1">
@@ -147,12 +149,12 @@
           </BasicButton>
 
           <div class="flex axis1-center">
-            <RouterLink
+            <a
               class="font-14 font-700"
-              to="#"
+              href="#"
             >
               Sell your {{ realm.label.singular }}
-            </RouterLink>
+            </a>
           </div>
         </div>
       </form>
@@ -193,13 +195,13 @@
           class="home-vehicle-type shrink-none ratio-1/1 snap-start"
           v-for="vehicleType in vehicleTypes"
         >
-          <RouterLink
-            :to="`/${formatKebabCase(realm.label.plural)}-for-sale`"
+          <a
+            :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
             class="flex column axis1-between gap-1 radius-1/2 p-1 h-full bg-gray-light underline-none"
           >
             <span class="font-20 font-700">{{ vehicleType.label }}</span>
             <div class="home-vehicle-type-img mx-auto radius-1/2 bg-gray" />
-          </RouterLink>
+          </a>
         </li>
       </BasicCarousel>
     </section>
@@ -295,9 +297,9 @@
           :class="isExtraSmall ? 'column' : 'row'"
           class="flex gap-1"
         >
-          <RouterLink
+          <a
             class="flex column gap-1 m-1/4 p-1/2 w-full m-w-1/2 shadow-box underline-none"
-            to="#"
+            href="#"
           >
             <div class="border-overlay radius-1/4 bg-gray ratio-3/2" />
 
@@ -310,14 +312,14 @@
                 cum esse.
               </p>
             </div>
-          </RouterLink>
+          </a>
 
           <div class="flex column w-full m-w-1/2">
-            <RouterLink
+            <a
               :class="isExtraSmall ? 'column' : 'row'"
               :key="blogPost"
               class="flex gap-1 m-1/4 p-1/2 shadow-box underline-none"
-              to="#"
+              href="#"
               v-for="blogPost in blogPosts.slice(1)"
             >
               <div
@@ -339,12 +341,12 @@
                 <BasicLinkWithIcon
                   :icon-trailing="ICON.CHEVRON_RIGHT"
                   class="font-14 font-700"
-                  to="#"
+                  href="#"
                 >
                   Learn more
                 </BasicLinkWithIcon>
               </div>
-            </RouterLink>
+            </a>
           </div>
         </div>
       </section>
