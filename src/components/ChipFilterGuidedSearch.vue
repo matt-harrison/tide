@@ -16,26 +16,31 @@
 <template>
   <button
     :class="[
-      'guided-search-toggle ',
+      'guided-search-toggle',
       props.isActive && 'primary-variant tier-3',
-      'flex column axis2-center shrink-none mt-1',
-      !props.isActive && 'border-1 border-gray',
-      'radius-1/2 px-1 pb-1/2',
+      'flex axis1-center axis2-center shrink-none',
+      !props.isActive && 'border-1 border-gray-light',
+      'radius-1/2',
       !props.isActive && 'bg-gray-light',
       'snap-start',
     ]"
-    class=""
   >
-    <div class="guided-search-toggle-thumb relative mb-1 radius-1/4 bg-gray" />
-
-    <div class="flex axis1-center axis2-center gap-1/4 font-12">
-      <span class="font-700 whitespace-nowrap">{{ props.vehicleType.label }}</span>
-
-      <SvgIcon
-        :icon="ICON.CHECK"
-        :size="SIZE_ICON.SMALL"
-        v-if="props.isActive"
+    <div class="flex column gap-1/4">
+      <img
+        :alt="vehicleType.label"
+        :src="vehicleType.img"
+        class="guided-search-toggle-thumb"
       />
+
+      <div class="flex axis1-center axis2-center gap-1/4 font-12">
+        <span class="font-700 whitespace-nowrap">{{ props.vehicleType.label }}</span>
+
+        <SvgIcon
+          :icon="ICON.CHECK"
+          :size="SIZE_ICON.SMALL"
+          v-if="props.isActive"
+        />
+      </div>
     </div>
   </button>
 </template>
@@ -43,9 +48,13 @@
 <style scoped src="@/assets/css/dynamic-buttons.css" />
 
 <style scoped>
+  .guided-search-toggle {
+    width: 125px;
+    height: 97px;
+  }
+
   .guided-search-toggle-thumb {
-    margin-top: -1rem;
-    width: 90px;
-    height: 40px;
+    width: auto;
+    height: 44px;
   }
 </style>

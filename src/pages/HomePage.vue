@@ -1,8 +1,6 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
 
-  import type { VehicleType } from '@/types/VehicleType';
-
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
@@ -19,6 +17,7 @@
   import { formatKebabCase } from '@/utilities/format';
   import { formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
+  import { vehicleTypes } from '@/types/VehicleType';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useHomeStore } from '@/stores/HomeStore';
@@ -43,19 +42,6 @@
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
   const dummies: number[] = new Array(10);
   const alphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
-
-  const vehicleTypes: VehicleType[] = [
-    { label: 'Travel trailer' },
-    { label: 'Fifth wheel' },
-    { label: 'Class A' },
-    { label: 'Class C' },
-    { label: 'Pop-up camper' },
-    { label: 'Toy hauler' },
-    { label: 'Truck camper' },
-    { label: 'Class B' },
-    { label: 'Park model' },
-    { label: 'Fish house' },
-  ];
 </script>
 
 <template>
@@ -200,33 +186,17 @@
     </BasicContainer>
 
     <section class="mb-4">
-      <BasicContainer
-        :class="isExtraSmall ? 'column' : 'row'"
-        class="flex axis1-center axis2-center mb-4 gap-1"
-      >
-        <h2
-          :class="{
-            'border-r pr-1': !viewportStore.isExtraSmall,
-          }"
-          class="border-gray font-32 whitespace-nowrap"
-        >
-          Every {{ realm.label.singular }} type
-        </h2>
-
-        <p>
-          Whether you're looking for something drivable or towable, we have the {{ realm.label.singular }} type for you.
-        </p>
+      <BasicContainer class="mb-4">
+        <h2 class="font-32">{{ realm.label.plural }} for every outdoor adventure</h2>
       </BasicContainer>
 
       <BasicCarousel
         :card-width="280"
         :gap="16"
         :is-touchscreen="isTouchscreen"
-        :offset-x="32"
       >
         <li
           :key="vehicleType.label"
-          :vehicle-type="vehicleType"
           class="home-vehicle-type shrink-none ratio-1/1 snap-start"
           v-for="vehicleType in vehicleTypes"
         >
@@ -235,7 +205,14 @@
             class="flex column axis1-between gap-1 radius-1/2 p-1 h-full bg-gray-light underline-none"
           >
             <span class="font-20 font-700">{{ vehicleType.label }}</span>
-            <div class="home-vehicle-type-img mx-auto radius-1/2 bg-gray" />
+
+            <div class="flex axis1-center axis2-center h-full">
+              <img
+                :alt="vehicleType.label"
+                :src="vehicleType.img"
+                class="home-vehicle-type-img"
+              />
+            </div>
           </a>
         </li>
       </BasicCarousel>
@@ -508,8 +485,8 @@
   }
 
   .home-vehicle-type-img {
-    width: 200px;
-    height: 90px;
+    width: auto;
+    height: 96px;
   }
 
   @media (min-width: 768px) {

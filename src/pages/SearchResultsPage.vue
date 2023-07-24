@@ -3,7 +3,6 @@
   import { storeToRefs } from 'pinia';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
-  import type { VehicleType } from '@/types/VehicleType';
 
   import AccordionItem from '@/components/AccordionItem.vue';
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
@@ -30,6 +29,7 @@
   import { TIER } from '@/types/Tier';
   import { formatKebabCase, formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
+  import { vehicleMakes, vehicleTypes } from '@/types/VehicleType';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
@@ -93,10 +93,6 @@
 
   const paginationButtons = new Array(filterStore.pagesTotal).fill('').map((empty, index) => index + 1);
 
-  const vehicleTypes = new Array(9).fill('').map((item, index) => {
-    return `${realm.label.singular} Type ${index + 1}`;
-  });
-
   const searchPills = [
     {
       label: 'New travel trailers',
@@ -123,29 +119,6 @@
   const topStates = new Array(12).fill('').map((item, index) => {
     return `State ${index + 1}`;
   });
-
-  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
-  const dummyVehicleMakes: VehicleType[] = [
-    { label: 'Travel trailer' },
-    { label: 'Fifth wheel' },
-    { label: 'Class A' },
-    { label: 'Class C' },
-    { label: 'Pop-up camper' },
-    { label: 'Toy hauler' },
-    { label: 'Truck camper' },
-    { label: 'Class B' },
-    { label: 'Park model' },
-    { label: 'Fish house' },
-  ];
-
-  // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
-  const dummyVehicleTypes: VehicleType[] = [
-    { label: 'Airstream' },
-    { label: 'Alliance' },
-    { label: 'Coachmen' },
-    { label: 'Fleetwood' },
-    { label: 'Forest River' },
-  ];
 
   const handleFilterChipClick = (callback: () => void) => {
     callback();
@@ -321,7 +294,6 @@
           :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
-          :offset-x="32"
           class="axis1-center"
           v-if="isBrowseByType"
         >
@@ -330,7 +302,7 @@
             :key="vehicleType.label"
             :vehicle-type="vehicleType"
             @click="handleTypeToggleClick(vehicleType.label)"
-            v-for="vehicleType in dummyVehicleMakes"
+            v-for="vehicleType in vehicleTypes"
           />
         </BasicCarousel>
 
@@ -338,7 +310,6 @@
           :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
-          :offset-x="32"
           class="axis1-center"
           v-if="!isBrowseByType"
         >
@@ -347,7 +318,7 @@
             :key="vehicleMake.label"
             :vehicle-type="vehicleMake"
             @click="handleMakeToggleClick(vehicleMake.label)"
-            v-for="vehicleMake in dummyVehicleTypes"
+            v-for="vehicleMake in vehicleMakes"
           />
         </BasicCarousel>
       </section>
@@ -532,12 +503,13 @@
             >
               <BasicChipInput
                 :label="filter.label"
+                :tier="TIER.TIER_3"
                 @click="handleFilterChipClick(filter.callback)"
               />
             </li>
 
             <li>
-              <BasicButtonAsLink @click="handleClearAllClick"> Clear all </BasicButtonAsLink>
+              <BasicButtonAsLink @click="handleClearAllClick">Clear all</BasicButtonAsLink>
             </li>
           </ul>
 
@@ -756,11 +728,11 @@
 
           <SeoContent :heading="`${realm.label.singular} types`">
             <li
-              :key="vehicleType"
+              :key="vehicleType.label"
               class="flex column gap-1/4 w-full w-1/4 font-14"
               v-for="vehicleType in vehicleTypes"
             >
-              <span>{{ vehicleType }}</span>
+              <span>{{ vehicleType.label }}</span>
               <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
             </li>
           </SeoContent>

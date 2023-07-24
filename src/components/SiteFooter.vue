@@ -246,11 +246,17 @@
 
           <div class="flex wrap gap-1">
             <a href="#">
-              <img :src="buttonAppStore" />
+              <img
+                :src="buttonAppStore"
+                alt="App Store"
+              />
             </a>
 
             <a href="#">
-              <img :src="buttonGooglePlay" />
+              <img
+                :src="buttonGooglePlay"
+                alt="Google Play"
+              />
             </a>
           </div>
         </div>
