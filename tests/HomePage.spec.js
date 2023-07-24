@@ -10,7 +10,7 @@ describe('HomePage', () => {
       global: {
         plugins: [createTestingPinia({ createSpy: vi.fn })],
         stubs: {
-          RouterLink: true,
+          a: true,
         },
       },
     });

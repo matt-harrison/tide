@@ -7,12 +7,12 @@
     <b>{{ realm.label.singular }} Trader disclaimer:</b>
     The information provided for each listing is supplied by the seller and/or other third parties.
     {{ realm.label.singular }}Trader.com is not responsible for the accuracy of the information. Please refer to the
-    <router-link
+    <a
       class="font-600"
-      to="#"
+      href="#"
     >
       {{ realm.label.singular }} Trader Terms of Use
-    </router-link>
+    </a>
     for further information.
   </p>
 </template>

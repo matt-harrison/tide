@@ -9,7 +9,7 @@
     iconLeading?: Icon;
     iconTrailing?: Icon;
     target?: string;
-    to: string;
+    href: string;
   };
 
   const props = defineProps<Props>();
@@ -17,7 +17,7 @@
 
 <template>
   <a
-    :href="props.to"
+    :href="props.href"
     :target="props.target"
     class="basic-link-with-icon inline-flex axis2-center gap-1/2 underline-none"
   >

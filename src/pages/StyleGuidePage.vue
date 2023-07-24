@@ -1062,7 +1062,7 @@
           <h4 class="mb-1">Basic Link</h4>
 
           <div class="ml-1">
-            <RouterLink to="#">Standard link</RouterLink>
+            <a href="#">Standard link</a>
           </div>
         </div>
 
@@ -1072,14 +1072,14 @@
           <div class="flex wrap gap-2 ml-1">
             <BasicLinkWithIcon
               :icon-leading="ICON.STAR"
-              to="#"
+              href="#"
             >
               Leading Icon
             </BasicLinkWithIcon>
 
             <BasicLinkWithIcon
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
-              to="#"
+              href="#"
             >
               Trailing Icon
             </BasicLinkWithIcon>

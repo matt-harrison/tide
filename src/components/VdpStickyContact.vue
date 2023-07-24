@@ -52,16 +52,16 @@
       :icon-leading="ICON.MESSAGE"
       :priority="PRIORITY.SECONDARY"
       class="vehicle-detail-text-cta"
-      to="sms:+7575551234"
+      href="sms:+7575551234"
     >
       <span class="font-12 font-600">text</span>
     </BasicButton>
 
     <BasicButton
+      :href="phoneHref"
       :icon-leading="ICON.PHONE"
       :priority="PRIORITY.PRIMARY"
       :tier="TIER.TIER_1"
-      :to="phoneHref"
       class="vehicle-detail-call-cta"
     >
       <span class="font-12 font-600">call</span>

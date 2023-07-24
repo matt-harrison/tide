@@ -41,19 +41,19 @@
 
       <p class="font-12 font-600">
         <span>By using this site, you agree to our </span>
-        <RouterLink
+        <a
           class="font-700"
-          to="#"
+          href="#"
         >
           Terms of Use
-        </RouterLink>
+        </a>
         <span> & our </span>
-        <RouterLink
+        <a
           class="font-700"
-          to="#"
+          href="#"
         >
           Privacy Policy.
-        </RouterLink>
+        </a>
       </p>
     </div>
   </div>

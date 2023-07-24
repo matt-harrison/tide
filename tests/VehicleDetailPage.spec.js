@@ -18,7 +18,7 @@ describe('VehicleDetailPage', () => {
       global: {
         plugins: [createTestingPinia({ createSpy: vi.fn })],
         stubs: {
-          RouterLink: true,
+          a: true,
         },
       },
     });

@@ -139,15 +139,15 @@
       class="vdp-header layout-item flex"
     >
       <div class="flex axis1-between gap-1 mb-1">
-        <router-link
-          :to="`/${formatKebabCase(realm.label.plural)}-for-sale`"
+        <a
+          :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
           v-if="isSingleColumn"
         >
           <BasicButtonIcon
             :icon="ICON.CHEVRON_LEFT"
             :size="SIZE_ICON.SMALL"
           />
-        </router-link>
+        </a>
 
         <div class="flex gap-1 ml-auto">
           <BasicButtonIcon
@@ -184,8 +184,8 @@
             v-if="vehicle.dealerName"
           >
             <BasicLinkWithIcon
+              :href="dealerLinkHref"
               :icon-leading="ICON.CIRCLE_CHECK"
-              :to="dealerLinkHref"
               class="font-12"
               target="_blank"
             >
@@ -503,7 +503,7 @@
         <BasicLinkWithIcon
           :icon-leading="ICON.STAR"
           class="font-700"
-          to="#"
+          href="#"
         >
           Reviews for this {{ realm.label.singular }}
         </BasicLinkWithIcon>
@@ -604,8 +604,8 @@
       <h2 class="font-20">More {{ realm.label.plural }} like this</h2>
 
       <BasicLinkWithIcon
+        :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
         :icon-trailing="ICON.CHEVRON_RIGHT"
-        :to="`/${formatKebabCase(realm.label.plural)}-for-sale`"
         class="font-14 font-700"
       >
         See more

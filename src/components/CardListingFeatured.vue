@@ -31,8 +31,8 @@
 
 <template>
   <li class="card-listing-featured shrink-none p-1/4 snap-start xy-hidden">
-    <RouterLink
-      :to="`/listing?realm=${realm.id}`"
+    <a
+      :href="`/listing?realm=${realm.id}`"
       class="block p-1/2 h-full bg-white shadow-box underline-none"
     >
       <div class="flex column axis1-between h-full">
@@ -71,7 +71,7 @@
           />
         </div>
       </div>
-    </RouterLink>
+    </a>
   </li>
 </template>
 
