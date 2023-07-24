@@ -50,7 +50,7 @@
       class="flex axis1-center axis2-center gap-2 mt-2 mb-4"
     >
       <form class="home-search-form relative radius-1/2 p-2 bg-primary-variant-tier-3 xy-hidden">
-        <PatternTopography class="absolute top-0 left-0 font-primary-tier-1" />
+        <PatternTopography class="absolute top-0 left-0 font-secondary" />
 
         <div class="relative radius-1/4 p-1 bg-white">
           <h1
