@@ -30,17 +30,18 @@
   const viewportStore = useViewportStore();
 
   const { isExtraSmall, isSmall, isLarge } = storeToRefs(viewportStore);
+  const { isTouchscreen } = storeToRefs(userAgentStore);
 
   featuredListingStore.getVehicles();
   homeStore.getVehicles();
 
+  const bgAdventure = new URL('@/assets/images/realm/rv/bg-adventure.jpg', import.meta.url).href;
+  const fgSellYourVehicle = new URL('@/assets/images/realm/rv/fg-sell-your-vehicle.png', import.meta.url).href;
   const blogPosts = new Array(4).fill('').map((empty, index) => index + 1);
 
-  const { isTouchscreen } = storeToRefs(userAgentStore);
-
   // TODO: Replace upon determining a method for retrieving live Elasticsearch data.
+  const dummyAlphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
   const dummies: number[] = new Array(10);
-  const alphaDmaAd = new URL('@/assets/images/alpha-DMA.jpg', import.meta.url).href;
 </script>
 
 <template>
@@ -126,7 +127,7 @@
           </fieldset>
 
           <BasicButton
-            :href="`/${formatKebabCase(realm.label.plural)}-for-sale?realm=${realm.id}`"
+            :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_1"
             class="mb-1 w-full"
@@ -148,7 +149,7 @@
       <div class="flex axis2-center w-full">
         <div class="relative flex column gap-1 radius-1/2 xy-hidden">
           <img
-            :src="alphaDmaAd"
+            :src="dummyAlphaDmaAd"
             alt="Alpha DMA"
             class="w-full"
           />
@@ -185,8 +186,8 @@
     </BasicContainer>
 
     <section class="mb-4">
-      <BasicContainer class="mb-4">
-        <h2 class="font-32">{{ realm.label.plural }} for every outdoor adventure</h2>
+      <BasicContainer class="mb-1">
+        <h2 class="font-28">{{ realm.label.plural }} for every outdoor adventure</h2>
       </BasicContainer>
 
       <BasicCarousel
@@ -216,6 +217,58 @@
         </li>
       </BasicCarousel>
     </section>
+
+    <div
+      :class="isLarge ? 'row' : 'column axis2-center'"
+      class="flex gap-1 mb-4"
+    >
+      <section
+        class="home-section-sell-your-vehicle relative radius-1/2 w-full p-3/2 bg-primary-variant-tier-3 xy-hidden"
+      >
+        <PatternTopography class="absolute top-0 left-0 font-secondary" />
+
+        <img
+          :src="fgSellYourVehicle"
+          alt="Sell your vehicle"
+          class="home-section-sell-your-vehicle-img absolute right-0 bottom-0 mb-1"
+        />
+
+        <div class="relative flex axis2-start column gap-1">
+          <h2 class="font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
+          <p class="font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
+          <BasicButton
+            :priority="PRIORITY.PRIMARY"
+            :tier="TIER.TIER_2"
+            href="#"
+          >
+            Sell my {{ realm.label.singular }}
+          </BasicButton>
+        </div>
+      </section>
+
+      <section class="home-section-live-the-adventure relative radius-1/2 w-full xy-hidden">
+        <img
+          :src="bgAdventure"
+          alt="Adventure"
+          class="home-section-live-the-adventure-bg absolute right-0 bottom-0"
+        />
+        <div class="home-section-live-the-adventure-gradient absolute right-0 bottom-0 w-full h-full" />
+
+        <div class="relative flex axis2-start column gap-1 p-3/2">
+          <h2 class="font-24">Live the adventure</h2>
+          <p class="font-600">
+            Get tips on buying and selling RVs, top destinations to visit, maintenance, and living the RV lifestyle.
+          </p>
+          <BasicButton
+            :priority="PRIORITY.PRIMARY"
+            :tier="TIER.TIER_2"
+            href="#"
+          >
+            Explore resources
+          </BasicButton>
+        </div>
+      </section>
+    </div>
 
     <section class="mb-4">
       <CardCarouselListingDealer :vehicles="featuredListingStore.vehicles" />
@@ -425,6 +478,27 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+  }
+
+  .home-section-live-the-adventure,
+  .home-section-sell-your-vehicle {
+    flex: 0 0 50%;
+    max-width: 750px;
+    min-height: 400px;
+  }
+
+  .home-section-live-the-adventure-bg {
+    max-width: 1056px;
+    width: 1056px;
+    height: 400px;
+  }
+
+  .home-section-live-the-adventure-gradient {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 15) 0%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .home-section-sell-your-vehicle-img {
+    margin-right: -4rem;
   }
 
   .home-vehicle-type {
