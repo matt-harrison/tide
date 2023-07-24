@@ -201,7 +201,7 @@
         >
           <a
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
-            class="flex column axis1-between gap-1 radius-1/2 p-1 h-full bg-gray-light underline-none"
+            class="flex column axis1-between gap-1 radius-1/2 p-1 h-full bg-surface-variant-lightest underline-none"
           >
             <span class="font-20 font-700">{{ vehicleType.label }}</span>
 
@@ -231,7 +231,6 @@
           :get-is-favorite="favoriteStore.getIsFavorite"
           :handle-favorite-click="favoriteStore.toggleIsFavorite"
           :is-touchscreen="isTouchscreen"
-          :offset-x="32"
           :vehicles="homeStore.featuredListings"
           class="home-featured-listings"
         />
@@ -254,7 +253,6 @@
         :get-is-favorite="favoriteStore.getIsFavorite"
         :handle-favorite-click="favoriteStore.toggleIsFavorite"
         :is-touchscreen="isTouchscreen"
-        :offset-x="32"
         :vehicles="homeStore.recommendedVehicles"
       />
     </section>

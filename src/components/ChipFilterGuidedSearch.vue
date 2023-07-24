@@ -19,9 +19,8 @@
       'guided-search-toggle',
       props.isActive && 'primary-variant tier-3',
       'flex axis1-center axis2-center shrink-none',
-      !props.isActive && 'border-1 border-gray-light',
       'radius-1/2',
-      !props.isActive && 'bg-gray-light',
+      !props.isActive && 'bg-surface-variant-lightest',
       'snap-start',
     ]"
   >
