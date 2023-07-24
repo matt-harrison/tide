@@ -354,9 +354,14 @@
               class="flex column gap-1/4"
               v-for="(dummy, index) in dummies"
             >
-              Make {{ index + 1 }} {{ realm.label.plural }} for sale ({{
-                formatNumber(Math.floor(Math.random() * 50000))
-              }})
+              <a
+                :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
+                class="underline-none"
+              >
+                Make {{ index + 1 }} {{ realm.label.plural }} for sale ({{
+                  formatNumber(Math.floor(Math.random() * 50000))
+                }})
+              </a>
             </li>
           </ul>
         </li>
@@ -370,9 +375,14 @@
               class="flex column gap-1/4"
               v-for="(dummy, index) in dummies"
             >
-              Model {{ index + 1 }} {{ realm.label.plural }} for sale ({{
-                formatNumber(Math.floor(Math.random() * 50000))
-              }})
+              <a
+                :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
+                class="underline-none"
+              >
+                Model {{ index + 1 }} {{ realm.label.plural }} for sale ({{
+                  formatNumber(Math.floor(Math.random() * 50000))
+                }})
+              </a>
             </li>
           </ul>
         </li>
@@ -385,9 +395,14 @@
               :key="dummy"
               v-for="(dummy, index) in dummies"
             >
-              Type {{ index + 1 }} {{ realm.label.plural }} for sale ({{
-                formatNumber(Math.floor(Math.random() * 50000))
-              }})
+              <a
+                :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
+                class="underline-none"
+              >
+                Type {{ index + 1 }} {{ realm.label.plural }} for sale ({{
+                  formatNumber(Math.floor(Math.random() * 50000))
+                }})
+              </a>
             </li>
           </ul>
         </li>
@@ -400,9 +415,14 @@
               :key="dummy"
               v-for="(dummy, index) in dummies"
             >
-              State {{ index + 1 }} {{ realm.label.plural }} for sale ({{
-                formatNumber(Math.floor(Math.random() * 50000))
-              }})
+              <a
+                :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
+                class="underline-none"
+              >
+                State {{ index + 1 }} {{ realm.label.plural }} for sale ({{
+                  formatNumber(Math.floor(Math.random() * 50000))
+                }})
+              </a>
             </li>
           </ul>
         </li>
