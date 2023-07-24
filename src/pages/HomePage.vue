@@ -63,7 +63,9 @@
       :class="isExtraSmall ? 'column' : 'row'"
       class="flex axis1-center gap-2 mt-2 mx-2 mb-4"
     >
-      <form class="home-search-form relative flex column axis1-center axis2-center shrink radius-1/2 p-2 w-full bg-primary-variant-tier-3 xy-hidden">
+      <form
+        class="home-search-form relative flex column axis1-center axis2-center shrink radius-1/2 p-2 w-full bg-primary-variant-tier-3 xy-hidden"
+      >
         <PatternTopography class="absolute top-0 left-0 font-primary-tier-1" />
 
         <div class="absolute radius-1/4 p-1 bg-white">

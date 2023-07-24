@@ -46,6 +46,9 @@
   ];
 
   const { isExtraSmall } = storeToRefs(viewportStore);
+
+  const buttonAppStore = new URL('@/assets/images/app-store.png', import.meta.url).href;
+  const buttonGooglePlay = new URL('@/assets/images/google-play.png', import.meta.url).href;
 </script>
 
 <template>
@@ -60,54 +63,54 @@
 
           <div class="flex wrap gap-1 axis1-between">
             <div class="flex column gap-1">
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 About {{ realm.label.singular }}Trader.com
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 {{ realm.label.singular }}Trader.com blog
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 Site map
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 Need help?
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 Email us feedback
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 Security center
-              </RouterLink>
+              </a>
 
-              <RouterLink
+              <a
                 class="underline-none"
-                to="#"
+                href="#"
               >
                 Community guidelines
-              </RouterLink>
+              </a>
             </div>
           </div>
         </div>
@@ -119,61 +122,61 @@
           <h2 class="mb-1 font-18">{{ realm.label.singular }} Trader affiliates</h2>
 
           <div class="flex column gap-1 axis1-between">
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Airplanes for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               ATVs for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Trucks for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Motorcycles for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Heavy Equipment for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Jet Skis for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Snowmobiles for sale
-            </RouterLink>
+            </a>
 
-            <RouterLink
+            <a
               class="underline-none"
-              to="#"
+              href="#"
             >
               Boats for sale
-            </RouterLink>
+            </a>
           </div>
         </div>
 
@@ -194,12 +197,12 @@
               </BasicButton>
 
               <p>
-                <RouterLink
+                <a
                   class="font-600"
-                  to="#"
+                  href="#"
                 >
                   Advertise your inventory
-                </RouterLink>
+                </a>
                 <span> with us!</span>
               </p>
             </div>
@@ -219,28 +222,37 @@
                 Sell my {{ realm.label.singular }}
               </BasicButton>
 
-              <RouterLink
+              <a
                 class="font-600"
-                to="#"
+                href="#"
               >
                 Edit my listing
-              </RouterLink>
+              </a>
             </div>
           </div>
         </div>
 
-        <div
-          :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''"
-          class="site-footer-socials flex gap-1 font-20"
-        >
-          <BasicButtonIcon
-            :href="socialLink.url"
-            :icon="socialLink.icon"
-            :key="socialLink.url"
-            :priority="PRIORITY.TERTIARY"
-            target="_blank"
-            v-for="socialLink in socialLinks"
-          />
+        <div :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''">
+          <div class="site-footer-socials flex wrap gap-1 mb-3/2 font-20">
+            <BasicButtonIcon
+              :href="socialLink.url"
+              :icon="socialLink.icon"
+              :key="socialLink.url"
+              :priority="PRIORITY.TERTIARY"
+              target="_blank"
+              v-for="socialLink in socialLinks"
+            />
+          </div>
+
+          <div class="flex wrap gap-1">
+            <a href="#">
+              <img :src="buttonAppStore" />
+            </a>
+
+            <a href="#">
+              <img :src="buttonGooglePlay" />
+            </a>
+          </div>
         </div>
       </BasicContainer>
     </div>
@@ -251,26 +263,26 @@
         class="flex wrap gap-1"
       >
         <span>{{ realm.label.singular }}Trader.com © 2023 Trader Interactive | All rights reserved.</span>
-        <RouterLink
+        <a
           class="underline-none"
-          to="#"
+          href="#"
         >
           Privacy Policy
-        </RouterLink>
+        </a>
 
-        <RouterLink
+        <a
           class="underline-none"
-          to="#"
+          href="#"
         >
           Terms of Use
-        </RouterLink>
+        </a>
 
-        <RouterLink
+        <a
           class="underline-none"
-          to="#"
+          href="#"
         >
           Advertiser Agreement
-        </RouterLink>
+        </a>
       </BasicContainer>
     </div>
     <slot />
