@@ -109,8 +109,8 @@
   >
     <a
       :class="[viewportStore.isExtraSmall ? '' : 's', logosTall.includes(realm.id) ? 'tall' : '']"
+      :href="`/?realm=${realm.id}`"
       class="realm-logo flex axis2-center gap-1/2"
-      href="/"
     >
       <component :is="realmLogo" />
     </a>
@@ -199,11 +199,11 @@
       />
 
       <BasicButtonIcon
+        :href="`/style-guide?realm=${realm.id}`"
         :icon="ICON.USER"
         :priority="PRIORITY.TERTIARY"
         :size="SIZE_ICON.SMALL"
         class="font-20"
-        href="/style-guide"
         title="Sign in"
       />
 

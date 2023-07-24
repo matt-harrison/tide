@@ -126,7 +126,7 @@
           </fieldset>
 
           <BasicButton
-            :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
+            :href="`/${formatKebabCase(realm.label.plural)}-for-sale?realm=${realm.id}`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_1"
             class="mb-1 w-full"

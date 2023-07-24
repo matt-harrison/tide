@@ -57,8 +57,8 @@
 <template>
   <li class="card-listing p-1/4 w-full xy-hidden">
     <RouterLink
+      :to="`/listing?realm=${realm.id}`"
       class="relative block h-full bg-white shadow-box underline-none"
-      to="/listing"
     >
       <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
         <div class="flex column gap-1/2">

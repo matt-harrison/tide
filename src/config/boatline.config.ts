@@ -2,7 +2,7 @@ import { REALM } from '../types/Realm';
 
 const realm = {
   cdn: {
-    domain: 'boatline',
+    domain: 'rvtrader',
     version: 'vLatest',
   },
   id: REALM.BOATLINE,
