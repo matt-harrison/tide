@@ -25,7 +25,7 @@
       'snap-start',
     ]"
   >
-    <div class="flex column gap-1/4">
+    <div class="flex axis2-center column gap-1/4">
       <img
         :alt="vehicleType.label"
         :src="vehicleType.img"
