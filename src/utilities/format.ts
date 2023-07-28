@@ -123,6 +123,10 @@ const getCdnMediaRoot = (realm: RealmConfig) => {
   return `https://cdn.${realm.cdn.domain}.com/${realm.cdn.version}/media`;
 };
 
+const removeMarkup = (markup: string) => {
+  return markup.replace(/<[^>]*>/g, '');
+};
+
 export {
   formatCamelCase,
   formatKebabCase,
@@ -136,4 +140,5 @@ export {
   getArticle,
   getCdn,
   getCdnMediaRoot,
+  removeMarkup,
 };

@@ -18,6 +18,7 @@
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
+  import CardListingPremiumSelect from '@/components/CardListingPremiumSelect.vue';
   import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
   import ChipFilterGuidedSearch from '@/components/ChipFilterGuidedSearch.vue';
   import SeoContent from '@/components/SeoContent.vue';
@@ -513,10 +514,10 @@
             </li>
           </ul>
 
-          <section class="mb-2 border-b border-gray-light pb-2 font-16">
+          <section class="mb-2 border-b border-gray-light pb-2">
             <h2
               :class="isSingleColumn ? 'mx-2' : ''"
-              class="mb-1"
+              class="mb-1 font-16"
             >
               Featured listings
             </h2>
@@ -527,6 +528,14 @@
               :is-touchscreen="isTouchscreen"
               :offset-x="isSingleColumn ? 32 : undefined"
               :vehicles="featuredListingStore.vehicles"
+            />
+          </section>
+
+          <section class="mb-2">
+            <CardListingPremiumSelect
+              :is-favorite="favoriteStore.getIsFavorite(searchResultStore.vehicles[0].adId)"
+              :vehicle="searchResultStore.vehicles[0]"
+              @favorite-click="favoriteStore.toggleIsFavorite"
             />
           </section>
 

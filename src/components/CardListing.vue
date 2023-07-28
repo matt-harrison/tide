@@ -67,7 +67,7 @@
               :offset="200"
               :src="thumbnail"
               assume-horizontal
-              class="site-carousel-card-img w-full"
+              class="w-full"
               is-lazy-load
             />
           </div>
