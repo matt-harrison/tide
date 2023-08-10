@@ -4,7 +4,7 @@
   import type { SizeIcon } from '@/types/Size';
   import type { Tier } from '@/types/Tier';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { PRIORITY } from '@/types/Priority';
 
   type Props = {
@@ -32,7 +32,7 @@
     :target="props.href && props.target ? props.target : undefined"
     :is="props.href ? 'a' : 'button'"
   >
-    <SvgIcon
+    <BasicIcon
       :icon="props.icon"
       :size="props.size"
       v-if="props.icon"

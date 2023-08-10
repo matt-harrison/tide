@@ -9,6 +9,7 @@
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import SeoContent from '@/components/SeoContent.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { TIER } from '@/types/Tier';
@@ -129,13 +130,13 @@
           </fieldset>
 
           <BasicButton
+            :element="ELEMENT.ANCHOR"
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_1"
             class="mb-1 w-full"
-          >
-            Search
-          </BasicButton>
+            label="Search"
+          />
 
           <div class="flex axis1-center">
             <a
@@ -178,9 +179,8 @@
                 :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
                 :tier="isExtraSmall ? TIER.TIER_2 : undefined"
                 class="whitespace-nowrap"
-              >
-                View inventory
-              </BasicButton>
+                label="View inventory"
+              />
             </div>
           </div>
         </div>
@@ -239,12 +239,11 @@
           <h2 class="font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
           <p class="font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <BasicButton
+            :label="`Sell my ${realm.label.singular}`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
             href="#"
-          >
-            Sell my {{ realm.label.singular }}
-          </BasicButton>
+          />
         </div>
       </section>
 
@@ -265,9 +264,8 @@
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
             href="#"
-          >
-            Explore resources
-          </BasicButton>
+            label="Explore resources"
+          />
         </div>
       </section>
     </div>

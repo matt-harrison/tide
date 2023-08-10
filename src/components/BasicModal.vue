@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { onMounted, ref, watch, type CSSProperties } from 'vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
 
   // TODO: replace body scroll lock with a global mixin
@@ -94,7 +94,7 @@
               class="absolute right-0 mr-2"
               title="Close"
             >
-              <SvgIcon :icon="ICON.XMARK" />
+              <BasicIcon :icon="ICON.XMARK" />
             </button>
           </header>
 

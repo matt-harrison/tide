@@ -192,9 +192,8 @@
                 :class="isExtraSmall ? 'w-full' : ''"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
-              >
-                TraderTraxx login
-              </BasicButton>
+                label="TraderTraxx login"
+              />
 
               <p>
                 <a
@@ -216,11 +215,10 @@
 
               <BasicButton
                 :class="isExtraSmall ? 'w-full' : ''"
+                :label="`Sell my ${realm.label.singular}`"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
-              >
-                Sell my {{ realm.label.singular }}
-              </BasicButton>
+              />
 
               <a
                 class="font-600"

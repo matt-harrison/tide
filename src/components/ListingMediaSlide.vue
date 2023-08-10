@@ -2,7 +2,7 @@
   import type { ListingMedia } from '@/types/ListingMedia';
   import type { VehicleDetail } from '@/types/VehicleDetail';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
   import { SIZE_ICON } from '@/types/Size';
@@ -40,7 +40,7 @@
       class="absolute flex axis1-center axis2-center pointer-events-none bg-white radius-full p-1"
       v-if="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO || props.slide.type === MEDIA_SLIDE_TYPES.VR"
     >
-      <SvgIcon
+      <BasicIcon
         :icon="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO ? ICON.PLAY : ICON.TOUR"
         :size="SIZE_ICON.SMALL"
         class="font-24"

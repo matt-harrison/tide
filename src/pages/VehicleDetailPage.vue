@@ -18,7 +18,7 @@
   import ReadMore from '@/components/ReadMore.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import VdpStickyContact from '@/components/VdpStickyContact.vue';
   import VehiclePreview from '@/components/VehiclePreview.vue';
   import { ICON } from '@/types/Icon';
@@ -227,6 +227,7 @@
             <span>Estimated Payment: </span>
             <span class="font-700">$50/month</span>
           </BasicButtonAsLink>
+
           <BasicModal
             :is-open="loanCalculatorIsOpen"
             @close="() => (loanCalculatorIsOpen = false)"
@@ -234,7 +235,8 @@
           >
             Loan Calculator
           </BasicModal>
-          <SvgIcon
+
+          <BasicIcon
             :icon="ICON.CALCULATOR"
             :size="SIZE_ICON.SMALL"
           />
@@ -246,17 +248,15 @@
         :size="SIZE_BUTTON.LARGE"
         @click="() => (makeAnOfferModalIsOpen = true)"
         class="shrink-none"
-      >
-        Make an offer
-      </BasicButton>
+        label="Make an offer"
+      />
 
       <BasicModal
         :is-open="makeAnOfferModalIsOpen"
         @close="() => (makeAnOfferModalIsOpen = false)"
+        label="Make an offer modal"
         title="Make an offer"
-      >
-        Make an offer modal
-      </BasicModal>
+      />
     </section>
 
     <section
@@ -285,12 +285,13 @@
             :class="isExtraSmall ? 'mb-1' : ''"
             class="vehicle-detail-item flex axis2-center gap-1/2"
           >
-            <SvgIcon
+            <BasicIcon
               :icon="ICON.BOOKMARK"
               :size="SIZE_ICON.SMALL"
             />
             <span class="font-14 font-600">Under warranty</span>
           </li>
+
           <li
             :key="detail.label"
             class="vehicle-detail-item w-full"
@@ -327,14 +328,16 @@
                 class="w-full"
               />
             </div>
+
             <div class="flex column axis2-start mt-1/4">
               <div class="flex axis2-center gap-1/2">
-                <SvgIcon
+                <BasicIcon
                   :icon="ICON.CIRCLE_CHECK"
                   :size="SIZE_ICON.SMALL"
                 />
                 <span class="font-green font-12 font-600">15 Year Trusted Partner</span>
               </div>
+
               <a
                 :href="dealerLinkHref"
                 class="font-16 font-700 mt-1/4"
@@ -343,6 +346,7 @@
               >
                 {{ vehicle.dealerName }}
               </a>
+
               <a
                 :href="dealerMapUrl"
                 class="font-14 mt-1/2 font-600"
@@ -353,6 +357,7 @@
               </a>
             </div>
           </div>
+
           <a
             :href="dealerLinkHref"
             class="flex axis2-center gap-1/4 font-14 mt-2 font-600"
@@ -361,19 +366,20 @@
           >
             Visit dealer's website
             <!-- replace with external link icon -->
-            <SvgIcon
+            <BasicIcon
               :icon="ICON.ARROW_UP_FROM_BRACKET"
               :size="SIZE_ICON.SMALL"
             />
           </a>
+
           <BasicButton
             :icon-leading="ICON.VIDEO"
             :priority="PRIORITY.SECONDARY"
             @click="() => (videoCallModalIsOpen = true)"
             class="mt-3/2"
-          >
-            Schedule a video call
-          </BasicButton>
+            label="Schedule a video call"
+          />
+
           <BasicModal
             :is-open="videoCallModalIsOpen"
             @close="() => (videoCallModalIsOpen = false)"
@@ -382,11 +388,14 @@
             Schedule a video call
           </BasicModal>
         </div>
+
         <p class="w-0 grow font-14">
           {{ vehicle.dealerRepeatTag }}
         </p>
       </div>
+
       <h2 class="font-16 mt-2">More from this dealer</h2>
+
       <CardCarouselListingFeatured
         :get-is-favorite="favoriteStore.getIsFavorite"
         :handle-favorite-click="favoriteStore.toggleIsFavorite"
@@ -507,13 +516,13 @@
         >
           Reviews for this {{ realm.label.singular }}
         </BasicLinkWithIcon>
-        <span>on</span>
 
+        <span>on</span>
         <div class="insider-logo radius-1/2 bg-gray" />
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <SvgIcon
+        <BasicIcon
           :icon="ICON.EYE"
           :size="SIZE_ICON.SMALL"
         />
@@ -529,7 +538,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <SvgIcon
+        <BasicIcon
           :icon="ICON.HEART"
           :size="SIZE_ICON.SMALL"
         />
@@ -542,7 +551,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <SvgIcon
+        <BasicIcon
           :icon="ICON.CALENDAR"
           :size="SIZE_ICON.SMALL"
         />
@@ -557,7 +566,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <SvgIcon
+        <BasicIcon
           :icon="ICON.TAG"
           :size="SIZE_ICON.SMALL"
         />
@@ -672,12 +681,14 @@
             width="52"
           />
         </div>
+
         <div class="flex column axis2-start shrink ml-1">
           <div class="flex axis2-center font-12 font-700">
-            <SvgIcon
+            <BasicIcon
               :icon="ICON.CIRCLE_CHECK"
               :size="SIZE_ICON.SMALL"
             />
+
             <a
               :href="dealerLinkHref"
               class="ml-1/4"
@@ -686,34 +697,39 @@
             >
               {{ vehicle.dealerName }}
             </a>
+
             <div class="font-gray-dark font-600">&nbsp;• {{ vehicle.location }}</div>
           </div>
+
           <div class="font-20 font-700 mt-1/4">{{ vehicleTitle }}</div>
         </div>
+
         <div class="self-stretch flex axis2-center my-1/4 ml-3/2 pl-3/2 border-l border-gray-light font-700 font-20">
           {{ price }}
         </div>
+
         <div class="flex axis2-center shrink-none gap-1 ml-auto pl-1">
           <a
             :href="phoneHref"
             class="flex gap-1/2 axis2-center font-20 font-700"
           >
-            <SvgIcon
+            <BasicIcon
               :icon="ICON.PHONE"
               :size="SIZE_ICON.SMALL"
               class="bg-gray-dark font-white p-3/4 font-16 radius-full"
             />
             Call {{ phone }}
           </a>
+
           <BasicButton
             :icon-leading="ICON.ENVELOPE"
             :priority="PRIORITY.PRIMARY"
             :size="SIZE_BUTTON.LARGE"
             :tier="TIER.TIER_1"
             @click="() => (emailModalIsOpen = true)"
-          >
-            Email seller
-          </BasicButton>
+            label="Email seller"
+          />
+
           <BasicModal
             :is-open="emailModalIsOpen"
             @close="() => (emailModalIsOpen = false)"
@@ -725,6 +741,7 @@
             />
             <EmailSellerForm :vehicle="vehicle" />
           </BasicModal>
+
           <BasicButtonIcon
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :is-active="isFavorite"

@@ -11,7 +11,7 @@
   import BasicTextarea from './BasicTextarea.vue';
   import EmailSellerForm from '@/components/EmailSellerForm.vue';
   import SmsLeadForm from './SmsLeadForm.vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import YoutubeVideo from './YoutubeVideo.vue';
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
@@ -268,7 +268,7 @@
           <div class="flex axis2-center font-600">
             <div class="border-r border-white pr-1">
               <div class="flex axis2-center gap-1/2">
-                <SvgIcon
+                <BasicIcon
                   :icon="ICON.CIRCLE_CHECK"
                   :size="SIZE_ICON.SMALL"
                 />
@@ -420,7 +420,7 @@
 
               <div class="thumb-outline absolute top-0 left-0 w-full h-full" />
 
-              <SvgIcon
+              <BasicIcon
                 :icon="slide.type === MEDIA_SLIDE_TYPES.VR ? ICON.TOUR : ICON.PLAY"
                 :size="SIZE_ICON.SMALL"
                 class="absolute bg-white radius-full p-1/2"
@@ -503,16 +503,16 @@
                 :priority="PRIORITY.PRIMARY"
                 :size="SIZE_BUTTON.LARGE"
                 :tier="TIER.TIER_1"
+                label="Send email"
                 type="submit"
-              >
-                Send email
-              </BasicButton>
+              />
               <div class="font-12">
                 Stay safe. Read more about <a href="#">avoiding scams and protecting your money</a>. By using this site,
                 you agree to our <a href="#">Terms of Use</a> & our <a href="#">Privacy Policy</a>.
               </div>
             </div>
           </form>
+
           <div
             :class="[
               !viewportStore.isLandscape && !viewportStore.isLarge && 'fixed bottom-0 row mb-1',
@@ -528,18 +528,18 @@
               :icon-leading="ICON.PHONE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
-            >
-              Call
-            </BasicButton>
+              label="Call"
+            />
+
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
               :icon-leading="ICON.MESSAGE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               @click="handleSmsClick"
-            >
-              Text
-            </BasicButton>
+              label="Text"
+            />
+
             <BasicModal
               :is-open="smsModalIsOpen"
               @close="handleSmsClose"
@@ -548,15 +548,16 @@
             >
               <SmsLeadForm />
             </BasicModal>
+
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
               :icon-leading="ICON.ENVELOPE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               @click="handleEmailClick"
-            >
-              Email
-            </BasicButton>
+              label="Email"
+            />
+
             <BasicModal
               :is-open="emailModalIsOpen"
               :modal-style="{

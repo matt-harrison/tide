@@ -20,7 +20,8 @@
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
   import CardListingFeatured from '@/components/CardListingFeatured.vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
@@ -685,39 +686,34 @@
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
               @click="handleButtonClick"
-            >
-              Primary Tier 1
-            </BasicButton>
+              label="Primary Tier "
+            />
 
             <BasicButton
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               @click="handleButtonClick"
-            >
-              Primary Tier 2
-            </BasicButton>
+              label="Primary Tier 2"
+            />
 
             <BasicButton
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               @click="handleButtonClick"
-            >
-              Primary Tier 3
-            </BasicButton>
+              label="Primary Tier 3"
+            />
 
             <BasicButton
               :priority="PRIORITY.SECONDARY"
               @click="handleButtonClick"
-            >
-              Secondary
-            </BasicButton>
+              label="Secondary"
+            />
 
             <BasicButton
               :priority="PRIORITY.TERTIARY"
               @click="handleButtonClick"
-            >
-              Tertiary
-            </BasicButton>
+              label="Tertiary"
+            />
           </div>
 
           <div class="flex wrap gap-1 mb-1 ml-1">
@@ -726,43 +722,38 @@
               :tier="TIER.TIER_1"
               @click="handleButtonClick"
               disabled
-            >
-              Primary Tier 1
-            </BasicButton>
+              label="Primary Tier 1"
+            />
 
             <BasicButton
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               @click="handleButtonClick"
               disabled
-            >
-              Primary Tier 2
-            </BasicButton>
+              label="Primary Tier 2"
+            />
 
             <BasicButton
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               @click="handleButtonClick"
               disabled
-            >
-              Primary Tier 3
-            </BasicButton>
+              label="Primary Tier 3"
+            />
 
             <BasicButton
               :priority="PRIORITY.SECONDARY"
               @click="handleButtonClick"
               disabled
-            >
-              Secondary
-            </BasicButton>
+              label="Secondary"
+            />
 
             <BasicButton
               :priority="PRIORITY.TERTIARY"
               @click="handleButtonClick"
               disabled
-            >
-              Tertiary
-            </BasicButton>
+              label="Tertiary"
+            />
           </div>
 
           <div class="flex wrap gap-1 ml-1">
@@ -771,25 +762,22 @@
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
               @click="handleButtonClick"
-            >
-              Leading Icon
-            </BasicButton>
+              label="Leading Icon"
+            />
 
             <BasicButton
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               @click="handleButtonClick"
-            >
-              Trailing Icon
-            </BasicButton>
+              label="Trailing Icon"
+            />
 
             <BasicButton
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
-            >
-              No Icon
-            </BasicButton>
+              label="No Icon"
+            />
           </div>
         </div>
 
@@ -1028,7 +1016,7 @@
         <section class="mb-1">
           <h4 class="mb-1">Medium (24px)</h4>
           <div class="flex wrap gap-1 ml-1">
-            <SvgIcon
+            <BasicIcon
               :icon="icon"
               :key="icon"
               :size="SIZE_ICON.MEDIUM"
@@ -1042,7 +1030,7 @@
         <section class="mb-1">
           <h4 class="mb-1">Small (16px)</h4>
           <div class="flex wrap gap-1 ml-1">
-            <SvgIcon
+            <BasicIcon
               :icon="icon"
               :key="icon"
               :size="SIZE_ICON.SMALL"
@@ -1090,71 +1078,71 @@
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
               href="https://www.google.com"
+              label="Primary Tier 1"
               target="_blank"
-            >
-              Primary Tier 1
-            </BasicButton>
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               href="https://www.google.com"
-            >
-              Primary Tier 2
-            </BasicButton>
+              label="Primary Tier 2"
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               href="#"
-            >
-              Primary Tier 3
-            </BasicButton>
+              label="Primary Tier 3"
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.SECONDARY"
               href="#"
-            >
-              Secondary
-            </BasicButton>
+              label="Secondary"
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.TERTIARY"
               href="#"
-            >
-              Tertiary
-            </BasicButton>
+              label="Tertiary"
+            />
           </div>
 
           <div class="flex wrap gap-1 ml-1">
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :icon-leading="ICON.STAR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
               href="#"
-            >
-              Leading Icon
-            </BasicButton>
+              label="Leading Icon"
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               href="#"
-            >
-              Trailing Icon
-            </BasicButton>
+              label="Trailing Icon"
+            />
 
             <BasicButton
+              :element="ELEMENT.ANCHOR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               href="#"
-            >
-              No Icon
-            </BasicButton>
+              label="No Icon"
+            />
           </div>
         </div>
 
@@ -1239,9 +1227,8 @@
           :tier="TIER.TIER_1"
           @click="openModal"
           class="ml-1"
-        >
-          Open modal
-        </BasicButton>
+          label="Open modal"
+        />
 
         <BasicModal
           :is-open="modalIsOpen"
@@ -1323,7 +1310,10 @@
           </span>
           <template #footer>
             <BasicButtonAsLink @click="closeModal">Cancel</BasicButtonAsLink>
-            <BasicButton class="ml-auto"> Confirm </BasicButton>
+            <BasicButton
+              class="ml-auto"
+              label="Confirm"
+            />
           </template>
         </BasicModal>
       </section>
@@ -1341,13 +1331,12 @@
     </section>
 
     <BasicButton
+      :label="`Dark Theme: ${isDarkTheme ? 'On' : 'Off'}`"
       :priority="PRIORITY.PRIMARY"
       :tier="TIER.TIER_2"
       @click="toggleIsDarkTheme"
       class="fixed right-0 bottom-0 mr-1/2 mb-1/2"
-    >
-      Dark Theme: {{ isDarkTheme ? 'On' : 'Off' }}
-    </BasicButton>
+    />
   </div>
 </template>
 

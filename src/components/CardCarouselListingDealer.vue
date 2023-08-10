@@ -43,9 +43,8 @@
         :href="`/${formatKebabCase(realm.label.plural)}s-for-sale`"
         :priority="PRIORITY.SECONDARY"
         class="w-full"
-      >
-        View inventory
-      </BasicButton>
+        label="View inventory"
+      />
     </aside>
 
     <CardCarouselListingFeatured

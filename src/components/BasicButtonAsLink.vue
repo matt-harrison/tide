@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { Icon } from '@/types/Icon';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { SIZE_ICON } from '@/types/Size';
 
   type Props = {
@@ -15,7 +15,7 @@
 
 <template>
   <button class="basic-button-as-link flex axis1-center axis2-center gap-1/2">
-    <SvgIcon
+    <BasicIcon
       :icon="props.iconLeading"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconLeading"
@@ -25,7 +25,7 @@
       <slot />
     </div>
 
-    <SvgIcon
+    <BasicIcon
       :icon="props.iconTrailing"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconTrailing"

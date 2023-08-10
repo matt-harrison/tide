@@ -30,13 +30,13 @@
   import { TIER } from '@/types/Tier';
   import { formatKebabCase, formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
-  import { vehicleMakes, vehicleTypes } from '@/types/VehicleType';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useFilterStore } from '@/stores/FilterStore';
   import { useSearchResultStore } from '@/stores/SearchResultStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useViewportStore } from '@/stores/ViewportStore';
+  import { vehicleMakes, vehicleTypes } from '@/types/VehicleType';
 
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
@@ -228,9 +228,8 @@
                 :icon-leading="ICON.SLIDERS"
                 :priority="PRIORITY.PRIMARY"
                 :tier="TIER.TIER_2"
-              >
-                Filters
-              </BasicButton>
+                label="Filters"
+              />
 
               <div
                 class="search-results-filter-count absolute top-0 right-0 flex axis1-center axis2-center radius-full bg-primary-tier-1 font-14 font-700"
@@ -247,28 +246,25 @@
                 :priority="PRIORITY.SECONDARY"
                 :size="SIZE_ICON.SMALL"
                 @click="toggleIsSavedSearch"
+                label="Save search"
                 v-if="isSingleColumn"
-              >
-                <span>Save search</span>
-              </BasicButton>
+              />
 
               <BasicButton
                 :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
                 :is-active="isSavedSearch"
                 :priority="PRIORITY.TERTIARY"
                 @click="toggleIsSavedSearch"
+                label="Save search"
                 v-else
-              >
-                <span>Save search</span>
-              </BasicButton>
+              />
 
               <BasicButton
                 :icon-leading="ICON.ARROW_UP_ARROW_DOWN"
                 :icon-trailing="!isSingleColumn ? ICON.CHEVRON_DOWN : undefined"
+                :label="`Sort by ${!isSingleColumn ? '' : 'Premium'}`"
                 :priority="isSingleColumn ? PRIORITY.SECONDARY : PRIORITY.TERTIARY"
-              >
-                <span>Sort by<span v-if="!isSingleColumn">: Premium</span></span>
-              </BasicButton>
+              />
             </div>
           </div>
         </header>
@@ -445,7 +441,7 @@
                   </a>
                 </div>
 
-                <BasicButton>Select models and floor plans</BasicButton>
+                <BasicButton label="Select models and floor plans" />
               </div>
             </AccordionItem>
 
@@ -463,6 +459,7 @@
                     :id="`type${index}`"
                     type="checkbox"
                   />
+
                   <label
                     :for="`type${index}`"
                     class="font-14"

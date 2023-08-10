@@ -47,10 +47,9 @@
       :tier="TIER.TIER_1"
       @click="handleSubmit"
       class="ml-auto"
+      label="Send"
       type="submit"
-    >
-      Send
-    </BasicButton>
+    />
   </footer>
 </template>
 

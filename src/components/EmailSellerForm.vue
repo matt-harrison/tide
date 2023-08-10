@@ -266,12 +266,11 @@
 
     <BasicButton
       :disabled="isSubmitting"
+      :label="isSubmitting ? 'Submitting' : 'Send'"
       :priority="PRIORITY.PRIMARY"
       :size="SIZE_BUTTON.LARGE"
       type="submit"
-    >
-      {{ isSubmitting ? 'Submitting' : 'Send' }}
-    </BasicButton>
+    />
   </form>
   <p class="font-12 font-surface-variant mt-3/2">
     Stay safe. Read more about avoiding scams and protecting your money. By using this site, you agree to our Terms of

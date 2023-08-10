@@ -140,7 +140,7 @@
         v-if="isPremium"
       >
         <div class="flex gap-1/2 p-1/2 bg-white">
-          <SvgIcon
+          <BasicIcon
             :icon="ICON.BOOKMARK"
             :size="SIZE_ICON.SMALL"
           />

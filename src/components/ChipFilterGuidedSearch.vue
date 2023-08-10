@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { VehicleType } from '@/types/VehicleType';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { SIZE_ICON } from '@/types/Size';
 
@@ -34,7 +34,7 @@
       <div class="flex axis1-center axis2-center gap-1/4 font-12">
         <span class="font-700 whitespace-nowrap">{{ props.vehicleType.label }}</span>
 
-        <SvgIcon
+        <BasicIcon
           :icon="ICON.CHECK"
           :size="SIZE_ICON.SMALL"
           v-if="props.isActive"

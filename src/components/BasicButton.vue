@@ -1,17 +1,22 @@
 <script lang="ts" setup>
-  import type { Icon } from '@/types/Icon';
-  import type { Priority } from '@/types/Priority';
-  import type { SizeButton } from '@/types/Size';
-  import type { Tier } from '@/types/Tier';
+  import type { Element } from '../types/Element';
+  import type { Icon } from '../types/Icon';
+  import type { Priority } from '../types/Priority';
+  import type { SizeButton } from '../types/Size';
+  import type { Tier } from '../types/Tier';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
-  import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON, SIZE_ICON } from '@/types/Size';
+  import BasicIcon from '../components/BasicIcon.vue';
+  import { ELEMENT } from '../types/Element';
+  import { PRIORITY } from '../types/Priority';
+  import { SIZE_BUTTON, SIZE_ICON } from '../types/Size';
+  import { TIER } from '../types/Tier';
 
   type Props = {
-    href?: string;
+    element?: Element;
+    href: string;
     iconLeading?: Icon;
     iconTrailing?: Icon;
+    label: string;
     priority?: Priority;
     size?: SizeButton;
     target?: string;
@@ -19,56 +24,46 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
+    element: ELEMENT.BUTTON,
     href: undefined,
     iconLeading: undefined,
     iconTrailing: undefined,
+    label: undefined,
     priority: undefined,
     size: SIZE_BUTTON.MEDIUM,
     target: undefined,
-    tier: undefined,
+    tier: TIER.TIER_1,
   });
-
-  let padding = '';
-
-  switch (props.size) {
-    case SIZE_BUTTON.LARGE:
-      padding = 'py-3/4 px-3/2';
-      break;
-    case SIZE_BUTTON.MEDIUM:
-      padding = 'py-1/2 px-1';
-      break;
-    case SIZE_BUTTON.SMALL:
-      padding = 'py-1/2 px-3/4';
-      break;
-  }
 </script>
 
 <template>
   <component
     :class="[
-      props.href ? 'basic-link-as-button' : 'basic-button',
+      props.element === ELEMENT.ANCHOR ? 'basic-link-as-button' : 'basic-button',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
-      'flex axis1-center axis2-center gap-1/2 radius-1/4',
-      padding,
-      props.size === SIZE_BUTTON.SMALL && 'font-14',
-      props.href ? 'underline-none' : '',
+      props.element === ELEMENT.ANCHOR ? 'inline-flex' : 'flex',
+      'axis1-center axis2-center gap-1/2 radius-1/4',
+      props.size === SIZE_BUTTON.SMALL && 'py-1/2 px-3/4 font-14',
+      (SIZE_BUTTON.MEDIUM || !props.size) && 'py-1/2 px-1',
+      props.size === SIZE_BUTTON.LARGE && 'py-3/4 px-3/2',
+      props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
       'font-700',
     ]"
-    :href="props.href"
-    :target="props.href && props.target ? props.target : undefined"
-    :is="props.href ? 'a' : 'button'"
+    :href="props.element === ELEMENT.ANCHOR && props.href ? props.href : undefined"
+    :target="props.element === ELEMENT.ANCHOR && props.target ? props.target : undefined"
+    :is="props.element === ELEMENT.ANCHOR ? 'a' : 'button'"
   >
-    <SvgIcon
+    <BasicIcon
       :icon="props.iconLeading"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconLeading"
     />
 
-    <slot />
+    {{ props.label }}
 
-    <SvgIcon
+    <BasicIcon
       :icon="props.iconTrailing"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconTrailing"
@@ -76,4 +71,4 @@
   </component>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
+<style scoped src="../assets/css/dynamic-buttons.css" />

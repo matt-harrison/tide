@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import type { Tier } from '@/types/Tier';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { SIZE_ICON } from '@/types/Size';
 
@@ -23,7 +23,7 @@
   >
     <span>{{ props.label }}</span>
 
-    <SvgIcon
+    <BasicIcon
       :icon="ICON.XMARK"
       :size="SIZE_ICON.SMALL"
     />

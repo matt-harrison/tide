@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { getCurrentInstance, ref, computed } from 'vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { SIZE_ICON } from '@/types/Size';
 
   const emit = defineEmits<{
@@ -79,7 +79,7 @@
       class="font-12 pt-1/4 break-word"
       v-if="showSupportingText"
     >
-      <SvgIcon
+      <BasicIcon
         :icon="'circle-exclamation'"
         :size="SIZE_ICON.SMALL"
         class="inline-block align-middle font-red font-16 mr-1/2 pointer-events-none"

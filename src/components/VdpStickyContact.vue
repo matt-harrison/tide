@@ -51,38 +51,34 @@
     <BasicButton
       :icon-leading="ICON.MESSAGE"
       :priority="PRIORITY.SECONDARY"
-      class="vehicle-detail-text-cta"
+      class="vehicle-detail-text-cta font-12 font-600"
       href="sms:+7575551234"
-    >
-      <span class="font-12 font-600">text</span>
-    </BasicButton>
+      label="text"
+    />
 
     <BasicButton
       :href="phoneHref"
       :icon-leading="ICON.PHONE"
       :priority="PRIORITY.PRIMARY"
       :tier="TIER.TIER_1"
-      class="vehicle-detail-call-cta"
-    >
-      <span class="font-12 font-600">call</span>
-    </BasicButton>
+      class="vehicle-detail-call-cta font-12 font-600"
+      label="call"
+    />
 
     <BasicButton
       :icon-leading="ICON.ENVELOPE"
       :priority="PRIORITY.PRIMARY"
       :tier="TIER.TIER_2"
-      class="vehicle-detail-email-cta"
-    >
-      <span class="font-12 font-600">email</span>
-    </BasicButton>
+      class="vehicle-detail-email-cta font-12 font-600"
+      label="email"
+    />
 
     <BasicButton
       :icon-leading="ICON.COMMENTS"
       :priority="PRIORITY.SECONDARY"
-      class="vehicle-detail-chat-cta"
-    >
-      <span class="font-12 font-600">chat</span>
-    </BasicButton>
+      class="vehicle-detail-chat-cta font-12 font-600"
+      label="chat"
+    />
   </div>
 </template>
 

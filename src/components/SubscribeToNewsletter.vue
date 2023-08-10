@@ -34,9 +34,8 @@
           :priority="PRIORITY.PRIMARY"
           :size="SIZE_BUTTON.LARGE"
           :tier="TIER.TIER_1"
-        >
-          Submit
-        </BasicButton>
+          label="Submit"
+        />
       </div>
 
       <p class="font-12 font-600">

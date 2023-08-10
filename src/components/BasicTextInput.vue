@@ -4,7 +4,7 @@
   import type { Icon } from '@/types/Icon';
   import type { TextInputType } from '@/types/Form';
 
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { SIZE_ICON } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/Form';
 
@@ -80,7 +80,7 @@
       {{ formattedLabel }}
     </label>
     <div class="relative w-full">
-      <SvgIcon
+      <BasicIcon
         :icon="leadingIcon"
         :size="SIZE_ICON.SMALL"
         class="absolute top-1/2 left-0 -translate-y-1/2 ml-3/4 pointer-events-none"
@@ -115,7 +115,7 @@
         {{ suffix }}
       </span>
       <slot name="trailing-icon">
-        <SvgIcon
+        <BasicIcon
           :icon="'circle-exclamation'"
           :size="SIZE_ICON.SMALL"
           class="font-red absolute top-1/2 right-0 -translate-y-1/2 mr-3/4 pointer-events-none"

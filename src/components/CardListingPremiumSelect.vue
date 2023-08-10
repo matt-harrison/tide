@@ -5,7 +5,7 @@
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicImage from '@/components/BasicImage.vue';
-  import SvgIcon from '@/components/SvgIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
@@ -122,7 +122,7 @@
               </div>
 
               <div class="card-listing-premium-select-description font-14 xy-hidden">
-                <SvgIcon
+                <BasicIcon
                   :icon="ICON.BOOKMARK"
                   :size="SIZE_ICON.SMALL"
                   class="mr-1/4 float-left"
@@ -179,7 +179,7 @@
 
       <div class="card-listing-premium-select-label absolute top-0 flex mt-1">
         <div class="flex gap-1/2 p-1/2 bg-white">
-          <SvgIcon
+          <BasicIcon
             :icon="ICON.BOOKMARK"
             :size="SIZE_ICON.SMALL"
           />
