@@ -77,7 +77,7 @@ module.exports = {
       },
     ],
     'vue/script-indent': [
-      'warn',
+      'off', // Disabled bc ESLint and Prettier's indentation rules conflict.
       2,
       {
         baseIndent: 1,
