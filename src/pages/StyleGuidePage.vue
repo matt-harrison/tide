@@ -931,7 +931,6 @@
           <h4 class="mx-2 mb-1">Basic Carousel</h4>
 
           <BasicCarousel
-            :card-width="150"
             :gap="16"
             :is-touchscreen="isTouchscreen"
             :offset-x="64"

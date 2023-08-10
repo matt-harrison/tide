@@ -19,7 +19,6 @@
 
 <template>
   <BasicCarousel
-    :card-width="208"
     :gap="16"
     :is-touchscreen="props.isTouchscreen"
     :offset-x="offsetX"

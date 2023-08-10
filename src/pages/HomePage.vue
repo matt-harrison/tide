@@ -193,7 +193,6 @@
       </BasicContainer>
 
       <BasicCarousel
-        :card-width="280"
         :gap="16"
         :is-touchscreen="isTouchscreen"
       >

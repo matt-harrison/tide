@@ -38,11 +38,14 @@
   const measureCurrentSlide = () => {
     // get left offsets of each slide
     const slideOffsets = Array.from(contentRef.value.children).map((slide: any) => slide.offsetLeft);
+
     if (slideOffsets.length === 0) return;
+
     // get value closest to current scroll position
     const closestSlideOffset = slideOffsets.reduce((prev, curr) => {
       return Math.abs(curr - frameRef.value.scrollLeft) < Math.abs(prev - frameRef.value.scrollLeft) ? curr : prev;
     });
+
     // set current slide to index of closest slide
     currentSlide.value = slideOffsets.indexOf(closestSlideOffset);
   };
@@ -53,6 +56,7 @@
     hasOverflow.value = contentWidth.value > frameWidth.value;
     lastPosition.value = frameRef.value.scrollWidth - frameRef.value.clientWidth;
     showButtons.value = hasOverflow.value && !props.isTouchscreen;
+
     measureCurrentSlide();
   };
 
@@ -68,30 +72,41 @@
    * @param slideIndex The index of the slide to scroll to
    */
   const scrollToSlide = (slideIndex: number) => {
-    let slideToScrollTo;
-    const goToStart = slideIndex > contentRef.value.children.length - 1;
-    const goToEnd = slideIndex < 0;
-    const slides = contentRef.value.children;
-    if (goToStart) {
-      slideToScrollTo = 0;
-    } else if (goToEnd) {
-      slideToScrollTo = slides.length - 1;
-    } else {
-      slideToScrollTo = slideIndex;
-    }
-    const newScrollPosition = slides[slideToScrollTo].offsetLeft;
     frameRef.value.scrollTo({
       behavior: 'smooth',
-      left: newScrollPosition,
+      left: contentRef.value.children[slideIndex].offsetLeft,
     });
   };
 
   const showNextSlide = () => {
-    scrollToSlide(currentSlide.value + 1);
+    const contentWidth = contentRef.value.scrollWidth;
+    const contentRightEdge = frameRef.value.scrollLeft + frameRef.value.clientWidth;
+
+    if (contentRightEdge > contentWidth) {
+      frameRef.value.scrollTo({
+        behavior: 'smooth',
+        left: contentWidth,
+      });
+    } else {
+      const isFirstSlideWithOffset = props.offsetX && currentSlide.value === 0;
+      const isLastSlide = contentRightEdge === contentWidth;
+      const nextSlide = isLastSlide ? 0 : isFirstSlideWithOffset ? 2 : currentSlide.value + 1;
+
+      scrollToSlide(nextSlide);
+    }
   };
 
   const showPreviousSlide = () => {
-    scrollToSlide(currentSlide.value - 1);
+    const firstSlide = props.offsetX ? 1 : 0;
+    const isFirstSlide = currentSlide.value - 1 === firstSlide;
+    const isSecondSlide = currentSlide.value <= firstSlide;
+    const previousSlide = isSecondSlide
+      ? contentRef.value.children.length - 1
+      : isFirstSlide
+      ? 0
+      : currentSlide.value - 1;
+
+    scrollToSlide(previousSlide);
   };
 
   window.addEventListener('resize', measureDom);

@@ -292,7 +292,6 @@
         </BasicContainer>
 
         <BasicCarousel
-          :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
           class="axis1-center"
@@ -308,7 +307,6 @@
         </BasicCarousel>
 
         <BasicCarousel
-          :card-width="125"
           :gap="16"
           :is-touchscreen="isTouchscreen"
           class="axis1-center"
