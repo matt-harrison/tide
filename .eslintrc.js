@@ -9,6 +9,7 @@ module.exports = {
     '@vue/eslint-config-prettier',
     'plugin:storybook/recommended',
   ],
+  ignorePatterns: ['storybook-static/'],
   parserOptions: {
     ecmaVersion: 'latest',
   },
