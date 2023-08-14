@@ -1,27 +1,24 @@
-import BasicButton from '../components/BasicButton.vue';
-import { ELEMENT } from '../types/Element';
-import { ICON } from '../types/Icon';
-import { PRIORITY } from '../types/Priority';
-import { SIZE_BUTTON } from '../types/Size';
-import { TARGET } from '../types/Target';
-import { TIER } from '../types/Tier';
+import BasicButton from '@/components/BasicButton.vue';
+import { ELEMENT } from '@/types/Element';
+import { PRIORITY } from '@/types/Priority';
+import { SIZE_BUTTON } from '@/types/Size';
+import { TARGET } from '@/types/Target';
+import { TIER } from '@/types/Tier';
+import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
 
-const icons: { [key: string]: string } = {};
+const formatArgs = (args: any) => {
+  args.class = `${args.class} ${args.fill}`;
 
-Object.entries(ICON).forEach((icon) => {
-  const key: string = icon[0];
-  const value: string = icon[1];
+  if (args.iconTrailing === 'None') delete args.iconTrailing;
 
-  icons[key] = value;
-});
+  if (args.element === ELEMENT.BUTTON) {
+    delete args.href;
+    delete args.target;
+  }
 
-const iconControl = {
-  control: 'select',
-  mapping: {
-    None: undefined,
-    ...icons,
-  },
-  options: ['None', ...Object.keys(ICON)],
+  delete args.element;
+
+  return { args };
 };
 
 export default {
@@ -33,17 +30,15 @@ export default {
     href: {
       if: { arg: 'element', eq: ELEMENT.ANCHOR },
     },
-    iconLeading: {
-      ...iconControl,
-    },
-    iconTrailing: {
-      ...iconControl,
-    },
+    iconLeading: iconControl,
+    iconTrailing: iconControl,
     priority: {
+      constant: getVariableName({ PRIORITY }),
       control: 'select',
       options: PRIORITY,
     },
     size: {
+      constant: getVariableName({ SIZE_BUTTON }),
       control: 'select',
       options: SIZE_BUTTON,
     },
@@ -53,6 +48,7 @@ export default {
       options: TARGET,
     },
     tier: {
+      constant: getVariableName({ TIER }),
       control: 'select',
       if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       options: TIER,
@@ -60,19 +56,38 @@ export default {
   },
   component: BasicButton,
   tags: ['autodocs'],
-  title: 'Example/BasicButton',
+  title: 'Basic Components/BasicButton',
 };
 
 export const Demo = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
-    iconLeading: 'None',
-    iconTrailing: 'None',
+    iconLeading: undefined,
+    iconTrailing: undefined,
     label: 'Demo',
     priority: PRIORITY.PRIMARY,
     size: SIZE_BUTTON.LARGE,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
+  parameters: {
+    docs: {
+      source: {
+        format: false,
+        language: 'html',
+        transform: formatSnippet,
+      },
+    },
+  },
+  render: (args: any) => ({
+    components: { BasicButton },
+    setup() {
+      return formatArgs(args);
+    },
+    template: '<BasicButton v-bind="args" />',
+    updated() {
+      return formatArgs(args);
+    },
+  }),
 };

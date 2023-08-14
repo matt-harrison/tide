@@ -8,13 +8,11 @@
   import { formatPascalCase } from '../utilities/format';
 
   type Props = {
-    class?: string;
     icon: Icon;
     size?: SizeIcon;
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    class: undefined,
     size: SIZE_ICON.MEDIUM,
   });
 
@@ -34,9 +32,8 @@
 </script>
 
 <template>
-  <div :class="['svg-icon', props.size]">
+  <div :class="['basic-icon', props.size]">
     <svg
-      :class="props.class"
       :data-icon="icon"
       class="block"
       fill="currentColor"
@@ -52,12 +49,12 @@
 </template>
 
 <style scoped>
-  .svg-icon svg {
+  .basic-icon svg {
     width: 1.5rem;
     height: 1.5rem;
   }
 
-  .svg-icon.small svg {
+  .basic-icon.small svg {
     width: 1rem;
     height: 1rem;
   }
