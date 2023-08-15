@@ -63,8 +63,6 @@ export const Demo = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
-    iconLeading: undefined,
-    iconTrailing: undefined,
     label: 'Demo',
     priority: PRIORITY.PRIMARY,
     size: SIZE_BUTTON.LARGE,
