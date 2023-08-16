@@ -59,7 +59,28 @@ export default {
   title: 'Basic Components/BasicButton',
 };
 
-export const Demo = {
+const parameters = {
+  docs: {
+    source: {
+      format: false,
+      language: 'html',
+      transform: formatSnippet,
+    },
+  },
+};
+
+const render = (args: any) => ({
+  components: { BasicButton },
+  setup() {
+    return formatArgs(args);
+  },
+  template: '<BasicButton v-bind="args" />',
+  updated() {
+    return formatArgs(args);
+  },
+});
+
+export const Primary = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
@@ -69,23 +90,34 @@ export const Demo = {
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
-  parameters: {
-    docs: {
-      source: {
-        format: false,
-        language: 'html',
-        transform: formatSnippet,
-      },
-    },
+  parameters,
+  render,
+};
+
+export const Secondary = {
+  args: {
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com/',
+    label: 'Demo',
+    priority: PRIORITY.SECONDARY,
+    size: SIZE_BUTTON.LARGE,
+    target: TARGET.SELF,
+    tier: TIER.TIER_1,
   },
-  render: (args: any) => ({
-    components: { BasicButton },
-    setup() {
-      return formatArgs(args);
-    },
-    template: '<BasicButton v-bind="args" />',
-    updated() {
-      return formatArgs(args);
-    },
-  }),
+  parameters,
+  render,
+};
+
+export const Tertiary = {
+  args: {
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com/',
+    label: 'Demo',
+    priority: PRIORITY.TERTIARY,
+    size: SIZE_BUTTON.LARGE,
+    target: TARGET.SELF,
+    tier: TIER.TIER_1,
+  },
+  parameters,
+  render,
 };
