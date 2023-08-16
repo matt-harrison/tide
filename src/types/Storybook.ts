@@ -33,6 +33,7 @@ export const BORDER_SIZE = {
 
 export const FONT_COLOR = {
   'None': '',
+  'font-black': 'font-black',
   'font-blue': 'font-blue',
   'font-red': 'font-red',
 };
