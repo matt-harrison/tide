@@ -4,7 +4,7 @@ import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
 import { getVariableName } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
-  args.class = `m${args.marginSide}-${args.marginSize}`;
+  args.class = `m${args.side}-${args.size}`;
 
   return { args };
 };
@@ -12,7 +12,7 @@ const formatArgs = (args: any) => {
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
-  return `<div class="m${args.marginSide}-${args.marginSize}">Demo</div>`;
+  return `<div class="m${args.side}-${args.size}">Demo</div>`;
 };
 
 const parameters = {
@@ -38,13 +38,13 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    marginSide: {
+    side: {
       constant: getVariableName({ SPACING_SIDE }),
       control: 'select',
       description: 'Margin Side',
       options: SPACING_SIDE,
     },
-    marginSize: {
+    size: {
       constant: getVariableName({ SPACING_SIZE }),
       control: 'select',
       description: 'Margin Size',
@@ -57,8 +57,8 @@ export default {
 
 export const Margin4 = {
   args: {
-    marginSide: SPACING_SIDE.Full,
-    marginSize: SPACING_SIZE['4'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['4'],
   },
   name: 'm-4',
   parameters,
@@ -67,8 +67,8 @@ export const Margin4 = {
 
 export const Margin2 = {
   args: {
-    marginSide: SPACING_SIDE.Full,
-    marginSize: SPACING_SIZE['2'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['2'],
   },
   name: 'm-2',
   parameters,
@@ -77,8 +77,8 @@ export const Margin2 = {
 
 export const Margin1 = {
   args: {
-    marginSide: SPACING_SIDE.Full,
-    marginSize: SPACING_SIZE['1'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1'],
   },
   name: 'm-1',
   parameters,
@@ -87,8 +87,8 @@ export const Margin1 = {
 
 export const MarginHalf = {
   args: {
-    marginSide: SPACING_SIDE.Full,
-    marginSize: SPACING_SIZE['1/2'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1/2'],
   },
   name: 'm-1/2',
   parameters,
@@ -97,8 +97,8 @@ export const MarginHalf = {
 
 export const MarginQuarter = {
   args: {
-    marginSide: SPACING_SIDE.Full,
-    marginSize: SPACING_SIZE['1/4'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1/4'],
   },
   name: 'm-1/4',
   parameters,

@@ -4,7 +4,7 @@ import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
 import { getVariableName } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
-  args.class = `p${args.paddingSide}-${args.paddingSize}`;
+  args.class = `p${args.side}-${args.size}`;
 
   return { args };
 };
@@ -12,7 +12,7 @@ const formatArgs = (args: any) => {
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
-  return `<div class="p${args.paddingSide}-${args.paddingSize}">Demo</div>`;
+  return `<div class="p${args.side}-${args.size}">Demo</div>`;
 };
 
 const parameters = {
@@ -38,13 +38,13 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    paddingSide: {
+    side: {
       constant: getVariableName({ SPACING_SIDE }),
       control: 'select',
       description: 'Padding Side',
       options: SPACING_SIDE,
     },
-    paddingSize: {
+    size: {
       constant: getVariableName({ SPACING_SIZE }),
       control: 'select',
       description: 'Padding Size',
@@ -57,8 +57,8 @@ export default {
 
 export const Padding4 = {
   args: {
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE['4'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['4'],
   },
   name: 'p-4',
   parameters,
@@ -67,8 +67,8 @@ export const Padding4 = {
 
 export const Padding2 = {
   args: {
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE['2'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['2'],
   },
   name: 'p-2',
   parameters,
@@ -77,8 +77,8 @@ export const Padding2 = {
 
 export const Padding1 = {
   args: {
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE['1'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1'],
   },
   name: 'p-1',
   parameters,
@@ -87,8 +87,8 @@ export const Padding1 = {
 
 export const PaddingHalf = {
   args: {
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE['1/2'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1/2'],
   },
   name: 'p-1/2',
   parameters,
@@ -97,8 +97,8 @@ export const PaddingHalf = {
 
 export const PaddingQuarter = {
   args: {
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE['1/4'],
+    side: SPACING_SIDE.Full,
+    size: SPACING_SIZE['1/4'],
   },
   name: 'p-1/4',
   parameters,
