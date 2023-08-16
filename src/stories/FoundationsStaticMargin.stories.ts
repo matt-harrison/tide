@@ -58,7 +58,7 @@ export default {
 export const Margin4 = {
   args: {
     marginSide: SPACING_SIDE.Full,
-    marginSize: '4',
+    marginSize: SPACING_SIZE['4'],
   },
   name: 'm-4',
   parameters,
@@ -68,7 +68,7 @@ export const Margin4 = {
 export const Margin2 = {
   args: {
     marginSide: SPACING_SIDE.Full,
-    marginSize: '2',
+    marginSize: SPACING_SIZE['2'],
   },
   name: 'm-2',
   parameters,
@@ -78,7 +78,7 @@ export const Margin2 = {
 export const Margin1 = {
   args: {
     marginSide: SPACING_SIDE.Full,
-    marginSize: '1',
+    marginSize: SPACING_SIZE['1'],
   },
   name: 'm-1',
   parameters,
@@ -88,7 +88,7 @@ export const Margin1 = {
 export const MarginHalf = {
   args: {
     marginSide: SPACING_SIDE.Full,
-    marginSize: '1/2',
+    marginSize: SPACING_SIZE['1/2'],
   },
   name: 'm-1/2',
   parameters,
@@ -98,7 +98,7 @@ export const MarginHalf = {
 export const MarginQuarter = {
   args: {
     marginSide: SPACING_SIDE.Full,
-    marginSize: '1/4',
+    marginSize: SPACING_SIZE['1/4'],
   },
   name: 'm-1/4',
   parameters,

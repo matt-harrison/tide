@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BORDER_COLOR_DYNAMIC } from '@/types/Storybook';
+import { DYNAMIC_BORDER_COLOR } from '@/types/Storybook';
 import { getVariableName } from '@/utilities/storybook';
 
 const formatClassNames = (args: any) => {
@@ -42,10 +42,10 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     borderColor: {
-      constant: getVariableName({ BORDER_COLOR_DYNAMIC }),
+      constant: getVariableName({ DYNAMIC_BORDER_COLOR }),
       control: 'select',
       description: 'Realm-dictated Border Color',
-      options: BORDER_COLOR_DYNAMIC,
+      options: DYNAMIC_BORDER_COLOR,
     },
   },
   tags: ['autodocs'],
@@ -54,7 +54,7 @@ export default {
 
 export const BorderPrimaryTier1 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 1'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 1'],
   },
   name: 'border-primary-tier-1',
   parameters,
@@ -63,7 +63,7 @@ export const BorderPrimaryTier1 = {
 
 export const BorderPrimaryTier2 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 2'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 2'],
   },
   name: 'border-primary-tier-2',
   parameters,
@@ -72,7 +72,7 @@ export const BorderPrimaryTier2 = {
 
 export const BorderPrimaryTier3 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 3'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 3'],
   },
   name: 'border-primary-tier-3',
   parameters,
@@ -81,7 +81,7 @@ export const BorderPrimaryTier3 = {
 
 export const BorderPrimaryVariantTier1 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 1'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 1'],
   },
   name: 'border-primary-variant-tier-1',
   parameters,
@@ -90,7 +90,7 @@ export const BorderPrimaryVariantTier1 = {
 
 export const BorderPrimaryVariantTier2 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 2'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 2'],
   },
   name: 'border-primary-variant-tier-2',
   parameters,
@@ -99,7 +99,7 @@ export const BorderPrimaryVariantTier2 = {
 
 export const BorderPrimaryVariantTier3 = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Primary Tier 3'],
+    borderColor: DYNAMIC_BORDER_COLOR['Primary Tier 3'],
   },
   name: 'border-primary-variant-tier-3',
   parameters,
@@ -108,7 +108,7 @@ export const BorderPrimaryVariantTier3 = {
 
 export const BorderSecondary = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Secondary'],
+    borderColor: DYNAMIC_BORDER_COLOR['Secondary'],
   },
   name: 'border-secondary',
   parameters,
@@ -117,7 +117,7 @@ export const BorderSecondary = {
 
 export const BorderTertiary = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Tertiary'],
+    borderColor: DYNAMIC_BORDER_COLOR['Tertiary'],
   },
   name: 'border-tertiary',
   parameters,
@@ -126,7 +126,7 @@ export const BorderTertiary = {
 
 export const BorderSurface = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Surface'],
+    borderColor: DYNAMIC_BORDER_COLOR['Surface'],
   },
   name: 'border-surface',
   parameters,
@@ -135,7 +135,7 @@ export const BorderSurface = {
 
 export const BorderSurfaceLight = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Surface Light'],
+    borderColor: DYNAMIC_BORDER_COLOR['Surface Light'],
   },
   name: 'border-surface-light',
   parameters,
@@ -144,7 +144,7 @@ export const BorderSurfaceLight = {
 
 export const BorderSurfaceDark = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Surface Dark'],
+    borderColor: DYNAMIC_BORDER_COLOR['Surface Dark'],
   },
   name: 'border-surface-dark',
   parameters,
@@ -153,7 +153,7 @@ export const BorderSurfaceDark = {
 
 export const BorderSurfaceSave = {
   args: {
-    borderColor: BORDER_COLOR_DYNAMIC['Surface Save'],
+    borderColor: DYNAMIC_BORDER_COLOR['Surface Save'],
   },
   name: 'border-surface-save',
   parameters,

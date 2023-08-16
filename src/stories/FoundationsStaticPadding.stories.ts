@@ -58,7 +58,7 @@ export default {
 export const Padding4 = {
   args: {
     paddingSide: SPACING_SIDE.Full,
-    paddingSize: '4',
+    paddingSize: SPACING_SIZE['4'],
   },
   name: 'p-4',
   parameters,
@@ -68,7 +68,7 @@ export const Padding4 = {
 export const Padding2 = {
   args: {
     paddingSide: SPACING_SIDE.Full,
-    paddingSize: '2',
+    paddingSize: SPACING_SIZE['2'],
   },
   name: 'p-2',
   parameters,
@@ -78,7 +78,7 @@ export const Padding2 = {
 export const Padding1 = {
   args: {
     paddingSide: SPACING_SIDE.Full,
-    paddingSize: '1',
+    paddingSize: SPACING_SIZE['1'],
   },
   name: 'p-1',
   parameters,
@@ -88,7 +88,7 @@ export const Padding1 = {
 export const PaddingHalf = {
   args: {
     paddingSide: SPACING_SIDE.Full,
-    paddingSize: '1/2',
+    paddingSize: SPACING_SIZE['1/2'],
   },
   name: 'p-1/2',
   parameters,
@@ -98,7 +98,7 @@ export const PaddingHalf = {
 export const PaddingQuarter = {
   args: {
     paddingSide: SPACING_SIDE.Full,
-    paddingSize: '1/4',
+    paddingSize: SPACING_SIZE['1/4'],
   },
   name: 'p-1/4',
   parameters,

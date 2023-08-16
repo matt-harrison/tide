@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { FONT_COLOR_DYNAMIC } from '@/types/Storybook';
+import { DYNAMIC_FONT_COLOR } from '@/types/Storybook';
 
 const formatClassNames = (args: any) => {
   return `${args.fontColor}`;
@@ -43,7 +43,7 @@ export default {
     fontColor: {
       control: 'select',
       description: 'Realm-dictated Font Color<br/>(Background color shown for contrast.)',
-      options: FONT_COLOR_DYNAMIC,
+      options: DYNAMIC_FONT_COLOR,
     },
   },
   tags: ['autodocs'],
@@ -52,7 +52,7 @@ export default {
 
 export const BackgroundPrimaryTier1 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Tier 1'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 1'],
   },
   name: 'bg-primary-tier-1',
   parameters,
@@ -61,7 +61,7 @@ export const BackgroundPrimaryTier1 = {
 
 export const BackgroundPrimaryTier2 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Tier 2'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 2'],
   },
   name: 'bg-primary-tier-2',
   parameters,
@@ -70,7 +70,7 @@ export const BackgroundPrimaryTier2 = {
 
 export const BackgroundPrimaryTier3 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Tier 3'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 3'],
   },
   name: 'bg-primary-tier-3',
   parameters,
@@ -79,7 +79,7 @@ export const BackgroundPrimaryTier3 = {
 
 export const BackgroundPrimaryVariantTier1 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Variant Tier 1'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 1'],
   },
   name: 'bg-primary-variant-tier-1',
   parameters,
@@ -88,7 +88,7 @@ export const BackgroundPrimaryVariantTier1 = {
 
 export const BackgroundPrimaryVariantTier2 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Variant Tier 2'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 2'],
   },
   name: 'bg-primary-variant-tier-2',
   parameters,
@@ -97,7 +97,7 @@ export const BackgroundPrimaryVariantTier2 = {
 
 export const BackgroundPrimaryVariantTier3 = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Primary Variant Tier 3'],
+    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 3'],
   },
   name: 'bg-primary-variant-tier-3',
   parameters,
@@ -106,7 +106,7 @@ export const BackgroundPrimaryVariantTier3 = {
 
 export const BackgroundSecondary = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Secondary'],
+    fontColor: DYNAMIC_FONT_COLOR['Secondary'],
   },
   name: 'bg-secondary',
   parameters,
@@ -115,7 +115,7 @@ export const BackgroundSecondary = {
 
 export const BackgroundTertiary = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Tertiary'],
+    fontColor: DYNAMIC_FONT_COLOR['Tertiary'],
   },
   name: 'bg-tertiary',
   parameters,
@@ -124,7 +124,7 @@ export const BackgroundTertiary = {
 
 export const BackgroundSurface = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Surface'],
+    fontColor: DYNAMIC_FONT_COLOR['Surface'],
   },
   name: 'bg-surface',
   parameters,
@@ -133,7 +133,7 @@ export const BackgroundSurface = {
 
 export const BackgroundSurfaceVariant = {
   args: {
-    fontColor: FONT_COLOR_DYNAMIC['Surface Variant'],
+    fontColor: DYNAMIC_FONT_COLOR['Surface Variant'],
   },
   name: 'bg-surface-variant',
   parameters,

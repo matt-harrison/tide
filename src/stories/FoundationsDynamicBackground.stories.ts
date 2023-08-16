@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BG_COLOR_DYNAMIC } from '@/types/Storybook';
+import { DYNAMIC_BG_COLOR } from '@/types/Storybook';
 import { getVariableName } from '@/utilities/storybook';
 
 const formatClassNames = (args: any) => {
@@ -42,10 +42,10 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     bgColor: {
-      constant: getVariableName({ BG_COLOR_DYNAMIC }),
+      constant: getVariableName({ DYNAMIC_BG_COLOR }),
       control: 'select',
       description: 'Realm-dictated Background Color<br/>(font color shown for contrast.)',
-      options: BG_COLOR_DYNAMIC,
+      options: DYNAMIC_BG_COLOR,
     },
   },
   tags: ['autodocs'],
@@ -54,7 +54,7 @@ export default {
 
 export const BackgroundPrimaryTier1 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 1'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 1'],
   },
   name: 'bg-primary-tier-1',
   parameters,
@@ -63,7 +63,7 @@ export const BackgroundPrimaryTier1 = {
 
 export const BackgroundPrimaryTier2 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 2'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 2'],
   },
   name: 'bg-primary-tier-2',
   parameters,
@@ -72,7 +72,7 @@ export const BackgroundPrimaryTier2 = {
 
 export const BackgroundPrimaryTier3 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 3'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 3'],
   },
   name: 'bg-primary-tier-3',
   parameters,
@@ -81,7 +81,7 @@ export const BackgroundPrimaryTier3 = {
 
 export const BackgroundPrimaryVariantTier1 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 1'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 1'],
   },
   name: 'bg-primary-variant-tier-1',
   parameters,
@@ -90,7 +90,7 @@ export const BackgroundPrimaryVariantTier1 = {
 
 export const BackgroundPrimaryVariantTier2 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 2'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 2'],
   },
   name: 'bg-primary-variant-tier-2',
   parameters,
@@ -99,7 +99,7 @@ export const BackgroundPrimaryVariantTier2 = {
 
 export const BackgroundPrimaryVariantTier3 = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Primary Tier 3'],
+    bgColor: DYNAMIC_BG_COLOR['Primary Tier 3'],
   },
   name: 'bg-primary-variant-tier-3',
   parameters,
@@ -108,7 +108,7 @@ export const BackgroundPrimaryVariantTier3 = {
 
 export const BackgroundSecondary = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Secondary'],
+    bgColor: DYNAMIC_BG_COLOR['Secondary'],
   },
   name: 'bg-secondary',
   parameters,
@@ -117,7 +117,7 @@ export const BackgroundSecondary = {
 
 export const BackgroundTertiary = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Tertiary'],
+    bgColor: DYNAMIC_BG_COLOR['Tertiary'],
   },
   name: 'bg-tertiary',
   parameters,
@@ -126,7 +126,7 @@ export const BackgroundTertiary = {
 
 export const BackgroundSurface = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Surface'],
+    bgColor: DYNAMIC_BG_COLOR['Surface'],
   },
   name: 'bg-surface',
   parameters,
@@ -135,7 +135,7 @@ export const BackgroundSurface = {
 
 export const BackgroundSurfaceLight = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Surface Light'],
+    bgColor: DYNAMIC_BG_COLOR['Surface Light'],
   },
   name: 'bg-surface-light',
   parameters,
@@ -144,7 +144,7 @@ export const BackgroundSurfaceLight = {
 
 export const BackgroundSurfaceDark = {
   args: {
-    bgColor: BG_COLOR_DYNAMIC['Surface Dark'],
+    bgColor: DYNAMIC_BG_COLOR['Surface Dark'],
   },
   name: 'bg-surface-dark',
   parameters,
