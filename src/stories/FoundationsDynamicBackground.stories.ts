@@ -1,7 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { DYNAMIC_BG_COLOR } from '@/types/Storybook';
-import { getVariableName } from '@/utilities/storybook';
 
 const formatClassNames = (args: any) => {
   return `${args.bgColor}`;
@@ -42,7 +41,6 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     bgColor: {
-      constant: getVariableName({ DYNAMIC_BG_COLOR }),
       control: 'select',
       description: 'Realm-dictated Background Color<br/>(font color shown for contrast.)',
       options: DYNAMIC_BG_COLOR,

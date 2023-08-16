@@ -1,7 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
-import { getVariableName } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
   args.class = `p${args.side}-${args.size}`;
@@ -39,13 +38,11 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     side: {
-      constant: getVariableName({ SPACING_SIDE }),
       control: 'select',
       description: 'Padding Side',
       options: SPACING_SIDE,
     },
     size: {
-      constant: getVariableName({ SPACING_SIZE }),
       control: 'select',
       description: 'Padding Size',
       options: SPACING_SIZE,

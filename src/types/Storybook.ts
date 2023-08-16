@@ -31,6 +31,38 @@ export const BORDER_SIZE = {
   2: '2',
 };
 
+export const FONT_COLOR = {
+  'None': '',
+  'font-blue': 'font-blue',
+  'font-red': 'font-red',
+};
+
+export const FONT_FAMILY = {
+  'None': '',
+  'font-family-title': 'font-family-title',
+  'font-family-default': 'font-family-default',
+};
+
+export const FONT_SIZE = {
+  'None': '',
+  'font-10': 'font-10',
+  'font-12': 'font-12',
+  'font-14': 'font-14',
+  'font-16': 'font-16',
+  'font-18': 'font-18',
+  'font-20': 'font-20',
+  'font-24': 'font-24',
+  'font-28': 'font-28',
+  'font-32': 'font-32',
+};
+
+export const FONT_WEIGHT = {
+  'None': '',
+  'font-500': 'font-500',
+  'font-600': 'font-600',
+  'font-700': 'font-700',
+};
+
 export const SPACING_SIDE = {
   Full: '',
   X: 'x',

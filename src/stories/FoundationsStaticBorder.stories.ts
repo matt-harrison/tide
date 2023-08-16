@@ -1,7 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { BORDER_COLOR, BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/Storybook';
-import { getVariableName } from '@/utilities/storybook';
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
@@ -60,25 +59,21 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     color: {
-      constant: getVariableName({ BORDER_COLOR }),
       control: 'select',
       description: 'Border Color',
       options: BORDER_COLOR,
     },
     radius: {
-      constant: getVariableName({ BORDER_RADIUS }),
       control: 'select',
       description: 'Border Radius',
       options: BORDER_RADIUS,
     },
     side: {
-      constant: getVariableName({ BORDER_SIDE }),
       control: 'select',
       description: 'Border Side',
       options: BORDER_SIDE,
     },
     size: {
-      constant: getVariableName({ BORDER_SIZE }),
       control: 'select',
       description: 'Border Size',
       options: BORDER_SIZE,

@@ -1,7 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { DYNAMIC_BORDER_COLOR } from '@/types/Storybook';
-import { getVariableName } from '@/utilities/storybook';
 
 const formatClassNames = (args: any) => {
   return `border-1 ${args.borderColor}`;
@@ -42,7 +41,6 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     borderColor: {
-      constant: getVariableName({ DYNAMIC_BORDER_COLOR }),
       control: 'select',
       description: 'Realm-dictated Border Color',
       options: DYNAMIC_BORDER_COLOR,
