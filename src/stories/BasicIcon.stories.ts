@@ -45,7 +45,10 @@ export default {
 
 export const Demo = {
   args: {
+    fill: undefined,
     icon: ICON.HEART,
+    marginSide: undefined,
+    marginSize: undefined,
     size: SIZE_ICON.MEDIUM,
     utilities: '',
   },

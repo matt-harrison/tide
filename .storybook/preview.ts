@@ -26,13 +26,18 @@ const preview: Preview = {
     },
     docs: {
       canvas: {
-        sourceState: 'shown',
+        // sourceState: 'shown',
       },
       controls: {
         sort: 'requiredFirst',
       },
       source: {
         type: 'dynamic',
+      },
+    },
+    options: {
+      storySort: {
+        order: ['Foundations', ['Static Utilities', ['Margin', 'Border', 'Padding'], 'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color']], 'Basic Components'],
       },
     },
     viewport: {

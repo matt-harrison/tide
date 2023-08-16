@@ -15,7 +15,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
 
-    if (key === 'class' || argTypes[key].isCss) {
+    if (argTypes[key].isCss) {
       classNames.push(value);
     } else {
       if (isConstant && value !== 'None') {
