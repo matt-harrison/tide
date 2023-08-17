@@ -40,7 +40,7 @@ const preview: Preview = {
         order: [
           'Foundations',
           [
-            'Static Utilities', ['Gap', 'Margin', 'Border', 'Padding', 'Background', 'Shadow', 'Typography'],
+            'Static Utilities', ['Flex Gap', 'Margin', 'Border', 'Padding', 'Background', 'Shadow', 'Typography'],
             'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
           ],
           'Basic Components',

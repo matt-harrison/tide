@@ -2,8 +2,16 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
 
+const formatClassNames = (args: any) => {
+  const classNames: string[] = [];
+
+  if (args.side !== undefined && args.size !== undefined) classNames.push(`m${args.side}-${args.size}`);
+
+  return classNames.join(' ');
+};
+
 const formatArgs = (args: any) => {
-  args.class = `m${args.side}-${args.size}`;
+  args.class = formatClassNames(args);
 
   return { args };
 };
@@ -11,7 +19,7 @@ const formatArgs = (args: any) => {
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
-  return `<div class="m${args.side}-${args.size}">Demo</div>`;
+  return `<div class="${formatClassNames(args)}">Demo</div>`;
 };
 
 const parameters = {
@@ -42,7 +50,7 @@ export default {
       description: 'Margin Side',
       options: SPACING_SIDE,
       table: {
-        defaultValue: { summary: 'Full' },
+        defaultValue: { summary: 'None' },
       },
     },
     size: {
@@ -56,6 +64,16 @@ export default {
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Margin',
+};
+
+export const MarginDefault = {
+  args: {
+    side: SPACING_SIDE.None,
+    size: SPACING_SIZE.None,
+  },
+  name: 'Default',
+  parameters,
+  render,
 };
 
 export const Margin4 = {

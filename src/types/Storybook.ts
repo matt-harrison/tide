@@ -79,17 +79,18 @@ export const FONT_WEIGHT = {
 };
 
 export const SPACING_SIDE = {
-  Full: '',
-  X: 'x',
-  Y: 'y',
-  Top: 't',
-  Right: 'r',
-  Bottom: 'b',
-  Left: 'l',
+  'None': undefined,
+  'Full': '',
+  'X-axis': 'x',
+  'Y-axis': 'y',
+  'Top': 't',
+  'Right': 'r',
+  'Bottom': 'b',
+  'Left': 'l',
 };
 
 export const SPACING_SIZE = {
-  'None': '',
+  'None': undefined,
   '4': '4',
   '2': '2',
   '1': '1',

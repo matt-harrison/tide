@@ -3,9 +3,11 @@ import type { StoryContext } from '@storybook/vue3';
 import { SPACING_SIZE } from '@/types/Storybook';
 
 const formatClassNames = (args: any) => {
-  const classNames: string[] = [];
+  const classNames: string[] = ['flex'];
 
-  if (args.gap) classNames.push(`flex gap-${args.gap}`);
+  if (args.wrap === 'On') classNames.push('wrap');
+  if (args.direction === 'Column') classNames.push('column');
+  if (args.gap) classNames.push(`gap-${args.gap}`);
 
   return classNames.join(' ');
 };
@@ -37,7 +39,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="flex wrap border-1 border-blue-dark bg-blue-light" v-bind="args"><div :key="index" class="p-1 bg-white" v-for="(_child, index) in new Array(20)">Demo</div></div>',
+    '<div class="flex border-1 border-blue-dark max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(args.direction === \'Column\' ? 5 : 20)">Demo {{ index + 1 }}</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -45,22 +47,60 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    direction: {
+      control: 'select',
+      description: 'Flex Direction<br />(For demonstration purposes.)',
+      options: ['Row', 'Column'],
+      table: {
+        defaultValue: { summary: 'Row' },
+      },
+    },
     gap: {
       control: 'select',
-      description: 'Gap',
+      description: 'Flex Gap',
       options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },
       },
     },
+    wrap: {
+      control: 'select',
+      description: 'Flex Wrap<br />(For demonstration purposes.)',
+      options: ['Off', 'On'],
+      table: {
+        defaultValue: { summary: 'Off' },
+      },
+    },
   },
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Gap',
+  title: 'Foundations/Static Utilities/Flex Gap',
+};
+
+export const Default = {
+  args: {
+    gap: SPACING_SIZE.None,
+    wrap: 'Off',
+  },
+  parameters,
+  render,
+};
+
+export const GapNone = {
+  args: {
+    direction: 'Row',
+    gap: SPACING_SIZE.None,
+    wrap: 'On',
+  },
+  name: 'Flex Wrap, Gap None',
+  parameters,
+  render,
 };
 
 export const Gap4 = {
   args: {
+    direction: 'Row',
     gap: SPACING_SIZE['4'],
+    wrap: 'On',
   },
   name: 'gap-4',
   parameters,
@@ -69,7 +109,9 @@ export const Gap4 = {
 
 export const Gap2 = {
   args: {
+    direction: 'Row',
     gap: SPACING_SIZE['2'],
+    wrap: 'On',
   },
   name: 'gap-2',
   parameters,
@@ -78,7 +120,9 @@ export const Gap2 = {
 
 export const Gap1 = {
   args: {
+    direction: 'Row',
     gap: SPACING_SIZE['1'],
+    wrap: 'On',
   },
   name: 'gap-1',
   parameters,
@@ -87,7 +131,9 @@ export const Gap1 = {
 
 export const GapHalf = {
   args: {
+    direction: 'Row',
     gap: SPACING_SIZE['1/2'],
+    wrap: 'On',
   },
   name: 'gap-1/2',
   parameters,
@@ -96,7 +142,9 @@ export const GapHalf = {
 
 export const GapQuarter = {
   args: {
+    direction: 'Row',
     gap: SPACING_SIZE['1/4'],
+    wrap: 'On',
   },
   name: 'gap-1/4',
   parameters,
