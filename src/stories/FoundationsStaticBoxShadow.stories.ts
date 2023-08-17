@@ -50,7 +50,7 @@ export default {
       description: 'Box Shadow',
       options: BOX_SHADOW,
       table: {
-        defaultValue: { summary: 'None' },
+        defaultValue: { summary: 'Off' },
       },
     },
   },
@@ -58,11 +58,10 @@ export default {
   title: 'Foundations/Static Utilities/Shadow/Box Shadow',
 };
 
-export const TextShadowOff = {
+export const Default = {
   args: {
     'box-shadow': BOX_SHADOW.Off,
   },
-  name: 'No Box Shadow',
   parameters,
   render,
 };

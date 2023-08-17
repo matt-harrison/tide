@@ -50,7 +50,7 @@ export default {
       description: 'Text Shadow',
       options: TEXT_SHADOW,
       table: {
-        defaultValue: { summary: 'None' },
+        defaultValue: { summary: 'Off' },
       },
     },
   },
@@ -58,11 +58,10 @@ export default {
   title: 'Foundations/Static Utilities/Shadow/Text Shadow',
 };
 
-export const TextShadowOff = {
+export const Default = {
   args: {
     'text-shadow': TEXT_SHADOW.Off,
   },
-  name: 'No Text Shadow',
   parameters,
   render,
 };

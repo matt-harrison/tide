@@ -42,7 +42,7 @@ export default {
   argTypes: {
     fontColor: {
       control: 'select',
-      description: 'Realm-dictated Font Color<br/>(Background color shown for contrast.)',
+      description: 'Realm-dictated Font Color<br/>(Background color shown for demonstration purposes.)',
       options: DYNAMIC_FONT_COLOR,
     },
   },

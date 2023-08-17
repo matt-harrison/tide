@@ -55,7 +55,7 @@ export default {
     },
     size: {
       control: 'select',
-      description: 'Padding Size',
+      description: 'Padding Size<br />(1 REM equals 16px by default.)',
       options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },
@@ -66,12 +66,7 @@ export default {
   title: 'Foundations/Static Utilities/Padding',
 };
 
-export const PaddingDefault = {
-  args: {
-    side: SPACING_SIDE.None,
-    size: SPACING_SIZE.None,
-  },
-  name: 'Default',
+export const Default = {
   parameters,
   render,
 };
@@ -79,9 +74,9 @@ export const PaddingDefault = {
 export const Padding4 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['4'],
+    size: SPACING_SIZE['4 REM'],
   },
-  name: 'p-4',
+  name: '4 REM Padding',
   parameters,
   render,
 };
@@ -89,9 +84,9 @@ export const Padding4 = {
 export const Padding2 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['2'],
+    size: SPACING_SIZE['2 REM'],
   },
-  name: 'p-2',
+  name: '2 REM Padding',
   parameters,
   render,
 };
@@ -99,9 +94,9 @@ export const Padding2 = {
 export const Padding1 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1'],
+    size: SPACING_SIZE['1 REM'],
   },
-  name: 'p-1',
+  name: '1 REM Padding',
   parameters,
   render,
 };
@@ -109,9 +104,9 @@ export const Padding1 = {
 export const PaddingHalf = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/2'],
+    size: SPACING_SIZE['1/2 REM'],
   },
-  name: 'p-1/2',
+  name: '1/2 REM Padding',
   parameters,
   render,
 };
@@ -119,9 +114,9 @@ export const PaddingHalf = {
 export const PaddingQuarter = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/4'],
+    size: SPACING_SIZE['1/4 REM'],
   },
-  name: 'p-1/4',
+  name: '1/4 REM Padding',
   parameters,
   render,
 };

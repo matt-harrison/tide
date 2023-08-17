@@ -46,10 +46,10 @@ export default {
   argTypes: {
     color: {
       control: 'select',
-      description: 'Background Color<br/>(font color shown for contrast.)',
+      description: 'Background Color<br/>(Font color shown for demonstration purposes.)',
       options: BACKGROUND_COLOR,
       table: {
-        defaultValue: { summary: 'bg-white' },
+        defaultValue: { summary: 'White' },
       },
     },
   },
@@ -57,47 +57,53 @@ export default {
   title: 'Foundations/Static Utilities/Background',
 };
 
+export const Default = {
+  args: {},
+  parameters,
+  render,
+};
+
 export const BackgroundWhite = {
   args: {
-    color: BACKGROUND_COLOR['bg-white'],
+    color: BACKGROUND_COLOR['White'],
   },
-  name: 'bg-white (default)',
+  name: 'White',
   parameters,
   render,
 };
 
 export const BackgroundGrayLight = {
   args: {
-    color: BACKGROUND_COLOR['bg-gray-light'],
+    color: BACKGROUND_COLOR['Gray - Light'],
   },
-  name: 'bg-gray-light',
+  name: 'Gray - Light',
   parameters,
   render,
 };
 
 export const BackgroundGray = {
   args: {
-    color: BACKGROUND_COLOR['bg-gray'],
+    color: BACKGROUND_COLOR['Gray - Medium'],
   },
-  name: 'bg-gray',
+  name: 'Gray',
   parameters,
   render,
 };
 
 export const BackgroundGrayDark = {
   args: {
-    color: BACKGROUND_COLOR['bg-gray-dark'],
+    color: BACKGROUND_COLOR['Gray - Dark'],
   },
-  name: 'bg-gray-dark',
+  name: 'Gray - Dark',
   parameters,
   render,
 };
 
 export const BackgroundBlack = {
   args: {
-    color: BACKGROUND_COLOR['bg-black'],
+    color: BACKGROUND_COLOR['Black'],
   },
-  name: 'bg-black',
+  name: 'Black',
   parameters,
   render,
 };

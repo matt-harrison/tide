@@ -77,10 +77,6 @@ export default {
 };
 
 export const Default = {
-  args: {
-    gap: SPACING_SIZE.None,
-    wrap: 'Off',
-  },
   parameters,
   render,
 };
@@ -91,7 +87,7 @@ export const GapNone = {
     gap: SPACING_SIZE.None,
     wrap: 'On',
   },
-  name: 'Flex Wrap, Gap None',
+  name: 'Flex Wrap (No Gap)',
   parameters,
   render,
 };
@@ -99,10 +95,10 @@ export const GapNone = {
 export const Gap4 = {
   args: {
     direction: 'Row',
-    gap: SPACING_SIZE['4'],
+    gap: SPACING_SIZE['4 REM'],
     wrap: 'On',
   },
-  name: 'gap-4',
+  name: '4 REM Gap',
   parameters,
   render,
 };
@@ -110,10 +106,10 @@ export const Gap4 = {
 export const Gap2 = {
   args: {
     direction: 'Row',
-    gap: SPACING_SIZE['2'],
+    gap: SPACING_SIZE['2 REM'],
     wrap: 'On',
   },
-  name: 'gap-2',
+  name: '2 REM Gap',
   parameters,
   render,
 };
@@ -121,10 +117,10 @@ export const Gap2 = {
 export const Gap1 = {
   args: {
     direction: 'Row',
-    gap: SPACING_SIZE['1'],
+    gap: SPACING_SIZE['1 REM'],
     wrap: 'On',
   },
-  name: 'gap-1',
+  name: '1 REM Gap',
   parameters,
   render,
 };
@@ -132,10 +128,10 @@ export const Gap1 = {
 export const GapHalf = {
   args: {
     direction: 'Row',
-    gap: SPACING_SIZE['1/2'],
+    gap: SPACING_SIZE['1/2 REM'],
     wrap: 'On',
   },
-  name: 'gap-1/2',
+  name: '1/2 REM Gap',
   parameters,
   render,
 };
@@ -143,10 +139,10 @@ export const GapHalf = {
 export const GapQuarter = {
   args: {
     direction: 'Row',
-    gap: SPACING_SIZE['1/4'],
+    gap: SPACING_SIZE['1/4 REM'],
     wrap: 'On',
   },
-  name: 'gap-1/4',
+  name: '1/4 REM Gap',
   parameters,
   render,
 };

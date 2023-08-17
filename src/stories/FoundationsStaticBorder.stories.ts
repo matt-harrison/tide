@@ -5,13 +5,7 @@ import { BORDER_COLOR, BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/S
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.side === BORDER_SIDE.Full) {
-    classNames.push(`border-${args.size}`);
-  } else if (args.side !== BORDER_SIDE.Full && args['size'] === '1') {
-    classNames.push(`border${args.side}`);
-  } else {
-    classNames.push(`border${args.side}-${args.size}`);
-  }
+  if (args.side || args.size) classNames.push(`border${args.side}${args.size}`);
 
   if (args.color) {
     classNames.push(args.color);
@@ -68,7 +62,7 @@ export default {
     },
     radius: {
       control: 'select',
-      description: 'Border Radius',
+      description: 'Border Radius<br />(1 REM equals 16px by default.)',
       options: BORDER_RADIUS,
       table: {
         defaultValue: { summary: 'None' },
@@ -84,10 +78,10 @@ export default {
     },
     size: {
       control: 'select',
-      description: 'Border Size',
+      description: 'Border Size<br />(Required.)',
       options: BORDER_SIZE,
       table: {
-        defaultValue: { summary: '1' },
+        defaultValue: { summary: 'None' },
       },
     },
   },
@@ -95,14 +89,7 @@ export default {
   title: 'Foundations/Static Utilities/Border',
 };
 
-export const BorderDemo = {
-  args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
-  },
-  name: 'Demo',
+export const Default = {
   parameters,
   render,
 };
@@ -112,9 +99,9 @@ export const Border1 = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'border-1',
+  name: '1px Border',
   parameters,
   render,
 };
@@ -124,9 +111,9 @@ export const Border2 = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['2'],
+    size: BORDER_SIZE['2px'],
   },
-  name: 'border-2',
+  name: '2px Border',
   parameters,
   render,
 };
@@ -136,9 +123,9 @@ export const BorderBlack = {
     color: BORDER_COLOR.Black,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'border-black',
+  name: 'Black Border',
   parameters,
   render,
 };
@@ -148,9 +135,9 @@ export const BorderBlue = {
     color: BORDER_COLOR.Blue,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'border-blue',
+  name: 'Blue Border',
   parameters,
   render,
 };
@@ -160,9 +147,9 @@ export const BorderRed = {
     color: BORDER_COLOR.Red,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'border-red',
+  name: 'Red Border',
   parameters,
   render,
 };
@@ -172,9 +159,9 @@ export const BorderTop = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Top,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE.None,
   },
-  name: 'border-t',
+  name: 'Top Border',
   parameters,
   render,
 };
@@ -184,9 +171,9 @@ export const BorderRight = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Right,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE.None,
   },
-  name: 'border-r',
+  name: 'Right Border',
   parameters,
   render,
 };
@@ -196,9 +183,9 @@ export const BorderBottom = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Bottom,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE.None,
   },
-  name: 'border-b',
+  name: 'Bottom Border',
   parameters,
   render,
 };
@@ -208,21 +195,9 @@ export const BorderLeft = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Left,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE.None,
   },
-  name: 'border-l',
-  parameters,
-  render,
-};
-
-export const RadiusEighth = {
-  args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS['1/8'],
-    side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
-  },
-  name: 'radius-1/8',
+  name: 'Left Border',
   parameters,
   render,
 };
@@ -230,11 +205,11 @@ export const RadiusEighth = {
 export const RadiusQuarter = {
   args: {
     color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS['1/4'],
+    radius: BORDER_RADIUS['1/4 REM'],
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'radius-1/4',
+  name: '1/4 REM Border Radius',
   parameters,
   render,
 };
@@ -242,23 +217,11 @@ export const RadiusQuarter = {
 export const RadiusHalf = {
   args: {
     color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS['1/2'],
+    radius: BORDER_RADIUS['1/2 REM'],
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'radius-1/2',
-  parameters,
-  render,
-};
-
-export const RadiusThreeQuarters = {
-  args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS['3/4'],
-    side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
-  },
-  name: 'radius-3/4',
+  name: '1/2 REM Border Radius',
   parameters,
   render,
 };
@@ -266,11 +229,11 @@ export const RadiusThreeQuarters = {
 export const Radius1 = {
   args: {
     color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS['1'],
+    radius: BORDER_RADIUS['1 REM'],
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'radius-1',
+  name: '1 REM Border Radius',
   parameters,
   render,
 };
@@ -280,9 +243,18 @@ export const RadiusFull = {
     color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.Full,
     side: BORDER_SIDE.Full,
-    size: BORDER_SIZE['1'],
+    size: BORDER_SIZE['1px'],
   },
-  name: 'radius-full',
+  name: 'Full Border Radius',
   parameters,
-  render,
+  render: (args: any) => ({
+    setup() {
+      return formatArgs(args);
+    },
+    template:
+      '<div class="inline-flex axis1-center axis2-center p-1" style="width: 100px; height: 100px;" v-bind="args">Demo</div>',
+    updated() {
+      return formatArgs(args);
+    },
+  }),
 };

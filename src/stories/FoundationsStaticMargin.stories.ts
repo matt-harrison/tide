@@ -55,7 +55,7 @@ export default {
     },
     size: {
       control: 'select',
-      description: 'Margin Size',
+      description: 'Margin Size<br />(1 REM equals 16px by default.)',
       options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },
@@ -67,10 +67,6 @@ export default {
 };
 
 export const MarginDefault = {
-  args: {
-    side: SPACING_SIDE.None,
-    size: SPACING_SIZE.None,
-  },
   name: 'Default',
   parameters,
   render,
@@ -79,9 +75,9 @@ export const MarginDefault = {
 export const Margin4 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['4'],
+    size: SPACING_SIZE['4 REM'],
   },
-  name: 'm-4',
+  name: '4 REM Margin',
   parameters,
   render,
 };
@@ -89,9 +85,9 @@ export const Margin4 = {
 export const Margin2 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['2'],
+    size: SPACING_SIZE['2 REM'],
   },
-  name: 'm-2',
+  name: '2 REM Margin',
   parameters,
   render,
 };
@@ -99,9 +95,9 @@ export const Margin2 = {
 export const Margin1 = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1'],
+    size: SPACING_SIZE['1 REM'],
   },
-  name: 'm-1',
+  name: '1 REM Margin',
   parameters,
   render,
 };
@@ -109,9 +105,9 @@ export const Margin1 = {
 export const MarginHalf = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/2'],
+    size: SPACING_SIZE['1/2 REM'],
   },
-  name: 'm-1/2',
+  name: '1/2 REM Margin',
   parameters,
   render,
 };
@@ -119,9 +115,9 @@ export const MarginHalf = {
 export const MarginQuarter = {
   args: {
     side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/4'],
+    size: SPACING_SIZE['1/4 REM'],
   },
-  name: 'm-1/4',
+  name: '1/4 REM Margin',
   parameters,
   render,
 };
