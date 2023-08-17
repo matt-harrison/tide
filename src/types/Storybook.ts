@@ -12,6 +12,7 @@ export const BACKGROUND_COLOR = {
 // These objects are intended exclusively for use in the Storybook UI.
 export const BORDER_COLOR = {
   None: undefined,
+  Black: 'border-black',
   Blue: 'border-blue',
   Red: 'border-red',
 };
@@ -88,11 +89,12 @@ export const SPACING_SIDE = {
 };
 
 export const SPACING_SIZE = {
-  '1/4': '1/4',
-  '1/2': '1/2',
-  '1': '1',
-  '2': '2',
+  'None': '',
   '4': '4',
+  '2': '2',
+  '1': '1',
+  '1/2': '1/2',
+  '1/4': '1/4',
 };
 
 export const TEXT_SHADOW = {

@@ -1,12 +1,11 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BOX_SHADOW, TEXT_SHADOW } from '@/types/Storybook';
+import { SPACING_SIZE } from '@/types/Storybook';
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args['shadow-box']) classNames.push(args['shadow-box']);
-  if (args['shadow-text']) classNames.push(args['shadow-text']);
+  if (args.gap) classNames.push(`flex gap-${args.gap}`);
 
   return classNames.join(' ');
 };
@@ -37,7 +36,8 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div class="inline-block p-1" v-bind="args">Demo</div>',
+  template:
+    '<div class="flex wrap border-1 border-blue-dark bg-blue-light" v-bind="args"><div :key="index" class="p-1 bg-white" v-for="(_child, index) in new Array(20)">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -45,43 +45,60 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    'shadow-box': {
+    gap: {
       control: 'select',
-      description: 'Box Shadow',
-      options: BOX_SHADOW,
-      table: {
-        defaultValue: { summary: 'None' },
-      },
-    },
-    'shadow-text': {
-      control: 'select',
-      description: 'Text Shadow',
-      options: TEXT_SHADOW,
+      description: 'Gap',
+      options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },
       },
     },
   },
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Shadow',
+  title: 'Foundations/Static Utilities/Gap',
 };
 
-export const BoxShadow = {
+export const Gap4 = {
   args: {
-    'shadow-box': BOX_SHADOW['shadow-box'],
-    'shadow-text': TEXT_SHADOW.None,
+    gap: SPACING_SIZE['4'],
   },
-  name: 'shadow-box',
+  name: 'gap-4',
   parameters,
   render,
 };
 
-export const TextShadow = {
+export const Gap2 = {
   args: {
-    'shadow-box': BOX_SHADOW.None,
-    'shadow-text': TEXT_SHADOW['shadow-text'],
+    gap: SPACING_SIZE['2'],
   },
-  name: 'shadow-text',
+  name: 'gap-2',
+  parameters,
+  render,
+};
+
+export const Gap1 = {
+  args: {
+    gap: SPACING_SIZE['1'],
+  },
+  name: 'gap-1',
+  parameters,
+  render,
+};
+
+export const GapHalf = {
+  args: {
+    gap: SPACING_SIZE['1/2'],
+  },
+  name: 'gap-1/2',
+  parameters,
+  render,
+};
+
+export const GapQuarter = {
+  args: {
+    gap: SPACING_SIZE['1/4'],
+  },
+  name: 'gap-1/4',
   parameters,
   render,
 };

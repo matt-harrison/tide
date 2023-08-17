@@ -41,11 +41,17 @@ export default {
       control: 'select',
       description: 'Margin Side',
       options: SPACING_SIDE,
+      table: {
+        defaultValue: { summary: 'Full' },
+      },
     },
     size: {
       control: 'select',
       description: 'Margin Size',
       options: SPACING_SIZE,
+      table: {
+        defaultValue: { summary: 'None' },
+      },
     },
   },
   tags: ['autodocs'],

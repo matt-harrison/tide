@@ -62,25 +62,49 @@ export default {
       control: 'select',
       description: 'Border Color',
       options: BORDER_COLOR,
+      table: {
+        defaultValue: { summary: 'Black' },
+      },
     },
     radius: {
       control: 'select',
       description: 'Border Radius',
       options: BORDER_RADIUS,
+      table: {
+        defaultValue: { summary: 'None' },
+      },
     },
     side: {
       control: 'select',
       description: 'Border Side',
       options: BORDER_SIDE,
+      table: {
+        defaultValue: { summary: 'Full' },
+      },
     },
     size: {
       control: 'select',
       description: 'Border Size',
       options: BORDER_SIZE,
+      table: {
+        defaultValue: { summary: '1' },
+      },
     },
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Border',
+};
+
+export const BorderDemo = {
+  args: {
+    color: BORDER_COLOR.None,
+    radius: BORDER_RADIUS.None,
+    side: BORDER_SIDE.Full,
+    size: BORDER_SIZE['1'],
+  },
+  name: 'Demo',
+  parameters,
+  render,
 };
 
 export const Border1 = {
@@ -103,6 +127,18 @@ export const Border2 = {
     size: BORDER_SIZE['2'],
   },
   name: 'border-2',
+  parameters,
+  render,
+};
+
+export const BorderBlack = {
+  args: {
+    color: BORDER_COLOR.Black,
+    radius: BORDER_RADIUS.None,
+    side: BORDER_SIDE.Full,
+    size: BORDER_SIZE['1'],
+  },
+  name: 'border-black',
   parameters,
   render,
 };

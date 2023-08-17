@@ -37,7 +37,14 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Foundations', ['Static Utilities', ['Margin', 'Border', 'Padding'], 'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color']], 'Basic Components'],
+        order: [
+          'Foundations',
+          [
+            'Static Utilities', ['Gap', 'Margin', 'Border', 'Padding', 'Background', 'Shadow', 'Typography'],
+            'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
+          ],
+          'Basic Components',
+        ],
       },
     },
     viewport: {

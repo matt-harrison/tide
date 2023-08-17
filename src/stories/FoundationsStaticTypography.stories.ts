@@ -51,21 +51,33 @@ export default {
       control: 'select',
       description: 'Font Color',
       options: FONT_COLOR,
+      table: {
+        defaultValue: { summary: 'font-black' },
+      },
     },
     family: {
       control: 'select',
       description: 'Font Family',
       options: FONT_FAMILY,
+      table: {
+        defaultValue: { summary: 'font-family-default' },
+      },
     },
     size: {
       control: 'select',
       description: 'Font Size',
       options: FONT_SIZE,
+      table: {
+        defaultValue: { summary: 'font-16' },
+      },
     },
     weight: {
       control: 'select',
       description: 'Font Weight',
       options: FONT_WEIGHT,
+      table: {
+        defaultValue: { summary: 'font-500' },
+      },
     },
   },
   tags: ['autodocs'],
