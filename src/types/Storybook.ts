@@ -1,6 +1,14 @@
 /* eslint vue/sort-keys: 0 */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
+export const BACKGROUND_COLOR = {
+  'bg-white': '',
+  'bg-gray-light': 'bg-gray-light',
+  'bg-gray': 'bg-gray',
+  'bg-gray-dark': 'bg-gray-dark font-white',
+  'bg-black': 'bg-black font-white',
+};
+
 // These objects are intended exclusively for use in the Storybook UI.
 export const BORDER_COLOR = {
   None: undefined,
