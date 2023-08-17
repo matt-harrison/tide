@@ -107,7 +107,7 @@ export const DYNAMIC_BORDER_COLOR = {
   'Surface Save': 'border-surface-save',
 };
 
-export const DYNAMIC_BG_COLOR = {
+export const DYNAMIC_BACKGROUND_COLOR = {
   'Primary Tier 1': 'bg-primary-tier-1 font-primary-tier-1',
   'Primary Tier 2': 'bg-primary-tier-2 font-primary-tier-2',
   'Primary Tier 3': 'bg-primary-tier-3 font-primary-tier-3',
