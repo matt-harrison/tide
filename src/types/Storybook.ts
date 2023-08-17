@@ -31,6 +31,11 @@ export const BORDER_SIZE = {
   2: '2',
 };
 
+export const BOX_SHADOW = {
+  'None': '',
+  'shadow-box': 'shadow-box',
+};
+
 export const FONT_COLOR = {
   'None': '',
   'font-black': 'font-black',
@@ -80,6 +85,11 @@ export const SPACING_SIZE = {
   '1': '1',
   '2': '2',
   '4': '4',
+};
+
+export const TEXT_SHADOW = {
+  'None': '',
+  'shadow-text': 'shadow-text',
 };
 
 export const DYNAMIC_BORDER_COLOR = {
