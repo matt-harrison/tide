@@ -300,6 +300,8 @@
 .font-700 {font-weight: 700;}
 
 /* Misc */
+.box-shadow {box-shadow: var(--shadow);}
+
 .leading-default {line-height: 100%;}
 .leading-wide    {line-height: 150%;}
 
@@ -334,8 +336,7 @@
   scroll-snap-align: start;
 }
 
-.shadow-box  {box-shadow:  var(--shadow);}
-.shadow-text {text-shadow: var(--shadow);}
+.text-shadow {text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);}
 
 .underline,
 .underline:hover,

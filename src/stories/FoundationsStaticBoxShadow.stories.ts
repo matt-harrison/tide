@@ -1,12 +1,12 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BOX_SHADOW, TEXT_SHADOW } from '@/types/Storybook';
+import { BOX_SHADOW } from '@/types/Storybook';
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args['shadow-box']) classNames.push(args['shadow-box']);
-  if (args['shadow-text']) classNames.push(args['shadow-text']);
+  if (args['box-shadow']) classNames.push(args['box-shadow']);
 
   return classNames.join(' ');
 };
@@ -45,7 +45,7 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    'shadow-box': {
+    'box-shadow': {
       control: 'select',
       description: 'Box Shadow',
       options: BOX_SHADOW,
@@ -53,35 +53,25 @@ export default {
         defaultValue: { summary: 'None' },
       },
     },
-    'shadow-text': {
-      control: 'select',
-      description: 'Text Shadow',
-      options: TEXT_SHADOW,
-      table: {
-        defaultValue: { summary: 'None' },
-      },
-    },
   },
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Shadow',
+  title: 'Foundations/Static Utilities/Shadow/Box Shadow',
 };
 
-export const BoxShadow = {
+export const TextShadowOff = {
   args: {
-    'shadow-box': BOX_SHADOW['shadow-box'],
-    'shadow-text': TEXT_SHADOW.None,
+    'box-shadow': BOX_SHADOW.Off,
   },
-  name: 'shadow-box',
+  name: 'No Box Shadow',
   parameters,
   render,
 };
 
-export const TextShadow = {
+export const TextShadowOn = {
   args: {
-    'shadow-box': BOX_SHADOW.None,
-    'shadow-text': TEXT_SHADOW['shadow-text'],
+    'box-shadow': BOX_SHADOW.On,
   },
-  name: 'shadow-text',
+  name: 'Box Shadow',
   parameters,
   render,
 };

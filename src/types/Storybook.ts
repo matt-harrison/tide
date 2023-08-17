@@ -41,8 +41,8 @@ export const BORDER_SIZE = {
 };
 
 export const BOX_SHADOW = {
-  'None': '',
-  'shadow-box': 'shadow-box',
+  Off: '',
+  On: 'box-shadow',
 };
 
 export const FONT_COLOR = {
@@ -99,8 +99,8 @@ export const SPACING_SIZE = {
 };
 
 export const TEXT_SHADOW = {
-  'None': '',
-  'shadow-text': 'shadow-text',
+  Off: '',
+  On: 'text-shadow',
 };
 
 export const DYNAMIC_BORDER_COLOR = {
