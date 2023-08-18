@@ -4,7 +4,7 @@
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
 
-  import AccordionItem from '@/components/AccordionItem.vue';
+  import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
@@ -329,7 +329,7 @@
           v-if="!isSingleColumn"
         >
           <div class="mb-2">
-            <AccordionItem
+            <BasicAccordionItem
               :is-expanded-initial="true"
               :label="`Location ${filterCounts.location ? '(' + filterCounts.location + ')' : ''}`"
               class-label="pb-1"
@@ -379,9 +379,9 @@
                   />
                 </div>
               </div>
-            </AccordionItem>
+            </BasicAccordionItem>
 
-            <AccordionItem
+            <BasicAccordionItem
               :label="`Make, model, floor plan ${
                 filterCounts.makeModelFloorplan ? '(' + filterCounts.makeModelFloorplan + ')' : ''
               }`"
@@ -443,9 +443,9 @@
 
                 <BasicButton label="Select models and floor plans" />
               </div>
-            </AccordionItem>
+            </BasicAccordionItem>
 
-            <AccordionItem
+            <BasicAccordionItem
               :label="`${realm.label.singular} type`"
               class-label="py-1"
             >
@@ -468,7 +468,7 @@
                   </label>
                 </div>
               </div>
-            </AccordionItem>
+            </BasicAccordionItem>
           </div>
 
           <section>

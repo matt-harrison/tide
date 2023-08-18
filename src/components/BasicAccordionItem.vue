@@ -43,7 +43,7 @@
 </script>
 
 <template>
-  <div class="accordion-item border-b border-gray">
+  <div class="basic-accordion-item">
     <div
       :class="classLabel"
       @click="toggleIsExpanded"

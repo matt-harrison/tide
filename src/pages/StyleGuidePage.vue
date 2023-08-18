@@ -4,7 +4,7 @@
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
 
-  import AccordionItem from '@/components/AccordionItem.vue';
+  import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
@@ -623,7 +623,7 @@
         <h3 class="mb-1">Accordion</h3>
 
         <div class="ml-1 border-t border-gray">
-          <AccordionItem
+          <BasicAccordionItem
             :key="index"
             :label="`Accordion Item ${index} Label`"
             class-label="py-1"
@@ -662,7 +662,7 @@
                 senectus et netus et malesuada fames ac turpis egestas. Duis in odio eu est bibendum venenatis a ut leo.
               </p>
             </div>
-          </AccordionItem>
+          </BasicAccordionItem>
         </div>
       </section>
 

@@ -58,7 +58,6 @@ export default {
 };
 
 export const Default = {
-  args: {},
   parameters,
   render,
 };
