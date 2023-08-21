@@ -16,7 +16,7 @@
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import BasicModal from '@/components/BasicModal.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
-  import BreadCrumbs from '@/components/BreadCrumbs.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
   import CardListingFeatured from '@/components/CardListingFeatured.vue';
@@ -669,7 +669,7 @@
       <section class="mx-2 mb-1">
         <h3 class="mb-1">Breadcrumbs</h3>
 
-        <BreadCrumbs
+        <BasicBreadCrumbs
           :bread-crumbs="breadCrumbs"
           class="ml-1"
         />

@@ -14,7 +14,7 @@
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
-  import BreadCrumbs from '@/components/BreadCrumbs.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
@@ -204,7 +204,7 @@
       class="flex gap-2 mb-2"
     >
       <BasicContainer :class="isLarge ? 'w-full' : ''">
-        <BreadCrumbs
+        <BasicBreadCrumbs
           :bread-crumbs="breadCrumbs"
           class="mb-1"
           v-if="!isSingleColumn"

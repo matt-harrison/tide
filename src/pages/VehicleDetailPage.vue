@@ -10,7 +10,7 @@
   import BasicImage from '@/components/BasicImage.vue';
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import BasicModal from '@/components/BasicModal.vue';
-  import BreadCrumbs from '@/components/BreadCrumbs.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
   import EmailSellerForm from '@/components/EmailSellerForm.vue';
@@ -124,7 +124,7 @@
     class="vdp-breadcrumbs mb-2"
     v-show="!isSingleColumn"
   >
-    <BreadCrumbs :bread-crumbs="breadCrumbs" />
+    <BasicBreadCrumbs :bread-crumbs="breadCrumbs" />
   </section>
 
   <div
