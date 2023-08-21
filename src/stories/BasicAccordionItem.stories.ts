@@ -35,7 +35,6 @@ const render = (args: any) => ({
   },
   template: `<BasicAccordionItem class="mb-1 border-t border-b border-gray py-1" v-bind="args"><p class="mt-1">${args.default}</p></BasicAccordionItem>`,
   updated() {
-    console.log('UPDATE');
     return formatArgs(args);
   },
 });
