@@ -10,7 +10,7 @@
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicButtonPagination from '@/components/BasicButtonPagination.vue';
-  import BasicButtonTabs from '@/components/BasicButtonTabs.vue';
+  import BasicTabs from '@/components/BasicTabs.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
@@ -158,7 +158,6 @@
           setBrowseButtons();
         },
         count: filterCounts.type,
-        isActive: isBrowseByType.value,
         label: types.value.length > 0 ? `Type (${types.value.length})` : 'Type',
       },
       {
@@ -167,7 +166,6 @@
           setBrowseButtons();
         },
         count: filterCounts.make,
-        isActive: !isBrowseByType.value,
         label: makes.value.length > 0 ? `Make (${makes.value.length})` : 'Make',
       },
     ];
@@ -282,9 +280,9 @@
               Browse
             </span>
 
-            <BasicButtonTabs
-              :buttons="guidedSearchTabs"
+            <BasicTabs
               :class="isSingleColumn ? 'w-full' : ''"
+              :tabs="guidedSearchTabs"
             />
           </section>
         </BasicContainer>

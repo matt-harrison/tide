@@ -33,7 +33,7 @@
   <li class="card-listing-featured shrink-none p-1/4 snap-start xy-hidden">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="block p-1/2 h-full bg-white shadow-box underline-none"
+      class="block p-1/2 h-full bg-white box-shadow underline-none"
     >
       <div class="flex column axis1-between h-full">
         <div>

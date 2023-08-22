@@ -231,7 +231,7 @@
         </div>
 
         <div :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''">
-          <div class="site-footer-socials flex wrap gap-1 mb-3/2 font-20">
+          <div class="site-footer-socials flex wrap gap-1 mb-1 font-20">
             <BasicButtonIcon
               :href="socialLink.url"
               :icon="socialLink.icon"

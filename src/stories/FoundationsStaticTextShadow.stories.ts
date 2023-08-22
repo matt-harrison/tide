@@ -5,7 +5,6 @@ import { TEXT_SHADOW } from '@/types/Storybook';
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args['shadow-box']) classNames.push(args['shadow-box']);
   if (args['text-shadow']) classNames.push(args['text-shadow']);
 
   return classNames.join(' ');

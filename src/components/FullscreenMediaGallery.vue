@@ -289,7 +289,7 @@
             :priority="PRIORITY.TERTIARY"
             :size="SIZE_ICON.SMALL"
             @click="handleClose"
-            class="shadow-box"
+            class="box-shadow"
           />
         </div>
       </header>
@@ -315,7 +315,7 @@
               :priority="PRIORITY.TERTIARY"
               :size="SIZE_ICON.SMALL"
               @click="handlePrevClick"
-              class="shadow-box"
+              class="box-shadow"
             />
 
             <div
@@ -377,7 +377,7 @@
               :priority="PRIORITY.TERTIARY"
               :size="SIZE_ICON.SMALL"
               @click="handleNextClick"
-              class="shadow-box"
+              class="box-shadow"
             />
           </div>
 
@@ -470,7 +470,7 @@
 
             <div class="w-full pt-1/4 bg-white" />
 
-            <div class="flex column gap-3/4 px-1">
+            <div class="flex column gap-1/2 px-1">
               <div class="font-20 font-700 mt-1">Email the seller</div>
 
               <BasicTextInput
@@ -520,7 +520,7 @@
               viewportStore.isLarge && 'hidden',
             ]"
             ref="contactActionsRef"
-            class="contact-actions flex column gap-1/2 mx-2 p-1 font-12 radius-1 bg-white font-gray-dark shadow-box"
+            class="contact-actions flex column gap-1/2 mx-2 p-1 font-12 radius-1 bg-white font-gray-dark box-shadow"
           >
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"

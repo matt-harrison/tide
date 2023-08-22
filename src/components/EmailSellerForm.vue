@@ -203,7 +203,7 @@
     @focusin="addRecaptcha"
     @mouseenter="addRecaptcha"
     @submit.prevent="handleSubmit"
-    class="lead-form flex column gap-3/4"
+    class="lead-form flex column gap-1/2"
   >
     <template
       :key="field.name"
@@ -272,7 +272,7 @@
       type="submit"
     />
   </form>
-  <p class="font-12 font-surface-variant mt-3/2">
+  <p class="font-12 font-surface-variant mt-1">
     Stay safe. Read more about avoiding scams and protecting your money. By using this site, you agree to our Terms of
     Use & our Privacy Policy.
   </p>

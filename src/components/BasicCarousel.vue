@@ -168,7 +168,7 @@
         :priority="PRIORITY.TERTIARY"
         :size="SIZE_ICON.SMALL"
         @click="showPreviousSlide"
-        class="ml-1 pointer-events shadow-box"
+        class="ml-1 pointer-events box-shadow"
       />
 
       <BasicButtonIcon
@@ -176,7 +176,7 @@
         :priority="PRIORITY.TERTIARY"
         :size="SIZE_ICON.SMALL"
         @click="showNextSlide"
-        class="mr-1 pointer-events shadow-box"
+        class="mr-1 pointer-events box-shadow"
       />
     </div>
   </section>

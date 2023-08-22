@@ -27,7 +27,7 @@
   <button
     :title="slideTitle"
     @click="handleClick"
-    class="listing-media-slide relative flex axis1-center axis2-center grow-none shrink-none w-full ratio-3/2 snap-start"
+    class="listing-media-slide relative flex axis1-center axis2-center grow-none shrink-none w-full ratio-1 snap-start"
     type="button"
   >
     <img

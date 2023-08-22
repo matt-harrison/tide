@@ -59,7 +59,7 @@
         <div class="relative radius-1/4 p-1 bg-white">
           <h1
             :class="isExtraSmall ? 'row' : 'column'"
-            class="flex axis1-center axis2-center gap-1/2 mb-3/2 font-24 text-center"
+            class="flex axis1-center axis2-center gap-1/2 mb-1 font-24 text-center"
           >
             Let's find your next {{ realm.label.singular }}
           </h1>
@@ -223,7 +223,7 @@
       :class="isLarge ? 'row' : 'column axis2-center'"
       class="flex gap-1 mb-4"
     >
-      <section class="home-section-sell-your-vehicle relative radius-1/2 w-full p-3/2 bg-gradient xy-hidden">
+      <section class="home-section-sell-your-vehicle relative radius-1/2 w-full p-1 bg-gradient xy-hidden">
         <img
           :src="patternTopography"
           class="absolute top-0 left-0 w-full h-full object-cover font-secondary"
@@ -255,7 +255,7 @@
         />
         <div class="home-section-live-the-adventure-gradient absolute right-0 bottom-0 w-full h-full" />
 
-        <div class="relative flex axis2-start column gap-1 p-3/2">
+        <div class="relative flex axis2-start column gap-1 p-1">
           <h2 class="font-24">Live the adventure</h2>
           <p class="font-600">
             Get tips on buying and selling RVs, top destinations to visit, maintenance, and living the RV lifestyle.

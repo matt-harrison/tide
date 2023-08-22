@@ -66,7 +66,7 @@
     :class="[
       'listing-media-tool',
       showAll && 'show-all',
-      'relative flex axis1-center axis2-center w-1/4 ratio-3/2 border-overlay xy-hidden',
+      'relative flex axis1-center axis2-center w-1/4 ratio-1 border-overlay xy-hidden',
     ]"
     :data-photo-count="props.slideCount"
     @click="handleClick"
@@ -87,7 +87,7 @@
         :icon="icon"
         :priority="PRIORITY.TERTIARY"
         :size="SIZE_ICON.SMALL"
-        class="absolute shadow-box"
+        class="absolute box-shadow"
       />
     </div>
   </button>

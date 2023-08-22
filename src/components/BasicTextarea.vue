@@ -65,7 +65,7 @@
       :name="name"
       :style="{ '--height': props.height }"
       @input="handleInput"
-      class="w-full p-3/4 font-14 radius-1/8"
+      class="w-full p-1/2 font-14 radius-1/8"
       :id="uniqueInputId"
       v-model="value"
     />

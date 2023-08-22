@@ -21,10 +21,10 @@
 
 <template>
   <VehiclePreview :vehicle="dummyVehicle" />
-  <div class="mt-3/2 font-14">Let the dealer contact you over text about this {{ realm.label.singular }}.</div>
+  <div class="mt-1 font-14">Let the dealer contact you over text about this {{ realm.label.singular }}.</div>
   <form
     ref="form"
-    class="flex column mt-1 mb-2 gap-3/4"
+    class="flex column mt-1 mb-2 gap-1/2"
   >
     <BasicTextInput
       label="Name"

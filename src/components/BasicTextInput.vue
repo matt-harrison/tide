@@ -83,7 +83,7 @@
       <BasicIcon
         :icon="leadingIcon"
         :size="SIZE_ICON.SMALL"
-        class="absolute top-1/2 left-0 -translate-y-1/2 ml-3/4 pointer-events-none"
+        class="absolute top-1/2 left-0 -translate-y-1/2 ml-1/2 pointer-events-none"
         v-if="leadingIcon"
       />
       <input
@@ -103,12 +103,12 @@
         :required="required"
         :type="type"
         @input="handleInput"
-        class="w-full p-3/4 bg-white radius-1/8"
+        class="w-full p-1/2 bg-white radius-1/8"
         :id="uniqueInputId"
         v-model="value"
       />
       <span
-        :class="[hasError ? 'mr-2' : 'mr-3/4']"
+        :class="[hasError ? 'mr-2' : 'mr-1/2']"
         class="absolute top-1/2 right-0 -translate-y-1/2 px-1/2 font-14 font-gray-dark pointer-events-none"
         v-if="suffix"
       >
@@ -118,7 +118,7 @@
         <BasicIcon
           :icon="'circle-exclamation'"
           :size="SIZE_ICON.SMALL"
-          class="font-red absolute top-1/2 right-0 -translate-y-1/2 mr-3/4 pointer-events-none"
+          class="font-red absolute top-1/2 right-0 -translate-y-1/2 mr-1/2 pointer-events-none"
           v-if="hasError"
         />
       </slot>

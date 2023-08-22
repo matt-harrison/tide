@@ -58,7 +58,7 @@
   <li class="card-listing p-1/4 w-full xy-hidden">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="relative block h-full bg-white shadow-box underline-none"
+      class="relative block h-full bg-white box-shadow underline-none"
     >
       <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
         <div class="flex column gap-1/2">
@@ -156,7 +156,7 @@
           :priority="PRIORITY.TERTIARY"
           :size="SIZE_ICON.SMALL"
           @click.prevent="handleFavoriteClick"
-          class="shadow-box"
+          class="box-shadow"
         />
       </div>
     </a>

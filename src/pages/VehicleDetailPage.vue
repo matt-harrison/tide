@@ -272,7 +272,7 @@
         class="flex axis2-start gap-2 border-b border-gray pb-2 mb-2"
       >
         <div
-          class="floorplan-thumb shrink-none border-overlay radius-3/4"
+          class="floorplan-thumb shrink-none border-overlay radius-1/2"
           v-if="vehicle.floorPlanMediaId"
         >
           <BasicImage
@@ -317,7 +317,7 @@
 
       <div class="flex gap-2 mt-1">
         <div class="w-0 grow flex column axis2-start">
-          <div class="flex gap-3/4">
+          <div class="flex gap-1/2">
             <div
               class="border-overlay radius-1 xy-hidden"
               style="height: 74px; width: 88px"
@@ -376,7 +376,7 @@
             :icon-leading="ICON.VIDEO"
             :priority="PRIORITY.SECONDARY"
             @click="() => (videoCallModalIsOpen = true)"
-            class="mt-3/2"
+            class="mt-1"
             label="Schedule a video call"
           />
 
@@ -451,7 +451,7 @@
       class="vdp-contact layout-item xy-hidden radius-1/2 bg-surface"
       v-show="!isSingleColumn"
     >
-      <div class="mb-1/4 px-3/2 py-1 font-16 font-700">
+      <div class="mb-1/4 px-1 py-1 font-16 font-700">
         <div class="flex wrap gap-1">
           <div class="flex axis2-center gap-1/2 shrink-none">
             <BasicButtonIcon
@@ -480,7 +480,7 @@
 
       <hr class="bg-white pt-1/4" />
 
-      <div class="p-3/2">
+      <div class="p-1">
         <h2 class="mb-1">Email the seller</h2>
         <EmailSellerForm :vehicle="vehicle" />
       </div>
@@ -494,7 +494,7 @@
       v-show="isSingleColumn"
     >
       <div
-        :class="isStickyContact ? 'fixed bottom-0 shadow-box' : ''"
+        :class="isStickyContact ? 'fixed bottom-0 box-shadow' : ''"
         ref="stickableFooterRef"
         class="sticky-footer flex gap-1/2 py-2 px-1 w-full bg-white"
       >
@@ -670,7 +670,7 @@
       style="z-index: 1"
       v-show="!isSingleColumn && stickyHeaderIsVisible"
     >
-      <BasicContainer class="flex axis2-center py-3/4">
+      <BasicContainer class="flex axis2-center py-1/2">
         <div
           class="shrink-none radius-full xy-hidden"
           v-if="vehicle.photos.length"
@@ -704,7 +704,7 @@
           <div class="font-20 font-700 mt-1/4">{{ vehicleTitle }}</div>
         </div>
 
-        <div class="self-stretch flex axis2-center my-1/4 ml-3/2 pl-3/2 border-l border-gray-light font-700 font-20">
+        <div class="self-stretch flex axis2-center my-1/4 ml-1 pl-1 border-l border-gray-light font-700 font-20">
           {{ price }}
         </div>
 
@@ -716,7 +716,7 @@
             <BasicIcon
               :icon="ICON.PHONE"
               :size="SIZE_ICON.SMALL"
-              class="bg-gray-dark font-white p-3/4 font-16 radius-full"
+              class="bg-gray-dark font-white p-1/2 font-16 radius-full"
             />
             Call {{ phone }}
           </a>
@@ -737,7 +737,7 @@
           >
             <VehiclePreview
               :vehicle="vehicle"
-              class="mb-3/2"
+              class="mb-1"
             />
             <EmailSellerForm :vehicle="vehicle" />
           </BasicModal>

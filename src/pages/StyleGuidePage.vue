@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { onMounted, ref } from 'vue';
+  import { ref } from 'vue';
   import { storeToRefs } from 'pinia';
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
@@ -8,7 +8,7 @@
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
-  import BasicButtonTabs from '@/components/BasicButtonTabs.vue';
+  import BasicTabs from '@/components/BasicTabs.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipAction from '@/components/BasicChipAction.vue';
   import BasicChipFilter from '@/components/BasicChipFilter.vue';
@@ -51,13 +51,25 @@
   const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(viewportStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
-  const buttonTabs = ref();
   const isActiveChipTier2 = ref(true);
   const isActiveChipTier3 = ref(true);
   const isDarkTheme = ref(false);
   const isToggleActive = ref(false);
   const modalIsOpen = ref(false);
-  const tabActive = ref(1);
+  const tabs = [
+    {
+      callback: () => {},
+      label: 'Tab 1',
+    },
+    {
+      callback: () => {},
+      label: 'Tab 2',
+    },
+    {
+      callback: () => {},
+      label: 'Tab 3',
+    },
+  ];
 
   const breadCrumbs: BreadCrumb[] = [
     {
@@ -288,42 +300,9 @@
     modalIsOpen.value = true;
   };
 
-  const setButtonTabs = () => {
-    buttonTabs.value = [
-      {
-        callback: () => {
-          tabActive.value = 1;
-          setButtonTabs();
-        },
-        isActive: tabActive.value === 1,
-        label: 'Tab 1',
-      },
-      {
-        callback: () => {
-          tabActive.value = 2;
-          setButtonTabs();
-        },
-        isActive: tabActive.value === 2,
-        label: 'Tab 2',
-      },
-      {
-        callback: () => {
-          tabActive.value = 3;
-          setButtonTabs();
-        },
-        isActive: tabActive.value === 3,
-        label: 'Tab 3',
-      },
-    ];
-  };
-
   const toggleIsToggleActive = () => {
     isToggleActive.value = !isToggleActive.value;
   };
-
-  onMounted(() => {
-    setButtonTabs();
-  });
 </script>
 
 <template>
@@ -626,6 +605,7 @@
           <BasicAccordionItem
             :key="index"
             :label="`Accordion Item ${index} Label`"
+            class="border-b border-gray"
             class-label="py-1"
             v-for="index in [1, 2, 3]"
           >
@@ -874,8 +854,8 @@
           <h4 class="mb-1">Button Tabs</h4>
 
           <div class="flex ml-1">
-            <BasicButtonTabs
-              :buttons="buttonTabs"
+            <BasicTabs
+              :tabs="tabs"
               class="font-gray-dark"
             />
           </div>

@@ -45,9 +45,9 @@
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       props.element === ELEMENT.ANCHOR ? 'inline-flex' : 'flex',
       'axis1-center axis2-center gap-1/2 radius-1/4',
-      props.size === SIZE_BUTTON.SMALL && 'py-1/2 px-3/4 font-14',
+      props.size === SIZE_BUTTON.SMALL && 'py-1/2 px-1/2 font-14',
       (SIZE_BUTTON.MEDIUM || !props.size) && 'py-1/2 px-1',
-      props.size === SIZE_BUTTON.LARGE && 'py-3/4 px-3/2',
+      props.size === SIZE_BUTTON.LARGE && 'py-1/2 px-1',
       props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
       'font-700',
     ]"

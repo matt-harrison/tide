@@ -67,12 +67,12 @@
   <section class="card-listing-premium-select p-1/4 w-full xy-hidden">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="relative block h-full bg-white shadow-box underline-none"
+      class="relative block h-full bg-white box-shadow underline-none"
     >
       <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
         <div
           :class="viewportStore.isLarge ? 'row' : 'column'"
-          class="flex gap-3/4"
+          class="flex gap-1/2"
         >
           <div
             :class="viewportStore.isLarge ? 'w-1/2' : 'w-full'"
@@ -89,7 +89,7 @@
 
           <div :class="viewportStore.isLarge ? 'w-1/2' : 'w-full'">
             <div class="flex column mb-1">
-              <div class="flex gap-3/4 mb-1">
+              <div class="flex gap-1/2 mb-1">
                 <div class="border-overlay radius-1/8 xy-hidden">
                   <BasicImage
                     :src="thumbnailSmall1"
@@ -195,7 +195,7 @@
           :priority="PRIORITY.TERTIARY"
           :size="SIZE_ICON.SMALL"
           @click.prevent="handleFavoriteClick"
-          class="shadow-box"
+          class="box-shadow"
         />
       </div>
     </a>
