@@ -1,4 +1,4 @@
-import { REALM } from '../types/Realm';
+import { REALM } from '@/types/Realm';
 
 const realm = {
   cdn: {

@@ -45,7 +45,7 @@ const preview: Preview = {
           ],
             'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
           ],
-          'Basic Components', ['BasicAccordionItem', 'BasicBreadCrumbs', 'BasicButton', 'BasicIcon'],
+          'Basic Components', ['BasicAccordionItem', 'BasicBreadCrumbs', 'BasicButton', 'BasicButtonIcon', 'BasicButtonPagination', 'BasicIcon'],
         ],
       },
     },

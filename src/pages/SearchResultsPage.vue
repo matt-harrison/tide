@@ -9,6 +9,7 @@
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicButtonPagination from '@/components/BasicButtonPagination.vue';
   import BasicButtonTabs from '@/components/BasicButtonTabs.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
@@ -24,6 +25,7 @@
   import SeoContent from '@/components/SeoContent.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
+  import { ELEMENT_PAGINATION } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
@@ -600,23 +602,20 @@
                 :key="paginationButton"
                 v-for="paginationButton in paginationButtons"
               >
-                <span
-                  class="pagination-label flex axis1-center axis2-center border-primary-tier-2 radius-full p-1 bg-primary-tier-2 font-primary-tier-2 font-700"
+                <BasicButtonPagination
+                  :element="ELEMENT_PAGINATION.DIV"
+                  :label="paginationButton"
+                  :priority="PRIORITY.PRIMARY"
+                  :tier="TIER.TIER_2"
                   v-if="filterStore.pageCurrent === paginationButton"
-                >
-                  {{ paginationButton }}
-                </span>
+                />
 
-                <BasicButtonIcon
+                <BasicButtonPagination
+                  :label="paginationButton"
                   :priority="PRIORITY.TERTIARY"
-                  :size="SIZE_ICON.SMALL"
                   @click="filterStore.setPageCurrent(paginationButton)"
                   v-else
-                >
-                  <span class="pagination-label flex axis1-center axis2-center">
-                    {{ paginationButton }}
-                  </span>
-                </BasicButtonIcon>
+                />
               </li>
             </ul>
 

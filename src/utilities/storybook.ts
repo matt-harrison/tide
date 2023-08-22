@@ -15,6 +15,8 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
 
+    // TODO: remove conditional attributes whose conditions aren't met!
+
     if (argTypes[key].isCss) {
       classNames.push(value);
     } else {
@@ -38,7 +40,9 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   attributes = attributes.filter((attribute) => !!attribute).sort();
 
-  return `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
+  return args.default
+    ? `<${tag}\n\t${attributes.join(' \n\t')}\n>${args.default}</${tag}>`
+    : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
 };
 
 const getVariableName = (input: any) => {

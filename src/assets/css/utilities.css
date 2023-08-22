@@ -282,6 +282,9 @@
 
 .object-cover {object-fit: cover;}
 
+.break-word {overflow-wrap: break-word;}
+
+.cursor {cursor: default !important;}
 .pointer {cursor: pointer;}
 .not-allowed {cursor: not-allowed;}
 
@@ -291,6 +294,12 @@
 .ratio-1\/1  {aspect-ratio:  1 / 1;}
 .ratio-3\/2  {aspect-ratio:  3 / 2;}
 .ratio-16\/9 {aspect-ratio: 16 / 9;}
+
+.select-none {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 .scrollbar-none::-webkit-scrollbar {display: none;}
 .scrollbar-none {
@@ -306,6 +315,8 @@
 .snap-start {
   scroll-snap-align: start;
 }
+
+.text-center {text-align: center;}
 
 .text-shadow {text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);}
 
@@ -328,8 +339,6 @@
 .invisible {visibility: hidden;}
 
 .whitespace-nowrap {white-space: nowrap;}
-.break-word {overflow-wrap: break-word;}
-.align-middle {vertical-align: middle;}
 
 .x-auto   {overflow-x: auto;}
 .x-hidden {overflow-x: hidden;}
@@ -340,29 +349,3 @@
 
 .y-auto   {overflow-y: auto;}
 .y-hidden {overflow-y: hidden;}
-
-.text-center {text-align: center;}
-
-.border-overlay {
-  position: relative;
-  /* prevent z-index from leaking out */
-  isolation: isolate;
-}
-
-.border-overlay::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(0, 0, 0, .1);
-  border-radius: inherit;
-  pointer-events: none;
-  box-sizing: border-box;
-}
-
-.object-scale-down {
-  object-fit: scale-down;
-}

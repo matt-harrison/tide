@@ -1,7 +1,8 @@
-import BasicButton from '@/components/BasicButton.vue';
+import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
 import { ELEMENT } from '@/types/Element';
+import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_BUTTON } from '@/types/Size';
+import { SIZE_ICON } from '@/types/Size';
 import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
@@ -32,11 +33,11 @@ const parameters = {
 };
 
 const render = (args: any) => ({
-  components: { BasicButton },
+  components: { BasicButtonIcon },
   setup() {
     return formatArgs(args);
   },
-  template: '<BasicButton v-bind="args" />',
+  template: '<BasicButtonIcon v-bind="args" />',
   updated() {
     return formatArgs(args);
   },
@@ -52,17 +53,16 @@ export default {
     href: {
       if: { arg: 'element', eq: ELEMENT.ANCHOR },
     },
-    iconLeading: iconControl,
-    iconTrailing: iconControl,
+    icon: iconControl,
     priority: {
       constant: getVariableName({ PRIORITY }),
       control: 'select',
       options: PRIORITY,
     },
     size: {
-      constant: getVariableName({ SIZE_BUTTON }),
+      constant: getVariableName({ SIZE_ICON }),
       control: 'select',
-      options: SIZE_BUTTON,
+      options: SIZE_ICON,
     },
     target: {
       control: 'select',
@@ -76,18 +76,18 @@ export default {
       options: TIER,
     },
   },
-  component: BasicButton,
+  component: BasicButtonIcon,
   tags: ['autodocs'],
-  title: 'Basic Components/BasicButton',
+  title: 'Basic Components/BasicButtonIcon',
 };
 
 export const Primary = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
+    icon: ICON.ENVELOPE,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_BUTTON.LARGE,
+    size: SIZE_ICON.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
@@ -99,9 +99,9 @@ export const Secondary = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
+    icon: ICON.ENVELOPE,
     priority: PRIORITY.SECONDARY,
-    size: SIZE_BUTTON.LARGE,
+    size: SIZE_ICON.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
@@ -113,9 +113,9 @@ export const Tertiary = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
+    icon: ICON.ENVELOPE,
     priority: PRIORITY.TERTIARY,
-    size: SIZE_BUTTON.LARGE,
+    size: SIZE_ICON.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },

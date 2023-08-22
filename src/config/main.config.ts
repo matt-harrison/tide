@@ -1,7 +1,7 @@
-import type { RealmConfig } from '../types/RealmConfig';
-import type { Realm } from '../types/Realm';
+import type { RealmConfig } from '@/types/RealmConfig';
+import type { Realm } from '@/types/Realm';
 
-import { REALM } from '../types/Realm';
+import { REALM } from '@/types/Realm';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as aero from './aero.config';

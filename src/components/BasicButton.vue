@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-  import type { Element } from '../types/Element';
-  import type { Icon } from '../types/Icon';
-  import type { Priority } from '../types/Priority';
-  import type { SizeButton } from '../types/Size';
-  import type { Tier } from '../types/Tier';
+  import type { Element } from '@/types/Element';
+  import type { Icon } from '@/types/Icon';
+  import type { Priority } from '@/types/Priority';
+  import type { SizeButton } from '@/types/Size';
+  import type { Tier } from '@/types/Tier';
 
-  import BasicIcon from '../components/BasicIcon.vue';
-  import { ELEMENT } from '../types/Element';
-  import { PRIORITY } from '../types/Priority';
-  import { SIZE_BUTTON, SIZE_ICON } from '../types/Size';
-  import { TIER } from '../types/Tier';
+  import BasicIcon from '@/components/BasicIcon.vue';
+  import { ELEMENT } from '@/types/Element';
+  import { PRIORITY } from '@/types/Priority';
+  import { SIZE_BUTTON, SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
 
   type Props = {
     element?: Element;
@@ -71,4 +71,4 @@
   </component>
 </template>
 
-<style scoped src="../assets/css/dynamic-buttons.css" />
+<style scoped src="@/assets/css/dynamic-buttons.css" />

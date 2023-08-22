@@ -2,10 +2,10 @@
   import type { Component } from 'vue';
   import { defineAsyncComponent, markRaw, ref, watch } from 'vue';
 
-  import type { Icon } from '../types/Icon';
-  import { SIZE_ICON, type SizeIcon } from '../types/Size';
+  import type { Icon } from '@/types/Icon';
+  import { SIZE_ICON, type SizeIcon } from '@/types/Size';
 
-  import { formatPascalCase } from '../utilities/format';
+  import { formatPascalCase } from '@/utilities/format';
 
   type Props = {
     icon: Icon;
@@ -23,7 +23,7 @@
     () => {
       const id = props.icon as unknown;
       const name = formatPascalCase(id as string);
-      const component = defineAsyncComponent(() => import(`../assets/svg/icons/Icon${name}.vue`));
+      const component = defineAsyncComponent(() => import(`@/assets/svg/icons/Icon${name}.vue`));
 
       innerSVG.value = markRaw(component);
     },
