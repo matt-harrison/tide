@@ -1,6 +1,16 @@
+import type { StoryContext } from '@storybook/vue3';
+
 import type { Tab } from '@/types/Tab';
 
 import BasicTabs from '@/components/BasicTabs.vue';
+import { getLabelsFromOptions } from '@/utilities/storybook';
+
+const options = {
+  'None': undefined,
+  'Tab 1': 0,
+  'Tab 2': 1,
+  'Tab 3': 2,
+};
 
 const tabs: Tab[] = [
   {
@@ -21,8 +31,11 @@ const formatArgs = (args: any) => {
   return { args };
 };
 
-const formatSnippet = () => {
-  return '<BasicTabs :tabs="tabs" />';
+const formatSnippet = (code: string, context: StoryContext) => {
+  const { args } = context;
+  const activeTabInitial = args.activeTabInitial !== undefined ? `:activeTabInitial="${args.activeTabInitial}" ` : '';
+
+  return `<BasicTabs ${activeTabInitial}:tabs="tabs" />`;
 };
 
 const parameters = {
@@ -48,9 +61,22 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    activeTabInitial: {
+      control: {
+        labels: getLabelsFromOptions(options),
+        type: 'select',
+      },
+      description:
+        'Zero-based index of tab to display as active on initial load.<br />(Subsequently managed within component)',
+      options: Object.values(options),
+      table: {
+        defaultValue: { summary: 'None' },
+      },
+    },
     tabs: {
       table: {
-        defaultValue: { summary: '[]' },
+        defaultValue: { summary: 'None' },
+        type: { summary: 'Tab' },
       },
       type: 'object',
     },
@@ -60,8 +86,27 @@ export default {
   title: 'Basic Components/BasicTabs',
 };
 
-export const Demo = {
+export const Default = {
   args: {
+    activeTabInitial: undefined,
+    tabs,
+  },
+  parameters,
+  render,
+};
+
+export const InitialTab2 = {
+  args: {
+    activeTabInitial: 1,
+    tabs,
+  },
+  parameters,
+  render,
+};
+
+export const InitialTab3 = {
+  args: {
+    activeTabInitial: 2,
     tabs,
   },
   parameters,

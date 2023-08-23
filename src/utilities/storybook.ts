@@ -45,6 +45,17 @@ const formatSnippet = (code: string, context: StoryContext) => {
     : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
 };
 
+// Invert key/value pairs bc Storybook control option format is unintuitive.
+const getLabelsFromOptions = (options: any) => {
+  const labels: { [key: string]: string } = {};
+
+  Object.entries(options).forEach(([key, value]) => {
+    labels[`${value}`] = key;
+  });
+
+  return labels;
+};
+
 const getVariableName = (input: any) => {
   return Object.keys(input)[0];
 };
@@ -68,4 +79,4 @@ const iconColorControl = {
   },
 };
 
-export { formatSnippet, getVariableName, iconColorControl, iconControl };
+export { formatSnippet, getLabelsFromOptions, getVariableName, iconColorControl, iconControl };
