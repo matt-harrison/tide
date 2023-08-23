@@ -2,6 +2,12 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { SPACING_SIZE } from '@/types/Storybook';
 
+const formatArgs = (args: any) => {
+  args.class = formatClassNames(args);
+
+  return { args };
+};
+
 const formatClassNames = (args: any) => {
   const classNames: string[] = ['flex'];
 
@@ -10,12 +16,6 @@ const formatClassNames = (args: any) => {
   if (args.gap) classNames.push(`gap-${args.gap}`);
 
   return classNames.join(' ');
-};
-
-const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
-
-  return { args };
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {

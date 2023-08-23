@@ -2,18 +2,18 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
 
+const formatArgs = (args: any) => {
+  args.class = formatClassNames(args);
+
+  return { args };
+};
+
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args.side !== undefined && args.size !== undefined) classNames.push(`p${args.side}-${args.size}`);
 
   return classNames.join(' ');
-};
-
-const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
-
-  return { args };
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {

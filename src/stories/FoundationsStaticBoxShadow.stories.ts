@@ -2,18 +2,18 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { BOX_SHADOW } from '@/types/Storybook';
 
+const formatArgs = (args: any) => {
+  args.class = formatClassNames(args);
+
+  return { args };
+};
+
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args['box-shadow']) classNames.push(args['box-shadow']);
 
   return classNames.join(' ');
-};
-
-const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
-
-  return { args };
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {

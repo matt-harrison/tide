@@ -2,6 +2,12 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { BORDER_COLOR, BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/Storybook';
 
+const formatArgs = (args: any) => {
+  args.class = formatClassNames(args);
+
+  return { args };
+};
+
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
@@ -16,12 +22,6 @@ const formatClassNames = (args: any) => {
   }
 
   return classNames.join(' ');
-};
-
-const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
-
-  return { args };
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {

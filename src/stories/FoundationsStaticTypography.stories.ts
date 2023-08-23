@@ -2,6 +2,12 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { FONT_COLOR, FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
 
+const formatArgs = (args: any) => {
+  args.class = formatClassNames(args);
+
+  return { args };
+};
+
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
@@ -10,12 +16,6 @@ const formatClassNames = (args: any) => {
   if (args.weight) classNames.push(args.weight);
 
   return classNames.join(' ');
-};
-
-const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
-
-  return { args };
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
