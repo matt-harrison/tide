@@ -28,7 +28,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
         });
       }
 
-      if (value !== 'None') {
+      if (value !== '' && value !== 'None') {
         return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
       }
     }
@@ -66,6 +66,9 @@ const iconControl = {
   options: {
     None: undefined,
     ...ICON,
+  },
+  table: {
+    defaultValue: { summary: 'None' },
   },
 };
 

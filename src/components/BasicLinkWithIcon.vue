@@ -6,10 +6,11 @@
 
   type Props = {
     classIcon?: string;
+    href: string;
     iconLeading?: Icon;
     iconTrailing?: Icon;
+    label: string;
     target?: string;
-    href: string;
   };
 
   const props = defineProps<Props>();
@@ -28,9 +29,7 @@
       v-if="props.iconLeading"
     />
 
-    <div class="underline">
-      <slot />
-    </div>
+    <div class="underline">{{ props.label }}</div>
 
     <BasicIcon
       :class="classIcon"
