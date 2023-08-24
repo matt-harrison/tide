@@ -21,8 +21,7 @@
 <template>
   <a
     :class="[
-      'basic-chip-action primary-variant',
-      props.tier ? props.tier : 'tier-2',
+      `basic-chip-action primary-variant ${props.tier}`,
       'flex axis2-center gap-1/2 radius-full py-1/2 px-1 font-14 font-600 underline-none',
     ]"
     :href="props.href"

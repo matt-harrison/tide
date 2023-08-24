@@ -28,8 +28,8 @@ const formatSnippet = (code: string, context: StoryContext) => {
         });
       }
 
-      if (value && value !== 'None') {
-        return `${isConstant ? ':' : ''}${formatKebabCase(key)}="${value}"`;
+      if (value !== 'None') {
+        return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
       }
     }
   });

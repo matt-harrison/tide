@@ -8,18 +8,18 @@
   type Props = {
     isActive: boolean;
     label: string;
-    tier: Tier;
+    tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    tier: TIER.TIER_2,
+    tier: TIER.TIER_3,
   });
 </script>
 
 <template>
   <button
     :class="[
-      'basic-chip-input',
+      'basic-chip-filter',
       props.isActive && `primary-variant ${props.tier}`,
       'flex column axis2-center',
       !props.isActive && 'border-1 border-gray',
