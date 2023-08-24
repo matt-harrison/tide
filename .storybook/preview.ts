@@ -53,6 +53,7 @@ const preview: Preview = {
             'BasicButtonPagination',
             'BasicChipAction',
             'BasicChipFilter',
+            'BasicChipInput',
             'BasicIcon',
             'BasicTabs',
           ],

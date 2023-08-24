@@ -62,7 +62,6 @@ export const Demo = {
   args: {
     isActive: false,
     label: 'Demo',
-    tier: TIER_VARIANT.None,
   },
   parameters,
   render,

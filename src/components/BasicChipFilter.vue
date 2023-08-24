@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-  import { TIER, type Tier } from '@/types/Tier';
+  import type { Tier } from '@/types/Tier';
+
+  import { TIER } from '@/types/Tier';
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';

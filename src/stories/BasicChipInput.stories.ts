@@ -1,4 +1,4 @@
-import BasicChipAction from '@/components/BasicChipAction.vue';
+import BasicChipInput from '@/components/BasicChipInput.vue';
 import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName } from '@/utilities/storybook';
 
@@ -23,11 +23,11 @@ const formatArgs = (args: any) => {
 };
 
 const render = (args: any) => ({
-  components: { BasicChipAction },
+  components: { BasicChipInput },
   setup() {
     return formatArgs(args);
   },
-  template: '<BasicChipAction class="inline-flex" v-bind="args" />',
+  template: '<BasicChipInput class="inline-flex" v-bind="args" />',
   updated() {
     return formatArgs(args);
   },
@@ -35,12 +35,6 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    href: {
-      control: 'text',
-      table: {
-        defaultValue: { summary: 'None' },
-      },
-    },
     label: {
       control: 'text',
       table: {
@@ -53,14 +47,13 @@ export default {
       options: TIER_VARIANT,
     },
   },
-  component: BasicChipAction,
+  component: BasicChipInput,
   tags: ['autodocs'],
-  title: 'Basic Components/BasicChipAction',
+  title: 'Basic Components/BasicChipInput',
 };
 
 export const Demo = {
   args: {
-    href: '/',
     label: 'Demo',
   },
   parameters,
