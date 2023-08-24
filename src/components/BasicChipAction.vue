@@ -1,6 +1,8 @@
 <script lang="ts" setup>
   import type { Tier } from '@/types/Tier';
 
+  import { TIER } from '@/types/Tier';
+
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { SIZE_ICON } from '@/types/Size';
@@ -11,7 +13,9 @@
     tier?: Tier;
   };
 
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    tier: TIER.TIER_3,
+  });
 </script>
 
 <template>
