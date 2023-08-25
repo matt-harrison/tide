@@ -73,6 +73,12 @@ export const FONT_WEIGHT = {
   'Bold': 'font-700',
 };
 
+export const SIZE_ICON_STORYBOOK = {
+  None: undefined, // Deviation from SIZE_ICON necessary to facilitate Storybook presentation layer.
+  MEDIUM: 'medium',
+  SMALL: 'small',
+};
+
 export const SPACING_SIDE = {
   'Full': '',
   'X-axis': 'x',

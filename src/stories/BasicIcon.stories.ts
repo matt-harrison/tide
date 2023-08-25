@@ -1,6 +1,7 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
 import { SIZE_ICON } from '@/types/Size';
+import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
 import { formatSnippet, getVariableName } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
@@ -13,12 +14,19 @@ export default {
       constant: getVariableName({ ICON }),
       control: 'select',
       options: ICON,
+      table: {
+        defaultValue: { summary: 'None' },
+      },
     },
     size: {
       constant: getVariableName({ SIZE_ICON }),
       control: 'select',
-      options: SIZE_ICON,
+      options: SIZE_ICON_STORYBOOK,
     },
+  },
+  args: {
+    icon: ICON.HEART,
+    size: SIZE_ICON.MEDIUM,
   },
   component: BasicIcon,
   tags: ['autodocs'],
@@ -26,10 +34,6 @@ export default {
 };
 
 export const Demo = {
-  args: {
-    icon: ICON.HEART,
-    size: SIZE_ICON.MEDIUM,
-  },
   parameters: {
     docs: {
       source: {
