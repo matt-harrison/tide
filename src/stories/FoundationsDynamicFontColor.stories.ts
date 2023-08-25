@@ -9,7 +9,7 @@ const formatArgs = (args: any) => {
 };
 
 const formatClassNames = (args: any) => {
-  return `${args.fontColor}`;
+  return `${args.color}`;
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
@@ -40,22 +40,34 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    fontColor: {
+    color: {
       control: 'select',
-      description: 'Realm-dictated Font Color<br/>(Background color shown for demonstration purposes.)',
+      description: 'Realm-dictated font color',
       options: DYNAMIC_FONT_COLOR,
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'DYNAMIC_FONT_COLOR' },
       },
     },
+  },
+  args: {
+    color: 'None',
   },
   tags: ['autodocs'],
   title: 'Foundations/Dynamic Utilities/Font Color',
 };
 
+export const Default = {
+  args: {
+    color: DYNAMIC_FONT_COLOR.None,
+  },
+  parameters,
+  render,
+};
+
 export const BackgroundPrimaryTier1 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 1'],
+    color: DYNAMIC_FONT_COLOR['Primary Tier 1'],
   },
   name: 'Primary Tier 1',
   parameters,
@@ -64,7 +76,7 @@ export const BackgroundPrimaryTier1 = {
 
 export const BackgroundPrimaryTier2 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 2'],
+    color: DYNAMIC_FONT_COLOR['Primary Tier 2'],
   },
   name: 'Primary Tier 2',
   parameters,
@@ -73,7 +85,7 @@ export const BackgroundPrimaryTier2 = {
 
 export const BackgroundPrimaryTier3 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Tier 3'],
+    color: DYNAMIC_FONT_COLOR['Primary Tier 3'],
   },
   name: 'Primary Tier 3',
   parameters,
@@ -82,7 +94,7 @@ export const BackgroundPrimaryTier3 = {
 
 export const BackgroundPrimaryVariantTier1 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 1'],
+    color: DYNAMIC_FONT_COLOR['Primary Variant Tier 1'],
   },
   name: 'Primary Variant Tier 1',
   parameters,
@@ -91,7 +103,7 @@ export const BackgroundPrimaryVariantTier1 = {
 
 export const BackgroundPrimaryVariantTier2 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 2'],
+    color: DYNAMIC_FONT_COLOR['Primary Variant Tier 2'],
   },
   name: 'Primary Variant Tier 2',
   parameters,
@@ -100,7 +112,7 @@ export const BackgroundPrimaryVariantTier2 = {
 
 export const BackgroundPrimaryVariantTier3 = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Primary Variant Tier 3'],
+    color: DYNAMIC_FONT_COLOR['Primary Variant Tier 3'],
   },
   name: 'Primary Variant Tier 3',
   parameters,
@@ -109,7 +121,7 @@ export const BackgroundPrimaryVariantTier3 = {
 
 export const BackgroundSecondary = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Secondary'],
+    color: DYNAMIC_FONT_COLOR['Secondary'],
   },
   name: 'Secondary',
   parameters,
@@ -118,7 +130,7 @@ export const BackgroundSecondary = {
 
 export const BackgroundTertiary = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Tertiary'],
+    color: DYNAMIC_FONT_COLOR['Tertiary'],
   },
   name: 'Tertiary',
   parameters,
@@ -127,7 +139,7 @@ export const BackgroundTertiary = {
 
 export const BackgroundSurface = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Surface'],
+    color: DYNAMIC_FONT_COLOR['Surface'],
   },
   name: 'Surface',
   parameters,
@@ -136,7 +148,7 @@ export const BackgroundSurface = {
 
 export const BackgroundSurfaceVariant = {
   args: {
-    fontColor: DYNAMIC_FONT_COLOR['Surface Variant'],
+    color: DYNAMIC_FONT_COLOR['Surface Variant'],
   },
   name: 'Surface Variant',
   parameters,

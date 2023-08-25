@@ -1,16 +1,17 @@
 /* eslint vue/sort-keys: 0 */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
+// These objects are intended exclusively for use in demonstrating the Storybook UI.
+
 export const BACKGROUND_COLOR = {
   'None': '',
   'White': 'bg-white',
   'Gray - Light': 'bg-gray-light',
   'Gray - Medium': 'bg-gray',
-  'Gray - Dark': 'bg-gray-dark font-white',
-  'Black': 'bg-black font-white',
+  'Gray - Dark': 'bg-gray-dark',
+  'Black': 'bg-black',
 };
 
-// These objects are intended exclusively for use in the Storybook UI.
 export const BORDER_COLOR = {
   None: undefined,
   Black: 'border-black',
@@ -97,6 +98,7 @@ export const TEXT_SHADOW = {
 };
 
 export const DYNAMIC_BORDER_COLOR = {
+  'None': '',
   'Primary Tier 1': 'border-primary-tier-1',
   'Primary Tier 2': 'border-primary-tier-2',
   'Primary Tier 3': 'border-primary-tier-3',
@@ -112,32 +114,34 @@ export const DYNAMIC_BORDER_COLOR = {
 };
 
 export const DYNAMIC_BACKGROUND_COLOR = {
-  'Primary Tier 1': 'bg-primary-tier-1 font-primary-tier-1',
-  'Primary Tier 2': 'bg-primary-tier-2 font-primary-tier-2',
-  'Primary Tier 3': 'bg-primary-tier-3 font-primary-tier-3',
-  'Primary Variant Tier 1': 'bg-primary-variant-tier-1 font-primary-variant-tier-1',
-  'Primary Variant Tier 2': 'bg-primary-variant-tier-2 font-primary-variant-tier-2',
-  'Primary Variant Tier 3': 'bg-primary-variant-tier-3 font-primary-variant-tier-3',
-  'Secondary': 'bg-secondary font-secondary',
-  'Tertiary': 'bg-tertiary font-tertiary',
-  'Surface': 'bg-surface font-surface',
-  'Surface Light': 'bg-surface-light font-surface',
-  'Surface Dark': 'bg-surface-dark font-surface',
-  'Surface Variant': 'bg-surface-variant font-surface',
-  'Surface Variant Light': 'bg-surface-variant-light font-surface',
-  'Surface Variant Dark': 'bg-surface-variant-dark font-surface',
-  'Surface Variant Darkest': 'bg-surface-variant-darkest font-surface',
+  'None': '',
+  'Primary Tier 1': 'bg-primary-tier-1',
+  'Primary Tier 2': 'bg-primary-tier-2',
+  'Primary Tier 3': 'bg-primary-tier-3',
+  'Primary Variant Tier 1': 'bg-primary-variant-tier-1',
+  'Primary Variant Tier 2': 'bg-primary-variant-tier-2',
+  'Primary Variant Tier 3': 'bg-primary-variant-tier-3',
+  'Secondary': 'bg-secondary',
+  'Tertiary': 'bg-tertiary',
+  'Surface': 'bg-surface',
+  'Surface Light': 'bg-surface-light',
+  'Surface Dark': 'bg-surface-dark',
+  'Surface Variant': 'bg-surface-variant',
+  'Surface Variant Light': 'bg-surface-variant-light',
+  'Surface Variant Dark': 'bg-surface-variant-dark',
+  'Surface Variant Darkest': 'bg-surface-variant-darkest',
 };
 
 export const DYNAMIC_FONT_COLOR = {
-  'Primary Tier 1': 'bg-primary-tier-1 font-primary-tier-1',
-  'Primary Tier 2': 'bg-primary-tier-2 font-primary-tier-2',
-  'Primary Tier 3': 'bg-primary-tier-3 font-primary-tier-3',
-  'Primary Variant Tier 1': 'bg-primary-variant-tier-1 font-primary-variant-tier-1',
-  'Primary Variant Tier 2': 'bg-primary-variant-tier-2 font-primary-variant-tier-2',
-  'Primary Variant Tier 3': 'bg-primary-variant-tier-3 font-primary-variant-tier-3',
-  'Secondary': 'bg-secondary font-secondary',
-  'Tertiary': 'bg-tertiary font-tertiary',
-  'Surface': 'bg-surface font-surface',
-  'Surface Variant': 'bg-surface font-surface-variant',
+  'None': '',
+  'Primary Tier 1': 'font-primary-tier-1',
+  'Primary Tier 2': 'font-primary-tier-2',
+  'Primary Tier 3': 'font-primary-tier-3',
+  'Primary Variant Tier 1': 'font-primary-variant-tier-1',
+  'Primary Variant Tier 2': 'font-primary-variant-tier-2',
+  'Primary Variant Tier 3': 'font-primary-variant-tier-3',
+  'Secondary': 'font-secondary',
+  'Tertiary': 'font-tertiary',
+  'Surface': 'font-surface',
+  'Surface Variant': 'font-surface-variant',
 };

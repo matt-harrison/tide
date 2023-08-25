@@ -9,7 +9,7 @@ const formatArgs = (args: any) => {
 };
 
 const formatClassNames = (args: any) => {
-  return `${args.bgColor}`;
+  return `${args.color}`;
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
@@ -40,22 +40,34 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    bgColor: {
+    color: {
       control: 'select',
-      description: 'Realm-dictated Background Color<br/>(Font color shown for demonstration purposes.)',
+      description: 'Realm-dictated background color',
       options: DYNAMIC_BACKGROUND_COLOR,
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'DYNAMIC_BACKGROUND_COLOR' },
       },
     },
+  },
+  args: {
+    color: 'None',
   },
   tags: ['autodocs'],
   title: 'Foundations/Dynamic Utilities/Background Color',
 };
 
+export const Default = {
+  args: {
+    color: DYNAMIC_BACKGROUND_COLOR.None,
+  },
+  parameters,
+  render,
+};
+
 export const BackgroundPrimaryTier1 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 1'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 1'],
   },
   name: 'Primary Tier 1',
   parameters,
@@ -64,7 +76,7 @@ export const BackgroundPrimaryTier1 = {
 
 export const BackgroundPrimaryTier2 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 2'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 2'],
   },
   name: 'Primary Tier 2',
   parameters,
@@ -73,7 +85,7 @@ export const BackgroundPrimaryTier2 = {
 
 export const BackgroundPrimaryTier3 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 3'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 3'],
   },
   name: 'Primary Tier 3',
   parameters,
@@ -82,7 +94,7 @@ export const BackgroundPrimaryTier3 = {
 
 export const BackgroundPrimaryVariantTier1 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 1'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 1'],
   },
   name: 'Primary Variant Tier 1',
   parameters,
@@ -91,7 +103,7 @@ export const BackgroundPrimaryVariantTier1 = {
 
 export const BackgroundPrimaryVariantTier2 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 2'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 2'],
   },
   name: 'Primary Variant Tier 2',
   parameters,
@@ -100,7 +112,7 @@ export const BackgroundPrimaryVariantTier2 = {
 
 export const BackgroundPrimaryVariantTier3 = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Primary Tier 3'],
+    color: DYNAMIC_BACKGROUND_COLOR['Primary Tier 3'],
   },
   name: 'Primary Variant Tier 3',
   parameters,
@@ -109,7 +121,7 @@ export const BackgroundPrimaryVariantTier3 = {
 
 export const BackgroundSecondary = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Secondary'],
+    color: DYNAMIC_BACKGROUND_COLOR['Secondary'],
   },
   name: 'Secondary',
   parameters,
@@ -118,7 +130,7 @@ export const BackgroundSecondary = {
 
 export const BackgroundTertiary = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Tertiary'],
+    color: DYNAMIC_BACKGROUND_COLOR['Tertiary'],
   },
   name: 'Tertiary',
   parameters,
@@ -127,7 +139,7 @@ export const BackgroundTertiary = {
 
 export const BackgroundSurface = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Surface'],
+    color: DYNAMIC_BACKGROUND_COLOR['Surface'],
   },
   name: 'Surface',
   parameters,
@@ -136,7 +148,7 @@ export const BackgroundSurface = {
 
 export const BackgroundSurfaceLight = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Surface Light'],
+    color: DYNAMIC_BACKGROUND_COLOR['Surface Light'],
   },
   name: 'Surface - Light',
   parameters,
@@ -145,7 +157,7 @@ export const BackgroundSurfaceLight = {
 
 export const BackgroundSurfaceDark = {
   args: {
-    bgColor: DYNAMIC_BACKGROUND_COLOR['Surface Dark'],
+    color: DYNAMIC_BACKGROUND_COLOR['Surface Dark'],
   },
   name: 'Surface - Dark',
   parameters,
