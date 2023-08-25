@@ -46,10 +46,11 @@ export default {
   argTypes: {
     'text-shadow': {
       control: 'select',
-      description: 'Text Shadow',
+      description: 'Text shadow',
       options: TEXT_SHADOW,
       table: {
         defaultValue: { summary: 'Off' },
+        type: { summary: 'TEXT_SHADOW' },
       },
     },
   },
@@ -69,7 +70,6 @@ export const TextShadowOn = {
   args: {
     'text-shadow': TEXT_SHADOW.On,
   },
-  name: 'Text Shadow',
   parameters,
   render,
 };

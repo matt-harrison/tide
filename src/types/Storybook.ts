@@ -2,7 +2,8 @@
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
 export const BACKGROUND_COLOR = {
-  'White': '',
+  'None': '',
+  'White': 'bg-white',
   'Gray - Light': 'bg-gray-light',
   'Gray - Medium': 'bg-gray',
   'Gray - Dark': 'bg-gray-dark font-white',
@@ -72,7 +73,6 @@ export const FONT_WEIGHT = {
 };
 
 export const SPACING_SIDE = {
-  'None': undefined,
   'Full': '',
   'X-axis': 'x',
   'Y-axis': 'y',

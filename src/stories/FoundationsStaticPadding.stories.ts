@@ -47,20 +47,25 @@ export default {
   argTypes: {
     side: {
       control: 'select',
-      description: 'Padding Side',
+      description: 'Side(s) of box model',
       options: SPACING_SIDE,
       table: {
-        defaultValue: { summary: 'None' },
+        defaultValue: { summary: 'Full' },
+        type: { summary: 'SPACING_SIDE' },
       },
     },
     size: {
       control: 'select',
-      description: 'Padding Size<br />(1 REM equals 16px by default.)',
+      description: 'Padding thickness',
       options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'SPACING_SIZE' },
       },
     },
+  },
+  args: {
+    side: SPACING_SIDE.Full,
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Padding',

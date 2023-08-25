@@ -46,12 +46,15 @@ export default {
   argTypes: {
     color: {
       control: 'select',
-      description: 'Background Color<br/>(Font color shown for demonstration purposes.)',
+      description: 'Background color',
       options: BACKGROUND_COLOR,
       table: {
-        defaultValue: { summary: 'White' },
+        defaultValue: { summary: 'None' },
       },
     },
+  },
+  args: {
+    color: BACKGROUND_COLOR.None,
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Background',

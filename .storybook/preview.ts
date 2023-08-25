@@ -40,7 +40,7 @@ const preview: Preview = {
         order: [
           'Foundations',
           [
-            'Static Utilities', ['Flex Gap', 'Margin', 'Border', 'Padding', 'Background', 'Typography',
+            'Static Utilities', ['Flex', 'Margin', 'Border', 'Padding', 'Background', 'Typography',
             'Shadow', ['Box Shadow', 'Text Shadow']
           ],
             'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
@@ -59,6 +59,7 @@ const preview: Preview = {
             'BasicTabs',
             'BasicToggle',
           ],
+          'Proof of Concept',
         ],
       },
     },

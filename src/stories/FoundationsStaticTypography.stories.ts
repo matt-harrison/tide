@@ -48,26 +48,29 @@ export default {
   argTypes: {
     color: {
       control: 'select',
-      description: 'Font Color',
+      description: 'Font color',
       options: FONT_COLOR,
       table: {
         defaultValue: { summary: 'Black' },
+        type: { summary: 'FONT_COLOR' },
       },
     },
     size: {
       control: 'select',
-      description: 'Font Size',
+      description: 'Font size',
       options: FONT_SIZE,
       table: {
         defaultValue: { summary: '16px' },
+        type: { summary: 'FONT_SIZE' },
       },
     },
     weight: {
       control: 'select',
-      description: 'Font Weight',
+      description: 'Font weight',
       options: FONT_WEIGHT,
       table: {
         defaultValue: { summary: 'Medium' },
+        type: { summary: 'FONT_WEIGHT' },
       },
     },
   },

@@ -46,10 +46,11 @@ export default {
   argTypes: {
     'box-shadow': {
       control: 'select',
-      description: 'Box Shadow',
+      description: 'Box shadow',
       options: BOX_SHADOW,
       table: {
         defaultValue: { summary: 'Off' },
+        type: { summary: 'BOX_SHADOW' },
       },
     },
   },
@@ -65,11 +66,10 @@ export const Default = {
   render,
 };
 
-export const TextShadowOn = {
+export const BoxShadowOn = {
   args: {
     'box-shadow': BOX_SHADOW.On,
   },
-  name: 'Box Shadow',
   parameters,
   render,
 };

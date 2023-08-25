@@ -54,36 +54,43 @@ export default {
   argTypes: {
     color: {
       control: 'select',
-      description: 'Border Color',
+      description: 'Border color',
       options: BORDER_COLOR,
       table: {
         defaultValue: { summary: 'Black' },
+        type: { summary: 'BORDER_COLOR' },
       },
     },
     radius: {
       control: 'select',
-      description: 'Border Radius<br />(1 REM equals 16px by default.)',
+      description: 'Severity of rounded corners',
       options: BORDER_RADIUS,
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'BORDER_RADIUS' },
       },
     },
     side: {
       control: 'select',
-      description: 'Border Side',
+      description: 'Side(s) of box model',
       options: BORDER_SIDE,
       table: {
         defaultValue: { summary: 'Full' },
+        type: { summary: 'BORDER_SIDE' },
       },
     },
     size: {
       control: 'select',
-      description: 'Border Size<br />(Required.)',
+      description: 'Border thickness',
       options: BORDER_SIZE,
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'BORDER_SIZE' },
       },
     },
+  },
+  args: {
+    side: BORDER_SIDE.Full,
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Border',
