@@ -59,7 +59,11 @@ const preview: Preview = {
             'BasicTabs',
             'BasicToggle',
           ],
-          'Proof of Concept',
+          'Proof of Concept', [
+            'Template',
+            'TemplateCssControlsByTextInput',
+            'TemplateCssControlsByType',
+          ],
         ],
       },
     },

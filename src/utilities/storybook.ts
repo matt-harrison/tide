@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
-import { ICON, ICON_COLOR } from '@/types/Icon';
+import { ICON } from '@/types/Icon';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const tag = context.component?.__name;
@@ -72,14 +72,4 @@ const iconControl = {
   },
 };
 
-const iconColorControl = {
-  constant: getVariableName({ ICON_COLOR }),
-  control: 'select',
-  isCss: true,
-  options: {
-    None: undefined,
-    ...ICON_COLOR,
-  },
-};
-
-export { formatSnippet, getLabelsFromOptions, getVariableName, iconColorControl, iconControl };
+export { formatSnippet, getLabelsFromOptions, getVariableName, iconControl };

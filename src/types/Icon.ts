@@ -41,10 +41,4 @@ export const ICON = {
   YOUTUBE: 'youtube',
 } as const;
 
-export const ICON_COLOR = {
-  BLUE: 'font-blue',
-  RED: 'font-red',
-} as const;
-
 export type Icon = (typeof ICON)[keyof typeof ICON];
-export type IconColor = (typeof ICON_COLOR)[keyof typeof ICON_COLOR];

@@ -49,7 +49,6 @@ export default {
       control: 'select',
       description: 'Side(s) of box model',
       options: SPACING_SIDE,
-      required: true,
       table: {
         defaultValue: { summary: 'Full' },
         type: { summary: 'SPACING_SIDE' },

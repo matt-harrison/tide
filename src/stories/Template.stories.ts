@@ -53,7 +53,7 @@ export default {
     tier: {
       constant: getVariableName({ TIER_VARIANT }),
       control: 'select',
-      description: 'Tier<br />(Note.)', // Description in Description column
+      description: 'Tier', // Description in Description column
       name: 'Tier', // Name column
       options: TIER_VARIANT,
       table: {
