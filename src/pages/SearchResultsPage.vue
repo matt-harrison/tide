@@ -4,18 +4,18 @@
 
   import type { BreadCrumb } from '@/types/BreadCrumb';
 
-  import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
+  import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
-  import BasicButtonPagination from '@/components/BasicButtonPagination.vue';
-  import BasicTabs from '@/components/BasicTabs.vue';
+  import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
+  import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
-  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
@@ -25,7 +25,7 @@
   import SeoContent from '@/components/SeoContent.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
-  import { ELEMENT_PAGINATION } from '@/types/Element';
+  import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
@@ -600,15 +600,15 @@
                 :key="paginationButton"
                 v-for="paginationButton in paginationButtons"
               >
-                <BasicButtonPagination
-                  :element="ELEMENT_PAGINATION.DIV"
+                <BasicButtonTextAsIcon
+                  :element="ELEMENT_TEXT_AS_ICON.DIV"
                   :label="paginationButton"
                   :priority="PRIORITY.PRIMARY"
                   :tier="TIER.TIER_2"
                   v-if="filterStore.pageCurrent === paginationButton"
                 />
 
-                <BasicButtonPagination
+                <BasicButtonTextAsIcon
                   :label="paginationButton"
                   :priority="PRIORITY.TERTIARY"
                   @click="filterStore.setPageCurrent(paginationButton)"

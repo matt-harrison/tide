@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-  import type { ElementPagination } from '@/types/Element';
+  import type { ElementTextAsIcon } from '@/types/Element';
   import type { Priority } from '@/types/Priority';
   import type { SizeIcon } from '@/types/Size';
   import type { Tier } from '@/types/Tier';
 
-  import { ELEMENT_PAGINATION } from '@/types/Element';
+  import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
   import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
   type Props = {
-    element?: ElementPagination;
+    disabled?: boolean;
+    element?: ElementTextAsIcon;
     href?: string;
     isNewTab?: boolean;
     label: string | number;
@@ -21,11 +22,12 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    element: ELEMENT_PAGINATION.BUTTON,
+    disabled: false,
+    element: ELEMENT_TEXT_AS_ICON.BUTTON,
     href: undefined,
     isNewTab: false,
     label: undefined,
-    priority: undefined,
+    priority: PRIORITY.PRIMARY,
     size: SIZE_ICON.SMALL,
     tier: TIER.TIER_1,
   });
@@ -34,20 +36,24 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT_PAGINATION.ANCHOR ? 'basic-link-as-button-icon' : 'basic-button-icon',
+      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR ? 'basic-link-as-button-icon' : 'basic-button-icon',
       props.size === SIZE_ICON.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       'inline-block radius-full p-1/2',
-      props.element === ELEMENT_PAGINATION.ANCHOR ? 'underline-none' : '',
-      props.element === ELEMENT_PAGINATION.DIV ? 'cursor' : '',
+      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR ? 'underline-none' : '',
+      props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
       'font-700 select-none',
     ]"
-    :href="props.element === ELEMENT_PAGINATION.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT_PAGINATION.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
+    :href="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.href ? props.href : undefined"
+    :target="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="
-      props.element === ELEMENT_PAGINATION.ANCHOR ? 'a' : props.element === ELEMENT_PAGINATION.BUTTON ? 'button' : 'div'
+      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR
+        ? 'a'
+        : props.element === ELEMENT_TEXT_AS_ICON.BUTTON
+        ? 'button'
+        : 'div'
     "
   >
     <span class="label flex axis1-center axis2-center">{{ props.label }}</span>

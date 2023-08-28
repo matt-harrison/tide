@@ -29,7 +29,7 @@
     href: undefined,
     icon: undefined,
     isNewTab: false,
-    priority: undefined,
+    priority: PRIORITY.PRIMARY,
     size: SIZE_ICON.SMALL,
     tier: TIER.TIER_1,
   });

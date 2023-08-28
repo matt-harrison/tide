@@ -50,7 +50,7 @@ const preview: Preview = {
             'BasicBreadCrumbs',
             'BasicButton',
             'BasicButtonIcon',
-            'BasicButtonPagination',
+            'BasicButtonTextAsIcon',
             'BasicChipAction',
             'BasicChipFilter',
             'BasicChipInput',
