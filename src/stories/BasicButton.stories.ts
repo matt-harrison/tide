@@ -48,7 +48,7 @@ export default {
       if: { arg: 'element', eq: ELEMENT.BUTTON },
       table: {
         defaultValue: { summary: 'False' },
-        type: { summary: 'string' },
+        type: { summary: 'boolean' },
       },
     },
     element: {

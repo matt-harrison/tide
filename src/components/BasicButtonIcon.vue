@@ -13,9 +13,10 @@
   import { TIER } from '@/types/Tier';
 
   type Props = {
+    disabled?: boolean;
     element?: Element;
     href?: string;
-    icon?: Icon;
+    icon: Icon;
     isNewTab?: boolean;
     priority?: Priority;
     size?: SizeIcon;
@@ -23,6 +24,7 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
+    disabled: false,
     element: ELEMENT.BUTTON,
     href: undefined,
     icon: undefined,
@@ -44,6 +46,7 @@
       'flex axis1-center axis2-center radius-full p-1/2',
       props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
     ]"
+    :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.ANCHOR && props.href ? props.href : undefined"
     :target="props.element === ELEMENT.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="props.element === ELEMENT.ANCHOR ? 'a' : 'button'"

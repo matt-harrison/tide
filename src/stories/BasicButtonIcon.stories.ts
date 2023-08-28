@@ -14,7 +14,6 @@ const formatArgs = (args: any) => {
 
   if (args.element === ELEMENT.BUTTON) {
     delete args.href;
-    delete args.target;
   }
 
   delete args.element;
@@ -45,43 +44,127 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    disabled: {
+      control: 'boolean',
+      description: 'Determines clickability<br />(Button only)',
+      if: { arg: 'element', eq: ELEMENT.BUTTON },
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
+      },
+    },
     element: {
       constant: getVariableName({ ELEMENT }),
       control: 'select',
+      description: 'HTML tag type',
       options: ELEMENT,
+      table: {
+        defaultValue: { summary: 'ELEMENT.BUTTON' },
+        type: { summary: 'Element' },
+      },
     },
     href: {
+      description: 'URL to open<br />(Anchor only)',
       if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
     },
-    icon: iconControl,
+    icon: {
+      ...iconControl,
+      description: 'Icon',
+    },
+    isNewTab: {
+      control: 'boolean',
+      description: 'Determines whether to target a new browser tab<br />(Anchor only)',
+      if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
+      },
+    },
     priority: {
       constant: getVariableName({ PRIORITY }),
       control: 'select',
+      description: 'Determines visual prominence',
       options: PRIORITY,
+      table: {
+        defaultValue: { summary: 'PRIORITY. PRIMARY' },
+        type: { summary: 'Priority' },
+      },
     },
     size: {
       constant: getVariableName({ SIZE_ICON }),
       control: 'select',
+      description: 'Determines icon dimensions',
       options: SIZE_ICON,
-    },
-    target: {
-      control: 'select',
-      if: { arg: 'element', eq: ELEMENT.ANCHOR },
-      options: TARGET,
+      table: {
+        defaultValue: { summary: 'SIZE_ICON. SMALL' },
+        type: { summary: 'SizeIcon' },
+      },
     },
     tier: {
       constant: getVariableName({ TIER }),
       control: 'select',
+      description: 'Determines brand colors<br />(Primary only)',
       if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       options: TIER,
+      table: {
+        defaultValue: { summary: 'TIER.TIER_1' },
+        type: { summary: 'Tier' },
+      },
     },
+  },
+  args: {
+    disabled: false,
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com',
+    icon: ICON.ENVELOPE,
+    isNewTab: false,
+    priority: PRIORITY.PRIMARY,
+    size: SIZE_ICON.SMALL,
+    tier: TIER.TIER_1,
   },
   component: BasicButtonIcon,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButtonIcon',
 };
 
-export const Primary = {
+export const Demo = {
+  parameters,
+  render,
+};
+
+export const PrimaryTier1 = {
+  args: {
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com/',
+    icon: ICON.ENVELOPE,
+    priority: PRIORITY.PRIMARY,
+    size: SIZE_ICON.SMALL,
+    target: TARGET.SELF,
+    tier: TIER.TIER_1,
+  },
+  parameters,
+  render,
+};
+
+export const PrimaryTier2 = {
+  args: {
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com/',
+    icon: ICON.ENVELOPE,
+    priority: PRIORITY.PRIMARY,
+    size: SIZE_ICON.SMALL,
+    target: TARGET.SELF,
+    tier: TIER.TIER_2,
+  },
+  parameters,
+  render,
+};
+
+export const PrimaryTier3 = {
   args: {
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com/',
