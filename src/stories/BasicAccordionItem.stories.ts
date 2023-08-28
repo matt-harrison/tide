@@ -82,22 +82,20 @@ export const Demo = {
   render,
 };
 
-export const AccordionItemInitiallyCollapsed = {
+export const InitiallyCollapsed = {
   args: {
     isExpandedInitial: false,
     label: 'Initially Collapsed',
   },
-  name: 'Initially Collapsed',
   parameters,
   render,
 };
 
-export const AccordionItemInitiallyExpanded = {
+export const InitiallyExpanded = {
   args: {
     isExpandedInitial: true,
     label: 'Initially Expanded',
   },
-  name: 'Initially Expanded',
   parameters,
   render,
 };

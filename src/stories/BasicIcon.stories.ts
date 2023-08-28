@@ -60,3 +60,19 @@ export const Demo = {
   parameters,
   render,
 };
+
+export const Medium = {
+  args: {
+    size: SIZE_ICON_STORYBOOK.MEDIUM,
+  },
+  parameters,
+  render,
+};
+
+export const Small = {
+  args: {
+    size: SIZE_ICON_STORYBOOK.SMALL,
+  },
+  parameters,
+  render,
+};
