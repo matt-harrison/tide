@@ -40,6 +40,7 @@ export default {
       description: 'URL to navigate to on click',
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
     label: {
@@ -47,6 +48,7 @@ export default {
       description: 'Chip text',
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
     tier: {
@@ -54,6 +56,10 @@ export default {
       control: 'select',
       description: 'Determines brand colors',
       options: TIER_VARIANT,
+      table: {
+        defaultValue: { summary: 'TIER.TIER_3' },
+        type: { summary: 'Tier' },
+      },
     },
   },
   args: {
