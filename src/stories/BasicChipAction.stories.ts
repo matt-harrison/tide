@@ -65,6 +65,7 @@ export default {
   args: {
     href: '/',
     label: 'Demo',
+    tier: undefined,
   },
   component: BasicChipAction,
   tags: ['autodocs'],
@@ -74,7 +75,6 @@ export default {
 export const Demo = {
   args: {
     href: '/',
-    label: 'Demo',
   },
   parameters,
   render,
@@ -83,7 +83,6 @@ export const Demo = {
 export const Tier2 = {
   args: {
     href: '/',
-    label: 'Demo',
     tier: TIER_VARIANT.TIER_2,
   },
   parameters,
@@ -93,7 +92,6 @@ export const Tier2 = {
 export const Tier3 = {
   args: {
     href: '/',
-    label: 'Demo',
     tier: TIER_VARIANT.TIER_3,
   },
   parameters,
