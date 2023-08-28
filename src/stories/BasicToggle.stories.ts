@@ -30,10 +30,15 @@ export default {
   argTypes: {
     isActive: {
       control: 'boolean',
+      description: 'Determines whether toggle is active',
       table: {
         defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
       },
     },
+  },
+  args: {
+    isActive: false,
   },
   component: BasicToggle,
   tags: ['autodocs'],
@@ -41,6 +46,11 @@ export default {
 };
 
 export const Demo = {
+  parameters,
+  render,
+};
+
+export const Inactive = {
   args: {
     isActive: false,
   },
@@ -48,15 +58,7 @@ export const Demo = {
   render,
 };
 
-export const BasicToggleInactive = {
-  args: {
-    isActive: false,
-  },
-  parameters,
-  render,
-};
-
-export const BasicToggleActive = {
+export const Active = {
   args: {
     isActive: true,
   },
