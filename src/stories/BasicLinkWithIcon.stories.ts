@@ -1,7 +1,6 @@
 import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
 import { ICON } from '@/types/Icon';
-import { TARGET } from '@/types/Target';
-import { formatSnippet, iconControl } from '@/utilities/storybook';
+import { formatSnippet, iconControlWithNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -30,33 +29,45 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    classIcon: {
-      control: 'text',
-      table: {
-        defaultValue: { summary: 'None' },
-      },
-    },
     href: {
       control: 'text',
+      description: 'URL to navigate to on click',
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
-    iconLeading: iconControl,
-    iconTrailing: iconControl,
+    iconLeading: {
+      description: 'Icon to left of label',
+      ...iconControlWithNone,
+    },
+    iconTrailing: {
+      description: 'Icon to right of label',
+      ...iconControlWithNone,
+    },
+    isNewTab: {
+      control: 'boolean',
+      description: 'Determines whether to target a new browser tab',
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
+      },
+    },
     label: {
       control: 'text',
+      description: 'Link text',
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
-    target: {
-      control: 'select',
-      options: TARGET,
-      table: {
-        defaultValue: { summary: 'None' },
-      },
-    },
+  },
+  args: {
+    href: '/',
+    iconLeading: ICON.STAR,
+    iconTrailing: undefined,
+    isNewTab: false,
+    label: 'Demo',
   },
   component: BasicLinkWithIcon,
   tags: ['autodocs'],
@@ -65,11 +76,8 @@ export default {
 
 export const Demo = {
   args: {
-    classIcon: '',
-    href: '',
     iconLeading: ICON.STAR,
     label: 'Demo',
-    target: '',
   },
   parameters,
   render,
@@ -77,11 +85,8 @@ export const Demo = {
 
 export const IconLeading = {
   args: {
-    classIcon: '',
-    href: '',
     iconLeading: ICON.STAR,
     label: 'Demo',
-    target: '',
   },
   parameters,
   render,
@@ -89,11 +94,9 @@ export const IconLeading = {
 
 export const IconTrailing = {
   args: {
-    classIcon: '',
-    href: '',
+    iconLeading: undefined,
     iconTrailing: ICON.STAR,
     label: 'Demo',
-    target: '',
   },
   parameters,
   render,

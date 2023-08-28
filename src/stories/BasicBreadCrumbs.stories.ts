@@ -37,7 +37,7 @@ export default {
       description: 'An array of BreadCrumb objects.<br />(Label required, URL optional.)',
       table: {
         defaultValue: { summary: '[]' },
-        type: 'BreadCrumb[]',
+        type: { summary: 'BreadCrumb[]' },
       },
     },
   },

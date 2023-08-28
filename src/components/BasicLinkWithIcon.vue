@@ -6,7 +6,6 @@
   import { TARGET } from '@/types/Target';
 
   type Props = {
-    classIcon?: string;
     href: string;
     iconLeading?: Icon;
     iconTrailing?: Icon;
@@ -15,7 +14,6 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    classIcon: undefined,
     href: undefined,
     iconLeading: undefined,
     iconTrailing: undefined,
@@ -31,7 +29,6 @@
     class="basic-link-with-icon inline-flex axis2-center gap-1/2 underline-none"
   >
     <BasicIcon
-      :class="classIcon"
       :icon="props.iconLeading"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconLeading"
@@ -40,7 +37,6 @@
     <div class="underline">{{ props.label }}</div>
 
     <BasicIcon
-      :class="classIcon"
       :icon="props.iconTrailing"
       :size="SIZE_ICON.SMALL"
       v-if="props.iconTrailing"
