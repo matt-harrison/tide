@@ -3,7 +3,7 @@ import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_BUTTON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
+import { formatSnippet, getVariableName, iconControlWithNone } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
   args.class = `${args.class} ${args.fill}`;
@@ -70,11 +70,11 @@ export default {
       },
     },
     iconLeading: {
-      ...iconControl,
+      ...iconControlWithNone,
       description: 'Icon to left of label',
     },
     iconTrailing: {
-      ...iconControl,
+      ...iconControlWithNone,
       description: 'Icon to right of label',
     },
     isNewTab: {

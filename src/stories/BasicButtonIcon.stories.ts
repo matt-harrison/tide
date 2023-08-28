@@ -2,7 +2,7 @@ import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_ICON } from '@/types/Size';
+import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
 import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
@@ -95,12 +95,12 @@ export default {
       },
     },
     size: {
-      constant: getVariableName({ SIZE_ICON }),
+      constant: getVariableName({ SIZE_ICON_STORYBOOK }),
       control: 'select',
       description: 'Determines icon dimensions',
-      options: SIZE_ICON,
+      options: SIZE_ICON_STORYBOOK,
       table: {
-        defaultValue: { summary: 'SIZE_ICON. SMALL' },
+        defaultValue: { summary: 'SIZE_ICON_STORYBOOK. SMALL' },
         type: { summary: 'SizeIcon' },
       },
     },
@@ -123,7 +123,7 @@ export default {
     icon: ICON.ENVELOPE,
     isNewTab: false,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     tier: TIER.TIER_1,
   },
   component: BasicButtonIcon,
@@ -142,7 +142,7 @@ export const PrimaryTier1 = {
     href: 'https://www.traderinteractive.com/',
     icon: ICON.ENVELOPE,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
@@ -156,7 +156,7 @@ export const PrimaryTier2 = {
     href: 'https://www.traderinteractive.com/',
     icon: ICON.ENVELOPE,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_2,
   },
@@ -170,7 +170,7 @@ export const PrimaryTier3 = {
     href: 'https://www.traderinteractive.com/',
     icon: ICON.ENVELOPE,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
@@ -184,7 +184,7 @@ export const Secondary = {
     href: 'https://www.traderinteractive.com/',
     icon: ICON.ENVELOPE,
     priority: PRIORITY.SECONDARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
@@ -198,7 +198,7 @@ export const Tertiary = {
     href: 'https://www.traderinteractive.com/',
     icon: ICON.ENVELOPE,
     priority: PRIORITY.TERTIARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_ICON_STORYBOOK.SMALL,
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },

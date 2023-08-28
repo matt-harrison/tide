@@ -28,7 +28,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
         });
       }
 
-      if (value !== '' && value !== 'None') {
+      if (!!value && value !== 'None') {
         return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
       }
     }
@@ -63,6 +63,16 @@ const getVariableName = (input: any) => {
 const iconControl = {
   constant: getVariableName({ ICON }),
   control: 'select',
+  options: ICON,
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: 'Icon' },
+  },
+};
+
+const iconControlWithNone = {
+  constant: getVariableName({ ICON }),
+  control: 'select',
   options: {
     None: undefined,
     ...ICON,
@@ -73,4 +83,4 @@ const iconControl = {
   },
 };
 
-export { formatSnippet, getLabelsFromOptions, getVariableName, iconControl };
+export { formatSnippet, getLabelsFromOptions, getVariableName, iconControl, iconControlWithNone };
