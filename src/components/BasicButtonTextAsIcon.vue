@@ -46,6 +46,7 @@
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
       'font-700 select-none',
     ]"
+    :disabled="props.element === ELEMENT_TEXT_AS_ICON.BUTTON && props.disabled"
     :href="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.href ? props.href : undefined"
     :target="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="

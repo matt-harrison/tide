@@ -18,7 +18,7 @@
       :key="crumb.label"
       v-for="(crumb, index) in props.breadCrumbs"
     >
-      <li :class="[crumb.url ? 'font-700' : 'font-surface-variant']">
+      <li :class="[crumb.url ? 'font-700' : '']">
         <a
           :href="crumb.url"
           v-if="crumb.url"

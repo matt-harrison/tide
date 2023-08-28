@@ -88,13 +88,22 @@ export const Default = {
   render,
 };
 
+export const FontColorBlack = {
+  args: {
+    color: FONT_COLOR.Black,
+    size: FONT_SIZE.None,
+    weight: FONT_WEIGHT.None,
+  },
+  parameters,
+  render,
+};
+
 export const FontColorBlue = {
   args: {
     color: FONT_COLOR.Blue,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-color-blue',
   parameters,
   render,
 };
@@ -105,7 +114,6 @@ export const FontColorRed = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-color-red',
   parameters,
   render,
 };
@@ -116,7 +124,7 @@ export const FontSize10 = {
     size: FONT_SIZE['10px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-10',
+  name: 'Font Size 10px',
   parameters,
   render,
 };
@@ -127,7 +135,7 @@ export const FontSize12 = {
     size: FONT_SIZE['12px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-12',
+  name: 'Font Size 12px',
   parameters,
   render,
 };
@@ -138,7 +146,7 @@ export const FontSize14 = {
     size: FONT_SIZE['14px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-14',
+  name: 'Font Size 14px',
   parameters,
   render,
 };
@@ -149,7 +157,7 @@ export const FontSize16 = {
     size: FONT_SIZE['16px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-16',
+  name: 'Font Size 16px',
   parameters,
   render,
 };
@@ -160,7 +168,7 @@ export const FontSize18 = {
     size: FONT_SIZE['18px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-18',
+  name: 'Font Size 18px',
   parameters,
   render,
 };
@@ -171,7 +179,7 @@ export const FontSize20 = {
     size: FONT_SIZE['20px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-20',
+  name: 'Font Size 20px',
   parameters,
   render,
 };
@@ -182,7 +190,7 @@ export const FontSize24 = {
     size: FONT_SIZE['24px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-24',
+  name: 'Font Size 24px',
   parameters,
   render,
 };
@@ -193,7 +201,7 @@ export const FontSize28 = {
     size: FONT_SIZE['28px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-28',
+  name: 'Font Size 28px',
   parameters,
   render,
 };
@@ -204,7 +212,7 @@ export const FontSize32 = {
     size: FONT_SIZE['32px'],
     weight: FONT_WEIGHT.None,
   },
-  name: 'font-size-32',
+  name: 'Font Size 32px',
   parameters,
   render,
 };
@@ -215,7 +223,7 @@ export const FontWeight500 = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.Medium,
   },
-  name: 'font-500',
+  name: 'Font Weight 500 (Medium)',
   parameters,
   render,
 };
@@ -226,7 +234,7 @@ export const FontWeight600 = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT['Semi-bold'],
   },
-  name: 'font-600',
+  name: 'Font Weight 600 (Semi-bold)',
   parameters,
   render,
 };
@@ -237,7 +245,7 @@ export const FontWeight700 = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.Bold,
   },
-  name: 'font-700',
+  name: 'Font Weight 700 (Bold)',
   parameters,
   render,
 };
