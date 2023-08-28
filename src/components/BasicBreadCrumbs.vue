@@ -18,26 +18,25 @@
       :key="crumb.label"
       v-for="(crumb, index) in props.breadCrumbs"
     >
-      <li
-        :class="[props.breadCrumbs && index !== props.breadCrumbs.length - 1 ? 'font-700' : 'font-surface-variant']"
-        v-if="crumb.url"
-      >
+      <li :class="[crumb.url ? 'font-700' : 'font-surface-variant']">
         <a
           :href="crumb.url"
           v-if="crumb.url"
         >
           {{ crumb.label }}
         </a>
+
+        <span v-else>
+          {{ crumb.label }}
+        </span>
       </li>
 
       <li
-        class="flex column axis1-center font-surface-variant"
-        v-if="crumb.url"
+        class="font-surface-variant"
+        v-if="props.breadCrumbs && index < props.breadCrumbs.length - 1"
       >
         /
       </li>
-
-      <li v-if="!crumb.url">{{ crumb.label }}</li>
     </template>
   </ul>
 </template>
