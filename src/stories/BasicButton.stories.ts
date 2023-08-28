@@ -2,7 +2,6 @@ import BasicButton from '@/components/BasicButton.vue';
 import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_BUTTON } from '@/types/Size';
-import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
 
@@ -13,7 +12,6 @@ const formatArgs = (args: any) => {
 
   if (args.element === ELEMENT.BUTTON) {
     delete args.href;
-    delete args.target;
   }
 
   delete args.element;
@@ -44,52 +42,131 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    disabled: {
+      control: 'boolean',
+      description: 'Determines clickability<br />(Button only)',
+      if: { arg: 'element', eq: ELEMENT.BUTTON },
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'string' },
+      },
+    },
     element: {
       constant: getVariableName({ ELEMENT }),
       control: 'select',
+      description: 'HTML tag type',
       options: ELEMENT,
+      table: {
+        defaultValue: { summary: 'ELEMENT.BUTTON' },
+        type: { summary: 'Element' },
+      },
     },
     href: {
+      description: 'URL to open<br />(Anchor only)',
       if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
     },
-    iconLeading: iconControl,
-    iconTrailing: iconControl,
+    iconLeading: {
+      ...iconControl,
+      description: 'Icon to left of label',
+    },
+    iconTrailing: {
+      ...iconControl,
+      description: 'Icon to right of label',
+    },
+    isNewTab: {
+      control: 'boolean',
+      description: 'Determines whether to target a new browser tab<br />(Anchor only)',
+      if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
+      },
+    },
+    label: {
+      control: 'text',
+      description: 'Button text',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
+    },
     priority: {
       constant: getVariableName({ PRIORITY }),
       control: 'select',
+      description: 'Determines visual prominence',
       options: PRIORITY,
+      table: {
+        defaultValue: { summary: 'PRIORITY. PRIMARY' },
+        type: { summary: 'Priority' },
+      },
     },
     size: {
       constant: getVariableName({ SIZE_BUTTON }),
       control: 'select',
+      description: 'Determines spacing and font size',
       options: SIZE_BUTTON,
-    },
-    target: {
-      control: 'select',
-      if: { arg: 'element', eq: ELEMENT.ANCHOR },
-      options: TARGET,
+      table: {
+        defaultValue: { summary: 'SIZE_BUTTON. MEDIUM' },
+        type: { summary: 'SizeButton' },
+      },
     },
     tier: {
       constant: getVariableName({ TIER }),
       control: 'select',
+      description: 'Determines brand colors<br />(Primary only)',
       if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       options: TIER,
+      table: {
+        defaultValue: { summary: 'TIER.TIER_1' },
+        type: { summary: 'Tier' },
+      },
     },
+  },
+  args: {
+    disabled: false,
+    element: ELEMENT.BUTTON,
+    href: 'https://www.traderinteractive.com',
+    iconLeading: undefined,
+    iconTrailing: undefined,
+    isNewTab: false,
+    label: 'Demo',
+    priority: PRIORITY.PRIMARY,
+    size: SIZE_BUTTON.MEDIUM,
+    tier: TIER.TIER_1,
   },
   component: BasicButton,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButton',
 };
 
-export const Primary = {
+export const Default = {
+  parameters,
+  render,
+};
+
+export const PrimaryTier1 = {
   args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_BUTTON.LARGE,
-    target: TARGET.SELF,
     tier: TIER.TIER_1,
+  },
+  parameters,
+  render,
+};
+
+export const PrimaryTier2 = {
+  args: {
+    tier: TIER.TIER_2,
+  },
+  parameters,
+  render,
+};
+
+export const PrimaryTier3 = {
+  args: {
+    tier: TIER.TIER_3,
   },
   parameters,
   render,
@@ -97,13 +174,7 @@ export const Primary = {
 
 export const Secondary = {
   args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
     priority: PRIORITY.SECONDARY,
-    size: SIZE_BUTTON.LARGE,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
   },
   parameters,
   render,
@@ -111,13 +182,7 @@ export const Secondary = {
 
 export const Tertiary = {
   args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    label: 'Demo',
     priority: PRIORITY.TERTIARY,
-    size: SIZE_BUTTON.LARGE,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
   },
   parameters,
   render,

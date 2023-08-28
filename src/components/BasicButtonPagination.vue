@@ -7,25 +7,26 @@
   import { ELEMENT_PAGINATION } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
+  import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
   type Props = {
     element?: ElementPagination;
     href?: string;
+    isNewTab?: boolean;
     label: string | number;
     priority?: Priority;
     size?: SizeIcon;
-    target?: string;
     tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
     element: ELEMENT_PAGINATION.BUTTON,
     href: undefined,
+    isNewTab: false,
     label: undefined,
     priority: undefined,
     size: SIZE_ICON.SMALL,
-    target: undefined,
     tier: TIER.TIER_1,
   });
 </script>
@@ -44,7 +45,7 @@
       'font-700 select-none',
     ]"
     :href="props.element === ELEMENT_PAGINATION.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT_PAGINATION.ANCHOR && props.target ? props.target : undefined"
+    :target="props.element === ELEMENT_PAGINATION.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="
       props.element === ELEMENT_PAGINATION.ANCHOR ? 'a' : props.element === ELEMENT_PAGINATION.BUTTON ? 'button' : 'div'
     "

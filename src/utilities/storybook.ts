@@ -69,6 +69,7 @@ const iconControl = {
   },
   table: {
     defaultValue: { summary: 'None' },
+    type: { summary: 'Icon' },
   },
 };
 

@@ -91,6 +91,7 @@ export default {
   },
   args: {
     side: BORDER_SIDE.Full,
+    size: BORDER_SIZE.None,
   },
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Border',

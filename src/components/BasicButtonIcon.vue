@@ -9,15 +9,16 @@
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE_ICON } from '@/types/Size';
+  import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
   type Props = {
     element?: Element;
     href?: string;
     icon?: Icon;
+    isNewTab?: boolean;
     priority?: Priority;
     size?: SizeIcon;
-    target?: string;
     tier?: Tier;
   };
 
@@ -25,9 +26,9 @@
     element: ELEMENT.BUTTON,
     href: undefined,
     icon: undefined,
+    isNewTab: false,
     priority: undefined,
     size: SIZE_ICON.SMALL,
-    target: undefined,
     tier: TIER.TIER_1,
   });
 </script>
@@ -44,7 +45,7 @@
       props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
     ]"
     :href="props.element === ELEMENT.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT.ANCHOR && props.target ? props.target : undefined"
+    :target="props.element === ELEMENT.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="props.element === ELEMENT.ANCHOR ? 'a' : 'button'"
   >
     <BasicIcon
