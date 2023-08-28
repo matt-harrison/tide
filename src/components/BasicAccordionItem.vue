@@ -6,11 +6,6 @@
   import { SIZE_ICON } from '@/types/Size';
 
   const props = defineProps({
-    classLabel: {
-      default: undefined,
-      required: false,
-      type: String,
-    },
     isExpandedInitial: {
       default: false,
       required: false,
@@ -45,9 +40,8 @@
 <template>
   <div class="basic-accordion-item">
     <div
-      :class="classLabel"
       @click="toggleIsExpanded"
-      class="accordion-head flex axis1-between pointer"
+      class="accordion-head flex axis1-between py-1 pointer"
     >
       <span class="font-700">
         {{ props.label }}
@@ -64,7 +58,9 @@
       class="accordion-body grid"
     >
       <div class="y-hidden">
-        <slot />
+        <div class="mb-1">
+          <slot />
+        </div>
       </div>
     </div>
   </div>

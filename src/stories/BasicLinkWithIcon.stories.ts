@@ -63,9 +63,21 @@ export default {
   title: 'Basic Components/BasicLinkWithIcon',
 };
 
+export const Demo = {
+  args: {
+    classIcon: '',
+    href: '',
+    iconLeading: ICON.STAR,
+    label: 'Demo',
+    target: '',
+  },
+  parameters,
+  render,
+};
+
 export const IconLeading = {
   args: {
-    classLabel: '',
+    classIcon: '',
     href: '',
     iconLeading: ICON.STAR,
     label: 'Demo',
@@ -77,7 +89,7 @@ export const IconLeading = {
 
 export const IconTrailing = {
   args: {
-    classLabel: '',
+    classIcon: '',
     href: '',
     iconTrailing: ICON.STAR,
     label: 'Demo',

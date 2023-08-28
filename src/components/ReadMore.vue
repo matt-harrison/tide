@@ -5,11 +5,6 @@
   import { ICON } from '@/types/Icon';
 
   const props = defineProps({
-    classLabel: {
-      default: undefined,
-      required: false,
-      type: String,
-    },
     heightCollapsed: {
       default: '3rem',
       required: false,

@@ -40,6 +40,14 @@ export default {
   title: 'Basic Components/BasicToggle',
 };
 
+export const Demo = {
+  args: {
+    isActive: false,
+  },
+  parameters,
+  render,
+};
+
 export const BasicToggleInactive = {
   args: {
     isActive: false,

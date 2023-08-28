@@ -143,7 +143,7 @@ export default {
   title: 'Basic Components/BasicButton',
 };
 
-export const Default = {
+export const Demo = {
   parameters,
   render,
 };

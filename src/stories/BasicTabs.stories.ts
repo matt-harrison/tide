@@ -86,7 +86,7 @@ export default {
   title: 'Basic Components/BasicTabs',
 };
 
-export const Default = {
+export const Demo = {
   args: {
     activeTabInitial: undefined,
     tabs,
