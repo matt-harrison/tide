@@ -43,7 +43,7 @@ export default {
   argTypes: {
     label: {
       control: 'text',
-      description: 'Label<br />(Note.)', // Description in Description column
+      description: 'Label<br />(Note)', // Description in Description column
       name: 'Label', // Name column
       table: {
         defaultValue: { summary: 'None' }, // Default column

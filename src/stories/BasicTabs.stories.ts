@@ -5,12 +5,15 @@ import type { Tab } from '@/types/Tab';
 import BasicTabs from '@/components/BasicTabs.vue';
 import { getLabelsFromOptions } from '@/utilities/storybook';
 
+/* eslint-disable */
+// ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 const options = {
   'None': undefined,
-  'Tab 1': 0,
-  'Tab 2': 1,
-  'Tab 3': 2,
+  '0 (Tab 1)': 0,
+  '1 (Tab 2)': 1,
+  '2 (Tab 3)': 2,
 };
+/* eslint-enable */
 
 const tabs: Tab[] = [
   {
@@ -66,20 +69,24 @@ export default {
         labels: getLabelsFromOptions(options),
         type: 'select',
       },
-      description:
-        'Zero-based index of tab to display as active on initial load.<br />(Subsequently managed within component)',
+      description: 'Determines which tab should be active by default<br />(Subsequently managed within component)',
       options: Object.values(options),
       table: {
         defaultValue: { summary: 'None' },
       },
     },
     tabs: {
+      description: 'Array of Tab objects<br />(Callback and label required)',
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'Tab' },
+        type: { summary: 'Tab[]' },
       },
       type: 'object',
     },
+  },
+  args: {
+    activeTabInitial: undefined,
+    tabs,
   },
   component: BasicTabs,
   tags: ['autodocs'],
@@ -87,8 +94,13 @@ export default {
 };
 
 export const Demo = {
+  parameters,
+  render,
+};
+
+export const InitialTab1 = {
   args: {
-    activeTabInitial: undefined,
+    activeTabInitial: 0,
     tabs,
   },
   parameters,

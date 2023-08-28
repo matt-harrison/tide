@@ -51,7 +51,8 @@ export default {
     },
     isExpandedInitial: {
       control: 'boolean',
-      description: 'Determines whether content should be expanded by default<br />(Initial state only.)',
+      description:
+        'Determines whether content should be expanded by default<br />(Subsequently managed within component)',
       table: {
         defaultValue: { summary: 'False' },
         type: { summary: 'boolean' },
@@ -72,7 +73,6 @@ export default {
     label: 'Demo',
   },
   component: BasicAccordionItem,
-  default: 'Hello world',
   tags: ['autodocs'],
   title: 'Basic Components/BasicAccordionItem',
 };
