@@ -8,8 +8,6 @@ import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
-  args.class = `${args.class} ${args.fill}`;
-
   if (args.iconTrailing === 'None') delete args.iconTrailing;
 
   if (args.element === ELEMENT.BUTTON) {
