@@ -15,7 +15,7 @@
   type Props = {
     disabled?: boolean;
     element?: Element;
-    href: string;
+    href?: string;
     iconLeading?: Icon;
     iconTrailing?: Icon;
     label: string;

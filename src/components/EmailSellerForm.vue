@@ -156,7 +156,6 @@
 
       // - perform axios post to the appropriate endpoint with formData
       const response: any = await submitEmailSellerForm(emailFormData, props.vehicle);
-      console.log('EmailSellerForm submitted', response);
 
       isSubmitting.value = false;
 

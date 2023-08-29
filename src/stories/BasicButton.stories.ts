@@ -5,18 +5,6 @@ import { SIZE_BUTTON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
 import { formatSnippet, getVariableName, iconControlWithNone } from '@/utilities/storybook';
 
-const formatArgs = (args: any) => {
-  if (args.iconTrailing === 'None') delete args.iconTrailing;
-
-  if (args.element === ELEMENT.BUTTON) {
-    delete args.href;
-  }
-
-  delete args.element;
-
-  return { args };
-};
-
 const parameters = {
   docs: {
     source: {
@@ -26,17 +14,6 @@ const parameters = {
     },
   },
 };
-
-const render = (args: any) => ({
-  components: { BasicButton },
-  setup() {
-    return formatArgs(args);
-  },
-  template: '<BasicButton v-bind="args" />',
-  updated() {
-    return formatArgs(args);
-  },
-});
 
 export default {
   argTypes: {
@@ -143,7 +120,6 @@ export default {
 
 export const Demo = {
   parameters,
-  render,
 };
 
 export const PrimaryTier1 = {
@@ -151,7 +127,6 @@ export const PrimaryTier1 = {
     tier: TIER.TIER_1,
   },
   parameters,
-  render,
 };
 
 export const PrimaryTier2 = {
@@ -159,7 +134,6 @@ export const PrimaryTier2 = {
     tier: TIER.TIER_2,
   },
   parameters,
-  render,
 };
 
 export const PrimaryTier3 = {
@@ -167,7 +141,6 @@ export const PrimaryTier3 = {
     tier: TIER.TIER_3,
   },
   parameters,
-  render,
 };
 
 export const Secondary = {
@@ -175,7 +148,6 @@ export const Secondary = {
     priority: PRIORITY.SECONDARY,
   },
   parameters,
-  render,
 };
 
 export const Tertiary = {
@@ -183,5 +155,4 @@ export const Tertiary = {
     priority: PRIORITY.TERTIARY,
   },
   parameters,
-  render,
 };

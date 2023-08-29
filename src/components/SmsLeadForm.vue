@@ -13,9 +13,6 @@
 
   const handleSubmit = (event: Event) => {
     event.preventDefault();
-    if (form.value) {
-      console.log(form);
-    }
   };
 </script>
 

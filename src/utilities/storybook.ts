@@ -13,24 +13,25 @@ const formatSnippet = (code: string, context: StoryContext) => {
     const key = arg[0];
     let value = arg[1];
 
+    // If arg is conditional, hide when conditional is not met.
+    const isConditionMet = argTypes[key].if ? args[argTypes[key].if.arg] == argTypes[key].if.eq : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
-
-    // TODO: remove conditional attributes whose conditions aren't met!
+    const isDefault = value === context?.component?.props[key]?.default;
 
     if (argTypes[key].isCss) {
       classNames.push(value);
-    } else {
-      if (isConstant && value !== 'None') {
-        Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
-          if (value === optionValue) {
-            value = `${argTypes[key].constant}.${optionKey}`;
-          }
-        });
-      }
+    }
 
-      if (!!value && value !== 'None') {
-        return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
-      }
+    if (isConstant && value !== 'None') {
+      Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+        if (value === optionValue) {
+          value = `${argTypes[key].constant}.${optionKey}`;
+        }
+      });
+    }
+
+    if (isConditionMet && !isDefault && !!value && value !== 'None') {
+      return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
   });
 
