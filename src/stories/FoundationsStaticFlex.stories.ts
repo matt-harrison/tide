@@ -88,14 +88,13 @@ export default {
     gap: SPACING_SIZE.None,
     wrap: 'Off',
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Flex',
 };
 
-export const Default = {
-  parameters,
-  render,
-};
+export const Default = {};
 
 export const GapNone = {
   args: {
@@ -105,8 +104,6 @@ export const GapNone = {
     wrap: 'On',
   },
   name: 'Flex Wrap (No Gap)',
-  parameters,
-  render,
 };
 
 export const Gap4 = {
@@ -117,8 +114,6 @@ export const Gap4 = {
     wrap: 'On',
   },
   name: '4 REM Gap',
-  parameters,
-  render,
 };
 
 export const Gap2 = {
@@ -129,8 +124,6 @@ export const Gap2 = {
     wrap: 'On',
   },
   name: '2 REM Gap',
-  parameters,
-  render,
 };
 
 export const Gap1 = {
@@ -141,8 +134,6 @@ export const Gap1 = {
     wrap: 'On',
   },
   name: '1 REM Gap',
-  parameters,
-  render,
 };
 
 export const GapHalf = {
@@ -153,8 +144,6 @@ export const GapHalf = {
     wrap: 'On',
   },
   name: '1/2 REM Gap',
-  parameters,
-  render,
 };
 
 export const GapQuarter = {
@@ -165,6 +154,4 @@ export const GapQuarter = {
     wrap: 'On',
   },
   name: '1/4 REM Gap',
-  parameters,
-  render,
 };

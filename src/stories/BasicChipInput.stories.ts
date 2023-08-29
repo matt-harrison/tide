@@ -18,18 +18,14 @@ const parameters = {
   },
 };
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const render = (args: any) => ({
   components: { BasicChipInput },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
   template: '<BasicChipInput class="inline-flex" v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -59,27 +55,22 @@ export default {
     tier: undefined,
   },
   component: BasicChipInput,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicChipInput',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const Tier2 = {
   args: {
     tier: TIER_VARIANT.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const Tier3 = {
   args: {
     tier: TIER_VARIANT.TIER_3,
   },
-  parameters,
-  render,
 };

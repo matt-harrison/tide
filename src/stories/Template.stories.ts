@@ -67,23 +67,20 @@ export default {
     // tier: TIER_VARIANT.None, // Value in Control column
   },
   component: BasicChipInput,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Proof of Concept/Story Template',
 };
 
 // STORIES
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const Tier1 = {
   args: {
     label: 'Tier 1',
     tier: TIER_VARIANT.TIER_1,
   },
-  parameters,
-  render,
 };
 
 export const Tier2 = {
@@ -91,8 +88,6 @@ export const Tier2 = {
     label: 'Tier 2',
     tier: TIER_VARIANT.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const Tier3 = {
@@ -100,6 +95,4 @@ export const Tier3 = {
     label: 'Tier 3',
     tier: TIER_VARIANT.TIER_3,
   },
-  parameters,
-  render,
 };

@@ -1,30 +1,5 @@
 import BasicToggle from '@/components/BasicToggle.vue';
-import { formatSnippet } from '@/utilities/storybook';
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
-
-const formatArgs = (args: any) => {
-  return { args };
-};
-
-const render = (args: any) => ({
-  components: { BasicToggle },
-  setup() {
-    return formatArgs(args);
-  },
-  template: '<BasicToggle v-bind="args" />',
-  updated() {
-    return formatArgs(args);
-  },
-});
+import { parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
@@ -41,27 +16,21 @@ export default {
     isActive: false,
   },
   component: BasicToggle,
+  parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicToggle',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const Inactive = {
   args: {
     isActive: false,
   },
-  parameters,
-  render,
 };
 
 export const Active = {
   args: {
     isActive: true,
   },
-  parameters,
-  render,
 };

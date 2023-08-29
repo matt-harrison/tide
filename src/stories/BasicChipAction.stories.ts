@@ -18,18 +18,14 @@ const parameters = {
   },
 };
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const render = (args: any) => ({
   components: { BasicChipAction },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
   template: '<BasicChipAction class="inline-flex" v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -68,6 +64,8 @@ export default {
     tier: undefined,
   },
   component: BasicChipAction,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicChipAction',
 };
@@ -76,8 +74,6 @@ export const Demo = {
   args: {
     href: '/',
   },
-  parameters,
-  render,
 };
 
 export const Tier2 = {
@@ -85,8 +81,6 @@ export const Tier2 = {
     href: '/',
     tier: TIER_VARIANT.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const Tier3 = {
@@ -94,6 +88,4 @@ export const Tier3 = {
     href: '/',
     tier: TIER_VARIANT.TIER_3,
   },
-  parameters,
-  render,
 };

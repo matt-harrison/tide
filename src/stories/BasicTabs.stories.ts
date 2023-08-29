@@ -30,10 +30,6 @@ const tabs: Tab[] = [
   },
 ];
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
   const activeTabInitial = args.activeTabInitial !== undefined ? `:activeTabInitial="${args.activeTabInitial}" ` : '';
@@ -54,11 +50,11 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicTabs },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
   template: '<BasicTabs class="inline-flex" v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -89,22 +85,19 @@ export default {
     tabs,
   },
   component: BasicTabs,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicTabs',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const InitialTab1 = {
   args: {
     activeTabInitial: 0,
     tabs,
   },
-  parameters,
-  render,
 };
 
 export const InitialTab2 = {
@@ -112,8 +105,6 @@ export const InitialTab2 = {
     activeTabInitial: 1,
     tabs,
   },
-  parameters,
-  render,
 };
 
 export const InitialTab3 = {
@@ -121,6 +112,4 @@ export const InitialTab3 = {
     activeTabInitial: 2,
     tabs,
   },
-  parameters,
-  render,
 };

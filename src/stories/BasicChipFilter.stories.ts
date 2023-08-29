@@ -18,18 +18,14 @@ const parameters = {
   },
 };
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const render = (args: any) => ({
   components: { BasicChipFilter },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
   template: '<BasicChipFilter class="inline-flex" v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -68,6 +64,8 @@ export default {
     tier: undefined,
   },
   component: BasicChipFilter,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicChipFilter',
 };
@@ -78,8 +76,6 @@ export const Demo = {
     label: 'Demo',
     tier: undefined,
   },
-  parameters,
-  render,
 };
 
 export const Inactive = {
@@ -88,8 +84,6 @@ export const Inactive = {
     label: 'Demo',
     tier: undefined,
   },
-  parameters,
-  render,
 };
 
 export const Tier2Active = {
@@ -97,8 +91,6 @@ export const Tier2Active = {
     isActive: true,
     tier: TIER_VARIANT.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const Tier3Active = {
@@ -106,6 +98,4 @@ export const Tier3Active = {
     isActive: true,
     tier: TIER_VARIANT.TIER_3,
   },
-  parameters,
-  render,
 };

@@ -5,38 +5,16 @@ import { PRIORITY } from '@/types/Priority';
 import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
 import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
-
-const formatArgs = (args: any) => {
-  if (args.iconTrailing === 'None') delete args.iconTrailing;
-
-  if (args.element === ELEMENT.BUTTON) {
-    delete args.href;
-  }
-
-  delete args.element;
-
-  return { args };
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { getVariableName, iconControl, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
-  template: '<BasicButtonIcon v-bind="args" />',
+  template: '<BasicButtonIcon class="inline-block" v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -125,14 +103,13 @@ export default {
     tier: TIER.TIER_1,
   },
   component: BasicButtonIcon,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButtonIcon',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const PrimaryTier1 = {
   args: {
@@ -144,8 +121,6 @@ export const PrimaryTier1 = {
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
-  parameters,
-  render,
 };
 
 export const PrimaryTier2 = {
@@ -158,8 +133,6 @@ export const PrimaryTier2 = {
     target: TARGET.SELF,
     tier: TIER.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const PrimaryTier3 = {
@@ -172,8 +145,6 @@ export const PrimaryTier3 = {
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
-  parameters,
-  render,
 };
 
 export const Secondary = {
@@ -186,8 +157,6 @@ export const Secondary = {
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
-  parameters,
-  render,
 };
 
 export const Tertiary = {
@@ -200,6 +169,4 @@ export const Tertiary = {
     target: TARGET.SELF,
     tier: TIER.TIER_1,
   },
-  parameters,
-  render,
 };

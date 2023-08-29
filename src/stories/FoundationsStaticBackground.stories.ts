@@ -56,22 +56,19 @@ export default {
   args: {
     color: BACKGROUND_COLOR.None,
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Background',
 };
 
-export const Default = {
-  parameters,
-  render,
-};
+export const Default = {};
 
 export const BackgroundWhite = {
   args: {
     color: BACKGROUND_COLOR['White'],
   },
   name: 'White',
-  parameters,
-  render,
 };
 
 export const BackgroundGrayLight = {
@@ -79,8 +76,6 @@ export const BackgroundGrayLight = {
     color: BACKGROUND_COLOR['Gray - Light'],
   },
   name: 'Gray - Light',
-  parameters,
-  render,
 };
 
 export const BackgroundGray = {
@@ -88,8 +83,6 @@ export const BackgroundGray = {
     color: BACKGROUND_COLOR['Gray - Medium'],
   },
   name: 'Gray',
-  parameters,
-  render,
 };
 
 export const BackgroundGrayDark = {
@@ -97,8 +90,6 @@ export const BackgroundGrayDark = {
     color: BACKGROUND_COLOR['Gray - Dark'],
   },
   name: 'Gray - Dark',
-  parameters,
-  render,
 };
 
 export const BackgroundBlack = {
@@ -106,6 +97,4 @@ export const BackgroundBlack = {
     color: BACKGROUND_COLOR['Black'],
   },
   name: 'Black',
-  parameters,
-  render,
 };

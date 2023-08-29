@@ -90,6 +90,8 @@ export default {
       },
     },
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Proof of Concept/CSS Controls By Type',
 };
@@ -101,6 +103,4 @@ export const Demo = {
     marginSide: SPACING_SIDE.Full,
     marginSize: SPACING_SIZE.None,
   },
-  parameters,
-  render,
 };

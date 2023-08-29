@@ -93,14 +93,13 @@ export default {
     side: BORDER_SIDE.Full,
     size: BORDER_SIZE.None,
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Border',
 };
 
-export const Default = {
-  parameters,
-  render,
-};
+export const Default = {};
 
 export const Border1 = {
   args: {
@@ -110,8 +109,6 @@ export const Border1 = {
     size: BORDER_SIZE['1px'],
   },
   name: '1px Border',
-  parameters,
-  render,
 };
 
 export const Border2 = {
@@ -122,8 +119,6 @@ export const Border2 = {
     size: BORDER_SIZE['2px'],
   },
   name: '2px Border',
-  parameters,
-  render,
 };
 
 export const BorderBlack = {
@@ -134,8 +129,6 @@ export const BorderBlack = {
     size: BORDER_SIZE['1px'],
   },
   name: 'Black Border',
-  parameters,
-  render,
 };
 
 export const BorderBlue = {
@@ -146,8 +139,6 @@ export const BorderBlue = {
     size: BORDER_SIZE['1px'],
   },
   name: 'Blue Border',
-  parameters,
-  render,
 };
 
 export const BorderRed = {
@@ -158,8 +149,6 @@ export const BorderRed = {
     size: BORDER_SIZE['1px'],
   },
   name: 'Red Border',
-  parameters,
-  render,
 };
 
 export const BorderTop = {
@@ -170,8 +159,6 @@ export const BorderTop = {
     size: BORDER_SIZE.None,
   },
   name: 'Top Border',
-  parameters,
-  render,
 };
 
 export const BorderRight = {
@@ -182,8 +169,6 @@ export const BorderRight = {
     size: BORDER_SIZE.None,
   },
   name: 'Right Border',
-  parameters,
-  render,
 };
 
 export const BorderBottom = {
@@ -194,8 +179,6 @@ export const BorderBottom = {
     size: BORDER_SIZE.None,
   },
   name: 'Bottom Border',
-  parameters,
-  render,
 };
 
 export const BorderLeft = {
@@ -206,8 +189,6 @@ export const BorderLeft = {
     size: BORDER_SIZE.None,
   },
   name: 'Left Border',
-  parameters,
-  render,
 };
 
 export const RadiusQuarter = {
@@ -218,8 +199,6 @@ export const RadiusQuarter = {
     size: BORDER_SIZE['1px'],
   },
   name: '1/4 REM Border Radius',
-  parameters,
-  render,
 };
 
 export const RadiusHalf = {
@@ -230,8 +209,6 @@ export const RadiusHalf = {
     size: BORDER_SIZE['1px'],
   },
   name: '1/2 REM Border Radius',
-  parameters,
-  render,
 };
 
 export const Radius1 = {
@@ -242,8 +219,6 @@ export const Radius1 = {
     size: BORDER_SIZE['1px'],
   },
   name: '1 REM Border Radius',
-  parameters,
-  render,
 };
 
 export const RadiusFull = {

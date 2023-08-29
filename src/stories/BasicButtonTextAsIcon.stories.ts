@@ -3,40 +3,7 @@ import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_ICON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName } from '@/utilities/storybook';
-
-const formatArgs = (args: any) => {
-  if (args.iconTrailing === 'None') delete args.iconTrailing;
-
-  if (args.element !== ELEMENT_TEXT_AS_ICON.ANCHOR) {
-    delete args.href;
-  }
-
-  if (args.element === ELEMENT_TEXT_AS_ICON.BUTTON) delete args.element;
-
-  return { args };
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
-
-const render = (args: any) => ({
-  components: { BasicButtonTextAsIcon },
-  setup() {
-    return formatArgs(args);
-  },
-  template: '<BasicButtonTextAsIcon v-bind="args" />',
-  updated() {
-    return formatArgs(args);
-  },
-});
+import { getVariableName, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
@@ -127,22 +94,18 @@ export default {
     tier: TIER.TIER_1,
   },
   component: BasicButtonTextAsIcon,
+  parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButtonTextAsIcon',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const PrimaryTier1 = {
   args: {
     priority: PRIORITY.PRIMARY,
     tier: TIER.TIER_1,
   },
-  parameters,
-  render,
 };
 
 export const PrimaryTier2 = {
@@ -150,8 +113,6 @@ export const PrimaryTier2 = {
     priority: PRIORITY.PRIMARY,
     tier: TIER.TIER_2,
   },
-  parameters,
-  render,
 };
 
 export const PrimaryTier3 = {
@@ -159,43 +120,30 @@ export const PrimaryTier3 = {
     priority: PRIORITY.PRIMARY,
     tier: TIER.TIER_3,
   },
-  parameters,
-  render,
 };
 
 export const Secondary = {
   args: {
     priority: PRIORITY.SECONDARY,
   },
-  parameters,
-  render,
 };
 
 export const Tertiary = {
   args: {
     priority: PRIORITY.TERTIARY,
   },
-  parameters,
-  render,
 };
 
-export const Button = {
-  parameters,
-  render,
-};
+export const Button = {};
 
 export const Anchor = {
   args: {
     element: ELEMENT_TEXT_AS_ICON.ANCHOR,
   },
-  parameters,
-  render,
 };
 
 export const Div = {
   args: {
     element: ELEMENT_TEXT_AS_ICON.DIV,
   },
-  parameters,
-  render,
 };

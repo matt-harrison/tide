@@ -67,14 +67,13 @@ export default {
   args: {
     side: SPACING_SIDE.Full,
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Padding',
 };
 
-export const Default = {
-  parameters,
-  render,
-};
+export const Default = {};
 
 export const Padding4 = {
   args: {
@@ -82,8 +81,6 @@ export const Padding4 = {
     size: SPACING_SIZE['4 REM'],
   },
   name: '4 REM Padding',
-  parameters,
-  render,
 };
 
 export const Padding2 = {
@@ -92,8 +89,6 @@ export const Padding2 = {
     size: SPACING_SIZE['2 REM'],
   },
   name: '2 REM Padding',
-  parameters,
-  render,
 };
 
 export const Padding1 = {
@@ -102,8 +97,6 @@ export const Padding1 = {
     size: SPACING_SIZE['1 REM'],
   },
   name: '1 REM Padding',
-  parameters,
-  render,
 };
 
 export const PaddingHalf = {
@@ -112,8 +105,6 @@ export const PaddingHalf = {
     size: SPACING_SIZE['1/2 REM'],
   },
   name: '1/2 REM Padding',
-  parameters,
-  render,
 };
 
 export const PaddingQuarter = {
@@ -122,6 +113,4 @@ export const PaddingQuarter = {
     size: SPACING_SIZE['1/4 REM'],
   },
   name: '1/4 REM Padding',
-  parameters,
-  render,
 };

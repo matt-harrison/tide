@@ -54,6 +54,8 @@ export default {
       },
     },
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Shadow/Box Shadow',
 };
@@ -62,14 +64,10 @@ export const Default = {
   args: {
     'box-shadow': BOX_SHADOW.Off,
   },
-  parameters,
-  render,
 };
 
 export const BoxShadowOn = {
   args: {
     'box-shadow': BOX_SHADOW.On,
   },
-  parameters,
-  render,
 };

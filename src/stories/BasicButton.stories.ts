@@ -114,45 +114,39 @@ export default {
     tier: TIER.TIER_1,
   },
   component: BasicButton,
+  parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButton',
 };
 
-export const Demo = {
-  parameters,
-};
+export const Demo = {};
 
 export const PrimaryTier1 = {
   args: {
     tier: TIER.TIER_1,
   },
-  parameters,
 };
 
 export const PrimaryTier2 = {
   args: {
     tier: TIER.TIER_2,
   },
-  parameters,
 };
 
 export const PrimaryTier3 = {
   args: {
     tier: TIER.TIER_3,
   },
-  parameters,
 };
 
 export const Secondary = {
   args: {
     priority: PRIORITY.SECONDARY,
   },
-  parameters,
 };
 
 export const Tertiary = {
   args: {
     priority: PRIORITY.TERTIARY,
   },
-  parameters,
 };

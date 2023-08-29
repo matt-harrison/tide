@@ -42,6 +42,7 @@ export default {
     },
   },
   component: BasicBreadCrumbs,
+  parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicBreadCrumbs',
 };
@@ -50,5 +51,4 @@ export const Demo = {
   args: {
     breadCrumbs: breadCrumbs,
   },
-  parameters,
 };

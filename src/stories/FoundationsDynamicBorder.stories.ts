@@ -53,6 +53,8 @@ export default {
   args: {
     color: 'None',
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Dynamic Utilities/Border Color',
 };
@@ -61,8 +63,6 @@ export const Default = {
   args: {
     color: DYNAMIC_BORDER_COLOR.None,
   },
-  parameters,
-  render,
 };
 
 export const BorderPrimaryTier1 = {
@@ -70,8 +70,6 @@ export const BorderPrimaryTier1 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 1'],
   },
   name: 'Primary Tier 1',
-  parameters,
-  render,
 };
 
 export const BorderPrimaryTier2 = {
@@ -79,8 +77,6 @@ export const BorderPrimaryTier2 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 2'],
   },
   name: 'Primary Tier 2',
-  parameters,
-  render,
 };
 
 export const BorderPrimaryTier3 = {
@@ -88,8 +84,6 @@ export const BorderPrimaryTier3 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 3'],
   },
   name: 'Primary Tier 3',
-  parameters,
-  render,
 };
 
 export const BorderPrimaryVariantTier1 = {
@@ -97,8 +91,6 @@ export const BorderPrimaryVariantTier1 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 1'],
   },
   name: 'Primary Variant Tier 1',
-  parameters,
-  render,
 };
 
 export const BorderPrimaryVariantTier2 = {
@@ -106,8 +98,6 @@ export const BorderPrimaryVariantTier2 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 2'],
   },
   name: 'Primary Variant Tier 2',
-  parameters,
-  render,
 };
 
 export const BorderPrimaryVariantTier3 = {
@@ -115,8 +105,6 @@ export const BorderPrimaryVariantTier3 = {
     color: DYNAMIC_BORDER_COLOR['Primary Tier 3'],
   },
   name: 'Primary Variant Tier 3',
-  parameters,
-  render,
 };
 
 export const BorderSecondary = {
@@ -124,8 +112,6 @@ export const BorderSecondary = {
     color: DYNAMIC_BORDER_COLOR['Secondary'],
   },
   name: 'Secondary',
-  parameters,
-  render,
 };
 
 export const BorderTertiary = {
@@ -133,8 +119,6 @@ export const BorderTertiary = {
     color: DYNAMIC_BORDER_COLOR['Tertiary'],
   },
   name: 'Tertiary',
-  parameters,
-  render,
 };
 
 export const BorderSurface = {
@@ -142,8 +126,6 @@ export const BorderSurface = {
     color: DYNAMIC_BORDER_COLOR['Surface'],
   },
   name: 'Surface',
-  parameters,
-  render,
 };
 
 export const BorderSurfaceLight = {
@@ -151,8 +133,6 @@ export const BorderSurfaceLight = {
     color: DYNAMIC_BORDER_COLOR['Surface Light'],
   },
   name: 'Surface - Light',
-  parameters,
-  render,
 };
 
 export const BorderSurfaceDark = {
@@ -160,8 +140,6 @@ export const BorderSurfaceDark = {
     color: DYNAMIC_BORDER_COLOR['Surface Dark'],
   },
   name: 'Surface - Dark',
-  parameters,
-  render,
 };
 
 export const BorderSurfaceSave = {
@@ -169,6 +147,4 @@ export const BorderSurfaceSave = {
     color: DYNAMIC_BORDER_COLOR['Surface Save'],
   },
   name: 'Surface - Save',
-  parameters,
-  render,
 };

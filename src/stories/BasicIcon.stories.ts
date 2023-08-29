@@ -1,34 +1,7 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
 import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
-import { formatSnippet, getVariableName, iconControl } from '@/utilities/storybook';
-
-const formatArgs = (args: any) => {
-  if (!args.size) delete args.size;
-
-  return { args };
-};
-
-const render = (args: any) => ({
-  components: { BasicIcon },
-  setup() {
-    return formatArgs(args);
-  },
-  template: '<BasicIcon v-bind="args" />',
-  updated() {
-    return formatArgs(args);
-  },
-});
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { getVariableName, iconControl, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
@@ -52,27 +25,21 @@ export default {
     size: SIZE_ICON_STORYBOOK.None,
   },
   component: BasicIcon,
+  parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicIcon',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const Medium = {
   args: {
     size: SIZE_ICON_STORYBOOK.MEDIUM,
   },
-  parameters,
-  render,
 };
 
 export const Small = {
   args: {
     size: SIZE_ICON_STORYBOOK.SMALL,
   },
-  parameters,
-  render,
 };

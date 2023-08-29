@@ -74,6 +74,8 @@ export default {
       },
     },
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Typography',
 };
@@ -84,8 +86,6 @@ export const Default = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  parameters,
-  render,
 };
 
 export const FontColorBlack = {
@@ -94,8 +94,6 @@ export const FontColorBlack = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  parameters,
-  render,
 };
 
 export const FontColorBlue = {
@@ -104,8 +102,6 @@ export const FontColorBlue = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  parameters,
-  render,
 };
 
 export const FontColorRed = {
@@ -114,8 +110,6 @@ export const FontColorRed = {
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
-  parameters,
-  render,
 };
 
 export const FontSize10 = {
@@ -125,8 +119,6 @@ export const FontSize10 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 10px',
-  parameters,
-  render,
 };
 
 export const FontSize12 = {
@@ -136,8 +128,6 @@ export const FontSize12 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 12px',
-  parameters,
-  render,
 };
 
 export const FontSize14 = {
@@ -147,8 +137,6 @@ export const FontSize14 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 14px',
-  parameters,
-  render,
 };
 
 export const FontSize16 = {
@@ -158,8 +146,6 @@ export const FontSize16 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 16px',
-  parameters,
-  render,
 };
 
 export const FontSize18 = {
@@ -169,8 +155,6 @@ export const FontSize18 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 18px',
-  parameters,
-  render,
 };
 
 export const FontSize20 = {
@@ -180,8 +164,6 @@ export const FontSize20 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 20px',
-  parameters,
-  render,
 };
 
 export const FontSize24 = {
@@ -191,8 +173,6 @@ export const FontSize24 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 24px',
-  parameters,
-  render,
 };
 
 export const FontSize28 = {
@@ -202,8 +182,6 @@ export const FontSize28 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 28px',
-  parameters,
-  render,
 };
 
 export const FontSize32 = {
@@ -213,8 +191,6 @@ export const FontSize32 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 32px',
-  parameters,
-  render,
 };
 
 export const FontWeight500 = {
@@ -224,8 +200,6 @@ export const FontWeight500 = {
     weight: FONT_WEIGHT.Medium,
   },
   name: 'Font Weight 500 (Medium)',
-  parameters,
-  render,
 };
 
 export const FontWeight600 = {
@@ -235,8 +209,6 @@ export const FontWeight600 = {
     weight: FONT_WEIGHT['Semi-bold'],
   },
   name: 'Font Weight 600 (Semi-bold)',
-  parameters,
-  render,
 };
 
 export const FontWeight700 = {
@@ -246,6 +218,4 @@ export const FontWeight700 = {
     weight: FONT_WEIGHT.Bold,
   },
   name: 'Font Weight 700 (Bold)',
-  parameters,
-  render,
 };

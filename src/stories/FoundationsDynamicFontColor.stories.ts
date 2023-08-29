@@ -53,6 +53,8 @@ export default {
   args: {
     color: 'None',
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Dynamic Utilities/Font Color',
 };
@@ -61,8 +63,6 @@ export const Default = {
   args: {
     color: DYNAMIC_FONT_COLOR.None,
   },
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryTier1 = {
@@ -70,8 +70,6 @@ export const BackgroundPrimaryTier1 = {
     color: DYNAMIC_FONT_COLOR['Primary Tier 1'],
   },
   name: 'Primary Tier 1',
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryTier2 = {
@@ -79,8 +77,6 @@ export const BackgroundPrimaryTier2 = {
     color: DYNAMIC_FONT_COLOR['Primary Tier 2'],
   },
   name: 'Primary Tier 2',
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryTier3 = {
@@ -88,8 +84,6 @@ export const BackgroundPrimaryTier3 = {
     color: DYNAMIC_FONT_COLOR['Primary Tier 3'],
   },
   name: 'Primary Tier 3',
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryVariantTier1 = {
@@ -97,8 +91,6 @@ export const BackgroundPrimaryVariantTier1 = {
     color: DYNAMIC_FONT_COLOR['Primary Variant Tier 1'],
   },
   name: 'Primary Variant Tier 1',
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryVariantTier2 = {
@@ -106,8 +98,6 @@ export const BackgroundPrimaryVariantTier2 = {
     color: DYNAMIC_FONT_COLOR['Primary Variant Tier 2'],
   },
   name: 'Primary Variant Tier 2',
-  parameters,
-  render,
 };
 
 export const BackgroundPrimaryVariantTier3 = {
@@ -115,8 +105,6 @@ export const BackgroundPrimaryVariantTier3 = {
     color: DYNAMIC_FONT_COLOR['Primary Variant Tier 3'],
   },
   name: 'Primary Variant Tier 3',
-  parameters,
-  render,
 };
 
 export const BackgroundSecondary = {
@@ -124,8 +112,6 @@ export const BackgroundSecondary = {
     color: DYNAMIC_FONT_COLOR['Secondary'],
   },
   name: 'Secondary',
-  parameters,
-  render,
 };
 
 export const BackgroundTertiary = {
@@ -133,8 +119,6 @@ export const BackgroundTertiary = {
     color: DYNAMIC_FONT_COLOR['Tertiary'],
   },
   name: 'Tertiary',
-  parameters,
-  render,
 };
 
 export const BackgroundSurface = {
@@ -142,8 +126,6 @@ export const BackgroundSurface = {
     color: DYNAMIC_FONT_COLOR['Surface'],
   },
   name: 'Surface',
-  parameters,
-  render,
 };
 
 export const BackgroundSurfaceVariant = {
@@ -151,6 +133,4 @@ export const BackgroundSurfaceVariant = {
     color: DYNAMIC_FONT_COLOR['Surface Variant'],
   },
   name: 'Surface Variant',
-  parameters,
-  render,
 };

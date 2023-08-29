@@ -2,10 +2,6 @@ import type { StoryContext } from '@storybook/vue3';
 
 import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
@@ -30,11 +26,11 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicAccordionItem },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
-  template: `<BasicAccordionItem class="border-t border-b border-gray" v-bind="args"><p class="mb-1">${args.default}</p></BasicAccordionItem>`,
+  template: `<BasicAccordionItem class="mb-1 border-t border-b border-gray" v-bind="args"><p class="mb-1">${args.default}</p></BasicAccordionItem>`,
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -73,22 +69,19 @@ export default {
     label: 'Demo',
   },
   component: BasicAccordionItem,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicAccordionItem',
 };
 
-export const Demo = {
-  parameters,
-  render,
-};
+export const Demo = {};
 
 export const InitiallyCollapsed = {
   args: {
     isExpandedInitial: false,
     label: 'Initially Collapsed',
   },
-  parameters,
-  render,
 };
 
 export const InitiallyExpanded = {
@@ -96,6 +89,4 @@ export const InitiallyExpanded = {
     isExpandedInitial: true,
     label: 'Initially Expanded',
   },
-  parameters,
-  render,
 };

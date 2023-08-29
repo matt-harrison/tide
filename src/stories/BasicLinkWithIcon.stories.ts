@@ -12,18 +12,14 @@ const parameters = {
   },
 };
 
-const formatArgs = (args: any) => {
-  return { args };
-};
-
 const render = (args: any) => ({
   components: { BasicLinkWithIcon },
   setup() {
-    return formatArgs(args);
+    return { args };
   },
   template: '<BasicLinkWithIcon v-bind="args" />',
   updated() {
-    return formatArgs(args);
+    return { args };
   },
 });
 
@@ -70,6 +66,8 @@ export default {
     label: 'Demo',
   },
   component: BasicLinkWithIcon,
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicLinkWithIcon',
 };
@@ -79,8 +77,6 @@ export const Demo = {
     iconLeading: ICON.STAR,
     label: 'Demo',
   },
-  parameters,
-  render,
 };
 
 export const IconLeading = {
@@ -88,8 +84,6 @@ export const IconLeading = {
     iconLeading: ICON.STAR,
     label: 'Demo',
   },
-  parameters,
-  render,
 };
 
 export const IconTrailing = {
@@ -98,6 +92,4 @@ export const IconTrailing = {
     iconTrailing: ICON.STAR,
     label: 'Demo',
   },
-  parameters,
-  render,
 };

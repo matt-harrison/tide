@@ -13,6 +13,8 @@ const formatSnippet = (code: string, context: StoryContext) => {
     const key = arg[0];
     let value = arg[1];
 
+    // TODO: show intentionally redundant attributes (non-Demo stories).
+
     // If arg is conditional, hide when conditional is not met.
     const isConditionMet = argTypes[key].if ? args[argTypes[key].if.arg] == argTypes[key].if.eq : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
@@ -44,6 +46,10 @@ const formatSnippet = (code: string, context: StoryContext) => {
   return args.default
     ? `<${tag}\n\t${attributes.join(' \n\t')}\n>${args.default}</${tag}>`
     : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
+};
+
+const formatSnippetMinimal = (code: string) => {
+  return code.replace(/<[/]*template>/g, '');
 };
 
 // Invert key/value pairs bc Storybook control option format is unintuitive.
@@ -84,4 +90,22 @@ const iconControlWithNone = {
   },
 };
 
-export { formatSnippet, getLabelsFromOptions, getVariableName, iconControl, iconControlWithNone };
+const parameters = {
+  docs: {
+    source: {
+      format: false,
+      language: 'html',
+      transform: formatSnippet,
+    },
+  },
+};
+
+export {
+  formatSnippet,
+  formatSnippetMinimal,
+  getLabelsFromOptions,
+  getVariableName,
+  iconControl,
+  iconControlWithNone,
+  parameters,
+};

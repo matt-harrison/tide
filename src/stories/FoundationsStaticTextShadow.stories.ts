@@ -54,6 +54,8 @@ export default {
       },
     },
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Shadow/Text Shadow',
 };
@@ -62,14 +64,10 @@ export const Default = {
   args: {
     'text-shadow': TEXT_SHADOW.Off,
   },
-  parameters,
-  render,
 };
 
 export const TextShadowOn = {
   args: {
     'text-shadow': TEXT_SHADOW.On,
   },
-  parameters,
-  render,
 };

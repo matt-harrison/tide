@@ -67,14 +67,14 @@ export default {
   args: {
     side: SPACING_SIDE.Full,
   },
+  parameters,
+  render,
   tags: ['autodocs'],
   title: 'Foundations/Static Utilities/Margin',
 };
 
 export const MarginDefault = {
   name: 'Default',
-  parameters,
-  render,
 };
 
 export const Margin4 = {
@@ -83,8 +83,6 @@ export const Margin4 = {
     size: SPACING_SIZE['4 REM'],
   },
   name: '4 REM Margin',
-  parameters,
-  render,
 };
 
 export const Margin2 = {
@@ -93,8 +91,6 @@ export const Margin2 = {
     size: SPACING_SIZE['2 REM'],
   },
   name: '2 REM Margin',
-  parameters,
-  render,
 };
 
 export const Margin1 = {
@@ -103,8 +99,6 @@ export const Margin1 = {
     size: SPACING_SIZE['1 REM'],
   },
   name: '1 REM Margin',
-  parameters,
-  render,
 };
 
 export const MarginHalf = {
@@ -113,8 +107,6 @@ export const MarginHalf = {
     size: SPACING_SIZE['1/2 REM'],
   },
   name: '1/2 REM Margin',
-  parameters,
-  render,
 };
 
 export const MarginQuarter = {
@@ -123,6 +115,4 @@ export const MarginQuarter = {
     size: SPACING_SIZE['1/4 REM'],
   },
   name: '1/4 REM Margin',
-  parameters,
-  render,
 };
