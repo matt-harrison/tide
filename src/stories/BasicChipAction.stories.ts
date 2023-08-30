@@ -1,12 +1,5 @@
 import BasicChipAction from '@/components/BasicChipAction.vue';
-import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName } from '@/utilities/storybook';
-
-const TIER_VARIANT = {
-  None: undefined,
-  TIER_2: TIER.TIER_2,
-  TIER_3: TIER.TIER_3,
-};
+import { formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -47,21 +40,10 @@ export default {
         type: { summary: 'string' },
       },
     },
-    tier: {
-      constant: getVariableName({ TIER_VARIANT }),
-      control: 'select',
-      description: 'Determines brand colors',
-      options: TIER_VARIANT,
-      table: {
-        defaultValue: { summary: 'TIER.TIER_3' },
-        type: { summary: 'Tier' },
-      },
-    },
   },
   args: {
     href: '/',
     label: 'Demo',
-    tier: undefined,
   },
   component: BasicChipAction,
   parameters,
@@ -73,19 +55,5 @@ export default {
 export const Demo = {
   args: {
     href: '/',
-  },
-};
-
-export const Tier2 = {
-  args: {
-    href: '/',
-    tier: TIER_VARIANT.TIER_2,
-  },
-};
-
-export const Tier3 = {
-  args: {
-    href: '/',
-    tier: TIER_VARIANT.TIER_3,
   },
 };

@@ -13,12 +13,18 @@ const formatSnippet = (code: string, context: StoryContext) => {
     const key = arg[0];
     let value = arg[1];
 
-    // TODO: show intentionally redundant attributes (non-Demo stories).
+    // TODO: show intentionally redundant attributes (non-Demo stories) -> add None to booleans in presentation layer.
+
+    // TODO: TypeScript doesn't believe the implict shapes of Storybook's native types.
+    const componentProps = context.component as any;
+    const condition = argTypes[key].if as any;
+    const conditionKey = condition?.arg;
+    const conditionValue = condition?.eq;
 
     // If arg is conditional, hide when conditional is not met.
-    const isConditionMet = argTypes[key].if ? args[argTypes[key].if.arg] == argTypes[key].if.eq : true;
+    const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
-    const isDefault = value === context?.component?.props[key]?.default;
+    const isDefault = value === componentProps.props[key]?.default;
 
     if (argTypes[key].isCss) {
       classNames.push(value);

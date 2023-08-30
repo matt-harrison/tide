@@ -38,6 +38,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
+          'Welcome',
           'Foundations',
           [
             'Static Utilities', ['Flex', 'Margin', 'Border', 'Padding', 'Background', 'Typography',

@@ -17,15 +17,21 @@ const options = {
 
 const tabs: Tab[] = [
   {
-    callback: () => {},
+    callback: () => {
+      console.log('Tab 1 clicked.');
+    },
     label: 'Tab 1',
   },
   {
-    callback: () => {},
+    callback: () => {
+      console.log('Tab 2 clicked.');
+    },
     label: 'Tab 2',
   },
   {
-    callback: () => {},
+    callback: () => {
+      console.log('Tab 3 clicked.');
+    },
     label: 'Tab 3',
   },
 ];
