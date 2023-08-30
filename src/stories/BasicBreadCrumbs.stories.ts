@@ -17,7 +17,7 @@ const breadCrumbs: BreadCrumb[] = [
 ];
 
 const formatSnippet = () => {
-  return '<BasicBreadCrumbs :breadCrumbs="breadCrumbs" />';
+  return '<BasicBreadCrumbs :bread-crumbs="breadCrumbs" />';
 };
 
 const parameters = {

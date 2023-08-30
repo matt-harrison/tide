@@ -7,7 +7,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   const argsWithValues: string[] = [];
 
-  if (args.isExpandedInitial) argsWithValues.push(`isExpandedInitial="${args.isExpandedInitial}"`);
+  if (args.isExpandedInitial) argsWithValues.push(`:is-expanded-initial="${args.isExpandedInitial}"`);
   if (args.label) argsWithValues.push(`label="${args.label}"`);
 
   return `<BasicAccordionItem ${argsWithValues.join('\n\t')}>\n\t${args.default}\n</BasicAccordionItem>`;
