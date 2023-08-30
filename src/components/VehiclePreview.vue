@@ -1,7 +1,8 @@
 <script setup lang="ts">
+  import type { VehicleDetail } from '@/types/VehicleDetail';
+
   import BasicImage from '@/components/BasicImage.vue';
   import { getVehicleTitle, getSellerNameLocation, getVehiclePrice, getVehicleThumbnail } from '@/utilities/vehicle';
-  import { type VehicleDetail } from '@/types/VehicleDetail';
 
   type Props = {
     vehicle: VehicleDetail;

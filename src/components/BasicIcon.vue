@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-  import type { Component } from 'vue';
   import { defineAsyncComponent, markRaw, ref, watch } from 'vue';
 
+  import type { Component } from 'vue';
   import type { Icon } from '@/types/Icon';
-  import { SIZE_ICON, type SizeIcon } from '@/types/Size';
+  import type { SizeIcon } from '@/types/Size';
 
+  import { SIZE_ICON } from '@/types/Size';
   import { formatPascalCase } from '@/utilities/format';
 
   type Props = {
@@ -13,7 +14,7 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    size: SIZE_ICON.MEDIUM,
+    size: SIZE_ICON.SMALL,
   });
 
   const innerSVG = ref<Component>();

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { getCurrentInstance, ref, computed } from 'vue';
+
   import BasicIcon from '@/components/BasicIcon.vue';
   import { SIZE_ICON } from '@/types/Size';
 

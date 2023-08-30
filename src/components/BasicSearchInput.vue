@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
+
   import BasicTextInput from '@/components/BasicTextInput.vue';
   import { ICON } from '@/types/Icon';
   import { TEXT_INPUT_TYPE } from '@/types/Form';

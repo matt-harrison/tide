@@ -5,26 +5,25 @@
   import type { BreadCrumb } from '@/types/BreadCrumb';
 
   import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
-  import BasicTabs from '@/components/BasicTabs.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipAction from '@/components/BasicChipAction.vue';
   import BasicChipFilter from '@/components/BasicChipFilter.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import BasicModal from '@/components/BasicModal.vue';
+  import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
-  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import CardListing from '@/components/CardListing.vue';
   import CardListingFeatured from '@/components/CardListingFeatured.vue';
-  import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
@@ -791,7 +790,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_1"
               :title="icon"
               @click="handleButtonClick"
@@ -804,7 +802,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_2"
               :title="icon"
               @click="handleButtonClick"
@@ -817,7 +814,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_3"
               :title="icon"
               @click="handleButtonClick"
@@ -830,7 +826,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.SECONDARY"
-              :size="SIZE_ICON.SMALL"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -842,7 +837,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -999,7 +993,6 @@
             <BasicIcon
               :icon="icon"
               :key="icon"
-              :size="SIZE_ICON.MEDIUM"
               :title="icon"
               class="border-1 border-blue-dark bg-blue-light font-gray-dark"
               v-for="icon in ICON"
@@ -1013,7 +1006,6 @@
             <BasicIcon
               :icon="icon"
               :key="icon"
-              :size="SIZE_ICON.SMALL"
               :title="icon"
               class="border-1 border-blue-dark bg-blue-light font-gray-dark"
               v-for="icon in ICON"
@@ -1040,16 +1032,14 @@
             <BasicLinkWithIcon
               :icon-leading="ICON.STAR"
               href="#"
-            >
-              Leading Icon
-            </BasicLinkWithIcon>
+              label="Leading Icon"
+            />
 
             <BasicLinkWithIcon
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
               href="#"
-            >
-              Trailing Icon
-            </BasicLinkWithIcon>
+              label="Trailing Icon"
+            />
           </div>
         </div>
 
@@ -1134,7 +1124,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_1"
               :title="icon"
               @click="handleButtonClick"
@@ -1148,7 +1137,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_2"
               :title="icon"
               @click="handleButtonClick"
@@ -1162,7 +1150,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_3"
               :title="icon"
               @click="handleButtonClick"
@@ -1176,7 +1163,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.SECONDARY"
-              :size="SIZE_ICON.SMALL"
               :title="icon"
               @click="handleButtonClick"
               href="#"
@@ -1189,7 +1175,6 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               :title="icon"
               @click="handleButtonClick"
               href="#"

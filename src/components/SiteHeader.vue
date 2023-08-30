@@ -2,10 +2,10 @@
   import { ref, watch, defineAsyncComponent } from 'vue';
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { REALM } from '@/types/Realm';
-  import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatPascalCase } from '@/utilities/format';
   import { realm } from '@/config/main.config';
@@ -160,7 +160,6 @@
           <BasicButtonIcon
             :icon="ICON.XMARK"
             :priority="PRIORITY.TERTIARY"
-            :size="SIZE_ICON.SMALL"
             @click="handleNavMenuClose"
             aria-label="Close menu"
             class="absolute top-0 right-0 mt-1 mr-1 ml-auto"
@@ -191,29 +190,24 @@
       <BasicButtonIcon
         :icon="ICON.MAGNIFYING_GLASS"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
         @click="handleSearchBarTriggerClick"
-        class="font-20"
-        title="Search"
+        aria-label="Search"
         v-if="props.showSearchBar"
       />
 
       <BasicButtonIcon
+        :element="ELEMENT.ANCHOR"
         :href="`/style-guide?realm=${realm.id}`"
         :icon="ICON.USER"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
-        class="font-20"
-        title="Sign in"
+        aria-label="Sign in"
       />
 
       <BasicButtonIcon
         :icon="ICON.BARS"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
         @click="handleBurgerClick"
-        class="font-20"
-        title="Menu"
+        aria-label="Menu"
         v-if="!viewportStore.isLarge"
       />
     </div>
@@ -236,21 +230,19 @@
       >
         <div class="search-bar relative mb-2">
           <input
+            :placeholder="`Search for ${realm.label.singularWithArticle}`"
             ref="searchInput"
             class="search-bar-input border-2 border-white radius-full py-1 pr-2 pl-1 w-full"
-            placeholder="Search for {{ realm.label.singularWithArticle }}"
             type="search"
           />
 
           <BasicButtonIcon
             :icon="ICON.MAGNIFYING_GLASS"
             :priority="PRIORITY.PRIMARY"
-            :size="SIZE_ICON.SMALL"
             :tier="TIER.TIER_1"
             @click="handleSearchBarTriggerClick"
             aria-label="Search"
-            class="search-bar-submit absolute top-0 right-0 mt-1/2 mr-1/2 p-1/2"
-            title="Search"
+            class="absolute top-0 right-0 mt-1/2 mr-1/2 p-1/2"
           />
         </div>
 

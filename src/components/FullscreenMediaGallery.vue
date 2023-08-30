@@ -6,21 +6,19 @@
   import AdPlaceholder from './AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import BasicModal from '@/components/BasicModal.vue';
   import BasicTextInput from './BasicTextInput.vue';
   import BasicTextarea from './BasicTextarea.vue';
   import EmailSellerForm from '@/components/EmailSellerForm.vue';
   import SmsLeadForm from './SmsLeadForm.vue';
-  import BasicIcon from '@/components/BasicIcon.vue';
   import YoutubeVideo from './YoutubeVideo.vue';
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
-  import { TIER } from '@/types/Tier';
   import { SIZE_BUTTON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
   import { formatPhone } from '@/utilities/format';
-  import { useViewportStore } from '@/stores/ViewportStore';
   import {
     getSellerNameLocation,
     getVehiclePhone,
@@ -29,6 +27,7 @@
     getVehicleTitle,
   } from '@/utilities/vehicle';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
+  import { useViewportStore } from '@/stores/ViewportStore';
   import { storeToRefs } from 'pinia';
 
   type Emits = (e: 'close') => void;
@@ -268,10 +267,7 @@
           <div class="flex axis2-center font-600">
             <div class="border-r border-white pr-1">
               <div class="flex axis2-center gap-1/2">
-                <BasicIcon
-                  :icon="ICON.CIRCLE_CHECK"
-                  :size="SIZE_ICON.SMALL"
-                />
+                <BasicIcon :icon="ICON.CIRCLE_CHECK" />
 
                 <div>{{ sellerNameLocation }}</div>
               </div>
@@ -287,7 +283,6 @@
           <BasicButtonIcon
             :icon="ICON.XMARK"
             :priority="PRIORITY.TERTIARY"
-            :size="SIZE_ICON.SMALL"
             @click="handleClose"
             class="box-shadow"
           />
@@ -313,7 +308,6 @@
               :disabled="currentSlide === 0"
               :icon="ICON.CHEVRON_LEFT"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               @click="handlePrevClick"
               class="box-shadow"
             />
@@ -375,7 +369,6 @@
               :disabled="currentSlide === gallerySlides.length - 1"
               :icon="ICON.CHEVRON_RIGHT"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               @click="handleNextClick"
               class="box-shadow"
             />
@@ -422,7 +415,6 @@
 
               <BasicIcon
                 :icon="slide.type === MEDIA_SLIDE_TYPES.VR ? ICON.TOUR : ICON.PLAY"
-                :size="SIZE_ICON.SMALL"
                 class="absolute bg-white radius-full p-1/2"
                 v-if="getHasOverlay(slide.type)"
               />
@@ -446,7 +438,6 @@
               <BasicButtonIcon
                 :icon="ICON.PLAY"
                 :priority="PRIORITY.PRIMARY"
-                :size="SIZE_ICON.SMALL"
                 :tier="TIER.TIER_2"
                 href="tel:${sellerPhoneNumber}"
               />
@@ -461,7 +452,6 @@
               <BasicButtonIcon
                 :icon="ICON.MESSAGE"
                 :priority="PRIORITY.SECONDARY"
-                :size="SIZE_ICON.SMALL"
                 href="tel:${sellerPhoneNumber}"
               />
 

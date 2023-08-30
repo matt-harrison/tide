@@ -1,14 +1,17 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
+
   import { getIdFromYoutubeUrl } from '@/utilities/media';
 
   type Props = {
     title?: string;
     src: string;
   };
+
   const props = withDefaults(defineProps<Props>(), {
     title: 'YouTube video player',
   });
+
   const iframeSrc = computed(() => `https://www.youtube.com/embed/${getIdFromYoutubeUrl(props.src)}`);
 </script>
 

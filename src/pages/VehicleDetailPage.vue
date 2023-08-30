@@ -3,14 +3,15 @@
   import { storeToRefs } from 'pinia';
 
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
+  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
+  import BasicIcon from '@/components/BasicIcon.vue';
   import BasicImage from '@/components/BasicImage.vue';
   import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
   import BasicModal from '@/components/BasicModal.vue';
-  import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
   import EmailSellerForm from '@/components/EmailSellerForm.vue';
@@ -18,20 +19,13 @@
   import ReadMore from '@/components/ReadMore.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
-  import BasicIcon from '@/components/BasicIcon.vue';
   import VdpStickyContact from '@/components/VdpStickyContact.vue';
   import VehiclePreview from '@/components/VehiclePreview.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON, SIZE_ICON } from '@/types/Size';
+  import { SIZE_BUTTON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatKebabCase } from '@/utilities/format';
-  import { realm } from '@/config/main.config';
-  import { useFavoriteStore } from '@/stores/FavoriteStore';
-  import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
-  import { useUserAgentStore } from '@/stores/UserAgentStore';
-  import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
-  import { useViewportStore } from '@/stores/ViewportStore';
   import {
     getSearchPills,
     getVehiclePrice,
@@ -40,6 +34,12 @@
     getBreadcrumbs,
     getVehiclePhone,
   } from '@/utilities/vehicle';
+  import { realm } from '@/config/main.config';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
+  import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
+  import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
+  import { useViewportStore } from '@/stores/ViewportStore';
 
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
@@ -143,17 +143,13 @@
           :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
           v-if="isSingleColumn"
         >
-          <BasicButtonIcon
-            :icon="ICON.CHEVRON_LEFT"
-            :size="SIZE_ICON.SMALL"
-          />
+          <BasicButtonIcon :icon="ICON.CHEVRON_LEFT" />
         </a>
 
         <div class="flex gap-1 ml-auto">
           <BasicButtonIcon
             :icon="ICON.ARROW_UP_FROM_BRACKET"
             :priority="PRIORITY.SECONDARY"
-            :size="SIZE_ICON.SMALL"
             @click="() => (shareModalIsOpen = true)"
           />
 
@@ -169,7 +165,6 @@
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :is-active="isFavorite"
             :priority="PRIORITY.SECONDARY"
-            :size="SIZE_ICON.SMALL"
             @click.prevent="toggleIsFavorite"
           />
         </div>
@@ -236,10 +231,7 @@
             Loan Calculator
           </BasicModal>
 
-          <BasicIcon
-            :icon="ICON.CALCULATOR"
-            :size="SIZE_ICON.SMALL"
-          />
+          <BasicIcon :icon="ICON.CALCULATOR" />
         </div>
       </div>
 
@@ -285,10 +277,7 @@
             :class="isExtraSmall ? 'mb-1' : ''"
             class="vehicle-detail-item flex axis2-center gap-1/2"
           >
-            <BasicIcon
-              :icon="ICON.BOOKMARK"
-              :size="SIZE_ICON.SMALL"
-            />
+            <BasicIcon :icon="ICON.BOOKMARK" />
             <span class="font-14 font-600">Under warranty</span>
           </li>
 
@@ -331,10 +320,7 @@
 
             <div class="flex column axis2-start mt-1/4">
               <div class="flex axis2-center gap-1/2">
-                <BasicIcon
-                  :icon="ICON.CIRCLE_CHECK"
-                  :size="SIZE_ICON.SMALL"
-                />
+                <BasicIcon :icon="ICON.CIRCLE_CHECK" />
                 <span class="font-green font-12 font-600">15 Year Trusted Partner</span>
               </div>
 
@@ -366,10 +352,7 @@
           >
             Visit dealer's website
             <!-- replace with external link icon -->
-            <BasicIcon
-              :icon="ICON.ARROW_UP_FROM_BRACKET"
-              :size="SIZE_ICON.SMALL"
-            />
+            <BasicIcon :icon="ICON.ARROW_UP_FROM_BRACKET" />
           </a>
 
           <BasicButton
@@ -458,7 +441,6 @@
               :href="phoneHref"
               :icon="ICON.PHONE"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_2"
             />
 
@@ -470,7 +452,6 @@
               :href="`sms:+7575551234`"
               :icon="ICON.MESSAGE"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
             />
 
             <a :href="`sms:+7575551234`"> Text 757 555-1234 </a>
@@ -522,10 +503,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <BasicIcon
-          :icon="ICON.EYE"
-          :size="SIZE_ICON.SMALL"
-        />
+        <BasicIcon :icon="ICON.EYE" />
 
         <span>
           <span>Seen </span>
@@ -538,10 +516,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <BasicIcon
-          :icon="ICON.HEART"
-          :size="SIZE_ICON.SMALL"
-        />
+        <BasicIcon :icon="ICON.HEART" />
 
         <div>
           <span>Saved by </span>
@@ -551,10 +526,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <BasicIcon
-          :icon="ICON.CALENDAR"
-          :size="SIZE_ICON.SMALL"
-        />
+        <BasicIcon :icon="ICON.CALENDAR" />
 
         <span>
           <span>Listed for </span>
@@ -566,10 +538,7 @@
       </div>
 
       <div class="flex axis2-center gap-1/2">
-        <BasicIcon
-          :icon="ICON.TAG"
-          :size="SIZE_ICON.SMALL"
-        />
+        <BasicIcon :icon="ICON.TAG" />
 
         <span class="font-12">The price has not decreased recently</span>
       </div>
@@ -684,10 +653,7 @@
 
         <div class="flex column axis2-start shrink ml-1">
           <div class="flex axis2-center font-12 font-700">
-            <BasicIcon
-              :icon="ICON.CIRCLE_CHECK"
-              :size="SIZE_ICON.SMALL"
-            />
+            <BasicIcon :icon="ICON.CIRCLE_CHECK" />
 
             <a
               :href="dealerLinkHref"
@@ -715,7 +681,6 @@
           >
             <BasicIcon
               :icon="ICON.PHONE"
-              :size="SIZE_ICON.SMALL"
               class="bg-gray-dark font-white p-1/2 font-16 radius-full"
             />
             Call {{ phone }}
@@ -746,7 +711,6 @@
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :is-active="isFavorite"
             :priority="PRIORITY.SECONDARY"
-            :size="SIZE_ICON.SMALL"
             @click.prevent="toggleIsFavorite"
           />
         </div>

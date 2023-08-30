@@ -83,7 +83,7 @@ export default {
     },
   },
   args: {
-    direction: 'None',
+    direction: 'Row',
     flex: 'Off',
     gap: SPACING_SIZE.None,
     wrap: 'Off',

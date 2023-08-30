@@ -5,12 +5,12 @@
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicImage from '@/components/BasicImage.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
-  import { realm } from '@/config/main.config';
   import { formatPhone, formatPrice, formatTitleCase, getCdnMediaRoot } from '@/utilities/format';
+  import { realm } from '@/config/main.config';
 
   type Props = {
     isFavorite: boolean;
@@ -102,8 +102,9 @@
               v-if="phone"
             >
               <BasicButtonIcon
+                :element="ELEMENT.ANCHOR"
                 :icon="ICON.PHONE"
-                :size="SIZE_ICON.SMALL"
+                :priority="PRIORITY.TERTIARY"
                 href="/listing"
               />
 
@@ -116,9 +117,9 @@
               </button>
 
               <a
+                :href="`tel:+${phone}`"
                 @click.stop
                 class="font-700"
-                href="tel:+{{ phone }}"
                 v-if="showPhone || !dummy.hasHiddenPhone"
               >
                 {{ formatPhone(parseInt(phone, 10)) }}
@@ -128,7 +129,6 @@
             <BasicButtonIcon
               :icon="ICON.ENVELOPE"
               :priority="PRIORITY.PRIMARY"
-              :size="SIZE_ICON.SMALL"
               :tier="TIER.TIER_1"
             />
           </div>
@@ -140,10 +140,7 @@
         v-if="isPremium"
       >
         <div class="flex gap-1/2 p-1/2 bg-white">
-          <BasicIcon
-            :icon="ICON.BOOKMARK"
-            :size="SIZE_ICON.SMALL"
-          />
+          <BasicIcon :icon="ICON.BOOKMARK" />
           <span class="font-12 font-600">Premium</span>
         </div>
 
@@ -154,7 +151,6 @@
         <BasicButtonIcon
           :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
           :priority="PRIORITY.TERTIARY"
-          :size="SIZE_ICON.SMALL"
           @click.prevent="handleFavoriteClick"
           class="box-shadow"
         />

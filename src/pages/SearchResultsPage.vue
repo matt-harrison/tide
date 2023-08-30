@@ -28,7 +28,6 @@
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatKebabCase, formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
@@ -244,7 +243,6 @@
                 :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
                 :is-active="isSavedSearch"
                 :priority="PRIORITY.SECONDARY"
-                :size="SIZE_ICON.SMALL"
                 @click="toggleIsSavedSearch"
                 label="Save search"
                 v-if="isSingleColumn"
@@ -591,7 +589,6 @@
               :disabled="filterStore.pageCurrent === 1"
               :icon="ICON.CHEVRON_LEFT"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               @click="filterStore.setPagePrevious"
             />
 
@@ -621,7 +618,6 @@
               :disabled="filterStore.pageCurrent === paginationButtons[paginationButtons.length - 1]"
               :icon="ICON.CHEVRON_RIGHT"
               :priority="PRIORITY.TERTIARY"
-              :size="SIZE_ICON.SMALL"
               @click="filterStore.setPageNext"
             />
           </section>

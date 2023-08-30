@@ -6,6 +6,7 @@
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { realm } from '@/config/main.config';
@@ -190,6 +191,7 @@
             <div class="flex column axis2-start gap-1">
               <BasicButton
                 :class="isExtraSmall ? 'w-full' : ''"
+                :element="ELEMENT.ANCHOR"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
                 label="TraderTraxx login"
@@ -215,6 +217,7 @@
 
               <BasicButton
                 :class="isExtraSmall ? 'w-full' : ''"
+                :element="ELEMENT.ANCHOR"
                 :label="`Sell my ${realm.label.singular}`"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
@@ -233,6 +236,7 @@
         <div :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''">
           <div class="site-footer-socials flex wrap gap-1 mb-1 font-20">
             <BasicButtonIcon
+              :element="ELEMENT.ANCHOR"
               :href="socialLink.url"
               :icon="socialLink.icon"
               :key="socialLink.url"

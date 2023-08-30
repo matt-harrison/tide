@@ -1,13 +1,11 @@
 <script lang="ts" setup>
-  import type { ListingMedia } from '@/types/ListingMedia';
-
   import type { Icon } from '@/types/Icon';
+  import type { ListingMedia } from '@/types/ListingMedia';
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
 
   type Emits = (e: 'click', value: number) => void;
   type Props = {
@@ -86,7 +84,6 @@
       <BasicButtonIcon
         :icon="icon"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
         class="absolute box-shadow"
       />
     </div>

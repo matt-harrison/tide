@@ -4,11 +4,10 @@
   import type { Vehicle } from '@/types/Vehicle';
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
-  import BasicImage from '@/components/BasicImage.vue';
   import BasicIcon from '@/components/BasicIcon.vue';
+  import BasicImage from '@/components/BasicImage.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatPhone, formatPrice, formatTitleCase, getCdnMediaRoot, removeMarkup } from '@/utilities/format';
   import { realm } from '@/config/main.config';
@@ -124,7 +123,6 @@
               <div class="card-listing-premium-select-description font-14 xy-hidden">
                 <BasicIcon
                   :icon="ICON.BOOKMARK"
-                  :size="SIZE_ICON.SMALL"
                   class="mr-1/4 float-left"
                 />
                 <span>{{ removeMarkup(props.vehicle.description) }}</span>
@@ -143,7 +141,6 @@
                 >
                   <BasicButtonIcon
                     :icon="ICON.PHONE"
-                    :size="SIZE_ICON.SMALL"
                     href="/listing"
                   />
 
@@ -168,7 +165,6 @@
                 <BasicButtonIcon
                   :icon="ICON.ENVELOPE"
                   :priority="PRIORITY.PRIMARY"
-                  :size="SIZE_ICON.SMALL"
                   :tier="TIER.TIER_1"
                 />
               </div>
@@ -179,10 +175,7 @@
 
       <div class="card-listing-premium-select-label absolute top-0 flex mt-1">
         <div class="flex gap-1/2 p-1/2 bg-white">
-          <BasicIcon
-            :icon="ICON.BOOKMARK"
-            :size="SIZE_ICON.SMALL"
-          />
+          <BasicIcon :icon="ICON.BOOKMARK" />
           <span class="font-12 font-600">Premium SELECT</span>
         </div>
 
@@ -193,7 +186,6 @@
         <BasicButtonIcon
           :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
           :priority="PRIORITY.TERTIARY"
-          :size="SIZE_ICON.SMALL"
           @click.prevent="handleFavoriteClick"
           class="box-shadow"
         />

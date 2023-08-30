@@ -2,7 +2,6 @@
   import type { Icon } from '@/types/Icon';
 
   import BasicIcon from '@/components/BasicIcon.vue';
-  import { SIZE_ICON } from '@/types/Size';
   import { TARGET } from '@/types/Target';
 
   type Props = {
@@ -30,7 +29,6 @@
   >
     <BasicIcon
       :icon="props.iconLeading"
-      :size="SIZE_ICON.SMALL"
       v-if="props.iconLeading"
     />
 
@@ -38,7 +36,6 @@
 
     <BasicIcon
       :icon="props.iconTrailing"
-      :size="SIZE_ICON.SMALL"
       v-if="props.iconTrailing"
     />
   </a>

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import { onMounted, ref, watch, type CSSProperties } from 'vue';
+
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
 

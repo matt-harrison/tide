@@ -3,7 +3,6 @@
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
-  import { SIZE_ICON } from '@/types/Size';
 
   const props = defineProps({
     isExpandedInitial: {
@@ -47,10 +46,7 @@
         {{ props.label }}
       </span>
 
-      <BasicIcon
-        :icon="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN"
-        :size="SIZE_ICON.SMALL"
-      />
+      <BasicIcon :icon="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN" />
     </div>
 
     <div

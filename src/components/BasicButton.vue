@@ -8,7 +8,7 @@
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON, SIZE_ICON } from '@/types/Size';
+  import { SIZE_BUTTON } from '@/types/Size';
   import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
@@ -61,7 +61,6 @@
   >
     <BasicIcon
       :icon="props.iconLeading"
-      :size="SIZE_ICON.SMALL"
       v-if="props.iconLeading"
     />
 
@@ -69,7 +68,6 @@
 
     <BasicIcon
       :icon="props.iconTrailing"
-      :size="SIZE_ICON.SMALL"
       v-if="props.iconTrailing"
     />
   </component>

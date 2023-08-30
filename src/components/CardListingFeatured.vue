@@ -5,9 +5,8 @@
   import BasicImage from '@/components/BasicImage.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
-  import { realm } from '@/config/main.config';
   import { formatPrice, getCdnMediaRoot } from '@/utilities/format';
+  import { realm } from '@/config/main.config';
 
   type Props = {
     isFavorite: boolean;
@@ -66,7 +65,6 @@
           <BasicButtonIcon
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :priority="PRIORITY.TERTIARY"
-            :size="SIZE_ICON.SMALL"
             @click.prevent="handleFavoriteClick"
           />
         </div>

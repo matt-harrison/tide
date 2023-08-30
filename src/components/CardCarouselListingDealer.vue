@@ -3,14 +3,13 @@
 
   import type { Vehicle } from '@/types/Vehicle';
 
-  import { useFavoriteStore } from '@/stores/FavoriteStore';
-  import { useUserAgentStore } from '@/stores/UserAgentStore';
-
   import BasicButton from '@/components/BasicButton.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import { PRIORITY } from '@/types/Priority';
   import { formatKebabCase } from '@/utilities/format';
   import { realm } from '@/config/main.config';
+  import { useFavoriteStore } from '@/stores/FavoriteStore';
+  import { useUserAgentStore } from '@/stores/UserAgentStore';
 
   const favoriteStore = useFavoriteStore();
   const userAgentStore = useUserAgentStore();

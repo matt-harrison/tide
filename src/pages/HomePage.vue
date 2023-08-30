@@ -16,12 +16,12 @@
   import { formatKebabCase } from '@/utilities/format';
   import { formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
-  import { vehicleTypes } from '@/types/VehicleType';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useHomeStore } from '@/stores/HomeStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useViewportStore } from '@/stores/ViewportStore';
+  import { vehicleTypes } from '@/types/VehicleType';
 
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
@@ -168,17 +168,20 @@
               class="flex wrap gap-1"
             >
               <BasicLinkWithIcon
+                :element="ELEMENT.ANCHOR"
                 :icon-leading="ICON.PHONE"
                 class="whitespace-nowrap"
                 href="tel:17575551234"
-              >
-                757 555-1234
-              </BasicLinkWithIcon>
+                label="757 555-1234"
+              />
 
               <BasicButton
+                :element="ELEMENT.ANCHOR"
+                :is-new-tab="true"
                 :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
                 :tier="isExtraSmall ? TIER.TIER_2 : undefined"
                 class="whitespace-nowrap"
+                href="/"
                 label="View inventory"
               />
             </div>
@@ -239,6 +242,7 @@
           <h2 class="font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
           <p class="font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <BasicButton
+            :element="ELEMENT.ANCHOR"
             :label="`Sell my ${realm.label.singular}`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
@@ -261,6 +265,7 @@
             Get tips on buying and selling RVs, top destinations to visit, maintenance, and living the RV lifestyle.
           </p>
           <BasicButton
+            :element="ELEMENT.ANCHOR"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
             href="#"

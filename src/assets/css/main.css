@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
 
-/* Replace with dynamic reference to realm-specific CSS */
 @import './variables.css';
-@import './dynamic-utilities.css';
-
 @import './reset.css';
 @import './utilities.css';
+@import './dynamic-utilities.css';
 @import './animation.css';
 @import './page-layout.css';

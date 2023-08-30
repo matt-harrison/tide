@@ -5,7 +5,6 @@
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
-  import { SIZE_ICON } from '@/types/Size';
 
   type Emits = (e: 'click', value: number) => void;
   type Props = {
@@ -42,7 +41,6 @@
     >
       <BasicIcon
         :icon="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO ? ICON.PLAY : ICON.TOUR"
-        :size="SIZE_ICON.SMALL"
         class="font-24"
       />
     </div>

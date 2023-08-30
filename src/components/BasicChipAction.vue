@@ -1,11 +1,9 @@
 <script lang="ts" setup>
   import type { Tier } from '@/types/Tier';
 
-  import { TIER } from '@/types/Tier';
-
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
-  import { SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
 
   type Props = {
     href: string;
@@ -26,10 +24,7 @@
     ]"
     :href="props.href"
   >
-    <BasicIcon
-      :icon="ICON.MAGNIFYING_GLASS"
-      :size="SIZE_ICON.SMALL"
-    />
+    <BasicIcon :icon="ICON.MAGNIFYING_GLASS" />
 
     <span>{{ props.label }}</span>
   </a>

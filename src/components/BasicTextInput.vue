@@ -5,7 +5,6 @@
   import type { TextInputType } from '@/types/Form';
 
   import BasicIcon from '@/components/BasicIcon.vue';
-  import { SIZE_ICON } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/Form';
 
   // TODO: add number formatting. Or should there be a special BasicNumberInput (BasicPriceInput?)?
@@ -82,7 +81,6 @@
     <div class="relative w-full">
       <BasicIcon
         :icon="leadingIcon"
-        :size="SIZE_ICON.SMALL"
         class="absolute top-1/2 left-0 -translate-y-1/2 ml-1/2 pointer-events-none"
         v-if="leadingIcon"
       />
@@ -117,8 +115,7 @@
       <slot name="trailing-icon">
         <BasicIcon
           :icon="'circle-exclamation'"
-          :size="SIZE_ICON.SMALL"
-          class="font-red absolute top-1/2 right-0 -translate-y-1/2 mr-1/2 pointer-events-none"
+          class="absolute top-1/2 right-0 -translate-y-1/2 mr-1/2 font-red pointer-events-none"
           v-if="hasError"
         />
       </slot>

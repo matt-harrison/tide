@@ -1,13 +1,13 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
+  import BasicCarousel from '@/components/BasicCarousel.vue';
   import FullscreenMediaGallery from '@/components/FullscreenMediaGallery.vue';
   import ListingMediaSlide from '@/components/ListingMediaSlide.vue';
   import ListingMediaTool from '@/components/ListingMediaTool.vue';
-  import BasicCarousel from '@/components/BasicCarousel.vue';
   import { getListingMediaSlides, getSlideIndex } from '@/utilities/media';
-  import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
   import { storeToRefs } from 'pinia';
+  import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
   const vehicleDetailStore = useVehicleDetailStore();
   const { vehicle } = storeToRefs(vehicleDetailStore);

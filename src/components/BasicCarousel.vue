@@ -4,7 +4,6 @@
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
 
   type Props = {
     gap: number;
@@ -166,7 +165,6 @@
       <BasicButtonIcon
         :icon="ICON.CHEVRON_LEFT"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
         @click="showPreviousSlide"
         class="ml-1 pointer-events box-shadow"
       />
@@ -174,7 +172,6 @@
       <BasicButtonIcon
         :icon="ICON.CHEVRON_RIGHT"
         :priority="PRIORITY.TERTIARY"
-        :size="SIZE_ICON.SMALL"
         @click="showNextSlide"
         class="mr-1 pointer-events box-shadow"
       />

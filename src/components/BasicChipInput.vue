@@ -1,11 +1,9 @@
 <script lang="ts" setup>
   import type { Tier } from '@/types/Tier';
 
-  import { TIER } from '@/types/Tier';
-
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
-  import { SIZE_ICON } from '@/types/Size';
+  import { TIER } from '@/types/Tier';
 
   type Props = {
     label: string;
@@ -23,10 +21,7 @@
   >
     <span>{{ props.label }}</span>
 
-    <BasicIcon
-      :icon="ICON.XMARK"
-      :size="SIZE_ICON.SMALL"
-    />
+    <BasicIcon :icon="ICON.XMARK" />
   </button>
 </template>
 
