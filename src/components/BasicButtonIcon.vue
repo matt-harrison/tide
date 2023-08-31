@@ -38,18 +38,18 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT.ANCHOR ? 'basic-link-as-button-icon' : 'basic-button-icon',
+      props.element === ELEMENT.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
       props.size === SIZE_ICON.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       'flex axis1-center axis2-center radius-full p-1/2',
-      props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
+      props.element === ELEMENT.LINK ? 'underline-none' : '',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
-    :href="props.element === ELEMENT.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
-    :is="props.element === ELEMENT.ANCHOR ? 'a' : 'button'"
+    :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"
+    :target="props.element === ELEMENT.LINK && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
+    :is="props.element === ELEMENT.LINK ? 'a' : 'button'"
   >
     <BasicIcon
       :icon="props.icon"

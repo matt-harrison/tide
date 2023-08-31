@@ -1048,7 +1048,7 @@
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
               href="https://www.google.com"
@@ -1057,7 +1057,7 @@
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
               href="https://www.google.com"
@@ -1065,7 +1065,7 @@
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               href="#"
@@ -1073,14 +1073,14 @@
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.SECONDARY"
               href="#"
               label="Secondary"
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.TERTIARY"
               href="#"
               label="Tertiary"
@@ -1089,7 +1089,7 @@
 
           <div class="flex wrap gap-1 ml-1">
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :icon-leading="ICON.STAR"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_1"
@@ -1098,7 +1098,7 @@
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_2"
@@ -1107,7 +1107,7 @@
             />
 
             <BasicButton
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :priority="PRIORITY.PRIMARY"
               :tier="TIER.TIER_3"
               href="#"

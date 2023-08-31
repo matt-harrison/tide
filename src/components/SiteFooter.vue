@@ -191,7 +191,7 @@
             <div class="flex column axis2-start gap-1">
               <BasicButton
                 :class="isExtraSmall ? 'w-full' : ''"
-                :element="ELEMENT.ANCHOR"
+                :element="ELEMENT.LINK"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
                 label="TraderTraxx login"
@@ -217,7 +217,7 @@
 
               <BasicButton
                 :class="isExtraSmall ? 'w-full' : ''"
-                :element="ELEMENT.ANCHOR"
+                :element="ELEMENT.LINK"
                 :label="`Sell my ${realm.label.singular}`"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
@@ -236,7 +236,7 @@
         <div :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''">
           <div class="site-footer-socials flex wrap gap-1 mb-1 font-20">
             <BasicButtonIcon
-              :element="ELEMENT.ANCHOR"
+              :element="ELEMENT.LINK"
               :href="socialLink.url"
               :icon="socialLink.icon"
               :key="socialLink.url"

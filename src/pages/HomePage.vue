@@ -130,7 +130,7 @@
           </fieldset>
 
           <BasicButton
-            :element="ELEMENT.ANCHOR"
+            :element="ELEMENT.LINK"
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_1"
@@ -168,7 +168,7 @@
               class="flex wrap gap-1"
             >
               <BasicLinkWithIcon
-                :element="ELEMENT.ANCHOR"
+                :element="ELEMENT.LINK"
                 :icon-leading="ICON.PHONE"
                 class="whitespace-nowrap"
                 href="tel:17575551234"
@@ -176,7 +176,7 @@
               />
 
               <BasicButton
-                :element="ELEMENT.ANCHOR"
+                :element="ELEMENT.LINK"
                 :is-new-tab="true"
                 :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
                 :tier="isExtraSmall ? TIER.TIER_2 : undefined"
@@ -242,7 +242,7 @@
           <h2 class="font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
           <p class="font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <BasicButton
-            :element="ELEMENT.ANCHOR"
+            :element="ELEMENT.LINK"
             :label="`Sell my ${realm.label.singular}`"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
@@ -265,7 +265,7 @@
             Get tips on buying and selling RVs, top destinations to visit, maintenance, and living the RV lifestyle.
           </p>
           <BasicButton
-            :element="ELEMENT.ANCHOR"
+            :element="ELEMENT.LINK"
             :priority="PRIORITY.PRIMARY"
             :tier="TIER.TIER_2"
             href="#"

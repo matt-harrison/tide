@@ -38,8 +38,8 @@ export default {
       },
     },
     href: {
-      description: 'URL to open<br />(Anchor only)',
-      if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      description: 'URL to open<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT.LINK },
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -48,8 +48,8 @@ export default {
     icon,
     isNewTab: {
       control: 'select',
-      description: 'Determines whether to target a new browser tab<br />(Anchor only)',
-      if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      description: 'Determines whether to target a new browser tab<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT.LINK },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },

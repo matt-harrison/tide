@@ -196,7 +196,7 @@
       />
 
       <BasicButtonIcon
-        :element="ELEMENT.ANCHOR"
+        :element="ELEMENT.LINK"
         :href="`/style-guide?realm=${realm.id}`"
         :icon="ICON.USER"
         :priority="PRIORITY.TERTIARY"

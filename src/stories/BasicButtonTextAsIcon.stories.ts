@@ -30,8 +30,8 @@ export default {
       },
     },
     href: {
-      description: 'URL to open<br />(Anchor only)',
-      if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.ANCHOR },
+      description: 'URL to open<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.LINK },
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -39,8 +39,8 @@ export default {
     },
     isNewTab: {
       control: 'select',
-      description: 'Determines whether to target a new browser tab<br />(Anchor only)',
-      if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.ANCHOR },
+      description: 'Determines whether to target a new browser tab<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.LINK },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
@@ -141,9 +141,9 @@ export const Tertiary = {
 
 export const Button = {};
 
-export const Anchor = {
+export const Link = {
   args: {
-    element: ELEMENT_TEXT_AS_ICON.ANCHOR,
+    element: ELEMENT_TEXT_AS_ICON.LINK,
   },
 };
 

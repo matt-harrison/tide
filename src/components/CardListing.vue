@@ -102,7 +102,7 @@
               v-if="phone"
             >
               <BasicButtonIcon
-                :element="ELEMENT.ANCHOR"
+                :element="ELEMENT.LINK"
                 :icon="ICON.PHONE"
                 :priority="PRIORITY.TERTIARY"
                 href="/listing"

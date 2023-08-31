@@ -42,22 +42,22 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT.ANCHOR ? 'basic-link-as-button' : 'basic-button',
+      props.element === ELEMENT.LINK ? 'basic-link-as-button' : 'basic-button',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
-      props.element === ELEMENT.ANCHOR ? 'inline-flex' : 'flex',
+      props.element === ELEMENT.LINK ? 'inline-flex' : 'flex',
       'axis1-center axis2-center gap-1/2 radius-1/4',
       props.size === SIZE_BUTTON.SMALL && 'py-1/4 px-1/2 font-14',
       (SIZE_BUTTON.MEDIUM || !props.size) && 'py-1/2 px-1',
       props.size === SIZE_BUTTON.LARGE && 'py-1 px-2',
-      props.element === ELEMENT.ANCHOR ? 'underline-none' : '',
+      props.element === ELEMENT.LINK ? 'underline-none' : '',
       'font-700',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
-    :href="props.element === ELEMENT.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
-    :is="props.element === ELEMENT.ANCHOR ? 'a' : 'button'"
+    :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"
+    :target="props.element === ELEMENT.LINK && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
+    :is="props.element === ELEMENT.LINK ? 'a' : 'button'"
   >
     <BasicIcon
       :icon="props.iconLeading"

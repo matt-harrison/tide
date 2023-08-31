@@ -36,21 +36,21 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR ? 'basic-link-as-button-icon' : 'basic-button-icon',
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
       props.size === SIZE_ICON.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       'inline-block radius-full p-1/2',
-      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR ? 'underline-none' : '',
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
       'font-700 select-none',
     ]"
     :disabled="props.element === ELEMENT_TEXT_AS_ICON.BUTTON && props.disabled"
-    :href="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.href ? props.href : undefined"
-    :target="props.element === ELEMENT_TEXT_AS_ICON.ANCHOR && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
+    :href="props.element === ELEMENT_TEXT_AS_ICON.LINK && props.href ? props.href : undefined"
+    :target="props.element === ELEMENT_TEXT_AS_ICON.LINK && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :is="
-      props.element === ELEMENT_TEXT_AS_ICON.ANCHOR
+      props.element === ELEMENT_TEXT_AS_ICON.LINK
         ? 'a'
         : props.element === ELEMENT_TEXT_AS_ICON.BUTTON
         ? 'button'
