@@ -56,7 +56,7 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicTabs },
   setup: () => ({ args }),
-  template: '<BasicTabs class="inline-flex" v-bind="args" />',
+  template: '<BasicTabs :key="args.activeTabInitial" class="inline-flex" v-bind="args" />',
 });
 
 export default {
