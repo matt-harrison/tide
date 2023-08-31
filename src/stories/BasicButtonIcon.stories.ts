@@ -1,4 +1,5 @@
 import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
@@ -16,9 +17,10 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     disabled: {
-      control: 'boolean',
+      control: 'select',
       description: 'Determines clickability<br />(Button only)',
       if: { arg: 'element', eq: ELEMENT.BUTTON },
+      options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
         type: { summary: 'boolean' },
@@ -47,9 +49,10 @@ export default {
       description: 'Icon',
     },
     isNewTab: {
-      control: 'boolean',
+      control: 'select',
       description: 'Determines whether to target a new browser tab<br />(Anchor only)',
       if: { arg: 'element', eq: ELEMENT.ANCHOR },
+      options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
         type: { summary: 'boolean' },
@@ -88,11 +91,11 @@ export default {
     },
   },
   args: {
-    disabled: false,
+    disabled: undefined,
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com',
     icon: ICON.ENVELOPE,
-    isNewTab: false,
+    isNewTab: undefined,
     priority: PRIORITY.PRIMARY,
     size: SIZE_ICON_STORYBOOK.SMALL,
     tier: TIER.TIER_1,

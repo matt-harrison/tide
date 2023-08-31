@@ -1,6 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ICON } from '@/types/Icon';
 
 const formatSnippet = (code: string, context: StoryContext) => {
@@ -24,7 +25,12 @@ const formatSnippet = (code: string, context: StoryContext) => {
     // If arg is conditional, hide when conditional is not met.
     const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
-    const isDefault = value === componentProps.props[key]?.default;
+    let isDefault = value === componentProps.props[key]?.default;
+
+    // Default for type BOOLEAN_UNREQUIRED is undefined, not false.
+    if (argTypes[key].options === BOOLEAN_UNREQUIRED) {
+      isDefault = value === undefined;
+    }
 
     if (argTypes[key].isCss) {
       classNames.push(value);
@@ -38,7 +44,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
       });
     }
 
-    if (isConditionMet && !isDefault && !!value && value !== 'None') {
+    if (isConditionMet && !isDefault && value !== undefined && value !== 'None') {
       return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
   });

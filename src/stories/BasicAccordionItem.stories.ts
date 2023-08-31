@@ -1,13 +1,14 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
   const argsWithValues: string[] = [];
 
-  if (args.isExpandedInitial) argsWithValues.push(`:is-expanded-initial="${args.isExpandedInitial}"`);
+  if (args.isExpandedInitial !== undefined) argsWithValues.push(`:is-expanded-initial="${args.isExpandedInitial}"`);
   if (args.label) argsWithValues.push(`label="${args.label}"`);
 
   return `<BasicAccordionItem ${argsWithValues.join('\n\t')}>\n\t${args.default}\n</BasicAccordionItem>`;
@@ -41,9 +42,10 @@ export default {
       },
     },
     isExpandedInitial: {
-      control: 'boolean',
+      control: 'select',
       description:
         'Determines whether content should be expanded by default<br />(Subsequently managed within component)',
+      options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
         type: { summary: 'boolean' },
@@ -60,7 +62,7 @@ export default {
   },
   args: {
     default: 'Lorem Ipsum',
-    isExpandedInitial: false,
+    isExpandedInitial: undefined,
     label: 'Demo',
   },
   component: BasicAccordionItem,

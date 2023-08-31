@@ -3,6 +3,12 @@
 
 // These objects are intended exclusively for use in demonstrating the Storybook UI.
 
+export const BOOLEAN_UNREQUIRED = {
+  None: undefined,
+  True: true,
+  False: false,
+};
+
 export const AXIS1 = {
   None: undefined,
   Around: 'axis1-around',

@@ -1,4 +1,5 @@
 import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ICON } from '@/types/Icon';
 import { formatSnippet, iconControlWithNone } from '@/utilities/storybook';
 
@@ -37,8 +38,9 @@ export default {
       ...iconControlWithNone,
     },
     isNewTab: {
-      control: 'boolean',
+      control: 'select',
       description: 'Determines whether to target a new browser tab',
+      options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
         type: { summary: 'boolean' },
@@ -57,7 +59,7 @@ export default {
     href: '/',
     iconLeading: ICON.STAR,
     iconTrailing: undefined,
-    isNewTab: false,
+    isNewTab: undefined,
     label: 'Demo',
   },
   component: BasicLinkWithIcon,
