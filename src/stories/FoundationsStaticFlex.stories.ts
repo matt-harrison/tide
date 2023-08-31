@@ -41,7 +41,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="border-1 border-blue-dark max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(12)">Demo {{ index + 1 }}</div></div>',
+    '<div class="border-1 border-blue-dark max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(args.children)">Demo {{ index + 1 }}</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -49,6 +49,15 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    children: {
+      control: 'select',
+      description: 'Number of flex children<br />(For demonstration purposes)',
+      options: [3, 6, 12],
+      table: {
+        defaultValue: { summary: '3' },
+        type: { summary: 'number' },
+      },
+    },
     direction: {
       control: 'select',
       description: 'Flex direction',
@@ -83,6 +92,7 @@ export default {
     },
   },
   args: {
+    children: 3,
     direction: 'Row',
     flex: 'Off',
     gap: SPACING_SIZE.None,
@@ -96,14 +106,28 @@ export default {
 
 export const Default = {};
 
-export const GapNone = {
+export const Column = {
+  args: {
+    direction: 'Column',
+    flex: 'On',
+  },
+};
+
+export const Row = {
   args: {
     direction: 'Row',
     flex: 'On',
-    gap: SPACING_SIZE.None,
+  },
+};
+
+export const Wrap = {
+  args: {
+    children: 12,
+    direction: 'Row',
+    flex: 'On',
+    gap: SPACING_SIZE['1 REM'],
     wrap: 'On',
   },
-  name: 'Flex Wrap (No Gap)',
 };
 
 export const Gap4 = {
