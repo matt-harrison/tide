@@ -4,7 +4,7 @@ import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_BUTTON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
-import { click, formatSnippet, getVariableName, iconControlWithNone } from '@/utilities/storybook';
+import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -48,11 +48,11 @@ export default {
       },
     },
     iconLeading: {
-      ...iconControlWithNone,
+      ...iconWithNone,
       description: 'Icon to left of label',
     },
     iconTrailing: {
-      ...iconControlWithNone,
+      ...iconWithNone,
       description: 'Icon to right of label',
     },
     isNewTab: {

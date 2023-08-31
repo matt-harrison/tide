@@ -6,7 +6,7 @@ import { PRIORITY } from '@/types/Priority';
 import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
 import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
-import { click, getVariableName, iconControl, parameters } from '@/utilities/storybook';
+import { click, getVariableName, icon, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
@@ -45,10 +45,7 @@ export default {
         type: { summary: 'string' },
       },
     },
-    icon: {
-      ...iconControl,
-      description: 'Icon',
-    },
+    icon,
     isNewTab: {
       control: 'select',
       description: 'Determines whether to target a new browser tab<br />(Anchor only)',

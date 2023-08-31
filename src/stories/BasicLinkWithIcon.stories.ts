@@ -1,7 +1,7 @@
 import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ICON } from '@/types/Icon';
-import { formatSnippet, iconControlWithNone } from '@/utilities/storybook';
+import { formatSnippet, iconWithNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -31,11 +31,11 @@ export default {
     },
     iconLeading: {
       description: 'Icon to left of label',
-      ...iconControlWithNone,
+      ...iconWithNone,
     },
     iconTrailing: {
       description: 'Icon to right of label',
-      ...iconControlWithNone,
+      ...iconWithNone,
     },
     isNewTab: {
       control: 'select',

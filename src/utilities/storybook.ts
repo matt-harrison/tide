@@ -5,7 +5,7 @@ import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 
-const click = {
+export const click = {
   control: 'text',
   description: 'JS function to execute on click',
   if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
@@ -15,7 +15,7 @@ const click = {
   },
 };
 
-const formatSnippet = (code: string, context: StoryContext) => {
+export const formatSnippet = (code: string, context: StoryContext) => {
   const tag = context.component?.__name;
   const { args, argTypes } = context;
 
@@ -76,12 +76,12 @@ const formatSnippet = (code: string, context: StoryContext) => {
     : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
 };
 
-const formatSnippetMinimal = (code: string) => {
+export const formatSnippetMinimal = (code: string) => {
   return code.replace(/<[/]*template>/g, '');
 };
 
 // Invert key/value pairs bc Storybook control option format is unintuitive.
-const getLabelsFromOptions = (options: any) => {
+export const getLabelsFromOptions = (options: any) => {
   const labels: { [key: string]: string } = {};
 
   Object.entries(options).forEach(([key, value]) => {
@@ -91,13 +91,14 @@ const getLabelsFromOptions = (options: any) => {
   return labels;
 };
 
-const getVariableName = (input: any) => {
+export const getVariableName = (input: any) => {
   return Object.keys(input)[0];
 };
 
-const iconControl = {
+export const icon = {
   constant: getVariableName({ ICON }),
   control: 'select',
+  description: 'Icon',
   options: ICON,
   table: {
     defaultValue: { summary: 'None' },
@@ -105,7 +106,7 @@ const iconControl = {
   },
 };
 
-const iconControlWithNone = {
+export const iconWithNone = {
   constant: getVariableName({ ICON }),
   control: 'select',
   options: {
@@ -118,7 +119,7 @@ const iconControlWithNone = {
   },
 };
 
-const parameters = {
+export const parameters = {
   docs: {
     source: {
       format: false,
@@ -126,15 +127,4 @@ const parameters = {
       transform: formatSnippet,
     },
   },
-};
-
-export {
-  click,
-  formatSnippet,
-  formatSnippetMinimal,
-  getLabelsFromOptions,
-  getVariableName,
-  iconControl,
-  iconControlWithNone,
-  parameters,
 };

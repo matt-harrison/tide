@@ -1,14 +1,11 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
 import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
-import { getVariableName, iconControl, parameters } from '@/utilities/storybook';
+import { getVariableName, icon, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
-    icon: {
-      ...iconControl,
-      description: 'Icon',
-    },
+    icon,
     size: {
       constant: getVariableName({ SIZE_ICON_STORYBOOK }),
       control: 'select',
