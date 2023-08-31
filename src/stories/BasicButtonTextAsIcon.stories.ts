@@ -4,10 +4,11 @@ import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_ICON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
-import { getVariableName, parameters } from '@/utilities/storybook';
+import { click, getVariableName, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
+    click,
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
@@ -87,6 +88,7 @@ export default {
     },
   },
   args: {
+    click: 'handleClick',
     disabled: undefined,
     element: ELEMENT_TEXT_AS_ICON.BUTTON,
     href: 'https://www.traderinteractive.com',

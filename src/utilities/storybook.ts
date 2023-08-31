@@ -2,7 +2,18 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { ICON } from '@/types/Icon';
+
+const click = {
+  control: 'text',
+  description: 'JS function to execute on click',
+  if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: 'function' },
+  },
+};
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const tag = context.component?.__name;
@@ -23,6 +34,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
     const conditionValue = condition?.eq;
 
     // If arg is conditional, hide when conditional is not met.
+    const isClick = key === 'click';
     const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
     let isDefault = value === componentProps.props[key]?.default;
@@ -44,8 +56,12 @@ const formatSnippet = (code: string, context: StoryContext) => {
       });
     }
 
-    if (isConditionMet && !isDefault && value !== undefined && value !== 'None') {
+    if (isConditionMet && !isDefault && !isClick) {
       return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
+    }
+
+    if (isClick && args.element === 'button') {
+      return `@click="${value}"`;
     }
   });
 
@@ -113,6 +129,7 @@ const parameters = {
 };
 
 export {
+  click,
   formatSnippet,
   formatSnippetMinimal,
   getLabelsFromOptions,

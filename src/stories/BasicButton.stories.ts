@@ -4,7 +4,7 @@ import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_BUTTON } from '@/types/Size';
 import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName, iconControlWithNone } from '@/utilities/storybook';
+import { click, formatSnippet, getVariableName, iconControlWithNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -18,6 +18,7 @@ const parameters = {
 
 export default {
   argTypes: {
+    click,
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
@@ -105,6 +106,7 @@ export default {
     },
   },
   args: {
+    click: 'handleClick',
     disabled: undefined,
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com',

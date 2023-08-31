@@ -6,7 +6,7 @@ import { PRIORITY } from '@/types/Priority';
 import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
 import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
-import { getVariableName, iconControl, parameters } from '@/utilities/storybook';
+import { click, getVariableName, iconControl, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
@@ -16,6 +16,7 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    click,
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
@@ -91,6 +92,7 @@ export default {
     },
   },
   args: {
+    click: 'handleClick',
     disabled: undefined,
     element: ELEMENT.BUTTON,
     href: 'https://www.traderinteractive.com',
