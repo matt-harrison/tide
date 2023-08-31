@@ -20,13 +20,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicChipInput },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicChipInput class="inline-flex" v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {

@@ -13,13 +13,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicChipAction },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicChipAction class="inline-flex" v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {

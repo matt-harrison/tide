@@ -14,13 +14,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicLinkWithIcon },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicLinkWithIcon v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {

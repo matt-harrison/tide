@@ -55,13 +55,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicTabs },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicTabs class="inline-flex" v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {

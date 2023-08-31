@@ -25,13 +25,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicAccordionItem },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: `<BasicAccordionItem class="mb-1 border-t border-b border-gray" v-bind="args"><p class="mb-1">${args.default}</p></BasicAccordionItem>`,
-  updated() {
-    return { args };
-  },
 });
 
 export default {

@@ -9,13 +9,8 @@ import { getVariableName, iconControl, parameters } from '@/utilities/storybook'
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicButtonIcon class="inline-block" v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {

@@ -20,13 +20,8 @@ const parameters = {
 
 const render = (args: any) => ({
   components: { BasicChipFilter },
-  setup() {
-    return { args };
-  },
+  setup: () => ({ args }),
   template: '<BasicChipFilter class="inline-flex" v-bind="args" />',
-  updated() {
-    return { args };
-  },
 });
 
 export default {
