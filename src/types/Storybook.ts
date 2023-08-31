@@ -3,6 +3,23 @@
 
 // These objects are intended exclusively for use in demonstrating the Storybook UI.
 
+export const AXIS1 = {
+  None: undefined,
+  Around: 'axis1-around',
+  Between: 'axis1-between',
+  Center: 'axis1-center',
+  End: 'axis1-end',
+  Start: 'axis1-start',
+};
+
+export const AXIS2 = {
+  None: undefined,
+  Center: 'axis2-center',
+  End: 'axis2-end',
+  Normal: 'axis2-normal',
+  Start: 'axis2-start',
+};
+
 export const BACKGROUND_COLOR = {
   'None': '',
   'White': 'bg-white',

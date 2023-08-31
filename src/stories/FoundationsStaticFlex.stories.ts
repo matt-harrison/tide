@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { SPACING_SIZE } from '@/types/Storybook';
+import { AXIS1, AXIS2, SPACING_SIZE } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -15,6 +15,8 @@ const formatClassNames = (args: any) => {
   if (args.wrap === 'On') classNames.push('wrap');
   if (args.direction === 'Column') classNames.push('column');
   if (args.direction === 'Row') classNames.push('row');
+  if (args.axis1) classNames.push(args.axis1);
+  if (args.axis2) classNames.push(args.axis2);
   if (args.gap) classNames.push(`gap-${args.gap}`);
 
   return classNames.join(' ');
@@ -41,7 +43,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="border-1 border-blue-dark max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(args.children)">Demo {{ index + 1 }}</div></div>',
+    '<div class=" max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="border-1 border-blue-dark p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(args.children)">Demo {{ index + 1 }}</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -49,6 +51,22 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    axis1: {
+      control: 'select',
+      description: 'Determines alignment of children along primary axis',
+      options: AXIS1,
+      table: {
+        defaultValue: { summary: 'Start' },
+      },
+    },
+    axis2: {
+      control: 'select',
+      description: 'Determines alignment of children along secondary axis',
+      options: AXIS2,
+      table: {
+        defaultValue: { summary: 'Normal' },
+      },
+    },
     children: {
       control: 'select',
       description: 'Number of flex children<br />(For demonstration purposes)',
@@ -92,6 +110,8 @@ export default {
     },
   },
   args: {
+    axis1: AXIS1.None,
+    axis2: AXIS2.None,
     children: 3,
     direction: 'Row',
     flex: 'Off',

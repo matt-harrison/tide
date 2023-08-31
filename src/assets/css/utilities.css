@@ -47,11 +47,11 @@
 .axis1-between {justify-content: space-between;}
 .axis1-center  {justify-content: center;}
 .axis1-end     {justify-content: end;}
+.axis1-start   {justify-content: start;}
 
-.axis2-around  {align-items: space-around;}
 .axis2-center  {align-items: center;}
-.axis2-start   {align-items: flex-start;}
 .axis2-end     {align-items: flex-end;}
+.axis2-start   {align-items: flex-start;}
 
 .self-stretch {align-self: stretch;}
 
