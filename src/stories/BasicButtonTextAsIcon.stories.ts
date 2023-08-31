@@ -24,7 +24,7 @@ export default {
       description: 'HTML tag type',
       options: ELEMENT_TEXT_AS_ICON,
       table: {
-        defaultValue: { summary: 'ELEMENT_TEXT_AS_ICON.BUTTON' },
+        defaultValue: { summary: 'BUTTON' },
         type: { summary: 'Element' },
       },
     },
@@ -60,7 +60,7 @@ export default {
       description: 'Determines visual prominence',
       options: PRIORITY,
       table: {
-        defaultValue: { summary: 'PRIORITY. PRIMARY' },
+        defaultValue: { summary: 'PRIMARY' },
         type: { summary: 'Priority' },
       },
     },
@@ -70,7 +70,7 @@ export default {
       description: 'Determines spacing and font size',
       options: SIZE_ICON,
       table: {
-        defaultValue: { summary: 'SIZE_ICON. MEDIUM' },
+        defaultValue: { summary: 'MEDIUM' },
         type: { summary: 'SizeIcon' },
       },
     },
@@ -81,7 +81,7 @@ export default {
       if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       options: TIER,
       table: {
-        defaultValue: { summary: 'TIER.TIER_1' },
+        defaultValue: { summary: 'TIER_1' },
         type: { summary: 'Tier' },
       },
     },

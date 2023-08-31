@@ -15,7 +15,7 @@ export default {
       description: 'Determines icon dimensions',
       options: SIZE_ICON_STORYBOOK,
       table: {
-        defaultValue: { summary: 'SIZE_ICON. MEDIUM' },
+        defaultValue: { summary: 'MEDIUM' },
         type: { summary: 'SizeIcon' },
       },
     },

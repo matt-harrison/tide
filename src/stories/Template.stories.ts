@@ -57,7 +57,7 @@ export default {
       name: 'Tier', // Name column
       options: TIER_VARIANT,
       table: {
-        defaultValue: { summary: 'TIER.TIER_3' }, // Default column
+        defaultValue: { summary: 'TIER_3' }, // Default column
         type: { summary: 'Tier' }, // Type in Description column
       },
     },

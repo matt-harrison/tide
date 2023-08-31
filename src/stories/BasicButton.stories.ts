@@ -34,7 +34,7 @@ export default {
       description: 'HTML tag type',
       options: ELEMENT,
       table: {
-        defaultValue: { summary: 'ELEMENT.BUTTON' },
+        defaultValue: { summary: 'BUTTON' },
         type: { summary: 'Element' },
       },
     },
@@ -78,7 +78,7 @@ export default {
       description: 'Determines visual prominence',
       options: PRIORITY,
       table: {
-        defaultValue: { summary: 'PRIORITY. PRIMARY' },
+        defaultValue: { summary: 'PRIMARY' },
         type: { summary: 'Priority' },
       },
     },
@@ -88,7 +88,7 @@ export default {
       description: 'Determines spacing and font size',
       options: SIZE_BUTTON,
       table: {
-        defaultValue: { summary: 'SIZE_BUTTON. MEDIUM' },
+        defaultValue: { summary: 'MEDIUM' },
         type: { summary: 'SizeButton' },
       },
     },
@@ -99,7 +99,7 @@ export default {
       if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       options: TIER,
       table: {
-        defaultValue: { summary: 'TIER.TIER_1' },
+        defaultValue: { summary: 'TIER_1' },
         type: { summary: 'Tier' },
       },
     },

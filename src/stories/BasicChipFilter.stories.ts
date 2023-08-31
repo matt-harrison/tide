@@ -48,7 +48,7 @@ export default {
       description: 'Determines brand colors',
       options: TIER_VARIANT,
       table: {
-        defaultValue: { summary: 'TIER.TIER_1' },
+        defaultValue: { summary: 'TIER_1' },
         type: { summary: 'Tier' },
       },
     },
