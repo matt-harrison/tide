@@ -1,12 +1,47 @@
 import type { Preview } from "@storybook/vue3";
 
-import { realm } from '../src/config/main.config';
-
 import '../src/assets/css/main.css';
 
-import(`../src/assets/css/realm/${realm.id}.css`);
-
 const preview: Preview = {
+  decorators: [
+    (story, context) => {
+      import(`../src/assets/css/realm/${context.globals.realm.toLowerCase()}.css`);
+
+      return {
+        template: context.globals.theme === 'Dark'
+          ? `<div class="theme-${context.globals.theme.toLowerCase()} bg-surface p-1"><story /></div>`
+          : '<story />',
+      };
+    },
+  ],
+  globalTypes: {
+    realm: {
+      description: 'Determines Realm context of dynamic CSS utilities',
+      defaultValue: 'rv',
+      toolbar: {
+        title: 'Realm',
+        items: [
+          'Aero',
+          'ATV',
+          'Boatline',
+          'Cycle',
+          'Equip',
+          'PWC',
+          'RV',
+          'Snow',
+          'Truck',
+        ],
+      },
+    },
+    theme: {
+      description: 'Determines Theme context of dynamic CSS utilities',
+      defaultValue: 'Light',
+      toolbar: {
+        title: 'Theme',
+        items: ['Light', 'Dark'],
+      },
+    },
+  },
   parameters: {
     backgrounds: {
       values: [
