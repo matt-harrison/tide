@@ -12,7 +12,7 @@ export default {
       description: 'Determines icon dimensions',
       options: SIZE_ICON_STORYBOOK,
       table: {
-        defaultValue: { summary: 'MEDIUM' },
+        defaultValue: { summary: 'SMALL' },
         type: { summary: 'SizeIcon' },
       },
     },
