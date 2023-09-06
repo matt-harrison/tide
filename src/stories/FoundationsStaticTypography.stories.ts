@@ -112,15 +112,6 @@ export const FontColorRed = {
   },
 };
 
-export const FontSize10 = {
-  args: {
-    color: FONT_COLOR.None,
-    size: FONT_SIZE['10px'],
-    weight: FONT_WEIGHT.None,
-  },
-  name: 'Font Size 10px',
-};
-
 export const FontSize12 = {
   args: {
     color: FONT_COLOR.None,
@@ -146,15 +137,6 @@ export const FontSize16 = {
     weight: FONT_WEIGHT.None,
   },
   name: 'Font Size 16px',
-};
-
-export const FontSize18 = {
-  args: {
-    color: FONT_COLOR.None,
-    size: FONT_SIZE['18px'],
-    weight: FONT_WEIGHT.None,
-  },
-  name: 'Font Size 18px',
 };
 
 export const FontSize20 = {

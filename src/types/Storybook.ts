@@ -78,11 +78,9 @@ export const FONT_COLOR = {
 
 export const FONT_SIZE = {
   'None': '',
-  '10px': 'font-10',
   '12px': 'font-12',
   '14px': 'font-14',
   '16px': 'font-16',
-  '18px': 'font-18',
   '20px': 'font-20',
   '24px': 'font-24',
   '28px': 'font-28',

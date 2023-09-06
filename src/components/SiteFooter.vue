@@ -60,7 +60,7 @@
           :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-explore"
         >
-          <h2 class="mb-1 font-18">Explore {{ realm.label.singular }} Trader</h2>
+          <h2 class="mb-1 font-16">Explore {{ realm.label.singular }} Trader</h2>
 
           <div class="flex wrap gap-1 axis1-between">
             <div class="flex column gap-1">
@@ -120,7 +120,7 @@
           :class="isExtraSmall ? 'order-2 w-full' : ''"
           class="site-footer-affiliates"
         >
-          <h2 class="mb-1 font-18">{{ realm.label.singular }} Trader affiliates</h2>
+          <h2 class="mb-1 font-16">{{ realm.label.singular }} Trader affiliates</h2>
 
           <div class="flex column gap-1 axis1-between">
             <a
@@ -186,7 +186,7 @@
           class="site-footer-dealers-sellers"
         >
           <div class="flex column gap-1 mb-2">
-            <h2 class="font-18">Dealers</h2>
+            <h2 class="font-16">Dealers</h2>
 
             <div class="flex column axis2-start gap-1">
               <BasicButton
@@ -210,7 +210,7 @@
           </div>
 
           <div>
-            <h2 class="mb-1 font-18">Private sellers</h2>
+            <h2 class="mb-1 font-16">Private sellers</h2>
 
             <div class="flex column axis2-start gap-1">
               <span>Sell your {{ realm.label.singular }} for $69.95</span>
