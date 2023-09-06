@@ -1,16 +1,16 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
-import { SIZE_ICON_STORYBOOK } from '@/types/Storybook';
+import { SIZE_STORYBOOK } from '@/types/Storybook';
 import { getVariableName, icon, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
     icon,
     size: {
-      constant: getVariableName({ SIZE_ICON_STORYBOOK }),
+      constant: getVariableName({ SIZE_STORYBOOK }),
       control: 'select',
       description: 'Determines icon dimensions',
-      options: SIZE_ICON_STORYBOOK,
+      options: SIZE_STORYBOOK,
       table: {
         defaultValue: { summary: 'SMALL' },
         type: { summary: 'SizeIcon' },
@@ -19,7 +19,7 @@ export default {
   },
   args: {
     icon: ICON.HEART,
-    size: SIZE_ICON_STORYBOOK.None,
+    size: SIZE_STORYBOOK.None,
   },
   component: BasicIcon,
   parameters,
@@ -31,12 +31,12 @@ export const Demo = {};
 
 export const Medium = {
   args: {
-    size: SIZE_ICON_STORYBOOK.MEDIUM,
+    size: SIZE_STORYBOOK.MEDIUM,
   },
 };
 
 export const Small = {
   args: {
-    size: SIZE_ICON_STORYBOOK.SMALL,
+    size: SIZE_STORYBOOK.SMALL,
   },
 };

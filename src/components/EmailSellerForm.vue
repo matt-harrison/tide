@@ -9,7 +9,6 @@
   import BasicTextarea from '@/components/BasicTextarea.vue';
   import dummyEmailFormFields from '@/data/dummy-emailform-fields.json';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
   import { formatSentenceCase } from '@/utilities/format';
   import { getVehicleTitle } from '@/utilities/vehicle';
   import { submitEmailSellerForm } from '@/utilities/leads';
@@ -267,7 +266,6 @@
       :disabled="isSubmitting"
       :label="isSubmitting ? 'Submitting' : 'Send'"
       :priority="PRIORITY.PRIMARY"
-      :size="SIZE_BUTTON.LARGE"
       type="submit"
     />
   </form>

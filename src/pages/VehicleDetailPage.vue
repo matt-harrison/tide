@@ -23,7 +23,6 @@
   import VehiclePreview from '@/components/VehiclePreview.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatKebabCase } from '@/utilities/format';
   import {
@@ -237,7 +236,6 @@
 
       <BasicButton
         :priority="PRIORITY.SECONDARY"
-        :size="SIZE_BUTTON.LARGE"
         @click="() => (makeAnOfferModalIsOpen = true)"
         class="shrink-none"
         label="Make an offer"
@@ -689,7 +687,6 @@
           <BasicButton
             :icon-leading="ICON.ENVELOPE"
             :priority="PRIORITY.PRIMARY"
-            :size="SIZE_BUTTON.LARGE"
             :tier="TIER.TIER_1"
             @click="() => (emailModalIsOpen = true)"
             label="Email seller"

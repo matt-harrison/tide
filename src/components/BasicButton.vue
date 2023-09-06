@@ -2,13 +2,13 @@
   import type { Element } from '@/types/Element';
   import type { Icon } from '@/types/Icon';
   import type { Priority } from '@/types/Priority';
-  import type { SizeButton } from '@/types/Size';
+  import type { Size } from '@/types/Size';
   import type { Tier } from '@/types/Tier';
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
+  import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
@@ -20,7 +20,7 @@
     iconTrailing?: Icon;
     label: string;
     priority?: Priority;
-    size?: SizeButton;
+    size?: Size;
     isNewTab?: boolean;
     tier?: Tier;
   };
@@ -34,7 +34,7 @@
     isNewTab: false,
     label: undefined,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_BUTTON.MEDIUM,
+    size: SIZE.MEDIUM,
     tier: TIER.TIER_1,
   });
 </script>
@@ -48,9 +48,8 @@
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       props.element === ELEMENT.LINK ? 'inline-flex' : 'flex',
       'axis1-center axis2-center gap-1/2 radius-1/4',
-      props.size === SIZE_BUTTON.SMALL && 'py-1/4 px-1/2 font-14',
-      (SIZE_BUTTON.MEDIUM || !props.size) && 'py-1/2 px-1',
-      props.size === SIZE_BUTTON.LARGE && 'py-1 px-2',
+      props.size === SIZE.SMALL && 'py-1/4 px-1/2 font-14',
+      props.size === SIZE.MEDIUM && 'py-1/2 px-1',
       props.element === ELEMENT.LINK ? 'underline-none' : '',
       'font-700',
     ]"

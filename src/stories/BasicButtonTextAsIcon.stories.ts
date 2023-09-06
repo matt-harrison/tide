@@ -2,7 +2,7 @@ import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_ICON } from '@/types/Size';
+import { SIZE_STORYBOOK } from '@/types/Storybook';
 import { TIER } from '@/types/Tier';
 import { click, getVariableName, parameters } from '@/utilities/storybook';
 
@@ -66,10 +66,10 @@ export default {
       },
     },
     size: {
-      constant: getVariableName({ SIZE_ICON }),
+      constant: getVariableName({ SIZE_STORYBOOK }),
       control: 'select',
       description: 'Determines spacing and font size',
-      options: SIZE_ICON,
+      options: SIZE_STORYBOOK,
       table: {
         defaultValue: { summary: 'MEDIUM' },
         type: { summary: 'SizeIcon' },
@@ -95,7 +95,7 @@ export default {
     isNewTab: undefined,
     label: '1',
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE_STORYBOOK.None,
     tier: TIER.TIER_1,
   },
   component: BasicButtonTextAsIcon,

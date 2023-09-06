@@ -2,13 +2,13 @@
   import type { Element } from '@/types/Element';
   import type { Icon } from '@/types/Icon';
   import type { Priority } from '@/types/Priority';
-  import type { SizeIcon } from '@/types/Size';
+  import type { Size } from '@/types/Size';
   import type { Tier } from '@/types/Tier';
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_ICON } from '@/types/Size';
+  import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
   import { TIER } from '@/types/Tier';
 
@@ -19,7 +19,7 @@
     icon: Icon;
     isNewTab?: boolean;
     priority?: Priority;
-    size?: SizeIcon;
+    size?: Size;
     tier?: Tier;
   };
 
@@ -30,7 +30,7 @@
     icon: undefined,
     isNewTab: false,
     priority: PRIORITY.PRIMARY,
-    size: SIZE_ICON.SMALL,
+    size: SIZE.SMALL,
     tier: TIER.TIER_1,
   });
 </script>
@@ -39,7 +39,7 @@
   <component
     :class="[
       props.element === ELEMENT.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
-      props.size === SIZE_ICON.MEDIUM ? 'medium' : 'small',
+      props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',

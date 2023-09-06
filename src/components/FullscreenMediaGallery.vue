@@ -16,7 +16,6 @@
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { formatPhone } from '@/utilities/format';
   import {
@@ -491,7 +490,6 @@
               />
               <BasicButton
                 :priority="PRIORITY.PRIMARY"
-                :size="SIZE_BUTTON.LARGE"
                 :tier="TIER.TIER_1"
                 label="Send email"
                 type="submit"

@@ -3,18 +3,18 @@
 
   import type { Component } from 'vue';
   import type { Icon } from '@/types/Icon';
-  import type { SizeIcon } from '@/types/Size';
+  import type { Size } from '@/types/Size';
 
-  import { SIZE_ICON } from '@/types/Size';
+  import { SIZE } from '@/types/Size';
   import { formatPascalCase } from '@/utilities/format';
 
   type Props = {
     icon: Icon;
-    size?: SizeIcon;
+    size?: Size;
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    size: SIZE_ICON.SMALL,
+    size: SIZE.SMALL,
   });
 
   const innerSVG = ref<Component>();

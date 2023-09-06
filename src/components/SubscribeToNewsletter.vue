@@ -3,7 +3,6 @@
 
   import BasicButton from '@/components/BasicButton.vue';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE_BUTTON } from '@/types/Size';
   import { TIER } from '@/types/Tier';
   import { useViewportStore } from '@/stores/ViewportStore';
 
@@ -32,7 +31,6 @@
 
         <BasicButton
           :priority="PRIORITY.PRIMARY"
-          :size="SIZE_BUTTON.LARGE"
           :tier="TIER.TIER_1"
           label="Submit"
         />

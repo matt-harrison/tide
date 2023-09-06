@@ -2,7 +2,7 @@ import BasicButton from '@/components/BasicButton.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_BUTTON } from '@/types/Size';
+import { SIZE_STORYBOOK } from '@/types/Storybook';
 import { TIER } from '@/types/Tier';
 import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
 
@@ -84,10 +84,10 @@ export default {
       },
     },
     size: {
-      constant: getVariableName({ SIZE_BUTTON }),
+      constant: getVariableName({ SIZE_STORYBOOK }),
       control: 'select',
       description: 'Determines spacing and font size',
-      options: SIZE_BUTTON,
+      options: SIZE_STORYBOOK,
       table: {
         defaultValue: { summary: 'MEDIUM' },
         type: { summary: 'SizeButton' },
@@ -115,7 +115,7 @@ export default {
     isNewTab: undefined,
     label: 'Demo',
     priority: PRIORITY.PRIMARY,
-    size: SIZE_BUTTON.MEDIUM,
+    size: SIZE_STORYBOOK.None,
     tier: TIER.TIER_1,
   },
   component: BasicButton,
