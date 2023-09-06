@@ -73,17 +73,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const InitiallyCollapsed = {
-  args: {
-    isExpandedInitial: false,
-    label: 'Initially Collapsed',
-  },
-};
-
-export const InitiallyExpanded = {
-  args: {
-    isExpandedInitial: true,
-    label: 'Initially Expanded',
-  },
-};

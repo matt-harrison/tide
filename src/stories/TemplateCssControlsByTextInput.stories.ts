@@ -33,12 +33,6 @@ export default {
       },
     },
   },
-  args: '',
-  tags: ['autodocs'],
-  title: 'Proof of Concept/CSS Controls By Text Input',
-};
-
-export const Demo = {
   args: {
     utilities: '',
   },
@@ -60,4 +54,8 @@ export const Demo = {
       return formatArgs(args);
     },
   }),
+  tags: ['autodocs'],
+  title: 'Proof of Concept/CSS Controls By Text Input',
 };
+
+export const Demo = {};

@@ -65,32 +65,4 @@ export default {
   title: 'Basic Components/BasicChipFilter',
 };
 
-export const Demo = {
-  args: {
-    isActive: false,
-    label: 'Demo',
-    tier: undefined,
-  },
-};
-
-export const Inactive = {
-  args: {
-    isActive: false,
-    label: 'Demo',
-    tier: undefined,
-  },
-};
-
-export const Tier2Active = {
-  args: {
-    isActive: true,
-    tier: TIER_VARIANT.TIER_2,
-  },
-};
-
-export const Tier3Active = {
-  args: {
-    isActive: true,
-    tier: TIER_VARIANT.TIER_3,
-  },
-};
+export const Demo = {};

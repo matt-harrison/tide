@@ -28,15 +28,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const Medium = {
-  args: {
-    size: SIZE_STORYBOOK.MEDIUM,
-  },
-};
-
-export const Small = {
-  args: {
-    size: SIZE_STORYBOOK.SMALL,
-  },
-};

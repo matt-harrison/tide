@@ -57,15 +57,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const Tier2 = {
-  args: {
-    tier: TIER_VARIANT.TIER_2,
-  },
-};
-
-export const Tier3 = {
-  args: {
-    tier: TIER_VARIANT.TIER_3,
-  },
-};

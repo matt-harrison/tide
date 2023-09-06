@@ -90,17 +90,16 @@ export default {
       },
     },
   },
-  parameters,
-  render,
-  tags: ['autodocs'],
-  title: 'Proof of Concept/CSS Controls By Type',
-};
-
-export const Demo = {
   args: {
     fontColor: FONT_COLOR.None,
     fontSize: FONT_SIZE.None,
     marginSide: SPACING_SIDE.Full,
     marginSize: SPACING_SIZE.None,
   },
+  parameters,
+  render,
+  tags: ['autodocs'],
+  title: 'Proof of Concept/CSS Controls By Type',
 };
+
+export const Demo = {};

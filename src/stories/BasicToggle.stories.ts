@@ -22,15 +22,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const Inactive = {
-  args: {
-    isActive: false,
-  },
-};
-
-export const Active = {
-  args: {
-    isActive: true,
-  },
-};

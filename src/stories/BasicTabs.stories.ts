@@ -93,24 +93,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const InitialTab1 = {
-  args: {
-    activeTabInitial: 0,
-    tabs,
-  },
-};
-
-export const InitialTab2 = {
-  args: {
-    activeTabInitial: 1,
-    tabs,
-  },
-};
-
-export const InitialTab3 = {
-  args: {
-    activeTabInitial: 2,
-    tabs,
-  },
-};

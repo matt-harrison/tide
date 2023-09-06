@@ -4,7 +4,6 @@ import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { TARGET } from '@/types/Target';
 import { TIER } from '@/types/Tier';
 import { click, getVariableName, icon, parameters } from '@/utilities/storybook';
 
@@ -107,63 +106,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const PrimaryTier1 = {
-  args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    icon: ICON.ENVELOPE,
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.SMALL,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
-  },
-};
-
-export const PrimaryTier2 = {
-  args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    icon: ICON.ENVELOPE,
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.SMALL,
-    target: TARGET.SELF,
-    tier: TIER.TIER_2,
-  },
-};
-
-export const PrimaryTier3 = {
-  args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    icon: ICON.ENVELOPE,
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.SMALL,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
-  },
-};
-
-export const Secondary = {
-  args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    icon: ICON.ENVELOPE,
-    priority: PRIORITY.SECONDARY,
-    size: SIZE_STORYBOOK.SMALL,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
-  },
-};
-
-export const Tertiary = {
-  args: {
-    element: ELEMENT.BUTTON,
-    href: 'https://www.traderinteractive.com/',
-    icon: ICON.ENVELOPE,
-    priority: PRIORITY.TERTIARY,
-    size: SIZE_STORYBOOK.SMALL,
-    target: TARGET.SELF,
-    tier: TIER.TIER_1,
-  },
-};

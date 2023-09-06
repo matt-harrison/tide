@@ -125,33 +125,3 @@ export default {
 };
 
 export const Demo = {};
-
-export const PrimaryTier1 = {
-  args: {
-    tier: TIER.TIER_1,
-  },
-};
-
-export const PrimaryTier2 = {
-  args: {
-    tier: TIER.TIER_2,
-  },
-};
-
-export const PrimaryTier3 = {
-  args: {
-    tier: TIER.TIER_3,
-  },
-};
-
-export const Secondary = {
-  args: {
-    priority: PRIORITY.SECONDARY,
-  },
-};
-
-export const Tertiary = {
-  args: {
-    priority: PRIORITY.TERTIARY,
-  },
-};

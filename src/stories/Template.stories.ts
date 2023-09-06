@@ -75,24 +75,3 @@ export default {
 
 // STORIES
 export const Demo = {};
-
-export const Tier1 = {
-  args: {
-    label: 'Tier 1',
-    tier: TIER_VARIANT.TIER_1,
-  },
-};
-
-export const Tier2 = {
-  args: {
-    label: 'Tier 2',
-    tier: TIER_VARIANT.TIER_2,
-  },
-};
-
-export const Tier3 = {
-  args: {
-    label: 'Tier 3',
-    tier: TIER_VARIANT.TIER_3,
-  },
-};

@@ -41,14 +41,13 @@ export default {
       },
     },
   },
+  args: {
+    breadCrumbs: breadCrumbs,
+  },
   component: BasicBreadCrumbs,
   parameters,
   tags: ['autodocs'],
   title: 'Basic Components/BasicBreadCrumbs',
 };
 
-export const Demo = {
-  args: {
-    breadCrumbs: breadCrumbs,
-  },
-};
+export const Demo = {};
