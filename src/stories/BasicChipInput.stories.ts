@@ -1,5 +1,5 @@
 import BasicChipInput from '@/components/BasicChipInput.vue';
-import { formatSnippet } from '@/utilities/storybook';
+import { click, formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -11,14 +11,9 @@ const parameters = {
   },
 };
 
-const render = (args: any) => ({
-  components: { BasicChipInput },
-  setup: () => ({ args }),
-  template: '<BasicChipInput class="inline-flex" v-bind="args" />',
-});
-
 export default {
   argTypes: {
+    click,
     label: {
       control: 'text',
       description: 'Chip text',
@@ -29,11 +24,11 @@ export default {
     },
   },
   args: {
+    click: 'handleClick',
     label: 'Demo',
   },
   component: BasicChipInput,
   parameters,
-  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicChipInput',
 };

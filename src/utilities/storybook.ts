@@ -2,13 +2,11 @@ import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 
 export const click = {
   control: 'text',
   description: 'JS function to execute on click',
-  if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
   table: {
     defaultValue: { summary: 'None' },
     type: { summary: 'function' },
@@ -24,8 +22,6 @@ export const formatSnippet = (code: string, context: StoryContext) => {
   let attributes = Object.entries(args).map((arg: any) => {
     const key = arg[0];
     let value = arg[1];
-
-    // TODO: show intentionally redundant attributes (non-Demo stories) -> add None to booleans in presentation layer.
 
     // TODO: TypeScript doesn't believe the implict shapes of Storybook's native types.
     const componentProps = context.component as any;
@@ -60,7 +56,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
 
-    if (isClick && args.element === 'button') {
+    if (isClick && (!args.element || args.element === 'button')) {
       return `@click="${value}"`;
     }
   });

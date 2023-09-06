@@ -1,6 +1,6 @@
 import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ELEMENT } from '@/types/Element';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_STORYBOOK } from '@/types/Storybook';
@@ -14,7 +14,10 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    click,
+    click: {
+      ...click,
+      if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
+    },
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',

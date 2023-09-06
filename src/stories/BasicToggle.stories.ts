@@ -1,8 +1,9 @@
 import BasicToggle from '@/components/BasicToggle.vue';
-import { parameters } from '@/utilities/storybook';
+import { click, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
+    click,
     isActive: {
       control: 'boolean',
       description: 'Determines whether toggle is active',
@@ -13,6 +14,7 @@ export default {
     },
   },
   args: {
+    click: 'handleClick',
     isActive: false,
   },
   component: BasicToggle,

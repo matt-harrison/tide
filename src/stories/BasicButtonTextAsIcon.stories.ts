@@ -1,13 +1,16 @@
 import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_STORYBOOK } from '@/types/Storybook';
 import { click, getVariableName, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
-    click,
+    click: {
+      ...click,
+      if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
+    },
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
