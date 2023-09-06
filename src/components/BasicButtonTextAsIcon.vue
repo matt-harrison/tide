@@ -2,13 +2,11 @@
   import type { ElementTextAsIcon } from '@/types/Element';
   import type { Priority } from '@/types/Priority';
   import type { Size } from '@/types/Size';
-  import type { Tier } from '@/types/Tier';
 
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
-  import { TIER } from '@/types/Tier';
 
   type Props = {
     disabled?: boolean;
@@ -18,7 +16,6 @@
     label: string | number;
     priority?: Priority;
     size?: Size;
-    tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -29,7 +26,6 @@
     label: undefined,
     priority: PRIORITY.PRIMARY,
     size: SIZE.SMALL,
-    tier: TIER.TIER_1,
   });
 </script>
 
@@ -39,8 +35,6 @@
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
       props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
-      props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
-      props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       'inline-block radius-full p-1/2',
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',

@@ -3,14 +3,12 @@
   import type { Icon } from '@/types/Icon';
   import type { Priority } from '@/types/Priority';
   import type { Size } from '@/types/Size';
-  import type { Tier } from '@/types/Tier';
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
-  import { TIER } from '@/types/Tier';
 
   type Props = {
     disabled?: boolean;
@@ -20,7 +18,6 @@
     isNewTab?: boolean;
     priority?: Priority;
     size?: Size;
-    tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -31,7 +28,6 @@
     isNewTab: false,
     priority: PRIORITY.PRIMARY,
     size: SIZE.SMALL,
-    tier: TIER.TIER_1,
   });
 </script>
 
@@ -41,8 +37,6 @@
       props.element === ELEMENT.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
       props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
-      props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
-      props.priority === PRIORITY.PRIMARY && !props.tier && 'tier-1',
       'flex axis1-center axis2-center radius-full p-1/2',
       props.element === ELEMENT.LINK ? 'underline-none' : '',
     ]"

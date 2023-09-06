@@ -24,7 +24,6 @@
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useViewportStore } from '@/stores/ViewportStore';
@@ -50,8 +49,7 @@
   const { isExtraSmall, isSmall, isMedium, isLarge } = storeToRefs(viewportStore);
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
-  const isActiveChipTier2 = ref(true);
-  const isActiveChipTier3 = ref(true);
+  const isActiveChip = ref(true);
   const isDarkTheme = ref(false);
   const isToggleActive = ref(false);
   const modalIsOpen = ref(false);
@@ -273,12 +271,8 @@
     alert('Button clicked.');
   };
 
-  const handleChipClickFilterTier2 = () => {
-    isActiveChipTier2.value = !isActiveChipTier2.value;
-  };
-
-  const handleChipClickFilterTier3 = () => {
-    isActiveChipTier3.value = !isActiveChipTier3.value;
+  const handleChipClickFilter = () => {
+    isActiveChip.value = !isActiveChip.value;
   };
 
   const handleChipClickInput = (event: Event) => {
@@ -662,24 +656,8 @@
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               @click="handleButtonClick"
-              label="Primary Tier "
-            />
-
-            <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
-              @click="handleButtonClick"
-              label="Primary Tier 2"
-            />
-
-            <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
-              @click="handleButtonClick"
-              label="Primary Tier 3"
+              label="Primary"
             />
 
             <BasicButton
@@ -697,27 +675,9 @@
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               @click="handleButtonClick"
               disabled
-              label="Primary Tier 1"
-            />
-
-            <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
-              @click="handleButtonClick"
-              disabled
-              label="Primary Tier 2"
-            />
-
-            <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
-              @click="handleButtonClick"
-              disabled
-              label="Primary Tier 3"
+              label="Primary"
             />
 
             <BasicButton
@@ -738,25 +698,17 @@
           <div class="flex wrap gap-1 ml-1">
             <BasicButton
               :icon-leading="ICON.STAR"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               @click="handleButtonClick"
               label="Leading Icon"
             />
 
             <BasicButton
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               @click="handleButtonClick"
               label="Trailing Icon"
             />
 
-            <BasicButton
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
-              label="No Icon"
-            />
+            <BasicButton label="No Icon" />
           </div>
         </div>
 
@@ -789,8 +741,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -801,8 +751,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -813,8 +761,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -933,16 +879,10 @@
         <div class="mb-1">
           <h4 class="mb-1">Basic Action Chip</h4>
 
-          <div class="flex gap-1 ml-1">
+          <div class="flex wrap">
             <BasicChipAction
               href="#chip"
-              label="Tier 2"
-            />
-
-            <BasicChipAction
-              :tier="TIER.TIER_3"
-              href="#chip"
-              label="Tier 3"
+              label="Basic Action Chip"
             />
           </div>
         </div>
@@ -950,37 +890,20 @@
         <div class="mb-1">
           <h4 class="mb-1">Basic Filter Chip</h4>
 
-          <div class="flex gap-1 ml-1">
-            <BasicChipFilter
-              :is-active="isActiveChipTier2"
-              @click="handleChipClickFilterTier2"
-              label="Tier 2"
-            />
-
-            <BasicChipFilter
-              :is-active="isActiveChipTier3"
-              :tier="TIER.TIER_3"
-              @click="handleChipClickFilterTier3"
-              label="Tier 3"
-            />
-          </div>
+          <BasicChipFilter
+            :is-active="isActiveChip"
+            @click="handleChipClickFilter"
+            label="Basic Filter Chip"
+          />
         </div>
 
         <div>
           <h4 class="mb-1">Basic Input Chip</h4>
 
-          <div class="flex gap-1 ml-1">
-            <BasicChipInput
-              @click="handleChipClickInput"
-              label="Tier 2"
-            />
-
-            <BasicChipInput
-              :tier="TIER.TIER_3"
-              @click="handleChipClickInput"
-              label="Tier 3"
-            />
-          </div>
+          <BasicChipInput
+            @click="handleChipClickInput"
+            label="Basic Input Chip"
+          />
         </div>
       </section>
 
@@ -1049,27 +972,9 @@
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
               :element="ELEMENT.LINK"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               href="https://www.google.com"
-              label="Primary Tier 1"
+              label="Primary"
               target="_blank"
-            />
-
-            <BasicButton
-              :element="ELEMENT.LINK"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
-              href="https://www.google.com"
-              label="Primary Tier 2"
-            />
-
-            <BasicButton
-              :element="ELEMENT.LINK"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
-              href="#"
-              label="Primary Tier 3"
             />
 
             <BasicButton
@@ -1091,8 +996,6 @@
             <BasicButton
               :element="ELEMENT.LINK"
               :icon-leading="ICON.STAR"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               href="#"
               label="Leading Icon"
             />
@@ -1100,16 +1003,12 @@
             <BasicButton
               :element="ELEMENT.LINK"
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               href="#"
               label="Trailing Icon"
             />
 
             <BasicButton
               :element="ELEMENT.LINK"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
               href="#"
               label="No Icon"
             />
@@ -1123,8 +1022,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               :title="icon"
               @click="handleButtonClick"
               href="#"
@@ -1136,8 +1033,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               :title="icon"
               @click="handleButtonClick"
               href="#"
@@ -1149,8 +1044,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_3"
               :title="icon"
               @click="handleButtonClick"
               href="#"
@@ -1188,8 +1081,6 @@
         <h3 class="mb-1">Modal</h3>
 
         <BasicButton
-          :priority="PRIORITY.PRIMARY"
-          :tier="TIER.TIER_1"
           @click="openModal"
           class="ml-1"
           label="Open modal"
@@ -1297,8 +1188,6 @@
 
     <BasicButton
       :label="`Dark Theme: ${isDarkTheme ? 'On' : 'Off'}`"
-      :priority="PRIORITY.PRIMARY"
-      :tier="TIER.TIER_2"
       @click="toggleIsDarkTheme"
       class="fixed right-0 bottom-0 mr-1/2 mb-1/2"
     />

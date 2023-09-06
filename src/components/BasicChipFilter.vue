@@ -1,26 +1,20 @@
 <script lang="ts" setup>
-  import type { Tier } from '@/types/Tier';
-
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ICON } from '@/types/Icon';
-  import { TIER } from '@/types/Tier';
 
   type Props = {
     isActive: boolean;
     label: string;
-    tier?: Tier;
   };
 
-  const props = withDefaults(defineProps<Props>(), {
-    tier: TIER.TIER_3,
-  });
+  const props = defineProps<Props>();
 </script>
 
 <template>
   <button
     :class="[
       'basic-chip-filter',
-      props.isActive && `primary-variant ${props.tier}`,
+      props.isActive && `primary-variant tier-3`,
       'flex column axis2-center',
       !props.isActive && 'border-1 border-gray',
       'radius-1/2 px-1 py-1/2',

@@ -23,7 +23,6 @@
   import VehiclePreview from '@/components/VehiclePreview.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatKebabCase } from '@/utilities/format';
   import {
     getSearchPills,
@@ -438,8 +437,6 @@
             <BasicButtonIcon
               :href="phoneHref"
               :icon="ICON.PHONE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
             />
 
             <a :href="phoneHref"> Call {{ phone }} </a>
@@ -686,8 +683,6 @@
 
           <BasicButton
             :icon-leading="ICON.ENVELOPE"
-            :priority="PRIORITY.PRIMARY"
-            :tier="TIER.TIER_1"
             @click="() => (emailModalIsOpen = true)"
             label="Email seller"
           />

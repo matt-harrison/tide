@@ -8,7 +8,6 @@
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatPhone, formatPrice, formatTitleCase, getCdnMediaRoot } from '@/utilities/format';
   import { realm } from '@/config/main.config';
 
@@ -126,11 +125,7 @@
               </a>
             </div>
 
-            <BasicButtonIcon
-              :icon="ICON.ENVELOPE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
-            />
+            <BasicButtonIcon :icon="ICON.ENVELOPE" />
           </div>
         </div>
       </div>

@@ -28,7 +28,6 @@
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatKebabCase, formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
@@ -225,8 +224,6 @@
             >
               <BasicButton
                 :icon-leading="ICON.SLIDERS"
-                :priority="PRIORITY.PRIMARY"
-                :tier="TIER.TIER_2"
                 label="Filters"
               />
 
@@ -497,7 +494,6 @@
             >
               <BasicChipInput
                 :label="filter.label"
-                :tier="TIER.TIER_3"
                 @click="handleFilterChipClick(filter.callback)"
               />
             </li>
@@ -600,8 +596,6 @@
                 <BasicButtonTextAsIcon
                   :element="ELEMENT_TEXT_AS_ICON.DIV"
                   :label="paginationButton"
-                  :priority="PRIORITY.PRIMARY"
-                  :tier="TIER.TIER_2"
                   v-if="filterStore.pageCurrent === paginationButton"
                 />
 

@@ -6,7 +6,6 @@
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { REALM } from '@/types/Realm';
-  import { TIER } from '@/types/Tier';
   import { formatPascalCase } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useViewportStore } from '@/stores/ViewportStore';
@@ -238,8 +237,6 @@
 
           <BasicButtonIcon
             :icon="ICON.MAGNIFYING_GLASS"
-            :priority="PRIORITY.PRIMARY"
-            :tier="TIER.TIER_1"
             @click="handleSearchBarTriggerClick"
             aria-label="Search"
             class="absolute top-0 right-0 mt-1/2 mr-1/2 p-1/2"

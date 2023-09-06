@@ -8,7 +8,6 @@
   import BasicImage from '@/components/BasicImage.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatPhone, formatPrice, formatTitleCase, getCdnMediaRoot, removeMarkup } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useViewportStore } from '@/stores/ViewportStore';
@@ -141,6 +140,7 @@
                 >
                   <BasicButtonIcon
                     :icon="ICON.PHONE"
+                    :priority="PRIORITY.TERTIARY"
                     href="/listing"
                   />
 
@@ -162,11 +162,7 @@
                   </a>
                 </div>
 
-                <BasicButtonIcon
-                  :icon="ICON.ENVELOPE"
-                  :priority="PRIORITY.PRIMARY"
-                  :tier="TIER.TIER_1"
-                />
+                <BasicButtonIcon :icon="ICON.ENVELOPE" />
               </div>
             </div>
           </div>

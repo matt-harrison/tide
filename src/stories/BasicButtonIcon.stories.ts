@@ -4,7 +4,6 @@ import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { TIER } from '@/types/Tier';
 import { click, getVariableName, icon, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
@@ -75,17 +74,6 @@ export default {
         type: { summary: 'SizeIcon' },
       },
     },
-    tier: {
-      constant: getVariableName({ TIER }),
-      control: 'select',
-      description: 'Determines brand colors<br />(Primary only)',
-      if: { arg: 'priority', eq: PRIORITY.PRIMARY },
-      options: TIER,
-      table: {
-        defaultValue: { summary: 'TIER_1' },
-        type: { summary: 'Tier' },
-      },
-    },
   },
   args: {
     click: 'handleClick',
@@ -96,7 +84,6 @@ export default {
     isNewTab: undefined,
     priority: PRIORITY.PRIMARY,
     size: SIZE_STORYBOOK.None,
-    tier: TIER.TIER_1,
   },
   component: BasicButtonIcon,
   parameters,

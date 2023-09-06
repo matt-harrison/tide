@@ -3,7 +3,6 @@ import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { TIER } from '@/types/Tier';
 import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
 
 const parameters = {
@@ -93,17 +92,6 @@ export default {
         type: { summary: 'SizeButton' },
       },
     },
-    tier: {
-      constant: getVariableName({ TIER }),
-      control: 'select',
-      description: 'Determines brand colors<br />(Primary only)',
-      if: { arg: 'priority', eq: PRIORITY.PRIMARY },
-      options: TIER,
-      table: {
-        defaultValue: { summary: 'TIER_1' },
-        type: { summary: 'Tier' },
-      },
-    },
   },
   args: {
     click: 'handleClick',
@@ -116,7 +104,6 @@ export default {
     label: 'Demo',
     priority: PRIORITY.PRIMARY,
     size: SIZE_STORYBOOK.None,
-    tier: TIER.TIER_1,
   },
   component: BasicButton,
   parameters,

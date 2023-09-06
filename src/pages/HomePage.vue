@@ -12,7 +12,6 @@
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatKebabCase } from '@/utilities/format';
   import { formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
@@ -132,8 +131,6 @@
           <BasicButton
             :element="ELEMENT.LINK"
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
-            :priority="PRIORITY.PRIMARY"
-            :tier="TIER.TIER_1"
             class="mb-1 w-full"
             label="Search"
           />
@@ -179,7 +176,6 @@
                 :element="ELEMENT.LINK"
                 :is-new-tab="true"
                 :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
-                :tier="isExtraSmall ? TIER.TIER_2 : undefined"
                 class="whitespace-nowrap"
                 href="/"
                 label="View inventory"
@@ -244,8 +240,6 @@
           <BasicButton
             :element="ELEMENT.LINK"
             :label="`Sell my ${realm.label.singular}`"
-            :priority="PRIORITY.PRIMARY"
-            :tier="TIER.TIER_2"
             href="#"
           />
         </div>
@@ -266,8 +260,6 @@
           </p>
           <BasicButton
             :element="ELEMENT.LINK"
-            :priority="PRIORITY.PRIMARY"
-            :tier="TIER.TIER_2"
             href="#"
             label="Explore resources"
           />

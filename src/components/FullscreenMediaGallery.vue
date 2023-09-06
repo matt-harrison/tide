@@ -16,7 +16,6 @@
   import { ICON } from '@/types/Icon';
   import { MEDIA_SLIDE_TYPES } from '@/types/ListingMedia';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { formatPhone } from '@/utilities/format';
   import {
     getSellerNameLocation,
@@ -436,8 +435,6 @@
             >
               <BasicButtonIcon
                 :icon="ICON.PLAY"
-                :priority="PRIORITY.PRIMARY"
-                :tier="TIER.TIER_2"
                 href="tel:${sellerPhoneNumber}"
               />
 
@@ -489,8 +486,6 @@
                 name="message"
               />
               <BasicButton
-                :priority="PRIORITY.PRIMARY"
-                :tier="TIER.TIER_1"
                 label="Send email"
                 type="submit"
               />
@@ -514,16 +509,12 @@
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
               :href="phoneHref"
               :icon-leading="ICON.PHONE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_1"
               label="Call"
             />
 
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
               :icon-leading="ICON.MESSAGE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               @click="handleSmsClick"
               label="Text"
             />
@@ -540,8 +531,6 @@
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
               :icon-leading="ICON.ENVELOPE"
-              :priority="PRIORITY.PRIMARY"
-              :tier="TIER.TIER_2"
               @click="handleEmailClick"
               label="Email"
             />

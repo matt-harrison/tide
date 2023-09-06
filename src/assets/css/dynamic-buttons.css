@@ -6,7 +6,7 @@ button.tertiary:disabled {
 }
 
 /* Rest State */
-.primary.tier-1 {
+.primary {
   border: 2px solid var(--ti-primary-button-tier-1-border-rest);
   color: var(--ti-primary-button-tier-1-foreground-rest);
   background: var(--ti-primary-button-tier-1-background-rest);
@@ -24,7 +24,7 @@ button.tertiary:disabled {
   background: var(--ti-primary-button-tier-3-background-rest);
 }
 
-.primary-variant.tier-1 {
+.primary-variant {
   border: 2px solid var(--ti-primary-button-tier-1-variant-border-rest);
   color: var(--ti-primary-button-tier-1-variant-foreground-rest);
   background: var(--ti-primary-button-tier-1-variant-background-rest);
@@ -54,8 +54,8 @@ button.tertiary:disabled {
 }
 
 /* Hover State */
-a.primary.tier-1:hover,
-button.primary.tier-1:enabled:hover {
+a.primary:hover,
+button.primary:enabled:hover {
   background: var(--ti-primary-button-tier-1-background-hover);
   border: 2px solid var(--ti-primary-button-tier-1-border-hover);
   color: var(--ti-primary-button-tier-1-foreground-hover);
@@ -75,8 +75,8 @@ button.primary.tier-3:enabled:hover {
   color: var(--ti-primary-button-tier-3-foreground-hover);
 }
 
-a.primary-variant.tier-1:hover,
-button.primary-variant.tier-1:enabled:hover {
+a.primary-variant:hover,
+button.primary-variant:enabled:hover {
   background: var(--ti-primary-button-tier-1-variant-background-hover);
   border: 2px solid var(--ti-primary-button-tier-1-variant-border-hover);
   color: var(--ti-primary-button-tier-1-variant-foreground-hover);

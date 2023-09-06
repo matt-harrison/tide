@@ -8,7 +8,6 @@
   import BasicTextInput from '@/components/BasicTextInput.vue';
   import BasicTextarea from '@/components/BasicTextarea.vue';
   import dummyEmailFormFields from '@/data/dummy-emailform-fields.json';
-  import { PRIORITY } from '@/types/Priority';
   import { formatSentenceCase } from '@/utilities/format';
   import { getVehicleTitle } from '@/utilities/vehicle';
   import { submitEmailSellerForm } from '@/utilities/leads';
@@ -265,7 +264,6 @@
     <BasicButton
       :disabled="isSubmitting"
       :label="isSubmitting ? 'Submitting' : 'Send'"
-      :priority="PRIORITY.PRIMARY"
       type="submit"
     />
   </form>

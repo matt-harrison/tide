@@ -1,12 +1,5 @@
 import BasicChipInput from '@/components/BasicChipInput.vue';
-import { TIER } from '@/types/Tier';
-import { formatSnippet, getVariableName } from '@/utilities/storybook';
-
-const TIER_VARIANT = {
-  None: undefined,
-  TIER_2: TIER.TIER_2,
-  TIER_3: TIER.TIER_3,
-};
+import { formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -34,20 +27,9 @@ export default {
         type: { summary: 'string' },
       },
     },
-    tier: {
-      constant: getVariableName({ TIER_VARIANT }),
-      control: 'select',
-      description: 'Determines brand colors',
-      options: TIER_VARIANT,
-      table: {
-        defaultValue: { summary: 'TIER_3' },
-        type: { summary: 'Tier' },
-      },
-    },
   },
   args: {
     label: 'Demo',
-    tier: undefined,
   },
   component: BasicChipInput,
   parameters,

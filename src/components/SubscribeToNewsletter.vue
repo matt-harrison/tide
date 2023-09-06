@@ -2,8 +2,6 @@
   import { storeToRefs } from 'pinia';
 
   import BasicButton from '@/components/BasicButton.vue';
-  import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { useViewportStore } from '@/stores/ViewportStore';
 
   const viewportStore = useViewportStore();
@@ -29,11 +27,7 @@
           type="text"
         />
 
-        <BasicButton
-          :priority="PRIORITY.PRIMARY"
-          :tier="TIER.TIER_1"
-          label="Submit"
-        />
+        <BasicButton label="Submit" />
       </div>
 
       <p class="font-12 font-600">

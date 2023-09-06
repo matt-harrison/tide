@@ -5,7 +5,6 @@
   import BasicButton from '@/components/BasicButton.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
-  import { TIER } from '@/types/Tier';
   import { getVehiclePhoneHref } from '@/utilities/vehicle';
   import { useVehicleDetailStore } from '@/stores/VehicleDetailStore';
 
@@ -59,16 +58,11 @@
     <BasicButton
       :href="phoneHref"
       :icon-leading="ICON.PHONE"
-      :priority="PRIORITY.PRIMARY"
-      :tier="TIER.TIER_1"
       class="vehicle-detail-call-cta font-12 font-600"
       label="call"
     />
-
     <BasicButton
       :icon-leading="ICON.ENVELOPE"
-      :priority="PRIORITY.PRIMARY"
-      :tier="TIER.TIER_2"
       class="vehicle-detail-email-cta font-12 font-600"
       label="email"
     />
