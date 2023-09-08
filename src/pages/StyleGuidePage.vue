@@ -751,26 +751,6 @@
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
-              :title="icon"
-              @click="handleButtonClick"
-              v-for="icon in ICON"
-            />
-          </div>
-
-          <div class="flex wrap gap-1 mb-1 ml-1">
-            <BasicButtonIcon
-              :icon="icon"
-              :key="icon"
-              :title="icon"
-              @click="handleButtonClick"
-              v-for="icon in ICON"
-            />
-          </div>
-
-          <div class="flex wrap gap-1 mb-1 ml-1">
-            <BasicButtonIcon
-              :icon="icon"
-              :key="icon"
               :priority="PRIORITY.SECONDARY"
               :title="icon"
               @click="handleButtonClick"
