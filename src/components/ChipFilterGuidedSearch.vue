@@ -1,8 +1,7 @@
 <script lang="ts" setup>
   import type { VehicleType } from '@/types/VehicleType';
 
-  import BasicIcon from '@/components/BasicIcon.vue';
-  import { ICON } from '@/types/Icon';
+  import BasicChipFilter from '@/components/BasicChipFilter.vue';
 
   type Props = {
     isActive: boolean;
@@ -13,44 +12,26 @@
 </script>
 
 <template>
-  <button
-    :class="[
-      'guided-search-toggle',
-      props.isActive && 'primary-variant tier-3',
-      'flex axis1-center axis2-center shrink-none',
-      'radius-1/2',
-      !props.isActive && 'bg-surface-variant-lightest',
-      'snap-start',
-    ]"
+  <BasicChipFilter
+    :is-active="props.isActive"
+    :label="props.vehicleType.label"
+    class="chip-guided-search-toggle shrink-none"
   >
-    <div class="flex axis2-center column gap-1/4">
-      <img
-        :alt="vehicleType.label"
-        :src="vehicleType.img"
-        class="guided-search-toggle-thumb"
-      />
-
-      <div class="flex axis1-center axis2-center gap-1/4 font-12">
-        <span class="font-700 whitespace-nowrap">{{ props.vehicleType.label }}</span>
-
-        <BasicIcon
-          :icon="ICON.CHECK"
-          v-if="props.isActive"
-        />
-      </div>
-    </div>
-  </button>
+    <img
+      :alt="vehicleType.label"
+      :src="vehicleType.img"
+      class="chip-guided-search-toggle-thumb mb-1/4"
+    />
+  </BasicChipFilter>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
-
-<style scoped>
-  .guided-search-toggle {
-    width: 125px;
+<style>
+  .chip-guided-search-toggle {
+    min-width: 125px;
     height: 97px;
   }
 
-  .guided-search-toggle-thumb {
+  .chip-guided-search-toggle-thumb {
     width: auto;
     height: 44px;
   }

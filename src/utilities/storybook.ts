@@ -67,6 +67,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
 
   attributes = attributes.filter((attribute) => !!attribute).sort();
 
+  // TODO: return with implementation of JS Beautify dev dependency.
   return args.default
     ? `<${tag}\n\t${attributes.join(' \n\t')}\n>${args.default}</${tag}>`
     : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;

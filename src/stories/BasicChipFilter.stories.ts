@@ -14,11 +14,20 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicChipFilter },
   setup: () => ({ args }),
-  template: '<BasicChipFilter class="inline-flex" v-bind="args" />',
+  template: `<BasicChipFilter :key="args.default" class="inline-flex" v-bind="args">${args.default}</BasicFilterChip>`,
 });
 
 export default {
   argTypes: {
+    default: {
+      control: 'text',
+      defaultValue: 'None',
+      description: 'Content above label<br />(i.e. Vehicle thumbnail)',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'HTML' },
+      },
+    },
     isActive: {
       control: 'boolean',
       description: 'Determines whether toggle is active',
@@ -37,6 +46,7 @@ export default {
     },
   },
   args: {
+    default: '',
     isActive: false,
     label: 'Demo',
   },
