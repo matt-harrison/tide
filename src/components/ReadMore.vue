@@ -1,7 +1,8 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
 
-  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
+  import BasicLink from '@/components/BasicLink.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
 
   const props = defineProps({
@@ -56,12 +57,12 @@
     </div>
 
     <div>
-      <BasicButtonAsLink
+      <BasicLink
+        :element="ELEMENT.BUTTON"
         :icon-trailing="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN"
+        :label="isExpanded ? props.labelExpanded : props.labelCollapsed"
         @click="toggleIsExpanded"
-      >
-        {{ isExpanded ? props.labelExpanded : props.labelCollapsed }}
-      </BasicButtonAsLink>
+      />
     </div>
   </div>
 </template>

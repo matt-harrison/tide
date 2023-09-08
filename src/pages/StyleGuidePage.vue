@@ -7,7 +7,6 @@
   import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
-  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipAction from '@/components/BasicChipAction.vue';
@@ -713,29 +712,33 @@
         </div>
 
         <div class="mb-1">
-          <h4 class="mb-1">Button As Link</h4>
+          <h4 class="mb-1">Basic Button As Link</h4>
 
           <div class="flex wrap gap-1 ml-1">
-            <BasicButtonAsLink
+            <BasicLink
+              :element="ELEMENT.BUTTON"
               :icon-leading="ICON.STAR"
-              @click="handleButtonClick"
-            >
-              Leading Icon
-            </BasicButtonAsLink>
+              href="#"
+              label="Leading Icon"
+            />
 
-            <BasicButtonAsLink
+            <BasicLink
+              :element="ELEMENT.BUTTON"
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
-              @click="handleButtonClick"
-            >
-              Trailing Icon
-            </BasicButtonAsLink>
+              href="#"
+              label="Trailing Icon"
+            />
 
-            <BasicButtonAsLink @click="handleButtonClick">No Icon</BasicButtonAsLink>
+            <BasicLink
+              :element="ELEMENT.BUTTON"
+              href="#"
+              label="No Icon"
+            />
           </div>
         </div>
 
         <div class="mb-1">
-          <h4 class="mb-1">Button Icon</h4>
+          <h4 class="mb-1">Basic Button Icon</h4>
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButtonIcon
@@ -923,38 +926,34 @@
         <div class="mb-1">
           <h4 class="mb-1">Basic Link</h4>
 
-          <div class="ml-1">
-            <a href="#">Standard link</a>
-          </div>
-        </div>
-
-        <div class="mb-1">
-          <h4 class="mb-1">Link with Icon</h4>
-
-          <div class="flex wrap gap-2 ml-1">
+          <div class="flex wrap gap-1 ml-1">
             <BasicLink
               :icon-leading="ICON.STAR"
-              href="#"
+              href="/"
               label="Leading Icon"
             />
 
             <BasicLink
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
-              href="#"
+              href="/"
               label="Trailing Icon"
+            />
+
+            <BasicLink
+              href="/"
+              label="No Icon"
             />
           </div>
         </div>
 
         <div class="mb-1">
-          <h4 class="mb-1">Link as Button</h4>
+          <h4 class="mb-1">Basic Link as Button</h4>
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButton
               :element="ELEMENT.LINK"
-              href="https://www.google.com"
+              href="/"
               label="Primary"
-              target="_blank"
             />
 
             <BasicButton
@@ -996,29 +995,7 @@
         </div>
 
         <div>
-          <h4 class="mb-1">Link As Button Icon</h4>
-
-          <div class="flex wrap gap-1 mb-1 ml-1">
-            <BasicButtonIcon
-              :icon="icon"
-              :key="icon"
-              :title="icon"
-              @click="handleButtonClick"
-              href="#"
-              v-for="icon in ICON"
-            />
-          </div>
-
-          <div class="flex wrap gap-1 mb-1 ml-1">
-            <BasicButtonIcon
-              :icon="icon"
-              :key="icon"
-              :title="icon"
-              @click="handleButtonClick"
-              href="#"
-              v-for="icon in ICON"
-            />
-          </div>
+          <h4 class="mb-1">Basic Link As Button Icon</h4>
 
           <div class="flex wrap gap-1 mb-1 ml-1">
             <BasicButtonIcon
@@ -1145,7 +1122,12 @@
             laboriosam laborum incidunt accusamus fugit. Magni esse dolore maxime perspiciatis ab
           </span>
           <template #footer>
-            <BasicButtonAsLink @click="closeModal">Cancel</BasicButtonAsLink>
+            <BasicLink
+              :element="ELEMENT.BUTTON"
+              @click="closeModal"
+              label="Cancel"
+            />
+
             <BasicButton
               class="ml-auto"
               label="Confirm"

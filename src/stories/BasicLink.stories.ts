@@ -1,6 +1,7 @@
 import BasicLink from '@/components/BasicLink.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { formatSnippet, iconWithNone } from '@/utilities/storybook';
+import { ELEMENT } from '@/types/Element';
+import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -20,9 +21,23 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    click: {
+      ...click,
+      if: { arg: 'element', eq: ELEMENT.BUTTON },
+    },
+    element: {
+      constant: getVariableName({ ELEMENT }),
+      control: 'select',
+      description: 'HTML tag type',
+      options: ELEMENT,
+      table: {
+        defaultValue: { summary: 'LINK' },
+        type: { summary: 'Element' },
+      },
+    },
     href: {
-      control: 'text',
-      description: 'URL to navigate to on click',
+      description: 'URL to open<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT.LINK },
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -38,7 +53,8 @@ export default {
     },
     isNewTab: {
       control: 'select',
-      description: 'Determines whether to target a new browser tab',
+      description: 'Determines whether to target a new browser tab<br />(Link only)',
+      if: { arg: 'element', eq: ELEMENT.LINK },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
@@ -55,6 +71,7 @@ export default {
     },
   },
   args: {
+    element: ELEMENT.LINK,
     href: '/',
     iconLeading: undefined,
     iconTrailing: undefined,

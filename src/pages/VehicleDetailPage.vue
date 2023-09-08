@@ -5,7 +5,6 @@
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
-  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicIcon from '@/components/BasicIcon.vue';
@@ -21,6 +20,7 @@
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import VdpStickyContact from '@/components/VdpStickyContact.vue';
   import VehiclePreview from '@/components/VehiclePreview.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { formatKebabCase } from '@/utilities/format';
@@ -216,10 +216,12 @@
       <div class="flex column gap-1/2">
         <div class="font-20 font-700">{{ price }}</div>
         <div class="flex wrap axis2-center gap-1/4 font-14">
-          <BasicButtonAsLink @click="() => (loanCalculatorIsOpen = true)">
-            <span>Estimated Payment: </span>
-            <span class="font-700">$50/month</span>
-          </BasicButtonAsLink>
+          <BasicLink
+            :element="ELEMENT.BUTTON"
+            @click="() => (loanCalculatorIsOpen = true)"
+          >
+            Estimated Payment: $50/month
+          </BasicLink>
 
           <BasicModal
             :is-open="loanCalculatorIsOpen"

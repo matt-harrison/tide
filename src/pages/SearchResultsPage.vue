@@ -8,12 +8,12 @@
   import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
-  import BasicButtonAsLink from '@/components/BasicButtonAsLink.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
   import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
+  import BasicLink from '@/components/BasicLink.vue';
   import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
@@ -25,6 +25,7 @@
   import SeoContent from '@/components/SeoContent.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
+  import { ELEMENT } from '@/types/Element';
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -499,7 +500,11 @@
             </li>
 
             <li>
-              <BasicButtonAsLink @click="handleClearAllClick">Clear all</BasicButtonAsLink>
+              <BasicLink
+                :element="ELEMENT.BUTTON"
+                @click="handleClearAllClick"
+                label="Clear all"
+              />
             </li>
           </ul>
 

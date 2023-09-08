@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { RouterLink } from 'vue-router';
+
   import type { Element } from '@/types/Element';
   import type { Icon } from '@/types/Icon';
   import type { Priority } from '@/types/Priority';
@@ -9,6 +11,7 @@
   import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
+  import { isSinglePageApp } from '@/config/main.config';
 
   type Props = {
     disabled?: boolean;
@@ -33,6 +36,8 @@
     priority: PRIORITY.PRIMARY,
     size: SIZE.MEDIUM,
   });
+
+  const linkElement = isSinglePageApp && props.isNewTab === false ? RouterLink : 'a';
 </script>
 
 <template>
@@ -50,7 +55,7 @@
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"
     :target="props.element === ELEMENT.LINK && props.isNewTab ? TARGET.BLANK : TARGET.SELF"
-    :is="props.element === ELEMENT.LINK ? 'a' : 'button'"
+    :is="props.element === ELEMENT.LINK ? linkElement : 'button'"
   >
     <BasicIcon
       :icon="props.iconLeading"
