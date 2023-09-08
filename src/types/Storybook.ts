@@ -94,6 +94,16 @@ export const FONT_WEIGHT = {
   'Bold': 'font-700',
 };
 
+export const MARGIN_SIZE = {
+  'None': undefined,
+  'Auto': 'auto',
+  '4 REM': '4',
+  '2 REM': '2',
+  '1 REM': '1',
+  '1/2 REM': '1/2',
+  '1/4 REM': '1/4',
+};
+
 export const SIZE_STORYBOOK = {
   None: undefined, // Deviation from SIZE necessary to facilitate Storybook presentation layer.
   MEDIUM: 'medium',

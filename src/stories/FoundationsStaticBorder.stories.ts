@@ -90,6 +90,8 @@ export default {
     },
   },
   args: {
+    color: BORDER_COLOR.None,
+    radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
     size: BORDER_SIZE.None,
   },
@@ -103,9 +105,6 @@ export const Default = {};
 
 export const Border1 = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: '1px Border',
@@ -113,9 +112,6 @@ export const Border1 = {
 
 export const Border2 = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['2px'],
   },
   name: '2px Border',
@@ -124,8 +120,6 @@ export const Border2 = {
 export const BorderBlack = {
   args: {
     color: BORDER_COLOR.Black,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: 'Black Border',
@@ -134,8 +128,6 @@ export const BorderBlack = {
 export const BorderBlue = {
   args: {
     color: BORDER_COLOR.Blue,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: 'Blue Border',
@@ -144,8 +136,6 @@ export const BorderBlue = {
 export const BorderRed = {
   args: {
     color: BORDER_COLOR.Red,
-    radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: 'Red Border',
@@ -153,49 +143,35 @@ export const BorderRed = {
 
 export const BorderTop = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Top,
-    size: BORDER_SIZE.None,
   },
   name: 'Top Border',
 };
 
 export const BorderRight = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Right,
-    size: BORDER_SIZE.None,
   },
   name: 'Right Border',
 };
 
 export const BorderBottom = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Bottom,
-    size: BORDER_SIZE.None,
   },
   name: 'Bottom Border',
 };
 
 export const BorderLeft = {
   args: {
-    color: BORDER_COLOR.None,
-    radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Left,
-    size: BORDER_SIZE.None,
   },
   name: 'Left Border',
 };
 
 export const RadiusQuarter = {
   args: {
-    color: BORDER_COLOR.None,
     radius: BORDER_RADIUS['1/4 REM'],
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: '1/4 REM Border Radius',
@@ -203,9 +179,7 @@ export const RadiusQuarter = {
 
 export const RadiusHalf = {
   args: {
-    color: BORDER_COLOR.None,
     radius: BORDER_RADIUS['1/2 REM'],
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: '1/2 REM Border Radius',
@@ -213,9 +187,7 @@ export const RadiusHalf = {
 
 export const Radius1 = {
   args: {
-    color: BORDER_COLOR.None,
     radius: BORDER_RADIUS['1 REM'],
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: '1 REM Border Radius',
@@ -223,9 +195,7 @@ export const Radius1 = {
 
 export const RadiusFull = {
   args: {
-    color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.Full,
-    side: BORDER_SIDE.Full,
     size: BORDER_SIZE['1px'],
   },
   name: 'Full Border Radius',

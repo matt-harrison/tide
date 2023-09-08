@@ -71,6 +71,7 @@
 .m-1    {margin: var(--spacing-1);}
 .m-2    {margin: var(--spacing-2);}
 .m-4    {margin: var(--spacing-4);}
+.m-auto {margin: auto;}
 
 .mx-1\/4 {margin-left: var(--spacing-1\/4); margin-right: var(--spacing-1\/4);}
 .mx-1\/2 {margin-left: var(--spacing-1\/2); margin-right: var(--spacing-1\/2);}
@@ -84,6 +85,7 @@
 .my-1    {margin-top: var(--spacing-1);    margin-bottom: var(--spacing-1);}
 .my-2    {margin-top: var(--spacing-2);    margin-bottom: var(--spacing-2);}
 .my-4    {margin-top: var(--spacing-4);    margin-bottom: var(--spacing-4);}
+.my-auto {margin-top: auto;                margin-bottom: auto;}
 
 .mt-1\/4 {margin-top: var(--spacing-1\/4);}
 .mt-1\/2 {margin-top: var(--spacing-1\/2);}
