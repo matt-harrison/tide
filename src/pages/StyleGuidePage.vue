@@ -14,7 +14,7 @@
   import BasicChipFilter from '@/components/BasicChipFilter.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicIcon from '@/components/BasicIcon.vue';
-  import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+  import BasicLink from '@/components/BasicLink.vue';
   import BasicModal from '@/components/BasicModal.vue';
   import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
@@ -952,13 +952,13 @@
           <h4 class="mb-1">Link with Icon</h4>
 
           <div class="flex wrap gap-2 ml-1">
-            <BasicLinkWithIcon
+            <BasicLink
               :icon-leading="ICON.STAR"
               href="#"
               label="Leading Icon"
             />
 
-            <BasicLinkWithIcon
+            <BasicLink
               :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
               href="#"
               label="Trailing Icon"

@@ -5,7 +5,7 @@
   import BasicButton from '@/components/BasicButton.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
-  import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+  import BasicLink from '@/components/BasicLink.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import SeoContent from '@/components/SeoContent.vue';
@@ -164,7 +164,7 @@
               :class="isExtraSmall ? 'axis1-between w-full' : ''"
               class="flex wrap gap-1"
             >
-              <BasicLinkWithIcon
+              <BasicLink
                 :element="ELEMENT.LINK"
                 :icon-leading="ICON.PHONE"
                 class="whitespace-nowrap"

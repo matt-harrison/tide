@@ -1,6 +1,5 @@
-import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+import BasicLink from '@/components/BasicLink.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ICON } from '@/types/Icon';
 import { formatSnippet, iconWithNone } from '@/utilities/storybook';
 
 const parameters = {
@@ -14,9 +13,9 @@ const parameters = {
 };
 
 const render = (args: any) => ({
-  components: { BasicLinkWithIcon },
+  components: { BasicLink },
   setup: () => ({ args }),
-  template: '<BasicLinkWithIcon v-bind="args" />',
+  template: '<BasicLink v-bind="args" />',
 });
 
 export default {
@@ -57,16 +56,16 @@ export default {
   },
   args: {
     href: '/',
-    iconLeading: ICON.STAR,
+    iconLeading: undefined,
     iconTrailing: undefined,
     isNewTab: undefined,
     label: 'Demo',
   },
-  component: BasicLinkWithIcon,
+  component: BasicLink,
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Basic Components/BasicLinkWithIcon',
+  title: 'Basic Components/BasicLink',
 };
 
 export const Demo = {};

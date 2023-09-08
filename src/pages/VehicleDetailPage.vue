@@ -10,7 +10,7 @@
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicIcon from '@/components/BasicIcon.vue';
   import BasicImage from '@/components/BasicImage.vue';
-  import BasicLinkWithIcon from '@/components/BasicLinkWithIcon.vue';
+  import BasicLink from '@/components/BasicLink.vue';
   import BasicModal from '@/components/BasicModal.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
   import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
@@ -176,14 +176,14 @@
             class="flex axis2-center gap-1/4"
             v-if="vehicle.dealerName"
           >
-            <BasicLinkWithIcon
+            <BasicLink
               :href="dealerLinkHref"
               :icon-leading="ICON.CIRCLE_CHECK"
               class="font-12"
               target="_blank"
             >
               {{ vehicle.dealerName }}
-            </BasicLinkWithIcon>
+            </BasicLink>
           </div>
 
           <span>
@@ -485,13 +485,13 @@
       class="vdp-stats layout-item flex column gap-1 border-b border-gray py-2 font-12"
     >
       <div class="flex axis2-center gap-1/2">
-        <BasicLinkWithIcon
+        <BasicLink
           :icon-leading="ICON.STAR"
           class="font-700"
           href="#"
         >
           Reviews for this {{ realm.label.singular }}
-        </BasicLinkWithIcon>
+        </BasicLink>
 
         <span>on</span>
         <div class="insider-logo radius-1/2 bg-gray" />
@@ -576,13 +576,13 @@
     <BasicContainer class="flex axis1-between mb-1">
       <h2 class="font-20">More {{ realm.label.plural }} like this</h2>
 
-      <BasicLinkWithIcon
+      <BasicLink
         :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
         :icon-trailing="ICON.CHEVRON_RIGHT"
         class="font-14 font-700"
       >
         See more
-      </BasicLinkWithIcon>
+      </BasicLink>
     </BasicContainer>
 
     <CardCarouselListingFeatured

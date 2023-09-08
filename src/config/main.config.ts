@@ -32,5 +32,5 @@ const realms = {
 
 const realmCode: Realm = paramRealm && Object.keys(realms).includes(paramRealm) ? (paramRealm as Realm) : REALM.RV;
 
+export const isSinglePageApp = false;
 export const realm: RealmConfig = realms[realmCode]?.realm;
-// export const realm: RealmConfig = rv.realm;
