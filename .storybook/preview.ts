@@ -1,16 +1,24 @@
-import type { Preview } from "@storybook/vue3";
+import type { Preview } from '@storybook/vue3';
+
+/*
+import { setup, Preview } from '@storybook/vue3';
+import { createPinia } from 'pinia';
+
+setup((app) => {
+  app.use(createPinia());
+});
+*/
 
 import '../src/assets/css/main.css';
 
 const preview: Preview = {
   decorators: [
     (story, context) => {
-      import(`../src/assets/css/realm/${context.globals.realm.toLowerCase()}.css`);
+      import(`../src/assets/css/realm/${context.globals.realm}.css`);
 
       return {
-        template: context.globals.theme === 'Dark'
-          ? `<div class="theme-${context.globals.theme.toLowerCase()} bg-surface p-1"><story /></div>`
-          : '<story />',
+        components: { story },
+        template: `<div class="${context.globals.theme} p-2 w-full h-full ${context.globals.surface} font-surface"><story /></div>`
       };
     },
   ],
@@ -19,57 +27,99 @@ const preview: Preview = {
       description: 'Determines Realm context of dynamic CSS utilities',
       defaultValue: 'rv',
       toolbar: {
-        title: 'Realm',
+        dynamicTitle: true,
         items: [
-          'Aero',
-          'ATV',
-          'Boatline',
-          'Cycle',
-          'Equip',
-          'PWC',
-          'RV',
-          'Snow',
-          'Truck',
+          {
+            title: 'Aero Realm',
+            value: 'aero',
+          },
+          {
+            title: 'ATV Realm',
+            value: 'atv',
+          },
+          {
+            title: 'Boatline Realm',
+            value: 'boatline',
+          },
+          {
+            title: 'Cycle Realm',
+            value: 'cycle',
+          },
+          {
+            title: 'Equipment Realm',
+            value: 'equip',
+          },
+          {
+            title: 'PWC Realm',
+            value: 'pwc',
+          },
+          {
+            title: 'RV Realm',
+            value: 'rv',
+          },
+          {
+            title: 'Snow Realm',
+            value: 'snow',
+          },
+          {
+            title: 'Truck Realm',
+            value: 'truck',
+          },
         ],
+        title: 'Realm',
+      },
+    },
+    surface: {
+      description: 'Determines Background context of dynamic CSS utilities',
+      defaultValue: 'bg-surface',
+      toolbar: {
+        dynamicTitle: true,
+        items: [
+          {
+            title: 'Surface Default',
+            value: 'bg-surface',
+          },
+          {
+            title: 'Surface Light',
+            value: 'bg-surface-light',
+          },
+          {
+            title: 'Surface Dark',
+            value: 'bg-surface-dark',
+          },
+        ],
+        title: 'Surface',
       },
     },
     theme: {
       description: 'Determines Theme context of dynamic CSS utilities',
-      defaultValue: 'Light',
+      defaultValue: 'theme-light',
       toolbar: {
+        dynamicTitle: true,
+        items: [
+          {
+            title: 'Light Theme',
+            value: 'theme-light',
+          },
+          {
+            title: 'Dark Theme',
+            value: 'theme-dark',
+          },
+        ],
         title: 'Theme',
-        items: ['Light', 'Dark'],
       },
     },
   },
   parameters: {
-    backgrounds: {
-      values: [
-        {
-          name: 'Surface Default',
-          value: 'var(--ti-surface-background-default)',
-        },
-        {
-          name: 'Surface Light',
-          value: 'var(--ti-surface-background-light)',
-        },
-        {
-          name: 'Surface Dark',
-          value: 'var(--ti-surface-background-dark)',
-        },
-      ],
-    },
+    backgrounds: { disable: true },
     docs: {
       canvas: {
         // sourceState: 'shown',
       },
-      controls: {
-        sort: 'requiredFirst',
-      },
-      source: {
-        type: 'dynamic',
-      },
+      controls: { sort: 'requiredFirst' },
+      source: { type: 'dynamic' },
     },
+    layout: 'fullscreen',
     options: {
       storySort: {
         order: [
