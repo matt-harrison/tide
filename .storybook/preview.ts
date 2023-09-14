@@ -1,14 +1,5 @@
 import type { Preview } from '@storybook/vue3';
 
-/*
-import { setup, Preview } from '@storybook/vue3';
-import { createPinia } from 'pinia';
-
-setup((app) => {
-  app.use(createPinia());
-});
-*/
-
 import '../src/assets/css/main.css';
 
 const preview: Preview = {
@@ -30,39 +21,39 @@ const preview: Preview = {
         dynamicTitle: true,
         items: [
           {
-            title: 'Aero Realm',
+            title: 'Realm: Aero',
             value: 'aero',
           },
           {
-            title: 'ATV Realm',
+            title: 'Realm: ATV',
             value: 'atv',
           },
           {
-            title: 'Boatline Realm',
+            title: 'Realm: Boatline',
             value: 'boatline',
           },
           {
-            title: 'Cycle Realm',
+            title: 'Realm: Cycle',
             value: 'cycle',
           },
           {
-            title: 'Equipment Realm',
+            title: 'Realm: Equipment',
             value: 'equip',
           },
           {
-            title: 'PWC Realm',
+            title: 'Realm: PWC',
             value: 'pwc',
           },
           {
-            title: 'RV Realm',
+            title: 'Realm: RV',
             value: 'rv',
           },
           {
-            title: 'Snow Realm',
+            title: 'Realm: Snow',
             value: 'snow',
           },
           {
-            title: 'Truck Realm',
+            title: 'Realm: Truck',
             value: 'truck',
           },
         ],
@@ -76,15 +67,15 @@ const preview: Preview = {
         dynamicTitle: true,
         items: [
           {
-            title: 'Surface Default',
+            title: 'Surface: Default',
             value: 'bg-surface',
           },
           {
-            title: 'Surface Light',
+            title: 'Surface: Light',
             value: 'bg-surface-light',
           },
           {
-            title: 'Surface Dark',
+            title: 'Surface: Dark',
             value: 'bg-surface-dark',
           },
         ],
@@ -98,11 +89,11 @@ const preview: Preview = {
         dynamicTitle: true,
         items: [
           {
-            title: 'Light Theme',
+            title: 'Theme: Light',
             value: 'theme-light',
           },
           {
-            title: 'Dark Theme',
+            title: 'Theme: Dark',
             value: 'theme-dark',
           },
         ],
@@ -115,6 +106,7 @@ const preview: Preview = {
     docs: {
       canvas: {
         // sourceState: 'shown',
+        withToolbar: false,
       },
       controls: { sort: 'requiredFirst' },
       source: { type: 'dynamic' },
@@ -152,6 +144,9 @@ const preview: Preview = {
           ],
         ],
       },
+    },
+    toolbar: {
+      grid: { hidden: true },
     },
     viewport: {
       viewports: {

@@ -1,19 +1,19 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/stories/Welcome.mdx',
-    '../src/stories/*.stories.ts',
-  ],
   addons: [
     '@storybook/addon-essentials',
   ],
+  docs: {
+    autodocs: 'tag',
+  },
   framework: {
     name: '@storybook/vue3-vite',
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
+  stories: [
+    '../src/stories/Welcome.mdx',
+    '../src/stories/*.stories.ts',
+  ],
 };
 export default config;
