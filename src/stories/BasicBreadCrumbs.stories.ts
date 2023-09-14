@@ -34,7 +34,7 @@ export default {
   argTypes: {
     breadCrumbs: {
       control: 'object',
-      description: 'Array of BreadCrumb objects.<br />(Label required, URL optional)',
+      description: 'Determines label and optional URL for each bread crumb',
       table: {
         defaultValue: { summary: '[]' },
         type: { summary: 'BreadCrumb[]' },

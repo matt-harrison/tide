@@ -73,7 +73,7 @@ export default {
       },
     },
     tabs: {
-      description: 'Array of Tab objects<br />(Callback and label required)',
+      description: 'Determines label and callback for each tab',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'Tab[]' },
