@@ -8,6 +8,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   const argsWithValues: string[] = [];
 
+  if (args.isActive !== undefined) argsWithValues.push(`:is-active="${args.isActive}"`);
   if (args.isExpandedInitial !== undefined) argsWithValues.push(`:is-expanded-initial="${args.isExpandedInitial}"`);
   if (args.label) argsWithValues.push(`label="${args.label}"`);
 
@@ -41,6 +42,15 @@ export default {
         type: { summary: 'HTML' },
       },
     },
+    isActive: {
+      control: 'select',
+      description: 'Determines whether to show "active" indicator (primarily for filters)',
+      options: BOOLEAN_UNREQUIRED,
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
+      },
+    },
     isExpandedInitial: {
       control: 'select',
       description:
@@ -62,6 +72,7 @@ export default {
   },
   args: {
     default: 'Lorem Ipsum',
+    isActive: undefined,
     isExpandedInitial: undefined,
     label: 'Demo',
   },

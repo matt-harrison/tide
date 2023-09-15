@@ -5,6 +5,11 @@
   import { ICON } from '@/types/Icon';
 
   const props = defineProps({
+    isActive: {
+      default: false,
+      required: false,
+      type: Boolean,
+    },
     isExpandedInitial: {
       default: false,
       required: false,
@@ -42,16 +47,20 @@
       @click="toggleIsExpanded"
       class="accordion-head flex axis1-between py-1 pointer"
     >
-      <span class="font-700">
-        {{ props.label }}
-      </span>
+      <div class="flex axis2-center gap-1/2 font-700">
+        <span>{{ props.label }}</span>
+        <div
+          class="basic-accordion-item-active bg-gray-dark radius-full"
+          v-if="props.isActive"
+        />
+      </div>
 
       <BasicIcon :icon="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN" />
     </div>
 
     <div
       ref="accordionBody"
-      class="accordion-body grid"
+      class="basic-accordion-body grid"
     >
       <div class="y-hidden">
         <div class="mb-1">
@@ -63,7 +72,12 @@
 </template>
 
 <style scoped>
-  .accordion-body {
+  .basic-accordion-body {
     transition: grid-template-rows var(--animate);
+  }
+
+  .basic-accordion-item-active {
+    width: 0.5rem;
+    height: 0.5rem;
   }
 </style>
