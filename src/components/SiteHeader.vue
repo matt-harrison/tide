@@ -225,7 +225,7 @@
       <form
         :class="viewportStore.isExtraSmall ? 'radius-bottom-1/2 w-full' : 'mt-1 mr-1 radius-1/2 w-475'"
         ref="searchBarForm"
-        class="search-form absolute top-0 right-0 p-2 bg-gray-dark pointer-events box-shadow"
+        class="search-form absolute top-0 right-0 p-2 bg-gray-dark pointer-events box-shadow-1"
       >
         <div class="search-bar relative mb-2">
           <input

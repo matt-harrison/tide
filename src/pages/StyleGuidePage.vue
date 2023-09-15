@@ -532,14 +532,6 @@
             </div>
 
             <div class="flex axis2-center column">
-              <span class="mb-1/2">.radius-1</span>
-              <div
-                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-                class="radius-demo border-1 radius-1"
-              />
-            </div>
-
-            <div class="flex axis2-center column">
               <span class="mb-1/2">.radius-full</span>
               <div
                 :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"

@@ -307,7 +307,7 @@
         <div class="w-0 grow flex column axis2-start">
           <div class="flex gap-1/2">
             <div
-              class="border-overlay radius-1 xy-hidden"
+              class="border-overlay radius-1/2 xy-hidden"
               style="height: 74px; width: 88px"
               v-if="vehicle?.dealerLogo"
             >
@@ -472,7 +472,7 @@
       v-show="isSingleColumn"
     >
       <div
-        :class="isStickyContact ? 'fixed bottom-0 box-shadow' : ''"
+        :class="isStickyContact ? 'fixed bottom-0 box-shadow-1' : ''"
         ref="stickableFooterRef"
         class="sticky-footer flex gap-1/2 py-2 px-1 w-full bg-white"
       >

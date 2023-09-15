@@ -185,14 +185,6 @@ export const RadiusHalf = {
   name: '1/2 REM Border Radius',
 };
 
-export const Radius1 = {
-  args: {
-    radius: BORDER_RADIUS['1 REM'],
-    size: BORDER_SIZE['1px'],
-  },
-  name: '1 REM Border Radius',
-};
-
 export const RadiusFull = {
   args: {
     radius: BORDER_RADIUS.Full,

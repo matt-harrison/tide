@@ -46,7 +46,6 @@ export const BORDER_RADIUS = {
   'None': undefined,
   '1/4 REM': 'radius-1/4',
   '1/2 REM': 'radius-1/2',
-  '1 REM': 'radius-1',
   'Full': 'radius-full',
 };
 
@@ -65,8 +64,10 @@ export const BORDER_SIZE = {
 };
 
 export const BOX_SHADOW = {
-  Off: '',
-  On: 'box-shadow',
+  'None': '',
+  'Level 1': 'box-shadow-1',
+  'Level 2': 'box-shadow-2',
+  'Level 3': 'box-shadow-3',
 };
 
 export const FONT_COLOR = {
@@ -127,11 +128,6 @@ export const SPACING_SIZE = {
   '1 REM': '1',
   '1/2 REM': '1/2',
   '1/4 REM': '1/4',
-};
-
-export const TEXT_SHADOW = {
-  Off: '',
-  On: 'text-shadow',
 };
 
 export const DYNAMIC_BORDER_COLOR = {

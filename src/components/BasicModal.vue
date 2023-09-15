@@ -125,7 +125,7 @@
     width: var(--modal-width);
     max-width: calc(100% - 2rem);
     max-height: calc(100% - 2rem);
-    box-shadow: 0px 10px 25px 0px rgba(18, 43, 58, 0.2);
+    box-shadow-1: 0px 10px 25px 0px rgba(18, 43, 58, 0.2);
     animation: modalOpen 300ms ease;
   }
 

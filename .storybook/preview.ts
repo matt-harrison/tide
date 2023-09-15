@@ -118,9 +118,7 @@ const preview: Preview = {
           'Welcome',
           'Foundations',
           [
-            'Static Utilities', ['Flex', 'Margin', 'Border', 'Padding', 'Background', 'Typography',
-            'Shadow', ['Box Shadow', 'Text Shadow']
-          ],
+            'Static Utilities', ['Flex', 'Margin', 'Border', 'Padding', 'Background', 'Shadow', 'Typography'],
             'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
           ],
           'Basic Components', [

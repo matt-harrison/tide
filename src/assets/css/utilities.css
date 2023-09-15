@@ -159,7 +159,6 @@
 
 .radius-1\/4 {border-radius:     4px;}
 .radius-1\/2 {border-radius:     8px;}
-.radius-1    {border-radius:    16px;}
 .radius-full {border-radius: 99999px;}
 
 /* Padding */
@@ -260,7 +259,9 @@
 .font-700 {font-weight: 700;}
 
 /* Misc */
-.box-shadow {box-shadow: var(--shadow);}
+.box-shadow-1 {box-shadow: var(--shadow-1);}
+.box-shadow-2 {box-shadow: var(--shadow-2);}
+.box-shadow-3 {box-shadow: var(--shadow-3);}
 
 .leading-default {line-height: 100%;}
 .leading-wide    {line-height: 150%;}
@@ -306,8 +307,6 @@
 }
 
 .text-center {text-align: center;}
-
-.text-shadow {text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);}
 
 .underline,
 .underline:hover,

@@ -65,7 +65,7 @@
   <section class="card-listing-premium-select p-1/4 w-full xy-hidden">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="relative block h-full bg-white box-shadow underline-none"
+      class="relative block h-full bg-white box-shadow-1 underline-none"
     >
       <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
         <div
@@ -183,7 +183,7 @@
           :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
           :priority="PRIORITY.TERTIARY"
           @click.prevent="handleFavoriteClick"
-          class="box-shadow"
+          class="box-shadow-1"
         />
       </div>
     </a>

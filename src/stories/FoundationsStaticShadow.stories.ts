@@ -11,7 +11,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args['box-shadow']) classNames.push(args['box-shadow']);
+  if (args['shadow']) classNames.push(args['shadow']);
 
   return classNames.join(' ');
 };
@@ -44,30 +44,23 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    'box-shadow': {
+    shadow: {
       control: 'select',
       description: 'Box shadow',
       options: BOX_SHADOW,
       table: {
-        defaultValue: { summary: 'Off' },
+        defaultValue: { summary: 'None' },
         type: { summary: 'BOX_SHADOW' },
       },
     },
   },
+  args: {
+    shadow: BOX_SHADOW.None,
+  },
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Shadow/Box Shadow',
+  title: 'Foundations/Static Utilities/Shadow',
 };
 
-export const Default = {
-  args: {
-    'box-shadow': BOX_SHADOW.Off,
-  },
-};
-
-export const BoxShadowOn = {
-  args: {
-    'box-shadow': BOX_SHADOW.On,
-  },
-};
+export const Default = {};
