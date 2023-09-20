@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { FONT_COLOR, FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
+import { FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,7 +11,6 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.color) classNames.push(args.color);
   if (args.size) classNames.push(args.size);
   if (args.weight) classNames.push(args.weight);
 
@@ -46,15 +45,6 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    color: {
-      control: 'select',
-      description: 'Font color',
-      options: FONT_COLOR,
-      table: {
-        defaultValue: { summary: 'Black' },
-        type: { summary: 'FONT_COLOR' },
-      },
-    },
     size: {
       control: 'select',
       description: 'Font size',
@@ -82,31 +72,6 @@ export default {
 
 export const Default = {
   args: {
-    color: FONT_COLOR.None,
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.None,
-  },
-};
-
-export const FontColorBlack = {
-  args: {
-    color: FONT_COLOR.Black,
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.None,
-  },
-};
-
-export const FontColorBlue = {
-  args: {
-    color: FONT_COLOR.Blue,
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.None,
-  },
-};
-
-export const FontColorRed = {
-  args: {
-    color: FONT_COLOR.Red,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,
   },
@@ -114,7 +79,6 @@ export const FontColorRed = {
 
 export const FontSize12 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['12px'],
     weight: FONT_WEIGHT.None,
   },
@@ -123,7 +87,6 @@ export const FontSize12 = {
 
 export const FontSize14 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['14px'],
     weight: FONT_WEIGHT.None,
   },
@@ -132,7 +95,6 @@ export const FontSize14 = {
 
 export const FontSize16 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['16px'],
     weight: FONT_WEIGHT.None,
   },
@@ -141,7 +103,6 @@ export const FontSize16 = {
 
 export const FontSize20 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['20px'],
     weight: FONT_WEIGHT.None,
   },
@@ -150,7 +111,6 @@ export const FontSize20 = {
 
 export const FontSize24 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['24px'],
     weight: FONT_WEIGHT.None,
   },
@@ -159,7 +119,6 @@ export const FontSize24 = {
 
 export const FontSize28 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['28px'],
     weight: FONT_WEIGHT.None,
   },
@@ -168,7 +127,6 @@ export const FontSize28 = {
 
 export const FontSize32 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE['32px'],
     weight: FONT_WEIGHT.None,
   },
@@ -177,7 +135,6 @@ export const FontSize32 = {
 
 export const FontWeight500 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.Medium,
   },
@@ -186,7 +143,6 @@ export const FontWeight500 = {
 
 export const FontWeight600 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT['Semi-bold'],
   },
@@ -195,7 +151,6 @@ export const FontWeight600 = {
 
 export const FontWeight700 = {
   args: {
-    color: FONT_COLOR.None,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.Bold,
   },

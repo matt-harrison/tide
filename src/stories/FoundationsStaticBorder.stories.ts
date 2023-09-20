@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BORDER_COLOR, BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/Storybook';
+import { BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -12,10 +12,6 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args.side || args.size) classNames.push(`border${args.side}${args.size}`);
-
-  if (args.color) {
-    classNames.push(args.color);
-  }
 
   if (args.radius) {
     classNames.push(args.radius);
@@ -52,15 +48,6 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    color: {
-      control: 'select',
-      description: 'Border color',
-      options: BORDER_COLOR,
-      table: {
-        defaultValue: { summary: 'Black' },
-        type: { summary: 'BORDER_COLOR' },
-      },
-    },
     radius: {
       control: 'select',
       description: 'Severity of rounded corners',
@@ -90,7 +77,6 @@ export default {
     },
   },
   args: {
-    color: BORDER_COLOR.None,
     radius: BORDER_RADIUS.None,
     side: BORDER_SIDE.Full,
     size: BORDER_SIZE.None,
@@ -115,30 +101,6 @@ export const Border2 = {
     size: BORDER_SIZE['2px'],
   },
   name: '2px Border',
-};
-
-export const BorderBlack = {
-  args: {
-    color: BORDER_COLOR.Black,
-    size: BORDER_SIZE['1px'],
-  },
-  name: 'Black Border',
-};
-
-export const BorderBlue = {
-  args: {
-    color: BORDER_COLOR.Blue,
-    size: BORDER_SIZE['1px'],
-  },
-  name: 'Blue Border',
-};
-
-export const BorderRed = {
-  args: {
-    color: BORDER_COLOR.Red,
-    size: BORDER_SIZE['1px'],
-  },
-  name: 'Red Border',
 };
 
 export const BorderTop = {
