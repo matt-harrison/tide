@@ -34,8 +34,6 @@
   --spacing-4: 4rem;
 
   /* Border */
-  --border-w-1: 1px;
-  --border-w-2: 2px;
-  --border-1: var(--border-w-1) solid var(--black);
-  --border-2: var(--border-w-2) solid var(--black);
+  --border-1: 1px solid var(--black);
+  --border-2: 2px solid var(--black);
 }

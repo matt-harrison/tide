@@ -10,8 +10,14 @@ const formatArgs = (args: any) => {
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
+  const hasBorderSide = args.side;
+  const hasBorderSize2 = args.size === BORDER_SIZE['2px'];
 
-  if (args.side || args.size) classNames.push(`border${args.side}${args.size}`);
+  if (hasBorderSize2 || !hasBorderSide) {
+    classNames.push(`border${args.size}`);
+  } else {
+    classNames.push(`border${args.side}`);
+  }
 
   if (args.radius) {
     classNames.push(args.radius);
@@ -60,6 +66,10 @@ export default {
     side: {
       control: 'select',
       description: 'Side(s) of box model',
+      if: {
+        arg: 'size',
+        neq: BORDER_SIZE['2px'],
+      },
       options: BORDER_SIDE,
       table: {
         defaultValue: { summary: 'Full' },
