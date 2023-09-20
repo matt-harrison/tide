@@ -10,13 +10,16 @@ const formatArgs = (args: any) => {
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
-  const hasBorderSide = args.side;
+  const hasBorderFull = args.side === '';
+  const hasBorderSize = args.size !== undefined;
   const hasBorderSize2 = args.size === BORDER_SIZE['2px'];
 
-  if (hasBorderSize2 || !hasBorderSide) {
-    classNames.push(`border${args.size}`);
-  } else {
+  if (hasBorderSize2) {
+    classNames.push('border-2');
+  } else if (!hasBorderFull && hasBorderSize) {
     classNames.push(`border${args.side}`);
+  } else if (hasBorderSize) {
+    classNames.push(`border${args.size}`);
   }
 
   if (args.radius) {
@@ -57,6 +60,10 @@ export default {
     radius: {
       control: 'select',
       description: 'Severity of rounded corners',
+      if: {
+        arg: 'side',
+        eq: BORDER_SIDE.Full,
+      },
       options: BORDER_RADIUS,
       table: {
         defaultValue: { summary: 'None' },

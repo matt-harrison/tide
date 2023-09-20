@@ -42,20 +42,20 @@ export const BORDER_SIDE = {
 };
 
 export const BORDER_SIZE = {
-  'None': '',
+  'None': undefined,
   '1px': '-1',
   '2px': '-2',
 };
 
 export const BOX_SHADOW = {
-  'None': '',
+  'None': undefined,
   'Level 1': 'box-shadow-1',
   'Level 2': 'box-shadow-2',
   'Level 3': 'box-shadow-3',
 };
 
 export const COLOR_BACKGROUND = {
-  'None': '',
+  'None': undefined,
   'Surface': 'bg-surface',
   'Surface Light': 'bg-surface-light',
   'Surface Dark': 'bg-surface-dark',
@@ -66,7 +66,7 @@ export const COLOR_BACKGROUND = {
 };
 
 export const COLOR_BORDER = {
-  'None': '',
+  'None': undefined,
   'Surface': 'border-surface',
   'Surface Light': 'border-surface-light',
   'Surface Dark': 'border-surface-dark',
@@ -74,13 +74,13 @@ export const COLOR_BORDER = {
 };
 
 export const COLOR_FONT = {
-  'None': '',
+  'None': undefined,
   'Surface': 'font-surface',
   'Surface Variant': 'font-surface-variant',
 };
 
 export const FONT_SIZE = {
-  'None': '',
+  'None': undefined,
   '12px': 'font-12',
   '14px': 'font-14',
   '16px': 'font-16',
@@ -91,7 +91,7 @@ export const FONT_SIZE = {
 };
 
 export const FONT_WEIGHT = {
-  'None': '',
+  'None': undefined,
   'Medium': 'font-500',
   'Semi-bold': 'font-600',
   'Bold': 'font-700',

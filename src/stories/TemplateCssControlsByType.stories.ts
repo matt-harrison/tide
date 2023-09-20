@@ -3,12 +3,13 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import {
-  BORDER_COLOR,
   BORDER_RADIUS,
   BORDER_SIDE,
   BORDER_SIZE,
+  COLOR_BACKGROUND,
+  COLOR_BORDER,
+  COLOR_FONT,
   FONT_SIZE,
-  FONT_COLOR,
   MARGIN_SIZE,
   SPACING_SIDE,
   SPACING_SIZE,
@@ -27,7 +28,21 @@ const formatClassNames = (args: any) => {
     classNames.push(`m${args.marginSide}-${args.marginSize}`);
   }
 
-  if (args.borderSide || args.borderSize) classNames.push(`border${args.borderSide}${args.borderSize}`);
+  const hasBorderFull = args.borderSide === '';
+  const hasBorderSize = args.borderSize !== undefined;
+  const hasBorderSize2 = args.borderSize === BORDER_SIZE['2px'];
+
+  if (hasBorderSize2) {
+    classNames.push('border-2');
+  } else if (!hasBorderFull && hasBorderSize) {
+    classNames.push(`border${args.borderSide}`);
+  } else if (hasBorderSize) {
+    classNames.push(`border${args.borderSize}`);
+  }
+
+  if (args.radius) {
+    classNames.push(args.radius);
+  }
 
   if (args.borderColor) {
     classNames.push(args.borderColor);
@@ -39,6 +54,10 @@ const formatClassNames = (args: any) => {
 
   if (args.paddingSide !== undefined && args.paddingSize !== undefined) {
     classNames.push(`p${args.paddingSide}-${args.paddingSize}`);
+  }
+
+  if (args.backgroundColor) {
+    classNames.push(args.backgroundColor);
   }
 
   if (args.fontColor) classNames.push(args.fontColor);
@@ -97,19 +116,33 @@ export default {
         type: { summary: 'MARGIN_SIDE' },
       },
     },
+    backgroundColor: {
+      control: 'select',
+      description: 'Background color',
+      name: 'Background Color',
+      options: COLOR_BACKGROUND,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'COLOR_BORDER' },
+      },
+    },
     borderColor: {
       control: 'select',
       description: 'Border color',
       name: 'Border Color',
-      options: BORDER_COLOR,
+      options: COLOR_BORDER,
       table: {
         defaultValue: { summary: 'Black' },
-        type: { summary: 'BORDER_COLOR' },
+        type: { summary: 'COLOR_BORDER' },
       },
     },
     borderRadius: {
       control: 'select',
       description: 'Severity of rounded corners',
+      if: {
+        arg: 'borderSide',
+        eq: BORDER_SIDE.Full,
+      },
       name: 'Border Radius',
       options: BORDER_RADIUS,
       table: {
@@ -119,7 +152,11 @@ export default {
     },
     borderSide: {
       control: 'select',
-      description: 'Side(s) of box model',
+      description: 'Border side(s) of box model',
+      if: {
+        arg: 'borderSize',
+        neq: BORDER_SIZE['2px'],
+      },
       name: 'Border Side',
       options: BORDER_SIDE,
       table: {
@@ -158,10 +195,10 @@ export default {
     fontColor: {
       control: 'select',
       name: 'Font Color',
-      options: FONT_COLOR,
+      options: COLOR_FONT,
       table: {
         defaultValue: { summary: 'Black' },
-        type: { summary: 'FONT_COLOR' },
+        type: { summary: 'COLOR_FONT' },
       },
     },
     fontSize: {
@@ -175,11 +212,12 @@ export default {
     },
   },
   args: {
-    borderColor: BORDER_COLOR.None,
+    backgroundColor: COLOR_BACKGROUND.None,
+    borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
     borderSide: BORDER_SIDE.Full,
     borderSize: BORDER_SIZE.None,
-    fontColor: FONT_COLOR.None,
+    fontColor: COLOR_FONT.None,
     fontSize: FONT_SIZE.None,
     marginSide: SPACING_SIDE.Full,
     marginSize: MARGIN_SIZE.None,
