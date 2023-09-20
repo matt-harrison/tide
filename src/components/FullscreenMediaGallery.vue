@@ -385,8 +385,8 @@
               :class="[
                 { active: index === currentSlide },
                 slide.type,
-                index === 0 && 'ml-auto mt-auto',
-                index === gallerySlides.length - 1 && 'mr-auto mb-auto',
+                index === 0 && 'ml-auto',
+                index === gallerySlides.length - 1 && 'mr-auto',
               ]"
               :key="index"
               @click="handleThumbClick(index)"

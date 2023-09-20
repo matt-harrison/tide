@@ -4,23 +4,38 @@ import { MARGIN_SIZE, SPACING_SIDE } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
+  args.style = formatStyles(args);
 
   return { args };
 };
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
+  const hasMargin = args.side !== undefined && args.size !== undefined;
+  const hasMarginAuto = args.size === MARGIN_SIZE.Auto;
+  const hasMarginAutoValid = getHasMarginAutoValid(args);
 
-  if (args.side !== undefined && args.size !== undefined) classNames.push(`m${args.side}-${args.size}`);
+  if ((hasMargin && !hasMarginAuto) || hasMarginAutoValid) {
+    classNames.push(`m${args.side}-${args.size}`);
+  }
 
   return classNames.join(' ');
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const style = ` style="${formatStyles(args)}"`;
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return `<div class="${formatClassNames(args)}"${style}>Demo</div>`;
 };
+
+const formatStyles = (args: any) => (getHasMarginAutoValid(args) ? `width: ${args.width}px;` : '');
+
+const getHasMarginAutoValid = (args: any) =>
+  args.size === MARGIN_SIZE.Auto &&
+  [SPACING_SIDE['Full'], SPACING_SIDE['X-axis'], SPACING_SIDE['Left'], SPACING_SIDE['Right']].includes(args.side);
+
+const getContainerClass = (args: any) => (getHasMarginAutoValid(args) ? '' : 'inline-block');
 
 const parameters = {
   docs: {
@@ -33,11 +48,15 @@ const parameters = {
 };
 
 const render = (args: any) => ({
+  methods: {
+    formatStyles,
+    getContainerClass,
+  },
   setup() {
     return formatArgs(args);
   },
   template:
-    '<div class="inline-block bg-blue-light"><div class="border-1 border-blue-dark p-1 bg-white" v-bind="args">Demo</div></div>',
+    '<div :class="getContainerClass(args)" class="bg-blue-light"><div class="border-1 border-blue-dark p-1 bg-white text-center" :style="formatStyles(args)" v-bind="args">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -63,9 +82,20 @@ export default {
         type: { summary: 'MARGIN_SIZE' },
       },
     },
+    width: {
+      control: 'number',
+      description: 'Horizontal margin-auto requires explicit width',
+      if: { arg: 'size', eq: MARGIN_SIZE.Auto },
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'number (px)' },
+      },
+    },
   },
   args: {
     side: SPACING_SIDE.Full,
+    size: undefined,
+    width: 100,
   },
   parameters,
   render,
