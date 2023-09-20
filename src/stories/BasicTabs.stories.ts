@@ -73,12 +73,12 @@ export default {
       },
     },
     tabs: {
+      control: 'object',
       description: 'Determines label and callback for each tab',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'Tab[]' },
       },
-      type: 'object',
     },
   },
   args: {

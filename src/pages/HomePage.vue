@@ -4,11 +4,11 @@
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
+  import BasicColumns from '@/components/BasicColumns.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicLink from '@/components/BasicLink.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
-  import SeoContent from '@/components/SeoContent.vue';
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -342,8 +342,8 @@
         />
       </section>
 
-      <SeoContent>
-        <li class="w-1/4">
+      <BasicColumns>
+        <template #section1>
           <h2 class="mb-1 font-20">Top {{ realm.label.singular }} makes</h2>
 
           <ul class="flex column gap-1 list-none">
@@ -362,9 +362,9 @@
               </a>
             </li>
           </ul>
-        </li>
+        </template>
 
-        <li class="w-1/4">
+        <template #section2>
           <h2 class="mb-1 font-20">Top {{ realm.label.singular }} models</h2>
 
           <ul class="flex column gap-1 list-none">
@@ -383,9 +383,9 @@
               </a>
             </li>
           </ul>
-        </li>
+        </template>
 
-        <li class="w-1/4">
+        <template #section3>
           <h2 class="mb-1 font-20">Top {{ realm.label.singular }} types</h2>
 
           <ul class="flex column gap-1 list-none">
@@ -403,9 +403,9 @@
               </a>
             </li>
           </ul>
-        </li>
+        </template>
 
-        <li class="w-1/4">
+        <template #section4>
           <h2 class="mb-1 font-20">Top {{ realm.label.singular }} states</h2>
 
           <ul class="flex column gap-1 list-none">
@@ -423,8 +423,8 @@
               </a>
             </li>
           </ul>
-        </li>
-      </SeoContent>
+        </template>
+      </BasicColumns>
     </BasicContainer>
   </div>
 </template>

@@ -48,7 +48,7 @@ export default {
   argTypes: {
     background: {
       control: 'select',
-      description: 'Realm-specific background color',
+      description: 'Context-specific background color',
       options: COLOR_BACKGROUND,
       table: {
         defaultValue: { summary: 'None' },
@@ -57,7 +57,7 @@ export default {
     },
     border: {
       control: 'select',
-      description: 'Realm-specific border color',
+      description: 'Context-specific border color',
       options: COLOR_BORDER,
       table: {
         defaultValue: { summary: 'None' },
@@ -66,7 +66,7 @@ export default {
     },
     font: {
       control: 'select',
-      description: 'Realm-specific font color',
+      description: 'Context-specific font color',
       options: COLOR_FONT,
       table: {
         defaultValue: { summary: 'None' },

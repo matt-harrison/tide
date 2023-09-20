@@ -14,6 +14,7 @@
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicLink from '@/components/BasicLink.vue';
+  import BasicSeoLinks from '@/components/BasicSeoLinks.vue';
   import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
@@ -22,7 +23,6 @@
   import CardListingPremiumSelect from '@/components/CardListingPremiumSelect.vue';
   import ChipActionRelatedSearch from '@/components/ChipActionRelatedSearch.vue';
   import ChipFilterGuidedSearch from '@/components/ChipFilterGuidedSearch.vue';
-  import SeoContent from '@/components/SeoContent.vue';
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import { ELEMENT } from '@/types/Element';
@@ -107,19 +107,38 @@
   ];
 
   const sleepingCapacities = new Array(9).fill('').map((item, index) => {
-    return `Sleeps ${index + 1}`;
+    return {
+      label: `Sleeps ${index + 1} (${formatNumber(Math.floor(Math.random() * 50000))})`,
+      url: '/',
+    };
   });
 
   const topCities = new Array(12).fill('').map((item, index) => {
-    return `Top City ${index + 1}`;
+    return {
+      label: `Top City ${index + 1} (${formatNumber(Math.floor(Math.random() * 50000))})`,
+      url: '/',
+    };
   });
 
   const topMakes = new Array(9).fill('').map((item, index) => {
-    return `Top Make ${index + 1}`;
+    return {
+      label: `Top Make ${index + 1} (${formatNumber(Math.floor(Math.random() * 50000))})`,
+      url: '/',
+    };
   });
 
   const topStates = new Array(12).fill('').map((item, index) => {
-    return `State ${index + 1}`;
+    return {
+      label: `State ${index + 1} (${formatNumber(Math.floor(Math.random() * 50000))})`,
+      url: '/',
+    };
+  });
+
+  const vehicleTypesFormatted = vehicleTypes.map((vehicleType) => {
+    return {
+      label: vehicleType.label,
+      url: '/',
+    };
   });
 
   const handleFilterChipClick = (callback: () => void) => {
@@ -665,73 +684,38 @@
       </section>
 
       <BasicContainer>
-        <section v-if="!isSingleColumn">
-          <SeoContent
+        <section
+          class="mb-2"
+          v-if="!isSingleColumn"
+        >
+          <BasicSeoLinks
             :heading="`Top ${realm.label.singular} makes for sale`"
+            :links="topMakes"
             class="mb-2"
-          >
-            <li
-              :key="topMake"
-              class="flex column gap-1/4 w-1/4 font-14"
-              v-for="topMake in topMakes"
-            >
-              <span>{{ topMake }}</span>
-              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-            </li>
-          </SeoContent>
+          />
 
-          <SeoContent
+          <BasicSeoLinks
             :heading="`States with ${realm.label.plural} for sale`"
+            :links="topStates"
             class="mb-2"
-          >
-            <li
-              :key="topState"
-              class="flex column gap-1/4 w-1/4 font-14"
-              v-for="topState in topStates"
-            >
-              <span>{{ topState }}</span>
-              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-            </li>
-          </SeoContent>
+          />
 
-          <SeoContent
+          <BasicSeoLinks
             :heading="`Top cities with ${realm.label.plural} for sale`"
+            :links="topCities"
             class="mb-2"
-          >
-            <li
-              :key="topCity"
-              class="flex column gap-1/4 w-1/4 font-14"
-              v-for="topCity in topCities"
-            >
-              <span>{{ topCity }}</span>
-              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-            </li>
-          </SeoContent>
+          />
 
-          <SeoContent
+          <BasicSeoLinks
             :heading="`${realm.label.singular} sleeping capacity`"
+            :links="sleepingCapacities"
             class="mb-2"
-          >
-            <li
-              :key="sleepingCapacity"
-              class="flex column gap-1/4 w-1/4 font-14"
-              v-for="sleepingCapacity in sleepingCapacities"
-            >
-              <span>{{ sleepingCapacity }}</span>
-              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-            </li>
-          </SeoContent>
+          />
 
-          <SeoContent :heading="`${realm.label.singular} types`">
-            <li
-              :key="vehicleType.label"
-              class="flex column gap-1/4 w-full w-1/4 font-14"
-              v-for="vehicleType in vehicleTypes"
-            >
-              <span>{{ vehicleType.label }}</span>
-              <span>({{ formatNumber(Math.floor(Math.random() * 50000)) }})</span>
-            </li>
-          </SeoContent>
+          <BasicSeoLinks
+            :heading="`${realm.label.singular} types`"
+            :links="vehicleTypesFormatted"
+          />
         </section>
 
         <SubscribeToNewsletter />

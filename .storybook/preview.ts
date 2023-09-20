@@ -116,21 +116,8 @@ const preview: Preview = {
       storySort: {
         order: [
           'Welcome',
-          'Foundations', ['Flex', 'Margin', 'Border', 'Color', 'Padding', 'Background', 'Shadow', 'Typography'],
-          'Basic Components', [
-            'BasicAccordionItem',
-            'BasicBreadCrumbs',
-            'BasicButton',
-            'BasicButtonIcon',
-            'BasicButtonTextAsIcon',
-            'BasicChipAction',
-            'BasicChipFilter',
-            'BasicChipInput',
-            'BasicIcon',
-            'BasicLinkWithIcon',
-            'BasicTabs',
-            'BasicToggle',
-          ],
+          'Foundations',
+          'Basic Components',
           'Proof of Concept', [
             'Template',
             'TemplateCssControlsByTextInput',
