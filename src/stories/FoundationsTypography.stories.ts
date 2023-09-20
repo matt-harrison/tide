@@ -67,7 +67,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Typography',
+  title: 'Foundations/Typography',
 };
 
 export const Default = {

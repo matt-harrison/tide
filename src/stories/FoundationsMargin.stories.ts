@@ -100,7 +100,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Margin',
+  title: 'Foundations/Margin',
 };
 
 export const MarginDefault = {

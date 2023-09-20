@@ -26,22 +26,6 @@ export const AXIS2 = {
   Start: 'axis2-start',
 };
 
-export const BACKGROUND_COLOR = {
-  'None': '',
-  'White': 'bg-white',
-  'Gray - Light': 'bg-gray-light',
-  'Gray - Medium': 'bg-gray',
-  'Gray - Dark': 'bg-gray-dark',
-  'Black': 'bg-black',
-};
-
-export const BORDER_COLOR = {
-  None: undefined,
-  Black: 'border-black',
-  Blue: 'border-blue',
-  Red: 'border-red',
-};
-
 export const BORDER_RADIUS = {
   'None': undefined,
   '1/4 REM': 'radius-1/4',
@@ -70,11 +54,29 @@ export const BOX_SHADOW = {
   'Level 3': 'box-shadow-3',
 };
 
-export const FONT_COLOR = {
-  None: '',
-  Black: 'font-black',
-  Blue: 'font-blue',
-  Red: 'font-red',
+export const COLOR_BACKGROUND = {
+  'None': '',
+  'Surface': 'bg-surface',
+  'Surface Light': 'bg-surface-light',
+  'Surface Dark': 'bg-surface-dark',
+  'Surface Variant': 'bg-surface-variant',
+  'Surface Variant Light': 'bg-surface-variant-light',
+  'Surface Variant Dark': 'bg-surface-variant-dark',
+  'Surface Variant Darkest': 'bg-surface-variant-darkest',
+};
+
+export const COLOR_BORDER = {
+  'None': '',
+  'Surface': 'border-surface',
+  'Surface Light': 'border-surface-light',
+  'Surface Dark': 'border-surface-dark',
+  'Surface Save': 'border-surface-save',
+};
+
+export const COLOR_FONT = {
+  'None': '',
+  'Surface': 'font-surface',
+  'Surface Variant': 'font-surface-variant',
 };
 
 export const FONT_SIZE = {
@@ -128,53 +130,4 @@ export const SPACING_SIZE = {
   '1 REM': '1',
   '1/2 REM': '1/2',
   '1/4 REM': '1/4',
-};
-
-export const DYNAMIC_BORDER_COLOR = {
-  'None': '',
-  'Primary Tier 1': 'border-primary-tier-1',
-  'Primary Tier 2': 'border-primary-tier-2',
-  'Primary Tier 3': 'border-primary-tier-3',
-  'Primary Variant Tier 1': 'border-primary-variant-tier-1',
-  'Primary Variant Tier 2': 'border-primary-variant-tier-2',
-  'Primary Variant Tier 3': 'border-primary-variant-tier-3',
-  'Secondary': 'border-secondary',
-  'Tertiary': 'border-tertiary',
-  'Surface': 'border-surface',
-  'Surface Light': 'border-surface-light',
-  'Surface Dark': 'border-surface-dark',
-  'Surface Save': 'border-surface-save',
-};
-
-export const DYNAMIC_BACKGROUND_COLOR = {
-  'None': '',
-  'Primary Tier 1': 'bg-primary-tier-1',
-  'Primary Tier 2': 'bg-primary-tier-2',
-  'Primary Tier 3': 'bg-primary-tier-3',
-  'Primary Variant Tier 1': 'bg-primary-variant-tier-1',
-  'Primary Variant Tier 2': 'bg-primary-variant-tier-2',
-  'Primary Variant Tier 3': 'bg-primary-variant-tier-3',
-  'Secondary': 'bg-secondary',
-  'Tertiary': 'bg-tertiary',
-  'Surface': 'bg-surface',
-  'Surface Light': 'bg-surface-light',
-  'Surface Dark': 'bg-surface-dark',
-  'Surface Variant': 'bg-surface-variant',
-  'Surface Variant Light': 'bg-surface-variant-light',
-  'Surface Variant Dark': 'bg-surface-variant-dark',
-  'Surface Variant Darkest': 'bg-surface-variant-darkest',
-};
-
-export const DYNAMIC_FONT_COLOR = {
-  'None': '',
-  'Primary Tier 1': 'font-primary-tier-1',
-  'Primary Tier 2': 'font-primary-tier-2',
-  'Primary Tier 3': 'font-primary-tier-3',
-  'Primary Variant Tier 1': 'font-primary-variant-tier-1',
-  'Primary Variant Tier 2': 'font-primary-variant-tier-2',
-  'Primary Variant Tier 3': 'font-primary-variant-tier-3',
-  'Secondary': 'font-secondary',
-  'Tertiary': 'font-tertiary',
-  'Surface': 'font-surface',
-  'Surface Variant': 'font-surface-variant',
 };

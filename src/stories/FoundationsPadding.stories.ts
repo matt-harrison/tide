@@ -70,7 +70,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Padding',
+  title: 'Foundations/Padding',
 };
 
 export const Default = {};

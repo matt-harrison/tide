@@ -121,7 +121,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Flex',
+  title: 'Foundations/Flex',
 };
 
 export const Default = {};

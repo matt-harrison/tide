@@ -116,11 +116,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Welcome',
-          'Foundations',
-          [
-            'Static Utilities', ['Flex', 'Margin', 'Border', 'Padding', 'Background', 'Shadow', 'Typography'],
-            'Dynamic Utilities', ['Background Color', 'Border Color', 'Font Color'],
-          ],
+          'Foundations', ['Flex', 'Margin', 'Border', 'Color', 'Padding', 'Background', 'Shadow', 'Typography'],
           'Basic Components', [
             'BasicAccordionItem',
             'BasicBreadCrumbs',

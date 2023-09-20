@@ -60,7 +60,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Shadow',
+  title: 'Foundations/Shadow',
 };
 
 export const Default = {};

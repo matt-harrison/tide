@@ -94,7 +94,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Static Utilities/Border',
+  title: 'Foundations/Border',
 };
 
 export const Default = {};
