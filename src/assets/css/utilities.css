@@ -229,17 +229,16 @@
 
 /* Font Size */
 /* REM*/
-.font-12 {font-size: 0.75rem;}  /* 12px */
-.font-14 {font-size: 0.875rem;} /* 14px */
-.font-16 {font-size: 1rem;}     /* 16px */
-.font-20 {font-size: 1.25rem;}  /* 20px */
-.font-24 {font-size: 1.5rem;}   /* 24px */
-.font-28 {font-size: 1.75rem;}  /* 28px */
-.font-32 {font-size: 2rem;}     /* 32px */
+.font-12 {font-size: var(--font-12);} /* 12px */
+.font-14 {font-size: var(--font-14);} /* 14px */
+.font-16 {font-size: var(--font-16);} /* 16px */
+.font-20 {font-size: var(--font-20);} /* 20px */
+.font-24 {font-size: var(--font-24);} /* 24px */
+.font-28 {font-size: var(--font-28);} /* 28px */
+.font-32 {font-size: var(--font-32);} /* 32px */
 
 /* Font Weight */
 .font-500 {font-weight: 500;}
-.font-600 {font-weight: 600;}
 .font-700 {font-weight: 700;}
 
 /* Misc */
