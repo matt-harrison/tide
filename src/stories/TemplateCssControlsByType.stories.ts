@@ -5,6 +5,7 @@ import type { StoryContext } from '@storybook/vue3';
 import {
   BORDER,
   BORDER_RADIUS,
+  BOX_SHADOW,
   COLOR_BACKGROUND,
   COLOR_BORDER,
   COLOR_FONT,
@@ -37,6 +38,7 @@ const formatClassNames = (args: any) => {
   }
 
   if (args.backgroundColor) classNames.push(args.backgroundColor);
+  if (args.shadow) classNames.push(args.shadow);
   if (args.fontColor) classNames.push(args.fontColor);
   if (args.fontSize) classNames.push(args.fontSize);
   if (args.fontWeight) classNames.push(args.fontWeight);
@@ -175,10 +177,20 @@ export default {
         type: { summary: 'FONT_WEIGHT' },
       },
     },
+    shadow: {
+      control: 'select',
+      name: 'Shadow',
+      options: BOX_SHADOW,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'BOX_SHADOW' },
+      },
+    },
   },
   args: {
     backgroundColor: COLOR_BACKGROUND.None,
     borderColor: COLOR_BORDER.None,
+    shadow: BOX_SHADOW.None,
     borderRadius: BORDER_RADIUS.None,
     borderType: BORDER.None,
     fontColor: COLOR_FONT.None,

@@ -35,8 +35,7 @@
 
   /* Shadow */
   --shadow-1: 0 0 11px rgba(0, 1, 6, 0.1);
-  --shadow-2: 0 0 11px rgba(0, 1, 6, 0.13);
-  --shadow-3: 0 0 11px rgba(0, 1, 6, 0.15);
+  --shadow-2: 0 0 11px rgba(0, 1, 6, 0.15);
 
   /* Spacing */
   --spacing-0: 0rem;

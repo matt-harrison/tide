@@ -11,7 +11,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args['shadow']) classNames.push(args['shadow']);
+  if (args.shadow) classNames.push(args.shadow);
 
   return classNames.join(' ');
 };
@@ -64,3 +64,15 @@ export default {
 };
 
 export const Default = {};
+
+export const ShadowLevel1 = {
+  args: {
+    shadow: BOX_SHADOW['Level 1'],
+  },
+};
+
+export const ShadowLevel2 = {
+  args: {
+    shadow: BOX_SHADOW['Level 2'],
+  },
+};

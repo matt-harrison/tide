@@ -244,7 +244,6 @@
 /* Misc */
 .box-shadow-1 {box-shadow: var(--shadow-1);}
 .box-shadow-2 {box-shadow: var(--shadow-2);}
-.box-shadow-3 {box-shadow: var(--shadow-3);}
 
 .leading-default {line-height: 100%;}
 .leading-wide    {line-height: 150%;}

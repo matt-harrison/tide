@@ -47,7 +47,6 @@ export const BOX_SHADOW = {
   'None': '',
   'Level 1': 'box-shadow-1',
   'Level 2': 'box-shadow-2',
-  'Level 3': 'box-shadow-3',
 };
 
 export const COLOR_BACKGROUND = {
