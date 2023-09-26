@@ -10,7 +10,7 @@ export const BOOLEAN_UNREQUIRED = {
 };
 
 export const AXIS1 = {
-  None: undefined,
+  None: '',
   Around: 'axis1-around',
   Between: 'axis1-between',
   Center: 'axis1-center',
@@ -19,7 +19,7 @@ export const AXIS1 = {
 };
 
 export const AXIS2 = {
-  None: undefined,
+  None: '',
   Center: 'axis2-center',
   End: 'axis2-end',
   Normal: 'axis2-normal',
@@ -27,14 +27,14 @@ export const AXIS2 = {
 };
 
 export const BORDER_RADIUS = {
-  'None': undefined,
+  'None': '',
   '1/4 REM': 'radius-1/4',
   '1/2 REM': 'radius-1/2',
   'Full': 'radius-full',
 };
 
 export const BORDER = {
-  'None': undefined,
+  'None': '',
   '1px': 'border-1',
   '2px': 'border-2',
   'Top': 'border-t',
@@ -44,14 +44,14 @@ export const BORDER = {
 };
 
 export const BOX_SHADOW = {
-  'None': undefined,
+  'None': '',
   'Level 1': 'box-shadow-1',
   'Level 2': 'box-shadow-2',
   'Level 3': 'box-shadow-3',
 };
 
 export const COLOR_BACKGROUND = {
-  'None': undefined,
+  'None': '',
   'Surface': 'bg-surface',
   'Surface Light': 'bg-surface-light',
   'Surface Dark': 'bg-surface-dark',
@@ -62,7 +62,7 @@ export const COLOR_BACKGROUND = {
 };
 
 export const COLOR_BORDER = {
-  'None': undefined,
+  'None': '',
   'Surface': 'border-surface',
   'Surface Light': 'border-surface-light',
   'Surface Dark': 'border-surface-dark',
@@ -70,13 +70,13 @@ export const COLOR_BORDER = {
 };
 
 export const COLOR_FONT = {
-  'None': undefined,
+  'None': '',
   'Surface': 'font-surface',
   'Surface Variant': 'font-surface-variant',
 };
 
 export const FONT_SIZE = {
-  'None': undefined,
+  'None': '',
   '12px': 'font-12',
   '14px': 'font-14',
   '16px': 'font-16',
@@ -87,7 +87,7 @@ export const FONT_SIZE = {
 };
 
 export const FONT_WEIGHT = {
-  None: undefined,
+  None: '',
   Default: 'font-500',
   Bold: 'font-700',
 };
