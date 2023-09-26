@@ -9,6 +9,7 @@ import {
   COLOR_BORDER,
   COLOR_FONT,
   FONT_SIZE,
+  FONT_WEIGHT,
   MARGIN_SIZE,
   SPACING_SIDE,
   SPACING_SIZE,
@@ -27,32 +28,18 @@ const formatClassNames = (args: any) => {
     classNames.push(`m${args.marginSide}-${args.marginSize}`);
   }
 
-  if (args.borderColor) {
-    classNames.push(args.borderColor);
-  }
-
-  if (args.borderRadius) {
-    classNames.push(args.borderRadius);
-  }
-
-  if (args.borderType) {
-    classNames.push(args.borderType);
-  }
+  if (args.borderColor) classNames.push(args.borderColor);
+  if (args.borderRadius) classNames.push(args.borderRadius);
+  if (args.borderType) classNames.push(args.borderType);
 
   if (args.paddingSide !== undefined && args.paddingSize !== undefined) {
     classNames.push(`p${args.paddingSide}-${args.paddingSize}`);
   }
 
-  if (args.backgroundColor) {
-    classNames.push(args.backgroundColor);
-  }
-
+  if (args.backgroundColor) classNames.push(args.backgroundColor);
   if (args.fontColor) classNames.push(args.fontColor);
   if (args.fontSize) classNames.push(args.fontSize);
-
-  if (classNames.length > 0) {
-    args.class = classNames.join(' ');
-  }
+  if (args.fontWeight) classNames.push(args.fontWeight);
 
   return classNames.join(' ');
 };
@@ -179,6 +166,15 @@ export default {
         type: { summary: 'FONT_SIZE' },
       },
     },
+    fontWeight: {
+      control: 'select',
+      name: 'Font Weight',
+      options: FONT_WEIGHT,
+      table: {
+        defaultValue: { summary: 'Default' },
+        type: { summary: 'FONT_WEIGHT' },
+      },
+    },
   },
   args: {
     backgroundColor: COLOR_BACKGROUND.None,
@@ -187,6 +183,7 @@ export default {
     borderType: BORDER.None,
     fontColor: COLOR_FONT.None,
     fontSize: FONT_SIZE.None,
+    fontWeight: FONT_WEIGHT.None,
     marginSide: SPACING_SIDE.Full,
     marginSize: MARGIN_SIZE.None,
     paddingSide: SPACING_SIDE.Full,

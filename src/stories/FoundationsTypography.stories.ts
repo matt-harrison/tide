@@ -136,17 +136,9 @@ export const FontSize32 = {
 export const FontWeight500 = {
   args: {
     size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.Medium,
+    weight: FONT_WEIGHT.Default,
   },
   name: 'Font Weight 500 (Medium)',
-};
-
-export const FontWeight600 = {
-  args: {
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT['Semi-bold'],
-  },
-  name: 'Font Weight 600 (Semi-bold)',
 };
 
 export const FontWeight700 = {

@@ -87,10 +87,9 @@ export const FONT_SIZE = {
 };
 
 export const FONT_WEIGHT = {
-  'None': undefined,
-  'Medium': 'font-500',
-  'Semi-bold': 'font-600',
-  'Bold': 'font-700',
+  None: undefined,
+  Default: 'font-500',
+  Bold: 'font-700',
 };
 
 export const MARGIN_SIZE = {
