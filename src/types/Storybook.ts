@@ -33,18 +33,14 @@ export const BORDER_RADIUS = {
   'Full': 'radius-full',
 };
 
-export const BORDER_SIDE = {
-  Full: '',
-  Top: '-t',
-  Right: '-r',
-  Bottom: '-b',
-  Left: '-l',
-};
-
-export const BORDER_SIZE = {
+export const BORDER = {
   'None': undefined,
-  '1px': '-1',
-  '2px': '-2',
+  '1px': 'border-1',
+  '2px': 'border-2',
+  'Top': 'border-t',
+  'Right': 'border-r',
+  'Bottom': 'border-b',
+  'Left': 'border-l',
 };
 
 export const BOX_SHADOW = {

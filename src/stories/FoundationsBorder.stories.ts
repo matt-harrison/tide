@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BORDER_RADIUS, BORDER_SIDE, BORDER_SIZE } from '@/types/Storybook';
+import { BORDER, BORDER_RADIUS } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -10,21 +10,9 @@ const formatArgs = (args: any) => {
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
-  const hasBorderFull = args.side === '';
-  const hasBorderSize = args.size !== undefined;
-  const hasBorderSize2 = args.size === BORDER_SIZE['2px'];
 
-  if (hasBorderSize2) {
-    classNames.push('border-2');
-  } else if (!hasBorderFull && hasBorderSize) {
-    classNames.push(`border${args.side}`);
-  } else if (hasBorderSize) {
-    classNames.push(`border${args.size}`);
-  }
-
-  if (args.radius) {
-    classNames.push(args.radius);
-  }
+  if (args.radius) classNames.push(args.radius);
+  if (args.type) classNames.push(args.type);
 
   return classNames.join(' ');
 };
@@ -59,44 +47,26 @@ export default {
   argTypes: {
     radius: {
       control: 'select',
-      description: 'Severity of rounded corners',
-      if: {
-        arg: 'side',
-        eq: BORDER_SIDE.Full,
-      },
+      description: 'Determines severity of rounded corners',
       options: BORDER_RADIUS,
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'BORDER_RADIUS' },
       },
     },
-    side: {
+    type: {
       control: 'select',
-      description: 'Side(s) of box model',
-      if: {
-        arg: 'size',
-        neq: BORDER_SIZE['2px'],
-      },
-      options: BORDER_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'BORDER_SIDE' },
-      },
-    },
-    size: {
-      control: 'select',
-      description: 'Border thickness',
-      options: BORDER_SIZE,
+      description: 'Determines border width and side selection',
+      options: BORDER,
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'BORDER_SIZE' },
+        type: { summary: 'BORDER' },
       },
     },
   },
   args: {
     radius: BORDER_RADIUS.None,
-    side: BORDER_SIDE.Full,
-    size: BORDER_SIZE.None,
+    type: BORDER.None,
   },
   parameters,
   render,
@@ -108,42 +78,42 @@ export const Default = {};
 
 export const Border1 = {
   args: {
-    size: BORDER_SIZE['1px'],
+    type: BORDER['1px'],
   },
   name: '1px Border',
 };
 
 export const Border2 = {
   args: {
-    size: BORDER_SIZE['2px'],
+    type: BORDER['2px'],
   },
   name: '2px Border',
 };
 
 export const BorderTop = {
   args: {
-    side: BORDER_SIDE.Top,
+    type: BORDER.Top,
   },
   name: 'Top Border',
 };
 
 export const BorderRight = {
   args: {
-    side: BORDER_SIDE.Right,
+    type: BORDER.Right,
   },
   name: 'Right Border',
 };
 
 export const BorderBottom = {
   args: {
-    side: BORDER_SIDE.Bottom,
+    type: BORDER.Bottom,
   },
   name: 'Bottom Border',
 };
 
 export const BorderLeft = {
   args: {
-    side: BORDER_SIDE.Left,
+    type: BORDER.Left,
   },
   name: 'Left Border',
 };
@@ -151,7 +121,7 @@ export const BorderLeft = {
 export const RadiusQuarter = {
   args: {
     radius: BORDER_RADIUS['1/4 REM'],
-    size: BORDER_SIZE['1px'],
+    type: BORDER['1px'],
   },
   name: '1/4 REM Border Radius',
 };
@@ -159,7 +129,7 @@ export const RadiusQuarter = {
 export const RadiusHalf = {
   args: {
     radius: BORDER_RADIUS['1/2 REM'],
-    size: BORDER_SIZE['1px'],
+    type: BORDER['1px'],
   },
   name: '1/2 REM Border Radius',
 };
@@ -167,9 +137,17 @@ export const RadiusHalf = {
 export const RadiusFull = {
   args: {
     radius: BORDER_RADIUS.Full,
-    size: BORDER_SIZE['1px'],
+    type: BORDER['1px'],
   },
   name: 'Full Border Radius',
+};
+
+export const Circle = {
+  args: {
+    radius: BORDER_RADIUS.Full,
+    type: BORDER['1px'],
+  },
+  name: 'Full Radius Border (1/1 Aspect Ratio)',
   parameters,
   render: (args: any) => ({
     setup() {

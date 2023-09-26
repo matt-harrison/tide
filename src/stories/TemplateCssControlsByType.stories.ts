@@ -3,9 +3,8 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import {
+  BORDER,
   BORDER_RADIUS,
-  BORDER_SIDE,
-  BORDER_SIZE,
   COLOR_BACKGROUND,
   COLOR_BORDER,
   COLOR_FONT,
@@ -28,28 +27,16 @@ const formatClassNames = (args: any) => {
     classNames.push(`m${args.marginSide}-${args.marginSize}`);
   }
 
-  const hasBorderFull = args.borderSide === '';
-  const hasBorderSize = args.borderSize !== undefined;
-  const hasBorderSize2 = args.borderSize === BORDER_SIZE['2px'];
-
-  if (hasBorderSize2) {
-    classNames.push('border-2');
-  } else if (!hasBorderFull && hasBorderSize) {
-    classNames.push(`border${args.borderSide}`);
-  } else if (hasBorderSize) {
-    classNames.push(`border${args.borderSize}`);
-  }
-
-  if (args.radius) {
-    classNames.push(args.radius);
-  }
-
   if (args.borderColor) {
     classNames.push(args.borderColor);
   }
 
   if (args.borderRadius) {
     classNames.push(args.borderRadius);
+  }
+
+  if (args.borderType) {
+    classNames.push(args.borderType);
   }
 
   if (args.paddingSide !== undefined && args.paddingSize !== undefined) {
@@ -123,7 +110,7 @@ export default {
       options: COLOR_BACKGROUND,
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'COLOR_BORDER' },
+        type: { summary: 'COLOR_BACKGROUND' },
       },
     },
     borderColor: {
@@ -139,10 +126,6 @@ export default {
     borderRadius: {
       control: 'select',
       description: 'Severity of rounded corners',
-      if: {
-        arg: 'borderSide',
-        eq: BORDER_SIDE.Full,
-      },
       name: 'Border Radius',
       options: BORDER_RADIUS,
       table: {
@@ -150,28 +133,14 @@ export default {
         type: { summary: 'BORDER_RADIUS' },
       },
     },
-    borderSide: {
+    borderType: {
       control: 'select',
       description: 'Border side(s) of box model',
-      if: {
-        arg: 'borderSize',
-        neq: BORDER_SIZE['2px'],
-      },
       name: 'Border Side',
-      options: BORDER_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'BORDER_SIDE' },
-      },
-    },
-    borderSize: {
-      control: 'select',
-      description: 'Border thickness',
-      name: 'Border Size',
-      options: BORDER_SIZE,
+      options: BORDER,
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'BORDER_SIZE' },
+        type: { summary: 'BORDER' },
       },
     },
     paddingSide: {
@@ -215,8 +184,7 @@ export default {
     backgroundColor: COLOR_BACKGROUND.None,
     borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
-    borderSide: BORDER_SIDE.Full,
-    borderSize: BORDER_SIZE.None,
+    borderType: BORDER.None,
     fontColor: COLOR_FONT.None,
     fontSize: FONT_SIZE.None,
     marginSide: SPACING_SIDE.Full,
