@@ -1,7 +1,8 @@
 import BasicLink from '@/components/BasicLink.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
-import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
+import { ICON } from '@/types/Icon';
+import { click, formatSnippet, getVariableName, prependNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -45,11 +46,11 @@ export default {
     },
     iconLeading: {
       description: 'Icon to left of label',
-      ...iconWithNone,
+      ...prependNone({ ICON }),
     },
     iconTrailing: {
       description: 'Icon to right of label',
-      ...iconWithNone,
+      ...prependNone({ ICON }),
     },
     isNewTab: {
       control: 'select',

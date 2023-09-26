@@ -101,12 +101,6 @@ export const MARGIN_SIZE = {
   '1/4 REM': '1/4',
 };
 
-export const SIZE_STORYBOOK = {
-  None: undefined, // Deviation from SIZE necessary to facilitate Storybook presentation layer.
-  MEDIUM: 'medium',
-  SMALL: 'small',
-};
-
 export const SPACING_SIDE = {
   'Full': '',
   'X-axis': 'x',

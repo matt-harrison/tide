@@ -1,9 +1,10 @@
 import BasicButton from '@/components/BasicButton.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
+import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { click, formatSnippet, getVariableName, iconWithNone } from '@/utilities/storybook';
+import { SIZE } from '@/types/Size';
+import { click, formatSnippet, prependNone } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -19,12 +20,12 @@ export default {
   argTypes: {
     click: {
       ...click,
-      if: { arg: 'element', eq: ELEMENT.BUTTON },
+      if: { arg: 'element', neq: ELEMENT.LINK },
     },
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
-      if: { arg: 'element', eq: ELEMENT.BUTTON },
+      if: { arg: 'element', neq: ELEMENT.LINK },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
@@ -32,13 +33,10 @@ export default {
       },
     },
     element: {
-      constant: getVariableName({ ELEMENT }),
-      control: 'select',
       description: 'HTML tag type',
-      options: ELEMENT,
+      ...prependNone({ ELEMENT }),
       table: {
         defaultValue: { summary: 'BUTTON' },
-        type: { summary: 'Element' },
       },
     },
     href: {
@@ -50,11 +48,11 @@ export default {
       },
     },
     iconLeading: {
-      ...iconWithNone,
+      ...prependNone({ ICON }),
       description: 'Icon to left of label',
     },
     iconTrailing: {
-      ...iconWithNone,
+      ...prependNone({ ICON }),
       description: 'Icon to right of label',
     },
     isNewTab: {
@@ -76,37 +74,31 @@ export default {
       },
     },
     priority: {
-      constant: getVariableName({ PRIORITY }),
-      control: 'select',
+      ...prependNone({ PRIORITY }),
       description: 'Determines visual prominence',
-      options: PRIORITY,
       table: {
         defaultValue: { summary: 'PRIMARY' },
-        type: { summary: 'Priority' },
       },
     },
     size: {
-      constant: getVariableName({ SIZE_STORYBOOK }),
-      control: 'select',
-      description: 'Determines spacing and font size',
-      options: SIZE_STORYBOOK,
+      ...prependNone({ SIZE }),
+      description: 'Icon to left of label',
       table: {
         defaultValue: { summary: 'MEDIUM' },
-        type: { summary: 'SizeButton' },
       },
     },
   },
   args: {
     click: 'handleClick',
     disabled: undefined,
-    element: ELEMENT.BUTTON,
+    element: undefined,
     href: 'https://www.traderinteractive.com',
     iconLeading: undefined,
     iconTrailing: undefined,
     isNewTab: undefined,
     label: 'Demo',
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.None,
+    priority: undefined,
+    size: undefined,
   },
   component: BasicButton,
   parameters,

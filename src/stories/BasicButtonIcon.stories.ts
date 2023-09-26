@@ -1,10 +1,10 @@
 import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
+import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { click, getVariableName, icon, parameters } from '@/utilities/storybook';
+import { SIZE } from '@/types/Size';
+import { click, icon, parameters, prependNone } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
@@ -16,12 +16,12 @@ export default {
   argTypes: {
     click: {
       ...click,
-      if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
+      if: { arg: 'element', neq: ELEMENT.LINK },
     },
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
-      if: { arg: 'element', eq: ELEMENT.BUTTON },
+      if: { arg: 'element', neq: ELEMENT.LINK },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
@@ -29,13 +29,10 @@ export default {
       },
     },
     element: {
-      constant: getVariableName({ ELEMENT }),
-      control: 'select',
       description: 'HTML tag type',
-      options: ELEMENT,
+      ...prependNone({ ELEMENT }),
       table: {
         defaultValue: { summary: 'BUTTON' },
-        type: { summary: 'Element' },
       },
     },
     href: {
@@ -58,35 +55,26 @@ export default {
       },
     },
     priority: {
-      constant: getVariableName({ PRIORITY }),
-      control: 'select',
+      ...prependNone({ PRIORITY }),
       description: 'Determines visual prominence',
-      options: PRIORITY,
       table: {
         defaultValue: { summary: 'PRIMARY' },
-        type: { summary: 'Priority' },
       },
     },
     size: {
-      constant: getVariableName({ SIZE_STORYBOOK }),
-      control: 'select',
+      ...prependNone({ SIZE }),
       description: 'Determines icon dimensions',
-      options: SIZE_STORYBOOK,
-      table: {
-        defaultValue: { summary: 'SMALL' },
-        type: { summary: 'SizeIcon' },
-      },
     },
   },
   args: {
     click: 'handleClick',
     disabled: undefined,
-    element: ELEMENT.BUTTON,
+    element: undefined,
     href: 'https://www.traderinteractive.com',
     icon: ICON.ENVELOPE,
     isNewTab: undefined,
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.None,
+    priority: undefined,
+    size: undefined,
   },
   component: BasicButtonIcon,
   parameters,

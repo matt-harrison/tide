@@ -1,20 +1,24 @@
 import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
-import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
+import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
-import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { click, getVariableName, parameters } from '@/utilities/storybook';
+import { SIZE } from '@/types/Size';
+import { click, parameters, prependNone } from '@/utilities/storybook';
 
 export default {
   argTypes: {
     click: {
       ...click,
-      if: { arg: 'element', eq: ELEMENT.BUTTON || ELEMENT_TEXT_AS_ICON.BUTTON },
+      if: { arg: 'element', neq: ELEMENT_TEXT_AS_ICON.LINK },
     },
     disabled: {
       control: 'select',
       description: 'Determines clickability<br />(Button only)',
-      if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.BUTTON },
+      if: {
+        arg: 'element',
+        neq: ELEMENT_TEXT_AS_ICON.LINK,
+        // TODO: neq: ELEMENT_TEXT_AS_ICON.LINK || ELEMENT_TEXT_AS_ICON.DIV
+      },
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'False' },
@@ -22,13 +26,10 @@ export default {
       },
     },
     element: {
-      constant: getVariableName({ ELEMENT_TEXT_AS_ICON }),
-      control: 'select',
       description: 'HTML tag type',
-      options: ELEMENT_TEXT_AS_ICON,
+      ...prependNone({ ELEMENT_TEXT_AS_ICON }),
       table: {
         defaultValue: { summary: 'BUTTON' },
-        type: { summary: 'Element' },
       },
     },
     href: {
@@ -58,35 +59,26 @@ export default {
       },
     },
     priority: {
-      constant: getVariableName({ PRIORITY }),
-      control: 'select',
+      ...prependNone({ PRIORITY }),
       description: 'Determines visual prominence',
-      options: PRIORITY,
       table: {
         defaultValue: { summary: 'PRIMARY' },
-        type: { summary: 'Priority' },
       },
     },
     size: {
-      constant: getVariableName({ SIZE_STORYBOOK }),
-      control: 'select',
+      ...prependNone({ SIZE }),
       description: 'Determines spacing and font size',
-      options: SIZE_STORYBOOK,
-      table: {
-        defaultValue: { summary: 'MEDIUM' },
-        type: { summary: 'SizeIcon' },
-      },
     },
   },
   args: {
     click: 'handleClick',
     disabled: undefined,
-    element: ELEMENT_TEXT_AS_ICON.BUTTON,
+    element: undefined,
     href: 'https://www.traderinteractive.com',
     isNewTab: undefined,
     label: '1',
-    priority: PRIORITY.PRIMARY,
-    size: SIZE_STORYBOOK.None,
+    priority: undefined,
+    size: undefined,
   },
   component: BasicButtonTextAsIcon,
   parameters,

@@ -1,25 +1,19 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
-import { SIZE_STORYBOOK } from '@/types/Storybook';
-import { getVariableName, icon, parameters } from '@/utilities/storybook';
+import { SIZE } from '@/types/Size';
+import { icon, parameters, prependNone } from '@/utilities/storybook';
 
 export default {
   argTypes: {
     icon,
     size: {
-      constant: getVariableName({ SIZE_STORYBOOK }),
-      control: 'select',
+      ...prependNone({ SIZE }),
       description: 'Determines icon dimensions',
-      options: SIZE_STORYBOOK,
-      table: {
-        defaultValue: { summary: 'SMALL' },
-        type: { summary: 'SizeIcon' },
-      },
     },
   },
   args: {
     icon: ICON.HEART,
-    size: SIZE_STORYBOOK.None,
+    size: undefined,
   },
   component: BasicIcon,
   parameters,

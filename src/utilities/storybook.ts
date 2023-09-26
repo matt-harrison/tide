@@ -1,7 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ICON } from '@/types/Icon';
 
 export const click = {
@@ -24,7 +23,6 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     let value = arg[1];
 
     // TODO: TypeScript doesn't believe the implict shapes of Storybook's native types.
-    const componentProps = context.component as any;
     const condition = argTypes[key].if as any;
     const conditionKey = condition?.arg;
     const conditionValue = condition?.eq;
@@ -33,12 +31,8 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     const isClick = key === 'click';
     const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
-    let isDefault = value === componentProps.props[key]?.default;
-
-    // Default for type BOOLEAN_UNREQUIRED is undefined, not false.
-    if (argTypes[key].options === BOOLEAN_UNREQUIRED) {
-      isDefault = value === undefined;
-    }
+    const isDynamic = isConstant || typeof value === 'boolean';
+    const isDefault = value === undefined;
 
     if (argTypes[key].isCss) {
       classNames.push(value);
@@ -53,7 +47,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     }
 
     if (isConditionMet && !isDefault && !isClick) {
-      return `${isConstant || typeof value === 'boolean' ? ':' : ''}${formatKebabCase(key)}="${value}"`;
+      return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
 
     if (isClick && (!args.element || args.element === 'button')) {
@@ -92,24 +86,29 @@ export const getVariableName = (input: any) => {
   return Object.keys(input)[0];
 };
 
+// Prepend the key/value pair of "None: undefined" to a constant and format as a Storybook argType.
+export const prependNone = (collection: any) => {
+  const constant = getVariableName(collection);
+
+  return {
+    constant,
+    control: 'select',
+    options: {
+      None: undefined,
+      ...collection[constant],
+    },
+    table: {
+      defaultValue: { summary: 'None' },
+      type: { summary: constant },
+    },
+  };
+};
+
 export const icon = {
   constant: getVariableName({ ICON }),
   control: 'select',
   description: 'Icon',
   options: ICON,
-  table: {
-    defaultValue: { summary: 'None' },
-    type: { summary: 'Icon' },
-  },
-};
-
-export const iconWithNone = {
-  constant: getVariableName({ ICON }),
-  control: 'select',
-  options: {
-    None: undefined,
-    ...ICON,
-  },
   table: {
     defaultValue: { summary: 'None' },
     type: { summary: 'Icon' },
