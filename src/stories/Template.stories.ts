@@ -1,3 +1,5 @@
+/* eslint-disable storybook/story-exports */
+
 // IMPORTS
 import BasicChipInput from '@/components/BasicChipInput.vue';
 import { formatSnippet } from '@/utilities/storybook';
@@ -49,8 +51,5 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Proof of Concept/Story Template',
+  title: 'Hidden/Story Template',
 };
-
-// STORIES
-export const Demo = {};

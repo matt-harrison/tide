@@ -229,7 +229,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Proof of Concept/CSS Controls By Type',
+  title: 'Proof of Concept/CSS Utilities Demo',
 };
 
 export const Demo = {};

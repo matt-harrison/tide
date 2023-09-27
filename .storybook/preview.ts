@@ -119,9 +119,8 @@ const preview: Preview = {
           'Foundations',
           'Basic Components',
           'Proof of Concept', [
-            'Template',
-            'TemplateCssControlsByTextInput',
-            'TemplateCssControlsByType',
+            'CSS Utilities Demo',
+            'CSS Utilities By Text Input',
           ],
         ],
       },

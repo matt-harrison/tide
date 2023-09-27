@@ -55,7 +55,7 @@ export default {
     },
   }),
   tags: ['autodocs'],
-  title: 'Proof of Concept/CSS Controls By Text Input',
+  title: 'Proof of Concept/CSS Utilities By Text Input',
 };
 
 export const Demo = {};
