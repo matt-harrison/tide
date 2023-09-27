@@ -3,6 +3,9 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import {
+  FLEX_AXIS1,
+  FLEX_AXIS2,
+  BOOLEAN_UNREQUIRED,
   BORDER,
   BORDER_RADIUS,
   BOX_SHADOW,
@@ -10,6 +13,7 @@ import {
   COLOR_BORDER,
   COLOR_FONT,
   DISPLAY,
+  FLEX_DIRECTION,
   FONT_FAMILY,
   FONT_SIZE,
   FONT_WEIGHT,
@@ -28,6 +32,10 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args.display) classNames.push(args.display);
+  if (args.flexWrap) classNames.push('wrap');
+  if (args.flexDirection) classNames.push(args.flexDirection);
+  if (args.flexAxis1) classNames.push(args.flexAxis1);
+  if (args.flexAxis2) classNames.push(args.flexAxis2);
 
   if (args.marginSide !== undefined && args.marginSize !== undefined) {
     classNames.push(`m${args.marginSide}-${args.marginSize}`);
@@ -54,7 +62,7 @@ const formatClassNames = (args: any) => {
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return `<div class="${formatClassNames(args)}">${args.children}</div>`;
 };
 
 const parameters = {
@@ -71,7 +79,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div v-bind="args">Demo</div>',
+  template: `<div v-bind="args">${args.children}</div>`,
   updated() {
     return formatArgs(args);
   },
@@ -119,6 +127,16 @@ export default {
         type: { summary: 'BORDER' },
       },
     },
+    children: {
+      control: 'text',
+      defaultValue: 'Demo',
+      description: 'Markup or text content',
+      name: 'Children',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'HTML' },
+      },
+    },
     display: {
       control: 'select',
       name: 'Display',
@@ -126,6 +144,46 @@ export default {
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'DISPLAY' },
+      },
+    },
+    flexAxis1: {
+      control: 'select',
+      description: 'Determines alignment of children along primary axis',
+      name: 'Flex Axis Primary',
+      options: FLEX_AXIS1,
+      table: {
+        defaultValue: { summary: 'Start' },
+        type: { summary: 'FLEX_AXIS1' },
+      },
+    },
+    flexAxis2: {
+      control: 'select',
+      description: 'Determines alignment of children along secondary axis',
+      name: 'Flex Axis Secondary',
+      options: FLEX_AXIS2,
+      table: {
+        defaultValue: { summary: 'Normal' },
+        type: { summary: 'FLEX_AXIS2' },
+      },
+    },
+    flexDirection: {
+      control: 'select',
+      description: 'Flex direction',
+      name: 'Flex Direction',
+      options: FLEX_DIRECTION,
+      table: {
+        defaultValue: { summary: 'Row' },
+        type: { summary: 'FLEX_DIRECTION' },
+      },
+    },
+    flexWrap: {
+      control: 'select',
+      description: 'Flex wrap',
+      name: 'Flex Wrap',
+      options: BOOLEAN_UNREQUIRED,
+      table: {
+        defaultValue: { summary: 'False' },
+        type: { summary: 'boolean' },
       },
     },
     fontColor: {
@@ -215,7 +273,11 @@ export default {
     borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
     borderType: BORDER.None,
+    children: 'Demo',
     display: DISPLAY.None,
+    flexAxis1: FLEX_AXIS1.None,
+    flexAxis2: FLEX_AXIS1.None,
+    flexDirection: FLEX_DIRECTION.None,
     fontColor: COLOR_FONT.None,
     fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,

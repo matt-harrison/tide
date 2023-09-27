@@ -1,23 +1,6 @@
 /* eslint vue/sort-keys: 0 */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
-export const AXIS1 = {
-  None: '',
-  Around: 'axis1-around',
-  Between: 'axis1-between',
-  Center: 'axis1-center',
-  End: 'axis1-end',
-  Start: 'axis1-start',
-};
-
-export const AXIS2 = {
-  None: '',
-  Center: 'axis2-center',
-  End: 'axis2-end',
-  Normal: 'axis2-normal',
-  Start: 'axis2-start',
-};
-
 // These objects are intended exclusively for use in demonstrating the Storybook UI.
 export const BOOLEAN_UNREQUIRED = {
   None: undefined,
@@ -83,6 +66,23 @@ export const DISPLAY = {
   INLINE: 'inline',
   INLINE_BLOCK: 'inline-block',
   INLINE_FLEX: 'inline-flex',
+};
+
+export const FLEX_AXIS1 = {
+  None: '',
+  Around: 'axis1-around',
+  Between: 'axis1-between',
+  Center: 'axis1-center',
+  End: 'axis1-end',
+  Start: 'axis1-start',
+};
+
+export const FLEX_AXIS2 = {
+  None: '',
+  Center: 'axis2-center',
+  End: 'axis2-end',
+  Normal: 'axis2-normal',
+  Start: 'axis2-start',
 };
 
 export const FLEX_DIRECTION = {
