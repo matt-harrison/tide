@@ -24,10 +24,10 @@
 .flex         {display: flex;}
 .grid         {display: grid;}
 .hidden       {display: none;}
+.initial      {display: initial;}
 .inline       {display: inline;}
 .inline-block {display: inline-block;}
 .inline-flex  {display: inline-flex;}
-.initial      {display: initial;}
 
 /* Flex Box */
 .column         {flex-direction: column;}

@@ -9,6 +9,7 @@ import {
   COLOR_BACKGROUND,
   COLOR_BORDER,
   COLOR_FONT,
+  DISPLAY,
   FONT_FAMILY,
   FONT_SIZE,
   FONT_WEIGHT,
@@ -25,6 +26,8 @@ const formatArgs = (args: any) => {
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
+
+  if (args.display) classNames.push(args.display);
 
   if (args.marginSide !== undefined && args.marginSize !== undefined) {
     classNames.push(`m${args.marginSide}-${args.marginSize}`);
@@ -76,6 +79,15 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    display: {
+      control: 'select',
+      name: 'Display',
+      options: DISPLAY,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'DISPLAY' },
+      },
+    },
     marginSide: {
       control: 'select',
       name: 'Margin Side',
@@ -201,9 +213,9 @@ export default {
   args: {
     backgroundColor: COLOR_BACKGROUND.None,
     borderColor: COLOR_BORDER.None,
-    shadow: BOX_SHADOW.None,
     borderRadius: BORDER_RADIUS.None,
     borderType: BORDER.None,
+    display: DISPLAY.None,
     fontColor: COLOR_FONT.None,
     fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,
@@ -212,6 +224,7 @@ export default {
     marginSize: MARGIN_SIZE.None,
     paddingSide: SPACING_SIDE.Full,
     paddingSize: SPACING_SIZE.None,
+    shadow: BOX_SHADOW.None,
   },
   parameters,
   render,

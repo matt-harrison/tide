@@ -1,14 +1,6 @@
 /* eslint vue/sort-keys: 0 */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
-// These objects are intended exclusively for use in demonstrating the Storybook UI.
-
-export const BOOLEAN_UNREQUIRED = {
-  None: undefined,
-  True: true,
-  False: false,
-};
-
 export const AXIS1 = {
   None: '',
   Around: 'axis1-around',
@@ -24,6 +16,13 @@ export const AXIS2 = {
   End: 'axis2-end',
   Normal: 'axis2-normal',
   Start: 'axis2-start',
+};
+
+// These objects are intended exclusively for use in demonstrating the Storybook UI.
+export const BOOLEAN_UNREQUIRED = {
+  None: undefined,
+  True: true,
+  False: false,
 };
 
 export const BORDER_RADIUS = {
@@ -72,6 +71,18 @@ export const COLOR_FONT = {
   'None': '',
   'Surface': 'font-surface',
   'Surface Variant': 'font-surface-variant',
+};
+
+export const DISPLAY = {
+  None: '',
+  BLOCK: 'block',
+  CONTENTS: 'contents',
+  FLEX: 'flex',
+  GRID: 'grid',
+  HIDDEN: 'hidden',
+  INLINE: 'inline',
+  INLINE_BLOCK: 'inline-block',
+  INLINE_FLEX: 'inline-flex',
 };
 
 export const FLEX_DIRECTION = {
