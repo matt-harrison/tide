@@ -79,33 +79,6 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    display: {
-      control: 'select',
-      name: 'Display',
-      options: DISPLAY,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'DISPLAY' },
-      },
-    },
-    marginSide: {
-      control: 'select',
-      name: 'Margin Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
-    },
-    marginSize: {
-      control: 'select',
-      name: 'Margin Size',
-      options: MARGIN_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'MARGIN_SIDE' },
-      },
-    },
     backgroundColor: {
       control: 'select',
       description: 'Background color',
@@ -146,22 +119,13 @@ export default {
         type: { summary: 'BORDER' },
       },
     },
-    paddingSide: {
+    display: {
       control: 'select',
-      name: 'Padding Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
-    },
-    paddingSize: {
-      control: 'select',
-      name: 'Padding Size',
-      options: SPACING_SIZE,
+      name: 'Display',
+      options: DISPLAY,
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'SPACING_SIDE' },
+        type: { summary: 'DISPLAY' },
       },
     },
     fontColor: {
@@ -198,6 +162,42 @@ export default {
       table: {
         defaultValue: { summary: 'Default' },
         type: { summary: 'FONT_WEIGHT' },
+      },
+    },
+    marginSide: {
+      control: 'select',
+      name: 'Margin Side',
+      options: SPACING_SIDE,
+      table: {
+        defaultValue: { summary: 'Full' },
+        type: { summary: 'SPACING_SIDE' },
+      },
+    },
+    marginSize: {
+      control: 'select',
+      name: 'Margin Size',
+      options: MARGIN_SIZE,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'MARGIN_SIDE' },
+      },
+    },
+    paddingSide: {
+      control: 'select',
+      name: 'Padding Side',
+      options: SPACING_SIDE,
+      table: {
+        defaultValue: { summary: 'Full' },
+        type: { summary: 'SPACING_SIDE' },
+      },
+    },
+    paddingSize: {
+      control: 'select',
+      name: 'Padding Size',
+      options: SPACING_SIZE,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'SPACING_SIDE' },
       },
     },
     shadow: {
