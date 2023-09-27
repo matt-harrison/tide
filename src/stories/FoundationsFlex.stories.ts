@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { AXIS1, AXIS2, SPACING_SIZE } from '@/types/Storybook';
+import { AXIS1, AXIS2, BOOLEAN_UNREQUIRED, FLEX_DIRECTION, SPACING_SIZE } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,10 +11,9 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.flex === 'On') classNames.push('flex');
-  if (args.wrap === 'On') classNames.push('wrap');
-  if (args.direction === 'Column') classNames.push('column');
-  if (args.direction === 'Row') classNames.push('row');
+  if (args.flex) classNames.push('flex');
+  if (args.wrap) classNames.push('wrap');
+  if (args.direction) classNames.push(args.direction);
   if (args.axis1) classNames.push(args.axis1);
   if (args.axis2) classNames.push(args.axis2);
   if (args.gap) classNames.push(`gap-${args.gap}`);
@@ -57,6 +56,7 @@ export default {
       options: AXIS1,
       table: {
         defaultValue: { summary: 'Start' },
+        type: { summary: 'AXIS1' },
       },
     },
     axis2: {
@@ -65,6 +65,7 @@ export default {
       options: AXIS2,
       table: {
         defaultValue: { summary: 'Normal' },
+        type: { summary: 'AXIS2' },
       },
     },
     children: {
@@ -79,17 +80,18 @@ export default {
     direction: {
       control: 'select',
       description: 'Flex direction',
-      options: ['None', 'Row', 'Column'],
+      options: FLEX_DIRECTION,
       table: {
         defaultValue: { summary: 'Row' },
+        type: { summary: 'FLEX_DIRECTION' },
       },
     },
     flex: {
       control: 'select',
       description: 'Flexbox display mode',
-      options: ['Off', 'On'],
+      options: BOOLEAN_UNREQUIRED,
       table: {
-        defaultValue: { summary: 'Off' },
+        defaultValue: { summary: 'False' },
       },
     },
     gap: {
@@ -103,9 +105,9 @@ export default {
     wrap: {
       control: 'select',
       description: 'Flex wrap',
-      options: ['Off', 'On'],
+      options: BOOLEAN_UNREQUIRED,
       table: {
-        defaultValue: { summary: 'Off' },
+        defaultValue: { summary: 'False' },
       },
     },
   },
@@ -113,10 +115,10 @@ export default {
     axis1: AXIS1.None,
     axis2: AXIS2.None,
     children: 3,
-    direction: 'Row',
-    flex: 'Off',
+    direction: FLEX_DIRECTION.None,
+    flex: undefined,
     gap: SPACING_SIZE.None,
-    wrap: 'Off',
+    wrap: undefined,
   },
   parameters,
   render,

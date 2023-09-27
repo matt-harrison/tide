@@ -146,3 +146,25 @@ export const MarginQuarter = {
   },
   name: '1/4 REM Margin',
 };
+
+export const MarginYAuto = {
+  args: {
+    side: SPACING_SIDE['X-axis'],
+    size: MARGIN_SIZE.Auto,
+  },
+  name: 'Margin X-axis Auto',
+};
+
+export const MarginRightAuto = {
+  args: {
+    side: SPACING_SIDE.Right,
+    size: MARGIN_SIZE.Auto,
+  },
+};
+
+export const MarginLeftAuto = {
+  args: {
+    side: SPACING_SIDE.Left,
+    size: MARGIN_SIZE.Auto,
+  },
+};

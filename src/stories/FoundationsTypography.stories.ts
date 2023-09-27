@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,6 +11,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
+  if (args.family) classNames.push(args.family);
   if (args.size) classNames.push(args.size);
   if (args.weight) classNames.push(args.weight);
 
@@ -45,6 +46,15 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    family: {
+      control: 'select',
+      description: 'Font family<br />(Note: All font-family contexts are currently declared as Montserrat.)',
+      options: FONT_FAMILY,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'FONT_FAMILY' },
+      },
+    },
     size: {
       control: 'select',
       description: 'Font size',
@@ -64,18 +74,18 @@ export default {
       },
     },
   },
+  args: {
+    family: FONT_FAMILY.None,
+    size: FONT_SIZE.None,
+    weight: FONT_WEIGHT.None,
+  },
   parameters,
   render,
   tags: ['autodocs'],
   title: 'Foundations/Typography',
 };
 
-export const Default = {
-  args: {
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.None,
-  },
-};
+export const Default = {};
 
 export const FontSize12 = {
   args: {

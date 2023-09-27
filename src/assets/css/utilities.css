@@ -227,6 +227,10 @@
 .font-red,        .font-red:hover        {color: var(--red);}
 .font-white,      .font-white:hover      {color: var(--white);}
 
+/* Font Family */
+.font-family-default {font-family: var(--font-family-default);}
+.font-family-title   {font-family: var(--font-family-title);}
+
 /* Font Size */
 /* REM*/
 .font-12 {font-size: var(--font-12);} /* 12px */

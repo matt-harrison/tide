@@ -74,6 +74,18 @@ export const COLOR_FONT = {
   'Surface Variant': 'font-surface-variant',
 };
 
+export const FLEX_DIRECTION = {
+  None: '',
+  Row: 'row',
+  Column: 'column',
+};
+
+export const FONT_FAMILY = {
+  None: '',
+  Default: 'font-family-default',
+  Title: 'font-family-title',
+};
+
 export const FONT_SIZE = {
   'None': '',
   '12px': 'font-12',

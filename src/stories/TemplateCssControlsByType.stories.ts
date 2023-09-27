@@ -9,6 +9,7 @@ import {
   COLOR_BACKGROUND,
   COLOR_BORDER,
   COLOR_FONT,
+  FONT_FAMILY,
   FONT_SIZE,
   FONT_WEIGHT,
   MARGIN_SIZE,
@@ -40,6 +41,7 @@ const formatClassNames = (args: any) => {
   if (args.backgroundColor) classNames.push(args.backgroundColor);
   if (args.shadow) classNames.push(args.shadow);
   if (args.fontColor) classNames.push(args.fontColor);
+  if (args.fontFamily) classNames.push(args.fontFamily);
   if (args.fontSize) classNames.push(args.fontSize);
   if (args.fontWeight) classNames.push(args.fontWeight);
 
@@ -114,7 +116,7 @@ export default {
     },
     borderRadius: {
       control: 'select',
-      description: 'Severity of rounded corners',
+      description: 'Determines severity of rounded corners',
       name: 'Border Radius',
       options: BORDER_RADIUS,
       table: {
@@ -124,8 +126,8 @@ export default {
     },
     borderType: {
       control: 'select',
-      description: 'Border side(s) of box model',
-      name: 'Border Side',
+      description: 'Determines border width and side selection',
+      name: 'Border Type',
       options: BORDER,
       table: {
         defaultValue: { summary: 'None' },
@@ -157,6 +159,15 @@ export default {
       table: {
         defaultValue: { summary: 'Black' },
         type: { summary: 'COLOR_FONT' },
+      },
+    },
+    fontFamily: {
+      control: 'select',
+      name: 'Font Family',
+      options: FONT_FAMILY,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'FONT_FAMILY' },
       },
     },
     fontSize: {
@@ -194,6 +205,7 @@ export default {
     borderRadius: BORDER_RADIUS.None,
     borderType: BORDER.None,
     fontColor: COLOR_FONT.None,
+    fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.None,
     marginSide: SPACING_SIDE.Full,
