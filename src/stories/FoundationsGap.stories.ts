@@ -1,6 +1,10 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BOOLEAN_UNREQUIRED, SPACING_SIZE } from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const GAP = prependNoneAsEmpty(STYLES.GAP);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -12,7 +16,7 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = ['flex'];
 
   if (args.wrap) classNames.push('wrap');
-  if (args.gap) classNames.push(`gap-${args.gap}`);
+  if (args.gap) classNames.push(args.gap);
 
   return classNames.join(' ');
 };
@@ -47,17 +51,12 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     gap: {
-      control: 'select',
-      description: 'Flex gap',
-      options: SPACING_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'boolean' },
-      },
+      ...formatArgType({ GAP }),
+      name: 'Flex Gap',
     },
     wrap: {
       control: 'select',
-      description: 'Flex wrap',
+      name: 'Flex Wrap',
       options: BOOLEAN_UNREQUIRED,
       table: {
         defaultValue: { summary: 'None' },
@@ -66,7 +65,7 @@ export default {
     },
   },
   args: {
-    gap: SPACING_SIZE.None,
+    gap: GAP.None,
     wrap: undefined,
   },
   parameters,
@@ -79,42 +78,42 @@ export const Default = {};
 
 export const Gap4NoWrap = {
   args: {
-    gap: SPACING_SIZE['4 REM'],
+    gap: GAP['4 REM'],
   },
   name: '4 REM Gap (No Wrap)',
 };
 
 export const Gap2NoWrap = {
   args: {
-    gap: SPACING_SIZE['2 REM'],
+    gap: GAP['2 REM'],
   },
   name: '2 REM Gap (No Wrap)',
 };
 
 export const Gap1NoWrap = {
   args: {
-    gap: SPACING_SIZE['1 REM'],
+    gap: GAP['1 REM'],
   },
   name: '1 REM Gap (No Wrap)',
 };
 
 export const GapHalfNoWrap = {
   args: {
-    gap: SPACING_SIZE['1/2 REM'],
+    gap: GAP['1/2 REM'],
   },
   name: '1/2 REM Gap (No Wrap)',
 };
 
 export const GapQuarterNoWrap = {
   args: {
-    gap: SPACING_SIZE['1/4 REM'],
+    gap: GAP['1/4 REM'],
   },
   name: '1/4 REM Gap (No Wrap)',
 };
 
 export const Gap4Wrap = {
   args: {
-    gap: SPACING_SIZE['4 REM'],
+    gap: GAP['4 REM'],
     wrap: true,
   },
   name: '4 REM Gap (Wrap)',
@@ -122,7 +121,7 @@ export const Gap4Wrap = {
 
 export const Gap2Wrap = {
   args: {
-    gap: SPACING_SIZE['2 REM'],
+    gap: GAP['2 REM'],
     wrap: true,
   },
   name: '2 REM Gap (Wrap)',
@@ -130,7 +129,7 @@ export const Gap2Wrap = {
 
 export const Gap1Wrap = {
   args: {
-    gap: SPACING_SIZE['1 REM'],
+    gap: GAP['1 REM'],
     wrap: true,
   },
   name: '1 REM Gap (Wrap)',
@@ -138,7 +137,7 @@ export const Gap1Wrap = {
 
 export const GapHalfWrap = {
   args: {
-    gap: SPACING_SIZE['1/2 REM'],
+    gap: GAP['1/2 REM'],
     wrap: true,
   },
   name: '1/2 REM Gap (Wrap)',
@@ -146,7 +145,7 @@ export const GapHalfWrap = {
 
 export const GapQuarterWrap = {
   args: {
-    gap: SPACING_SIZE['1/4 REM'],
+    gap: GAP['1/4 REM'],
     wrap: true,
   },
   name: '1/4 REM Gap (Wrap)',

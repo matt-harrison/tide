@@ -1,13 +1,16 @@
 import BasicIcon from '@/components/BasicIcon.vue';
 import { ICON } from '@/types/Icon';
 import { SIZE } from '@/types/Size';
-import { icon, parameters, prependNone } from '@/utilities/storybook';
+import { formatArgType, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
-    icon,
+    icon: {
+      ...formatArgType({ ICON }),
+      description: 'Icon',
+    },
     size: {
-      ...prependNone({ SIZE }),
+      ...formatArgType({ SIZE }),
       description: 'Determines icon dimensions',
     },
   },

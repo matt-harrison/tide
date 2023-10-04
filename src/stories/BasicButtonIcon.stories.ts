@@ -4,7 +4,7 @@ import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { click, icon, parameters, prependNone } from '@/utilities/storybook';
+import { click, formatArgType, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
@@ -29,8 +29,8 @@ export default {
       },
     },
     element: {
+      ...formatArgType({ ELEMENT }),
       description: 'HTML tag type',
-      ...prependNone({ ELEMENT }),
       table: {
         defaultValue: { summary: 'BUTTON' },
       },
@@ -43,7 +43,10 @@ export default {
         type: { summary: 'string' },
       },
     },
-    icon,
+    icon: {
+      ...formatArgType({ ICON }),
+      description: 'Icon',
+    },
     isNewTab: {
       control: 'select',
       description: 'Determines whether to target a new browser tab<br />(Link only)',
@@ -55,14 +58,14 @@ export default {
       },
     },
     priority: {
-      ...prependNone({ PRIORITY }),
+      ...formatArgType({ PRIORITY }),
       description: 'Determines visual prominence',
       table: {
         defaultValue: { summary: 'PRIMARY' },
       },
     },
     size: {
-      ...prependNone({ SIZE }),
+      ...formatArgType({ SIZE }),
       description: 'Determines icon dimensions',
     },
   },

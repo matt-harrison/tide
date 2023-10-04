@@ -2,7 +2,7 @@ import BasicLink from '@/components/BasicLink.vue';
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
-import { click, formatSnippet, getVariableName, prependNone } from '@/utilities/storybook';
+import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -27,10 +27,8 @@ export default {
       if: { arg: 'element', eq: ELEMENT.BUTTON },
     },
     element: {
-      constant: getVariableName({ ELEMENT }),
-      control: 'select',
+      ...formatArgType({ ELEMENT }),
       description: 'HTML tag type',
-      options: ELEMENT,
       table: {
         defaultValue: { summary: 'LINK' },
         type: { summary: 'Element' },
@@ -45,12 +43,12 @@ export default {
       },
     },
     iconLeading: {
+      ...formatArgType({ ICON }),
       description: 'Icon to left of label',
-      ...prependNone({ ICON }),
     },
     iconTrailing: {
+      ...formatArgType({ ICON }),
       description: 'Icon to right of label',
-      ...prependNone({ ICON }),
     },
     isNewTab: {
       control: 'select',

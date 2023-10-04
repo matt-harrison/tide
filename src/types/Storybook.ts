@@ -1,6 +1,11 @@
 /* eslint vue/sort-keys: 0 */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 
+// import { prependNoneAsEmpty } from '@/utilities/storybook';
+
+export const NoneAsEmpty = { None: '' };
+export const NoneAsUndefined = { None: undefined };
+
 // These objects are intended exclusively for use in demonstrating the Storybook UI.
 export const BOOLEAN_UNREQUIRED = {
   None: undefined,
@@ -8,31 +13,7 @@ export const BOOLEAN_UNREQUIRED = {
   False: false,
 };
 
-export const BORDER_RADIUS = {
-  'None': '',
-  '1/4 REM': 'radius-1/4',
-  '1/2 REM': 'radius-1/2',
-  'Full': 'radius-full',
-};
-
-export const BORDER = {
-  'None': '',
-  '1px': 'border-1',
-  '2px': 'border-2',
-  'Top': 'border-t',
-  'Right': 'border-r',
-  'Bottom': 'border-b',
-  'Left': 'border-l',
-};
-
-export const BOX_SHADOW = {
-  'None': '',
-  'Level 1': 'box-shadow-1',
-  'Level 2': 'box-shadow-2',
-};
-
 export const COLOR_BACKGROUND = {
-  'None': '',
   'Surface': 'bg-surface',
   'Surface Light': 'bg-surface-light',
   'Surface Dark': 'bg-surface-dark',
@@ -43,7 +24,6 @@ export const COLOR_BACKGROUND = {
 };
 
 export const COLOR_BORDER = {
-  'None': '',
   'Surface': 'border-surface',
   'Surface Light': 'border-surface-light',
   'Surface Dark': 'border-surface-dark',
@@ -51,69 +31,11 @@ export const COLOR_BORDER = {
 };
 
 export const COLOR_FONT = {
-  'None': '',
   'Surface': 'font-surface',
   'Surface Variant': 'font-surface-variant',
 };
 
-export const DISPLAY = {
-  None: '',
-  BLOCK: 'block',
-  CONTENTS: 'contents',
-  FLEX: 'flex',
-  GRID: 'grid',
-  HIDDEN: 'hidden',
-  INLINE: 'inline',
-  INLINE_BLOCK: 'inline-block',
-  INLINE_FLEX: 'inline-flex',
-};
-
-export const FLEX_AXIS1 = {
-  None: '',
-  Around: 'axis1-around',
-  Between: 'axis1-between',
-  Center: 'axis1-center',
-  End: 'axis1-end',
-  Start: 'axis1-start',
-};
-
-export const FLEX_AXIS2 = {
-  None: '',
-  Center: 'axis2-center',
-  End: 'axis2-end',
-  Normal: 'axis2-normal',
-  Start: 'axis2-start',
-};
-
-export const FLEX_DIRECTION = {
-  None: '',
-  Row: 'row',
-  Column: 'column',
-};
-
-export const FONT_FAMILY = {
-  None: '',
-  Default: 'font-family-default',
-  Title: 'font-family-title',
-};
-
-export const FONT_SIZE = {
-  'None': '',
-  '12px': 'font-12',
-  '14px': 'font-14',
-  '16px': 'font-16',
-  '20px': 'font-20',
-  '24px': 'font-24',
-  '28px': 'font-28',
-  '32px': 'font-32',
-};
-
-export const FONT_WEIGHT = {
-  None: '',
-  Default: 'font-500',
-  Bold: 'font-700',
-};
-
+// TODO: Remove in favor of @/types/Styles.ts?
 export const MARGIN_SIZE = {
   'None': undefined,
   'Auto': 'auto',

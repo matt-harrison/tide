@@ -1,6 +1,11 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { COLOR_BACKGROUND, COLOR_BORDER, COLOR_FONT } from '@/types/Storybook';
+import * as STORYBOOK from '@/types/Storybook';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const COLOR_BACKGROUND = prependNoneAsEmpty(STORYBOOK.COLOR_BACKGROUND);
+const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
+const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -47,31 +52,16 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     background: {
-      control: 'select',
-      description: 'Context-specific background color',
-      options: COLOR_BACKGROUND,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'COLOR_BACKGROUND' },
-      },
+      ...formatArgType({ COLOR_BACKGROUND }),
+      name: 'Background Color',
     },
     border: {
-      control: 'select',
-      description: 'Context-specific border color',
-      options: COLOR_BORDER,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'COLOR_BORDER' },
-      },
+      ...formatArgType({ COLOR_BORDER }),
+      name: 'Border Color',
     },
     font: {
-      control: 'select',
-      description: 'Context-specific font color',
-      options: COLOR_FONT,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'COLOR_FONT' },
-      },
+      ...formatArgType({ COLOR_FONT }),
+      name: 'Font Color',
     },
   },
   args: {

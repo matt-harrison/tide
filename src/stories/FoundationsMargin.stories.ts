@@ -67,6 +67,7 @@ export default {
     side: {
       control: 'select',
       description: 'Side(s) of box model',
+      name: 'Side',
       options: SPACING_SIDE,
       table: {
         defaultValue: { summary: 'Full' },
@@ -76,6 +77,7 @@ export default {
     size: {
       control: 'select',
       description: 'Margin thickness',
+      name: 'Size',
       options: MARGIN_SIZE,
       table: {
         defaultValue: { summary: 'None' },
@@ -86,6 +88,7 @@ export default {
       control: 'number',
       description: 'Horizontal margin-auto requires explicit width',
       if: { arg: 'size', eq: MARGIN_SIZE.Auto },
+      name: 'Width',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number (px)' },

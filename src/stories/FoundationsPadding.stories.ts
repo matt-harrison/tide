@@ -48,6 +48,7 @@ export default {
     side: {
       control: 'select',
       description: 'Side(s) of box model',
+      name: 'Padding Side',
       options: SPACING_SIDE,
       table: {
         defaultValue: { summary: 'Full' },
@@ -57,6 +58,7 @@ export default {
     size: {
       control: 'select',
       description: 'Padding thickness',
+      name: 'Padding Size',
       options: SPACING_SIZE,
       table: {
         defaultValue: { summary: 'None' },

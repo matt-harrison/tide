@@ -3,7 +3,7 @@ import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { click, parameters, prependNone } from '@/utilities/storybook';
+import { click, formatArgType, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
@@ -26,8 +26,8 @@ export default {
       },
     },
     element: {
+      ...formatArgType({ ELEMENT_TEXT_AS_ICON }),
       description: 'HTML tag type',
-      ...prependNone({ ELEMENT_TEXT_AS_ICON }),
       table: {
         defaultValue: { summary: 'BUTTON' },
       },
@@ -59,14 +59,14 @@ export default {
       },
     },
     priority: {
-      ...prependNone({ PRIORITY }),
+      ...formatArgType({ PRIORITY }),
       description: 'Determines visual prominence',
       table: {
         defaultValue: { summary: 'PRIMARY' },
       },
     },
     size: {
-      ...prependNone({ SIZE }),
+      ...formatArgType({ SIZE }),
       description: 'Determines spacing and font size',
     },
   },

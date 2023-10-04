@@ -28,7 +28,6 @@ module.exports = {
       },
     ],
     'quote-props': ['warn', 'consistent-as-needed'],
-    'quotes': ['warn', 'single'],
     'vue/attributes-order': [
       'warn',
       {

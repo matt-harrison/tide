@@ -4,7 +4,7 @@ import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { click, formatSnippet, prependNone } from '@/utilities/storybook';
+import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -33,8 +33,8 @@ export default {
       },
     },
     element: {
+      ...formatArgType({ ELEMENT }),
       description: 'HTML tag type',
-      ...prependNone({ ELEMENT }),
       table: {
         defaultValue: { summary: 'BUTTON' },
       },
@@ -48,11 +48,11 @@ export default {
       },
     },
     iconLeading: {
-      ...prependNone({ ICON }),
+      ...formatArgType({ ICON }),
       description: 'Icon to left of label',
     },
     iconTrailing: {
-      ...prependNone({ ICON }),
+      ...formatArgType({ ICON }),
       description: 'Icon to right of label',
     },
     isNewTab: {
@@ -74,14 +74,14 @@ export default {
       },
     },
     priority: {
-      ...prependNone({ PRIORITY }),
+      ...formatArgType({ PRIORITY }),
       description: 'Determines visual prominence',
       table: {
         defaultValue: { summary: 'PRIMARY' },
       },
     },
     size: {
-      ...prependNone({ SIZE }),
+      ...formatArgType({ SIZE }),
       description: 'Icon to left of label',
       table: {
         defaultValue: { summary: 'MEDIUM' },

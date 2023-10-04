@@ -1,6 +1,9 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { BOX_SHADOW } from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const BOX_SHADOW = prependNoneAsEmpty(STYLES.BOX_SHADOW);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -45,13 +48,9 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     shadow: {
-      control: 'select',
-      description: 'Box shadow',
-      options: BOX_SHADOW,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'BOX_SHADOW' },
-      },
+      ...formatArgType({ BOX_SHADOW }),
+      description: `Applies a shadow at the element's boundaries`,
+      name: 'Box Shadow',
     },
   },
   args: {

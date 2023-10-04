@@ -1,7 +1,17 @@
+// Extensible object of key/value pairs
+type KeyValue = { [key: string]: string | undefined };
+
+// Object with a retrievable key and an extensible object of key/value pairs as the value
+type KeyValueNamed = {
+  [key: string]: KeyValue;
+};
+
 import type { StoryContext } from '@storybook/vue3';
 
 import { formatKebabCase } from '@/utilities/format';
-import { ICON } from '@/types/Icon';
+import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
+
+// TODO: Create centralized name/description object + method to retrieve by key
 
 export const click = {
   control: 'text',
@@ -10,6 +20,24 @@ export const click = {
     defaultValue: { summary: 'None' },
     type: { summary: 'function' },
   },
+};
+
+// Accept a KeyValue as the value of an object with a retrievable key as a Storybook argType
+export const formatArgType = (collection: KeyValueNamed) => {
+  const constant = getKey(collection);
+  const keyValues: KeyValue = collection[constant];
+
+  return {
+    constant,
+    control: 'select',
+    options: {
+      ...keyValues,
+    },
+    table: {
+      defaultValue: { summary: 'None' },
+      type: { summary: constant },
+    },
+  };
 };
 
 export const formatSnippet = (code: string, context: StoryContext) => {
@@ -71,6 +99,8 @@ export const formatSnippetMinimal = (code: string) => {
   return code.replace(/<[/]*template>/g, '');
 };
 
+export const getKey = (input: any) => Object.keys(input)[0];
+
 // Invert key/value pairs bc Storybook control option format is unintuitive.
 export const getLabelsFromOptions = (options: any) => {
   const labels: { [key: string]: string } = {};
@@ -82,38 +112,15 @@ export const getLabelsFromOptions = (options: any) => {
   return labels;
 };
 
-export const getVariableName = (input: any) => {
-  return Object.keys(input)[0];
-};
+// Prepend a key/value pair to a constant.
+export const prependKeyValue = (collection: KeyValue, keyValue: KeyValue) => ({
+  ...keyValue,
+  ...collection,
+});
 
-// Prepend the key/value pair of "None: undefined" to a constant and format as a Storybook argType.
-export const prependNone = (collection: any) => {
-  const constant = getVariableName(collection);
+export const prependNoneAsUndefined = (collection: KeyValue) => prependKeyValue(collection, NoneAsUndefined);
 
-  return {
-    constant,
-    control: 'select',
-    options: {
-      None: undefined,
-      ...collection[constant],
-    },
-    table: {
-      defaultValue: { summary: 'None' },
-      type: { summary: constant },
-    },
-  };
-};
-
-export const icon = {
-  constant: getVariableName({ ICON }),
-  control: 'select',
-  description: 'Icon',
-  options: ICON,
-  table: {
-    defaultValue: { summary: 'None' },
-    type: { summary: 'Icon' },
-  },
-};
+export const prependNoneAsEmpty = (collection: KeyValue) => prependKeyValue(collection, NoneAsEmpty);
 
 export const parameters = {
   docs: {

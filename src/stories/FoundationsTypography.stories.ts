@@ -1,6 +1,13 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '@/types/Storybook';
+import * as STORYBOOK from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
+const FONT_FAMILY = prependNoneAsEmpty(STYLES.FONT_FAMILY);
+const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
+const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,6 +18,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
+  if (args.color) classNames.push(args.color);
   if (args.family) classNames.push(args.family);
   if (args.size) classNames.push(args.size);
   if (args.weight) classNames.push(args.weight);
@@ -46,35 +54,29 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    color: {
+      ...formatArgType({ COLOR_FONT }),
+      description: 'Applies a font color',
+      name: 'Font Color',
+    },
     family: {
-      control: 'select',
-      description: 'Font family<br />(Note: All font-family contexts are currently declared as Montserrat.)',
-      options: FONT_FAMILY,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'FONT_FAMILY' },
-      },
+      ...formatArgType({ COLOR_FONT }),
+      description: 'Applies a font family<br />(Note: All font-family contexts are currently declared as Montserrat.)',
+      name: 'Font Family',
     },
     size: {
-      control: 'select',
-      description: 'Font size',
-      options: FONT_SIZE,
-      table: {
-        defaultValue: { summary: '16px' },
-        type: { summary: 'FONT_SIZE' },
-      },
+      ...formatArgType({ FONT_SIZE }),
+      description: 'Applies a font size',
+      name: 'Font Size',
     },
     weight: {
-      control: 'select',
-      description: 'Font weight',
-      options: FONT_WEIGHT,
-      table: {
-        defaultValue: { summary: 'Medium' },
-        type: { summary: 'FONT_WEIGHT' },
-      },
+      ...formatArgType({ COLOR_FONT }),
+      description: 'Applies a font weight',
+      name: 'Font Weight',
     },
   },
   args: {
+    color: COLOR_FONT.None,
     family: FONT_FAMILY.None,
     size: FONT_SIZE.None,
     weight: FONT_WEIGHT.None,

@@ -2,25 +2,27 @@
 
 import type { StoryContext } from '@storybook/vue3';
 
-import {
-  FLEX_AXIS1,
-  FLEX_AXIS2,
-  BOOLEAN_UNREQUIRED,
-  BORDER,
-  BORDER_RADIUS,
-  BOX_SHADOW,
-  COLOR_BACKGROUND,
-  COLOR_BORDER,
-  COLOR_FONT,
-  DISPLAY,
-  FLEX_DIRECTION,
-  FONT_FAMILY,
-  FONT_SIZE,
-  FONT_WEIGHT,
-  MARGIN_SIZE,
-  SPACING_SIDE,
-  SPACING_SIZE,
-} from '@/types/Storybook';
+import * as STORYBOOK from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const COLOR_BACKGROUND = prependNoneAsEmpty(STORYBOOK.COLOR_BACKGROUND);
+const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
+const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
+const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
+const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
+const BOX_SHADOW = prependNoneAsEmpty(STYLES.BOX_SHADOW);
+const DISPLAY = prependNoneAsEmpty(STYLES.DISPLAY);
+const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
+const FLEX_AXIS2 = prependNoneAsEmpty(STYLES.FLEX_AXIS2);
+const FLEX_DIRECTION = prependNoneAsEmpty(STYLES.FLEX_DIRECTION);
+const FONT_FAMILY = prependNoneAsEmpty(STYLES.FONT_FAMILY);
+const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
+const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
+const GAP = prependNoneAsEmpty(STYLES.GAP);
+const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
+const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -36,19 +38,12 @@ const formatClassNames = (args: any) => {
   if (args.flexDirection) classNames.push(args.flexDirection);
   if (args.flexAxis1) classNames.push(args.flexAxis1);
   if (args.flexAxis2) classNames.push(args.flexAxis2);
-
-  if (args.marginSide !== undefined && args.marginSize !== undefined) {
-    classNames.push(`m${args.marginSide}-${args.marginSize}`);
-  }
-
+  if (args.gap) classNames.push(args.gap);
+  if (args.margin) classNames.push(args.margin);
   if (args.borderColor) classNames.push(args.borderColor);
   if (args.borderRadius) classNames.push(args.borderRadius);
   if (args.borderType) classNames.push(args.borderType);
-
-  if (args.paddingSide !== undefined && args.paddingSize !== undefined) {
-    classNames.push(`p${args.paddingSide}-${args.paddingSize}`);
-  }
-
+  if (args.padding) classNames.push(args.padding);
   if (args.backgroundColor) classNames.push(args.backgroundColor);
   if (args.shadow) classNames.push(args.shadow);
   if (args.fontColor) classNames.push(args.fontColor);
@@ -89,7 +84,7 @@ export default {
   argTypes: {
     backgroundColor: {
       control: 'select',
-      description: 'Background color',
+      description: 'Applies a background color',
       name: 'Background Color',
       options: COLOR_BACKGROUND,
       table: {
@@ -99,7 +94,7 @@ export default {
     },
     borderColor: {
       control: 'select',
-      description: 'Border color',
+      description: 'Applies a border color',
       name: 'Border Color',
       options: COLOR_BORDER,
       table: {
@@ -108,29 +103,19 @@ export default {
       },
     },
     borderRadius: {
-      control: 'select',
-      description: 'Determines severity of rounded corners',
+      ...formatArgType({ BORDER_RADIUS }),
+      description: 'Dictates severity of rounded corners',
       name: 'Border Radius',
-      options: BORDER_RADIUS,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'BORDER_RADIUS' },
-      },
     },
     borderType: {
-      control: 'select',
-      description: 'Determines border width and side selection',
+      ...formatArgType({ BORDER_TYPE }),
+      description: 'Applies border width and determines to which edge(s) it applies',
       name: 'Border Type',
-      options: BORDER,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'BORDER' },
-      },
     },
     children: {
       control: 'text',
       defaultValue: 'Demo',
-      description: 'Markup or text content',
+      description: 'Markup or text content<br />(See "Demo" story for updatable preview)',
       name: 'Children',
       table: {
         defaultValue: { summary: 'None' },
@@ -138,47 +123,28 @@ export default {
       },
     },
     display: {
-      control: 'select',
+      ...formatArgType({ DISPLAY }),
+      description: 'Dictates layout rules that govern relationship between element, parent, and/or children',
       name: 'Display',
-      options: DISPLAY,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'DISPLAY' },
-      },
     },
     flexAxis1: {
-      control: 'select',
-      description: 'Determines alignment of children along primary axis',
+      ...formatArgType({ FLEX_AXIS1 }),
+      description: 'Dictates alignment of children along primary axis',
       name: 'Flex Axis Primary',
-      options: FLEX_AXIS1,
-      table: {
-        defaultValue: { summary: 'Start' },
-        type: { summary: 'FLEX_AXIS1' },
-      },
     },
     flexAxis2: {
-      control: 'select',
-      description: 'Determines alignment of children along secondary axis',
+      ...formatArgType({ FLEX_AXIS2 }),
+      description: 'Dictates alignment of children along secondary axis',
       name: 'Flex Axis Secondary',
-      options: FLEX_AXIS2,
-      table: {
-        defaultValue: { summary: 'Normal' },
-        type: { summary: 'FLEX_AXIS2' },
-      },
     },
     flexDirection: {
-      control: 'select',
-      description: 'Flex direction',
+      ...formatArgType({ FLEX_DIRECTION }),
+      description: 'Dictates whether children form a column or a row',
       name: 'Flex Direction',
-      options: FLEX_DIRECTION,
-      table: {
-        defaultValue: { summary: 'Row' },
-        type: { summary: 'FLEX_DIRECTION' },
-      },
     },
     flexWrap: {
       control: 'select',
-      description: 'Flex wrap',
+      description: 'Dictates whether overflow content should drop to a new line',
       name: 'Flex Wrap',
       options: BOOLEAN_UNREQUIRED,
       table: {
@@ -188,6 +154,7 @@ export default {
     },
     fontColor: {
       control: 'select',
+      description: 'Applies a font color',
       name: 'Font Color',
       options: COLOR_FONT,
       table: {
@@ -196,83 +163,55 @@ export default {
       },
     },
     fontFamily: {
-      control: 'select',
+      ...formatArgType({ FONT_FAMILY }),
+      description: 'Applies font(s)',
       name: 'Font Family',
-      options: FONT_FAMILY,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'FONT_FAMILY' },
-      },
     },
     fontSize: {
-      control: 'select',
+      ...formatArgType({ FONT_SIZE }),
+      description: `Applies a font size (relative to user's browser settings)`,
       name: 'Font Size',
-      options: FONT_SIZE,
       table: {
         defaultValue: { summary: '16px' },
         type: { summary: 'FONT_SIZE' },
       },
     },
     fontWeight: {
-      control: 'select',
+      ...formatArgType({ FONT_WEIGHT }),
+      description: 'Dictates the thickness of the text',
       name: 'Font Weight',
-      options: FONT_WEIGHT,
       table: {
         defaultValue: { summary: 'Default' },
         type: { summary: 'FONT_WEIGHT' },
       },
     },
-    marginSide: {
-      control: 'select',
-      name: 'Margin Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
+    gap: {
+      ...formatArgType({ GAP }),
+      description: 'Dictates vertical and/or horizontal spacing between elements within a flexbox container',
+      name: 'Gap',
     },
-    marginSize: {
-      control: 'select',
-      name: 'Margin Size',
-      options: MARGIN_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'MARGIN_SIDE' },
-      },
+    margin: {
+      ...formatArgType({ MARGIN }),
+      description: 'Applies a margin',
+      name: 'Margin',
     },
-    paddingSide: {
-      control: 'select',
-      name: 'Padding Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
-    },
-    paddingSize: {
-      control: 'select',
-      name: 'Padding Size',
-      options: SPACING_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'SPACING_SIDE' },
-      },
+    padding: {
+      ...formatArgType({ PADDING }),
+      description: 'Applies padding',
+      name: 'Padding',
     },
     shadow: {
-      control: 'select',
+      ...formatArgType({ BOX_SHADOW }),
+      description: `Applies a shadow at the element's boundaries`,
       name: 'Shadow',
       options: BOX_SHADOW,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'BOX_SHADOW' },
-      },
     },
   },
   args: {
     backgroundColor: COLOR_BACKGROUND.None,
     borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
-    borderType: BORDER.None,
+    borderType: BORDER_TYPE.None,
     children: 'Demo',
     display: DISPLAY.None,
     flexAxis1: FLEX_AXIS1.None,
@@ -282,10 +221,9 @@ export default {
     fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.None,
-    marginSide: SPACING_SIDE.Full,
-    marginSize: MARGIN_SIZE.None,
-    paddingSide: SPACING_SIDE.Full,
-    paddingSize: SPACING_SIZE.None,
+    gap: GAP.None,
+    margin: MARGIN.None,
+    padding: PADDING.None,
     shadow: BOX_SHADOW.None,
   },
   parameters,
