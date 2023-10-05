@@ -34,33 +34,3 @@ export const COLOR_FONT = {
   'Surface': 'font-surface',
   'Surface Variant': 'font-surface-variant',
 };
-
-// TODO: Remove in favor of @/types/Styles.ts?
-export const MARGIN_SIZE = {
-  'None': undefined,
-  'Auto': 'auto',
-  '4 REM': '4',
-  '2 REM': '2',
-  '1 REM': '1',
-  '1/2 REM': '1/2',
-  '1/4 REM': '1/4',
-};
-
-export const SPACING_SIDE = {
-  'Full': '',
-  'X-axis': 'x',
-  'Y-axis': 'y',
-  'Top': 't',
-  'Right': 'r',
-  'Bottom': 'b',
-  'Left': 'l',
-};
-
-export const SPACING_SIZE = {
-  'None': undefined,
-  '4 REM': '4',
-  '2 REM': '2',
-  '1 REM': '1',
-  '1/2 REM': '1/2',
-  '1/4 REM': '1/4',
-};

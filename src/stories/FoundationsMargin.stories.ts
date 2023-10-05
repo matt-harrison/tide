@@ -1,6 +1,9 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { MARGIN_SIZE, SPACING_SIDE } from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { argTypeDimension, formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,31 +14,38 @@ const formatArgs = (args: any) => {
 
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
-  const hasMargin = args.side !== undefined && args.size !== undefined;
-  const hasMarginAuto = args.size === MARGIN_SIZE.Auto;
-  const hasMarginAutoValid = getHasMarginAutoValid(args);
+  const hasMarginAuto = getHasMarginAuto(args);
 
-  if ((hasMargin && !hasMarginAuto) || hasMarginAutoValid) {
-    classNames.push(`m${args.side}-${args.size}`);
-  }
+  if (hasMarginAuto) classNames.push('flex', 'axis1-center', 'axis2-center');
+  if (args.margin) classNames.push(args.margin);
 
   return classNames.join(' ');
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const style = ` style="${formatStyles(args)}"`;
+  const styles = formatStyles(args);
+  const styleAttribute = styles ? ` style="${styles}"` : '';
 
-  return `<div class="${formatClassNames(args)}"${style}>Demo</div>`;
+  return `<div class="${formatClassNames(args)}"${styleAttribute}>Demo</div>`;
 };
 
-const formatStyles = (args: any) => (getHasMarginAutoValid(args) ? `width: ${args.width}px;` : '');
+const formatStyles = (args: any) => {
+  const styles: string[] = [];
+  const hasMarginAuto = getHasMarginAuto(args);
 
-const getHasMarginAutoValid = (args: any) =>
-  args.size === MARGIN_SIZE.Auto &&
-  [SPACING_SIDE['Full'], SPACING_SIDE['X-axis'], SPACING_SIDE['Left'], SPACING_SIDE['Right']].includes(args.side);
+  if (hasMarginAuto) {
+    styles.push(`width: ${args.width ? args.width : '100'}px;`);
+    styles.push('height: 100px;');
+  }
 
-const getContainerClass = (args: any) => (getHasMarginAutoValid(args) ? '' : 'inline-block');
+  return styles.length > 0 ? styles.join(' ') : null;
+};
+
+const getHasMarginAuto = (args: any) =>
+  [MARGIN['X-axis Auto'], MARGIN['Left Auto'], MARGIN['Right Auto']].includes(args.margin);
+
+const getContainerClass = (args: any) => (getHasMarginAuto(args) ? '' : 'inline-block');
 
 const parameters = {
   docs: {
@@ -49,14 +59,13 @@ const parameters = {
 
 const render = (args: any) => ({
   methods: {
-    formatStyles,
     getContainerClass,
   },
   setup() {
     return formatArgs(args);
   },
   template:
-    '<div :class="getContainerClass(args)" class="bg-blue-light"><div class="border-1 border-blue-dark p-1 bg-white text-center" :style="formatStyles(args)" v-bind="args">Demo</div></div>',
+    '<div :class="getContainerClass(args)" class="bg-blue-light"><div class="border-1 border-blue-dark p-1 bg-white" v-bind="args">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -64,41 +73,19 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    side: {
-      control: 'select',
-      description: 'Side(s) of box model',
-      name: 'Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
-    },
-    size: {
-      control: 'select',
-      description: 'Margin thickness',
-      name: 'Size',
-      options: MARGIN_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'MARGIN_SIZE' },
-      },
+    margin: {
+      ...formatArgType({ MARGIN }),
+      description: 'Applies a margin',
+      name: 'Margin',
     },
     width: {
-      control: 'number',
-      description: 'Horizontal margin-auto requires explicit width',
-      if: { arg: 'size', eq: MARGIN_SIZE.Auto },
-      name: 'Width',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'number (px)' },
-      },
+      ...argTypeDimension,
+      description: 'Width is required for Margin Auto<br />(for demonstration purposes only)',
+      name: 'Width*',
     },
   },
   args: {
-    side: SPACING_SIDE.Full,
-    size: undefined,
-    width: 100,
+    margin: MARGIN.None,
   },
   parameters,
   render,
@@ -112,62 +99,56 @@ export const MarginDefault = {
 
 export const Margin4 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: MARGIN_SIZE['4 REM'],
+    margin: MARGIN['Full 4 REM'],
   },
-  name: '4 REM Margin',
+  name: '4 REM',
 };
 
 export const Margin2 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: MARGIN_SIZE['2 REM'],
+    margin: MARGIN['Full 2 REM'],
   },
-  name: '2 REM Margin',
+  name: '2 REM',
 };
 
 export const Margin1 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: MARGIN_SIZE['1 REM'],
+    margin: MARGIN['Full 1 REM'],
   },
-  name: '1 REM Margin',
+  name: '1 REM',
 };
 
 export const MarginHalf = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: MARGIN_SIZE['1/2 REM'],
+    margin: MARGIN['Full 1/2 REM'],
   },
-  name: '1/2 REM Margin',
+  name: '1/2 REM',
 };
 
 export const MarginQuarter = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: MARGIN_SIZE['1/4 REM'],
+    margin: MARGIN['Full 1/4 REM'],
   },
-  name: '1/4 REM Margin',
+  name: '1/4 REM',
 };
 
 export const MarginYAuto = {
   args: {
-    side: SPACING_SIDE['X-axis'],
-    size: MARGIN_SIZE.Auto,
+    margin: MARGIN['X-axis Auto'],
   },
-  name: 'Margin X-axis Auto',
+  name: 'X-axis Auto',
 };
 
 export const MarginRightAuto = {
   args: {
-    side: SPACING_SIDE.Right,
-    size: MARGIN_SIZE.Auto,
+    margin: MARGIN['Right Auto'],
   },
+  name: 'Right Auto',
 };
 
 export const MarginLeftAuto = {
   args: {
-    side: SPACING_SIDE.Left,
-    size: MARGIN_SIZE.Auto,
+    margin: MARGIN['Left Auto'],
   },
+  name: 'Left Auto',
 };

@@ -8,6 +8,19 @@ type KeyValueNamed = {
 
 import type { StoryContext } from '@storybook/vue3';
 
+export const argTypeDimension = {
+  control: {
+    max: 500,
+    min: 100,
+    step: 100,
+    type: 'number',
+  },
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: 'number (px)' },
+  },
+};
+
 import { formatKebabCase } from '@/utilities/format';
 import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
 

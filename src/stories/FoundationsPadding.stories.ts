@@ -1,6 +1,9 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { SPACING_SIDE, SPACING_SIZE } from '@/types/Storybook';
+import * as STYLES from '@/types/Styles';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+
+const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -11,7 +14,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.side !== undefined && args.size !== undefined) classNames.push(`p${args.side}-${args.size}`);
+  if (args.padding) classNames.push(args.padding);
 
   return classNames.join(' ');
 };
@@ -45,29 +48,14 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    side: {
-      control: 'select',
-      description: 'Side(s) of box model',
-      name: 'Padding Side',
-      options: SPACING_SIDE,
-      table: {
-        defaultValue: { summary: 'Full' },
-        type: { summary: 'SPACING_SIDE' },
-      },
-    },
-    size: {
-      control: 'select',
-      description: 'Padding thickness',
-      name: 'Padding Size',
-      options: SPACING_SIZE,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'SPACING_SIZE' },
-      },
+    padding: {
+      ...formatArgType({ PADDING }),
+      description: 'Applies padding',
+      name: 'Padding',
     },
   },
   args: {
-    side: SPACING_SIDE.Full,
+    padding: PADDING.None,
   },
   parameters,
   render,
@@ -79,40 +67,35 @@ export const Default = {};
 
 export const Padding4 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['4 REM'],
+    padding: PADDING['Full 4 REM'],
   },
-  name: '4 REM Padding',
+  name: '4 REM',
 };
 
 export const Padding2 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['2 REM'],
+    padding: PADDING['Full 2 REM'],
   },
-  name: '2 REM Padding',
+  name: '2 REM',
 };
 
 export const Padding1 = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1 REM'],
+    padding: PADDING['Full 1 REM'],
   },
-  name: '1 REM Padding',
+  name: '1 REM',
 };
 
 export const PaddingHalf = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/2 REM'],
+    padding: PADDING['Full 1/2 REM'],
   },
-  name: '1/2 REM Padding',
+  name: '1/2 REM',
 };
 
 export const PaddingQuarter = {
   args: {
-    side: SPACING_SIDE.Full,
-    size: SPACING_SIZE['1/4 REM'],
+    padding: PADDING['Full 1/4 REM'],
   },
-  name: '1/4 REM Padding',
+  name: '1/4 REM',
 };

@@ -9,7 +9,9 @@ import BoxShadow from '@/stories/FoundationsBoxShadow.stories';
 import Color from '@/stories/FoundationsColor.stories';
 import Font from '@/stories/FoundationsTypography.stories';
 import Gap from '@/stories/FoundationsGap.stories';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import Margin from '@/stories/FoundationsMargin.stories';
+import Padding from '@/stories/FoundationsPadding.stories';
+import { argTypeDimension, formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const COLOR_BACKGROUND = prependNoneAsEmpty(STORYBOOK.COLOR_BACKGROUND);
 const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
@@ -27,19 +29,6 @@ const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 const GAP = prependNoneAsEmpty(STYLES.GAP);
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
-
-const argTypeDimension = {
-  control: {
-    max: 500,
-    min: 100,
-    step: 100,
-    type: 'number',
-  },
-  table: {
-    defaultValue: { summary: 'None' },
-    type: { summary: 'number (px)' },
-  },
-};
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -83,13 +72,8 @@ const formatSnippet = (code: string, context: StoryContext) => {
 const formatStyles = (args: any) => {
   const styles: string[] = [];
 
-  if (args.width) {
-    styles.push(`width: ${args.width}px;`);
-  }
-
-  if (args.height) {
-    styles.push(`height: ${args.height}px;`);
-  }
+  if (args.width) styles.push(`width: ${args.width}px;`);
+  if (args.height) styles.push(`height: ${args.height}px;`);
 
   return styles.length > 0 ? styles.join(' ') : null;
 };
@@ -120,6 +104,7 @@ export default {
     ...BoxShadow.argTypes,
     ...Font.argTypes,
     ...Gap.argTypes,
+    ...Padding.argTypes,
     backgroundColor: Color.argTypes.backgroundColor,
     children: {
       control: 'text',
@@ -142,14 +127,7 @@ export default {
       name: 'Height',
     },
     margin: {
-      ...formatArgType({ MARGIN }),
-      description: 'Applies a margin',
-      name: 'Margin',
-    },
-    padding: {
-      ...formatArgType({ PADDING }),
-      description: 'Applies padding',
-      name: 'Padding',
+      ...Margin.argTypes.margin,
     },
     width: {
       ...argTypeDimension,

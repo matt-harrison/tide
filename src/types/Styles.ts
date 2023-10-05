@@ -81,12 +81,11 @@ export const GAP = {
 };
 
 export const MARGIN = {
-  'Auto': 'm-auto',
-  '4 REM': 'm-4',
-  '2 REM': 'm-2',
-  '1 REM': 'm-1',
-  '1/2 REM': 'm-1/2',
-  '1/4 REM': 'm-1/4',
+  'Full 4 REM': 'm-4',
+  'Full 2 REM': 'm-2',
+  'Full 1 REM': 'm-1',
+  'Full 1/2 REM': 'm-1/2',
+  'Full 1/4 REM': 'm-1/4',
 
   'X-axis Auto': 'mx-auto',
   'X-axis 4 REM': 'mx-4',
@@ -129,12 +128,11 @@ export const MARGIN = {
 };
 
 export const PADDING = {
-  'Auto': 'p-auto',
-  '4 REM': 'p-4',
-  '2 REM': 'p-2',
-  '1 REM': 'p-1',
-  '1/2 REM': 'p-1/2',
-  '1/4 REM': 'p-1/4',
+  'Full 4 REM': 'p-4',
+  'Full 2 REM': 'p-2',
+  'Full 1 REM': 'p-1',
+  'Full 1/2 REM': 'p-1/2',
+  'Full 1/4 REM': 'p-1/4',
 
   'X-axis 4 REM': 'px-4',
   'X-axis 2 REM': 'px-2',
