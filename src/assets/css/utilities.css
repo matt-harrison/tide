@@ -228,8 +228,8 @@
 .font-white,      .font-white:hover      {color: var(--white);}
 
 /* Font Family */
-.font-family-default {font-family: var(--font-family-default);}
-.font-family-title   {font-family: var(--font-family-title);}
+.font-default {font-family: var(--font-default);}
+.font-title   {font-family: var(--font-title);}
 
 /* Font Size */
 /* REM*/

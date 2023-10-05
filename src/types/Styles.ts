@@ -53,8 +53,8 @@ export const FLEX_DIRECTION = {
 };
 
 export const FONT_FAMILY = {
-  Default: 'font-family-default',
-  Title: 'font-family-title',
+  Default: 'font-default',
+  Title: 'font-title',
 };
 
 export const FONT_SIZE = {

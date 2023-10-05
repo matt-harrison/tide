@@ -1,7 +1,6 @@
 html,
 body {
-  color: var(--gray-dark);
-  font-weight: var(--font-500);
+  color: var(--ti-surface-foreground);
 }
 
 *,
@@ -12,7 +11,8 @@ body {
   border: 0;
   padding: 0;
   color: inherit;
-  font-family: Montserrat;
+  font-family: var(--font-default);
+  font-weight: var(--font-500);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
