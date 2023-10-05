@@ -16,9 +16,9 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames = [];
 
-  if (args.background) classNames.push(args.background);
-  if (args.border) classNames.push(`border-1 ${args.border}`);
-  if (args.font) classNames.push(args.font);
+  if (args.backgroundColor) classNames.push(args.backgroundColor);
+  if (args.borderColor) classNames.push(`border-1 ${args.borderColor}`);
+  if (args.fontColor) classNames.push(args.fontColor);
 
   return classNames.join(' ');
 };
@@ -51,23 +51,26 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    background: {
+    backgroundColor: {
       ...formatArgType({ COLOR_BACKGROUND }),
+      description: 'Applies a background color',
       name: 'Background Color',
     },
-    border: {
+    borderColor: {
       ...formatArgType({ COLOR_BORDER }),
+      description: 'Applies a border color',
       name: 'Border Color',
     },
-    font: {
+    fontColor: {
       ...formatArgType({ COLOR_FONT }),
+      description: 'Applies a font color',
       name: 'Font Color',
     },
   },
   args: {
-    background: COLOR_BACKGROUND.None,
-    border: COLOR_BORDER.None,
-    font: COLOR_FONT.None,
+    backgroundColor: COLOR_BACKGROUND.None,
+    borderColor: COLOR_BORDER.None,
+    fontColor: COLOR_FONT.None,
   },
   parameters,
   render,
@@ -79,54 +82,54 @@ export const Default = {};
 
 export const BackgroundSurface = {
   args: {
-    background: COLOR_BACKGROUND['Surface'],
+    backgroundColor: COLOR_BACKGROUND['Surface'],
   },
 };
 
 export const BackgroundSurfaceLight = {
   args: {
-    background: COLOR_BACKGROUND['Surface Light'],
+    backgroundColor: COLOR_BACKGROUND['Surface Light'],
   },
 };
 
 export const BackgroundSurfaceDark = {
   args: {
-    background: COLOR_BACKGROUND['Surface Dark'],
+    backgroundColor: COLOR_BACKGROUND['Surface Dark'],
   },
 };
 
 export const BorderSurface = {
   args: {
-    border: COLOR_BORDER['Surface'],
+    borderColor: COLOR_BORDER['Surface'],
   },
 };
 
 export const BorderSurfaceLight = {
   args: {
-    border: COLOR_BORDER['Surface Light'],
+    borderColor: COLOR_BORDER['Surface Light'],
   },
 };
 
 export const BorderSurfaceDark = {
   args: {
-    border: COLOR_BORDER['Surface Dark'],
+    borderColor: COLOR_BORDER['Surface Dark'],
   },
 };
 
 export const BorderSurfaceSave = {
   args: {
-    border: COLOR_BORDER['Surface Save'],
+    borderColor: COLOR_BORDER['Surface Save'],
   },
 };
 
 export const FontSurface = {
   args: {
-    font: COLOR_FONT['Surface'],
+    fontColor: COLOR_FONT['Surface'],
   },
 };
 
 export const FontSurfaceVariant = {
   args: {
-    font: COLOR_FONT['Surface Variant'],
+    fontColor: COLOR_FONT['Surface Variant'],
   },
 };

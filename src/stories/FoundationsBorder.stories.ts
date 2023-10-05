@@ -1,9 +1,11 @@
 import type { StoryContext } from '@storybook/vue3';
 
+import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/Styles';
-
+import Color from '@/stories/FoundationsColor.stories';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
+const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
 const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
 const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
 
@@ -16,8 +18,9 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.radius) classNames.push(args.radius);
-  if (args.type) classNames.push(args.type);
+  if (args.borderColor) classNames.push(args.borderColor);
+  if (args.bordeRadius) classNames.push(args.bordeRadius);
+  if (args.borderType) classNames.push(args.borderType);
 
   return classNames.join(' ');
 };
@@ -50,18 +53,22 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    radius: {
+    borderColor: Color.argTypes.borderColor,
+    borderRadius: {
       ...formatArgType({ BORDER_RADIUS }),
+      description: 'Dictates severity of rounded corners',
       name: 'Border Radius',
     },
-    type: {
+    borderType: {
       ...formatArgType({ BORDER_TYPE }),
+      description: 'Applies border width and determines to which edge(s) it applies',
       name: 'Border Type',
     },
   },
   args: {
-    radius: BORDER_RADIUS.None,
-    type: BORDER_TYPE.None,
+    borderColor: COLOR_BORDER.None,
+    borderRadius: BORDER_RADIUS.None,
+    borderType: BORDER_TYPE.None,
   },
   parameters,
   render,

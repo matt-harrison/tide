@@ -2,6 +2,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/Styles';
+import Color from '@/stories/FoundationsColor.stories';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
@@ -18,10 +19,10 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.color) classNames.push(args.color);
-  if (args.family) classNames.push(args.family);
-  if (args.size) classNames.push(args.size);
-  if (args.weight) classNames.push(args.weight);
+  if (args.fontColor) classNames.push(args.fontColor);
+  if (args.fontFamily) classNames.push(args.fontFamily);
+  if (args.fontSize) classNames.push(args.fontSize);
+  if (args.fontWeight) classNames.push(args.fontWeight);
 
   return classNames.join(' ');
 };
@@ -54,32 +55,28 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    color: {
-      ...formatArgType({ COLOR_FONT }),
-      description: 'Applies a font color',
-      name: 'Font Color',
-    },
-    family: {
-      ...formatArgType({ COLOR_FONT }),
-      description: 'Applies a font family<br />(Note: All font-family contexts are currently declared as Montserrat.)',
+    fontColor: Color.argTypes.fontColor,
+    fontFamily: {
+      ...formatArgType({ FONT_FAMILY }),
+      description: 'Applies font(s)<br />(Note: All font-family contexts are currently declared as Montserrat.)',
       name: 'Font Family',
     },
-    size: {
+    fontSize: {
       ...formatArgType({ FONT_SIZE }),
-      description: 'Applies a font size',
+      description: `Applies a font size (relative to user's browser settings)`,
       name: 'Font Size',
     },
-    weight: {
-      ...formatArgType({ COLOR_FONT }),
-      description: 'Applies a font weight',
+    fontWeight: {
+      ...formatArgType({ FONT_WEIGHT }),
+      description: 'Dictates the thickness of the text',
       name: 'Font Weight',
     },
   },
   args: {
-    color: COLOR_FONT.None,
-    family: FONT_FAMILY.None,
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.None,
+    fontColor: COLOR_FONT.None,
+    fontFamily: FONT_FAMILY.None,
+    fontSize: FONT_SIZE.None,
+    fontWeight: FONT_WEIGHT.None,
   },
   parameters,
   render,
@@ -91,72 +88,72 @@ export const Default = {};
 
 export const FontSize12 = {
   args: {
-    size: FONT_SIZE['12px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['12px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 12px',
 };
 
 export const FontSize14 = {
   args: {
-    size: FONT_SIZE['14px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['14px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 14px',
 };
 
 export const FontSize16 = {
   args: {
-    size: FONT_SIZE['16px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['16px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 16px',
 };
 
 export const FontSize20 = {
   args: {
-    size: FONT_SIZE['20px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['20px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 20px',
 };
 
 export const FontSize24 = {
   args: {
-    size: FONT_SIZE['24px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['24px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 24px',
 };
 
 export const FontSize28 = {
   args: {
-    size: FONT_SIZE['28px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['28px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 28px',
 };
 
 export const FontSize32 = {
   args: {
-    size: FONT_SIZE['32px'],
-    weight: FONT_WEIGHT.None,
+    fontSize: FONT_SIZE['32px'],
+    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 32px',
 };
 
 export const FontWeight500 = {
   args: {
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.Default,
+    fontSize: FONT_SIZE.None,
+    fontWeight: FONT_WEIGHT.Default,
   },
   name: 'Font Weight 500 (Medium)',
 };
 
 export const FontWeight700 = {
   args: {
-    size: FONT_SIZE.None,
-    weight: FONT_WEIGHT.Bold,
+    fontSize: FONT_SIZE.None,
+    fontWeight: FONT_WEIGHT.Bold,
   },
   name: 'Font Weight 700 (Bold)',
 };

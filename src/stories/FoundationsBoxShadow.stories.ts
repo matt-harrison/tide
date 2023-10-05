@@ -14,7 +14,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.shadow) classNames.push(args.shadow);
+  if (args.boxShadow) classNames.push(args.boxShadow);
 
   return classNames.join(' ');
 };
@@ -47,31 +47,31 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    shadow: {
+    boxShadow: {
       ...formatArgType({ BOX_SHADOW }),
       description: `Applies a shadow at the element's boundaries`,
       name: 'Box Shadow',
     },
   },
   args: {
-    shadow: BOX_SHADOW.None,
+    boxShadow: BOX_SHADOW.None,
   },
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Foundations/Shadow',
+  title: 'Foundations/Box Shadow',
 };
 
 export const Default = {};
 
-export const ShadowLevel1 = {
+export const BoxShadowLevel1 = {
   args: {
-    shadow: BOX_SHADOW['Level 1'],
+    boxShadow: BOX_SHADOW['Level 1'],
   },
 };
 
-export const ShadowLevel2 = {
+export const BoxShadowLevel2 = {
   args: {
-    shadow: BOX_SHADOW['Level 2'],
+    boxShadow: BOX_SHADOW['Level 2'],
   },
 };

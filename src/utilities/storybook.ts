@@ -11,8 +11,6 @@ import type { StoryContext } from '@storybook/vue3';
 import { formatKebabCase } from '@/utilities/format';
 import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
 
-// TODO: Create centralized name/description object + method to retrieve by key
-
 export const click = {
   control: 'text',
   description: 'JS function to execute on click',

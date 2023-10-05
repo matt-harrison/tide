@@ -1,15 +1,19 @@
 import type { Preview } from '@storybook/vue3';
 
 import '../src/assets/css/main.css';
+import DemoCssUtilities from '../src/stories/DemoCssUtilities.stories';
+
 
 const preview: Preview = {
   decorators: [
     (story, context) => {
       import(`../src/assets/css/realm/${context.globals.realm}.css`);
 
+      const conditionalCss = context.title === DemoCssUtilities.title ? 'pb-2' : 'p-2';
+
       return {
         components: { story },
-        template: `<div class="${context.globals.theme} p-2 w-full h-full ${context.globals.surface} font-surface"><story /></div>`
+        template: `<div class="${context.globals.theme} ${conditionalCss} ${context.globals.surface} font-surface"><story /></div>`
       };
     },
   ],
