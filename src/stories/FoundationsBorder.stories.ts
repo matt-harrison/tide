@@ -19,7 +19,7 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
   if (args.borderColor) classNames.push(args.borderColor);
-  if (args.bordeRadius) classNames.push(args.bordeRadius);
+  if (args.borderRadius) classNames.push(args.borderRadius);
   if (args.borderType) classNames.push(args.borderType);
 
   return classNames.join(' ');
@@ -80,76 +80,72 @@ export const Default = {};
 
 export const Border1 = {
   args: {
-    type: BORDER_TYPE['1px'],
+    borderType: BORDER_TYPE['1px'],
   },
-  name: '1px Border',
+  name: 'Border 1px',
 };
 
 export const Border2 = {
   args: {
-    type: BORDER_TYPE['2px'],
+    borderType: BORDER_TYPE['2px'],
   },
-  name: '2px Border',
+  name: 'Border 2px',
 };
 
 export const BorderTop = {
   args: {
-    type: BORDER_TYPE.Top,
+    borderType: BORDER_TYPE.Top,
   },
-  name: 'Top Border',
 };
 
 export const BorderRight = {
   args: {
-    type: BORDER_TYPE.Right,
+    borderType: BORDER_TYPE.Right,
   },
-  name: 'Right Border',
 };
 
 export const BorderBottom = {
   args: {
-    type: BORDER_TYPE.Bottom,
+    borderType: BORDER_TYPE.Bottom,
   },
-  name: 'Bottom Border',
 };
 
 export const BorderLeft = {
   args: {
-    type: BORDER_TYPE.Left,
+    borderType: BORDER_TYPE.Left,
   },
-  name: 'Left Border',
 };
 
 export const RadiusQuarter = {
   args: {
-    radius: STYLES.BORDER_RADIUS['1/4'],
-    type: BORDER_TYPE['1px'],
+    borderRadius: BORDER_RADIUS['1/4'],
+    borderType: BORDER_TYPE['1px'],
   },
-  name: '1/4 REM Border Radius',
+  name: 'Border Radius 1/4 REM',
 };
 
 export const RadiusHalf = {
   args: {
-    radius: STYLES.BORDER_RADIUS['1/2'],
-    type: BORDER_TYPE['1px'],
+    borderRadius: BORDER_RADIUS['1/2'],
+    borderType: BORDER_TYPE['1px'],
   },
-  name: '1/2 REM Border Radius',
+  name: 'Border Radius 1/2 REM',
 };
 
 export const RadiusFull = {
   args: {
-    radius: STYLES.BORDER_RADIUS.Full,
-    type: BORDER_TYPE['1px'],
+    borderRadius: BORDER_RADIUS.Full,
+    borderType: BORDER_TYPE['1px'],
   },
-  name: 'Full Border Radius',
+  name: 'Border Radius Full',
 };
 
 export const Circle = {
   args: {
-    radius: STYLES.BORDER_RADIUS.Full,
-    type: BORDER_TYPE['1px'],
+    borderRadius: BORDER_RADIUS.Full,
+    borderType: BORDER_TYPE['1px'],
   },
-  name: 'Full Radius Border (1/1 Aspect Ratio)',
+  name: 'Border Radius Full (1/1 Aspect Ratio)',
   parameters,
   render: (args: any) => ({
     setup() {

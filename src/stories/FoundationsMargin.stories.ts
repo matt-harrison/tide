@@ -101,54 +101,52 @@ export const Margin4 = {
   args: {
     margin: MARGIN['Full 4 REM'],
   },
-  name: '4 REM',
+  name: 'Margin 4 REM',
 };
 
 export const Margin2 = {
   args: {
     margin: MARGIN['Full 2 REM'],
   },
-  name: '2 REM',
+  name: 'Margin 2 REM',
 };
 
 export const Margin1 = {
   args: {
     margin: MARGIN['Full 1 REM'],
   },
-  name: '1 REM',
+  name: 'Margin 1 REM',
 };
 
 export const MarginHalf = {
   args: {
     margin: MARGIN['Full 1/2 REM'],
   },
-  name: '1/2 REM',
+  name: 'Margin 1/2 REM',
 };
 
 export const MarginQuarter = {
   args: {
     margin: MARGIN['Full 1/4 REM'],
   },
-  name: '1/4 REM',
+  name: 'Margin 1/4 REM',
 };
 
 export const MarginYAuto = {
   args: {
     margin: MARGIN['X-axis Auto'],
   },
-  name: 'X-axis Auto',
+  name: 'Margin X-axis Auto',
 };
 
 export const MarginRightAuto = {
   args: {
     margin: MARGIN['Right Auto'],
   },
-  name: 'Right Auto',
 };
 
 export const MarginLeftAuto = {
   args: {
     margin: MARGIN['Left Auto'],
   },
-  name: 'Left Auto',
 };

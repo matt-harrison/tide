@@ -86,10 +86,33 @@ export default {
 
 export const Default = {};
 
+export const FontColorSurface = {
+  args: {
+    fontColor: COLOR_FONT['Surface'],
+  },
+};
+
+export const FontColorSurfaceVariant = {
+  args: {
+    fontColor: COLOR_FONT['Surface Variant'],
+  },
+};
+
+export const FontFamilyDefault = {
+  args: {
+    fontColor: FONT_FAMILY.Default,
+  },
+};
+
+export const FontFamilyTitle = {
+  args: {
+    fontColor: FONT_FAMILY.Title,
+  },
+};
+
 export const FontSize12 = {
   args: {
     fontSize: FONT_SIZE['12px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 12px',
 };
@@ -97,7 +120,6 @@ export const FontSize12 = {
 export const FontSize14 = {
   args: {
     fontSize: FONT_SIZE['14px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 14px',
 };
@@ -105,7 +127,6 @@ export const FontSize14 = {
 export const FontSize16 = {
   args: {
     fontSize: FONT_SIZE['16px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 16px',
 };
@@ -113,7 +134,6 @@ export const FontSize16 = {
 export const FontSize20 = {
   args: {
     fontSize: FONT_SIZE['20px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 20px',
 };
@@ -121,7 +141,6 @@ export const FontSize20 = {
 export const FontSize24 = {
   args: {
     fontSize: FONT_SIZE['24px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 24px',
 };
@@ -129,7 +148,6 @@ export const FontSize24 = {
 export const FontSize28 = {
   args: {
     fontSize: FONT_SIZE['28px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 28px',
 };
@@ -137,14 +155,12 @@ export const FontSize28 = {
 export const FontSize32 = {
   args: {
     fontSize: FONT_SIZE['32px'],
-    fontWeight: FONT_WEIGHT.None,
   },
   name: 'Font Size 32px',
 };
 
 export const FontWeight500 = {
   args: {
-    fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.Default,
   },
   name: 'Font Weight 500 (Medium)',
@@ -152,7 +168,6 @@ export const FontWeight500 = {
 
 export const FontWeight700 = {
   args: {
-    fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.Bold,
   },
   name: 'Font Weight 700 (Bold)',

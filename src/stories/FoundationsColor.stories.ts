@@ -80,55 +80,55 @@ export default {
 
 export const Default = {};
 
-export const BackgroundSurface = {
+export const BackgroundColorSurface = {
   args: {
     backgroundColor: COLOR_BACKGROUND['Surface'],
   },
 };
 
-export const BackgroundSurfaceLight = {
+export const BackgroundColorSurfaceLight = {
   args: {
     backgroundColor: COLOR_BACKGROUND['Surface Light'],
   },
 };
 
-export const BackgroundSurfaceDark = {
+export const BackgroundColorSurfaceDark = {
   args: {
     backgroundColor: COLOR_BACKGROUND['Surface Dark'],
   },
 };
 
-export const BorderSurface = {
+export const BorderColorSurface = {
   args: {
     borderColor: COLOR_BORDER['Surface'],
   },
 };
 
-export const BorderSurfaceLight = {
+export const BorderColorSurfaceLight = {
   args: {
     borderColor: COLOR_BORDER['Surface Light'],
   },
 };
 
-export const BorderSurfaceDark = {
+export const BorderColorSurfaceDark = {
   args: {
     borderColor: COLOR_BORDER['Surface Dark'],
   },
 };
 
-export const BorderSurfaceSave = {
+export const BorderColorSurfaceSave = {
   args: {
     borderColor: COLOR_BORDER['Surface Save'],
   },
 };
 
-export const FontSurface = {
+export const FontColorSurface = {
   args: {
     fontColor: COLOR_FONT['Surface'],
   },
 };
 
-export const FontSurfaceVariant = {
+export const FontColorSurfaceVariant = {
   args: {
     fontColor: COLOR_FONT['Surface Variant'],
   },

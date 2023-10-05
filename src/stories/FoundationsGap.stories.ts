@@ -106,35 +106,35 @@ export const Gap4NoWrap = {
   args: {
     flexGap: GAP['4 REM'],
   },
-  name: '4 REM Gap (No Wrap)',
+  name: 'Gap 4 REM (No Wrap)',
 };
 
 export const Gap2NoWrap = {
   args: {
     flexGap: GAP['2 REM'],
   },
-  name: '2 REM Gap (No Wrap)',
+  name: 'Gap 2 REM (No Wrap)',
 };
 
 export const Gap1NoWrap = {
   args: {
     flexGap: GAP['1 REM'],
   },
-  name: '1 REM Gap (No Wrap)',
+  name: 'Gap 1 REM (No Wrap)',
 };
 
 export const GapHalfNoWrap = {
   args: {
     flexGap: GAP['1/2 REM'],
   },
-  name: '1/2 REM Gap (No Wrap)',
+  name: 'Gap 1/2 REM (No Wrap)',
 };
 
 export const GapQuarterNoWrap = {
   args: {
     flexGap: GAP['1/4 REM'],
   },
-  name: '1/4 REM Gap (No Wrap)',
+  name: 'Gap 1/4 REM (No Wrap)',
 };
 
 export const Gap4Wrap = {
@@ -142,7 +142,7 @@ export const Gap4Wrap = {
     flexGap: GAP['4 REM'],
     flexWrap: true,
   },
-  name: '4 REM Gap (Wrap)',
+  name: 'Gap 4 REM (Wrap)',
 };
 
 export const Gap2Wrap = {
@@ -150,7 +150,7 @@ export const Gap2Wrap = {
     flexGap: GAP['2 REM'],
     flexWrap: true,
   },
-  name: '2 REM Gap (Wrap)',
+  name: 'Gap 2 REM (Wrap)',
 };
 
 export const Gap1Wrap = {
@@ -158,7 +158,7 @@ export const Gap1Wrap = {
     flexGap: GAP['1 REM'],
     flexWrap: true,
   },
-  name: '1 REM Gap (Wrap)',
+  name: 'Gap 1 REM (Wrap)',
 };
 
 export const GapHalfWrap = {
@@ -166,7 +166,7 @@ export const GapHalfWrap = {
     flexGap: GAP['1/2 REM'],
     flexWrap: true,
   },
-  name: '1/2 REM Gap (Wrap)',
+  name: 'Gap 1/2 REM (Wrap)',
 };
 
 export const GapQuarterWrap = {
@@ -174,5 +174,5 @@ export const GapQuarterWrap = {
     flexGap: GAP['1/4 REM'],
     flexWrap: true,
   },
-  name: '1/4 REM Gap (Wrap)',
+  name: 'Gap 1/4 REM (Wrap)',
 };
