@@ -8,12 +8,12 @@ export const BORDER_RADIUS = {
 };
 
 export const BORDER_TYPE = {
-  1: 'border-1',
-  2: 'border-2',
-  Top: 'border-t',
-  Right: 'border-r',
-  Bottom: 'border-b',
-  Left: 'border-l',
+  '1px': 'border-1',
+  '2px': 'border-2',
+  'Top': 'border-t',
+  'Right': 'border-r',
+  'Bottom': 'border-b',
+  'Left': 'border-l',
 };
 
 export const BOX_SHADOW = {

@@ -139,7 +139,7 @@ export const RadiusHalf = {
 export const RadiusFull = {
   args: {
     radius: STYLES.BORDER_RADIUS.Full,
-    type: BORDER_TYPE['1'],
+    type: BORDER_TYPE['1px'],
   },
   name: 'Full Border Radius',
 };
@@ -147,7 +147,7 @@ export const RadiusFull = {
 export const Circle = {
   args: {
     radius: STYLES.BORDER_RADIUS.Full,
-    type: BORDER_TYPE['1'],
+    type: BORDER_TYPE['1px'],
   },
   name: 'Full Radius Border (1/1 Aspect Ratio)',
   parameters,
