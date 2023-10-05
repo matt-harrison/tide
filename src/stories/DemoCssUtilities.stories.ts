@@ -28,8 +28,22 @@ const GAP = prependNoneAsEmpty(STYLES.GAP);
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 
+const argTypeDimension = {
+  control: {
+    max: 500,
+    min: 100,
+    step: 100,
+    type: 'number',
+  },
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: 'number (px)' },
+  },
+};
+
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
+  args.style = formatStyles(args);
 
   return { args };
 };
@@ -60,8 +74,24 @@ const formatClassNames = (args: any) => {
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const styles = formatStyles(args);
+  const styleAttribute = styles ? ` style="${styles}"` : '';
 
-  return `<div class="${formatClassNames(args)}">${args.children}</div>`;
+  return `<div class="${formatClassNames(args)}"${styleAttribute}>${args.children}</div>`;
+};
+
+const formatStyles = (args: any) => {
+  const styles: string[] = [];
+
+  if (args.width) {
+    styles.push(`width: ${args.width}px;`);
+  }
+
+  if (args.height) {
+    styles.push(`height: ${args.height}px;`);
+  }
+
+  return styles.length > 0 ? styles.join(' ') : null;
 };
 
 const parameters = {
@@ -106,6 +136,11 @@ export default {
       description: 'Dictates layout rules that govern relationship between element, parent, and/or children',
       name: 'Display',
     },
+    height: {
+      ...argTypeDimension,
+      description: 'Apply a "height" to the style attribute<br />(for demonstration purposes only)',
+      name: 'Height',
+    },
     margin: {
       ...formatArgType({ MARGIN }),
       description: 'Applies a margin',
@@ -115,6 +150,11 @@ export default {
       ...formatArgType({ PADDING }),
       description: 'Applies padding',
       name: 'Padding',
+    },
+    width: {
+      ...argTypeDimension,
+      description: 'Apply a "width" to the style attribute<br />(for demonstration purposes only)',
+      name: 'Width',
     },
   },
   args: {
