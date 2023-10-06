@@ -35,7 +35,6 @@ export default {
   argTypes: {
     default: {
       control: 'text',
-      defaultValue: 'Lorem ipsum...',
       description: 'Content exposed when expanded',
       table: {
         defaultValue: { summary: 'None' },
