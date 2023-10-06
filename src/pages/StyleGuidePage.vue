@@ -8,6 +8,7 @@
   import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicCard from '@/components/BasicCard.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipAction from '@/components/BasicChipAction.vue';
   import BasicChipFilter from '@/components/BasicChipFilter.vue';
@@ -779,6 +780,16 @@
 
       <section class="mx-2 mb-1">
         <h3 class="mb-1">Card</h3>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Basic Card</h4>
+
+          <ul class="flex ml-1 list-none">
+            <li>
+              <BasicCard class="p-1">Demo</BasicCard>
+            </li>
+          </ul>
+        </div>
 
         <div class="mb-1">
           <h4 class="mb-1">Featured Listing Card</h4>

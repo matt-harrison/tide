@@ -246,8 +246,8 @@
 .font-700 {font-weight: 700;}
 
 /* Misc */
-.box-shadow-1 {box-shadow: var(--shadow-1);}
-.box-shadow-2 {box-shadow: var(--shadow-2);}
+.box-shadow       {box-shadow: var(--shadow-1);}
+.box-shadow:hover {box-shadow: var(--shadow-2);}
 
 .leading-default {line-height: 100%;}
 .leading-wide    {line-height: 150%;}

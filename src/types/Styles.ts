@@ -17,8 +17,7 @@ export const BORDER_TYPE = {
 };
 
 export const BOX_SHADOW = {
-  'Level 1': 'box-shadow-1',
-  'Level 2': 'box-shadow-2',
+  'Level 1': 'box-shadow',
 };
 
 export const DISPLAY = {

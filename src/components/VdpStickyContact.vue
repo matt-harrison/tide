@@ -43,7 +43,7 @@
       'sticky-footer',
       isStickyContact && 'fixed bottom-0',
       'flex gap-1/2 py-2 px-1 w-full bg-white',
-      isStickyContact && 'box-shadow-1',
+      isStickyContact && 'box-shadow',
     ]"
     ref="stickableFooterRef"
   >

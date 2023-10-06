@@ -166,14 +166,14 @@
         :icon="ICON.CHEVRON_LEFT"
         :priority="PRIORITY.TERTIARY"
         @click="showPreviousSlide"
-        class="ml-1 pointer-events box-shadow-1"
+        class="ml-1 pointer-events box-shadow"
       />
 
       <BasicButtonIcon
         :icon="ICON.CHEVRON_RIGHT"
         :priority="PRIORITY.TERTIARY"
         @click="showNextSlide"
-        class="mr-1 pointer-events box-shadow-1"
+        class="mr-1 pointer-events box-shadow"
       />
     </div>
   </section>
