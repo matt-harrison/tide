@@ -2,6 +2,7 @@
   import type { Vehicle } from '@/types/Vehicle';
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicCard from '@/components/BasicCard.vue';
   import BasicImage from '@/components/BasicImage.vue';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -29,12 +30,12 @@
 </script>
 
 <template>
-  <li class="card-listing-featured shrink-none p-1/4 snap-start xy-hidden">
+  <li class="card-listing-featured shrink-none snap-start">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="block p-1/2 h-full bg-white box-shadow underline-none"
+      class="block h-full underline-none"
     >
-      <div class="flex column axis1-between h-full">
+      <BasicCard class="flex column axis1-between p-1/2">
         <div>
           <div class="mb-1/2 border-overlay radius-1/4">
             <BasicImage
@@ -68,7 +69,7 @@
             @click.prevent="handleFavoriteClick"
           />
         </div>
-      </div>
+      </BasicCard>
     </a>
   </li>
 </template>

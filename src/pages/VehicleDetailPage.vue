@@ -382,7 +382,6 @@
         :get-is-favorite="favoriteStore.getIsFavorite"
         :handle-favorite-click="favoriteStore.toggleIsFavorite"
         :is-touchscreen="isTouchscreen"
-        :offset-x="32"
         :vehicles="featuredListingStore.vehicles"
       />
     </section>
@@ -591,7 +590,6 @@
       :get-is-favorite="favoriteStore.getIsFavorite"
       :handle-favorite-click="favoriteStore.toggleIsFavorite"
       :is-touchscreen="isTouchscreen"
-      :offset-x="32"
       :vehicles="featuredListingStore.vehicles"
     />
   </section>

@@ -19,8 +19,10 @@
   import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
+  import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardListing from '@/components/CardListing.vue';
   import CardListingFeatured from '@/components/CardListingFeatured.vue';
+  import CardListingPremiumSelect from '@/components/CardListingPremiumSelect.vue';
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
@@ -794,7 +796,7 @@
         <div class="mb-1">
           <h4 class="mb-1">Featured Listing Card</h4>
 
-          <ul class="ml-1 list-none">
+          <ul class="list-none">
             <CardListingFeatured
               :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
               :vehicle="dummyVehicles[0]"
@@ -807,7 +809,7 @@
         <div class="mb-1">
           <h4 class="mb-1">Listing Card</h4>
 
-          <ul class="ml-1 list-none">
+          <ul class="list-none">
             <CardListing
               :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
               :vehicle="dummyVehicles[0]"
@@ -815,6 +817,17 @@
               class="font-gray-dark"
             />
           </ul>
+        </div>
+
+        <div class="mb-1">
+          <h4 class="mb-1">Premium Select Listing Card</h4>
+
+          <CardListingPremiumSelect
+            :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
+            :vehicle="dummyVehicles[0]"
+            @favorite-click="favoriteStore.toggleIsFavorite"
+            class="w-container"
+          />
         </div>
       </section>
 
@@ -825,31 +838,37 @@
           <h4 class="mx-2 mb-1">Basic Carousel</h4>
 
           <BasicCarousel
-            :gap="16"
             :is-touchscreen="isTouchscreen"
             :offset-x="64"
           >
-            <div
-              :class="isDarkTheme ? 'border-white font-white' : 'border-gray-dark bg-white'"
+            <li
               :key="card"
-              class="site-carousel-card-demo flex axis1-center shrink-none border-1 p-1 radius-1/2 snap-start"
+              class="shrink-none py-1"
               v-for="card in cards"
             >
-              Card demo {{ card }}
-            </div>
+              <BasicCard class="p-1">Card demo {{ card }}</BasicCard>
+            </li>
           </BasicCarousel>
         </div>
 
         <div>
-          <h4 class="mx-2 mb-1 pl-1">Featured Listing Carousel</h4>
+          <h4 class="mx-2 mb-1">Featured Listing Carousel</h4>
 
           <CardCarouselListingFeatured
             :get-is-favorite="favoriteStore.getIsFavorite"
             :handle-favorite-click="favoriteStore.toggleIsFavorite"
             :is-touchscreen="isTouchscreen"
-            :offset-x="64"
             :vehicles="dummyVehicles"
             class="flex wrap gap-1 font-gray-dark"
+          />
+        </div>
+
+        <div>
+          <h4 class="mx-2 mb-1">Dealer Listing Carousel</h4>
+
+          <CardCarouselListingDealer
+            :vehicles="dummyVehicles"
+            class="pl-2"
           />
         </div>
       </section>
@@ -1163,11 +1182,5 @@
   .radius-demo {
     width: 50px;
     height: 50px;
-  }
-</style>
-
-<style>
-  .site-carousel-card-demo {
-    width: 150px;
   }
 </style>

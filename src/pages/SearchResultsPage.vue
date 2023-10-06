@@ -303,22 +303,22 @@
         </BasicContainer>
 
         <BasicCarousel
-          :gap="16"
           :is-touchscreen="isTouchscreen"
-          class="axis1-center"
           v-if="isBrowseByType"
         >
-          <ChipFilterGuidedSearch
-            :is-active="types.includes(vehicleType.label)"
+          <li
             :key="vehicleType.label"
-            :vehicle-type="vehicleType"
-            @click="handleTypeToggleClick(vehicleType.label)"
             v-for="vehicleType in vehicleTypes"
-          />
+          >
+            <ChipFilterGuidedSearch
+              :is-active="types.includes(vehicleType.label)"
+              :vehicle-type="vehicleType"
+              @click="handleTypeToggleClick(vehicleType.label)"
+            />
+          </li>
         </BasicCarousel>
 
         <BasicCarousel
-          :gap="16"
           :is-touchscreen="isTouchscreen"
           class="axis1-center"
           v-if="!isBrowseByType"
@@ -539,7 +539,6 @@
               :get-is-favorite="favoriteStore.getIsFavorite"
               :handle-favorite-click="favoriteStore.toggleIsFavorite"
               :is-touchscreen="isTouchscreen"
-              :offset-x="isSingleColumn ? 32 : undefined"
               :vehicles="featuredListingStore.vehicles"
             />
           </section>

@@ -47,7 +47,6 @@
   <div :class="['listing-media-slider', showMediaTools && 'has-media-tools', 'relative']">
     <div class="relative">
       <BasicCarousel
-        :gap="0"
         :is-touchscreen="false"
         @slide-change="handleSlideChange"
         class="media-slider-carousel border-overlay radius-1/2 xy-hidden"

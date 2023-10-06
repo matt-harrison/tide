@@ -4,6 +4,7 @@
   import type { Vehicle } from '@/types/Vehicle';
 
   import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
+  import BasicCard from '@/components/BasicCard.vue';
   import BasicImage from '@/components/BasicImage.vue';
   import { ELEMENT } from '@/types/Element';
   import { ICON } from '@/types/Icon';
@@ -54,102 +55,104 @@
 </script>
 
 <template>
-  <li class="card-listing p-1/4 w-full xy-hidden">
+  <li class="card-listing w-full">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="relative block h-full bg-white box-shadow underline-none"
+      class="block h-full underline-none"
     >
-      <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
-        <div class="flex column gap-1/2">
-          <div class="mb-1/2 border-overlay radius-1/4">
-            <BasicImage
-              :offset="200"
-              :src="thumbnail"
-              assume-horizontal
-              class="w-full"
-              is-lazy-load
-            />
-          </div>
-
-          <div class="flex column gap-1/4">
-            <div class="font-12">
-              {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] || '' }}
-            </div>
-
-            <div class="font-14 font-600">{{ props.vehicle.modelName[0] || '' }}</div>
-
-            <div class="font-12">
-              <span v-if="adType">{{ adType }} ad by </span>
-              <span>{{ props.vehicle.dealerGroupName || '' }}</span>
-            </div>
-
-            <div class="font-12">
-              <span v-if="cityState">{{ cityState }} . </span>
-              <span>{{ dummy.milesAway }} miles away</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="flex wrap axis1-between axis2-center gap-1/4 font-12">
-          <span class="font-700">
-            {{ props.vehicle.price ? formatPrice(props.vehicle.price) : '' }}
-          </span>
-
-          <div class="flex wrap axis1-end axis2-center gap-1 grow">
-            <div
-              class="flex axis2-center gap-1/4"
-              v-if="phone"
-            >
-              <BasicButtonIcon
-                :element="ELEMENT.LINK"
-                :icon="ICON.PHONE"
-                :priority="PRIORITY.TERTIARY"
-                href="/listing"
+      <BasicCard class="relative">
+        <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
+          <div class="flex column gap-1/2">
+            <div class="mb-1/2 border-overlay radius-1/4">
+              <BasicImage
+                :offset="200"
+                :src="thumbnail"
+                assume-horizontal
+                class="w-full"
+                is-lazy-load
               />
-
-              <button
-                @click.stop.prevent="setShowPhone(true)"
-                class="font-700 underline"
-                v-if="!showPhone && dummy.hasHiddenPhone"
-              >
-                Show number
-              </button>
-
-              <a
-                :href="`tel:+${phone}`"
-                @click.stop
-                class="font-700"
-                v-if="showPhone || !dummy.hasHiddenPhone"
-              >
-                {{ formatPhone(parseInt(phone, 10)) }}
-              </a>
             </div>
 
-            <BasicButtonIcon :icon="ICON.ENVELOPE" />
+            <div class="flex column gap-1/4">
+              <div class="font-12">
+                {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] || '' }}
+              </div>
+
+              <div class="font-14 font-600">{{ props.vehicle.modelName[0] || '' }}</div>
+
+              <div class="font-12">
+                <span v-if="adType">{{ adType }} ad by </span>
+                <span>{{ props.vehicle.dealerGroupName || '' }}</span>
+              </div>
+
+              <div class="font-12">
+                <span v-if="cityState">{{ cityState }} . </span>
+                <span>{{ dummy.milesAway }} miles away</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex wrap axis1-between axis2-center gap-1/4 font-12">
+            <span class="font-700">
+              {{ props.vehicle.price ? formatPrice(props.vehicle.price) : '' }}
+            </span>
+
+            <div class="flex wrap axis1-end axis2-center gap-1 grow">
+              <div
+                class="flex axis2-center gap-1/4"
+                v-if="phone"
+              >
+                <BasicButtonIcon
+                  :element="ELEMENT.LINK"
+                  :icon="ICON.PHONE"
+                  :priority="PRIORITY.TERTIARY"
+                  href="/listing"
+                />
+
+                <button
+                  @click.stop.prevent="setShowPhone(true)"
+                  class="font-700 underline"
+                  v-if="!showPhone && dummy.hasHiddenPhone"
+                >
+                  Show number
+                </button>
+
+                <a
+                  :href="`tel:+${phone}`"
+                  @click.stop
+                  class="font-700"
+                  v-if="showPhone || !dummy.hasHiddenPhone"
+                >
+                  {{ formatPhone(parseInt(phone, 10)) }}
+                </a>
+              </div>
+
+              <BasicButtonIcon :icon="ICON.ENVELOPE" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        class="card-listing-label absolute top-0 flex mt-1"
-        v-if="isPremium"
-      >
-        <div class="flex gap-1/2 p-1/2 bg-white">
-          <BasicIcon :icon="ICON.BOOKMARK" />
-          <span class="font-12 font-600">Premium</span>
+        <div
+          class="card-listing-label absolute top-0 flex mt-1"
+          v-if="isPremium"
+        >
+          <div class="flex gap-1/2 p-1/2 bg-white">
+            <BasicIcon :icon="ICON.BOOKMARK" />
+            <span class="font-12 font-600">Premium</span>
+          </div>
+
+          <div class="card-listing-label-flag" />
         </div>
 
-        <div class="card-listing-label-flag" />
-      </div>
-
-      <div class="absolute top-0 right-0 mt-1 mr-1">
-        <BasicButtonIcon
-          :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
-          :priority="PRIORITY.TERTIARY"
-          @click.prevent="handleFavoriteClick"
-          class="box-shadow"
-        />
-      </div>
+        <div class="absolute top-0 right-0 mt-1 mr-1">
+          <BasicButtonIcon
+            :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
+            :priority="PRIORITY.TERTIARY"
+            @click.prevent="handleFavoriteClick"
+            class="box-shadow"
+          />
+        </div>
+      </BasicCard>
     </a>
   </li>
 </template>

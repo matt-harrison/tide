@@ -191,10 +191,7 @@
         <h2 class="font-28">{{ realm.label.plural }} for every outdoor adventure</h2>
       </BasicContainer>
 
-      <BasicCarousel
-        :gap="16"
-        :is-touchscreen="isTouchscreen"
-      >
+      <BasicCarousel :is-touchscreen="isTouchscreen">
         <li
           :key="vehicleType.label"
           class="home-vehicle-type shrink-none ratio-1/1 snap-start"

@@ -6,13 +6,11 @@
   import { PRIORITY } from '@/types/Priority';
 
   type Props = {
-    gap: number;
     isTouchscreen?: boolean;
     offsetX?: number;
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    gap: 0,
     offsetX: 0,
   });
 
@@ -27,6 +25,8 @@
   const frameRef = ref();
   const showButtons = ref();
   const currentSlide = ref(0);
+
+  const gap = 16;
 
   /**
    * Measure the current slide based on the scroll
@@ -143,7 +143,7 @@
         class="flex gap-1 list-none"
       >
         <li
-          :style="{ width: `${props.offsetX - props.gap}px` }"
+          :style="{ width: `${props.offsetX - gap}px` }"
           class="shrink-none snap-start"
           v-if="props.offsetX"
         />
@@ -151,7 +151,7 @@
         <slot />
 
         <li
-          :style="{ width: `${props.offsetX - props.gap}px` }"
+          :style="{ width: `${props.offsetX - gap}px` }"
           class="shrink-none snap-start"
           v-if="props.offsetX"
         />

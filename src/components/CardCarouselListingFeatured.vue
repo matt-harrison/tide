@@ -13,13 +13,12 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
-    offsetX: 0,
+    offsetX: 32,
   });
 </script>
 
 <template>
   <BasicCarousel
-    :gap="16"
     :is-touchscreen="props.isTouchscreen"
     :offset-x="offsetX"
     class="card-carousel-listing-featured"
@@ -29,6 +28,7 @@
       :key="vehicle.adId"
       :vehicle="vehicle"
       @favorite-click="props.handleFavoriteClick"
+      class="py-1"
       v-for="vehicle in props.vehicles"
     />
   </BasicCarousel>
