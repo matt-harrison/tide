@@ -21,7 +21,7 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicCard },
   setup: () => ({ args }),
-  template: `<BasicCard class="inline-block p-1">${args.default}</BasicCard>`,
+  template: `<BasicCard class="inline-block p-1">{{ args.default }}</BasicCard>`,
 });
 
 export default {

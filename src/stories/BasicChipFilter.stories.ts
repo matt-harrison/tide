@@ -14,7 +14,7 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicChipFilter },
   setup: () => ({ args }),
-  template: `<BasicChipFilter :key="args.default" class="inline-flex" v-bind="args">${args.default}</BasicFilterChip>`,
+  template: `<BasicChipFilter :key="args.default" class="inline-flex" v-bind="args">{{ args.default }}</BasicFilterChip>`,
 });
 
 export default {
