@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/vue3';
 
 import '../src/assets/css/main.css';
+import BasicCarousel from '../src/stories/BasicCarousel.stories';
 import DemoCssUtilities from '../src/stories/DemoCssUtilities.stories';
 import DemoCssUtilitiesByTextInput from '../src/stories/DemoCssUtilitiesByTextInput.stories';
 import FoundationsMargin from '../src/stories/FoundationsMargin.stories';
@@ -11,6 +12,7 @@ const preview: Preview = {
       import(`../src/assets/css/realm/${context.globals.realm}.css`);
 
       const decoratorOptOuts = [
+        BasicCarousel.title,
         DemoCssUtilities.title,
         DemoCssUtilitiesByTextInput.title,
         FoundationsMargin.title,
