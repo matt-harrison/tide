@@ -2,7 +2,8 @@
 
 // IMPORTS
 import BasicChipInput from '@/components/BasicChipInput.vue';
-import { formatSnippet } from '@/utilities/storybook';
+import { ICON } from '@/types/Icon';
+import { argTypeBooleanUnrequired, formatArgType, formatSnippet } from '@/utilities/storybook';
 
 // PARAMETERS
 const parameters = {
@@ -34,13 +35,28 @@ const render = (args: any) => ({
 // EXPORT
 export default {
   argTypes: {
-    label: {
+    argTypeBoilerplate: {
+      ...formatArgType({ ICON }),
+      description: 'Prop description',
+    },
+    argTypeBooleanUnrequired: {
+      ...argTypeBooleanUnrequired,
+    },
+    argTypeComplete: {
       control: 'text',
-      description: 'Label<br />(Note)', // Description in Description column
-      name: 'Label', // Name column
+      description: 'Complete ArgType<br />(Demonstrates all standard argType properties for this project)', // Description in Description column
+      name: 'Complete', // Name column
       table: {
         defaultValue: { summary: 'None' }, // Default column
         type: { summary: 'string' }, // Type in Description column
+      },
+    },
+    label: {
+      control: 'text',
+      description: 'Chip text',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
   },

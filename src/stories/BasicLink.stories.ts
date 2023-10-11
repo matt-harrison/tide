@@ -1,7 +1,7 @@
 import BasicLink from '@/components/BasicLink.vue';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
+import { argTypeBooleanUnrequired } from '@/utilities/storybook';
 import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
 
 const parameters = {
@@ -51,14 +51,9 @@ export default {
       description: 'Icon to right of label',
     },
     isNewTab: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether to target a new browser tab<br />(Link only)',
       if: { arg: 'element', eq: ELEMENT.LINK },
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     label: {
       control: 'text',

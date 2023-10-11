@@ -1,10 +1,10 @@
 import BasicButton from '@/components/BasicButton.vue';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
 import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired } from '@/utilities/storybook';
 
 const parameters = {
   docs: {
@@ -23,14 +23,9 @@ export default {
       if: { arg: 'element', neq: ELEMENT.LINK },
     },
     disabled: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines clickability<br />(Button only)',
       if: { arg: 'element', neq: ELEMENT.LINK },
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     element: {
       ...formatArgType({ ELEMENT }),
@@ -56,14 +51,9 @@ export default {
       description: 'Icon to right of label',
     },
     isNewTab: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether to target a new browser tab<br />(Link only)',
       if: { arg: 'element', eq: ELEMENT.LINK },
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     label: {
       control: 'text',

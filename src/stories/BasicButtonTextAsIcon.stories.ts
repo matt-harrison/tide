@@ -1,9 +1,8 @@
 import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { click, formatArgType, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click, formatArgType, parameters } from '@/utilities/storybook';
 
 export default {
   argTypes: {
@@ -12,17 +11,12 @@ export default {
       if: { arg: 'element', neq: ELEMENT_TEXT_AS_ICON.LINK },
     },
     disabled: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines clickability<br />(Button only)',
       if: {
         arg: 'element',
         neq: ELEMENT_TEXT_AS_ICON.LINK,
         // TODO: neq: ELEMENT_TEXT_AS_ICON.LINK || ELEMENT_TEXT_AS_ICON.DIV
-      },
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
       },
     },
     element: {
@@ -41,14 +35,9 @@ export default {
       },
     },
     isNewTab: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether to target a new browser tab<br />(Link only)',
       if: { arg: 'element', eq: ELEMENT_TEXT_AS_ICON.LINK },
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     label: {
       control: 'text',

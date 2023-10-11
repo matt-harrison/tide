@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { argTypeBooleanUnrequired } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
@@ -42,23 +42,13 @@ export default {
       },
     },
     isActive: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether to show "active" indicator (primarily for filters)',
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     isExpandedInitial: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description:
         'Determines whether content should be expanded by default<br />(Subsequently managed within component)',
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     label: {
       control: 'text',

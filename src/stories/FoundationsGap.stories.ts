@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/Styles';
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { argTypeBooleanUnrequired } from '@/utilities/storybook';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
@@ -77,14 +77,9 @@ export default {
       name: 'Flex Gap',
     },
     flexWrap: {
-      control: 'select',
+      ...argTypeBooleanUnrequired,
       description: 'Dictates whether overflow content should drop to a new line',
       name: 'Flex Wrap',
-      options: BOOLEAN_UNREQUIRED,
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'boolean' },
-      },
     },
   },
   args: {

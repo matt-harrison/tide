@@ -1,3 +1,5 @@
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+
 // Extensible object of key/value pairs
 type KeyValue = { [key: string]: string | undefined };
 
@@ -7,6 +9,16 @@ type KeyValueNamed = {
 };
 
 import type { StoryContext } from '@storybook/vue3';
+
+export const argTypeBooleanUnrequired = {
+  control: 'select',
+  description: 'True, False, or undefined<br />(for demonstration purposes)',
+  options: BOOLEAN_UNREQUIRED,
+  table: {
+    defaultValue: { summary: 'False' },
+    type: { summary: 'boolean' },
+  },
+};
 
 export const argTypeDimension = {
   control: {
@@ -123,16 +135,6 @@ export const getLabelsFromOptions = (options: any) => {
   return labels;
 };
 
-// Prepend a key/value pair to a constant.
-export const prependKeyValue = (collection: KeyValue, keyValue: KeyValue) => ({
-  ...keyValue,
-  ...collection,
-});
-
-export const prependNoneAsUndefined = (collection: KeyValue) => prependKeyValue(collection, NoneAsUndefined);
-
-export const prependNoneAsEmpty = (collection: KeyValue) => prependKeyValue(collection, NoneAsEmpty);
-
 export const parameters = {
   docs: {
     source: {
@@ -142,3 +144,13 @@ export const parameters = {
     },
   },
 };
+
+// Prepend a key/value pair to a constant.
+export const prependKeyValue = (collection: KeyValue, keyValue: KeyValue) => ({
+  ...keyValue,
+  ...collection,
+});
+
+export const prependNoneAsUndefined = (collection: KeyValue) => prependKeyValue(collection, NoneAsUndefined);
+
+export const prependNoneAsEmpty = (collection: KeyValue) => prependKeyValue(collection, NoneAsEmpty);
