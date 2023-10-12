@@ -1,3 +1,5 @@
+import { useArgs } from '@storybook/preview-api';
+
 import type { Preview } from '@storybook/vue3';
 
 import '../src/assets/css/main.css';
@@ -23,6 +25,11 @@ const preview: Preview = {
         components: { story },
         template: `<div class="${context.globals.theme} ${decoratorCss} ${context.globals.surface}"><story /></div>`
       };
+    },
+    (story, context) => {
+      const [args, updateArgs] = useArgs();
+
+      return story({ ...context, updateArgs });
     },
   ],
   globalTypes: {

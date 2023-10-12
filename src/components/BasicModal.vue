@@ -8,11 +8,10 @@
 
   type Props = {
     isOpen: boolean;
-    title?: string;
-    onClose: () => void;
-    width?: string;
-    style?: CSSProperties;
     modalStyle?: CSSProperties;
+    style?: CSSProperties;
+    title?: string;
+    width?: string;
   };
 
   const props = defineProps<Props>();
@@ -22,7 +21,6 @@
   const savedScrollPosition = ref<number | null>(null);
 
   const handleClose = () => {
-    if (props.onClose) props.onClose();
     emit('close');
   };
 
@@ -51,6 +49,10 @@
     window.removeEventListener('keydown', handleKeyDown);
   };
 
+  onMounted(() => {
+    updateScrollLock();
+  });
+
   watch(
     () => props.isOpen,
     (isOpen) => {
@@ -62,10 +64,6 @@
       }
     }
   );
-
-  onMounted(() => {
-    updateScrollLock();
-  });
 </script>
 
 <template>
@@ -136,6 +134,7 @@
   .modal-content {
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
+
     &:deep(> *) {
       grid-column: 2;
     }
