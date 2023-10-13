@@ -1,8 +1,39 @@
+import { action } from '@storybook/addon-actions';
+
+import type { StoryContext } from '@storybook/vue3';
+
 import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
 import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { argTypeBooleanUnrequired, click, formatArgType, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click, formatArgType } from '@/utilities/storybook';
+
+const formatSnippet = (code: string, context: StoryContext) => {
+  const { args } = context;
+
+  return `<BasicButtonTextAsIcon @click="${args.click}" v-bind="${args}" />`;
+};
+
+const parameters = {
+  docs: {
+    source: {
+      format: false,
+      language: 'html',
+      transform: formatSnippet,
+    },
+  },
+};
+
+const render = (args: any) => ({
+  components: { BasicButtonTextAsIcon },
+  methods: {
+    handleClick: (event: Event) => {
+      if (args.click) action(args.click)(event);
+    },
+  },
+  setup: () => ({ args }),
+  template: `<BasicButtonTextAsIcon @click="handleClick" v-bind="args" />`,
+});
 
 export default {
   argTypes: {
@@ -60,7 +91,7 @@ export default {
     },
   },
   args: {
-    click: 'handleClick',
+    click: 'doSomething',
     disabled: undefined,
     element: undefined,
     href: 'https://www.traderinteractive.com',
@@ -71,6 +102,7 @@ export default {
   },
   component: BasicButtonTextAsIcon,
   parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButtonTextAsIcon',
 };
