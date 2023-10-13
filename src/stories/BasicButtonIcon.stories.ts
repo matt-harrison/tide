@@ -1,16 +1,41 @@
+import { action } from '@storybook/addon-actions';
+
+import type { StoryContext } from '@storybook/vue3';
+
 import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
 import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-import { click, formatArgType, parameters } from '@/utilities/storybook';
+import { click, formatArgType } from '@/utilities/storybook';
+
+const formatSnippet = (code: string, context: StoryContext) => {
+  const { args } = context;
+
+  return `<BasicButtonIcon @click="${args.click}" v-bind="${args}" />`;
+};
 
 const render = (args: any) => ({
   components: { BasicButtonIcon },
+  methods: {
+    handleClick: (event: Event) => {
+      if (args.click) action(args.click)(event);
+    },
+  },
   setup: () => ({ args }),
-  template: '<BasicButtonIcon class="inline-block" v-bind="args" />',
+  template: '<BasicButtonIcon @click="handleClick" class="inline-block" v-bind="args" />',
 });
+
+const parameters = {
+  docs: {
+    source: {
+      format: false,
+      language: 'html',
+      transform: formatSnippet,
+    },
+  },
+};
 
 export default {
   argTypes: {
@@ -60,7 +85,7 @@ export default {
     },
   },
   args: {
-    click: 'handleClick',
+    click: 'doSomething',
     disabled: undefined,
     element: undefined,
     href: 'https://www.traderinteractive.com',
