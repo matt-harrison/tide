@@ -1,5 +1,22 @@
+import { action } from '@storybook/addon-actions';
+
+import type { StoryContext } from '@storybook/vue3';
+
 import BasicChipFilter from '@/components/BasicChipFilter.vue';
-import { formatSnippet } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click } from '@/utilities/storybook';
+
+const formatSnippet = (code: string, context: StoryContext) => {
+  const { args } = context;
+
+  const argsWithValues: string[] = [];
+
+  if (args.isActive !== undefined) argsWithValues.push(`:is-active="${args.isActive}"`);
+  if (args.label) argsWithValues.push(`label="${args.label}"`);
+
+  return args.default
+    ? `<BasicChipFilter ${argsWithValues.join(' ')} @click="${args.click}">${args.default}</BasicChipFilter>`
+    : `<BasicChipFilter ${argsWithValues.join(' ')} @click="${args.click}" />`;
+};
 
 const parameters = {
   docs: {
@@ -11,14 +28,22 @@ const parameters = {
   },
 };
 
-const render = (args: any) => ({
+const render = (args: any, { updateArgs }: any) => ({
   components: { BasicChipFilter },
+  methods: {
+    handleClick: (event: Event) => {
+      if (args.click) action(args.click)(event);
+
+      updateArgs({ ...args, isActive: !args.isActive });
+    },
+  },
   setup: () => ({ args }),
-  template: `<BasicChipFilter :key="args.default" class="inline-flex" v-bind="args">{{ args.default }}</BasicFilterChip>`,
+  template: `<BasicChipFilter @click="handleClick" class="inline-flex" v-bind="args">{{ args.default }}</BasicChipFilter>`,
 });
 
 export default {
   argTypes: {
+    click,
     default: {
       control: 'text',
       defaultValue: 'None',
@@ -29,12 +54,8 @@ export default {
       },
     },
     isActive: {
-      control: 'boolean',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether toggle is active',
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
     label: {
       control: 'text',
@@ -46,8 +67,9 @@ export default {
     },
   },
   args: {
+    click: 'doSomething',
     default: '',
-    isActive: false,
+    isActive: undefined,
     label: 'Demo',
   },
   component: BasicChipFilter,

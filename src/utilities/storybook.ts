@@ -15,7 +15,7 @@ export const argTypeBooleanUnrequired = {
   description: 'True, False, or undefined<br />(for demonstration purposes)',
   options: BOOLEAN_UNREQUIRED,
   table: {
-    defaultValue: { summary: 'False' },
+    defaultValue: { summary: 'None' },
     type: { summary: 'boolean' },
   },
 };

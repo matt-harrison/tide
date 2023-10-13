@@ -38,7 +38,7 @@ const render = (args: any) => ({
     getHasPadding,
   },
   setup: () => ({ args }),
-  template: `<BasicCarousel :key="args.hasPadding" v-bind="args"><li :key="index + args.hasPadding" v-for="(_child, index) in new Array(12)" :class="['shrink-none', args.hasPadding ? ' py-1' : '']"><BasicCard class="p-1">Card {{ index + 1 }}</BasicCard></li></BasicCarousel>`,
+  template: `<BasicCarousel v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['shrink-none', args.hasPadding ? ' py-1' : '']"><BasicCard class="p-1">Card {{ index + 1 }}</BasicCard></li></BasicCarousel>`,
 });
 
 export default {
