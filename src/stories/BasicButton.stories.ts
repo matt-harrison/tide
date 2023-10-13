@@ -1,10 +1,20 @@
+import { action } from '@storybook/addon-actions';
+
+import type { StoryContext } from '@storybook/vue3';
+
 import BasicButton from '@/components/BasicButton.vue';
 import { ELEMENT } from '@/types/Element';
 import { ICON } from '@/types/Icon';
 import { PRIORITY } from '@/types/Priority';
 import { SIZE } from '@/types/Size';
-import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
 import { argTypeBooleanUnrequired } from '@/utilities/storybook';
+import { click, formatArgType } from '@/utilities/storybook';
+
+const formatSnippet = (code: string, context: StoryContext) => {
+  const { args } = context;
+
+  return `<BasicButton @click="${args.click}" v-bind="${args}" />`;
+};
 
 const parameters = {
   docs: {
@@ -15,6 +25,17 @@ const parameters = {
     },
   },
 };
+
+const render = (args: any) => ({
+  components: { BasicButton },
+  methods: {
+    handleClick: (event: Event) => {
+      if (args.click) action(args.click)(event);
+    },
+  },
+  setup: () => ({ args }),
+  template: `<BasicButton @click="handleClick" v-bind="args" />`,
+});
 
 export default {
   argTypes: {
@@ -79,7 +100,7 @@ export default {
     },
   },
   args: {
-    click: 'handleClick',
+    click: 'doSomething',
     disabled: undefined,
     element: undefined,
     href: 'https://www.traderinteractive.com',
@@ -92,6 +113,7 @@ export default {
   },
   component: BasicButton,
   parameters,
+  render,
   tags: ['autodocs'],
   title: 'Basic Components/BasicButton',
 };

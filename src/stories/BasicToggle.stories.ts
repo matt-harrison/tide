@@ -31,7 +31,7 @@ const render = (args: any, { updateArgs }: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<BasicToggle v-bind="args" @click="handleClick" />`,
+  template: `<BasicToggle @click="handleClick" v-bind="args" />`,
 });
 
 export default {
