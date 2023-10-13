@@ -9,11 +9,11 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   if (args.heading) argsWithValues.push(`:heading="${args.heading}"`);
 
-  return `<BasicColumns ${argsWithValues.join('\n\t')}>\n\t<template #section1>${
+  return `<BasicColumns ${argsWithValues.join(' ')}><template #section1>${
     args.section1
-  }</template>\n\t<template #section2>${args.section2}</template>\n\t<template #section3>${
+  }</template><template #section2>${args.section2}</template><template #section3>${
     args.section3
-  }</template>\n\t<template #section4>${args.section4}</template>\n</BasicColumns>`;
+  }</template><template #section4>${args.section4}</template></BasicColumns>`;
 };
 
 const parameters = {

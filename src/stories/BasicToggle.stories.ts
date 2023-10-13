@@ -1,25 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicToggle from '@/components/BasicToggle.vue';
-import { click } from '@/utilities/storybook';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  return `<BasicToggle @click="${args.click}" :is-active="${args.isActive}" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { argTypeBooleanUnrequired, click, parameters } from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { BasicToggle },
@@ -38,17 +20,13 @@ export default {
   argTypes: {
     click,
     isActive: {
-      control: 'boolean',
+      ...argTypeBooleanUnrequired,
       description: 'Determines whether toggle is active',
-      table: {
-        defaultValue: { summary: 'False' },
-        type: { summary: 'boolean' },
-      },
     },
   },
   args: {
     click: 'doSomething',
-    isActive: false,
+    isActive: undefined,
   },
   component: BasicToggle,
   parameters,

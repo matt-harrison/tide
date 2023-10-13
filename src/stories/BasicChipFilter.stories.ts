@@ -1,32 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicChipFilter from '@/components/BasicChipFilter.vue';
-import { argTypeBooleanUnrequired, click } from '@/utilities/storybook';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  const argsWithValues: string[] = [];
-
-  if (args.isActive !== undefined) argsWithValues.push(`:is-active="${args.isActive}"`);
-  if (args.label) argsWithValues.push(`label="${args.label}"`);
-
-  return args.default
-    ? `<BasicChipFilter ${argsWithValues.join(' ')} @click="${args.click}">${args.default}</BasicChipFilter>`
-    : `<BasicChipFilter ${argsWithValues.join(' ')} @click="${args.click}" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { argTypeBooleanUnrequired, click, parameters } from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { BasicChipFilter },

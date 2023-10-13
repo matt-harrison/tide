@@ -1,15 +1,5 @@
 import BasicChipAction from '@/components/BasicChipAction.vue';
-import { formatSnippet } from '@/utilities/storybook';
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicChipAction },
@@ -37,7 +27,7 @@ export default {
     },
   },
   args: {
-    href: '/',
+    href: 'https://www.traderinteractive.com',
     label: 'Demo',
   },
   component: BasicChipAction,
@@ -47,8 +37,4 @@ export default {
   title: 'Basic Components/BasicChipAction',
 };
 
-export const Demo = {
-  args: {
-    href: '/',
-  },
-};
+export const Demo = {};

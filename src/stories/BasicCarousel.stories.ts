@@ -1,42 +1,9 @@
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicCard from '@/components/BasicCard.vue';
 import BasicCarousel from '@/components/BasicCarousel.vue';
-import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-  const argsWithValues: string[] = [];
-
-  if (args.isTouchscreen !== undefined) argsWithValues.push(`:is-touchscreen="${args.isTouchscreen}"`);
-  if (args.offsetX !== 0) argsWithValues.push(`:offset-x="${args.offsetX}"`);
-
-  return `<BasicCarousel ${argsWithValues.join(' ')}>...</BasicCarousel>`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
-
-const getHasPadding = (hasPadding: boolean) => {
-  const output = hasPadding ? ' py-1' : '';
-
-  console.log(hasPadding, output);
-
-  return output;
-};
+import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicCard, BasicCarousel },
-  methods: {
-    getHasPadding,
-  },
   setup: () => ({ args }),
   template: `<BasicCarousel v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['shrink-none', args.hasPadding ? ' py-1' : '']"><BasicCard class="p-1">Card {{ index + 1 }}</BasicCard></li></BasicCarousel>`,
 });

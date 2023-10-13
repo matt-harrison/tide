@@ -83,7 +83,9 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
     const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
     const isDynamic = isConstant || typeof value === 'boolean';
-    const isDefault = value === undefined;
+    const isEmpty = !isDynamic && value === '';
+    const isSlot = key === 'default';
+    const isUndefined = value === undefined;
 
     if (argTypes[key].isCss) {
       classNames.push(value);
@@ -97,11 +99,11 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       });
     }
 
-    if (isConditionMet && !isDefault && !isClick) {
+    if (isConditionMet && !isUndefined && !isClick && !isEmpty && !isSlot) {
       return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
 
-    if (isClick && (!args.element || args.element === 'button')) {
+    if (isClick && value && (!args.element || args.element === 'button')) {
       return `@click="${value}"`;
     }
   });
@@ -111,11 +113,10 @@ export const formatSnippet = (code: string, context: StoryContext) => {
   if (classNames.length > 0) attributes.push(`class="${classNames.join(' ')}"`);
 
   attributes = attributes.filter((attribute) => !!attribute).sort();
+  if (attributes) attributes.unshift('');
 
   // TODO: return with implementation of JS Beautify dev dependency.
-  return args.default
-    ? `<${tag}\n\t${attributes.join(' \n\t')}\n>${args.default}</${tag}>`
-    : `<${tag}\n\t${attributes.join(' \n\t')}\n/>`;
+  return args.default ? `<${tag}${attributes.join(' ')}>${args.default}</${tag}>` : `<${tag}${attributes.join(' ')} />`;
 };
 
 export const formatSnippetMinimal = (code: string) => {

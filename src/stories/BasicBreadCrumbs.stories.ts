@@ -1,6 +1,7 @@
 import type { BreadCrumb } from '@/types/BreadCrumb';
 
 import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
+import { parameters } from '@/utilities/storybook';
 
 const breadCrumbs: BreadCrumb[] = [
   {
@@ -15,20 +16,6 @@ const breadCrumbs: BreadCrumb[] = [
     label: 'Vehicle Details',
   },
 ];
-
-const formatSnippet = () => {
-  return '<BasicBreadCrumbs :bread-crumbs="breadCrumbs" />';
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
 
 export default {
   argTypes: {

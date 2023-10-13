@@ -1,29 +1,5 @@
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
-import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  const argsWithValues: string[] = [];
-
-  if (args.isActive !== undefined) argsWithValues.push(`:is-active="${args.isActive}"`);
-  if (args.isExpandedInitial !== undefined) argsWithValues.push(`:is-expanded-initial="${args.isExpandedInitial}"`);
-  if (args.label) argsWithValues.push(`label="${args.label}"`);
-
-  return `<BasicAccordionItem ${argsWithValues.join('\n\t')}>\n\t${args.default}\n</BasicAccordionItem>`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicAccordionItem },

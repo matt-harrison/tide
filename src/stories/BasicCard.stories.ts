@@ -1,22 +1,5 @@
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicCard from '@/components/BasicCard.vue';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  return `<BasicCard>${args.default}</BasicCard>`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicCard },

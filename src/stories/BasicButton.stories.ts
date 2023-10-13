@@ -1,30 +1,22 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
+import * as STANDARD_ELEMENT from '@/types/Element';
+import * as STANDARD_ICON from '@/types/Icon';
+import * as STANDARD_PRIORITY from '@/types/Priority';
+import * as STANDARD_SIZE from '@/types/Size';
 import BasicButton from '@/components/BasicButton.vue';
-import { ELEMENT } from '@/types/Element';
-import { ICON } from '@/types/Icon';
-import { PRIORITY } from '@/types/Priority';
-import { SIZE } from '@/types/Size';
-import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-import { click, formatArgType } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  click,
+  formatArgType,
+  parameters,
+  prependNoneAsUndefined,
+} from '@/utilities/storybook';
 
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  return `<BasicButton @click="${args.click}" v-bind="${args}" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+const ELEMENT = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT);
+const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
+const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
+const SIZE = prependNoneAsUndefined(STANDARD_SIZE.SIZE);
 
 const render = (args: any) => ({
   components: { BasicButton },

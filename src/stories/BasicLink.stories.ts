@@ -1,18 +1,10 @@
+import * as STANDARD_ICON from '@/types/Icon';
 import BasicLink from '@/components/BasicLink.vue';
 import { ELEMENT } from '@/types/Element';
-import { ICON } from '@/types/Icon';
 import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-import { click, formatArgType, formatSnippet } from '@/utilities/storybook';
+import { click, formatArgType, parameters, prependNoneAsUndefined } from '@/utilities/storybook';
 
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 
 const render = (args: any) => ({
   components: { BasicLink },

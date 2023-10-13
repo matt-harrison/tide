@@ -1,28 +1,20 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
+import * as STANDARD_ELEMENT from '@/types/Element';
+import * as STANDARD_PRIORITY from '@/types/Priority';
+import * as STANDARD_SIZE from '@/types/Size';
 import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
-import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
-import { PRIORITY } from '@/types/Priority';
-import { SIZE } from '@/types/Size';
-import { argTypeBooleanUnrequired, click, formatArgType } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  click,
+  formatArgType,
+  parameters,
+  prependNoneAsUndefined,
+} from '@/utilities/storybook';
 
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  return `<BasicButtonTextAsIcon @click="${args.click}" v-bind="${args}" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+const ELEMENT_TEXT_AS_ICON = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT_TEXT_AS_ICON);
+const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
+const SIZE = prependNoneAsUndefined(STANDARD_SIZE.SIZE);
 
 const render = (args: any) => ({
   components: { BasicButtonTextAsIcon },

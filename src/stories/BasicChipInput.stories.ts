@@ -1,29 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
 import BasicChipInput from '@/components/BasicChipInput.vue';
-import { click } from '@/utilities/storybook';
-
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-
-  const argsWithValues: string[] = [];
-
-  if (args.label) argsWithValues.push(`label="${args.label}"`);
-
-  return `<BasicChipInput ${argsWithValues.join(' ')} @click="${args.click}" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
+import { click, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicChipInput },

@@ -40,7 +40,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
   const activeTabInitial = args.activeTabInitial !== undefined ? `:active-tab-initial="${args.activeTabInitial}" ` : '';
 
-  return `<BasicTabs ${activeTabInitial}:tabs="tabs" />`;
+  return `<BasicTabs${activeTabInitial} :tabs="tabs" />`;
 };
 
 const parameters = {
