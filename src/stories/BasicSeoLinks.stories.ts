@@ -41,7 +41,7 @@ export default {
       description: 'Determines label, URL, and target for each link',
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'Tab[]' },
+        type: { summary: 'Link[]' },
       },
     },
     links: {
@@ -49,7 +49,7 @@ export default {
       description: 'Determines label, URL, and target for each link',
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'Tab[]' },
+        type: { summary: 'Link[]' },
       },
     },
   },
