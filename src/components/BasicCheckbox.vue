@@ -7,11 +7,11 @@
 
   const UTILS = getCssUtils();
 
-  type Props = CheckboxField & {
+  interface Props extends CheckboxField {
     checkboxClass?: string;
     inputId?: string;
     labelClass?: string;
-  };
+  }
 
   const props = withDefaults(defineProps<Props>(), {
     checkboxClass: undefined,
