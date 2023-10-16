@@ -1,5 +1,5 @@
 export type Tab = {
-  callback: () => void;
+  callback: (event: Event) => void;
   count?: number;
   label: string;
 };

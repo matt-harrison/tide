@@ -14,10 +14,10 @@
 
   const activeTab = ref(props.activeTabInitial);
 
-  const handleTabClick = (index: number) => {
+  const handleTabClick = (event: Event, index: number) => {
     activeTab.value = index;
 
-    props.tabs[index]?.callback();
+    props.tabs[index]?.callback(event);
   };
 </script>
 
@@ -26,7 +26,7 @@
     <button
       :class="index === activeTab ? 'bg-white' : 'border-gray-light bg-gray-light'"
       :key="tab.label"
-      @click="handleTabClick(index)"
+      @click="(event: Event) => handleTabClick(event, index)"
       class="basic-tabs-tab border-1 border-gray radius-1/4 py-1/2 px-2 w-full font-14 font-600 whitespace-nowrap"
       v-for="(tab, index) in props.tabs"
     >

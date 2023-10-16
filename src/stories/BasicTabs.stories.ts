@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import type { StoryContext } from '@storybook/vue3';
 
 import type { Tab } from '@/types/Tab';
@@ -17,20 +19,20 @@ const options = {
 
 const tabs: Tab[] = [
   {
-    callback: () => {
-      console.log('Tab 1 clicked.');
+    callback: (event: Event) => {
+      action('Tab 1 click')(event);
     },
     label: 'Tab 1',
   },
   {
-    callback: () => {
-      console.log('Tab 2 clicked.');
+    callback: (event: Event) => {
+      action('Tab 2 click')(event);
     },
     label: 'Tab 2',
   },
   {
-    callback: () => {
-      console.log('Tab 3 clicked.');
+    callback: (event: Event) => {
+      action('Tab 3 click')(event);
     },
     label: 'Tab 3',
   },
@@ -38,7 +40,8 @@ const tabs: Tab[] = [
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const activeTabInitial = args.activeTabInitial !== undefined ? `:active-tab-initial="${args.activeTabInitial}" ` : '';
+  const activeTabInitial =
+    args.activeTabInitial !== undefined ? ` :active-tab-initial="${args.activeTabInitial}" ` : '';
 
   return `<BasicTabs${activeTabInitial} :tabs="tabs" />`;
 };
