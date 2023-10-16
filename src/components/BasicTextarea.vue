@@ -1,54 +1,97 @@
 <script lang="ts" setup>
-  import { getCurrentInstance, ref, computed } from 'vue';
+  import { computed, getCurrentInstance, ref, watch } from 'vue';
 
-  import BasicIcon from '@/components/BasicIcon.vue';
+  import type { TextareaField } from '@/types/Field';
+
+  import SvgIcon from '@/components/SvgIcon.vue';
   import { SIZE } from '@/types/Size';
+  import { getCssUtils } from '@/utilities/styles';
+  import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
+  import { getFieldLengthIsValid } from '@/utilities/validation';
 
-  const emit = defineEmits<{
-    input: [value: string];
-  }>();
+  const UTILS = getCssUtils();
 
-  type Props = {
-    disabled?: boolean;
-    error?: string | boolean;
-    height?: string;
-    inputId?: string;
-    label?: string;
+  type Props = TextareaField & {
     labelClass?: string;
-    name: string;
+    rows?: number;
     textareaClass?: string;
-    value?: string;
+    textareaId?: string;
   };
 
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    disabled: false,
+    error: false,
+    label: undefined,
+    labelClass: undefined,
+    maxLength: undefined,
+    minLength: undefined,
+    placeholder: undefined,
+    required: false,
+    rows: 8,
+    textareaClass: undefined,
+    textareaId: undefined,
+    transformValue: undefined,
+    validators: undefined,
+    value: '',
+  });
+
+  const hasError = computed(() => getFieldHasError(error.value, props.error));
+  const supportingText = computed(() => getSupportingText(props.error, error.value));
+  const uniqueTextareaId = computed(() => `${props.textareaId ?? 'textarea'}-${uid}`);
+
+  const error = ref(props.error);
+  const required = ref(props.required);
+  const value = ref(props.value);
+
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
-  const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
-  const value = ref(props.value ?? '');
-  const supportingText = computed(() =>
-    typeof props.error === 'string' && props.error.length > 0 ? props.error : 'Please enter a valid value'
-  );
-  const showSupportingText = computed(() => props.error !== false);
-  const hasError = computed(() => props.error !== false);
 
-  const handleInput = (event: Event) => {
-    const target = event.target as HTMLTextAreaElement;
-    emit('input', target.value);
+  const handleInput = () => {
+    if (props.transformValue) {
+      value.value = props.transformValue(value.value);
+    }
   };
+
+  const handleValidation = () =>
+    handleFieldValidation({
+      error,
+      errorFromProps: props.error,
+      validators: props.validators,
+      value,
+    });
+
+  watch(props, () => {
+    if (
+      getFieldLengthIsValid({
+        maxLength: props.maxLength,
+        minLength: props.minLength,
+        value: props.value,
+      })
+    ) {
+      value.value = props.value;
+    }
+  });
+
+  defineExpose({ error, required, value });
 </script>
 
 <template>
-  <div :class="['basic-textarea flex column axis2-start', disabled && 'disabled', hasError && 'error']">
+  <div
+    :class="[
+      'basic-textarea',
+      'block-field',
+      UTILS.FLEX,
+      UTILS.COLUMN,
+      UTILS.AXIS2_START,
+      UTILS.FONT_14,
+      UTILS.FONT_SURFACE_VARIANT,
+      disabled && 'disabled',
+      hasError && 'error',
+    ]"
+  >
     <label
-      :class="[
-        labelClass,
-        !disabled && !hasError && 'font-gray-dark',
-        !disabled && hasError && 'font-red',
-        disabled && hasError && 'font-red',
-        disabled && !hasError && 'font-gray-dark',
-      ]"
-      :for="uniqueInputId"
-      class="font-14 pb-1/4 font-surface-variant"
+      :class="[labelClass, UTILS.FONT_14, UTILS.PB_1_4]"
+      :for="uniqueTextareaId"
       v-if="label"
     >
       {{ label }}
@@ -56,82 +99,44 @@
     <textarea
       :class="[
         textareaClass,
-        disabled && 'not-allowed',
-        !disabled && !hasError && 'border-1 border-gray',
-        !disabled && hasError && 'border-1 border-red',
-        disabled && hasError && 'border-1 border-red',
-        disabled && !hasError && 'border-1 border-gray',
+        'field',
+        UTILS.W_FULL,
+        UTILS.P_3_4,
+        UTILS.RADIUS_1_8,
+        UTILS.FONT_14,
+        UTILS.BG_SURFACE_LOW,
+        disabled && UTILS.NOT_ALLOWED,
       ]"
-      :disabled="props.disabled"
+      :disabled="disabled"
+      :maxlength="maxLength"
+      :minlength="minLength"
       :name="name"
-      :style="{ '--height': props.height }"
+      :placeholder="placeholder"
+      :required="required"
+      :rows="rows"
+      @focusout="handleValidation"
       @input="handleInput"
-      class="w-full p-1/2 font-14 radius-1/8"
-      :id="uniqueInputId"
+      :id="uniqueTextareaId"
       v-model="value"
     />
+
     <div
-      :class="[
-        !disabled && !hasError && '',
-        !disabled && hasError && 'font-red',
-        disabled && hasError && 'font-red',
-        disabled && !hasError && '',
-      ]"
-      class="font-12 pt-1/4 break-word"
-      v-if="showSupportingText"
+      :class="['supporting-text', UTILS.FONT_12, UTILS.MT_1_4, UTILS.BREAK_WORD]"
+      v-if="hasError"
     >
-      <BasicIcon
+      <SvgIcon
+        :class="[UTILS.INLINE_BLOCK, UTILS.ALIGN_MIDDLE, UTILS.FONT_16, UTILS.MR_1_2, UTILS.POINTER_EVENTS_NONE]"
         :icon="'circle-exclamation'"
         :size="SIZE.SMALL"
-        class="inline-block align-middle font-red font-16 mr-1/2 pointer-events-none"
         v-if="hasError"
       />
-      <span class="align-middle">{{ supportingText }}</span>
+      <span :class="UTILS.ALIGN_MIDDLE">{{ supportingText }}</span>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  .basic-textarea {
-    textarea {
-      resize: vertical;
-      height: var(--height, 182px);
-      outline-offset: -1px;
-      background: rgba(255, 255, 255, 0.16);
-
-      &:enabled {
-        &:hover {
-          outline: var(--border-1);
-        }
-
-        &:focus {
-          outline: var(--border-2);
-          outline-offset: -2px;
-        }
-      }
-    }
-
-    &.error {
-      // we currently only have one red. This is a TODO reminder to update once we have the full color palette.
-      --color-error-hover: var(--blue);
-      textarea {
-        caret-color: var(--red);
-        &:enabled {
-          outline-color: var(--red);
-          &:hover {
-            outline-color: var(--color-error-hover);
-          }
-        }
-      }
-    }
-
-    &.disabled {
-      opacity: 0.333;
-    }
-    :not(.theme-dark &).basic-textarea {
-      textarea {
-        background: #fff;
-      }
-    }
+  textarea {
+    resize: vertical;
   }
 </style>

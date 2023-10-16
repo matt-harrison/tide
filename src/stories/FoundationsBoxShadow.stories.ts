@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/Styles';
+import * as STYLES from '@/types/StorybookStyles';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const BOX_SHADOW = prependNoneAsEmpty(STYLES.BOX_SHADOW);

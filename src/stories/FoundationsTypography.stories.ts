@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STORYBOOK from '@/types/Storybook';
-import * as STYLES from '@/types/Styles';
+import * as STYLES from '@/types/StorybookStyles';
 import Color from '@/stories/FoundationsColor.stories';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 

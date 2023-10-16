@@ -1,45 +1,61 @@
 <script lang="ts" setup>
-  import { getCurrentInstance, ref, computed } from 'vue';
+  import { computed, getCurrentInstance, ref, watch } from 'vue';
 
-  const emit = defineEmits<{
-    change: [value: string];
-  }>();
+  import type { CheckboxField } from '@/types/Field';
 
-  type Props = {
-    disabled?: boolean;
-    height?: string;
+  import { getCssUtils } from '@/utilities/styles';
+
+  const UTILS = getCssUtils();
+
+  type Props = CheckboxField & {
+    checkboxClass?: string;
     inputId?: string;
-    label?: string;
     labelClass?: string;
-    name: string;
-    textareaClass?: string;
-    value?: string;
   };
 
-  const props = defineProps<Props>();
+  const props = withDefaults(defineProps<Props>(), {
+    checkboxClass: undefined,
+    checked: false,
+    disabled: false,
+    error: false,
+    indeterminate: false,
+    inputId: undefined,
+    label: undefined,
+    labelClass: undefined,
+    required: false,
+    transformValue: undefined,
+    value: false,
+  });
+
+  const uniqueInputId = computed(() => `${props.inputId ?? 'checkbox'}-${uid}`);
+
+  const required = ref(props.required);
+
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
-  const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
   const value = ref(props.value ?? '');
 
-  const handleChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    emit('change', target.value);
-  };
+  watch(props, () => {
+    if (props.value) {
+      value.value = props.value;
+    }
+  });
+
+  defineExpose({ required, value });
 </script>
 
 <template>
-  <div :class="['basic-checkbox flex axis2-center gap-1/2 font-14', disabled && 'disabled']">
+  <div :class="['basic-checkbox', UTILS.FLEX, UTILS.AXIS2_CENTER, UTILS.FONT_14, disabled && 'disabled']">
     <input
-      :class="[textareaClass, 'grow-none shrink-none', disabled && 'not-allowed']"
+      :class="[checkboxClass, UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
       :disabled="props.disabled"
       :name="name"
-      @change="handleChange"
       :id="uniqueInputId"
       type="checkbox"
       v-model="value"
     />
     <label
+      :class="[labelClass, UTILS.PL_1_2, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
       :for="uniqueInputId"
       v-if="label"
     >
@@ -51,15 +67,13 @@
 <style lang="scss" scoped>
   .basic-checkbox {
     input {
+      accent-color: var(--ti-surface-foreground);
       height: 1.5rem;
       width: 1.5rem;
-      accent-color: #1a3035;
     }
 
-    .disabled {
-      input {
-        opacity: 0.32;
-      }
+    &.disabled {
+      opacity: 0.32;
     }
   }
 </style>
