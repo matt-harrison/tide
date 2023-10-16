@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 import * as STANDARD_ICON from '@/types/Icon';
 import BasicLink from '@/components/BasicLink.vue';
 import { ELEMENT } from '@/types/Element';
@@ -8,8 +10,13 @@ const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 
 const render = (args: any) => ({
   components: { BasicLink },
+  methods: {
+    handleClick: (event: Event) => {
+      if (args.element !== ELEMENT.LINK && args.click) action(args.click)(event);
+    },
+  },
   setup: () => ({ args }),
-  template: '<BasicLink v-bind="args" />',
+  template: '<BasicLink @click="handleClick" v-bind="args" />',
 });
 
 export default {
@@ -57,6 +64,7 @@ export default {
     },
   },
   args: {
+    click: 'doSomething',
     element: ELEMENT.LINK,
     href: '/',
     iconLeading: undefined,

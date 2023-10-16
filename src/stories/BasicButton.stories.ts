@@ -22,7 +22,7 @@ const render = (args: any) => ({
   components: { BasicButton },
   methods: {
     handleClick: (event: Event) => {
-      if (args.click) action(args.click)(event);
+      if (args.element !== ELEMENT.LINK && args.click) action(args.click)(event);
     },
   },
   setup: () => ({ args }),
