@@ -7,19 +7,21 @@ interface BooleanValue {
   value?: boolean;
 }
 
-interface CheckboxField extends GenericField, BooleanValue {
-  checked?: boolean;
+interface CheckboxField extends GenericInput, BooleanValue {
   indeterminate?: boolean;
 }
 
-interface GenericField {
+interface GenericField extends GenericInput {
+  transformValue?: FormValueTransformer;
+  validators?: Validator[];
+}
+
+interface GenericInput {
   disabled?: boolean;
   error?: ValidationError;
   label?: string;
   name: string;
   required?: boolean;
-  transformValue?: FormValueTransformer;
-  validators?: Validator[];
 }
 
 interface SelectField extends GenericField, StringValue {
@@ -50,4 +52,4 @@ export type BooleanField = CheckboxField;
 export type Field = SelectField | TextField | TextareaField | CheckboxField;
 export type StringField = SelectField | TextField | TextareaField;
 export type { BooleanValue, StringValue };
-export type { CheckboxField, GenericField, SelectField, TextareaField, TextField };
+export type { CheckboxField, GenericField, GenericInput, SelectField, TextareaField, TextField };
