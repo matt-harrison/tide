@@ -36,10 +36,13 @@ const DYNAMIC_UTILITIES = {
   FONT_PRIMARY_VARIANT_TIER_3: 'font-primary-variant-tier-3',
   FONT_SECONDARY: 'font-secondary',
   FONT_SURFACE: 'font-surface',
-  FONT_SURFACE_DARK: 'font-surface-dark',
-  FONT_SURFACE_LIGHT: 'font-surface-light',
+  FONT_SURFACE_HIGH: 'font-surface-high',
+  FONT_SURFACE_LOW: 'font-surface-low',
   FONT_SURFACE_VARIANT: 'font-surface-variant',
-  FONT_SURFACE_VARIANT_LIGHT: 'font-surface-variant-light',
+  FONT_SURFACE_VARIANT_HIGH: 'font-surface-variant-high',
+  FONT_SURFACE_VARIANT_HIGHEST: 'font-surface-variant-highest',
+  FONT_SURFACE_VARIANT_LOW: 'font-surface-variant-low',
+  FONT_SURFACE_VARIANT_LOWEST: 'font-surface-variant-lowest',
   FONT_TERTIARY: 'font-tertiary',
 } as const;
 

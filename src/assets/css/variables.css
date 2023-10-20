@@ -46,6 +46,83 @@
   --spacing-4: 4rem;
 
   /* Border */
-  --border-1: 1px solid var(--black);
-  --border-2: 2px solid var(--black);
+  --border-w-1: 1px;
+  --border-w-2: 2px;
+
+  --border-1: var(--border-w-1) solid var(--black);
+  --border-2: var(--border-w-2) solid var(--black);
+
+  /* Global tonal palette */
+  --global-tonal-gray-100: #E4E4E5;
+  --global-tonal-gray-200: #C9CACB;
+  --global-tonal-gray-300: #AEAFB2;
+  --global-tonal-gray-400: #939598;
+  --global-tonal-gray-500: #6E7072;
+  --global-tonal-gray-500: #6E7072;
+  --global-tonal-gray-600: #494A4C;
+  --global-tonal-gray-700: #252526;
+  --global-tonal-gray-800: #000;
+
+  --global-tonal-lime-100: #E6EFCF;
+  --global-tonal-lime-200: #CDE09E;
+  --global-tonal-lime-300: #B4D06E;
+  --global-tonal-lime-400: #9BC13D;
+  --global-tonal-lime-500: #74912E;
+  --global-tonal-lime-600: #4D601E;
+  --global-tonal-lime-700: #27300F;
+
+  --global-tonal-blue-100: #D1E0EB;
+  --global-tonal-blue-200: #A4C1D7;
+  --global-tonal-blue-300: #76A3C4;
+  --global-tonal-blue-400: #4984B0;
+  --global-tonal-blue-500: #376384;
+  --global-tonal-blue-600: #244258;
+  --global-tonal-blue-700: #12212C;
+
+  --global-tonal-red-100: #EFCFCF;
+  --global-tonal-red-200: #E09E9E;
+  --global-tonal-red-300: #D06E6E;
+  --global-tonal-red-400: #C13D3D;
+  --global-tonal-red-500: #912E2E;
+  --global-tonal-red-600: #601E1E;
+  --global-tonal-red-700: #300F0F;
+
+  --global-tonal-yellow-100: #FEF2CC;
+  --global-tonal-yellow-200: #FCE499;
+  --global-tonal-yellow-300: #FBD766;
+  --global-tonal-yellow-400: #FACA33;
+  --global-tonal-yellow-500: #BB9726;
+  --global-tonal-yellow-600: #7D6519;
+  --global-tonal-yellow-700: #3E320D;
+
+  --global-tonal-white-10: rgba(255, 255, 255, .1);
+  --global-tonal-white-16: rgba(255, 255, 255, .16);
+  --global-tonal-white-20: rgba(255, 255, 255, .20);
+  --global-tonal-white-24: rgba(255, 255, 255, .24);
+  --global-tonal-white-28: rgba(255, 255, 255, .28);
+  --global-tonal-white-32: rgba(255, 255, 255, .32);
+  --global-tonal-white-65: rgba(255, 255, 255, .65);
+  --global-tonal-white-75: rgba(255, 255, 255, .75);
+  --global-tonal-white-100: #FFF;
+
+  /* Global color roles */
+  --global-role-error-primary: var(--global-tonal-red-400);
+  --global-role-error-primary-border: var(--global-tonal-red-300);
+  --global-role-error-surface: var(--global-tonal-red-100);
+  --global-role-error-border-low: var(--global-tonal-red-200);
+  --global-role-error-border-rest: var(--global-tonal-red-400);
+  --global-role-error-border-high: var(--global-tonal-red-500);
+  --global-role-error-on-surface: var(--global-tonal-red-400);
+  --global-role-error-on-surface-variant: var(--global-tonal-red-500);
+}
+
+.theme-dark {
+  --global-role-error-primary: var(--global-tonal-red-400);
+  --global-role-error-primary-border: var(--global-tonal-red-300);
+  --global-role-error-surface: var(--global-tonal-red-600);
+  --global-role-error-border-low: var(--global-tonal-red-500);
+  --global-role-error-border-rest: var(--global-tonal-red-200);
+  --global-role-error-border-high: var(--global-tonal-red-100);
+  --global-role-error-on-surface: var(--global-tonal-red-200);
+  --global-role-error-on-surface-variant: var(--global-tonal-red-100);
 }

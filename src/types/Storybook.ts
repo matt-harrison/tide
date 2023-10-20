@@ -15,18 +15,19 @@ export const BOOLEAN_UNREQUIRED = {
 
 export const COLOR_BACKGROUND = {
   'Surface': 'bg-surface',
-  'Surface Light': 'bg-surface-light',
-  'Surface Dark': 'bg-surface-dark',
+  'Surface High': 'bg-surface-high',
+  'Surface Low': 'bg-surface-low',
   'Surface Variant': 'bg-surface-variant',
-  'Surface Variant Light': 'bg-surface-variant-light',
-  'Surface Variant Dark': 'bg-surface-variant-dark',
-  'Surface Variant Darkest': 'bg-surface-variant-darkest',
+  'Surface Variant High': 'bg-surface-variant-high',
+  'Surface Variant Highest': 'bg-surface-variant-highest',
+  'Surface Variant Low': 'bg-surface-variant-low',
+  'Surface Variant Lowest': 'bg-surface-variant-lowest',
 };
 
 export const COLOR_BORDER = {
   'Surface': 'border-surface',
-  'Surface Light': 'border-surface-light',
-  'Surface Dark': 'border-surface-dark',
+  'Surface High': 'border-surface-high',
+  'Surface Low': 'border-surface-low',
   'Surface Save': 'border-surface-save',
 };
 

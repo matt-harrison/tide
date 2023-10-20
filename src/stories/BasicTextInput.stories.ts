@@ -68,6 +68,7 @@ export default {
         min: 1,
         type: 'number',
       },
+      description: 'Applies a maximum character count to the Text Field',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -78,6 +79,7 @@ export default {
         min: 1,
         type: 'number',
       },
+      description: 'Applies a minimum character count to the Text Field',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -149,7 +151,7 @@ export default {
     label: '',
     maxLength: undefined,
     minLength: undefined,
-    name: 'demo',
+    name: '',
     placeholder: '',
     required: undefined,
     suffix: '',

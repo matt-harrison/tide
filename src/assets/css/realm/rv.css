@@ -56,6 +56,11 @@
   --gray-500: #a1a19f;
   --gray-600: #6c6b6a;
   --gray-700: #363635;
+
+  --beige-100: #F9F5F2;
+  --beige-200: #BBB8B5;
+  --beige-300: #7C7A79;
+  --beige-400: #3E3D3C;
 }
 
 /* Realm Palette: These variables will be declared separately for each realm. */
@@ -118,31 +123,40 @@
   --ti-tertiary-button-border-hover: var(--gray);
   --ti-tertiary-button-foreground-hover: var(--teal-700);
 
+  /* Light Theme Floating Buttons */
+  --ti-floating-button-background-rest: var(--global-tonal-white-100);
+  --ti-floating-button-foreground-rest: var(--teal-700);
+  --ti-floating-button-shadow-rest: var(--shadow-b-1);
+
+  --ti-floating-button-background-hover: var(--global-tonal-white-100);
+  --ti-floating-button-foreground-hover: var(--teal-700);
+  --ti-floating-button-shadow-hover: var(--shadow-b-2);
+
   /* Light Theme Surface BGs */
   --ti-surface-background-default: var(--beige);
-  --ti-surface-background-dark: var(--gray-400);
-  --ti-surface-background-light: var(--white);
+  --ti-surface-background-low: var(--white);
+  --ti-surface-background-high: var(--gray-400);
 
   /* Light Theme Surface Variant BGs */
-  --ti-surface-variant-background-dark: var(--gray-400);
-  --ti-surface-variant-background-darkest: var(--gray-500);
+  --ti-surface-variant-background-lowest: var(--gray-100);
+  --ti-surface-variant-background-low: var(--gray-200);
   --ti-surface-variant-background-default: var(--gray-300);
-  --ti-surface-variant-background-light: var(--gray-200);
-  --ti-surface-variant-background-lightest: var(--gray-100);
+  --ti-surface-variant-background-high: var(--gray-400);
+  --ti-surface-variant-background-highest: var(--gray-500);
 
   /* Light Theme Surface FGs */
   --ti-surface-foreground: var(--teal-700);
-  --ti-surface-variant-foreground: #506165;
+  --ti-surface-variant-foreground: var(--teal-600);
 
   /* Light Theme Borders */
-  --ti-surface-border-dark: var(--teal-700);
-  --ti-surface-border-default: var(--gray);
-  --ti-surface-border-light: var(--gray-400);
+  --ti-surface-border-low: var(--gray-400);
+  --ti-surface-border-rest: var(--beige-300);
+  --ti-surface-border-high: var(--teal-700);
   --ti-surface-border-save-active: var(--grapefruit-400); /* Naming convention? */
 }
 
 /* DARK THEME CONTEXT VARIABLES */
-:root .theme-dark {
+.theme-dark {
   /* Dark Theme Primary Tiers (Tier 1 and Tier 3 identical) */
   --ti-primary-button-tier-2-background-rest: var(--white);
   --ti-primary-button-tier-2-border-rest: var(--white);
@@ -171,22 +185,22 @@
   --ti-tertiary-button-foreground-hover: var(--teal-700);
 
   /* Dark Theme Surface BGs */
-  --ti-surface-background-dark: var(--teal-700);
-  --ti-surface-background-default: #36494e;
-  --ti-surface-background-light: #516265;
+  --ti-surface-background-low: var(--teal-700);
+  --ti-surface-background-default: var(--global-tonal-white-16);
+  --ti-surface-background-high: var(--global-tonal-white-24);
 
   /* Dark Theme Surface Variant BGs */
-  --ti-surface-variant-background-dark: #3c4f53;
-  --ti-surface-variant-background-darkest: #304449;
-  --ti-surface-variant-background-default: #48595d;
-  --ti-surface-variant-background-light: #5a6a6d;
-  --ti-surface-variant-background-lightest: #768386;
+  --ti-surface-variant-background-lowest: var(--global-tonal-white-10);
+  --ti-surface-variant-background-low: var(--global-tonal-white-16);
+  --ti-surface-variant-background-default: var(--global-tonal-white-20);;
+  --ti-surface-variant-background-high: var(--global-tonal-white-28);
+  --ti-surface-variant-background-highest: var(--global-tonal-white-32);
 
-  --ti-surface-foreground: var(--white);
-  --ti-surface-variant-foreground: #c6cbcc;
+  --ti-surface-foreground: var(--global-tonal-white-100);
+  --ti-surface-variant-foreground: var(--global-tonal-white-75);
 
   /* Dark Theme Borders */
-  --ti-surface-border-dark: #536468;
-  --ti-surface-border-default: #6a787c;
-  --ti-surface-border-light: var(--white);
+  --ti-surface-border-low: var(--global-tonal-white-24);
+  --ti-surface-border-rest: var(--global-tonal-white-65);
+  --ti-surface-border-high: var(--global-tonal-white-100);
 }

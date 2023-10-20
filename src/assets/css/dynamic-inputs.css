@@ -1,0 +1,43 @@
+.block-field .field {
+  --input-outline-width: var(--border-w-1);
+  outline: var(--input-outline-width) solid var(--ti-surface-border-rest);
+  outline-offset: calc(var(--input-outline-width) * -1);
+  color: var(--ti-surface-foreground);
+}
+
+.block-field .field::placeholder {
+  color: var(--ti-surface-variant-foreground);
+}
+
+.block-field.error {
+  color: var(--global-role-error-on-surface);
+}
+
+.block-field.error .field {
+  outline-color: var(--global-role-error-border-rest);
+}
+
+.block-field.error:focus-within .field {
+  outline-color: var(--global-role-error-border-rest);
+}
+
+.block-field.error:hover {
+  color: var(--global-role-error-on-surface-variant);
+}
+
+.block-field.error:hover .field {
+  outline-color: var(--global-role-error-border-high);
+}
+
+.block-field.disabled {
+  opacity: 0.333;
+}
+
+.block-field:hover .field {
+  outline-color: var(--ti-surface-border-high);
+}
+
+.block-field:focus-within .field {
+  --input-outline-width: var(--border-w-2);
+  outline-color: var(--ti-surface-border-high);
+}

@@ -83,26 +83,22 @@
 </script>
 
 <template>
-  <div :class="['basic-text-input', disabled && 'disabled', hasError && 'error', 'font-14']">
+  <div
+    :class="['basic-text-input block-field font-14 font-surface-variant', disabled && 'disabled', hasError && 'error']"
+  >
     <label
-      :class="['mb-1/4 font-12 font-700', hasError ? 'font-red' : 'font-gray-dark']"
       :for="uniqueInputId"
+      class="mb-1/4 font-14 font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
-    <div
-      :class="[
-        'basic-text-input-container relative flex axis2-center border-1',
-        hasError ? 'border-red' : 'border-gray',
-        'radius-1/2 w-full bg-white',
-      ]"
-    >
+    <div class="relative flex axis2-center w-full">
       <input
         :class="[
-          'field p-1/2 w-full',
-          hasError ? (hasSuffix ? 'pr-4' : 'pr-2') : '',
+          'field radius-1/4 p-1/2 w-full bg-surface-low',
+          hasError ? 'pr-2' : '',
           iconLeading && 'pl-2',
           disabled && 'not-allowed',
         ]"
@@ -127,8 +123,8 @@
       />
 
       <span
-        :class="['absolute right-0 ', hasError ? 'mr-2' : 'mr-1/2', 'px-1/2 font-14 pointer-events-none']"
-        v-if="suffix"
+        class="absolute right-0 mr-2 font-14 pointer-events-none"
+        v-if="hasSuffix"
       >
         {{ suffix }}
       </span>
@@ -136,13 +132,13 @@
       <SvgIcon
         :icon="ICON.CIRCLE_EXCLAMATION"
         :size="SIZE.SMALL"
-        class="absolute right-0 mr-1/2 font-red pointer-events-none"
+        class="absolute right-0 mr-1/2 pointer-events-none"
         v-if="hasError"
       />
     </div>
 
     <div
-      class="supporting-text font-12 font-red"
+      class="font-12"
       v-if="hasError"
     >
       {{ supportingText }}
@@ -150,20 +146,4 @@
   </div>
 </template>
 
-<style scoped>
-  .basic-text-input-container:focus:not(.error) {
-    border-color: var(--gray-dark);
-  }
-
-  .basic-text-input-container:focus-within {
-    border-width: var(--border-2);
-  }
-
-  .basic-text-input-container input:focus {
-    outline: 0;
-  }
-
-  .basic-text-input.disabled {
-    opacity: 0.33;
-  }
-</style>
+<style scoped src="@/assets/css/dynamic-inputs.css" />

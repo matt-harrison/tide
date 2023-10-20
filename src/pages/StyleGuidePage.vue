@@ -129,9 +129,9 @@
       name: 'Realm Surface',
       swatches: [
         {
-          background: 'bg-surface-light',
-          border: 'border-surface-light',
-          foreground: 'font-surface-light',
+          background: 'bg-surface-high',
+          border: 'border-surface-high',
+          foreground: 'font-surface-high',
         },
         {
           background: 'bg-surface',
@@ -139,9 +139,9 @@
           foreground: 'font-surface',
         },
         {
-          background: 'bg-surface-dark',
-          border: 'border-surface-dark',
-          foreground: 'font-surface-dark',
+          background: 'bg-surface-low',
+          border: 'border-surface-low',
+          foreground: 'font-surface-low',
         },
       ],
     },
@@ -149,24 +149,24 @@
       name: 'Realm Surface Variant',
       swatches: [
         {
-          background: 'bg-surface-variant-lightest',
-          foreground: 'font-surface-variant-light',
+          background: 'bg-surface-variant-highest',
+          foreground: 'font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-light',
-          foreground: 'font-surface-variant-light',
+          background: 'bg-surface-variant-high',
+          foreground: 'font-surface-variant-high',
         },
         {
           background: 'bg-surface-variant',
-          foreground: 'font-surface-variant-light',
+          foreground: 'font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-dark',
-          foreground: 'font-surface-variant-light',
+          background: 'bg-surface-variant-low',
+          foreground: 'font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-darkest',
-          foreground: 'font-surface-variant-light',
+          background: 'bg-surface-variant-lowest',
+          foreground: 'font-surface-variant-high',
         },
       ],
     },
@@ -302,7 +302,7 @@
 
 <template>
   <div
-    :class="isDarkTheme ? 'theme-dark bg-surface-dark' : ''"
+    :class="isDarkTheme ? 'theme-dark bg-surface-low' : ''"
     class="style-guide-page fluid py-2 border-surface font-surface"
   >
     <header class="mx-2 mb-1/2">

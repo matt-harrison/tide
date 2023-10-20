@@ -19,15 +19,15 @@
 .bg-secondary {background-color: var(--ti-tertiary-button-background-rest);}
 .bg-tertiary  {background-color: var(--ti-tertiary-button-background-rest);}
 
-.bg-surface       {background-color: var(--ti-surface-background-default);}
-.bg-surface-dark  {background-color: var(--ti-surface-background-dark);}
-.bg-surface-light {background-color: var(--ti-surface-background-light);}
+.bg-surface      {background-color: var(--ti-surface-background-default);}
+.bg-surface-low  {background-color: var(--ti-surface-background-low);}
+.bg-surface-high {background-color: var(--ti-surface-background-high);}
 
-.bg-surface-variant          {background-color: var(--ti-surface-variant-background-default);}
-.bg-surface-variant-dark     {background-color: var(--ti-surface-variant-background-dark);}
-.bg-surface-variant-darkest  {background-color: var(--ti-surface-variant-background-darkest);}
-.bg-surface-variant-light    {background-color: var(--ti-surface-variant-background-light);}
-.bg-surface-variant-lightest {background-color: var(--ti-surface-variant-background-lightest);}
+.bg-surface-variant         {background-color: var(--ti-surface-variant-background-default);}
+.bg-surface-variant-low     {background-color: var(--ti-surface-variant-background-low);}
+.bg-surface-variant-lowest  {background-color: var(--ti-surface-variant-background-lowest);}
+.bg-surface-variant-high    {background-color: var(--ti-surface-variant-background-high);}
+.bg-surface-variant-highest {background-color: var(--ti-surface-variant-background-highest);}
 
 /* Border */
 .border-primary-tier-1 {border-color: var(--ti-primary-button-tier-1-border-rest);}
@@ -41,9 +41,9 @@
 .border-secondary {border-color: var(--ti-secondary-button-border-rest);}
 .border-tertiary  {border-color: var(--ti-tertiary-button-border-rest);}
 
-.border-surface       {border-color: var(--ti-surface-border-default);}
-.border-surface-dark  {border-color: var(--ti-surface-border-dark);}
-.border-surface-light {border-color: var(--ti-surface-border-light);}
+.border-surface       {border-color: var(--ti-surface-border-rest);}
+.border-surface-low   {border-color: var(--ti-surface-border-low);}
+.border-surface-high  {border-color: var(--ti-surface-border-high);}
 .border-surface-save  {border-color: var(--ti-surface-border-save-active);}
 
 /* Foreground */

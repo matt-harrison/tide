@@ -121,14 +121,14 @@
   /* Light Theme Surface BGs */
   --ti-surface-background-default: var(--beige);
   --ti-surface-background-dark: var(--blue-400);
-  --ti-surface-background-light: var(--white);
+  --ti-surface-background-high: var(--white);
 
   /* Light Theme Surface Variant BGs */
   --ti-surface-variant-background-dark: var(--gray-400);
-  --ti-surface-variant-background-darkest: var(--gray-500);
+  --ti-surface-variant-background-lowest: var(--gray-500);
   --ti-surface-variant-background-default: var(--gray-300);
-  --ti-surface-variant-background-light: var(--gray-200);
-  --ti-surface-variant-background-lightest: var(--gray-100);
+  --ti-surface-variant-background-high: var(--gray-200);
+  --ti-surface-variant-background-highest: var(--gray-100);
 
   /* Light Theme Surface FGs */
   --ti-surface-foreground: var(--blue-700);
@@ -137,7 +137,7 @@
   /* Light Theme Borders */
   --ti-surface-border-dark: var(--slate-700);
   --ti-surface-border-default: var(--gray-600);
-  --ti-surface-border-light: var(--gray-400);
+  --ti-surface-border-high: var(--gray-400);
   --ti-surface-border-save-active: var(--maroon-400); /* Naming convention? */
 }
 
@@ -166,14 +166,14 @@
   /* Dark Theme Surface BGs */
   --ti-surface-background-dark: var(--slate-700);
   --ti-surface-background-default: #323538;
-  --ti-surface-background-light: #4e5052;
+  --ti-surface-background-high: #4e5052;
 
   /* Dark Theme Surface Variant BGs */
   --ti-surface-variant-background-dark: #393b3e;
-  --ti-surface-variant-background-darkest: #2d3032;
+  --ti-surface-variant-background-lowest: #2d3032;
   --ti-surface-variant-background-default: #454749;
-  --ti-surface-variant-background-light: #57595b;
-  --ti-surface-variant-background-lightest: #737577;
+  --ti-surface-variant-background-high: #57595b;
+  --ti-surface-variant-background-highest: #737577;
 
   --ti-surface-foreground: var(--white);
   --ti-surface-variant-foreground: #c5c5c6;
@@ -181,5 +181,5 @@
   /* Dark Theme Borders */
   --ti-surface-border-dark: #505355;
   --ti-surface-border-default: #67696b;
-  --ti-surface-border-light: var(--white);
+  --ti-surface-border-high: var(--white);
 }
