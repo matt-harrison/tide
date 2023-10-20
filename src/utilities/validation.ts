@@ -5,10 +5,12 @@ import type { Ref } from 'vue';
 export function validateProperty(value: string, validators: ((value: string) => ValidationResult)[]): ValidationResult {
   for (const validator of validators) {
     const validation = validator(value);
+
     if (!validation.valid) {
       return validation;
     }
   }
+
   return {
     message: '',
     valid: true,
@@ -31,8 +33,30 @@ export function checkFormat(format: RegExp) {
   };
 }
 
+export function checkLength(minlength?: number, maxlength?: number) {
+  return (value: string): ValidationResult => {
+    const valid = getFieldLengthIsValid({
+      maxlength,
+      minlength,
+      value,
+    });
+
+    let message = valid ? '' : 'Invalid Entry';
+
+    if (maxlength && minlength) {
+      message = `Please enter a value between ${minlength} and ${maxlength} characters in length.`;
+    }
+
+    return {
+      message,
+      valid,
+    };
+  };
+}
+
 export function validateFieldsFromRefs(fields: { [key: string]: Ref<StringField | null> }) {
   let valid = true;
+
   for (const key in fields) {
     if (fields[key].value?.required) {
       const value = fields[key].value?.value;
@@ -41,6 +65,7 @@ export function validateFieldsFromRefs(fields: { [key: string]: Ref<StringField 
     const error = fields[key].value?.error;
     valid = valid && !error;
   }
+
   return valid;
 }
 
@@ -55,5 +80,6 @@ export const getFieldLengthIsValid = ({
 }) => {
   const tooShort = maxlength && value.length > maxlength;
   const tooLong = minlength && value.length < minlength;
-  return tooShort || tooLong ? false : true;
+
+  return !tooShort && !tooLong;
 };

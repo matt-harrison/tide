@@ -24,20 +24,22 @@ export const getFieldHasError = (errorFromProps: ValidationError, errorFromRef: 
 };
 
 export const handleFieldValidation = ({
-  value,
   error,
   errorFromProps,
   validators,
+  value,
 }: {
-  value: Ref<string>;
   error: Ref<ValidationError>;
   errorFromProps: ValidationError;
   validators?: Validator[];
+  value: Ref<string>;
 }) => {
   // error in props takes precedence over validation error
   error.value = errorFromProps;
+
   if (!errorFromProps && validators) {
     const validation = validateProperty(value.value, validators);
+
     if (!validation.valid) {
       error.value = validation.message;
     }

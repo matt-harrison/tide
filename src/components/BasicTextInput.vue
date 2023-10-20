@@ -8,8 +8,8 @@
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/TextInput';
+  import { checkLength } from '@/utilities/validation';
   import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
-  import { getFieldLengthIsValid } from '@/utilities/validation';
 
   // TODO: Implement proper theme colors (& dark mode colors) once they're ready.
 
@@ -61,22 +61,14 @@
     handleFieldValidation({
       error,
       errorFromProps: props.error,
-      validators: props.validators,
+      validators: [checkLength(props.minlength, props.maxlength), ...(props.validators || [])],
       value,
     });
 
-  watch(props, (newValue, oldValue) => {
-    if (
-      newValue.value !== oldValue.value &&
-      getFieldLengthIsValid({
-        maxlength: props.maxlength,
-        minlength: props.minlength,
-        value: props.value,
-      })
-    ) {
-      value.value = props.value;
-    }
+  watch(props, () => {
     handleValidation();
+
+    value.value = props.value;
   });
 
   defineExpose({ error, required, value });
