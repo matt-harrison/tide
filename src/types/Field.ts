@@ -34,15 +34,15 @@ interface StringValue {
 }
 
 interface TextareaField extends GenericField, StringValue {
-  maxLength?: number;
-  minLength?: number;
+  maxlength?: number;
+  minlength?: number;
   placeholder?: string;
   value?: string;
 }
 
 interface TextField extends GenericField, StringValue {
-  maxLength?: number;
-  minLength?: number;
+  maxlength?: number;
+  minlength?: number;
   placeholder?: string;
   type?: TextInputType;
   value?: string;

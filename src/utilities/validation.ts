@@ -45,15 +45,15 @@ export function validateFieldsFromRefs(fields: { [key: string]: Ref<StringField 
 }
 
 export const getFieldLengthIsValid = ({
-  maxLength,
-  minLength,
+  maxlength,
+  minlength,
   value,
 }: {
-  maxLength?: number;
-  minLength?: number;
+  maxlength?: number;
+  minlength?: number;
   value: string;
 }) => {
-  const tooShort = maxLength && value.length > maxLength;
-  const tooLong = minLength && value.length < minLength;
+  const tooShort = maxlength && value.length > maxlength;
+  const tooLong = minlength && value.length < minlength;
   return tooShort || tooLong ? false : true;
 };

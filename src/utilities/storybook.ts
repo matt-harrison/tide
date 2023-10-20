@@ -105,7 +105,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     const isDynamic = isConstant || isConstants || typeof value === 'boolean';
     const isEmpty = !isDynamic && value === '';
     const isSlot = key === 'default';
-    const isExcluded = value === undefined || !value.length;
+    const isExcluded = value === undefined || (Array.isArray(value) && !value.length);
 
     if (argTypes[key].isCss) {
       classNames.push(value);

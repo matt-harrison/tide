@@ -25,8 +25,8 @@
     iconLeading: undefined,
     inputId: undefined,
     label: undefined,
-    maxLength: undefined,
-    minLength: undefined,
+    maxlength: undefined,
+    minlength: undefined,
     placeholder: '',
     required: false,
     suffix: '',
@@ -69,8 +69,8 @@
     if (
       newValue.value !== oldValue.value &&
       getFieldLengthIsValid({
-        maxLength: props.maxLength,
-        minLength: props.minLength,
+        maxlength: props.maxlength,
+        minlength: props.minlength,
         value: props.value,
       })
     ) {
@@ -103,8 +103,8 @@
           disabled && 'not-allowed',
         ]"
         :disabled="disabled"
-        :maxlength="maxLength"
-        :minlength="minLength"
+        :maxlength="maxlength"
+        :minlength="minlength"
         :name="name"
         :placeholder="placeholder"
         :required="required"

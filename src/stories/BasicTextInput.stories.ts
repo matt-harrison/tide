@@ -63,7 +63,7 @@ export default {
         type: { summary: 'string' },
       },
     },
-    maxLength: {
+    maxlength: {
       control: {
         min: 1,
         type: 'number',
@@ -74,7 +74,7 @@ export default {
         type: { summary: 'number' },
       },
     },
-    minLength: {
+    minlength: {
       control: {
         min: 1,
         type: 'number',
@@ -149,8 +149,8 @@ export default {
     iconLeading: undefined,
     inputId: '',
     label: '',
-    maxLength: undefined,
-    minLength: undefined,
+    maxlength: undefined,
+    minlength: undefined,
     name: '',
     placeholder: '',
     required: undefined,

@@ -23,8 +23,8 @@
     error: false,
     label: undefined,
     labelClass: undefined,
-    maxLength: undefined,
-    minLength: undefined,
+    maxlength: undefined,
+    minlength: undefined,
     placeholder: undefined,
     required: false,
     rows: 8,
@@ -63,8 +63,8 @@
   watch(props, () => {
     if (
       getFieldLengthIsValid({
-        maxLength: props.maxLength,
-        minLength: props.minLength,
+        maxlength: props.maxlength,
+        minlength: props.minlength,
         value: props.value,
       })
     ) {
@@ -108,8 +108,8 @@
         disabled && UTILS.NOT_ALLOWED,
       ]"
       :disabled="disabled"
-      :maxlength="maxLength"
-      :minlength="minLength"
+      :maxlength="maxlength"
+      :minlength="minlength"
       :name="name"
       :placeholder="placeholder"
       :required="required"
