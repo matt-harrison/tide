@@ -16,7 +16,7 @@ export const getSelectOptionsFromStrings = (strings: string[]) => {
 export const getSupportingText = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {
   // error in props takes precedence over validation error
   if (typeof errorFromProps === 'string' && errorFromProps.length > 0) return errorFromProps;
-  return typeof errorFromRef === 'string' && errorFromRef.length > 0 ? errorFromRef : 'Please enter a valid value';
+  return typeof errorFromRef === 'string' && errorFromRef.length > 0 ? errorFromRef : 'Please enter a valid value.';
 };
 
 export const getFieldHasError = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {

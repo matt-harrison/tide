@@ -8,31 +8,23 @@
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/TextInput';
-  import { getCssUtils } from '@/utilities/styles';
   import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
   import { getFieldLengthIsValid } from '@/utilities/validation';
 
-  // TODO: add number formatting. Or should there be a special BasicNumberInput (BasicPriceInput?)?
-  // TODO: implement proper theme colors (& dark mode colors) once they're ready
+  // TODO: Implement proper theme colors (& dark mode colors) once they're ready.
 
-  const UTILS = getCssUtils();
-
-  type Props = TextField & {
-    inputClass?: string;
+  interface Props extends TextField {
     inputId?: string;
-    labelClass?: string;
-    leadingIcon?: Icon;
+    iconLeading?: Icon;
     suffix?: string;
-  };
+  }
 
   const props = withDefaults(defineProps<Props>(), {
     disabled: false,
     error: false,
-    inputClass: undefined,
+    iconLeading: undefined,
     inputId: undefined,
     label: undefined,
-    labelClass: undefined,
-    leadingIcon: undefined,
     maxLength: undefined,
     minLength: undefined,
     placeholder: '',
@@ -44,12 +36,6 @@
     value: '',
   });
 
-  const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
-  const hasError = computed(() => getFieldHasError(error.value, props.error));
-  const hasSuffix = computed(() => props.suffix && props.suffix.length > 0);
-  const supportingText = computed(() => getSupportingText(props.error, error.value));
-  const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
-
   const error = ref(props.error);
   const required = ref(props.required);
   const value = ref(props.value);
@@ -57,9 +43,17 @@
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
 
+  const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
+  const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
+  const hasSuffix = computed(() => props.suffix && props.suffix.length > 0);
+  const supportingText = computed(() => getSupportingText(props.error, error.value));
+  const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
+
   const handleInput = () => {
     if (props.transformValue) {
-      value.value = props.transformValue(value.value);
+      const digits = value.value.match(/\d/g)?.join('') || undefined;
+
+      value.value = digits ? props.transformValue(digits) : '';
     }
   };
 
@@ -89,51 +83,28 @@
 </script>
 
 <template>
-  <div
-    :class="[
-      'basic-text-input',
-      'block-field',
-      UTILS.FLEX,
-      UTILS.AXIS2_START,
-      UTILS.COLUMN,
-      UTILS.FONT_14,
-      UTILS.FONT_SURFACE_VARIANT,
-      disabled && 'disabled',
-      hasError && 'error',
-    ]"
-  >
+  <div :class="['basic-text-input', disabled && 'disabled', hasError && 'error', 'font-14']">
     <label
-      :class="[labelClass, UTILS.FONT_14, UTILS.PB_1_4]"
+      :class="['mb-1/4 font-12 font-700', hasError ? 'font-red' : 'font-gray-dark']"
       :for="uniqueInputId"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
-    <div :class="[UTILS.RELATIVE, UTILS.W_FULL]">
-      <SvgIcon
-        :class="[
-          UTILS.ABSOLUTE,
-          UTILS.TOP_50,
-          UTILS.LEFT_0,
-          '-translate-y-1/2',
-          UTILS.ML_3_4,
-          UTILS.POINTER_EVENTS_NONE,
-        ]"
-        :icon="leadingIcon"
-        :size="SIZE.SMALL"
-        v-if="leadingIcon"
-      />
+
+    <div
+      :class="[
+        'basic-text-input-container relative flex axis2-center border-1',
+        hasError ? 'border-red' : 'border-gray',
+        'radius-1/2 w-full bg-white',
+      ]"
+    >
       <input
         :class="[
-          inputClass,
-          'field',
-          UTILS.W_FULL,
-          UTILS.P_3_4,
-          UTILS.RADIUS_1_8,
-          UTILS.BG_SURFACE_LOW,
-          disabled && UTILS.NOT_ALLOWED,
-          leadingIcon && UTILS.PL_2,
-          hasError ? (hasSuffix ? UTILS.PR_4 : UTILS.PR_2) : null,
+          'field p-1/2 w-full',
+          hasError ? (hasSuffix ? 'pr-4' : 'pr-2') : '',
+          iconLeading && 'pl-2',
+          disabled && 'not-allowed',
         ]"
         :disabled="disabled"
         :maxlength="maxLength"
@@ -147,42 +118,52 @@
         :id="uniqueInputId"
         v-model="value"
       />
+
+      <SvgIcon
+        :icon="iconLeading"
+        :size="SIZE.SMALL"
+        class="absolute left-0 ml-1/2 pointer-events-none"
+        v-if="iconLeading"
+      />
+
       <span
-        :class="[
-          UTILS.ABSOLUTE,
-          UTILS.TOP_50,
-          UTILS.RIGHT_0,
-          '-translate-y-1/2',
-          UTILS.PX_1_2,
-          UTILS.FONT_14,
-          UTILS.POINTER_EVENTS_NONE,
-          hasError ? UTILS.MR_2 : UTILS.MR_3_4,
-        ]"
+        :class="['absolute right-0 ', hasError ? 'mr-2' : 'mr-1/2', 'px-1/2 font-14 pointer-events-none']"
         v-if="suffix"
       >
         {{ suffix }}
       </span>
-      <slot name="trailing-icon">
-        <SvgIcon
-          :class="[
-            '-translate-y-1/2',
-            UTILS.ABSOLUTE,
-            UTILS.TOP_50,
-            UTILS.RIGHT_0,
-            UTILS.MR_3_4,
-            UTILS.POINTER_EVENTS_NONE,
-          ]"
-          :icon="ICON.CIRCLE_EXCLAMATION"
-          :size="SIZE.SMALL"
-          v-if="hasError"
-        />
-      </slot>
+
+      <SvgIcon
+        :icon="ICON.CIRCLE_EXCLAMATION"
+        :size="SIZE.SMALL"
+        class="absolute right-0 mr-1/2 font-red pointer-events-none"
+        v-if="hasError"
+      />
     </div>
+
     <div
-      :class="['supporting-text', UTILS.FONT_12, UTILS.MT_1_4]"
+      class="supporting-text font-12 font-red"
       v-if="hasError"
     >
       {{ supportingText }}
     </div>
   </div>
 </template>
+
+<style scoped>
+  .basic-text-input-container:focus:not(.error) {
+    border-color: var(--gray-dark);
+  }
+
+  .basic-text-input-container:focus-within {
+    border-width: var(--border-2);
+  }
+
+  .basic-text-input-container input:focus {
+    outline: 0;
+  }
+
+  .basic-text-input.disabled {
+    opacity: 0.33;
+  }
+</style>

@@ -26,7 +26,7 @@
 
 <template>
   <BasicTextInput
-    :leading-icon="ICON.MAGNIFYING_GLASS"
+    :icon-leading="ICON.MAGNIFYING_GLASS"
     :name="name"
     :type="TEXT_INPUT_TYPE.SEARCH"
     @input="handleInput"

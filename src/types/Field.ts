@@ -18,7 +18,7 @@ interface GenericField extends GenericInput {
 
 interface GenericInput {
   disabled?: boolean;
-  error?: ValidationError;
+  error: ValidationError;
   label?: string;
   name: string;
   required?: boolean;

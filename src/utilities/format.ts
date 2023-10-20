@@ -66,8 +66,9 @@ const formatPhone = (input: number): string => {
   return output;
 };
 
-const formatPrice = (input: number): string => {
-  const output = input && typeof input === 'number' ? formatNumber(input) : String(input || '--');
+const formatPrice = (input: number | string): string => {
+  const integer = typeof input === 'number' ? input : parseInt(input as string, 10);
+  const output = input ? formatNumber(integer) : String(integer || '--');
 
   return `$${output}`;
 };

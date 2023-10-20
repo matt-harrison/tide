@@ -1,7 +1,7 @@
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
 
 // Extensible object of key/value pairs
-type KeyValue = { [key: string]: string | undefined };
+type KeyValue = { [key: string]: any };
 
 // Object with a retrievable key and an extensible object of key/value pairs as the value
 type KeyValueNamed = {
@@ -63,6 +63,23 @@ export const formatArgType = (collection: KeyValueNamed) => {
   };
 };
 
+export const formatArgTypeCheck = (collection: KeyValueNamed) => {
+  const constant = getKey(collection);
+  const keyValues: KeyValue = collection[constant];
+
+  return {
+    constant,
+    control: 'check',
+    options: {
+      ...keyValues,
+    },
+    table: {
+      defaultValue: { summary: 'None' },
+      type: { summary: constant },
+    },
+  };
+};
+
 export const formatSnippet = (code: string, context: StoryContext) => {
   const tag = context.component?.__name;
   const { args, argTypes } = context;
@@ -81,11 +98,14 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     // If arg is conditional, hide when conditional is not met.
     const isClick = key === 'click';
     const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
-    const isConstant = Object.keys(argTypes).includes(key) && !!argTypes[key].constant;
-    const isDynamic = isConstant || typeof value === 'boolean';
+    const isConstant =
+      Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'select';
+    const isConstants =
+      Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'check';
+    const isDynamic = isConstant || isConstants || typeof value === 'boolean';
     const isEmpty = !isDynamic && value === '';
     const isSlot = key === 'default';
-    const isUndefined = value === undefined;
+    const isExcluded = value === undefined || !value.length;
 
     if (argTypes[key].isCss) {
       classNames.push(value);
@@ -99,7 +119,21 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       });
     }
 
-    if (isConditionMet && !isUndefined && !isClick && !isEmpty && !isSlot) {
+    if (isConstants && value.length) {
+      const constantSlots: string[] = [];
+
+      Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+        value.forEach((valueSlot: any) => {
+          if (valueSlot === optionValue) {
+            constantSlots.push(`${argTypes[key].constant}.${optionKey}`);
+          }
+        });
+      });
+
+      value = `[${constantSlots.join(', ')}]`;
+    }
+
+    if (isConditionMet && !isExcluded && !isClick && !isEmpty && !isSlot) {
       return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
 
@@ -113,6 +147,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
   if (classNames.length > 0) attributes.push(`class="${classNames.join(' ')}"`);
 
   attributes = attributes.filter((attribute) => !!attribute).sort();
+
   if (attributes) attributes.unshift('');
 
   // TODO: return with implementation of JS Beautify dev dependency.
