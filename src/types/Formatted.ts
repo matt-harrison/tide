@@ -1,6 +1,14 @@
+import { formatNumber, formatPhone, formatPrice } from '@/utilities/format';
+
 export type Formatted = {
   [key: string]: string | string[] | number;
 };
+
+export const FORMAT = {
+  NUMBER: formatNumber,
+  PHONE: formatPhone,
+  PRICE: formatPrice,
+} as const;
 
 export const FORMAT_REGEX = {
   alpha: /^[a-zA-Z]+$/g,

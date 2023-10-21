@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
+import * as STANDARD_FORMAT from '@/types/Formatted';
 import * as STANDARD_ICON from '@/types/Icon';
 import * as STANDARD_TEXT_INPUT_TYPE from '@/types/TextInput';
 import BasicTextInput from '@/components/BasicTextInput.vue';
@@ -13,6 +14,7 @@ import {
 } from '@/utilities/storybook';
 import { formatPrice } from '@/utilities/format';
 
+const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INPUT_TYPE);
 
@@ -114,16 +116,8 @@ export default {
       },
     },
     transformValue: {
-      control: 'select',
+      ...formatArgType({ FORMAT }),
       description: 'Determines text formatting applied to Text Field value upon invoking relevant listener event(s)',
-      options: {
-        None: undefined,
-        formatPrice,
-      },
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'function' },
-      },
     },
     type: {
       ...formatArgType({ TEXT_INPUT_TYPE }),
