@@ -23,7 +23,7 @@ const formatKebabCase = (input: string): string => {
 };
 
 const formatNumber = (input: number | string): string => {
-  const integer = typeof input === 'number' ? input : parseInt(input as string, 10);
+  const integer = typeof input === 'number' ? input : parseInt(input.match(/\d/g)?.join('') || '', 10);
   const output = integer ? new Intl.NumberFormat().format(integer) : '';
 
   return output;
@@ -42,7 +42,7 @@ const formatPascalCase = (input: string): string => {
 };
 
 const formatPhone = (input: number | string): string => {
-  const integer = typeof input === 'number' ? input : parseInt(input as string, 10);
+  const integer = typeof input === 'number' ? input : parseInt(input.match(/\d/g)?.join('') || '', 10);
   let output = integer ? String(integer) : '';
 
   if (integer && typeof integer === 'number') {
@@ -71,10 +71,9 @@ const formatPhone = (input: number | string): string => {
 };
 
 const formatPrice = (input: number | string): string => {
-  const integer = typeof input === 'number' ? input : parseInt(input as string, 10);
-  const output = integer ? formatNumber(integer) : '--';
+  const output = formatNumber(input);
 
-  return `$${output}`;
+  return `$${output || '--'}`;
 };
 
 const formatSentenceCase = (input: string): string => {

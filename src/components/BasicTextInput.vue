@@ -36,9 +36,13 @@
     value: '',
   });
 
+  const formatValue = (input: string) => {
+    return props.transformValue ? props.transformValue(input) : input;
+  };
+
   const error = ref(props.error);
   const required = ref(props.required);
-  const value = ref(props.value);
+  const value = ref(formatValue(props.value));
 
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
@@ -66,8 +70,7 @@
     });
 
   watch(props, () => {
-    value.value = props.value;
-
+    value.value = formatValue(props.value);
     handleValidation();
   });
 

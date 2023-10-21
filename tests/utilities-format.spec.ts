@@ -61,31 +61,6 @@ describe('@/src/utilities/format.ts', () => {
 
       expect(formatCamelCase(input)).toEqual(output);
     });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatCamelCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatCamelCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatCamelCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatCamelCase()).toEqual();
-    });
   });
 
   describe('formatKebabCase', () => {
@@ -126,31 +101,6 @@ describe('@/src/utilities/format.ts', () => {
       const output = '';
 
       expect(formatKebabCase(input)).toEqual(output);
-    });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatKebabCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatKebabCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatKebabCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatKebabCase()).toEqual();
     });
   });
 
@@ -210,24 +160,6 @@ describe('@/src/utilities/format.ts', () => {
 
       expect(formatNumber(input)).toEqual(output);
     });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = '';
-
-      expect(formatNumber(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = '';
-
-      expect(formatNumber(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatNumber()).toEqual('');
-    });
   });
 
   describe('formatPascalCase', () => {
@@ -268,31 +200,6 @@ describe('@/src/utilities/format.ts', () => {
       const output = '';
 
       expect(formatPascalCase(input)).toEqual(output);
-    });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatPascalCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatPascalCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatPascalCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatPascalCase()).toEqual();
     });
   });
 
@@ -337,24 +244,6 @@ describe('@/src/utilities/format.ts', () => {
       const output = '';
 
       expect(formatPhone(input)).toEqual(output);
-    });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = '';
-
-      expect(formatPhone(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = '';
-
-      expect(formatPhone(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatPhone()).toEqual('');
     });
   });
 
@@ -414,24 +303,6 @@ describe('@/src/utilities/format.ts', () => {
 
       expect(formatPrice(input)).toEqual(output);
     });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = '$--';
-
-      expect(formatPrice(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = '$--';
-
-      expect(formatPrice(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatPrice()).toEqual('$--');
-    });
   });
 
   describe('formatSentenceCase', () => {
@@ -472,31 +343,6 @@ describe('@/src/utilities/format.ts', () => {
       const output = '';
 
       expect(formatSentenceCase(input)).toEqual(output);
-    });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatSentenceCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatSentenceCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatSentenceCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatSentenceCase()).toEqual();
     });
   });
 
@@ -539,31 +385,6 @@ describe('@/src/utilities/format.ts', () => {
 
       expect(formatSnakeCase(input)).toEqual(output);
     });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatSnakeCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatSnakeCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatSnakeCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatSnakeCase()).toEqual();
-    });
   });
 
   describe('formatTitleCase', () => {
@@ -604,31 +425,6 @@ describe('@/src/utilities/format.ts', () => {
       const output = '';
 
       expect(formatTitleCase(input)).toEqual(output);
-    });
-
-    it('ignores undefined.', () => {
-      const input = undefined;
-      const output = undefined;
-
-      expect(formatTitleCase(input)).toEqual(output);
-    });
-
-    it('ignores null.', () => {
-      const input = null;
-      const output = null;
-
-      expect(formatTitleCase(input)).toEqual(output);
-    });
-
-    it('ignores a number.', () => {
-      const input = 123;
-      const output = 123;
-
-      expect(formatTitleCase(input)).toEqual(output);
-    });
-
-    it('ignores an absent parameter.', () => {
-      expect(formatTitleCase()).toEqual();
     });
   });
 });

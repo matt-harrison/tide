@@ -18,17 +18,12 @@ const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INPUT_TYPE);
 
-const render = (args: any, { updateArgs }: any) => ({
+const render = (args: any) => ({
   components: { BasicTextInput },
   methods: {
     formatPrice,
     handleKeyUp: (event: KeyboardEvent) => {
-      const component = event?.currentTarget as HTMLInputElement;
-      const field = component.querySelector('input');
-      const value = field?.value || '';
-
       action('BasicTextInput changed')(event);
-      updateArgs({ ...args, value });
     },
   },
   setup: () => ({ args }),
