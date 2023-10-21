@@ -66,9 +66,9 @@
     });
 
   watch(props, () => {
-    handleValidation();
-
     value.value = props.value;
+
+    handleValidation();
   });
 
   defineExpose({ error, required, value });

@@ -1,21 +1,6 @@
+import type { Ref } from 'vue';
 import type { StringField } from '@/types/Field';
 import type { ValidationResult } from '@/types/Validation';
-import type { Ref } from 'vue';
-
-export function validateProperty(value: string, validators: ((value: string) => ValidationResult)[]): ValidationResult {
-  for (const validator of validators) {
-    const validation = validator(value);
-
-    if (!validation.valid) {
-      return validation;
-    }
-  }
-
-  return {
-    message: '',
-    valid: true,
-  };
-}
 
 export function checkFormat(format: RegExp) {
   return (value: string): ValidationResult => {
@@ -23,12 +8,14 @@ export function checkFormat(format: RegExp) {
       message: '',
       valid: true,
     };
+
     if (!value.trim().match(format)) {
       result = {
-        message: 'Invalid Entry',
+        message: errorMessageDefault,
         valid: false,
       };
     }
+
     return result;
   };
 }
@@ -41,7 +28,7 @@ export function checkLength(minlength?: number, maxlength?: number) {
       value,
     });
 
-    let message = valid ? '' : 'Invalid Entry';
+    let message = valid ? '' : errorMessageDefault;
 
     if (maxlength && minlength) {
       message = `Please enter a value between ${minlength} and ${maxlength} characters in length.`;
@@ -52,21 +39,6 @@ export function checkLength(minlength?: number, maxlength?: number) {
       valid,
     };
   };
-}
-
-export function validateFieldsFromRefs(fields: { [key: string]: Ref<StringField | null> }) {
-  let valid = true;
-
-  for (const key in fields) {
-    if (fields[key].value?.required) {
-      const value = fields[key].value?.value;
-      valid = valid && !!value && value.trim() !== '';
-    }
-    const error = fields[key].value?.error;
-    valid = valid && !error;
-  }
-
-  return valid;
 }
 
 export const getFieldLengthIsValid = ({
@@ -83,3 +55,38 @@ export const getFieldLengthIsValid = ({
 
   return !tooShort && !tooLong;
 };
+
+export const errorMessageDefault = 'Please enter a valid value.';
+
+export function validateFieldsFromRefs(fields: { [key: string]: Ref<StringField | null> }) {
+  let valid = true;
+
+  for (const key in fields) {
+    if (fields[key].value?.required) {
+      const value = fields[key].value?.value;
+
+      valid = valid && !!value && value.trim() !== '';
+    }
+
+    const error = fields[key].value?.error;
+
+    valid = valid && !error;
+  }
+
+  return valid;
+}
+
+export function validateProperty(value: string, validators: ((value: string) => ValidationResult)[]): ValidationResult {
+  for (const validator of validators) {
+    const validation = validator(value);
+
+    if (!validation.valid) {
+      return validation;
+    }
+  }
+
+  return {
+    message: '',
+    valid: true,
+  };
+}

@@ -10,6 +10,9 @@ type KeyValueNamed = {
 
 import type { StoryContext } from '@storybook/vue3';
 
+import { formatKebabCase } from '@/utilities/format';
+import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
+
 export const argTypeBooleanUnrequired = {
   control: 'select',
   description: 'True, False, or undefined<br />(for demonstration purposes)',
@@ -32,9 +35,6 @@ export const argTypeDimension = {
     type: { summary: 'number (px)' },
   },
 };
-
-import { formatKebabCase } from '@/utilities/format';
-import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
 
 export const click = {
   control: 'text',

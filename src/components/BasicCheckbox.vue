@@ -56,16 +56,14 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
-  // TODO: Wire into TIDE CSS structures.
-  .basic-checkbox {
-    input {
-      accent-color: var(--ti-surface-foreground);
-      height: 1.5rem;
-      width: 1.5rem;
-    }
-    &.disabled {
-      opacity: 0.32;
-    }
+<style scoped>
+  .basic-checkbox input {
+    accent-color: var(--ti-surface-foreground);
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .basic-checkbox.disabled {
+    opacity: 0.32;
   }
 </style>
