@@ -4,51 +4,52 @@
   import type { TextareaField } from '@/types/Field';
 
   import SvgIcon from '@/components/SvgIcon.vue';
+  import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
-  import { getCssUtils } from '@/utilities/styles';
   import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
-  import { getFieldLengthIsValid } from '@/utilities/validation';
+  import { checkLength } from '@/utilities/validation';
 
-  const UTILS = getCssUtils();
-
-  type Props = TextareaField & {
-    labelClass?: string;
+  interface Props extends TextareaField {
     rows?: number;
-    textareaClass?: string;
     textareaId?: string;
-  };
+  }
 
   const props = withDefaults(defineProps<Props>(), {
     disabled: false,
     error: false,
     label: undefined,
-    labelClass: undefined,
     maxlength: undefined,
     minlength: undefined,
     placeholder: undefined,
     required: false,
     rows: 8,
-    textareaClass: undefined,
     textareaId: undefined,
     transformValue: undefined,
     validators: undefined,
     value: '',
   });
 
-  const hasError = computed(() => getFieldHasError(error.value, props.error));
-  const supportingText = computed(() => getSupportingText(props.error, error.value));
-  const uniqueTextareaId = computed(() => `${props.textareaId ?? 'textarea'}-${uid}`);
+  const formatValue = (input: string) => {
+    return props.transformValue ? props.transformValue(input) : input;
+  };
 
   const error = ref(props.error);
   const required = ref(props.required);
-  const value = ref(props.value);
+  const value = ref(formatValue(props.value));
 
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
 
+  const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
+  const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
+  const supportingText = computed(() => getSupportingText(props.error, error.value));
+  const uniqueTextareaId = computed(() => `${props.textareaId ?? 'textarea'}-${uid}`);
+
   const handleInput = () => {
     if (props.transformValue) {
-      value.value = props.transformValue(value.value);
+      const digits = value.value.match(/\d/g)?.join('') || undefined;
+
+      value.value = digits ? props.transformValue(digits) : '';
     }
   };
 
@@ -56,20 +57,13 @@
     handleFieldValidation({
       error,
       errorFromProps: props.error,
-      validators: props.validators,
+      validators: [checkLength(props.minlength, props.maxlength), ...(props.validators || [])],
       value,
     });
 
   watch(props, () => {
-    if (
-      getFieldLengthIsValid({
-        maxlength: props.maxlength,
-        minlength: props.minlength,
-        value: props.value,
-      })
-    ) {
-      value.value = props.value;
-    }
+    value.value = formatValue(props.value);
+    handleValidation();
   });
 
   defineExpose({ error, required, value });
@@ -78,35 +72,20 @@
 <template>
   <div
     :class="[
-      'basic-textarea',
-      'block-field',
-      UTILS.FLEX,
-      UTILS.COLUMN,
-      UTILS.AXIS2_START,
-      UTILS.FONT_14,
-      UTILS.FONT_SURFACE_VARIANT,
+      'basic-textarea block-field flex column axis2-start font-14 font-surface-variant',
       disabled && 'disabled',
       hasError && 'error',
     ]"
   >
     <label
-      :class="[labelClass, UTILS.FONT_14, UTILS.PB_1_4]"
       :for="uniqueTextareaId"
+      class="mb-1/4 font-14 font-700"
       v-if="label"
     >
-      {{ label }}
+      {{ formattedLabel }}
     </label>
+
     <textarea
-      :class="[
-        textareaClass,
-        'field',
-        UTILS.W_FULL,
-        UTILS.P_3_4,
-        UTILS.RADIUS_1_8,
-        UTILS.FONT_14,
-        UTILS.BG_SURFACE_LOW,
-        disabled && UTILS.NOT_ALLOWED,
-      ]"
       :disabled="disabled"
       :maxlength="maxlength"
       :minlength="minlength"
@@ -116,26 +95,30 @@
       :rows="rows"
       @focusout="handleValidation"
       @input="handleInput"
+      @keyup="handleValidation"
+      class="p-1 font-surface-variant"
       :id="uniqueTextareaId"
       v-model="value"
     />
 
     <div
-      :class="['supporting-text', UTILS.FONT_12, UTILS.MT_1_4, UTILS.BREAK_WORD]"
+      class="supporting-text flex axis2-center gap-1/2 mt-1/4 break-word font-12"
       v-if="hasError"
     >
       <SvgIcon
-        :class="[UTILS.INLINE_BLOCK, UTILS.ALIGN_MIDDLE, UTILS.FONT_16, UTILS.MR_1_2, UTILS.POINTER_EVENTS_NONE]"
-        :icon="'circle-exclamation'"
+        :icon="ICON.CIRCLE_EXCLAMATION"
         :size="SIZE.SMALL"
+        class="align-middle font-16 pointer-events-none"
         v-if="hasError"
       />
-      <span :class="UTILS.ALIGN_MIDDLE">{{ supportingText }}</span>
+      <span class="align-middle">{{ supportingText }}</span>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped src="@/assets/css/dynamic-inputs.css" />
+
+<style scoped>
   textarea {
     resize: vertical;
   }

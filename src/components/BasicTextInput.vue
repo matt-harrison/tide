@@ -106,6 +106,7 @@
         :type="type"
         @focusout="handleValidation"
         @input="handleInput"
+        @keyup="handleValidation"
         :id="uniqueInputId"
         v-model="value"
       />
@@ -133,7 +134,7 @@
     </div>
 
     <div
-      class="font-12"
+      class="supporting-text font-12"
       v-if="hasError"
     >
       {{ supportingText }}
