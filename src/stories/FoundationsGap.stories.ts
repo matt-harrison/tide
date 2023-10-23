@@ -111,6 +111,13 @@ export const Gap2NoWrap = {
   name: 'Gap 2 REM (No Wrap)',
 };
 
+export const Gap3_2NoWrap = {
+  args: {
+    flexGap: GAP['1.5 REM'],
+  },
+  name: 'Gap 1.5 REM (No Wrap)',
+};
+
 export const Gap1NoWrap = {
   args: {
     flexGap: GAP['1 REM'],
@@ -118,18 +125,32 @@ export const Gap1NoWrap = {
   name: 'Gap 1 REM (No Wrap)',
 };
 
+export const Gap3_4NoWrap = {
+  args: {
+    flexGap: GAP['0.75 REM'],
+  },
+  name: 'Gap 0.75 REM (No Wrap)',
+};
+
 export const GapHalfNoWrap = {
   args: {
-    flexGap: GAP['1/2 REM'],
+    flexGap: GAP['0.5 REM'],
   },
-  name: 'Gap 1/2 REM (No Wrap)',
+  name: 'Gap 0.5 REM (No Wrap)',
 };
 
 export const GapQuarterNoWrap = {
   args: {
-    flexGap: GAP['1/4 REM'],
+    flexGap: GAP['0.25 REM'],
   },
-  name: 'Gap 1/4 REM (No Wrap)',
+  name: 'Gap 0.25 REM (No Wrap)',
+};
+
+export const GapEighthNoWrap = {
+  args: {
+    flexGap: GAP['0.125 REM'],
+  },
+  name: 'Gap 0.125 REM (No Wrap)',
 };
 
 export const Gap4Wrap = {
@@ -148,6 +169,14 @@ export const Gap2Wrap = {
   name: 'Gap 2 REM (Wrap)',
 };
 
+export const Gap3_2Wrap = {
+  args: {
+    flexGap: GAP['1.5 REM'],
+    flexWrap: true,
+  },
+  name: 'Gap 1.5 REM (Wrap)',
+};
+
 export const Gap1Wrap = {
   args: {
     flexGap: GAP['1 REM'],
@@ -156,18 +185,34 @@ export const Gap1Wrap = {
   name: 'Gap 1 REM (Wrap)',
 };
 
-export const GapHalfWrap = {
+export const Gap3_4Wrap = {
   args: {
-    flexGap: GAP['1/2 REM'],
+    flexGap: GAP['0.75 REM'],
     flexWrap: true,
   },
-  name: 'Gap 1/2 REM (Wrap)',
+  name: 'Gap 0.75 REM (Wrap)',
+};
+
+export const GapHalfWrap = {
+  args: {
+    flexGap: GAP['0.5 REM'],
+    flexWrap: true,
+  },
+  name: 'Gap 0.5 REM (Wrap)',
 };
 
 export const GapQuarterWrap = {
   args: {
-    flexGap: GAP['1/4 REM'],
+    flexGap: GAP['0.25 REM'],
     flexWrap: true,
   },
-  name: 'Gap 1/4 REM (Wrap)',
+  name: 'Gap 0.25 REM (Wrap)',
+};
+
+export const GapEighthWrap = {
+  args: {
+    flexGap: GAP['0.125 REM'],
+    flexWrap: true,
+  },
+  name: 'Gap 0.125 REM (Wrap)',
 };

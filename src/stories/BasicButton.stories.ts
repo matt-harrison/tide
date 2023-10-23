@@ -4,6 +4,7 @@ import * as STANDARD_ELEMENT from '@/types/Element';
 import * as STANDARD_ICON from '@/types/Icon';
 import * as STANDARD_PRIORITY from '@/types/Priority';
 import * as STANDARD_SIZE from '@/types/Size';
+import * as STANDARD_TIER from '@/types/Tier';
 import BasicButton from '@/components/BasicButton.vue';
 import {
   argTypeBooleanUnrequired,
@@ -17,6 +18,7 @@ const ELEMENT = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
 const SIZE = prependNoneAsUndefined(STANDARD_SIZE.SIZE);
+const TIER = prependNoneAsUndefined(STANDARD_TIER.TIER);
 
 const render = (args: any) => ({
   components: { BasicButton },
@@ -90,6 +92,13 @@ export default {
         defaultValue: { summary: 'MEDIUM' },
       },
     },
+    tier: {
+      ...formatArgType({ TIER }),
+      description: 'Determines brand colors<br />(Primary only)',
+      table: {
+        defaultValue: { summary: 'TIER_1' },
+      },
+    },
   },
   args: {
     click: 'doSomething',
@@ -102,6 +111,7 @@ export default {
     label: 'Demo',
     priority: undefined,
     size: undefined,
+    tier: TIER.None,
   },
   component: BasicButton,
   parameters,

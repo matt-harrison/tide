@@ -48,9 +48,12 @@
 
   /* Spacing */
   --spacing-0: 0rem;
+  --spacing-1\/8: 0.125rem;
   --spacing-1\/4: 0.25rem;
   --spacing-1\/2: 0.5rem;
+  --spacing-3\/4: 0.75rem;
   --spacing-1: 1rem;
+  --spacing-3\/2: 1.5rem;
   --spacing-2: 2rem;
   --spacing-4: 4rem;
 
@@ -60,6 +63,14 @@
 
   --border-1: var(--border-w-1) solid var(--black);
   --border-2: var(--border-w-2) solid var(--black);
+
+  /* Border Radius */
+  --radius-1\/8: 2px;
+  --radius-1\/4: 4px;
+  --radius-1\/2: 8px;
+  --radius-3\/4: 12px;
+  --radius-1: 16px;
+  --radius-full: 99999px;
 
   /* Global tonal palette */
   --global-tonal-gray-100: #E4E4E5;

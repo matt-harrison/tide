@@ -116,20 +116,36 @@ export const BorderLeft = {
   },
 };
 
-export const RadiusQuarter = {
+export const RadiusEighth = {
   args: {
-    borderRadius: BORDER_RADIUS['1/4'],
+    borderRadius: BORDER_RADIUS['0.125 REM'],
     borderType: BORDER_TYPE['1px'],
   },
-  name: 'Border Radius 1/4 REM',
+  name: 'Border Radius 0.125 REM',
+};
+
+export const RadiusQuarter = {
+  args: {
+    borderRadius: BORDER_RADIUS['0.25 REM'],
+    borderType: BORDER_TYPE['1px'],
+  },
+  name: 'Border Radius 0.25 REM',
 };
 
 export const RadiusHalf = {
   args: {
-    borderRadius: BORDER_RADIUS['1/2'],
+    borderRadius: BORDER_RADIUS['0.5 REM'],
     borderType: BORDER_TYPE['1px'],
   },
-  name: 'Border Radius 1/2 REM',
+  name: 'Border Radius 0.5 REM',
+};
+
+export const Radius1 = {
+  args: {
+    borderRadius: BORDER_RADIUS['1 REM'],
+    borderType: BORDER_TYPE['1px'],
+  },
+  name: 'Border Radius 1 REM',
 };
 
 export const RadiusFull = {

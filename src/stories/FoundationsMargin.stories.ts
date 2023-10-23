@@ -111,6 +111,13 @@ export const Margin2 = {
   name: 'Margin 2 REM',
 };
 
+export const Margin3_2 = {
+  args: {
+    margin: MARGIN['Full 1.5 REM'],
+  },
+  name: 'Margin 1.5 REM',
+};
+
 export const Margin1 = {
   args: {
     margin: MARGIN['Full 1 REM'],
@@ -118,18 +125,32 @@ export const Margin1 = {
   name: 'Margin 1 REM',
 };
 
+export const Margin3_4 = {
+  args: {
+    margin: MARGIN['Full 0.75 REM'],
+  },
+  name: 'Margin 0.75 REM',
+};
+
 export const MarginHalf = {
   args: {
-    margin: MARGIN['Full 1/2 REM'],
+    margin: MARGIN['Full 0.5 REM'],
   },
-  name: 'Margin 1/2 REM',
+  name: 'Margin 0.5 REM',
 };
 
 export const MarginQuarter = {
   args: {
-    margin: MARGIN['Full 1/4 REM'],
+    margin: MARGIN['Full 0.25 REM'],
   },
-  name: 'Margin 1/4 REM',
+  name: 'Margin 0.25 REM',
+};
+
+export const MarginEighth = {
+  args: {
+    margin: MARGIN['Full 0.125 REM'],
+  },
+  name: 'Margin 0.125 REM',
 };
 
 export const MarginYAuto = {

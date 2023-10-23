@@ -110,6 +110,13 @@ export const FontFamilyTitle = {
   },
 };
 
+export const FontSize10 = {
+  args: {
+    fontSize: FONT_SIZE['10px'],
+  },
+  name: 'Font Size 10px',
+};
+
 export const FontSize12 = {
   args: {
     fontSize: FONT_SIZE['12px'],
@@ -129,6 +136,13 @@ export const FontSize16 = {
     fontSize: FONT_SIZE['16px'],
   },
   name: 'Font Size 16px',
+};
+
+export const FontSize18 = {
+  args: {
+    fontSize: FONT_SIZE['18px'],
+  },
+  name: 'Font Size 18px',
 };
 
 export const FontSize20 = {
@@ -161,14 +175,21 @@ export const FontSize32 = {
 
 export const FontWeight500 = {
   args: {
-    fontWeight: FONT_WEIGHT.Default,
+    fontWeight: FONT_WEIGHT['500'],
   },
   name: 'Font Weight 500 (Medium)',
 };
 
+export const FontWeight600 = {
+  args: {
+    fontWeight: FONT_WEIGHT['600'],
+  },
+  name: 'Font Weight 600 (Semibold)',
+};
+
 export const FontWeight700 = {
   args: {
-    fontWeight: FONT_WEIGHT.Bold,
+    fontWeight: FONT_WEIGHT['700'],
   },
   name: 'Font Weight 700 (Bold)',
 };

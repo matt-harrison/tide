@@ -79,6 +79,13 @@ export const Padding2 = {
   name: 'Padding 2 REM',
 };
 
+export const Padding3_2 = {
+  args: {
+    padding: PADDING['Full 1.5 REM'],
+  },
+  name: 'Padding 1.5 REM',
+};
+
 export const Padding1 = {
   args: {
     padding: PADDING['Full 1 REM'],
@@ -86,16 +93,30 @@ export const Padding1 = {
   name: 'Padding 1 REM',
 };
 
+export const Padding3_4 = {
+  args: {
+    padding: PADDING['Full 0.75 REM'],
+  },
+  name: 'Padding 0.75 REM',
+};
+
 export const PaddingHalf = {
   args: {
-    padding: PADDING['Full 1/2 REM'],
+    padding: PADDING['Full 0.5 REM'],
   },
-  name: 'Padding 1/2 REM',
+  name: 'Padding 0.5 REM',
 };
 
 export const PaddingQuarter = {
   args: {
-    padding: PADDING['Full 1/4 REM'],
+    padding: PADDING['Full 0.25 REM'],
   },
-  name: 'Padding 1/4 REM',
+  name: 'Padding 0.25 REM',
+};
+
+export const PaddingEighth = {
+  args: {
+    padding: PADDING['Full 0.125 REM'],
+  },
+  name: 'Padding 0.125 REM',
 };
