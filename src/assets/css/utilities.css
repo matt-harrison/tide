@@ -245,6 +245,18 @@
 .font-500 {font-weight: 500;}
 .font-700 {font-weight: 700;}
 
+.shadow-b-1 {box-shadow: var(--shadow-b-1);}
+.shadow-b-2 {box-shadow: var(--shadow-b-2);}
+.shadow-b-3 {box-shadow: var(--shadow-b-3);}
+.shadow-b-4 {box-shadow: var(--shadow-b-4);}
+.shadow-b-5 {box-shadow: var(--shadow-b-5);}
+
+.shadow-t-1 {box-shadow: var(--shadow-t-1);}
+.shadow-t-2 {box-shadow: var(--shadow-t-2);}
+.shadow-t-3 {box-shadow: var(--shadow-t-3);}
+.shadow-t-4 {box-shadow: var(--shadow-t-4);}
+.shadow-t-5 {box-shadow: var(--shadow-t-5);}
+
 /* Misc */
 .box-shadow       {box-shadow: var(--shadow-1);}
 .box-shadow:hover {box-shadow: var(--shadow-2);}

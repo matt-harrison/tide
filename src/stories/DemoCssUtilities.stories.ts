@@ -5,20 +5,19 @@ import type { StoryContext } from '@storybook/vue3';
 import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/StorybookStyles';
 import Border from '@/stories/FoundationsBorder.stories';
-import BoxShadow from '@/stories/FoundationsBoxShadow.stories';
 import Color from '@/stories/FoundationsColor.stories';
 import Font from '@/stories/FoundationsTypography.stories';
 import Gap from '@/stories/FoundationsGap.stories';
 import Margin from '@/stories/FoundationsMargin.stories';
 import Padding from '@/stories/FoundationsPadding.stories';
+import Shadow from '@/stories/FoundationsShadow.stories';
 import { argTypeDimension, formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
+const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
+const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
 const COLOR_BACKGROUND = prependNoneAsEmpty(STORYBOOK.COLOR_BACKGROUND);
 const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
 const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
-const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
-const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
-const BOX_SHADOW = prependNoneAsEmpty(STYLES.BOX_SHADOW);
 const DISPLAY = prependNoneAsEmpty(STYLES.DISPLAY);
 const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
 const FLEX_AXIS2 = prependNoneAsEmpty(STYLES.FLEX_AXIS2);
@@ -29,6 +28,8 @@ const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 const GAP = prependNoneAsEmpty(STYLES.GAP);
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
+const SHADOW_BOTTOM = prependNoneAsEmpty(STYLES.SHADOW_BOTTOM);
+const SHADOW_TOP = prependNoneAsEmpty(STYLES.SHADOW_TOP);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -56,7 +57,8 @@ const formatClassNames = (args: any) => {
   if (args.fontWeight) classNames.push(args.fontWeight);
   if (args.margin) classNames.push(args.margin);
   if (args.padding) classNames.push(args.padding);
-  if (args.boxShadow) classNames.push(args.boxShadow);
+  if (args.shadowBottom) classNames.push(args.shadowBottom);
+  if (args.shadowTop) classNames.push(args.shadowTop);
 
   return classNames.join(' ');
 };
@@ -101,7 +103,7 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     ...Border.argTypes,
-    ...BoxShadow.argTypes,
+    ...Shadow.argTypes,
     ...Font.argTypes,
     ...Gap.argTypes,
     ...Padding.argTypes,
@@ -140,7 +142,6 @@ export default {
     borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
     borderType: BORDER_TYPE.None,
-    boxShadow: BOX_SHADOW.None,
     children: 'Demo',
     display: DISPLAY.None,
     flexAxis1: FLEX_AXIS1.None,
@@ -154,6 +155,8 @@ export default {
     fontWeight: FONT_WEIGHT.None,
     margin: MARGIN.None,
     padding: PADDING.None,
+    shadowBottom: SHADOW_BOTTOM.None,
+    shadowTop: SHADOW_TOP.None,
   },
   parameters,
   render,

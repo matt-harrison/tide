@@ -34,8 +34,17 @@
   --animate: 300ms ease-in-out;
 
   /* Shadow */
-  --shadow-1: 0 0 11px rgba(0, 1, 6, 0.1);
-  --shadow-2: 0 0 11px rgba(0, 1, 6, 0.15);
+  --shadow-b-1: 0px 1px 6px 1px rgba(0, 0, 0, 0.10);
+  --shadow-b-2: 0px 2px 9px 2px rgba(0, 0, 0, 0.13);
+  --shadow-b-3: 0px 4px 11px 3px rgba(0, 0, 0, 0.15);
+  --shadow-b-4: 0px 6px 14px 3px rgba(0, 0, 0, 0.15);
+  --shadow-b-5: 0px 8px 15px 6px rgba(0, 0, 0, 0.15);
+
+  --shadow-t-1: 0px -1px 6px 1px rgba(0, 0, 0, 0.10);
+  --shadow-t-2: 0px -2px 9px 2px rgba(0, 0, 0, 0.13);
+  --shadow-t-3: 0px -4px 11px 3px rgba(0, 0, 0, 0.15);
+  --shadow-t-4: 0px -6px 14px 3px rgba(0, 0, 0, 0.15);
+  --shadow-t-5: 0px -8px 15px 6px rgba(0, 0, 0, 0.15);
 
   /* Spacing */
   --spacing-0: 0rem;

@@ -16,8 +16,20 @@ export const BORDER_TYPE = {
   'Left': 'border-l',
 };
 
-export const BOX_SHADOW = {
-  'Level 1': 'box-shadow',
+export const SHADOW_BOTTOM = {
+  'Level 1': 'shadow-b-1',
+  'Level 2': 'shadow-b-2',
+  'Level 3': 'shadow-b-3',
+  'Level 4': 'shadow-b-4',
+  'Level 5': 'shadow-b-5',
+};
+
+export const SHADOW_TOP = {
+  'Level 1': 'shadow-t-1',
+  'Level 2': 'shadow-t-2',
+  'Level 3': 'shadow-t-3',
+  'Level 4': 'shadow-t-4',
+  'Level 5': 'shadow-t-5',
 };
 
 export const DISPLAY = {
