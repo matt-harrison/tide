@@ -1,9 +1,7 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
 
 const config: StorybookConfig = {
-  addons: [
-    '@storybook/addon-essentials',
-  ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm'],
   docs: {
     autodocs: 'tag',
   },
