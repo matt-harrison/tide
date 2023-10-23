@@ -102,7 +102,8 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'select';
     const isConstants =
       Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'check';
-    const isDynamic = isConstant || isConstants || typeof value === 'boolean';
+    const isCustom = argTypes[key].isCustom;
+    const isDynamic = argTypes[key].isDynamic || isConstant || isConstants || typeof value === 'boolean';
     const isEmpty = !isDynamic && value === '';
     const isSlot = key === 'default';
     const isExcluded = value === undefined || (Array.isArray(value) && !value.length);
@@ -133,8 +134,12 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       value = `[${constantSlots.join(', ')}]`;
     }
 
-    if (isConditionMet && !isExcluded && !isClick && !isEmpty && !isSlot) {
+    if (isConditionMet && !isClick && !isCustom && !isEmpty && !isExcluded && !isSlot) {
       return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
+    }
+
+    if (isCustom) {
+      return `:${formatKebabCase(key)}="${key}"`;
     }
 
     if (isClick && value && (!args.element || args.element === 'button')) {

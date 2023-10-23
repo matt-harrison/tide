@@ -10,14 +10,12 @@ import {
   parameters,
   prependNoneAsUndefined,
 } from '@/utilities/storybook';
-import { formatPrice } from '@/utilities/format';
 
 const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 
 const render = (args: any) => ({
   components: { BasicTextarea },
   methods: {
-    formatPrice,
     handleKeyUp: (event: KeyboardEvent) => {
       action('BasicTextarea changed')(event);
     },

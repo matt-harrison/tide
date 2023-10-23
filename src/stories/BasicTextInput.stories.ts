@@ -12,7 +12,6 @@ import {
   parameters,
   prependNoneAsUndefined,
 } from '@/utilities/storybook';
-import { formatPrice } from '@/utilities/format';
 
 const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
@@ -21,7 +20,6 @@ const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INP
 const render = (args: any) => ({
   components: { BasicTextInput },
   methods: {
-    formatPrice,
     handleKeyUp: (event: KeyboardEvent) => {
       action('BasicTextInput changed')(event);
     },

@@ -24,7 +24,7 @@ interface GenericInput {
   required?: boolean;
 }
 
-interface SelectField extends GenericField, StringValue {
+interface SelectField extends GenericInput, StringValue {
   options: SelectOption[];
   placeholder?: string;
 }

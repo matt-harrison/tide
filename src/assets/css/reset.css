@@ -31,7 +31,8 @@ h5 {
   font-weight: var(--font-700);
 }
 
-img {
+img,
+label {
   display: block;
 }
 
@@ -47,7 +48,8 @@ p {
 button,
 input,
 option,
-select {
+select,
+textarea {
   background-color: unset;
   font-family: inherit;
   font-size: inherit;

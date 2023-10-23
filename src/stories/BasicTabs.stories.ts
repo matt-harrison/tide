@@ -1,19 +1,17 @@
 import { action } from '@storybook/addon-actions';
 
-import type { StoryContext } from '@storybook/vue3';
-
 import type { Tab } from '@/types/Tab';
 
 import BasicTabs from '@/components/BasicTabs.vue';
-import { getLabelsFromOptions } from '@/utilities/storybook';
+import { getLabelsFromOptions, parameters } from '@/utilities/storybook';
 
 /* eslint-disable */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
 const options = {
   'None': undefined,
-  '0 (Tab 1)': 0,
-  '1 (Tab 2)': 1,
-  '2 (Tab 3)': 2,
+  'Tab 1': 0,
+  'Tab 2': 1,
+  'Tab 3': 2,
 };
 /* eslint-enable */
 
@@ -38,24 +36,6 @@ const tabs: Tab[] = [
   },
 ];
 
-const formatSnippet = (code: string, context: StoryContext) => {
-  const { args } = context;
-  const activeTabInitial =
-    args.activeTabInitial !== undefined ? ` :active-tab-initial="${args.activeTabInitial}" ` : '';
-
-  return `<BasicTabs${activeTabInitial} :tabs="tabs" />`;
-};
-
-const parameters = {
-  docs: {
-    source: {
-      format: false,
-      language: 'html',
-      transform: formatSnippet,
-    },
-  },
-};
-
 const render = (args: any) => ({
   components: { BasicTabs },
   setup: () => ({ args }),
@@ -70,6 +50,7 @@ export default {
         type: 'select',
       },
       description: 'Determines which tab should be active by default<br />(Subsequently managed within component)',
+      isDynamic: true,
       options: Object.values(options),
       table: {
         defaultValue: { summary: 'None' },
@@ -78,6 +59,7 @@ export default {
     tabs: {
       control: 'object',
       description: 'Determines label and callback for each tab',
+      isCustom: true,
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'Tab[]' },

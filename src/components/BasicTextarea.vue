@@ -96,7 +96,7 @@
       @focusout="handleValidation"
       @input="handleInput"
       @keyup="handleValidation"
-      class="p-1 font-surface-variant"
+      class="field p-1/2 bg-surface-low font-surface-variant"
       :id="uniqueTextareaId"
       v-model="value"
     />

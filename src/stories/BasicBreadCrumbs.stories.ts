@@ -22,6 +22,7 @@ export default {
     breadCrumbs: {
       control: 'object',
       description: 'Determines label and optional URL for each bread crumb',
+      isCustom: true,
       table: {
         defaultValue: { summary: '[]' },
         type: { summary: 'BreadCrumb[]' },

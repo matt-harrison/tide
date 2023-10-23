@@ -119,7 +119,8 @@
       />
 
       <span
-        class="absolute right-0 mr-2 font-14 pointer-events-none"
+        :class="hasError ? 'mr-2' : 'mr-1/2'"
+        class="absolute right-0 font-14 pointer-events-none"
         v-if="hasSuffix"
       >
         {{ suffix }}
