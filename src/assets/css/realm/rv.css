@@ -185,22 +185,22 @@
   --ti-tertiary-button-foreground-hover: var(--teal-700);
 
   /* Dark Theme Surface BGs */
-  --ti-surface-background-low: var(--teal-700);
-  --ti-surface-background-default: var(--global-tonal-white-16);
-  --ti-surface-background-high: var(--global-tonal-white-24);
+  --ti-surface-background-default: #36494e;
+  --ti-surface-background-high: var(--teal-700);
+  --ti-surface-background-low: #516265;
 
   /* Dark Theme Surface Variant BGs */
-  --ti-surface-variant-background-lowest: var(--global-tonal-white-10);
-  --ti-surface-variant-background-low: var(--global-tonal-white-16);
-  --ti-surface-variant-background-default: var(--global-tonal-white-20);;
-  --ti-surface-variant-background-high: var(--global-tonal-white-28);
-  --ti-surface-variant-background-highest: var(--global-tonal-white-32);
+  --ti-surface-variant-background-low: #3c4f53;
+  --ti-surface-variant-background-lowest: #304449;
+  --ti-surface-variant-background-default: #48595d;
+  --ti-surface-variant-background-high: #5a6a6d;
+  --ti-surface-variant-background-highest: #768386;
 
   --ti-surface-foreground: var(--global-tonal-white-100);
-  --ti-surface-variant-foreground: var(--global-tonal-white-75);
+  --ti-surface-variant-foreground: #c6cbcc;
 
   /* Dark Theme Borders */
-  --ti-surface-border-low: var(--global-tonal-white-24);
-  --ti-surface-border-rest: var(--global-tonal-white-65);
+  --ti-surface-border-low: #536468;
+  --ti-surface-border-rest: #6a787c;
   --ti-surface-border-high: var(--global-tonal-white-100);
 }

@@ -17,14 +17,6 @@ const render = (args: any, { updateArgs }: any) => ({
 
 export default {
   argTypes: {
-    checkboxClass: {
-      control: 'text',
-      description: 'CSS utilities applied to the Checkbox input',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'string' },
-      },
-    },
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether Checkbox is interactable',
@@ -55,14 +47,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    labelClass: {
-      control: 'text',
-      description: 'CSS utilities applied to the Checkbox label',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'string' },
-      },
-    },
     name: {
       control: 'text',
       description: 'Name attribute',
@@ -82,10 +66,8 @@ export default {
     },
   },
   args: {
-    checkboxClass: '',
     inputId: '',
     label: 'Demo',
-    labelClass: '',
     name: 'demo',
     value: undefined,
   },

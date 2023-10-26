@@ -471,7 +471,7 @@
       v-show="isSingleColumn"
     >
       <div
-        :class="isStickyContact ? 'fixed bottom-0 box-shadow' : ''"
+        :class="isStickyContact ? 'fixed bottom-0 shadow-b-1' : ''"
         ref="stickableFooterRef"
         class="sticky-footer flex gap-1/2 py-2 px-1 w-full bg-white"
       >

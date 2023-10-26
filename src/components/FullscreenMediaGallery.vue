@@ -282,7 +282,7 @@
             :icon="ICON.XMARK"
             :priority="PRIORITY.TERTIARY"
             @click="handleClose"
-            class="box-shadow"
+            class="shadow-b-1"
           />
         </div>
       </header>
@@ -307,7 +307,7 @@
               :icon="ICON.CHEVRON_LEFT"
               :priority="PRIORITY.TERTIARY"
               @click="handlePrevClick"
-              class="box-shadow"
+              class="shadow-b-1"
             />
 
             <div
@@ -368,7 +368,7 @@
               :icon="ICON.CHEVRON_RIGHT"
               :priority="PRIORITY.TERTIARY"
               @click="handleNextClick"
-              class="box-shadow"
+              class="shadow-b-1"
             />
           </div>
 
@@ -503,7 +503,7 @@
               viewportStore.isLarge && 'hidden',
             ]"
             ref="contactActionsRef"
-            class="contact-actions flex column gap-1/2 mx-2 p-1 font-12 radius-1 bg-white font-gray-dark box-shadow"
+            class="contact-actions flex column gap-1/2 mx-2 p-1 font-12 radius-1 bg-white font-gray-dark shadow-b-1"
           >
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"

@@ -84,7 +84,7 @@
       <BasicButtonIcon
         :icon="icon"
         :priority="PRIORITY.TERTIARY"
-        class="absolute box-shadow-1"
+        class="absolute shadow-b-1"
       />
     </div>
   </button>

@@ -80,21 +80,57 @@ export default {
 
 export const Default = {};
 
-export const BackgroundColorSurface = {
+export const BackgroundColorSurfaceLow = {
+  args: {
+    backgroundColor: COLOR_BACKGROUND['Surface Low'],
+  },
+};
+
+export const BackgroundColorSurfaceDefault = {
   args: {
     backgroundColor: COLOR_BACKGROUND['Surface'],
   },
 };
 
-export const BackgroundColorSurfaceLight = {
+export const BackgroundColorSurfaceHigh = {
   args: {
-    backgroundColor: COLOR_BACKGROUND['Surface Light'],
+    backgroundColor: COLOR_BACKGROUND['Surface High'],
   },
 };
 
-export const BackgroundColorSurfaceDark = {
+export const BackgroundColorSurfaceVariantLowest = {
   args: {
-    backgroundColor: COLOR_BACKGROUND['Surface Dark'],
+    backgroundColor: COLOR_BACKGROUND['Surface Variant Lowest'],
+  },
+};
+
+export const BackgroundColorSurfaceVariantLow = {
+  args: {
+    backgroundColor: COLOR_BACKGROUND['Surface Variant Low'],
+  },
+};
+
+export const BackgroundColorSurfaceVariantDefault = {
+  args: {
+    backgroundColor: COLOR_BACKGROUND['Surface Variant'],
+  },
+};
+
+export const BackgroundColorSurfaceVariantHigh = {
+  args: {
+    backgroundColor: COLOR_BACKGROUND['Surface Variant High'],
+  },
+};
+
+export const BackgroundColorSurfaceVariantHighest = {
+  args: {
+    backgroundColor: COLOR_BACKGROUND['Surface Variant Highest'],
+  },
+};
+
+export const BorderColorSurfaceLow = {
+  args: {
+    borderColor: COLOR_BORDER['Surface Low'],
   },
 };
 
@@ -104,15 +140,9 @@ export const BorderColorSurface = {
   },
 };
 
-export const BorderColorSurfaceLight = {
+export const BorderColorSurfaceHigh = {
   args: {
-    borderColor: COLOR_BORDER['Surface Light'],
-  },
-};
-
-export const BorderColorSurfaceDark = {
-  args: {
-    borderColor: COLOR_BORDER['Surface Dark'],
+    borderColor: COLOR_BORDER['Surface High'],
   },
 };
 

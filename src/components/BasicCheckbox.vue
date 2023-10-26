@@ -8,21 +8,17 @@
   const UTILS = getCssUtils();
 
   interface Props extends CheckboxField {
-    checkboxClass?: string;
     inputId?: string;
-    labelClass?: string;
   }
 
   // TODO: Implement markup for conditional error state based on requirement + value.
 
   const props = withDefaults(defineProps<Props>(), {
-    checkboxClass: undefined,
     disabled: false,
     error: false, // TODO: Add markup to display "required" error message.
     indeterminate: false, // TODO: Implement indeterminate state [-]
     inputId: undefined,
     label: undefined,
-    labelClass: undefined,
     required: false,
     value: false,
   });
@@ -38,7 +34,7 @@
   >
     <input
       :checked="props.value || undefined"
-      :class="[checkboxClass, UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
+      :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
       :disabled="props.disabled"
       :name="name"
       :id="uniqueInputId"
@@ -46,7 +42,7 @@
     />
 
     <label
-      :class="[labelClass, UTILS.PL_1_2, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
+      :class="[UTILS.PL_1_2, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
       :for="uniqueInputId"
       @click.stop
       v-if="label"

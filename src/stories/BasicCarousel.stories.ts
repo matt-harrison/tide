@@ -15,6 +15,7 @@ export default {
         disable: true,
       },
     },
+    // TODO: adapt via formatSnippet
     hasPadding: {
       control: 'boolean',
       description: 'Demonstrates the box shadow',

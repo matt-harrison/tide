@@ -95,6 +95,7 @@ export default {
     tier: {
       ...formatArgType({ TIER }),
       description: 'Determines brand colors<br />(Primary only)',
+      if: { arg: 'priority', eq: PRIORITY.PRIMARY },
       table: {
         defaultValue: { summary: 'TIER_1' },
       },

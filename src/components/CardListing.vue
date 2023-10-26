@@ -149,7 +149,7 @@
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :priority="PRIORITY.TERTIARY"
             @click.prevent="handleFavoriteClick"
-            class="box-shadow"
+            class="shadow-b-1"
           />
         </div>
       </BasicCard>
