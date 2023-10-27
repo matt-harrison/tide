@@ -108,3 +108,16 @@ button.tertiary:enabled:hover {
   border: 1px solid var(--ti-tertiary-button-border-hover);
   color: var(--ti-tertiary-button-foreground-hover);
 }
+
+.floating {
+  background: var(--global-tonal-white-100);
+  border: none;
+  color: var(--ti-floating-button-foreground-rest);
+  box-shadow: var(--ti-floating-button-shadow-rest);
+}
+
+.floating:not(:disabled):hover {
+  background: var(--ti-floating-button-background-rest);
+  color: var(--ti-floating-button-foreground-hover);
+  box-shadow: var(--ti-floating-button-shadow-hover);
+}

@@ -280,9 +280,8 @@
         <div class="ml-auto">
           <BasicButtonIcon
             :icon="ICON.XMARK"
-            :priority="PRIORITY.TERTIARY"
+            :priority="PRIORITY.FLOATING"
             @click="handleClose"
-            class="shadow-b-1"
           />
         </div>
       </header>
@@ -305,9 +304,8 @@
               :class="viewportStore.isLarge ? '' : 'hidden'"
               :disabled="currentSlide === 0"
               :icon="ICON.CHEVRON_LEFT"
-              :priority="PRIORITY.TERTIARY"
+              :priority="PRIORITY.FLOATING"
               @click="handlePrevClick"
-              class="shadow-b-1"
             />
 
             <div
@@ -366,9 +364,8 @@
               :class="viewportStore.isLarge ? '' : 'hidden'"
               :disabled="currentSlide === gallerySlides.length - 1"
               :icon="ICON.CHEVRON_RIGHT"
-              :priority="PRIORITY.TERTIARY"
+              :priority="PRIORITY.FLOATING"
               @click="handleNextClick"
-              class="shadow-b-1"
             />
           </div>
 

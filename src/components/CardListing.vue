@@ -147,9 +147,8 @@
         <div class="absolute top-0 right-0 mt-1 mr-1">
           <BasicButtonIcon
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
-            :priority="PRIORITY.TERTIARY"
+            :priority="PRIORITY.FLOATING"
             @click.prevent="handleFavoriteClick"
-            class="shadow-b-1"
           />
         </div>
       </BasicCard>

@@ -83,8 +83,8 @@
 
       <BasicButtonIcon
         :icon="icon"
-        :priority="PRIORITY.TERTIARY"
-        class="absolute shadow-b-1"
+        :priority="PRIORITY.FLOATING"
+        class="absolute"
       />
     </div>
   </button>

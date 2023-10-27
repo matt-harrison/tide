@@ -665,6 +665,12 @@
               @click="handleButtonClick"
               label="Tertiary"
             />
+
+            <BasicButton
+              :priority="PRIORITY.FLOATING"
+              @click="handleButtonClick"
+              label="Floating"
+            />
           </div>
 
           <div class="flex wrap gap-1 mb-1 ml-1">
@@ -686,6 +692,13 @@
               @click="handleButtonClick"
               disabled
               label="Tertiary"
+            />
+
+            <BasicButton
+              :priority="PRIORITY.FLOATING"
+              @click="handleButtonClick"
+              disabled
+              label="Floating"
             />
           </div>
 
@@ -761,6 +774,17 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.TERTIARY"
+              :title="icon"
+              @click="handleButtonClick"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.FLOATING"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -991,6 +1015,13 @@
               href="#"
               label="Tertiary"
             />
+
+            <BasicButton
+              :element="ELEMENT.LINK"
+              :priority="PRIORITY.FLOATING"
+              href="#"
+              label="Floating"
+            />
           </div>
 
           <div class="flex wrap gap-1 ml-1">
@@ -1047,6 +1078,18 @@
               :icon="icon"
               :key="icon"
               :priority="PRIORITY.TERTIARY"
+              :title="icon"
+              @click="handleButtonClick"
+              href="#"
+              v-for="icon in ICON"
+            />
+          </div>
+
+          <div class="flex wrap gap-1 mb-1 ml-1">
+            <BasicButtonIcon
+              :icon="icon"
+              :key="icon"
+              :priority="PRIORITY.FLOATING"
               :title="icon"
               @click="handleButtonClick"
               href="#"

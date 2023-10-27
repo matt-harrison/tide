@@ -164,16 +164,16 @@
     >
       <BasicButtonIcon
         :icon="ICON.CHEVRON_LEFT"
-        :priority="PRIORITY.TERTIARY"
+        :priority="PRIORITY.FLOATING"
         @click="showPreviousSlide"
-        class="ml-1 pointer-events shadow-b-1"
+        class="ml-1 pointer-events"
       />
 
       <BasicButtonIcon
         :icon="ICON.CHEVRON_RIGHT"
-        :priority="PRIORITY.TERTIARY"
+        :priority="PRIORITY.FLOATING"
         @click="showNextSlide"
-        class="mr-1 pointer-events shadow-b-1"
+        class="mr-1 pointer-events"
       />
     </div>
   </section>
