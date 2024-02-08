@@ -17,8 +17,8 @@
 </script>
 
 <template>
-  <div class="flex gap-1 axis1-start axis2-start font-600 font-14">
-    <div class="shrink-none border-overlay radius-1/2 xy-hidden">
+  <div class="tide-display-flex tide-gap-1 tide-axis1-start tide-axis2-start tide-font-600 tide-font-14">
+    <div class="tide-shrink-none border-overlay tide-radius-1/2 tide-xy-hidden">
       <BasicImage
         :src="thumb"
         height="70"
@@ -27,8 +27,8 @@
     </div>
     <div>
       <div>{{ vehicleTitle }}</div>
-      <div class="mt-1/4 font-12 font-surface-variant">{{ locationTitle }}</div>
-      <div class="mt-1/4">{{ price }}</div>
+      <div class="tide-margin-top-1/4 tide-font-12 tide-font-surface-variant">{{ locationTitle }}</div>
+      <div class="tide-margin-top-1/4">{{ price }}</div>
     </div>
   </div>
 </template>

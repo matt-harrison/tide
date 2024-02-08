@@ -106,7 +106,7 @@
     :style="{
       order: mobileSectionOrder.topBanner,
     }"
-    class="vdp-top-banner flex axis1-center mb-2 py-2 border-b border-gray-light"
+    class="vdp-top-banner tide-display-flex tide-axis1-center tide-margin-bottom-2 tide-padding-y-2 tide-border-bottom tide-border-gray-light"
     v-show="!isSingleColumn"
   >
     <AdPlaceholder
@@ -119,24 +119,28 @@
     :style="{
       order: mobileSectionOrder.breadcrumbs,
     }"
-    class="vdp-breadcrumbs mb-2"
+    class="vdp-breadcrumbs tide-margin-bottom-2"
     v-show="!isSingleColumn"
   >
     <BasicBreadCrumbs :bread-crumbs="breadCrumbs" />
   </section>
 
   <div
-    :class="isSingleColumn ? 'contents' : 'start-1 end-7 mr-1'"
+    :class="isSingleColumn ? 'tide-contents' : 'tide-start-1 tide-end-7 tide-margin-right-1'"
     class="vdp-left"
   >
     <section
-      :class="isSingleColumn ? 'column my-2' : 'row-reverse axis1-between gap-1 mb-1'"
+      :class="
+        isSingleColumn
+          ? 'tide-flex-column tide-margin-y-2'
+          : 'row-reverse tide-axis1-between tide-gap-1 tide-margin-bottom-1'
+      "
       :style="{
         order: mobileSectionOrder.header,
       }"
-      class="vdp-header layout-item flex"
+      class="vdp-header layout-item tide-display-flex"
     >
-      <div class="flex axis1-between gap-1 mb-1">
+      <div class="tide-display-flex tide-axis1-between tide-gap-1 tide-margin-bottom-1">
         <a
           :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
           v-if="isSingleColumn"
@@ -144,7 +148,7 @@
           <BasicButtonIcon :icon="ICON.CHEVRON_LEFT" />
         </a>
 
-        <div class="flex gap-1 ml-auto">
+        <div class="tide-display-flex tide-gap-1 tide-margin-left-auto">
           <BasicButtonIcon
             :icon="ICON.ARROW_UP_FROM_BRACKET"
             :priority="PRIORITY.SECONDARY"
@@ -169,17 +173,17 @@
       </div>
 
       <div>
-        <h1 class="mb-1/2 font-24">{{ vehicleTitle }}</h1>
+        <h1 class="tide-margin-bottom-1/2 tide-font-24">{{ vehicleTitle }}</h1>
 
-        <div class="flex axis2-center gap-1 font-12">
+        <div class="tide-display-flex tide-axis2-center tide-gap-1 tide-font-12">
           <div
-            class="flex axis2-center gap-1/4"
+            class="tide-display-flex tide-axis2-center tide-gap-1/4"
             v-if="vehicle.dealerName"
           >
             <BasicLink
               :href="dealerLinkHref"
               :icon-leading="ICON.CIRCLE_CHECK"
-              class="font-12"
+              class="tide-font-12"
               target="_blank"
             >
               {{ vehicle.dealerName }}
@@ -197,7 +201,7 @@
     </section>
 
     <section
-      :class="isSingleColumn ? 'fluid' : ''"
+      :class="isSingleColumn ? 'tide-fluid' : ''"
       :style="{
         order: mobileSectionOrder.media,
       }"
@@ -207,15 +211,15 @@
     </section>
 
     <section
-      :class="isSingleColumn ? 'pt-2' : 'py-2'"
+      :class="isSingleColumn ? 'tide-padding-top-2' : 'tide-padding-y-2'"
       :style="{
         order: mobileSectionOrder.pricing,
       }"
-      class="vdp-pricing layout-item flex wrap axis1-between gap-1 axis2-start pb-2 border-b border-gray"
+      class="vdp-pricing layout-item tide-display-flex tide-flex-wrap tide-axis1-between tide-gap-1 tide-axis2-start tide-padding-bottom-2 tide-border-bottom tide-border-gray"
     >
-      <div class="flex column gap-1/2">
-        <div class="font-20 font-700">{{ price }}</div>
-        <div class="flex wrap axis2-center gap-1/4 font-14">
+      <div class="tide-display-flex tide-flex-column tide-gap-1/2">
+        <div class="tide-font-20 tide-font-700">{{ price }}</div>
+        <div class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1/4 tide-font-14">
           <BasicLink
             :element="ELEMENT.BUTTON"
             @click="() => (loanCalculatorIsOpen = true)"
@@ -238,7 +242,7 @@
       <BasicButton
         :priority="PRIORITY.SECONDARY"
         @click="() => (makeAnOfferModalIsOpen = true)"
-        class="shrink-none"
+        class="tide-shrink-none"
         label="Make an offer"
       />
 
@@ -254,45 +258,45 @@
       :style="{
         order: mobileSectionOrder.details,
       }"
-      class="vdp-details layout-item border-b border-gray py-2"
+      class="vdp-details layout-item tide-border-bottom tide-border-gray tide-padding-y-2"
     >
-      <h2 class="mb-1 font-20">{{ realm.label.singular }} details</h2>
+      <h2 class="tide-margin-bottom-1 tide-font-20">{{ realm.label.singular }} details</h2>
 
       <div
-        :class="isExtraSmall ? 'column' : 'row'"
-        class="flex axis2-start gap-2 border-b border-gray pb-2 mb-2"
+        :class="isExtraSmall ? 'tide-flex-column' : 'tide-flex-row'"
+        class="tide-display-flex tide-axis2-start tide-gap-2 tide-border-bottom tide-border-gray tide-padding-bottom-2 tide-margin-bottom-2"
       >
         <div
-          class="floorplan-thumb shrink-none border-overlay radius-1/2"
+          class="floorplan-thumb tide-shrink-none border-overlay tide-radius-1/2"
           v-if="vehicle.floorPlanMediaId"
         >
           <BasicImage
             :src="vehicle.floorPlanMediaId"
-            class="shrink-none"
+            class="tide-shrink-none"
           />
         </div>
-        <ul class="flex wrap gap-1 w-full font-14 list-none">
+        <ul class="tide-display-flex tide-flex-wrap tide-gap-1 tide-width-full tide-font-14 tide-list-none">
           <li
-            :class="isExtraSmall ? 'mb-1' : ''"
-            class="vehicle-detail-item flex axis2-center gap-1/2"
+            :class="isExtraSmall ? 'tide-margin-bottom-1' : ''"
+            class="vehicle-detail-item tide-display-flex tide-axis2-center tide-gap-1/2"
           >
             <BasicIcon :icon="ICON.BOOKMARK" />
-            <span class="font-14 font-600">Under warranty</span>
+            <span class="tide-font-14 tide-font-600">Under warranty</span>
           </li>
 
           <li
             :key="detail.label"
-            class="vehicle-detail-item w-full"
+            class="vehicle-detail-item tide-width-full"
             v-for="detail in details"
           >
-            <span class="font-600">{{ detail.label }}: </span>
+            <span class="tide-font-600">{{ detail.label }}: </span>
             <span>{{ detail.value }}</span>
           </li>
         </ul>
       </div>
 
       <ReadMore
-        class="font-14 mb-2 pb-2 border-b border-gray"
+        class="tide-font-14 tide-margin-bottom-2 tide-padding-bottom-2 tide-border-bottom tide-border-gray"
         height-collapsed="4.5em"
         v-if="vehicle.description"
       >
@@ -301,31 +305,31 @@
         </div>
       </ReadMore>
 
-      <h2 class="font-20 mt-2">About the dealership</h2>
+      <h2 class="tide-font-20 tide-margin-top-2">About the dealership</h2>
 
-      <div class="flex gap-2 mt-1">
-        <div class="w-0 grow flex column axis2-start">
-          <div class="flex gap-1/2">
+      <div class="tide-display-flex tide-gap-2 tide-margin-top-1">
+        <div class="tide-width-0 tide-flex-grow tide-display-flex tide-flex-column tide-axis2-start">
+          <div class="tide-display-flex tide-gap-1/2">
             <div
-              class="border-overlay radius-1/2 xy-hidden"
+              class="border-overlay tide-radius-1/2 tide-xy-hidden"
               style="height: 74px; width: 88px"
               v-if="vehicle?.dealerLogo"
             >
               <BasicImage
                 :src="vehicle.dealerLogo.url"
-                class="w-full"
+                class="tide-width-full"
               />
             </div>
 
-            <div class="flex column axis2-start mt-1/4">
-              <div class="flex axis2-center gap-1/2">
+            <div class="tide-display-flex tide-flex-column tide-axis2-start tide-margin-top-1/4">
+              <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
                 <BasicIcon :icon="ICON.CIRCLE_CHECK" />
-                <span class="font-green font-12 font-600">15 Year Trusted Partner</span>
+                <span class="tide-font-green tide-font-12 tide-font-600">15 Year Trusted Partner</span>
               </div>
 
               <a
                 :href="dealerLinkHref"
-                class="font-16 font-700 mt-1/4"
+                class="tide-font-16 tide-font-700 tide-margin-top-1/4"
                 target="_blank"
                 title="View dealer's website"
               >
@@ -334,7 +338,7 @@
 
               <a
                 :href="dealerMapUrl"
-                class="font-14 mt-1/2 font-600"
+                class="tide-font-14 tide-margin-top-1/2 tide-font-600"
                 target="_blank"
                 title="View dealer's location on map"
               >
@@ -345,7 +349,7 @@
 
           <a
             :href="dealerLinkHref"
-            class="flex axis2-center gap-1/4 font-14 mt-2 font-600"
+            class="tide-display-flex tide-axis2-center tide-gap-1/4 tide-font-14 tide-margin-top-2 tide-font-600"
             target="_blank"
             title="View dealer's website"
           >
@@ -358,7 +362,7 @@
             :icon-leading="ICON.VIDEO"
             :priority="PRIORITY.SECONDARY"
             @click="() => (videoCallModalIsOpen = true)"
-            class="mt-1"
+            class="tide-margin-top-1"
             label="Schedule a video call"
           />
 
@@ -371,12 +375,12 @@
           </BasicModal>
         </div>
 
-        <p class="w-0 grow font-14">
+        <p class="tide-width-0 tide-flex-grow tide-font-14">
           {{ vehicle.dealerRepeatTag }}
         </p>
       </div>
 
-      <h2 class="font-16 mt-2">More from this dealer</h2>
+      <h2 class="tide-font-16 tide-margin-top-2">More from this dealer</h2>
 
       <CardCarouselListingFeatured
         :get-is-favorite="favoriteStore.getIsFavorite"
@@ -387,16 +391,16 @@
     </section>
 
     <section
-      :class="isSingleColumn ? 'mx-2' : ''"
+      :class="isSingleColumn ? 'tide-margin-x-2' : ''"
       :style="{
         order: mobileSectionOrder.resources,
       }"
-      class="vdp-resources layout-item py-2 border-b border-gray"
+      class="vdp-resources layout-item tide-padding-y-2 tide-border-bottom tide-border-gray"
       v-show="!isSingleColumn"
     >
-      <h2 class="mb-1 font-20">Resources</h2>
+      <h2 class="tide-margin-bottom-1 tide-font-20">Resources</h2>
 
-      <div class="flex column gap-2">
+      <div class="tide-display-flex tide-flex-column tide-gap-2">
         <AdPlaceholder
           height="87"
           width="512"
@@ -415,26 +419,26 @@
       :style="{
         order: mobileSectionOrder.disclaimer,
       }"
-      class="vdp-disclaimer layout-item py-2"
+      class="vdp-disclaimer layout-item tide-padding-y-2"
     >
       <SiteDisclaimer />
     </section>
   </div>
 
   <div
-    :class="isSingleColumn ? 'contents' : 'start-8 end-12'"
-    class="vdp-right ml-1"
+    :class="isSingleColumn ? 'tide-contents' : 'tide-start-8 tide-end-12'"
+    class="vdp-right tide-margin-left-1"
   >
     <section
       :style="{
         order: mobileSectionOrder.contact,
       }"
-      class="vdp-contact layout-item xy-hidden radius-1/2 bg-surface"
+      class="vdp-contact layout-item tide-xy-hidden tide-radius-1/2 tide-bg-surface"
       v-show="!isSingleColumn"
     >
-      <div class="mb-1/4 px-1 py-1 font-16 font-700">
-        <div class="flex wrap gap-1">
-          <div class="flex axis2-center gap-1/2 shrink-none">
+      <div class="tide-margin-bottom-1/4 tide-padding-x-1 tide-padding-y-1 tide-font-16 tide-font-700">
+        <div class="tide-display-flex tide-flex-wrap tide-gap-1">
+          <div class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-shrink-none">
             <BasicButtonIcon
               :href="phoneHref"
               :icon="ICON.PHONE"
@@ -443,7 +447,7 @@
             <a :href="phoneHref"> Call {{ phone }} </a>
           </div>
 
-          <div class="flex axis2-center gap-1/2 shrink-none">
+          <div class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-shrink-none">
             <BasicButtonIcon
               :href="`sms:+7575551234`"
               :icon="ICON.MESSAGE"
@@ -455,10 +459,10 @@
         </div>
       </div>
 
-      <hr class="bg-white pt-1/4" />
+      <hr class="tide-bg-white tide-padding-top-1/4" />
 
-      <div class="p-1">
-        <h2 class="mb-1">Email the seller</h2>
+      <div class="tide-padding-1">
+        <h2 class="tide-margin-bottom-1">Email the seller</h2>
         <EmailSellerForm :vehicle="vehicle" />
       </div>
     </section>
@@ -467,13 +471,13 @@
       :style="{
         order: mobileSectionOrder.stickyContact,
       }"
-      class="sticky-contact layout-item fluid"
+      class="sticky-contact layout-item tide-fluid"
       v-show="isSingleColumn"
     >
       <div
-        :class="isStickyContact ? 'fixed bottom-0 shadow-b-1' : ''"
+        :class="isStickyContact ? 'tide-position-fixed tide-bottom-0 shadow-b-1' : ''"
         ref="stickableFooterRef"
-        class="sticky-footer flex gap-1/2 py-2 px-1 w-full bg-white"
+        class="sticky-footer tide-display-flex tide-gap-1/2 tide-padding-y-2 tide-padding-x-1 tide-width-full tide-bg-white"
       >
         <VdpStickyContact />
       </div>
@@ -483,27 +487,27 @@
       :style="{
         order: mobileSectionOrder.stats,
       }"
-      class="vdp-stats layout-item flex column gap-1 border-b border-gray py-2 font-12"
+      class="vdp-stats layout-item tide-display-flex tide-flex-column tide-gap-1 tide-border-bottom tide-border-gray tide-padding-y-2 tide-font-12"
     >
-      <div class="flex axis2-center gap-1/2">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
         <BasicLink
           :icon-leading="ICON.STAR"
-          class="font-700"
+          class="tide-font-700"
           href="#"
         >
           Reviews for this {{ realm.label.singular }}
         </BasicLink>
 
         <span>on</span>
-        <div class="insider-logo radius-1/2 bg-gray" />
+        <div class="insider-logo tide-radius-1/2 tide-bg-gray" />
       </div>
 
-      <div class="flex axis2-center gap-1/2">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
         <BasicIcon :icon="ICON.EYE" />
 
         <span>
           <span>Seen </span>
-          <span class="font-700">
+          <span class="tide-font-700">
             <span>1057</span>
             <span> times</span>
           </span>
@@ -511,7 +515,7 @@
         </span>
       </div>
 
-      <div class="flex axis2-center gap-1/2">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
         <BasicIcon :icon="ICON.HEART" />
 
         <div>
@@ -521,31 +525,31 @@
         </div>
       </div>
 
-      <div class="flex axis2-center gap-1/2">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
         <BasicIcon :icon="ICON.CALENDAR" />
 
         <span>
           <span>Listed for </span>
-          <span class="font-700">
+          <span class="tide-font-700">
             <span>30</span>
             <span> days</span>
           </span>
         </span>
       </div>
 
-      <div class="flex axis2-center gap-1/2">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
         <BasicIcon :icon="ICON.TAG" />
 
-        <span class="font-12">The price has not decreased recently</span>
+        <span class="tide-font-12">The price has not decreased recently</span>
       </div>
     </section>
 
     <section
-      :class="isSingleColumn ? 'axis2-center' : 'pb-2'"
+      :class="isSingleColumn ? 'tide-axis2-center' : 'tide-padding-bottom-2'"
       :style="{
         order: mobileSectionOrder.webLinks,
       }"
-      class="vdp-web-links layout-item flex column gap-2 pt-2"
+      class="vdp-web-links layout-item tide-display-flex tide-flex-column tide-gap-2 tide-padding-top-2"
     >
       <AdPlaceholder
         height="600"
@@ -568,19 +572,19 @@
   </div>
 
   <section
-    :class="isSingleColumn ? '' : 'mt-2'"
+    :class="isSingleColumn ? '' : 'tide-margin-top-2'"
     :style="{
       order: mobileSectionOrder.similar,
     }"
-    class="vdp-similar fluid mb-2 py-2 bg-gray-light"
+    class="vdp-similar tide-fluid tide-margin-bottom-2 tide-padding-y-2 tide-bg-gray-light"
   >
-    <BasicContainer class="flex axis1-between mb-1">
-      <h2 class="font-20">More {{ realm.label.plural }} like this</h2>
+    <BasicContainer class="tide-display-flex tide-axis1-between tide-margin-bottom-1">
+      <h2 class="tide-font-20">More {{ realm.label.plural }} like this</h2>
 
       <BasicLink
         :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
         :icon-trailing="ICON.CHEVRON_RIGHT"
-        class="font-14 font-700"
+        class="tide-font-14 tide-font-700"
       >
         See more
       </BasicLink>
@@ -595,16 +599,16 @@
   </section>
 
   <section
-    :class="isSingleColumn ? '' : 'py-2'"
+    :class="isSingleColumn ? '' : 'tide-padding-y-2'"
     :style="{
       order: mobileSectionOrder.categories,
     }"
     class="vdp-categories"
     v-if="searchPills.length"
   >
-    <h2 class="mb-1 font-20">Related categories</h2>
+    <h2 class="tide-margin-bottom-1 tide-font-20">Related categories</h2>
 
-    <div class="flex wrap gap-1 mb-2 font-14">
+    <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-2 tide-font-14">
       <ChipActionRelatedSearch
         :href="searchPill.url"
         :key="searchPill.label"
@@ -614,8 +618,12 @@
     </div>
 
     <div
-      :class="isSingleColumn ? 'mb-2 pb-2' : 'pt-2 pb-4 my-2'"
-      class="flex axis1-center border-b border-gray"
+      :class="
+        isSingleColumn
+          ? 'tide-margin-bottom-2 tide-padding-bottom-2'
+          : 'tide-padding-top-2 tide-padding-bottom-4 tide-margin-y-2'
+      "
+      class="tide-display-flex tide-axis1-center tide-border-bottom tide-border-gray"
     >
       <AdPlaceholder
         :height="isSingleColumn ? '250' : '90'"
@@ -623,20 +631,20 @@
       />
     </div>
 
-    <div :class="isSingleColumn ? '' : 'py-2'">
-      <SubscribeToNewsletter class="mb-2" />
+    <div :class="isSingleColumn ? '' : 'tide-padding-y-2'">
+      <SubscribeToNewsletter class="tide-margin-bottom-2" />
     </div>
   </section>
 
   <Transition name="slide-down-from-top">
     <section
-      class="sticky-header fixed top-0 left-0 w-full bg-white border-b border-gray-light"
+      class="sticky-header tide-position-fixed tide-top-0 tide-left-0 tide-width-full tide-bg-white tide-border-bottom tide-border-gray-light"
       style="z-index: 1"
       v-show="!isSingleColumn && stickyHeaderIsVisible"
     >
-      <BasicContainer class="flex axis2-center py-1/2">
+      <BasicContainer class="tide-display-flex tide-axis2-center tide-padding-y-1/2">
         <div
-          class="shrink-none radius-full xy-hidden"
+          class="tide-shrink-none tide-radius-full tide-xy-hidden"
           v-if="vehicle.photos.length"
         >
           <BasicImage
@@ -646,37 +654,41 @@
           />
         </div>
 
-        <div class="flex column axis2-start shrink ml-1">
-          <div class="flex axis2-center font-12 font-700">
+        <div class="tide-display-flex tide-flex-column tide-axis2-start shrink tide-margin-left-1">
+          <div class="tide-display-flex tide-axis2-center tide-font-12 tide-font-700">
             <BasicIcon :icon="ICON.CIRCLE_CHECK" />
 
             <a
               :href="dealerLinkHref"
-              class="ml-1/4"
+              class="tide-margin-left-1/4"
               target="_blank"
               title="View dealer's website"
             >
               {{ vehicle.dealerName }}
             </a>
 
-            <div class="font-gray-dark font-600">&nbsp;• {{ vehicle.location }}</div>
+            <div class="tide-font-gray-dark tide-font-600">&nbsp;• {{ vehicle.location }}</div>
           </div>
 
-          <div class="font-20 font-700 mt-1/4">{{ vehicleTitle }}</div>
+          <div class="tide-font-20 tide-font-700 tide-margin-top-1/4">{{ vehicleTitle }}</div>
         </div>
 
-        <div class="self-stretch flex axis2-center my-1/4 ml-1 pl-1 border-l border-gray-light font-700 font-20">
+        <div
+          class="self-stretch tide-display-flex tide-axis2-center tide-margin-y-1/4 tide-margin-left-1 tide-padding-left-1 tide-border-left tide-border-gray-light tide-font-700 tide-font-20"
+        >
           {{ price }}
         </div>
 
-        <div class="flex axis2-center shrink-none gap-1 ml-auto pl-1">
+        <div
+          class="tide-display-flex tide-axis2-center tide-shrink-none tide-gap-1 tide-margin-left-auto tide-padding-left-1"
+        >
           <a
             :href="phoneHref"
-            class="flex gap-1/2 axis2-center font-20 font-700"
+            class="tide-display-flex tide-gap-1/2 tide-axis2-center tide-font-20 tide-font-700"
           >
             <BasicIcon
               :icon="ICON.PHONE"
-              class="bg-gray-dark font-white p-1/2 font-16 radius-full"
+              class="tide-bg-gray-dark tide-font-white tide-padding-1/2 tide-font-16 tide-radius-full"
             />
             Call {{ phone }}
           </a>
@@ -694,7 +706,7 @@
           >
             <VehiclePreview
               :vehicle="vehicle"
-              class="mb-1"
+              class="tide-margin-bottom-1"
             />
             <EmailSellerForm :vehicle="vehicle" />
           </BasicModal>

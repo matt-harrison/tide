@@ -18,9 +18,9 @@ export const useModalStore = defineStore('modalStore', {
       this.isScrollLocked = isScrollLocked;
 
       if (this.isScrollLocked) {
-        document.querySelector('body')?.classList.add('y-hidden');
+        document.querySelector('body')?.classList.add('tide-y-hidden');
       } else {
-        document.querySelector('body')?.classList.remove('y-hidden');
+        document.querySelector('body')?.classList.remove('tide-y-hidden');
       }
     },
     setOffsetBottom(offsetBottom: number) {

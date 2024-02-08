@@ -16,7 +16,7 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = [];
   const hasMarginAuto = getHasMarginAuto(args);
 
-  if (hasMarginAuto) classNames.push('flex', 'axis1-center', 'axis2-center');
+  if (hasMarginAuto) classNames.push('tide-display-flex', 'tide-axis1-center', 'tide-axis2-center');
   if (args.margin) classNames.push(args.margin);
 
   return classNames.join(' ');
@@ -45,7 +45,7 @@ const formatStyles = (args: any) => {
 const getHasMarginAuto = (args: any) =>
   [MARGIN['X-axis Auto'], MARGIN['Left Auto'], MARGIN['Right Auto']].includes(args.margin);
 
-const getContainerClass = (args: any) => (getHasMarginAuto(args) ? '' : 'inline-block');
+const getContainerClass = (args: any) => (getHasMarginAuto(args) ? '' : 'tide-display-inline-block');
 
 const parameters = {
   docs: {
@@ -65,7 +65,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div :class="getContainerClass(args)" class="bg-blue-light"><div class="border-1 border-blue-dark p-1 bg-white" v-bind="args">Demo</div></div>',
+    '<div :class="getContainerClass(args)" class="tide-bg-blue-light"><div class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-white" v-bind="args">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },

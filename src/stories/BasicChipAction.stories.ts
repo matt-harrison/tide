@@ -4,7 +4,7 @@ import { parameters } from '@/utilities/storybook';
 const render = (args: any) => ({
   components: { BasicChipAction },
   setup: () => ({ args }),
-  template: '<BasicChipAction class="inline-flex" v-bind="args" />',
+  template: '<BasicChipAction class="tide-display-inline-flex" v-bind="args" />',
 });
 
 export default {

@@ -43,14 +43,14 @@
 </script>
 
 <template>
-  <div class="read-more flex column gap-1">
+  <div class="read-more tide-display-flex tide-flex-column tide-gap-1">
     <div
       ref="readMoreContent"
-      class="read-more-content grid"
+      class="read-more-content tide-display-grid"
     >
       <div
         :style="{ minHeight: props.heightCollapsed }"
-        class="y-hidden"
+        class="tide-y-hidden"
       >
         <slot />
       </div>

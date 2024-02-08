@@ -58,11 +58,11 @@
   --spacing-4: 4rem;
 
   /* Border */
-  --border-w-1: 1px;
-  --border-w-2: 2px;
+  --border-width-1: 1px;
+  --border-width-2: 2px;
 
-  --border-1: var(--border-w-1) solid var(--black);
-  --border-2: var(--border-w-2) solid var(--black);
+  --border-1: var(--border-width-1) solid var(--black);
+  --border-2: var(--border-width-2) solid var(--black);
 
   /* Border Radius */
   --radius-1\/8: 2px;
@@ -134,15 +134,4 @@
   --global-role-error-border-high: var(--global-tonal-red-500);
   --global-role-error-on-surface: var(--global-tonal-red-400);
   --global-role-error-on-surface-variant: var(--global-tonal-red-500);
-}
-
-.theme-dark {
-  --global-role-error-primary: var(--global-tonal-red-400);
-  --global-role-error-primary-border: var(--global-tonal-red-300);
-  --global-role-error-surface: var(--global-tonal-red-600);
-  --global-role-error-border-low: var(--global-tonal-red-500);
-  --global-role-error-border-rest: var(--global-tonal-red-200);
-  --global-role-error-border-high: var(--global-tonal-red-100);
-  --global-role-error-on-surface: var(--global-tonal-red-200);
-  --global-role-error-on-surface-variant: var(--global-tonal-red-100);
 }

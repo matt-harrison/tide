@@ -130,21 +130,21 @@
 <template>
   <section
     ref="carouselRef"
-    class="basic-carousel relative flex axis2-center max-w-full"
+    class="basic-carousel tide-position-relative tide-display-flex tide-axis2-center tide-max-width-full"
   >
     <div
       ref="frameRef"
       @scroll="handleScroll"
-      class="scrollbar-none snap x-scroll"
+      class="scrollbar-none tide-scroll-snap tide-x-scroll"
     >
       <ul
-        :class="props.isTouchscreen ? 'x-auto' : ''"
+        :class="props.isTouchscreen ? 'tide-x-auto' : ''"
         ref="contentRef"
-        class="flex gap-1 list-none"
+        class="tide-display-flex tide-gap-1 tide-list-none"
       >
         <li
           :style="{ width: `${props.offsetX - gap}px` }"
-          class="shrink-none snap-start"
+          class="tide-shrink-none tide-scroll-snap-start"
           v-if="props.offsetX"
         />
 
@@ -152,28 +152,28 @@
 
         <li
           :style="{ width: `${props.offsetX - gap}px` }"
-          class="shrink-none snap-start"
+          class="tide-shrink-none tide-scroll-snap-start"
           v-if="props.offsetX"
         />
       </ul>
     </div>
 
     <div
-      class="absolute flex axis1-between axis2-center w-full h-full pointer-events-none"
+      class="tide-position-absolute tide-display-flex tide-axis1-between tide-axis2-center tide-width-full h-full tide-pointer-events-none"
       v-if="showButtons"
     >
       <BasicButtonIcon
         :icon="ICON.CHEVRON_LEFT"
         :priority="PRIORITY.FLOATING"
         @click="showPreviousSlide"
-        class="ml-1 pointer-events"
+        class="tide-margin-left-1 tide-pointer-events"
       />
 
       <BasicButtonIcon
         :icon="ICON.CHEVRON_RIGHT"
         :priority="PRIORITY.FLOATING"
         @click="showNextSlide"
-        class="mr-1 pointer-events"
+        class="tide-margin-right-1 tide-pointer-events"
       />
     </div>
   </section>

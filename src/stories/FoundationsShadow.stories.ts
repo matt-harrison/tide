@@ -41,7 +41,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div class="inline-block p-1" v-bind="args">Demo</div>',
+  template: '<div class="tide-display-inline-block tide-padding-1" v-bind="args">Demo</div>',
   updated() {
     return formatArgs(args);
   },

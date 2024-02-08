@@ -26,7 +26,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<BasicChipInput class="inline-flex" v-bind="args" />',
+  template: '<BasicChipInput class="tide-display-inline-flex" v-bind="args" />',
   updated() {
     return formatArgs(args);
   },

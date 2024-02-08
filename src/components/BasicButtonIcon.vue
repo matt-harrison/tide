@@ -42,8 +42,8 @@
       props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
-      'flex axis1-center axis2-center radius-full p-1/2',
-      props.element === ELEMENT.LINK ? 'underline-none' : '',
+      'tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-padding-1/2',
+      props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"

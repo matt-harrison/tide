@@ -45,7 +45,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div class="inline-block p-1" v-bind="args">Demo</div>',
+  template: '<div class="tide-display-inline-block tide-padding-1" v-bind="args">Demo</div>',
   updated() {
     return formatArgs(args);
   },
@@ -168,7 +168,7 @@ export const Circle = {
       return formatArgs(args);
     },
     template:
-      '<div class="inline-flex axis1-center axis2-center p-1" style="width: 100px; height: 100px;" v-bind="args">Demo</div>',
+      '<div class="tide-display-inline-flex tide-axis1-center tide-axis2-center tide-padding-1" style="width: 100px; height: 100px;" v-bind="args">Demo</div>',
     updated() {
       return formatArgs(args);
     },

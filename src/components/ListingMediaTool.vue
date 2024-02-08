@@ -64,7 +64,7 @@
     :class="[
       'listing-media-tool',
       showAll && 'show-all',
-      'relative flex axis1-center axis2-center w-1/4 ratio-1 border-overlay xy-hidden',
+      'tide-position-relative tide-display-flex tide-axis1-center tide-axis2-center tide-width-1/4 ratio-1 border-overlay tide-xy-hidden',
     ]"
     :data-photo-count="props.slideCount"
     @click="handleClick"
@@ -72,19 +72,19 @@
     <img
       :alt="altText"
       :src="slide.imageUrl"
-      class="w-full h-full object-cover"
+      class="tide-width-full h-full tide-object-cover"
     />
 
     <div
-      class="contents"
+      class="tide-contents"
       v-if="getHasOverlay()"
     >
-      <div class="overlay absolute w-full h-full" />
+      <div class="overlay tide-position-absolute tide-width-full h-full" />
 
       <BasicButtonIcon
         :icon="icon"
         :priority="PRIORITY.FLOATING"
-        class="absolute"
+        class="tide-position-absolute"
       />
     </div>
   </button>

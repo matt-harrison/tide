@@ -211,35 +211,35 @@
 </script>
 
 <template>
-  <div class="search-results-page mb-2">
+  <div class="search-results-page tide-margin-bottom-2">
     <AdPlaceholder
-      class="mb-2"
+      class="tide-margin-bottom-2"
       height="150"
     />
 
     <div
-      :class="isSingleColumn ? 'column' : 'column-reverse'"
-      class="flex gap-2 mb-2"
+      :class="isSingleColumn ? 'tide-flex-column' : 'column-reverse'"
+      class="tide-display-flex tide-gap-2 tide-margin-bottom-2"
     >
-      <BasicContainer :class="isLarge ? 'w-full' : ''">
+      <BasicContainer :class="isLarge ? 'tide-width-full' : ''">
         <BasicBreadCrumbs
           :bread-crumbs="breadCrumbs"
-          class="mb-1"
+          class="tide-margin-bottom-1"
           v-if="!isSingleColumn"
         />
 
-        <header class="flex wrap axis1-between gap-1">
-          <div class="flex wrap axis2-center gap-1">
-            <h1 class="font-24">{{ dummy.headline }}</h1>
-            <span class="font-14">{{ formatNumber(dummy.resultCount) }} results</span>
+        <header class="tide-display-flex tide-flex-wrap tide-axis1-between tide-gap-1">
+          <div class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1">
+            <h1 class="tide-font-24">{{ dummy.headline }}</h1>
+            <span class="tide-font-14">{{ formatNumber(dummy.resultCount) }} results</span>
           </div>
 
           <div
-            :class="isSingleColumn ? 'axis1-between w-full' : ''"
-            class="flex wrap axis2-center gap-1"
+            :class="isSingleColumn ? 'tide-axis1-between tide-width-full' : ''"
+            class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1"
           >
             <div
-              class="relative"
+              class="tide-position-relative"
               v-if="isSingleColumn"
             >
               <BasicButton
@@ -248,14 +248,14 @@
               />
 
               <div
-                class="search-results-filter-count absolute top-0 right-0 flex axis1-center axis2-center radius-full bg-primary-tier-1 font-14 font-700"
+                class="search-results-filter-count tide-position-absolute tide-top-0 tide-right-0 tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-bg-primary-tier-1 tide-font-14 tide-font-700"
                 v-if="isSingleColumn && filters.length > 0"
               >
                 {{ filters.length }}
               </div>
             </div>
 
-            <div class="flex axis2-center gap-1/2">
+            <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
               <BasicButton
                 :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
                 :is-active="isSavedSearch"
@@ -286,17 +286,17 @@
       </BasicContainer>
 
       <section v-if="guidedSearchTabs">
-        <BasicContainer class="mb-2">
-          <section class="flex axis2-center gap-1">
+        <BasicContainer class="tide-margin-bottom-2">
+          <section class="tide-display-flex tide-axis2-center tide-gap-1">
             <span
-              class="font-20 font-700"
+              class="tide-font-20 tide-font-700"
               v-if="!isSingleColumn"
             >
               Browse
             </span>
 
             <BasicTabs
-              :class="isSingleColumn ? 'w-full' : ''"
+              :class="isSingleColumn ? 'tide-width-full' : ''"
               :tabs="guidedSearchTabs"
             />
           </section>
@@ -320,7 +320,7 @@
 
         <BasicCarousel
           :is-touchscreen="isTouchscreen"
-          class="axis1-center"
+          class="tide-axis1-center"
           v-if="!isBrowseByType"
         >
           <ChipFilterGuidedSearch
@@ -335,62 +335,64 @@
     </div>
 
     <div
-      :class="[isSingleColumn ? '' : 'mx-2', isLarge ? 'mx-auto w-container' : '']"
+      :class="[isSingleColumn ? '' : 'tide-margin-x-2', isLarge ? 'tide-margin-x-auto tide-width-container' : '']"
       class="search-results-columns"
     >
-      <section class="flex gap-2 mb-2">
+      <section class="tide-display-flex tide-gap-2 tide-margin-bottom-2">
         <aside
-          class="search-results-aside shrink-none bg-white"
+          class="search-results-aside tide-shrink-none tide-bg-white"
           v-if="!isSingleColumn"
         >
-          <div class="mb-2">
+          <div class="tide-margin-bottom-2">
             <BasicAccordionItem
               :is-expanded-initial="true"
               :label="`Location ${filterCounts.location ? '(' + filterCounts.location + ')' : ''}`"
-              class-label="pb-1"
+              class-label="tide-padding-bottom-1"
             >
-              <div class="mb-1">
-                <div class="flex axis1-between gap-1 my-1 border-b border-gray-light pb-1">
-                  <div class="flex column gap-1/2 w-1/2">
+              <div class="tide-margin-bottom-1">
+                <div
+                  class="tide-display-flex tide-axis1-between tide-gap-1 tide-margin-y-1 tide-border-bottom tide-border-gray-light tide-padding-bottom-1"
+                >
+                  <div class="tide-display-flex tide-flex-column tide-gap-1/2 tide-width-1/2">
                     <label
-                      class="font-14"
+                      class="tide-font-14"
                       for="zip"
                     >
                       Zip code
                     </label>
 
                     <input
-                      class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                      class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-bg-white tide-font-14"
                       name="zip"
                       type="text"
                     />
                   </div>
 
-                  <div class="flex column gap-1/2 w-1/2">
+                  <div class="tide-display-flex tide-flex-column tide-gap-1/2 tide-width-1/2">
                     <label
-                      class="font-14"
+                      class="tide-font-14"
                       for="radius"
                     >
                       Search within
                     </label>
 
                     <select
-                      class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                      class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-bg-white tide-font-14"
                       name="radius"
                     />
                   </div>
                 </div>
 
-                <div class="flex axis1-between axis2-center gap-1">
+                <div class="tide-display-flex tide-axis1-between tide-axis2-center tide-gap-1">
                   <span>
-                    <span class="font-14">Only show listings with a floor plan image </span>
+                    <span class="tide-font-14">Only show listings with a floor plan image </span>
                     <span v-if="dummy.floorplanResults">({{ formatNumber(dummy.floorplanResults) }})</span>
                   </span>
 
                   <BasicToggle
                     :is-active="filterStore.isFilterByFloorplans"
                     @click="filterStore.toggleIsFilterByFloorplans"
-                    class="shrink-none"
+                    class="tide-shrink-none"
                   />
                 </div>
               </div>
@@ -400,36 +402,36 @@
               :label="`Make, model, floor plan ${
                 filterCounts.makeModelFloorplan ? '(' + filterCounts.makeModelFloorplan + ')' : ''
               }`"
-              class-label="py-1"
+              class-label="tide-padding-y-1"
             >
-              <div class="mb-1">
-                <fieldset class="flex column gap-1/4 mb-1">
+              <div class="tide-margin-bottom-1">
+                <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4 tide-margin-bottom-1">
                   <label
-                    class="font-14"
+                    class="tide-font-14"
                     for="make"
                   >
                     Find a make
                   </label>
 
                   <input
-                    class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                    class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-bg-white tide-font-14"
                     name="make"
                     type="text"
                   />
                 </fieldset>
 
-                <fieldset class="flex column gap-1/4 mb-1/4">
+                <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4 tide-margin-bottom-1/4">
                   <label
-                    class="font-14 font-700"
+                    class="tide-font-14 tide-font-700"
                     for="topMake"
                   >
                     Top makes
                   </label>
 
-                  <ul class="flex column gap-1/4">
+                  <ul class="tide-display-flex tide-flex-column tide-gap-1/4">
                     <li
                       :key="index"
-                      class="flex axis2-center gap-1/2"
+                      class="tide-display-flex tide-axis2-center tide-gap-1/2"
                       v-for="(empty, index) in Array(8)"
                     >
                       <input
@@ -439,7 +441,7 @@
 
                       <label
                         :for="`make${index}`"
-                        class="font-14"
+                        class="tide-font-14"
                       >
                         Make {{ index + 1 }}
                       </label>
@@ -447,9 +449,9 @@
                   </ul>
                 </fieldset>
 
-                <div class="mb-1">
+                <div class="tide-margin-bottom-1">
                   <a
-                    class="font-14 font-600"
+                    class="tide-font-14 tide-font-600"
                     href="#"
                   >
                     See all makes
@@ -462,12 +464,12 @@
 
             <BasicAccordionItem
               :label="`${realm.label.singular} type`"
-              class-label="py-1"
+              class-label="tide-padding-y-1"
             >
-              <div class="flex column gap-1/4 mb-1">
+              <div class="tide-display-flex tide-flex-column tide-gap-1/4 tide-margin-bottom-1">
                 <div
                   :key="index"
-                  class="flex axis2-center gap-1/2"
+                  class="tide-display-flex tide-axis2-center tide-gap-1/2"
                   v-for="(empty, index) in Array(8)"
                 >
                   <input
@@ -477,7 +479,7 @@
 
                   <label
                     :for="`type${index}`"
-                    class="font-14"
+                    class="tide-font-14"
                   >
                     {{ realm.label.singular }} type {{ index + 1 }}
                   </label>
@@ -487,10 +489,10 @@
           </div>
 
           <section>
-            <h2 class="mb-1 font-16">Partner center</h2>
+            <h2 class="tide-margin-bottom-1 tide-font-16">Partner center</h2>
 
             <AdPlaceholder
-              class="mb-2"
+              class="tide-margin-bottom-2"
               height="181"
               width="300"
             />
@@ -504,8 +506,8 @@
 
         <main class="search-results-main">
           <ul
-            :class="isSingleColumn ? 'mx-2' : ''"
-            class="flex wrap axis2-center gap-1/2 mb-2 list-none"
+            :class="isSingleColumn ? 'tide-margin-x-2' : ''"
+            class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1/2 tide-margin-bottom-2 tide-list-none"
             v-if="!isSingleColumn && filters.length > 0"
           >
             <li
@@ -527,10 +529,10 @@
             </li>
           </ul>
 
-          <section class="mb-2 border-b border-gray-light pb-2">
+          <section class="tide-margin-bottom-2 tide-border-bottom tide-border-gray-light tide-padding-bottom-2">
             <h2
-              :class="isSingleColumn ? 'mx-2' : ''"
-              class="mb-1 font-16"
+              :class="isSingleColumn ? 'tide-margin-x-2' : ''"
+              class="tide-margin-bottom-1 tide-font-16"
             >
               Featured listings
             </h2>
@@ -543,7 +545,7 @@
             />
           </section>
 
-          <section class="mb-2">
+          <section class="tide-margin-bottom-2">
             <CardListingPremiumSelect
               :is-favorite="favoriteStore.getIsFavorite(searchResultStore.vehicles[0].adId)"
               :vehicle="searchResultStore.vehicles[0]"
@@ -551,7 +553,7 @@
             />
           </section>
 
-          <ul class="flex wrap gap-1 mb-2 list-none">
+          <ul class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-2 tide-list-none">
             <template
               :key="vehicle.adId"
               v-for="(vehicle, index) in [
@@ -562,25 +564,25 @@
               ]"
             >
               <CardListing
-                :class="isSingleColumn ? 'mx-2' : ''"
+                :class="isSingleColumn ? 'tide-margin-x-2' : ''"
                 :is-favorite="favoriteStore.getIsFavorite(vehicle.adId)"
                 :vehicle="vehicle"
                 @favorite-click="favoriteStore.toggleIsFavorite"
               />
 
               <li
-                class="flex axis1-center w-full no-shrink"
+                class="tide-display-flex tide-axis1-center tide-width-full no-shrink"
                 v-if="[12, 24].includes(index + 1)"
               >
                 <AdPlaceholder
-                  class="mx-2"
+                  class="tide-margin-x-2"
                   height="90"
                   v-if="!isSingleColumn"
                   width="728"
                 />
 
                 <AdPlaceholder
-                  class="mx-2"
+                  class="tide-margin-x-2"
                   height="250"
                   v-if="isSingleColumn"
                   width="300"
@@ -588,11 +590,11 @@
               </li>
 
               <li
-                class="w-full"
+                class="tide-width-full"
                 v-if="[3, 18].includes(index + 1)"
               >
                 <CardCarouselListingDealer
-                  :class="isSingleColumn ? 'mx-2' : ''"
+                  :class="isSingleColumn ? 'tide-margin-x-2' : ''"
                   :vehicles="featuredListingStore.vehicles"
                 />
               </li>
@@ -600,8 +602,8 @@
           </ul>
 
           <section
-            :class="isSingleColumn ? 'px-2' : ''"
-            class="flex axis1-center axis2-center gap-1 mb-2 w-full"
+            :class="isSingleColumn ? 'tide-padding-x-2' : ''"
+            class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1 tide-margin-bottom-2 tide-width-full"
             v-if="filterStore.pagesTotal > 1"
           >
             <BasicButtonIcon
@@ -611,7 +613,7 @@
               @click="filterStore.setPagePrevious"
             />
 
-            <ul class="flex axis2-center gap-1/4 mx-2 list-none">
+            <ul class="tide-display-flex tide-axis2-center tide-gap-1/4 tide-margin-x-2 tide-list-none">
               <li
                 :key="paginationButton"
                 v-for="paginationButton in paginationButtons"
@@ -640,8 +642,8 @@
           </section>
 
           <section
-            :class="isSingleColumn ? 'mx-2' : ''"
-            class="flex wrap gap-1 mb-2 font-14"
+            :class="isSingleColumn ? 'tide-margin-x-2' : ''"
+            class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-2 tide-font-14"
           >
             <ChipActionRelatedSearch
               :href="searchPill.url"
@@ -651,29 +653,29 @@
             />
           </section>
 
-          <SiteDisclaimer :class="isSingleColumn ? 'mx-2 flex axis1-center' : ''" />
+          <SiteDisclaimer :class="isSingleColumn ? 'tide-margin-x-2 tide-display-flex tide-axis1-center' : ''" />
 
           <div
-            class="flex column axis1-center mt-2"
+            class="tide-display-flex tide-flex-column tide-axis1-center tide-margin-top-2"
             v-if="!isSingleColumn"
           >
             <AdPlaceholder
-              class="mb-1"
+              class="tide-margin-bottom-1"
               height="216"
             />
 
             <AdPlaceholder
-              class="mb-1"
+              class="tide-margin-bottom-1"
               height="148"
             />
 
             <AdPlaceholder
-              class="mb-1"
+              class="tide-margin-bottom-1"
               height="207"
             />
 
             <AdPlaceholder
-              class="mb-1"
+              class="tide-margin-bottom-1"
               height="216"
             />
 
@@ -684,31 +686,31 @@
 
       <BasicContainer>
         <section
-          class="mb-2"
+          class="tide-margin-bottom-2"
           v-if="!isSingleColumn"
         >
           <BasicSeoLinks
             :heading="`Top ${realm.label.singular} makes for sale`"
             :links="topMakes"
-            class="mb-2"
+            class="tide-margin-bottom-2"
           />
 
           <BasicSeoLinks
             :heading="`States with ${realm.label.plural} for sale`"
             :links="topStates"
-            class="mb-2"
+            class="tide-margin-bottom-2"
           />
 
           <BasicSeoLinks
             :heading="`Top cities with ${realm.label.plural} for sale`"
             :links="topCities"
-            class="mb-2"
+            class="tide-margin-bottom-2"
           />
 
           <BasicSeoLinks
             :heading="`${realm.label.singular} sleeping capacity`"
             :links="sleepingCapacities"
-            class="mb-2"
+            class="tide-margin-bottom-2"
           />
 
           <BasicSeoLinks

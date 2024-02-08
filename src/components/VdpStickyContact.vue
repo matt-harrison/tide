@@ -41,8 +41,8 @@
   <div
     :class="[
       'sticky-footer',
-      isStickyContact && 'fixed bottom-0',
-      'flex gap-1/2 py-2 px-1 w-full bg-white',
+      isStickyContact && 'tide-position-fixed tide-bottom-0',
+      'tide-display-flex tide-gap-1/2 tide-padding-y-2 tide-padding-x-1 tide-width-full tide-bg-white',
       isStickyContact && 'shadow-b-1',
     ]"
     ref="stickableFooterRef"
@@ -50,7 +50,7 @@
     <BasicButton
       :icon-leading="ICON.MESSAGE"
       :priority="PRIORITY.SECONDARY"
-      class="vehicle-detail-text-cta font-12 font-600"
+      class="vehicle-detail-text-cta tide-font-12 tide-font-600"
       href="sms:+7575551234"
       label="text"
     />
@@ -58,19 +58,19 @@
     <BasicButton
       :href="phoneHref"
       :icon-leading="ICON.PHONE"
-      class="vehicle-detail-call-cta font-12 font-600"
+      class="vehicle-detail-call-cta tide-font-12 tide-font-600"
       label="call"
     />
     <BasicButton
       :icon-leading="ICON.ENVELOPE"
-      class="vehicle-detail-email-cta font-12 font-600"
+      class="vehicle-detail-email-cta tide-font-12 tide-font-600"
       label="email"
     />
 
     <BasicButton
       :icon-leading="ICON.COMMENTS"
       :priority="PRIORITY.SECONDARY"
-      class="vehicle-detail-chat-cta font-12 font-600"
+      class="vehicle-detail-chat-cta tide-font-12 tide-font-600"
       label="chat"
     />
   </div>
@@ -78,15 +78,15 @@
 
 <style>
   .sticky-footer .vehicle-detail-call-cta {
-    flex: 3;
+  ? 'tide-display-flex: 3;
   }
 
   .sticky-footer .vehicle-detail-chat-cta,
   .sticky-footer .vehicle-detail-text-cta {
-    flex: 1;
+  ? 'tide-display-flex: 1;
   }
 
   .sticky-footer .vehicle-detail-email-cta {
-    flex: 2;
+  ? 'tide-display-flex: 2;
   }
 </style>

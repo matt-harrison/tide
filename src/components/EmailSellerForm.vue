@@ -200,7 +200,7 @@
     @focusin="addRecaptcha"
     @mouseenter="addRecaptcha"
     @submit.prevent="handleSubmit"
-    class="lead-form flex column gap-1/2"
+    class="lead-form tide-display-flex tide-flex-column tide-gap-1/2"
   >
     <template
       :key="field.name"
@@ -229,7 +229,7 @@
 
     <Transition>
       <div
-        class="flex column axis2-start gap-1/2 font-12 font-surface-variant"
+        class="tide-display-flex tide-flex-column tide-axis2-start tide-gap-1/2 tide-font-12 tide-font-surface-variant"
         v-show="showRecaptcha"
       >
         <BasicCheckbox
@@ -256,7 +256,7 @@
         <div
           :data-sitekey="recaptchaKey"
           ref="recaptcha"
-          class="g-recaptchaBtm mx-auto mt-2 flex axis1-center"
+          class="g-recaptchaBtm tide-margin-x-auto tide-margin-top-2 tide-display-flex tide-axis1-center"
         />
       </div>
     </Transition>
@@ -267,7 +267,7 @@
       type="submit"
     />
   </form>
-  <p class="font-12 font-surface-variant mt-1">
+  <p class="tide-font-12 tide-font-surface-variant tide-margin-top-1">
     Stay safe. Read more about avoiding scams and protecting your money. By using this site, you agree to our Terms of
     Use & our Privacy Policy.
   </p>

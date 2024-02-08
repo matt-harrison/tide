@@ -73,16 +73,16 @@
         :class="{ open: props.isOpen }"
         :style="{ '--modal-width': props.width, ...style }"
         @click.self="handleClose"
-        class="basic-modal fixed flex axis1-center axis2-center top-0 left-0 w-full h-full"
+        class="basic-modal tide-position-fixed tide-display-flex tide-axis1-center tide-axis2-center tide-top-0 tide-left-0 tide-width-full h-full"
         v-show="props.isOpen"
       >
         <div
           :style="{ ...modalStyle }"
-          class="modal-body theme-dark flex column radius-1/2 bg-surface font-surface xy-hidden"
+          class="modal-body tide-display-flex tide-flex-column tide-radius-1/2 tide-bg-surface tide-font-surface tide-xy-hidden"
         >
-          <header class="modal-header relative flex axis2-center px-2">
+          <header class="modal-header tide-position-relative tide-display-flex tide-axis2-center tide-padding-x-2">
             <div
-              class="grow font-20 text-center mx-2 font-700"
+              class="tide-flex-grow tide-font-20 text-center tide-margin-x-2 tide-font-700"
               v-if="title"
             >
               {{ title }}
@@ -90,19 +90,21 @@
 
             <button
               @click="handleClose"
-              class="absolute right-0 mr-2"
+              class="tide-position-absolute tide-right-0 tide-margin-right-2"
               title="Close"
             >
               <BasicIcon :icon="ICON.XMARK" />
             </button>
           </header>
 
-          <div class="modal-content y-auto">
+          <div class="modal-content tide-y-auto">
             <slot />
           </div>
 
           <template v-if="$slots.footer">
-            <footer class="sticky left-0 bottom-0 flex axis1-end gap-1 px-2 py-1/2 bg-surface">
+            <footer
+              class="sticky tide-left-0 tide-bottom-0 tide-display-flex tide-axis1-end tide-gap-1 tide-padding-x-2 tide-padding-y-1/2 tide-bg-surface"
+            >
               <slot name="footer" />
             </footer>
           </template>

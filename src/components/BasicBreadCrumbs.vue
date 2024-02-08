@@ -13,12 +13,12 @@
 </script>
 
 <template>
-  <ul class="bread-crumbs flex axis2-center gap-1/2 font-14 font-500 list-none">
+  <ul class="bread-crumbs tide-display-flex tide-axis2-center tide-gap-1/2 tide-font-14 tide-font-500 tide-list-none">
     <template
       :key="crumb.label"
       v-for="(crumb, index) in props.breadCrumbs"
     >
-      <li :class="[crumb.url ? 'font-700' : '']">
+      <li :class="[crumb.url ? 'tide-font-700' : '']">
         <a
           :href="crumb.url"
           v-if="crumb.url"
@@ -32,7 +32,7 @@
       </li>
 
       <li
-        class="font-surface-variant"
+        class="tide-font-surface-variant"
         v-if="props.breadCrumbs && index < props.breadCrumbs.length - 1"
       >
         /

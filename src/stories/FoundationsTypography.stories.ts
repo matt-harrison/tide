@@ -63,7 +63,7 @@ export default {
     },
     fontSize: {
       ...formatArgType({ FONT_SIZE }),
-      description: `Applies a font size (relative to user's browser settings)`,
+      description: `Applies a font size (tide-position-relative to user's browser settings)`,
       name: 'Font Size',
     },
     fontWeight: {
@@ -175,21 +175,21 @@ export const FontSize32 = {
 
 export const FontWeight500 = {
   args: {
-    fontWeight: FONT_WEIGHT['500'],
+    fontWeight: FONT_WEIGHT['500 Medium'],
   },
-  name: 'Font Weight 500 (Medium)',
+  name: 'Font Weight 500 Medium',
 };
 
 export const FontWeight600 = {
   args: {
-    fontWeight: FONT_WEIGHT['600'],
+    fontWeight: FONT_WEIGHT['600 Semibold'],
   },
-  name: 'Font Weight 600 (Semibold)',
+  name: 'Font Weight 600 Semibold',
 };
 
 export const FontWeight700 = {
   args: {
-    fontWeight: FONT_WEIGHT['700'],
+    fontWeight: FONT_WEIGHT['700 Bold'],
   },
-  name: 'Font Weight 700 (Bold)',
+  name: 'Font Weight 700 Bold',
 };

@@ -30,36 +30,36 @@
 </script>
 
 <template>
-  <li class="card-listing-featured shrink-none snap-start">
+  <li class="card-listing-featured tide-shrink-none tide-scroll-snap-start">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="block h-full underline-none"
+      class="tide-display-block h-full tide-underline-none"
     >
-      <BasicCard class="flex column axis1-between p-1/2">
+      <BasicCard class="tide-display-flex tide-flex-column tide-axis1-between tide-padding-1/2">
         <div>
-          <div class="mb-1/2 border-overlay radius-1/4">
+          <div class="tide-margin-bottom-1/2 border-overlay tide-radius-1">
             <BasicImage
               :offset="200"
               :src="thumbnail"
               assume-horizontal
-              class="card-listing-featured-img w-full"
+              class="card-listing-featured-img tide-width-full"
               is-lazy-load
             />
           </div>
 
-          <div class="flex column gap-1/4 mb-1">
-            <div class="font-12">
+          <div class="tide-display-flex tide-flex-column tide-gap-1/4 tide-margin-bottom-1">
+            <div class="tide-font-12">
               {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] }}
             </div>
 
-            <div class="font-14 font-600">{{ props.vehicle.modelName[0] }}</div>
+            <div class="tide-font-14 tide-font-600">{{ props.vehicle.modelName[0] }}</div>
 
-            <div class="font-12">{{ props.vehicle.dealerGroupName }}</div>
+            <div class="tide-font-12">{{ props.vehicle.dealerGroupName }}</div>
           </div>
         </div>
 
-        <div class="flex axis1-between axis2-center">
-          <span class="font-14 font-700">
+        <div class="tide-display-flex tide-axis1-between tide-axis2-center">
+          <span class="tide-font-14 tide-font-700">
             {{ formatPrice(props.vehicle.price) }}
           </span>
 

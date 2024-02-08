@@ -11,8 +11,6 @@
   import { checkLength } from '@/utilities/validation';
   import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
 
-  // TODO: Implement proper theme colors (& dark mode colors) once they're ready.
-
   interface Props extends TextField {
     inputId?: string;
     iconLeading?: Icon;
@@ -79,23 +77,27 @@
 
 <template>
   <div
-    :class="['basic-text-input block-field font-14 font-surface-variant', disabled && 'disabled', hasError && 'error']"
+    :class="[
+      'basic-text-input block-field tide-font-14 tide-font-surface-variant',
+      disabled && 'disabled',
+      hasError && 'error',
+    ]"
   >
     <label
       :for="uniqueInputId"
-      class="mb-1/4 font-14 font-700"
+      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
-    <div class="relative flex axis2-center w-full">
+    <div class="tide-position-relative tide-display-flex tide-axis2-center tide-width-full">
       <input
         :class="[
-          'field radius-1/4 p-1/2 w-full bg-surface-low',
-          hasError ? 'pr-2' : '',
-          iconLeading && 'pl-2',
-          disabled && 'not-allowed',
+          'field tide-radius-1/4 tide-padding-1/2 tide-width-full tide-bg-surface-low',
+          hasError ? 'tide-padding-right-2' : '',
+          iconLeading && 'tide-padding-left-2',
+          disabled && 'tide-cursor-not-allowed',
         ]"
         :disabled="disabled"
         :maxlength="maxlength"
@@ -114,13 +116,13 @@
       <SvgIcon
         :icon="iconLeading"
         :size="SIZE.SMALL"
-        class="absolute left-0 ml-1/2 pointer-events-none"
+        class="tide-position-absolute tide-left-0 tide-margin-left-1/2 tide-pointer-events-none"
         v-if="iconLeading"
       />
 
       <span
-        :class="hasError ? 'mr-2' : 'mr-1/2'"
-        class="absolute right-0 font-14 pointer-events-none"
+        :class="hasError ? 'tide-margin-right-2' : 'tide-margin-right-1/2'"
+        class="tide-position-absolute tide-right-0 tide-font-14 tide-pointer-events-none"
         v-if="hasSuffix"
       >
         {{ suffix }}
@@ -129,13 +131,13 @@
       <SvgIcon
         :icon="ICON.CIRCLE_EXCLAMATION"
         :size="SIZE.SMALL"
-        class="absolute right-0 mr-1/2 pointer-events-none"
+        class="tide-position-absolute tide-right-0 tide-margin-right-1/2 tide-pointer-events-none"
         v-if="hasError"
       />
     </div>
 
     <div
-      class="supporting-text font-12"
+      class="supporting-text tide-font-12"
       v-if="hasError"
     >
       {{ supportingText }}

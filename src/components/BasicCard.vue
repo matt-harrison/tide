@@ -12,7 +12,7 @@
 <template>
   <div
     :class="props.class"
-    class="basic-card radius-1/2 h-full bg-surface-low shadow-b-1 font-surface snap-start"
+    class="basic-card tide-radius-1/2 h-full tide-bg-surface-low shadow-b-1 tide-font-surface tide-scroll-snap-start"
   >
     <slot />
   </div>

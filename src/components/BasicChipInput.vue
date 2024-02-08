@@ -11,7 +11,7 @@
 
 <template>
   <button
-    :class="`basic-chip-input primary-variant tier-3 flex axis2-center gap-1/2 radius-full px-1 py-1/2 font-14 font-600`"
+    :class="`basic-chip-input primary-variant tier-3 tide-display-flex tide-axis2-center tide-gap-1/2 tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-font-14 tide-font-600`"
   >
     <span>{{ props.label }}</span>
 

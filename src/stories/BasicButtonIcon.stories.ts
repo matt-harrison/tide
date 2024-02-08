@@ -27,7 +27,7 @@ const render = (args: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: '<BasicButtonIcon @click="handleClick" class="inline-block" v-bind="args" />',
+  template: '<BasicButtonIcon @click="handleClick" class="tide-display-inline-block" v-bind="args" />',
 });
 
 export default {

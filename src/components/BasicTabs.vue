@@ -22,12 +22,14 @@
 </script>
 
 <template>
-  <div class="basic-tabs flex gap-1/4 border-1 border-gray radius-1/4 p-1/4 bg-gray-light">
+  <div
+    class="basic-tabs tide-display-flex tide-gap-1/4 tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1/4 tide-bg-gray-light"
+  >
     <button
-      :class="index === activeTab ? 'bg-white' : 'border-gray-light bg-gray-light'"
+      :class="index === activeTab ? 'tide-bg-white' : 'tide-border-gray-light tide-bg-gray-light'"
       :key="tab.label"
       @click="(event: Event) => handleTabClick(event, index)"
-      class="basic-tabs-tab border-1 border-gray radius-1/4 py-1/2 px-2 w-full font-14 font-600 whitespace-nowrap"
+      class="basic-tabs-tab tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-y-1/2 tide-padding-x-2 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
       v-for="(tab, index) in props.tabs"
     >
       <span>{{ tab.label }} </span>

@@ -16,13 +16,13 @@ const formatArgs = (args: any) => {
 };
 
 const formatClassNames = (args: any) => {
-  const classNames: string[] = ['flex'];
+  const classNames: string[] = ['tide-display-flex'];
 
   if (args.flexAxis1) classNames.push(args.flexAxis1);
   if (args.flexAxis2) classNames.push(args.flexAxis2);
   if (args.flexDirection) classNames.push(args.flexDirection);
   if (args.flexGap) classNames.push(args.flexGap);
-  if (args.flexWrap) classNames.push('wrap');
+  if (args.flexWrap) classNames.push('tide-flex-wrap');
 
   return classNames.join(' ');
 };
@@ -48,7 +48,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="inline-flex max-w-full bg-blue-light x-scroll" v-bind="args"><div :key="index" class="border-1 border-blue-dark p-1 bg-white whitespace-nowrap" v-for="(_child, index) in new Array(10)">Demo {{ index + 1 }}</div></div>',
+    '<div class="tide-display-inline-flex tide-max-width-full tide-bg-blue-light tide-x-scroll" v-bind="args"><div :key="index" class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-white tide-whitespace-nowrap" v-for="(_child, index) in new Array(10)">Demo {{ index + 1 }}</div></div>',
   updated() {
     return formatArgs(args);
   },

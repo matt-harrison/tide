@@ -14,9 +14,9 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   return `<BasicCarousel ${argsWithValues.join(
     ' '
-  )}>\r\t<li v-for="(_child, index) in new Array(12)" :class="shrink-none${
-    args.hasPadding ? ' py-1' : ''
-  }">\r\t\t<BasicCard class="p-1">Card {{ index + 1 }}</BasicCard>\r\t</li>\r</BasicCarousel>`;
+  )}>\r\t<li v-for="(_child, index) in new Array(12)" :class="tide-shrink-none${
+    args.hasPadding ? ' tide-padding-y-1' : ''
+  }">\r\t\t<BasicCard class="tide-padding-1">Card {{ index + 1 }}</BasicCard>\r\t</li>\r</BasicCarousel>`;
 };
 
 const parameters = {
@@ -32,7 +32,7 @@ const parameters = {
 const render = (args: any) => ({
   components: { BasicCard, BasicCarousel },
   setup: () => ({ args }),
-  template: `<BasicCarousel v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['shrink-none', args.hasPadding ? ' py-1' : '']"><BasicCard class="p-1">Card {{ index + 1 }}</BasicCard></li></BasicCarousel>`,
+  template: `<BasicCarousel v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['tide-shrink-none', args.hasPadding ? ' tide-padding-y-1' : '']"><BasicCard class="tide-padding-1">Card {{ index + 1 }}</BasicCard></li></BasicCarousel>`,
 });
 
 export default {

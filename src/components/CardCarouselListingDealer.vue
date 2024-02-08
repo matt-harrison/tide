@@ -24,15 +24,17 @@
 </script>
 
 <template>
-  <section class="card-carousel-listing-dealer flex axis1-between axis2-center gap-2 w-full no-shrink">
-    <aside class="card-carousel-listing-dealer-aside flex column gap-1/2">
-      <div class="card-carousel-listing-dealer-img border-overlay radius-1 bg-gray" />
-      <span class="font-12">Sponsored · Atlanta, GA</span>
-      <span class="font-20 font-700">Roy Robinson</span>
-      <span class="font-14">Largest premium pre-owned inventory</span>
+  <section
+    class="card-carousel-listing-dealer tide-display-flex tide-axis1-between tide-axis2-center tide-gap-2 tide-width-full no-shrink"
+  >
+    <aside class="card-carousel-listing-dealer-aside tide-display-flex tide-flex-column tide-gap-1/2">
+      <div class="card-carousel-listing-dealer-img border-overlay tide-radius-1 tide-bg-gray" />
+      <span class="tide-font-12">Sponsored · Atlanta, GA</span>
+      <span class="tide-font-20 tide-font-700">Roy Robinson</span>
+      <span class="tide-font-14">Largest premium pre-owned inventory</span>
 
       <a
-        class="font-700"
+        class="tide-font-700"
         href="tel:+17575551234"
       >
         Call 757 555-1234
@@ -41,7 +43,7 @@
       <BasicButton
         :href="`/${formatKebabCase(realm.label.plural)}s-for-sale`"
         :priority="PRIORITY.SECONDARY"
-        class="w-full"
+        class="tide-width-full"
         label="View inventory"
       />
     </aside>

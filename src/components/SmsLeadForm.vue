@@ -16,10 +16,12 @@
 
 <template>
   <VehiclePreview :vehicle="dummyVehicle" />
-  <div class="mt-1 font-14">Let the dealer contact you over text about this {{ realm.label.singular }}.</div>
+  <div class="tide-margin-top-1 tide-font-14">
+    Let the dealer contact you over text about this {{ realm.label.singular }}.
+  </div>
   <form
     ref="form"
-    class="flex column mt-1 mb-2 gap-1/2"
+    class="tide-display-flex tide-flex-column tide-margin-top-1 tide-margin-bottom-2 tide-gap-1/2"
   >
     <BasicTextInput
       label="Name"
@@ -36,10 +38,10 @@
       name="email"
     />
   </form>
-  <footer class="footer sticky left-0 bottom-0 py-1/2 px-2 bg-surface">
+  <footer class="footer sticky tide-left-0 tide-bottom-0 tide-padding-y-1/2 tide-padding-x-2 tide-bg-surface">
     <BasicButton
       @click="handleSubmit"
-      class="ml-auto"
+      class="tide-margin-left-auto"
       label="Send"
       type="submit"
     />

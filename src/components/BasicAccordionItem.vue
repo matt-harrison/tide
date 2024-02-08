@@ -45,12 +45,12 @@
   <div class="basic-accordion-item">
     <div
       @click="toggleIsExpanded"
-      class="accordion-head flex axis1-between py-1 pointer"
+      class="accordion-head tide-display-flex tide-axis1-between tide-padding-y-1 tide-cursor-pointer"
     >
-      <div class="flex axis2-center gap-1/2 font-700">
+      <div class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-font-700">
         <span>{{ props.label }}</span>
         <div
-          class="basic-accordion-item-active bg-gray-dark radius-full"
+          class="basic-accordion-item-active tide-bg-gray-dark tide-radius-full"
           v-if="props.isActive"
         />
       </div>
@@ -60,10 +60,10 @@
 
     <div
       ref="accordionBody"
-      class="basic-accordion-body grid"
+      class="basic-accordion-body tide-display-grid"
     >
-      <div class="y-hidden">
-        <div class="mb-1">
+      <div class="tide-y-hidden">
+        <div class="tide-margin-bottom-1">
           <slot />
         </div>
       </div>

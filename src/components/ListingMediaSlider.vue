@@ -44,12 +44,12 @@
 </script>
 
 <template>
-  <div :class="['listing-media-slider', showMediaTools && 'has-media-tools', 'relative']">
-    <div class="relative">
+  <div :class="['listing-media-slider', showMediaTools && 'has-media-tools', 'tide-position-relative']">
+    <div class="tide-position-relative">
       <BasicCarousel
         :is-touchscreen="false"
         @slide-change="handleSlideChange"
-        class="media-slider-carousel border-overlay radius-1/2 xy-hidden"
+        class="media-slider-carousel border-overlay tide-radius-1/2 tide-xy-hidden"
       >
         <ListingMediaSlide
           :key="index"
@@ -65,13 +65,13 @@
           backgroundColor: 'rgba(26, 48, 53, 0.9)',
           backdropFilter: 'blur(2px)',
         }"
-        class="slide-count absolute right-0 bottom-0 m-1/2 radius-1/2 py-1/2 px-1 font-12 font-white font-600"
+        class="slide-count tide-position-absolute tide-right-0 tide-bottom-0 tide-margin-1/2 tide-radius-1/2 tide-padding-y-1/2 tide-padding-x-1 tide-font-12 tide-font-white tide-font-600"
       >
         {{ currentSlide + 1 }}/{{ slides.length }}
       </div>
     </div>
     <div
-      class="media-tools flex gap-1/2 mt-1/2"
+      class="media-tools tide-display-flex tide-gap-1/2 tide-margin-top-1/2"
       v-if="showMediaTools"
     >
       <ListingMediaTool
@@ -128,10 +128,10 @@
         content: 'Show all ' attr(data-photo-count) ' photos';
         display: grid;
         place-items: center;
-        font-weight: 700;
+        tide-font-weight: 700;
         color: #fff;
         padding: 1rem;
-        font-size: 14px;
+        tide-font-size: 14px;
         background-color: rgba(26, 48, 53, 0.75);
         backdrop-filter: blur(2px);
         transition: background-color 75ms ease-out;

@@ -252,32 +252,34 @@
   <Teleport to="body">
     <div
       ref="gallery"
-      class="fullscreen-media-gallery fixed top-0 left-0 w-full h-full flex column"
+      class="fullscreen-media-gallery tide-position-fixed tide-top-0 tide-left-0 tide-width-full h-full tide-display-flex tide-flex-column"
     >
       <header
-        :class="viewportStore.isLarge ? 'pt-4 px-2 pb-2' : 'absolute'"
-        class="header right-0 flex axis2-center gap-1 grow-none mt-1 mr-1 font-white"
+        :class="
+          viewportStore.isLarge ? 'tide-padding-top-4 tide-padding-x-2 tide-padding-bottom-2' : 'tide-position-absolute'
+        "
+        class="header tide-right-0 tide-display-flex tide-axis2-center tide-gap-1 tide-grow-none tide-margin-top-1 tide-margin-right-1 tide-font-white"
       >
         <div
-          :class="viewportStore.isLarge ? '' : 'hidden'"
+          :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
           class="title"
         >
-          <div class="flex axis2-center font-600">
-            <div class="border-r border-white pr-1">
-              <div class="flex axis2-center gap-1/2">
+          <div class="tide-display-flex tide-axis2-center tide-font-600">
+            <div class="tide-border-r tide-border-white tide-padding-right-1">
+              <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
                 <BasicIcon :icon="ICON.CIRCLE_CHECK" />
 
                 <div>{{ sellerNameLocation }}</div>
               </div>
 
-              <div class="mt-1/4 font-700 font-20">{{ listingTitle }}</div>
+              <div class="tide-margin-top-1/4 tide-font-700 tide-font-20">{{ listingTitle }}</div>
             </div>
 
-            <div class="pl-1 font-20 font-700">{{ price }}</div>
+            <div class="tide-padding-left-1 tide-font-20 tide-font-700">{{ price }}</div>
           </div>
         </div>
 
-        <div class="ml-auto">
+        <div class="tide-margin-left-auto">
           <BasicButtonIcon
             :icon="ICON.XMARK"
             :priority="PRIORITY.FLOATING"
@@ -287,21 +289,21 @@
       </header>
       <main
         :class="[
-          viewportStore.isLarge && 'gap-4 pb-4 px-2',
+          viewportStore.isLarge && 'tide-gap-4 tide-padding-bottom-4 tide-padding-x-2',
           viewportStore.isLandscape && !viewportStore.isLarge && 'h-full',
         ]"
-        class="main flex grow shrink h-0"
+        class="main tide-display-flex tide-flex-grow shrink h-0"
       >
         <div
           :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'row-reverse h-full' : ''"
-          class="stage-and-nav-list grow shrink flex column"
+          class="stage-and-nav-list tide-flex-grow shrink tide-display-flex tide-flex-column"
         >
           <div
             :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full' : 'h-0'"
-            class="stage flex grow shrink axis2-center gap-2"
+            class="stage tide-display-flex tide-flex-grow shrink tide-axis2-center tide-gap-2"
           >
             <BasicButtonIcon
-              :class="viewportStore.isLarge ? '' : 'hidden'"
+              :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
               :disabled="currentSlide === 0"
               :icon="ICON.CHEVRON_LEFT"
               :priority="PRIORITY.FLOATING"
@@ -310,14 +312,14 @@
 
             <div
               :class="[
-                !viewportStore.isLandscape && !viewportStore.isLarge ? 'gap-1/2' : 'gap-1 snap',
-                viewportStore.isLarge ? 'row' : 'column',
+                !viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-gap-1/2' : 'tide-gap-1 tide-scroll-snap',
+                viewportStore.isLarge ? 'tide-flex-row' : 'tide-flex-column',
               ]"
               ref="track"
               :style="{
                 paddingBottom: !viewportStore.isLandscape && !viewportStore.isLarge && contactOptionsOffset,
               }"
-              class="track flex w-full h-full scrollbar-none xy-auto"
+              class="track tide-display-flex tide-width-full h-full scrollbar-none tide-xy-auto"
               tabindex="-1"
             >
               <template
@@ -325,22 +327,22 @@
                 v-for="(slide, index) in gallerySlides"
               >
                 <YoutubeVideo
-                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full py-1' : ''"
+                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full tide-padding-y-1' : ''"
                   :src="slide.videoUrl"
-                  class="youtube slide grow-none shrink-none w-full ratio-16/9 object-scale-down snap-start"
+                  class="youtube slide tide-grow-none tide-shrink-none tide-width-full ratio-16/9 tide-object-scale-down tide-scroll-snap-start"
                   tab-index="0"
                   v-if="slide.type === MEDIA_SLIDE_TYPES.VIDEO"
                 />
                 <iframe
-                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full py-1' : ''"
+                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full tide-padding-y-1' : ''"
                   :src="slide.vrUrl"
-                  class="youtube slide grow-none shrink-none w-full ratio-16/9 object-scale-down snap-start"
+                  class="youtube slide tide-grow-none tide-shrink-none tide-width-full ratio-16/9 tide-object-scale-down tide-scroll-snap-start"
                   tabIndex="0"
                   v-else-if="slide.type === MEDIA_SLIDE_TYPES.VR"
                 />
                 <div
-                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full py-1' : ''"
-                  class="flex axis1-center axis2-center grow-none shrink-none w-full h-full object-scale-down snap-start"
+                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full tide-padding-y-1' : ''"
+                  class="tide-display-flex tide-axis1-center tide-axis2-center tide-grow-none tide-shrink-none tide-width-full h-full tide-object-scale-down tide-scroll-snap-start"
                   tabIndex="0"
                   v-else-if="slide.type === 'banner'"
                 >
@@ -350,10 +352,10 @@
                   />
                 </div>
                 <img
-                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full py-1' : ''"
+                  :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'h-full tide-padding-y-1' : ''"
                   :loading="index !== 0 ? 'lazy' : undefined"
                   :src="slide.imageUrl"
-                  class="image slide grow-none shrink-none w-full object-scale-down snap-start"
+                  class="image slide tide-grow-none tide-shrink-none tide-width-full tide-object-scale-down tide-scroll-snap-start"
                   tabIndex="0"
                   v-else
                 />
@@ -361,7 +363,7 @@
             </div>
 
             <BasicButtonIcon
-              :class="viewportStore.isLarge ? '' : 'hidden'"
+              :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
               :disabled="currentSlide === gallerySlides.length - 1"
               :icon="ICON.CHEVRON_RIGHT"
               :priority="PRIORITY.FLOATING"
@@ -371,28 +373,30 @@
 
           <div
             :class="[
-              !viewportStore.isLandscape && !viewportStore.isLarge && 'hidden',
-              viewportStore.isLandscape && !viewportStore.isLarge ? 'column py-1 pr-2 pl-1' : 'pt-2',
+              !viewportStore.isLandscape && !viewportStore.isLarge && 'tide-display-hidden',
+              viewportStore.isLandscape && !viewportStore.isLarge
+                ? 'tide-flex-column tide-padding-y-1 tide-padding-right-2 tide-padding-left-1'
+                : 'tide-padding-top-2',
             ]"
             ref="navList"
-            class="nav-list flex gap-1/2 grow-none shrink-none xy-auto scrollbar-none"
+            class="nav-list tide-display-flex tide-gap-1/2 tide-grow-none tide-shrink-none tide-xy-auto scrollbar-none"
             tabindex="-1"
           >
             <button
               :class="[
                 { active: index === currentSlide },
                 slide.type,
-                index === 0 && 'ml-auto',
-                index === gallerySlides.length - 1 && 'mr-auto',
+                index === 0 && 'tide-margin-left-auto',
+                index === gallerySlides.length - 1 && 'tide-margin-right-auto',
               ]"
               :key="index"
               @click="handleThumbClick(index)"
-              class="thumb-item relative flex axis1-center axis2-center grow-none shrink-none radius-1/2 xy-hidden"
+              class="thumb-item tide-position-relative tide-display-flex tide-axis1-center tide-axis2-center tide-grow-none tide-shrink-none tide-radius-1/2 tide-xy-hidden"
               v-for="(slide, index) in gallerySlides"
             >
               <div
                 :class="viewportStore.isLandscape && viewportStore.isExtraSmall ? 'thumb-item-img-small' : ''"
-                class="thumb-bnr flex axis1-center axis2-center bg-gray-light font-gray"
+                class="thumb-bnr tide-display-flex tide-axis1-center tide-axis2-center tide-bg-gray-light tide-font-gray"
                 v-if="slide.type === 'banner'"
               >
                 Ad*
@@ -400,17 +404,17 @@
               <img
                 :class="viewportStore.isLandscape && viewportStore.isExtraSmall ? 'thumb-item-img-small' : ''"
                 :src="slide.imageUrl"
-                class="object-cover"
+                class="tide-object-cover"
                 height="90"
                 v-else
                 width="90"
               />
 
-              <div class="thumb-outline absolute top-0 left-0 w-full h-full" />
+              <div class="thumb-outline tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full" />
 
               <BasicIcon
                 :icon="slide.type === MEDIA_SLIDE_TYPES.VR ? ICON.TOUR : ICON.PLAY"
-                class="absolute bg-white radius-full p-1/2"
+                class="tide-position-absolute tide-bg-white tide-radius-full tide-padding-1/2"
                 v-if="getHasOverlay(slide.type)"
               />
             </button>
@@ -418,16 +422,16 @@
         </div>
 
         <div
-          :class="!viewportStore.isLandscape && !viewportStore.isLarge ? 'absolute w-full' : ''"
-          class="contact flex column axis1-center axis2-center grow-none"
+          :class="!viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-position-absolute tide-width-full' : ''"
+          class="contact tide-display-flex tide-flex-column tide-axis1-center tide-axis2-center tide-grow-none"
         >
           <form
-            :class="viewportStore.isLarge ? '' : 'hidden'"
-            class="contact-form flex column grow-none shrink-none gap-1/2 h-full py-1 radius-1 font-gray-dark y-auto"
+            :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
+            class="contact-form tide-display-flex tide-flex-column tide-grow-none tide-shrink-none tide-gap-1/2 h-full tide-padding-y-1 tide-radius-1 tide-font-gray-dark tide-y-auto"
             style="width: 320px; background-color: #f9f5f2"
           >
             <div
-              class="flex axis2-center gap-1/2 px-1 font-14 font-700"
+              class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-padding-x-1 tide-font-14 tide-font-700"
               v-if="sellerPhoneNumber"
             >
               <BasicButtonIcon
@@ -439,7 +443,7 @@
             </div>
 
             <div
-              class="flex axis2-center gap-1/2 px-1 font-14 font-700"
+              class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-padding-x-1 tide-font-14 tide-font-700"
               v-if="sellerPhoneNumber"
             >
               <BasicButtonIcon
@@ -451,10 +455,10 @@
               <a :href="`sms:${sellerTextNumber}`"> Text {{ sellerPhoneNumber }} </a>
             </div>
 
-            <div class="w-full pt-1/4 bg-white" />
+            <div class="tide-width-full tide-padding-top-1/4 tide-bg-white" />
 
-            <div class="flex column gap-1/2 px-1">
-              <div class="font-20 font-700 mt-1">Email the seller</div>
+            <div class="tide-display-flex tide-flex-column tide-gap-1/2 tide-padding-x-1">
+              <div class="tide-font-20 tide-font-700 tide-margin-top-1">Email the seller</div>
 
               <BasicTextInput
                 label="First name"
@@ -486,7 +490,7 @@
                 label="Send email"
                 type="submit"
               />
-              <div class="font-12">
+              <div class="tide-font-12">
                 Stay safe. Read more about <a href="#">avoiding scams and protecting your money</a>. By using this site,
                 you agree to our <a href="#">Terms of Use</a> & our <a href="#">Privacy Policy</a>.
               </div>
@@ -495,22 +499,24 @@
 
           <div
             :class="[
-              !viewportStore.isLandscape && !viewportStore.isLarge && 'fixed bottom-0 row mb-1',
-              viewportStore.isLandscape && !viewportStore.isLarge && 'column',
-              viewportStore.isLarge && 'hidden',
+              !viewportStore.isLandscape &&
+                !viewportStore.isLarge &&
+                'tide-position-fixed tide-bottom-0 tide-flex-row tide-margin-bottom-1',
+              viewportStore.isLandscape && !viewportStore.isLarge && 'tide-flex-column',
+              viewportStore.isLarge && 'tide-display-hidden',
             ]"
             ref="contactActionsRef"
-            class="contact-actions flex column gap-1/2 mx-2 p-1 font-12 radius-1 bg-white font-gray-dark shadow-b-1"
+            class="contact-actions tide-display-flex tide-flex-column tide-gap-1/2 tide-margin-x-2 tide-padding-1 tide-font-12 tide-radius-1 tide-bg-white tide-font-gray-dark shadow-b-1"
           >
             <BasicButton
-              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
+              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-text-transform-lower' : ''"
               :href="phoneHref"
               :icon-leading="ICON.PHONE"
               label="Call"
             />
 
             <BasicButton
-              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
+              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-text-transform-lower' : ''"
               :icon-leading="ICON.MESSAGE"
               @click="handleSmsClick"
               label="Text"
@@ -526,7 +532,7 @@
             </BasicModal>
 
             <BasicButton
-              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'lower' : ''"
+              :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-text-transform-lower' : ''"
               :icon-leading="ICON.ENVELOPE"
               @click="handleEmailClick"
               label="Email"

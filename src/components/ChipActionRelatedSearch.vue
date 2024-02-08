@@ -17,7 +17,7 @@
 <template>
   <a
     :href="props.href"
-    class="chip-action-related-search secondary flex axis2-center gap-1/2 radius-full py-1/2 px-1 font-600 underline-none"
+    class="chip-action-related-search secondary tide-display-flex tide-axis2-center tide-gap-1/2 tide-radius-full tide-padding-y-1/2 tide-padding-x-1 tide-font-600 tide-underline-none"
   >
     <BasicIcon :icon="ICON.MAGNIFYING_GLASS" />
 

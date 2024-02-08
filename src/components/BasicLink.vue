@@ -36,7 +36,7 @@
   <component
     :class="[
       props.element === ELEMENT.LINK ? 'basic-button-as-link' : 'basic-link',
-      hasIcon ? 'inline-flex axis2-center gap-1/2 underline-none' : 'underline',
+      hasIcon ? 'tide-display-inline-flex tide-axis2-center tide-gap-1/2 tide-underline-none' : 'tide-underline',
     ]"
     :href="isSinglePageApp ? undefined : props.href"
     :target="props.isNewTab ? TARGET.BLANK : TARGET.SELF"
@@ -49,7 +49,7 @@
     />
 
     <div
-      class="underline"
+      class="tide-underline"
       v-if="hasIcon"
     >
       {{ props.label }}

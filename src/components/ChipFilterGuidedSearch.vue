@@ -15,12 +15,12 @@
   <BasicChipFilter
     :is-active="props.isActive"
     :label="props.vehicleType.label"
-    class="chip-guided-search-toggle shrink-none"
+    class="chip-guided-search-toggle tide-shrink-none"
   >
     <img
       :alt="vehicleType.label"
       :src="vehicleType.img"
-      class="chip-guided-search-toggle-thumb mb-1/4"
+      class="chip-guided-search-toggle-thumb tide-margin-bottom-1/4"
     />
   </BasicChipFilter>
 </template>

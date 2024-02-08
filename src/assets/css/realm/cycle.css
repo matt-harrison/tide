@@ -43,7 +43,7 @@
 
 /* Realm Palette: These variables will be declared separately for each realm. */
 :root {
-  /* Light Theme Primary Button Tiers */
+  /* Primary Button Tiers */
   --ti-primary-button-tier-1-background-rest: var(--black-700);
   --ti-primary-button-tier-1-border-rest: var(--black-700);
   --ti-primary-button-tier-1-foreground-rest: var(--white);
@@ -68,7 +68,7 @@
   --ti-primary-button-tier-3-border-hover: var(--steel-blue-300);
   --ti-primary-button-tier-3-foreground-hover: var(--white);
 
-  /* Light Theme Primary Button Tier Variants */
+  /* Primary Button Tier Variants */
   --ti-primary-button-tier-1-variant-background-rest: var(--blood-orange-100);
   --ti-primary-button-tier-1-variant-border-rest: var(--blood-orange-100);
   --ti-primary-button-tier-1-variant-foreground-rest: var(--black);
@@ -93,14 +93,14 @@
   --ti-primary-button-tier-3-variant-border-hover: var(--blue-200);
   --ti-primary-button-tier-3-variant-foreground-hover:  var(--black);
 
-  /* Light Theme Secondary Buttons */
+  /* Secondary Buttons */
   --ti-secondary-button-border-rest: var(--black);
   --ti-secondary-button-foreground-rest: var(--black);
 
   --ti-secondary-button-border-hover: var(--black);
   --ti-secondary-button-foreground-hover: var(--black);
 
-  /* Light Theme Tertiary Buttons */
+  /* Tertiary Buttons */
   --ti-tertiary-button-background-rest: var(--white);
   --ti-tertiary-button-border-rest: var(--white);
   --ti-tertiary-button-foreground-rest: var(--black);
@@ -109,68 +109,25 @@
   --ti-tertiary-button-border-hover: var(--gray);
   --ti-tertiary-button-foreground-hover: var(--teal-700);
 
-  /* Light Theme Surface BGs */
+  /* Surface BGs */
   --ti-surface-background-default: var(--steel-100);
   --ti-surface-background-dark: var(--steel-400);
   --ti-surface-background-high: var(--white);
 
-  /* Light Theme Surface Variant BGs */
+  /* Surface Variant BGs */
   --ti-surface-variant-background-highest: var(--steel-100);
   --ti-surface-variant-background-high: var(--steel-200);
   --ti-surface-variant-background-default: var(--steel-300);
   --ti-surface-variant-background-dark: var(--steel-400);
   --ti-surface-variant-background-lowest: var(--steel-500);
 
-  /* Light Theme Surface FGs */
+  /* Surface FGs */
   --ti-surface-foreground: var(--black);
   --ti-surface-variant-foreground: #ABCDE;
 
-  /* Light Theme Borders */
+  /* Borders */
   --ti-surface-border-dark: var(--black);
   --ti-surface-border-default: var(--black-400);
   --ti-surface-border-high: var(--steel-300);
   --ti-surface-border-save-active: var(--blood-orange-400); /* Naming convention? */
-}
-
-/* DARK THEME CONTEXT VARIABLES */
-:root .theme-dark {
-  /* Dark Theme Primary Tiers (Tier 1 and Tier 3 identical) */
-  --ti-primary-button-tier-2-background-rest: var(--blood-orange-400);
-  --ti-primary-button-tier-2-border-rest: var(--blood-orange-400);
-  --ti-primary-button-tier-2-foreground-rest: var(--white);
-
-  --ti-primary-button-tier-2-background-hover: var(--blood-orange-400);
-  --ti-primary-button-tier-2-border-hover: var(--blood-orange-500);
-  --ti-primary-button-tier-2-foreground-hover: var(--white);
-
-  /* Dark Theme Primary Tier Variants (Identical) */
-
-  /* Dark Theme Secondary Buttons */
-  --ti-secondary-button-border-rest: var(--white);
-  --ti-secondary-button-foreground-rest: var(--white);
-
-  --ti-secondary-button-border-hover: var(--black-100);
-  --ti-secondary-button-foreground-hover: var(--white);
-
-  /* Dark Theme Tertiary Buttons (Identical) */
-
-  /* Dark Theme Surface BGs */
-  --ti-surface-background-dark: var(--blue-600);
-  --ti-surface-background-default: #2f414b;
-  --ti-surface-background-high: #4b5b63;
-
-  /* Dark Theme Surface Variant BGs */
-  --ti-surface-variant-background-dark: #41525b;
-  --ti-surface-variant-background-lowest: #293c46;
-  --ti-surface-variant-background-default: #41525b;
-  --ti-surface-variant-background-high: #54636b;
-  --ti-surface-variant-background-highest: #717d84;
-
-  --ti-surface-foreground: var(--white);
-  --ti-surface-variant-foreground: #c4c9cc;
-
-  /* Dark Theme Borders */
-  --ti-surface-border-dark: #4d5d65;
-  --ti-surface-border-default: #65727a;
-  --ti-surface-border-high: var(--white);
 }

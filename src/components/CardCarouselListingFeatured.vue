@@ -28,7 +28,7 @@
       :key="vehicle.adId"
       :vehicle="vehicle"
       @favorite-click="props.handleFavoriteClick"
-      class="py-1"
+      class="tide-padding-y-1"
       v-for="vehicle in props.vehicles"
     />
   </BasicCarousel>

@@ -75,7 +75,7 @@
     :alt="alt"
     ref="basicImage"
     :src="isLazy && src ? src : imageDefault"
-    class="basic-image object-center object-cover"
+    class="basic-image tide-object-center tide-object-cover"
   />
 </template>
 

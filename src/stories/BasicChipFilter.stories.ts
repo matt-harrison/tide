@@ -13,7 +13,7 @@ const render = (args: any, { updateArgs }: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<BasicChipFilter @click="handleClick" class="inline-flex" v-bind="args">{{ args.default }}</BasicChipFilter>`,
+  template: `<BasicChipFilter @click="handleClick" class="tide-display-inline-flex" v-bind="args">{{ args.default }}</BasicChipFilter>`,
 });
 
 export default {

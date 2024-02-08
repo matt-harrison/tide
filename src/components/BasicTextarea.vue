@@ -72,14 +72,14 @@
 <template>
   <div
     :class="[
-      'basic-textarea block-field flex column axis2-start font-14 font-surface-variant',
+      'basic-textarea block-field tide-display-flex tide-flex-column tide-axis2-start tide-font-14 tide-font-surface-variant',
       disabled && 'disabled',
       hasError && 'error',
     ]"
   >
     <label
       :for="uniqueTextareaId"
-      class="mb-1/4 font-14 font-700"
+      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
@@ -96,19 +96,19 @@
       @focusout="handleValidation"
       @input="handleInput"
       @keyup="handleValidation"
-      class="field p-1/2 bg-surface-low font-surface-variant"
+      class="field tide-padding-1/2 tide-bg-surface-low tide-font-surface-variant"
       :id="uniqueTextareaId"
       v-model="value"
     />
 
     <div
-      class="supporting-text flex axis2-center gap-1/2 mt-1/4 break-word font-12"
+      class="supporting-text tide-display-flex tide-axis2-center tide-gap-1/2 tide-margin-top-1/4 break-word tide-font-12"
       v-if="hasError"
     >
       <SvgIcon
         :icon="ICON.CIRCLE_EXCLAMATION"
         :size="SIZE.SMALL"
-        class="align-middle font-16 pointer-events-none"
+        class="align-middle tide-font-16 tide-pointer-events-none"
         v-if="hasError"
       />
       <span class="align-middle">{{ supportingText }}</span>

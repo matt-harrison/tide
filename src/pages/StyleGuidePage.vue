@@ -52,7 +52,6 @@
   const { isTouchscreen } = storeToRefs(userAgentStore);
 
   const isActiveChip = ref(true);
-  const isDarkTheme = ref(false);
   const isToggleActive = ref(false);
   const modalIsOpen = ref(false);
   const tabs = [
@@ -87,26 +86,26 @@
   const cards = new Array(15).fill('').map((empty, index) => index + 1);
 
   const increments: string[] = ['1/4', '1/2', '1', '2', '4'];
-  const sides: string[] = ['', 'y', 'x', 't', 'r', 'b', 'l'];
+  const sides: string[] = ['', '-y', '-x', '-top', '-right', '-bottom', '-left'];
 
   const swatchSets: SwatchSet[] = [
     {
       name: 'Realm Primary',
       swatches: [
         {
-          background: 'bg-primary-tier-1',
-          border: 'border-primary-tier-1',
-          foreground: 'font-primary-tier-1',
+          background: 'tide-bg-primary-tier-1',
+          border: 'tide-border-primary-tier-1',
+          foreground: 'tide-font-primary-tier-1',
         },
         {
-          background: 'bg-primary-tier-2',
-          border: 'border-primary-tier-2',
-          foreground: 'font-primary-tier-2',
+          background: 'tide-bg-primary-tier-2',
+          border: 'tide-border-primary-tier-2',
+          foreground: 'tide-font-primary-tier-2',
         },
         {
-          background: 'bg-primary-tier-3',
-          border: 'border-primary-tier-3',
-          foreground: 'font-primary-tier-3',
+          background: 'tide-bg-primary-tier-3',
+          border: 'tide-border-primary-tier-3',
+          foreground: 'tide-font-primary-tier-3',
         },
       ],
     },
@@ -114,14 +113,14 @@
       name: 'Realm Primary Variant',
       swatches: [
         {
-          background: 'bg-primary-variant-tier-2',
-          border: 'border-primary-variant-tier-2',
-          foreground: 'font-primary-variant-tier-2',
+          background: 'tide-bg-primary-variant-tier-2',
+          border: 'tide-border-primary-variant-tier-2',
+          foreground: 'tide-font-primary-variant-tier-2',
         },
         {
-          background: 'bg-primary-variant-tier-3',
-          border: 'border-primary-variant-tier-3',
-          foreground: 'font-primary-variant-tier-3',
+          background: 'tide-bg-primary-variant-tier-3',
+          border: 'tide-border-primary-variant-tier-3',
+          foreground: 'tide-font-primary-variant-tier-3',
         },
       ],
     },
@@ -129,19 +128,19 @@
       name: 'Realm Surface',
       swatches: [
         {
-          background: 'bg-surface-high',
-          border: 'border-surface-high',
-          foreground: 'font-surface-high',
+          background: 'tide-bg-surface-high',
+          border: 'tide-border-surface-high',
+          foreground: 'tide-font-surface-high',
         },
         {
-          background: 'bg-surface',
-          border: 'border-surface',
-          foreground: 'font-surface',
+          background: 'tide-bg-surface',
+          border: 'tide-border-surface',
+          foreground: 'tide-font-surface',
         },
         {
-          background: 'bg-surface-low',
-          border: 'border-surface-low',
-          foreground: 'font-surface-low',
+          background: 'tide-bg-surface-low',
+          border: 'tide-border-surface-low',
+          foreground: 'tide-font-surface-low',
         },
       ],
     },
@@ -149,24 +148,24 @@
       name: 'Realm Surface Variant',
       swatches: [
         {
-          background: 'bg-surface-variant-highest',
-          foreground: 'font-surface-variant-high',
+          background: 'tide-bg-surface-variant-highest',
+          foreground: 'tide-font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-high',
-          foreground: 'font-surface-variant-high',
+          background: 'tide-bg-surface-variant-high',
+          foreground: 'tide-font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant',
-          foreground: 'font-surface-variant-high',
+          background: 'tide-bg-surface-variant',
+          foreground: 'tide-font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-low',
-          foreground: 'font-surface-variant-high',
+          background: 'tide-bg-surface-variant-low',
+          foreground: 'tide-font-surface-variant-high',
         },
         {
-          background: 'bg-surface-variant-lowest',
-          foreground: 'font-surface-variant-high',
+          background: 'tide-bg-surface-variant-lowest',
+          foreground: 'tide-font-surface-variant-high',
         },
       ],
     },
@@ -177,24 +176,24 @@
       name: 'Global',
       swatches: [
         {
-          background: 'bg-black',
-          foreground: 'font-white',
+          background: 'tide-bg-black',
+          foreground: 'tide-font-white',
         },
         {
-          background: 'bg-gray-dark',
-          foreground: 'font-white',
+          background: 'tide-bg-gray-dark',
+          foreground: 'tide-font-white',
         },
         {
-          background: 'bg-gray',
-          foreground: 'font-black',
+          background: 'tide-bg-gray',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-gray-light',
-          foreground: 'font-black',
+          background: 'tide-bg-gray-light',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-white',
-          foreground: 'font-black',
+          background: 'tide-bg-white',
+          foreground: 'tide-font-black',
         },
       ],
     },
@@ -205,29 +204,29 @@
       name: 'Global',
       swatches: [
         {
-          background: 'bg-black',
-          border: 'border-black',
-          foreground: 'font-black',
+          background: 'tide-bg-black',
+          border: 'tide-border-black',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-gray-dark',
-          border: 'border-gray-dark',
-          foreground: 'font-white',
+          background: 'tide-bg-gray-dark',
+          border: 'tide-border-gray-dark',
+          foreground: 'tide-font-white',
         },
         {
-          background: 'bg-gray',
-          border: 'border-gray',
-          foreground: 'font-black',
+          background: 'tide-bg-gray',
+          border: 'tide-border-gray',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-gray-light',
-          border: 'border-gray-light',
-          foreground: 'font-black',
+          background: 'tide-bg-gray-light',
+          border: 'tide-border-gray-light',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-white',
-          border: 'border-white',
-          foreground: 'font-black',
+          background: 'tide-bg-white',
+          border: 'tide-border-white',
+          foreground: 'tide-font-black',
         },
       ],
     },
@@ -238,24 +237,24 @@
       name: 'Global',
       swatches: [
         {
-          background: 'bg-gray-light',
-          foreground: 'font-black',
+          background: 'tide-bg-gray-light',
+          foreground: 'tide-font-black',
         },
         {
-          background: 'bg-gray-light',
-          foreground: 'font-gray-dark',
+          background: 'tide-bg-gray-light',
+          foreground: 'tide-font-gray-dark',
         },
         {
-          background: 'bg-gray-dark',
-          foreground: 'font-gray',
+          background: 'tide-bg-gray-dark',
+          foreground: 'tide-font-gray',
         },
         {
-          background: 'bg-gray-dark',
-          foreground: 'font-gray-light',
+          background: 'tide-bg-gray-dark',
+          foreground: 'tide-font-gray-light',
         },
         {
-          background: 'bg-gray-dark',
-          foreground: 'font-white',
+          background: 'tide-bg-gray-dark',
+          foreground: 'tide-font-white',
         },
       ],
     },
@@ -280,15 +279,11 @@
   const handleChipClickInput = (event: Event) => {
     const target = event.currentTarget as Element;
 
-    target.classList.add('hidden');
+    target.classList.add('tide-display-hidden');
 
     setTimeout(() => {
-      target.classList.remove('hidden');
+      target.classList.remove('tide-display-hidden');
     }, 1000);
-  };
-
-  const toggleIsDarkTheme = () => {
-    isDarkTheme.value = !isDarkTheme.value;
   };
 
   const openModal = () => {
@@ -301,44 +296,50 @@
 </script>
 
 <template>
-  <div
-    :class="isDarkTheme ? 'theme-dark bg-surface-low' : ''"
-    class="style-guide-page fluid py-2 border-surface font-surface"
-  >
-    <header class="mx-2 mb-1/2">
-      <h1 class="font-32">Style Guide</h1>
+  <div class="style-guide-page tide-fluid tide-padding-y-2 tide-border-surface tide-font-surface">
+    <header class="tide-margin-x-2/tide-margin-bottom-1 tide-padding-x-2">
+      <h1 class="tide-font-32">Style Guide</h1>
     </header>
 
     <section
       :class="[
-        'mb-1/2 py-1/2 px-2',
-        isExtraSmall && 'bg-blue-dark font-white',
-        isSmall && 'bg-blue font-gray-dark',
-        isMedium && 'bg-blue-light font-gray-dark',
-        isLarge && 'bg-white font-gray-dark',
+        'tide-margin-bottom-1/2 tide-padding-y-1/2 tide-padding-x-2',
+        isExtraSmall && 'tide-bg-blue-dark tide-font-white',
+        isSmall && 'tide-bg-blue tide-font-gray-dark',
+        isMedium && 'tide-bg-blue-light tide-font-gray-dark',
+        isLarge && 'tide-bg-white tide-font-gray-dark',
       ]"
     >
-      <h2 class="mb-1 font-28">Breakpoints</h2>
+      <h2 class="tide-margin-bottom-1">Breakpoints</h2>
 
-      <div class="flex wrap gap-1 ml-1">
-        <div class="flex column gap-1/4 border-1 border-white radius-1/2 p-1 bg-blue-dark font-white">
+      <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
+        <div
+          :class="isLarge ? '' : 'tide-border-1 tide-border-white'"
+          class="tide-display-flex tide-flex-column tide-gap-1/4 tide-radius-1/2 tide-padding-1 tide-bg-blue-dark tide-font-white"
+        >
           <span>Extra Small</span>
           <span>0-767px</span>
         </div>
 
-        <div class="flex column gap-1/4 border-1 border-white radius-1/2 p-1 bg-blue font-black">
+        <div
+          :class="isLarge ? '' : 'tide-border-1 tide-border-white'"
+          class="tide-display-flex tide-flex-column tide-gap-1/4 tide-radius-1/2 tide-padding-1 tide-bg-blue tide-font-black"
+        >
           <span>Small</span>
           <span>768-991px</span>
         </div>
 
-        <div class="flex column gap-1/4 border-1 border-white radius-1/2 p-1 bg-blue-light font-black">
+        <div
+          :class="isLarge ? '' : 'tide-border-1 tide-border-white'"
+          class="tide-display-flex tide-flex-column tide-gap-1/4 tide-radius-1/2 tide-padding-1 tide-bg-blue-light tide-font-black"
+        >
           <span>Medium</span>
           <span>992-1231px</span>
         </div>
 
         <div
-          :class="viewportStore.isLarge ? 'border-gray-light' : 'border-white'"
-          class="flex column gap-1/4 border-1 radius-1/2 p-1 bg-white font-black"
+          :class="isLarge ? 'tide-border-gray-light' : 'tide-border-white'"
+          class="tide-display-flex tide-flex-column tide-gap-1/4 tide-border-1 tide-radius-1/2 tide-padding-1 tide-bg-white tide-font-black"
         >
           <span>Large</span>
           <span>1232+px</span>
@@ -346,24 +347,24 @@
       </div>
     </section>
 
-    <section class="mx-2 mb-2">
-      <h2 class="mb-1">Foundation</h2>
+    <section class="tide-margin-x-2 tide-margin-bottom-2">
+      <h2 class="tide-margin-bottom-1">Foundation</h2>
 
-      <section class="mb-1">
-        <h3 class="mb-1">Background Color</h3>
+      <section class="tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Background Color</h3>
 
         <section
           :key="swatchSet.name"
-          class="mb-1"
+          class="tide-margin-bottom-1"
           v-for="swatchSet in swatchSetsBackground"
         >
-          <h4 class="mb-1">{{ swatchSet.name }}</h4>
+          <h4 class="tide-margin-bottom-1">{{ swatchSet.name }}</h4>
 
-          <ul class="flex wrap gap-1 ml-1 list-none">
+          <ul class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1 tide-list-none">
             <li
               :class="[swatch.background, swatch.foreground]"
               :key="swatch.background"
-              class="swatch flex column gap-1/4 radius-1/2 p-1"
+              class="swatch tide-display-flex tide-flex-column tide-gap-1/4 tide-radius-1/2 tide-padding-1"
               v-for="swatch in swatchSet.swatches"
             >
               <span>.{{ swatch.background }}</span>
@@ -372,24 +373,24 @@
         </section>
       </section>
 
-      <section class="mb-1">
-        <h3 class="mb-1">Typography</h3>
+      <section class="tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Typography</h3>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Font Color</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Font Color</h4>
 
           <section
             :key="swatchSet.name"
-            class="mb-1"
+            class="tide-margin-bottom-1"
             v-for="swatchSet in swatchSetsForeground"
           >
-            <h5 class="mb-1">{{ swatchSet.name }}</h5>
+            <h5 class="tide-margin-bottom-1">{{ swatchSet.name }}</h5>
 
-            <ul class="flex wrap gap-1 ml-1 list-none">
+            <ul class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1 tide-list-none">
               <li
                 :class="[swatch.background, swatch.foreground]"
                 :key="swatch.foreground"
-                class="swatch flex column gap-1/4 radius-1/2 p-1"
+                class="swatch tide-display-flex tide-flex-column tide-gap-1/4 tide-radius-1/2 tide-padding-1"
                 v-for="swatch in swatchSet.swatches"
               >
                 <span>.{{ swatch.foreground }}</span>
@@ -398,74 +399,73 @@
           </section>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Font Family</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Font Family</h4>
 
-          <div class="ml-1">
-            <p class="font-default">.font-default</p>
-            <p class="font-title">.font-title</p>
+          <div class="tide-margin-left-1">
+            <p class="tide-font-default">.tide-font-default</p>
+            <p class="tide-font-title">.tide-font-title</p>
           </div>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Font Size</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Font Size</h4>
 
-          <div class="ml-1 flex column">
-            <span class="font-32">.font-32</span>
-            <span class="font-28">.font-28</span>
-            <span class="font-24">.font-24</span>
-            <span class="font-20">.font-20</span>
-            <span class="font-16">.font-16</span>
-            <span class="font-14">.font-14</span>
-            <span class="font-12">.font-12</span>
+          <div class="tide-margin-left-1 tide-display-flex tide-flex-column">
+            <span class="tide-font-32">.tide-font-32</span>
+            <span class="tide-font-24">.tide-font-24</span>
+            <span class="tide-font-20">.tide-font-20</span>
+            <span class="tide-font-16">.tide-font-16</span>
+            <span class="tide-font-14">.tide-font-14</span>
+            <span class="tide-font-12">.tide-font-12</span>
           </div>
         </section>
 
         <section>
-          <h4 class="mb-1">Font Weight</h4>
+          <h4 class="tide-margin-bottom-1">Font Weight</h4>
 
-          <div class="ml-1">
-            <p class="font-500">.font-500</p>
-            <p class="font-600">.font-600</p>
-            <p class="font-700">.font-700</p>
+          <div class="tide-margin-left-1">
+            <p class="tide-font-500">.tide-font-500</p>
+            <p class="tide-font-600">.tide-font-600</p>
+            <p class="tide-font-700">.tide-font-700</p>
           </div>
         </section>
       </section>
 
-      <section class="mb-1">
-        <h3 class="mb-1">Spacing</h3>
+      <section class="tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Spacing</h3>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Margin</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Margin</h4>
 
           <div
-            :class="index < increments.length - 1 ? 'mb-1' : ''"
+            :class="index < increments.length - 1 ? 'tide-margin-bottom-1' : ''"
             :key="increment"
-            class="flex wrap axis2-center gap-1 ml-1"
+            class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1 tide-margin-left-1"
             v-for="(increment, index) in increments"
           >
             <div
               :key="side"
-              class="bg-blue-light"
+              class="tide-bg-blue-light"
               v-for="side in sides"
             >
               <div
-                :class="[`m${side}-${increment}`, isDarkTheme ? 'bg-gray-dark' : 'bg-white']"
-                class="border-1 border-blue-dark p-1 bg-white font-gray-dark"
+                :class="[`tide-margin${side}-${increment}`, 'tide-bg-white']"
+                class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-white tide-font-gray-dark"
               >
-                .{{ `m${side}-${increment}` }}
+                .{{ `tide-margin${side}-${increment}` }}
               </div>
             </div>
           </div>
         </section>
 
         <section>
-          <h4 class="mb-1">Padding</h4>
+          <h4 class="tide-margin-bottom-1">Padding</h4>
 
           <div
-            :class="index < increments.length - 1 ? 'mb-1' : ''"
+            :class="index < increments.length - 1 ? 'tide-margin-bottom-1' : ''"
             :key="increment"
-            class="flex wrap axis2-center gap-1 ml-1"
+            class="tide-display-flex tide-flex-wrap tide-axis2-center tide-gap-1 tide-margin-left-1"
             v-for="(increment, index) in increments"
           >
             <div
@@ -473,14 +473,11 @@
               v-for="side in sides"
             >
               <div
-                :class="`p${side}-${increment}`"
-                class="border-1 border-blue-dark bg-blue-light"
+                :class="`tide-padding${side}-${increment}`"
+                class="tide-border-1 tide-border-blue-dark tide-bg-blue-light"
               >
-                <div
-                  :class="isDarkTheme ? 'bg-gray-dark' : 'bg-white'"
-                  class="p-1/4 bg-white font-gray-dark"
-                >
-                  .{{ `p${side}-${increment}` }}
+                <div class="tide-padding-1/4 tide-bg-white tide-font-gray-dark">
+                  .{{ `tide-padding${side}-${increment}` }}
                 </div>
               </div>
             </div>
@@ -488,24 +485,24 @@
         </section>
       </section>
 
-      <section class="mb-1">
-        <h3 class="mb-1">Border</h3>
+      <section class="tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Border</h3>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Color</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Color</h4>
 
           <section
             :key="swatchSet.name"
-            class="mb-1"
+            class="tide-margin-bottom-1"
             v-for="swatchSet in swatchSetsBorder"
           >
-            <h5 class="mb-1">{{ swatchSet.name }}</h5>
+            <h5 class="tide-margin-bottom-1">{{ swatchSet.name }}</h5>
 
-            <div class="flex wrap gap-1 ml-1">
+            <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
               <div
                 :class="swatch.border"
                 :key="swatch.border"
-                class="flex column gap-1/4 border-2 radius-1/2 p-1"
+                class="tide-display-flex tide-flex-column tide-gap-1/4 tide-border-2 tide-radius-1/2 tide-padding-1"
                 v-for="swatch in swatchSet.swatches"
               >
                 <span>.{{ swatch.border }}</span>
@@ -514,90 +511,74 @@
           </section>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Radius</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Radius</h4>
 
-          <div class="flex wrap axis2-start gap-1 ml-1">
-            <div class="flex axis2-center column">
-              <span class="mb-1/2">.radius-1/4</span>
-              <div
-                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-                class="radius-demo border-1 radius-1/4"
-              />
+          <div class="tide-display-flex tide-flex-wrap tide-axis2-start tide-gap-1 tide-margin-left-1">
+            <div class="tide-display-flex tide-axis2-center tide-flex-column">
+              <span class="tide-margin-bottom-1/2">.tide-radius-1/4</span>
+              <div class="tide-radius-demo tide-border-1 tide-radius-1/4" />
             </div>
 
-            <div class="flex axis2-center column">
-              <span class="mb-1/2">.radius-1/2</span>
-              <div
-                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-                class="radius-demo border-1 radius-1/2"
-              />
+            <div class="tide-display-flex tide-axis2-center tide-flex-column">
+              <span class="tide-margin-bottom-1/2">.tide-radius-1/2</span>
+              <div class="tide-radius-demo tide-border-1 tide-radius-1/2" />
             </div>
 
-            <div class="flex axis2-center column">
-              <span class="mb-1/2">.radius-full</span>
-              <div
-                :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-                class="radius-demo border-1 radius-full"
-              />
+            <div class="tide-display-flex tide-axis2-center tide-flex-column">
+              <span class="tide-margin-bottom-1/2">.tide-radius-full</span>
+              <div class="tide-radius-demo tide-border-1 tide-radius-full" />
             </div>
           </div>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Side</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Side</h4>
 
-          <div class="flex wrap axis2-start gap-1 ml-1 font-black">
-            <div class="border-1 border-blue-dark p-1 bg-blue-light">.border-1</div>
+          <div class="tide-display-flex tide-flex-wrap tide-axis2-start tide-gap-1 tide-margin-left-1 tide-font-black">
+            <div class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-blue-light">.tide-border-1</div>
 
-            <div class="border-t border-blue-dark p-1 bg-blue-light">.border-t</div>
+            <div class="tide-border-top tide-border-blue-dark tide-padding-1 tide-bg-blue-light">.tide-border-top</div>
 
-            <div class="border-r border-blue-dark p-1 bg-blue-light">.border-r</div>
+            <div class="tide-border-r tide-border-blue-dark tide-padding-1 tide-bg-blue-light">.tide-border-r</div>
 
-            <div class="border-b border-blue-dark p-1 bg-blue-light">.border-b</div>
+            <div class="tide-border-bottom tide-border-blue-dark tide-padding-1 tide-bg-blue-light">
+              .tide-border-bottom
+            </div>
 
-            <div class="border-l border-blue-dark p-1 bg-blue-light">.border-l</div>
+            <div class="tide-border-left tide-border-blue-dark tide-padding-1 tide-bg-blue-light">
+              .tide-border-left
+            </div>
           </div>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Width</h4>
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Width</h4>
 
-          <div class="flex wrap axis2-start gap-1 ml-1">
-            <div
-              :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-              class="border-1 radius-1/2 p-1"
-            >
-              .border-1
-            </div>
-
-            <div
-              :class="isDarkTheme ? 'border-white' : 'border-gray-dark'"
-              class="border-2 radius-1/2 p-1"
-            >
-              .border-2
-            </div>
+          <div class="tide-display-flex tide-flex-wrap tide-axis2-start tide-gap-1 tide-margin-left-1">
+            <div class="tide-border-1 tide-radius-1/2 tide-padding-1">.tide-border-1</div>
+            <div class="tide-border-2 tide-radius-1/2 tide-padding-1">.tide-border-2</div>
           </div>
         </section>
       </section>
     </section>
 
     <section>
-      <h2 class="mx-2 mb-1">Components</h2>
+      <h2 class="tide-margin-x-2 tide-margin-bottom-1">Components</h2>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Accordion</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Accordion</h3>
 
-        <div class="ml-1 border-t border-gray">
+        <div class="tide-margin-left-1 tide-border-top tide-border-gray">
           <BasicAccordionItem
             :key="index"
             :label="`Accordion Item ${index} Label`"
-            class="border-b border-gray"
-            class-label="py-1"
+            class="tide-border-bottom tide-border-gray"
+            class-label="tide-padding-y-1"
             v-for="index in [1, 2, 3]"
           >
-            <div class="ml-1 mb-1">
-              <p class="mb-1">Accordion Item {{ index }} Body Content</p>
+            <div class="tide-margin-left-1 tide-margin-bottom-1">
+              <p class="tide-margin-bottom-1">Accordion Item {{ index }} Body Content</p>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta nec arcu vel aliquam. Quisque a sem
                 accumsan, mattis nunc at, rhoncus urna. Vivamus rutrum lorem quis risus dictum dapibus. Donec id rutrum
@@ -607,7 +588,7 @@
               </p>
 
               <p
-                class="pt-1"
+                class="tide-padding-top-1"
                 v-if="index >= 2"
               >
                 Morbi nec tempus leo. Morbi faucibus arcu mauris, eget consequat dolor vestibulum a. Nullam varius
@@ -619,7 +600,7 @@
               </p>
 
               <p
-                class="pt-1"
+                class="tide-padding-top-1"
                 v-if="index >= 3"
               >
                 Curabitur leo nulla, ultrices vitae elementum a, interdum sed quam. Pellentesque accumsan, arcu eu
@@ -633,22 +614,22 @@
         </div>
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Breadcrumbs</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Breadcrumbs</h3>
 
         <BasicBreadCrumbs
           :bread-crumbs="breadCrumbs"
-          class="ml-1"
+          class="tide-margin-left-1"
         />
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Button</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Button</h3>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Button</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Button</h4>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButton
               @click="handleButtonClick"
               label="Primary"
@@ -673,7 +654,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButton
               @click="handleButtonClick"
               disabled
@@ -702,7 +683,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicButton
               :icon-leading="ICON.STAR"
               @click="handleButtonClick"
@@ -719,10 +700,10 @@
           </div>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Button As Link</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Button As Link</h4>
 
-          <div class="flex wrap gap-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicLink
               :element="ELEMENT.BUTTON"
               :icon-leading="ICON.STAR"
@@ -745,10 +726,10 @@
           </div>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Button Icon</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Button Icon</h4>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -758,7 +739,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -769,7 +750,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -780,7 +761,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -792,74 +773,74 @@
           </div>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Button Tabs</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Button Tabs</h4>
 
-          <div class="flex ml-1">
+          <div class="tide-display-flex tide-margin-left-1">
             <BasicTabs
               :tabs="tabs"
-              class="font-gray-dark"
+              class="tide-font-gray-dark"
             />
           </div>
         </div>
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Card</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Card</h3>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Card</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Card</h4>
 
-          <ul class="flex ml-1 list-none">
+          <ul class="tide-display-flex tide-margin-left-1 tide-list-none">
             <li>
-              <BasicCard class="p-1">Demo</BasicCard>
+              <BasicCard class="tide-padding-1">Demo</BasicCard>
             </li>
           </ul>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Featured Listing Card</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Featured Listing Card</h4>
 
-          <ul class="list-none">
+          <ul class="tide-list-none">
             <CardListingFeatured
               :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
               :vehicle="dummyVehicles[0]"
               @favorite-click="favoriteStore.toggleIsFavorite(dummyVehicles[0].adId)"
-              class="font-gray-dark"
+              class="tide-font-gray-dark"
             />
           </ul>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Listing Card</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Listing Card</h4>
 
-          <ul class="list-none">
+          <ul class="tide-list-none">
             <CardListing
               :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
               :vehicle="dummyVehicles[0]"
               @favorite-click="favoriteStore.toggleIsFavorite(dummyVehicles[0].adId)"
-              class="font-gray-dark"
+              class="tide-font-gray-dark"
             />
           </ul>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Premium Select Listing Card</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Premium Select Listing Card</h4>
 
           <CardListingPremiumSelect
             :is-favorite="favoriteStore.getIsFavorite(dummyVehicles[0].adId)"
             :vehicle="dummyVehicles[0]"
             @favorite-click="favoriteStore.toggleIsFavorite"
-            class="w-container"
+            class="tide-width-container"
           />
         </div>
       </section>
 
-      <section class="mb-1">
-        <h3 class="mx-2 mb-1">Carousel</h3>
+      <section class="tide-margin-bottom-1">
+        <h3 class="tide-margin-x-2 tide-margin-bottom-1">Carousel</h3>
 
-        <div class="mb-1">
-          <h4 class="mx-2 mb-1">Basic Carousel</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-x-2 tide-margin-bottom-1">Basic Carousel</h4>
 
           <BasicCarousel
             :is-touchscreen="isTouchscreen"
@@ -867,48 +848,48 @@
           >
             <li
               :key="card"
-              class="shrink-none py-1"
+              class="tide-shrink-none tide-padding-y-1"
               v-for="card in cards"
             >
-              <BasicCard class="p-1">Card demo {{ card }}</BasicCard>
+              <BasicCard class="tide-padding-1">Card demo {{ card }}</BasicCard>
             </li>
           </BasicCarousel>
         </div>
 
         <div>
-          <h4 class="mx-2 mb-1">Featured Listing Carousel</h4>
+          <h4 class="tide-margin-x-2 tide-margin-bottom-1">Featured Listing Carousel</h4>
 
           <CardCarouselListingFeatured
             :get-is-favorite="favoriteStore.getIsFavorite"
             :handle-favorite-click="favoriteStore.toggleIsFavorite"
             :is-touchscreen="isTouchscreen"
             :vehicles="dummyVehicles"
-            class="flex wrap gap-1 font-gray-dark"
+            class="tide-display-flex tide-flex-wrap tide-gap-1 tide-font-gray-dark"
           />
         </div>
 
         <div>
-          <h4 class="mx-2 mb-1">Dealer Listing Carousel</h4>
+          <h4 class="tide-margin-x-2 tide-margin-bottom-1">Dealer Listing Carousel</h4>
 
           <CardCarouselListingDealer
             :vehicles="dummyVehicles"
-            class="pl-2"
+            class="tide-padding-left-2"
           />
         </div>
       </section>
 
-      <section class="mx-2 mb-1">
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
         <h3
-          class="mb-1"
+          class="tide-margin-bottom-1"
           id="chip"
         >
           Chip
         </h3>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Action Chip</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Action Chip</h4>
 
-          <div class="flex wrap">
+          <div class="tide-display-flex tide-flex-wrap">
             <BasicChipAction
               href="#chip"
               label="Basic Action Chip"
@@ -916,8 +897,8 @@
           </div>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Filter Chip</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Filter Chip</h4>
 
           <BasicChipFilter
             :is-active="isActiveChip"
@@ -927,7 +908,7 @@
         </div>
 
         <div>
-          <h4 class="mb-1">Basic Input Chip</h4>
+          <h4 class="tide-margin-bottom-1">Basic Input Chip</h4>
 
           <BasicChipInput
             @click="handleChipClickInput"
@@ -936,43 +917,43 @@
         </div>
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Icon</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Icon</h3>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Medium (24px)</h4>
-          <div class="flex wrap gap-1 ml-1">
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Medium (24px)</h4>
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicIcon
               :icon="icon"
               :key="icon"
               :title="icon"
-              class="border-1 border-blue-dark bg-blue-light font-gray-dark"
+              class="tide-border-1 tide-border-blue-dark tide-bg-blue-light tide-font-gray-dark"
               v-for="icon in ICON"
             />
           </div>
         </section>
 
-        <section class="mb-1">
-          <h4 class="mb-1">Small (16px)</h4>
-          <div class="flex wrap gap-1 ml-1">
+        <section class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Small (16px)</h4>
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicIcon
               :icon="icon"
               :key="icon"
               :title="icon"
-              class="border-1 border-blue-dark bg-blue-light font-gray-dark"
+              class="tide-border-1 tide-border-blue-dark tide-bg-blue-light tide-font-gray-dark"
               v-for="icon in ICON"
             />
           </div>
         </section>
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Link</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Link</h3>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Link</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Link</h4>
 
-          <div class="flex wrap gap-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicLink
               :icon-leading="ICON.STAR"
               href="/"
@@ -992,10 +973,10 @@
           </div>
         </div>
 
-        <div class="mb-1">
-          <h4 class="mb-1">Basic Link as Button</h4>
+        <div class="tide-margin-bottom-1">
+          <h4 class="tide-margin-bottom-1">Basic Link as Button</h4>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButton
               :element="ELEMENT.LINK"
               href="/"
@@ -1024,7 +1005,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-left-1">
             <BasicButton
               :element="ELEMENT.LINK"
               :icon-leading="ICON.STAR"
@@ -1048,9 +1029,9 @@
         </div>
 
         <div>
-          <h4 class="mb-1">Basic Link As Button Icon</h4>
+          <h4 class="tide-margin-bottom-1">Basic Link As Button Icon</h4>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -1061,7 +1042,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -1073,7 +1054,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -1085,7 +1066,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1 mb-1 ml-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
               :key="icon"
@@ -1099,12 +1080,12 @@
         </div>
       </section>
 
-      <section class="mx-2 mb-1">
-        <h3 class="mb-1">Modal</h3>
+      <section class="tide-margin-x-2 tide-margin-bottom-1">
+        <h3 class="tide-margin-bottom-1">Modal</h3>
 
         <BasicButton
           @click="openModal"
-          class="ml-1"
+          class="tide-margin-left-1"
           label="Open modal"
         />
 
@@ -1194,17 +1175,17 @@
             />
 
             <BasicButton
-              class="ml-auto"
+              class="tide-margin-left-auto"
               label="Confirm"
             />
           </template>
         </BasicModal>
       </section>
 
-      <section class="mx-2">
-        <h3 class="mb-1">Toggle</h3>
+      <section class="tide-margin-x-2">
+        <h3 class="tide-margin-bottom-1">Toggle</h3>
 
-        <div class="flex wrap gap-1 mb-1 ml-1">
+        <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
           <BasicToggle
             :is-active="isToggleActive"
             @click="toggleIsToggleActive"
@@ -1212,17 +1193,11 @@
         </div>
       </section>
     </section>
-
-    <BasicButton
-      :label="`Dark Theme: ${isDarkTheme ? 'On' : 'Off'}`"
-      @click="toggleIsDarkTheme"
-      class="fixed right-0 bottom-0 mr-1/2 mb-1/2"
-    />
   </div>
 </template>
 
 <style scoped>
-  .radius-demo {
+  .tide-radius-demo {
     width: 50px;
     height: 50px;
   }

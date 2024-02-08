@@ -55,51 +55,51 @@
 </script>
 
 <template>
-  <li class="card-listing w-full">
+  <li class="card-listing tide-width-full">
     <a
       :href="`/listing?realm=${realm.id}`"
-      class="block h-full underline-none"
+      class="tide-display-block h-full tide-underline-none"
     >
-      <BasicCard class="relative">
-        <div class="flex column axis1-between gap-1/2 p-1/2 h-full">
-          <div class="flex column gap-1/2">
-            <div class="mb-1/2 border-overlay radius-1/4">
+      <BasicCard class="tide-position-relative">
+        <div class="tide-display-flex tide-flex-column tide-axis1-between tide-gap-1/2 tide-padding-1/2 h-full">
+          <div class="tide-display-flex tide-flex-column tide-gap-1/2">
+            <div class="tide-margin-bottom-1/2 border-overlay tide-radius-1">
               <BasicImage
                 :offset="200"
                 :src="thumbnail"
                 assume-horizontal
-                class="w-full"
+                class="tide-width-full"
                 is-lazy-load
               />
             </div>
 
-            <div class="flex column gap-1/4">
-              <div class="font-12">
+            <div class="tide-display-flex tide-flex-column tide-gap-1/4">
+              <div class="tide-font-12">
                 {{ props.vehicle.condition }} {{ props.vehicle.year }} {{ props.vehicle.makeName[0] || '' }}
               </div>
 
-              <div class="font-14 font-600">{{ props.vehicle.modelName[0] || '' }}</div>
+              <div class="tide-font-14 tide-font-600">{{ props.vehicle.modelName[0] || '' }}</div>
 
-              <div class="font-12">
+              <div class="tide-font-12">
                 <span v-if="adType">{{ adType }} ad by </span>
                 <span>{{ props.vehicle.dealerGroupName || '' }}</span>
               </div>
 
-              <div class="font-12">
+              <div class="tide-font-12">
                 <span v-if="cityState">{{ cityState }} . </span>
                 <span>{{ dummy.milesAway }} miles away</span>
               </div>
             </div>
           </div>
 
-          <div class="flex wrap axis1-between axis2-center gap-1/4 font-12">
-            <span class="font-700">
+          <div class="tide-display-flex tide-flex-wrap tide-axis1-between tide-axis2-center tide-gap-1/4 tide-font-12">
+            <span class="tide-font-700">
               {{ props.vehicle.price ? formatPrice(props.vehicle.price) : '' }}
             </span>
 
-            <div class="flex wrap axis1-end axis2-center gap-1 grow">
+            <div class="tide-display-flex tide-flex-wrap tide-axis1-end tide-axis2-center tide-gap-1 tide-flex-grow">
               <div
-                class="flex axis2-center gap-1/4"
+                class="tide-display-flex tide-axis2-center tide-gap-1/4"
                 v-if="phone"
               >
                 <BasicButtonIcon
@@ -111,7 +111,7 @@
 
                 <button
                   @click.stop.prevent="setShowPhone(true)"
-                  class="font-700 underline"
+                  class="tide-font-700 tide-underline"
                   v-if="!showPhone && dummy.hasHiddenPhone"
                 >
                   Show number
@@ -120,7 +120,7 @@
                 <a
                   :href="`tel:+${phone}`"
                   @click.stop
-                  class="font-700"
+                  class="tide-font-700"
                   v-if="showPhone || !dummy.hasHiddenPhone"
                 >
                   {{ formatPhone(parseInt(phone, 10)) }}
@@ -133,18 +133,18 @@
         </div>
 
         <div
-          class="card-listing-label absolute top-0 flex mt-1"
+          class="card-listing-label tide-position-absolute tide-top-0 tide-display-flex tide-margin-top-1"
           v-if="isPremium"
         >
-          <div class="flex gap-1/2 p-1/2 bg-white">
+          <div class="tide-display-flex tide-gap-1/2 tide-padding-1/2 tide-bg-white">
             <BasicIcon :icon="ICON.BOOKMARK" />
-            <span class="font-12 font-600">Premium</span>
+            <span class="tide-font-12 tide-font-600">Premium</span>
           </div>
 
           <div class="card-listing-label-flag" />
         </div>
 
-        <div class="absolute top-0 right-0 mt-1 mr-1">
+        <div class="tide-position-absolute tide-top-0 tide-right-0 tide-margin-top-1 tide-margin-right-1">
           <BasicButtonIcon
             :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
             :priority="PRIORITY.FLOATING"

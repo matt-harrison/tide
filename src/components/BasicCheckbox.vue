@@ -34,7 +34,7 @@
   >
     <input
       :checked="props.value || undefined"
-      :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
+      :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
       :disabled="props.disabled"
       :name="name"
       :id="uniqueInputId"
@@ -42,7 +42,7 @@
     />
 
     <label
-      :class="[UTILS.PL_1_2, disabled ? UTILS.NOT_ALLOWED : UTILS.POINTER]"
+      :class="[UTILS.PL_1_2, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
       :for="uniqueInputId"
       @click.stop
       v-if="label"

@@ -4,7 +4,7 @@ import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
 const render = (args: any) => ({
   components: { BasicAccordionItem },
   setup: () => ({ args }),
-  template: `<BasicAccordionItem :key="args.isExpandedInitial" class="border-t border-b border-gray" v-bind="args"><p class="mb-1">{{ args.default }}</p></BasicAccordionItem>`,
+  template: `<BasicAccordionItem :key="args.isExpandedInitial" class="tide-border-top tide-border-bottom tide-border-gray" v-bind="args"><p class="tide-margin-bottom-1">{{ args.default }}</p></BasicAccordionItem>`,
 });
 
 export default {

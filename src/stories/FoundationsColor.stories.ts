@@ -17,7 +17,7 @@ const formatClassNames = (args: any) => {
   const classNames = [];
 
   if (args.backgroundColor) classNames.push(args.backgroundColor);
-  if (args.borderColor) classNames.push(`border-1 ${args.borderColor}`);
+  if (args.borderColor) classNames.push(`tide-border-1 ${args.borderColor}`);
   if (args.fontColor) classNames.push(args.fontColor);
 
   return classNames.join(' ');
@@ -43,7 +43,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div class="inline-block p-1" v-bind="args">Demo</div>',
+  template: '<div class="tide-display-inline-block tide-padding-1" v-bind="args">Demo</div>',
   updated() {
     return formatArgs(args);
   },

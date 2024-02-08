@@ -28,7 +28,7 @@ const render = (args: any, { updateArgs }: any) => ({
   },
   setup: () => ({ args }),
   template: `
-  <p>Toggle "isOpen" prop below to preview</p>
+  <p>Toggle "isOpen" prop below to preview.</p>
   <BasicModal v-bind="args" @close="handleClose">
     ${args.default}
     <template #footer>${args.footer}</template>
@@ -90,7 +90,7 @@ export default {
     },
   },
   args: {
-    default: '<div class="mb-1 px-1 w-full">Default Slot Demo</div>',
+    default: '<div class="tide-margin-bottom-1 tide-padding-x-1 tide-width-full">Default Slot Demo</div>',
     footer: '<BasicButton label="Footer Slot Demo" />',
     isOpen: false,
     modalStyle: {},

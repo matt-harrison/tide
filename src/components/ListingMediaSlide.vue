@@ -26,22 +26,22 @@
   <button
     :title="slideTitle"
     @click="handleClick"
-    class="listing-media-slide relative flex axis1-center axis2-center grow-none shrink-none w-full ratio-1 snap-start"
+    class="listing-media-slide tide-position-relative tide-display-flex tide-axis1-center tide-axis2-center tide-grow-none tide-shrink-none tide-width-full ratio-1 tide-scroll-snap-start"
     type="button"
   >
     <img
       :alt="imgAlt"
       :src="props.slide.imageUrl"
-      class="w-full h-full object-cover"
+      class="tide-width-full h-full tide-object-cover"
     />
 
     <div
-      class="absolute flex axis1-center axis2-center pointer-events-none bg-white radius-full p-1"
+      class="tide-position-absolute tide-display-flex tide-axis1-center tide-axis2-center tide-pointer-events-none tide-bg-white tide-radius-full tide-padding-1"
       v-if="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO || props.slide.type === MEDIA_SLIDE_TYPES.VR"
     >
       <BasicIcon
         :icon="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO ? ICON.PLAY : ICON.TOUR"
-        class="font-24"
+        class="tide-font-24"
       />
     </div>
   </button>

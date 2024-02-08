@@ -53,61 +53,61 @@
 </script>
 
 <template>
-  <footer class="site-footer flex column gap-1/4 font-14">
-    <div class="py-2 bg-beige">
-      <BasicContainer class="flex wrap axis1-between axis2-start gap-2">
+  <footer class="site-footer tide-display-flex tide-flex-column tide-gap-1/4 tide-font-14">
+    <div class="tide-padding-y-2 tide-bg-beige">
+      <BasicContainer class="tide-display-flex tide-flex-wrap tide-axis1-between tide-axis2-start tide-gap-2">
         <div
-          :class="isExtraSmall ? 'order-2 w-full' : ''"
+          :class="isExtraSmall ? 'order-2 tide-width-full' : ''"
           class="site-footer-explore"
         >
-          <h2 class="mb-1 font-16">Explore {{ realm.label.singular }} Trader</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-16">Explore {{ realm.label.singular }} Trader</h2>
 
-          <div class="flex wrap gap-1 axis1-between">
-            <div class="flex column gap-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-axis1-between">
+            <div class="tide-display-flex tide-flex-column tide-gap-1">
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 About {{ realm.label.singular }}Trader.com
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 {{ realm.label.singular }}Trader.com blog
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 Site map
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 Need help?
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 Email us feedback
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 Security center
               </a>
 
               <a
-                class="underline-none"
+                class="tide-underline-none"
                 href="#"
               >
                 Community guidelines
@@ -117,63 +117,63 @@
         </div>
 
         <div
-          :class="isExtraSmall ? 'order-2 w-full' : ''"
+          :class="isExtraSmall ? 'order-2 tide-width-full' : ''"
           class="site-footer-affiliates"
         >
-          <h2 class="mb-1 font-16">{{ realm.label.singular }} Trader affiliates</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-16">{{ realm.label.singular }} Trader affiliates</h2>
 
-          <div class="flex column gap-1 axis1-between">
+          <div class="tide-display-flex tide-flex-column tide-gap-1 tide-axis1-between">
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Airplanes for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               ATVs for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Trucks for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Motorcycles for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Heavy Equipment for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Jet Skis for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Snowmobiles for sale
             </a>
 
             <a
-              class="underline-none"
+              class="tide-underline-none"
               href="#"
             >
               Boats for sale
@@ -182,15 +182,15 @@
         </div>
 
         <div
-          :class="isExtraSmall ? 'order-1 w-full' : ''"
+          :class="isExtraSmall ? 'order-1 tide-width-full' : ''"
           class="site-footer-dealers-sellers"
         >
-          <div class="flex column gap-1 mb-2">
-            <h2 class="font-16">Dealers</h2>
+          <div class="tide-display-flex tide-flex-column tide-gap-1 tide-margin-bottom-2">
+            <h2 class="tide-font-16">Dealers</h2>
 
-            <div class="flex column axis2-start gap-1">
+            <div class="tide-display-flex tide-flex-column tide-axis2-start tide-gap-1">
               <BasicButton
-                :class="isExtraSmall ? 'w-full' : ''"
+                :class="isExtraSmall ? 'tide-width-full' : ''"
                 :element="ELEMENT.LINK"
                 :priority="PRIORITY.SECONDARY"
                 href="#"
@@ -199,7 +199,7 @@
 
               <p>
                 <a
-                  class="font-600"
+                  class="tide-font-600"
                   href="#"
                 >
                   Advertise your inventory
@@ -210,13 +210,13 @@
           </div>
 
           <div>
-            <h2 class="mb-1 font-16">Private sellers</h2>
+            <h2 class="tide-margin-bottom-1 tide-font-16">Private sellers</h2>
 
-            <div class="flex column axis2-start gap-1">
+            <div class="tide-display-flex tide-flex-column tide-axis2-start tide-gap-1">
               <span>Sell your {{ realm.label.singular }} for $69.95</span>
 
               <BasicButton
-                :class="isExtraSmall ? 'w-full' : ''"
+                :class="isExtraSmall ? 'tide-width-full' : ''"
                 :element="ELEMENT.LINK"
                 :label="`Sell my ${realm.label.singular}`"
                 :priority="PRIORITY.SECONDARY"
@@ -224,7 +224,7 @@
               />
 
               <a
-                class="font-600"
+                class="tide-font-600"
                 href="#"
               >
                 Edit my listing
@@ -233,8 +233,10 @@
           </div>
         </div>
 
-        <div :class="isExtraSmall ? 'order-2 axis1-center w-full' : ''">
-          <div class="site-footer-socials flex wrap gap-1 mb-1 font-20">
+        <div :class="isExtraSmall ? 'order-2 tide-axis1-center tide-width-full' : ''">
+          <div
+            class="site-footer-socials tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-font-20"
+          >
             <BasicButtonIcon
               :element="ELEMENT.LINK"
               :href="socialLink.url"
@@ -246,7 +248,7 @@
             />
           </div>
 
-          <div class="flex wrap gap-1">
+          <div class="tide-display-flex tide-flex-wrap tide-gap-1">
             <a href="#">
               <img
                 :src="buttonAppStore"
@@ -265,28 +267,28 @@
       </BasicContainer>
     </div>
 
-    <div class="py-2 bg-beige">
+    <div class="tide-padding-y-2 tide-bg-beige">
       <BasicContainer
-        :class="isExtraSmall ? 'column axis2-center' : 'row'"
-        class="flex wrap gap-1"
+        :class="isExtraSmall ? 'tide-flex-column tide-axis2-center' : 'tide-flex-row'"
+        class="tide-display-flex tide-flex-wrap tide-gap-1"
       >
         <span>{{ realm.label.singular }}Trader.com © 2023 Trader Interactive | All rights reserved.</span>
         <a
-          class="underline-none"
+          class="tide-underline-none"
           href="#"
         >
           Privacy Policy
         </a>
 
         <a
-          class="underline-none"
+          class="tide-underline-none"
           href="#"
         >
           Terms of Use
         </a>
 
         <a
-          class="underline-none"
+          class="tide-underline-none"
           href="#"
         >
           Advertiser Agreement

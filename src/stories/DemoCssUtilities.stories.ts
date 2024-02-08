@@ -50,7 +50,7 @@ const formatClassNames = (args: any) => {
   if (args.flexAxis2) classNames.push(args.flexAxis2);
   if (args.flexDirection) classNames.push(args.flexDirection);
   if (args.flexGap) classNames.push(args.flexGap);
-  if (args.flexWrap) classNames.push('wrap');
+  if (args.flexWrap) classNames.push('tide-flex-wrap');
   if (args.fontColor) classNames.push(args.fontColor);
   if (args.fontFamily) classNames.push(args.fontFamily);
   if (args.fontSize) classNames.push(args.fontSize);

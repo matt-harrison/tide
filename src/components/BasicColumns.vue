@@ -10,9 +10,9 @@
 
 <template>
   <section class="basic-columns">
-    <h2 class="mb-1/2 font-16">{{ props.heading }}</h2>
+    <h2 class="tide-margin-bottom-1/2 tide-font-16">{{ props.heading }}</h2>
 
-    <ul class="flex wrap gap-2 list-none">
+    <ul class="tide-display-flex tide-flex-wrap tide-gap-2 tide-list-none">
       <li class="basic-columns-column">
         <slot name="section1" />
       </li>
@@ -33,18 +33,18 @@
 </template>
 
 <style>
-  ul.flex.wrap > .basic-columns-column {
+  ul.tide-display-flex.tide-flex-wrap > .basic-columns-column {
     width: 100%;
   }
 
   @media (min-width: 992px) {
-    ul.flex.wrap > .basic-columns-column {
+    ul.tide-display-flex.tide-flex-wrap > .basic-columns-column {
       width: calc((100% - 2rem) / 2);
     }
   }
 
   @media (min-width: 1232px) {
-    ul.flex.wrap > .basic-columns-column {
+    ul.tide-display-flex.tide-flex-wrap > .basic-columns-column {
       width: calc((100% - 6rem) / 4);
     }
   }

@@ -44,82 +44,84 @@
 </script>
 
 <template>
-  <div class="home-page mb-2">
+  <div class="home-page tide-margin-bottom-2">
     <BasicContainer
-      :class="!isLarge ? 'column' : 'row'"
-      class="flex axis1-center axis2-center gap-2 mt-2 mb-4"
+      :class="!isLarge ? 'tide-flex-column' : 'tide-flex-row'"
+      class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-2 tide-margin-top-2 tide-margin-bottom-4"
     >
-      <form class="home-search-form relative radius-1/2 p-2 bg-gradient xy-hidden">
+      <form
+        class="home-search-form tide-position-relative tide-radius-1/2 tide-padding-2 tide-bg-gradient tide-xy-hidden"
+      >
         <img
           :src="patternTopography"
-          class="absolute top-0 left-0 w-full h-full object-cover font-secondary"
+          class="tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full tide-object-cover tide-font-secondary"
         />
 
-        <div class="relative radius-1/4 p-1 bg-white">
+        <div class="tide-position-relative tide-radius-1/4 tide-padding-1 tide-bg-white">
           <h1
-            :class="isExtraSmall ? 'row' : 'column'"
-            class="flex axis1-center axis2-center gap-1/2 mb-1 font-24 text-center"
+            :class="isExtraSmall ? 'tide-flex-row' : 'tide-flex-column'"
+            class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2 tide-margin-bottom-1 tide-font-24 text-center"
           >
             Let's find your next {{ realm.label.singular }}
           </h1>
 
-          <fieldset class="flex column gap-1 mb-1">
-            <fieldset class="flex column gap-1/4">
+          <fieldset class="tide-display-flex tide-flex-column tide-gap-1 tide-margin-bottom-1">
+            <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4">
               <label
-                class="font-14"
+                class="tide-font-14"
                 for="type"
               >
                 {{ realm.label.singular }} type
               </label>
 
               <input
-                class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-bg-white tide-font-14"
                 id="type"
                 type="text"
               />
             </fieldset>
 
-            <fieldset class="flex column gap-1/4">
+            <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4">
               <label
-                class="font-14"
+                class="tide-font-14"
                 for="keyword"
               >
                 Make, model, keyword
               </label>
 
               <input
-                class="border-1 border-gray radius-1/4 p-1 bg-white font-14"
+                class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-bg-white tide-font-14"
                 id="keyword"
                 type="text"
               />
             </fieldset>
 
-            <fieldset class="flex gap-1/2">
-              <fieldset class="flex column gap-1/4 w-1/2">
+            <fieldset class="tide-display-flex tide-gap-1/2">
+              <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4 tide-width-1/2">
                 <label
-                  class="font-14"
+                  class="tide-font-14"
                   for="zip"
                 >
                   Zip code
                 </label>
 
                 <input
-                  class="border-1 border-gray radius-1/4 p-1 w-full bg-white font-14"
+                  class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-width-full tide-bg-white tide-font-14"
                   id="zip"
                   type="text"
                 />
               </fieldset>
 
-              <fieldset class="flex column gap-1/4 w-1/2">
+              <fieldset class="tide-display-flex tide-flex-column tide-gap-1/4 tide-width-1/2">
                 <label
-                  class="font-14"
+                  class="tide-font-14"
                   for="distance"
                 >
                   Search within
                 </label>
 
                 <select
-                  class="border-1 border-gray radius-1/4 p-1 w-full bg-white font-14"
+                  class="tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1 tide-width-full tide-bg-white tide-font-14"
                   id="distance"
                 >
                   <option>150 mi</option>
@@ -131,13 +133,13 @@
           <BasicButton
             :element="ELEMENT.LINK"
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
-            class="mb-1 w-full"
+            class="tide-margin-bottom-1 tide-width-full"
             label="Search"
           />
 
-          <div class="flex axis1-center">
+          <div class="tide-display-flex tide-axis1-center">
             <a
-              class="font-14 font-700"
+              class="tide-font-14 tide-font-700"
               href="#"
             >
               Sell your {{ realm.label.singular }}
@@ -146,28 +148,30 @@
         </div>
       </form>
 
-      <div class="flex axis2-center w-full">
-        <div class="relative flex column gap-1 radius-1/2 xy-hidden">
+      <div class="tide-display-flex tide-axis2-center tide-width-full">
+        <div
+          class="tide-position-relative tide-display-flex tide-flex-column tide-gap-1 tide-radius-1/2 tide-xy-hidden"
+        >
           <img
             :src="dummyAlphaDmaAd"
             alt="Alpha DMA"
-            class="w-full"
+            class="tide-width-full"
           />
 
           <div
-            :class="isExtraSmall ? 'relative' : 'absolute p-1'"
-            class="bottom-0 flex wrap axis1-between axis2-center gap-1 w-full"
+            :class="isExtraSmall ? 'tide-position-relative' : 'tide-position-absolute tide-padding-1'"
+            class="tide-bottom-0 tide-display-flex tide-flex-wrap tide-axis1-between tide-axis2-center tide-gap-1 tide-width-full"
           >
-            <span class="font-14">Sponsored by Uwharrie RV • Seattle, WA</span>
+            <span class="tide-font-14">Sponsored by Uwharrie RV • Seattle, WA</span>
 
             <div
-              :class="isExtraSmall ? 'axis1-between w-full' : ''"
-              class="flex wrap gap-1"
+              :class="isExtraSmall ? 'tide-axis1-between tide-width-full' : ''"
+              class="tide-display-flex tide-flex-wrap tide-gap-1"
             >
               <BasicLink
                 :element="ELEMENT.LINK"
                 :icon-leading="ICON.PHONE"
-                class="whitespace-nowrap"
+                class="tide-whitespace-nowrap"
                 href="tel:17575551234"
                 label="757 555-1234"
               />
@@ -176,7 +180,7 @@
                 :element="ELEMENT.LINK"
                 :is-new-tab="true"
                 :priority="isExtraSmall ? PRIORITY.PRIMARY : PRIORITY.TERTIARY"
-                class="whitespace-nowrap"
+                class="tide-whitespace-nowrap"
                 href="/"
                 label="View inventory"
               />
@@ -186,24 +190,24 @@
       </div>
     </BasicContainer>
 
-    <section class="mb-4">
-      <BasicContainer class="mb-1">
-        <h2 class="font-28">{{ realm.label.plural }} for every outdoor adventure</h2>
+    <section class="tide-margin-bottom-4">
+      <BasicContainer class="tide-margin-bottom-1">
+        <h2 class="tide-font-28">{{ realm.label.plural }} for every outdoor adventure</h2>
       </BasicContainer>
 
       <BasicCarousel :is-touchscreen="isTouchscreen">
         <li
           :key="vehicleType.label"
-          class="home-vehicle-type shrink-none ratio-1/1 snap-start"
+          class="home-vehicle-type tide-shrink-none ratio-1/1 tide-scroll-snap-start"
           v-for="vehicleType in vehicleTypes"
         >
           <a
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
-            class="flex column axis1-between gap-1 radius-1/2 p-1 h-full bg-surface-variant-lightest underline-none"
+            class="tide-display-flex tide-flex-column tide-axis1-between tide-gap-1 tide-radius-1/2 tide-padding-1 h-full tide-bg-surface-variant-lightest tide-underline-none"
           >
-            <span class="font-20 font-700">{{ vehicleType.label }}</span>
+            <span class="tide-font-20 tide-font-700">{{ vehicleType.label }}</span>
 
-            <div class="flex axis1-center axis2-center h-full">
+            <div class="tide-display-flex tide-axis1-center tide-axis2-center h-full">
               <img
                 :alt="vehicleType.label"
                 :src="vehicleType.img"
@@ -216,24 +220,26 @@
     </section>
 
     <div
-      :class="isLarge ? 'row' : 'column axis2-center'"
-      class="flex gap-1 mb-4"
+      :class="isLarge ? 'tide-flex-row' : 'tide-flex-column tide-axis2-center'"
+      class="tide-display-flex tide-gap-1 tide-margin-bottom-4"
     >
-      <section class="home-section-sell-your-vehicle relative radius-1/2 w-full p-1 bg-gradient xy-hidden">
+      <section
+        class="home-section-sell-your-vehicle tide-position-relative tide-radius-1/2 tide-width-full tide-padding-1 tide-bg-gradient tide-xy-hidden"
+      >
         <img
           :src="patternTopography"
-          class="absolute top-0 left-0 w-full h-full object-cover font-secondary"
+          class="tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full tide-object-cover tide-font-secondary"
         />
 
         <img
           :src="fgSellYourVehicle"
           alt="Sell your vehicle"
-          class="home-section-sell-your-vehicle-img absolute right-0 bottom-0 mb-1"
+          class="home-section-sell-your-vehicle-img tide-position-absolute tide-right-0 tide-bottom-0 tide-margin-bottom-1"
         />
 
-        <div class="relative flex axis2-start column gap-1">
-          <h2 class="font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
-          <p class="font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
+        <div class="tide-position-relative tide-display-flex tide-axis2-start tide-flex-column tide-gap-1">
+          <h2 class="tide-font-24">Sell your {{ realm.label.singular }} on {{ realm.label.singular }} Trader</h2>
+          <p class="tide-font-600">Millions of buyers are looking for their next RV on RV Trader this month.</p>
           <BasicButton
             :element="ELEMENT.LINK"
             :label="`Sell my ${realm.label.singular}`"
@@ -242,17 +248,23 @@
         </div>
       </section>
 
-      <section class="home-section-live-the-adventure relative radius-1/2 w-full xy-hidden">
+      <section
+        class="home-section-live-the-adventure tide-position-relative tide-radius-1/2 tide-width-full tide-xy-hidden"
+      >
         <img
           :src="bgAdventure"
           alt="Adventure"
-          class="home-section-live-the-adventure-bg absolute right-0 bottom-0"
+          class="home-section-live-the-adventure-bg tide-position-absolute tide-right-0 tide-bottom-0"
         />
-        <div class="home-section-live-the-adventure-gradient absolute right-0 bottom-0 w-full h-full" />
+        <div
+          class="home-section-live-the-adventure-gradient tide-position-absolute tide-right-0 tide-bottom-0 tide-width-full h-full"
+        />
 
-        <div class="relative flex axis2-start column gap-1 p-1">
-          <h2 class="font-24">Live the adventure</h2>
-          <p class="font-600">
+        <div
+          class="tide-position-relative tide-display-flex tide-axis2-start tide-flex-column tide-gap-1 tide-padding-1"
+        >
+          <h2 class="tide-font-24">Live the adventure</h2>
+          <p class="tide-font-600">
             Get tips on buying and selling RVs, top destinations to visit, maintenance, and living the RV lifestyle.
           </p>
           <BasicButton
@@ -264,16 +276,16 @@
       </section>
     </div>
 
-    <section class="mb-4">
+    <section class="tide-margin-bottom-4">
       <CardCarouselListingDealer :vehicles="featuredListingStore.vehicles" />
     </section>
 
-    <section class="mr-2 mb-4">
+    <section class="tide-margin-right-2 tide-margin-bottom-4">
       <BasicContainer>
-        <h2 class="mb-1 font-24">Featured listings</h2>
+        <h2 class="tide-margin-bottom-1 tide-font-24">Featured listings</h2>
       </BasicContainer>
 
-      <div class="flex gap-2">
+      <div class="tide-display-flex tide-gap-2">
         <CardCarouselListingFeatured
           :get-is-favorite="favoriteStore.getIsFavorite"
           :handle-favorite-click="favoriteStore.toggleIsFavorite"
@@ -283,7 +295,7 @@
         />
 
         <AdPlaceholder
-          class="shrink-none"
+          class="tide-shrink-none"
           height="250"
           v-if="!viewportStore.isExtraSmall"
           width="300"
@@ -291,9 +303,9 @@
       </div>
     </section>
 
-    <section class="mb-4">
+    <section class="tide-margin-bottom-4">
       <BasicContainer>
-        <h2 class="mb-1 font-24">Recommended {{ realm.label.plural }}</h2>
+        <h2 class="tide-margin-bottom-1 tide-font-24">Recommended {{ realm.label.plural }}</h2>
       </BasicContainer>
 
       <CardCarouselListingFeatured
@@ -306,7 +318,7 @@
 
     <BasicContainer>
       <section
-        class="flex axis1-center mb-4"
+        class="tide-display-flex tide-axis1-center tide-margin-bottom-4"
         v-if="!viewportStore.isExtraSmall"
       >
         <AdPlaceholder
@@ -315,9 +327,11 @@
         />
       </section>
 
-      <section class="flex gap-2 mb-4">
+      <section class="tide-display-flex tide-gap-2 tide-margin-bottom-4">
         <div>
-          <h2 class="mb-1">Find {{ realm.label.plural }} for sale on {{ realm.label.singular }} Trader</h2>
+          <h2 class="tide-margin-bottom-1">
+            Find {{ realm.label.plural }} for sale on {{ realm.label.singular }} Trader
+          </h2>
           <p>
             {{ realm.label.singular }}Trader.com is the online source for all your {{ realm.label.singular }} needs.
             Looking to sell a {{ realm.label.singular }} or find a {{ realm.label.singular }} Park? We can help. Place
@@ -341,17 +355,17 @@
 
       <BasicColumns>
         <template #section1>
-          <h2 class="mb-1 font-20">Top {{ realm.label.singular }} makes</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-20">Top {{ realm.label.singular }} makes</h2>
 
-          <ul class="flex column gap-1 list-none">
+          <ul class="tide-display-flex tide-flex-column tide-gap-1 tide-list-none">
             <li
               :key="dummy"
-              class="flex column gap-1/4"
+              class="tide-display-flex tide-flex-column tide-gap-1/4"
               v-for="(dummy, index) in dummies"
             >
               <a
                 :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
-                class="underline-none"
+                class="tide-underline-none"
               >
                 Make {{ index + 1 }} {{ realm.label.plural }} for sale ({{
                   formatNumber(Math.floor(Math.random() * 50000))
@@ -362,17 +376,17 @@
         </template>
 
         <template #section2>
-          <h2 class="mb-1 font-20">Top {{ realm.label.singular }} models</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-20">Top {{ realm.label.singular }} models</h2>
 
-          <ul class="flex column gap-1 list-none">
+          <ul class="tide-display-flex tide-flex-column tide-gap-1 tide-list-none">
             <li
               :key="dummy"
-              class="flex column gap-1/4"
+              class="tide-display-flex tide-flex-column tide-gap-1/4"
               v-for="(dummy, index) in dummies"
             >
               <a
                 :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
-                class="underline-none"
+                class="tide-underline-none"
               >
                 Model {{ index + 1 }} {{ realm.label.plural }} for sale ({{
                   formatNumber(Math.floor(Math.random() * 50000))
@@ -383,16 +397,16 @@
         </template>
 
         <template #section3>
-          <h2 class="mb-1 font-20">Top {{ realm.label.singular }} types</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-20">Top {{ realm.label.singular }} types</h2>
 
-          <ul class="flex column gap-1 list-none">
+          <ul class="tide-display-flex tide-flex-column tide-gap-1 tide-list-none">
             <li
               :key="dummy"
               v-for="(dummy, index) in dummies"
             >
               <a
                 :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
-                class="underline-none"
+                class="tide-underline-none"
               >
                 Type {{ index + 1 }} {{ realm.label.plural }} for sale ({{
                   formatNumber(Math.floor(Math.random() * 50000))
@@ -403,16 +417,16 @@
         </template>
 
         <template #section4>
-          <h2 class="mb-1 font-20">Top {{ realm.label.singular }} states</h2>
+          <h2 class="tide-margin-bottom-1 tide-font-20">Top {{ realm.label.singular }} states</h2>
 
-          <ul class="flex column gap-1 list-none">
+          <ul class="tide-display-flex tide-flex-column tide-gap-1 tide-list-none">
             <li
               :key="dummy"
               v-for="(dummy, index) in dummies"
             >
               <a
                 :href="`/${realm.label.plural.toLowerCase()}-for-sale`"
-                class="underline-none"
+                class="tide-underline-none"
               >
                 State {{ index + 1 }} {{ realm.label.plural }} for sale ({{
                   formatNumber(Math.floor(Math.random() * 50000))

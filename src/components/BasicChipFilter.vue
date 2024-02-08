@@ -15,19 +15,19 @@
     :class="[
       'basic-chip-filter',
       props.isActive && `primary-variant tier-3`,
-      'flex column axis1-center axis2-center',
-      !props.isActive && 'border-1 border-gray',
-      'radius-1/2 px-1 py-1/2',
-      !props.isActive && 'bg-gray-light',
-      'font-14 font-600',
+      'tide-display-flex tide-flex-column tide-axis1-center tide-axis2-center',
+      !props.isActive && 'tide-border-1 tide-border-gray',
+      'tide-radius-1/2 tide-padding-x-1 tide-padding-y-1/2',
+      !props.isActive && 'tide-bg-gray-light',
+      'tide-font-14 tide-font-600',
     ]"
     class=""
   >
     <slot />
-    <div class="flex axis1-center axis2-center gap-1/2">
+    <div class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2">
       <span
         :class="props.isActive ? '' : 'icon-spacing'"
-        class="font-700 whitespace-nowrap"
+        class="tide-font-700 tide-whitespace-nowrap"
       >
         {{ props.label }}
       </span>

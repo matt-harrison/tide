@@ -50,13 +50,13 @@
       props.element === ELEMENT.LINK ? 'basic-link-as-button' : 'basic-button',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
-      props.element === ELEMENT.LINK ? 'inline-flex' : 'flex',
-      'axis1-center axis2-center gap-1/2 radius-1/4',
-      props.size === SIZE_BUTTON.SMALL && 'py-1/4 px-3/4 font-14',
-      props.size === SIZE_BUTTON.MEDIUM && 'py-1/2 px-1',
-      props.size === SIZE_BUTTON.LARGE && 'py-3/4 px-3/2',
-      props.element === ELEMENT.LINK ? 'underline-none' : '',
-      'font-700',
+      props.element === ELEMENT.LINK ? 'tide-display-inline-flex' : 'tide-display-flex',
+      'tide-axis1-center tide-axis2-center tide-gap-1/2 tide-radius-1/4',
+      props.size === SIZE_BUTTON.SMALL && 'tide-padding-y-1/4 tide-padding-x-3/4 tide-font-14',
+      props.size === SIZE_BUTTON.MEDIUM && 'tide-padding-y-1/2 tide-padding-x-1',
+      props.size === SIZE_BUTTON.LARGE && 'tide-padding-y-3/4 tide-padding-x-3/2',
+      props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
+      'tide-font-700',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"

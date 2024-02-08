@@ -48,24 +48,30 @@
 </script>
 
 <template>
-  <div :class="['basic-select block-field font-14 font-surface-variant', disabled && 'disabled', hasError && 'error']">
+  <div
+    :class="[
+      'basic-select block-field tide-font-14 tide-font-surface-variant',
+      disabled && 'disabled',
+      hasError && 'error',
+    ]"
+  >
     <label
       :for="uniqueSelectId"
-      class="mb-1/4 font-14 font-700"
+      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
-    <div class="relative flex axis2-center w-full">
+    <div class="tide-position-relative tide-display-flex tide-axis2-center tide-width-full">
       <select
         :class="[
           'field',
           iconLeading && 'pl-2',
-          'radius-1-8 p-1/2',
+          'tide-radius-1-8 tide-padding-1/2',
           hasSuffix && 'pr-2',
-          'w-full bg-surface-low',
-          disabled && 'not-allowed',
+          'tide-width-full tide-bg-surface-low',
+          disabled && 'tide-cursor-not-allowed',
         ]"
         :disabled="disabled"
         :name="name"
@@ -96,12 +102,12 @@
       <SvgIcon
         :icon="iconLeading"
         :size="SIZE.SMALL"
-        class="absolute left-0 ml-1/2 pointer-events-none"
+        class="tide-position-absolute tide-left-0 tide-margin-left-1/2 tide-pointer-events-none"
         v-if="iconLeading"
       />
 
       <span
-        class="absolute right-0 mr-2 font-14 pointer-events-none"
+        class="tide-position-absolute tide-right-0 tide-margin-right-2 tide-font-14 tide-pointer-events-none"
         v-if="suffix"
       >
         {{ suffix }}
@@ -110,12 +116,12 @@
       <SvgIcon
         :icon="ICON.CHEVRON_DOWN"
         :size="SIZE.SMALL"
-        class="absolute right-0 mr-1/2 bg-surface-low pointer-events-none"
+        class="tide-position-absolute tide-right-0 tide-margin-right-1/2 tide-bg-surface-low tide-pointer-events-none"
       />
     </div>
 
     <div
-      :class="['supporting-text mt-1/4 font-12']"
+      :class="['supporting-text tide-margin-top-1/4 tide-font-12']"
       v-if="hasError"
     >
       {{ supportingText }}

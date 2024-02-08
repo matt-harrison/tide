@@ -101,26 +101,26 @@
 <template>
   <header
     :class="[
-      'site-header flex',
-      viewportStore.isLarge ? '' : 'wrap',
-      'axis1-between axis2-center gap-2 border-b border-gray-light p-1',
+      'site-header tide-display-flex',
+      viewportStore.isLarge ? '' : 'tide-flex-wrap',
+      'tide-axis1-between tide-axis2-center tide-gap-2 tide-border-bottom tide-border-gray-light tide-padding-1',
     ]"
   >
     <a
       :class="[viewportStore.isExtraSmall ? '' : 's', logosTall.includes(realm.id) ? 'tall' : '']"
       :href="`/?realm=${realm.id}`"
-      class="realm-logo flex axis2-center gap-1/2"
+      class="realm-logo tide-display-flex tide-axis2-center tide-gap-1/2"
     >
       <component :is="realmLogo" />
     </a>
 
     <nav
-      :class="viewportStore.isLarge ? '' : 'axis1-end order-1 w-full'"
-      class="flex axis2-center gap-1 font-14 font-600"
+      :class="viewportStore.isLarge ? '' : 'tide-axis1-end order-1 tide-width-full'"
+      class="tide-display-flex tide-axis2-center tide-gap-1 tide-font-14 tide-font-600"
     >
       <ul
-        :class="viewportStore.isLarge ? '' : 'top-0 left-0 axis1-around w-full'"
-        class="flex gap-1 list-none"
+        :class="viewportStore.isLarge ? '' : 'tide-top-0 tide-left-0 tide-axis1-around tide-width-full'"
+        class="tide-display-flex tide-gap-1 tide-list-none"
       >
         <li
           :key="item.href"
@@ -128,7 +128,7 @@
         >
           <a
             :href="item.href"
-            class="underline-hover"
+            class="tide-underline-hover"
           >
             {{ item.label }}
           </a>
@@ -137,37 +137,41 @@
 
       <div
         :class="[
-          !viewportStore.isLarge && isNavOpen ? 'open' : 'pointer-events-none',
-          !viewportStore.isLarge && !isNavOpen && 'hidden',
-          viewportStore.isLarge ? '' : 'absolute top-0 left-0 flex axis1-end w-full h-full z-1',
+          !viewportStore.isLarge && isNavOpen ? 'open' : 'tide-pointer-events-none',
+          !viewportStore.isLarge && !isNavOpen && 'tide-display-hidden',
+          viewportStore.isLarge
+            ? ''
+            : 'tide-position-absolute tide-top-0 tide-left-0 tide-display-flex tide-axis1-end tide-width-full h-full z-1',
         ]"
       >
         <div
-          :class="isNavOpen ? 'pointer-events' : ''"
+          :class="isNavOpen ? 'tide-pointer-events' : ''"
           @click="handleNavMenuClick"
-          class="overlay absolute top-0 left-0 w-full h-full"
+          class="overlay tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full"
         />
 
         <nav
           :class="[
-            !viewportStore.isLarge && isNavOpen && 'relative left-0',
-            !viewportStore.isLarge && !isNavOpen && 'relative left-full',
-            viewportStore.isLarge ? '' : 'absolute top-0 pt-4 px-2 h-full bg-gray-dark',
+            !viewportStore.isLarge && isNavOpen && 'tide-position-relative tide-left-0',
+            !viewportStore.isLarge && !isNavOpen && 'tide-position-relative left-full',
+            viewportStore.isLarge
+              ? ''
+              : 'tide-position-absolute tide-top-0 tide-padding-top-4 tide-padding-x-2 h-full tide-bg-gray-dark',
           ]"
-          class="nav-menu h-full pointer-events"
+          class="nav-menu h-full tide-pointer-events"
         >
           <BasicButtonIcon
             :icon="ICON.XMARK"
             :priority="PRIORITY.TERTIARY"
             @click="handleNavMenuClose"
             aria-label="Close menu"
-            class="absolute top-0 right-0 mt-1 mr-1 ml-auto"
+            class="tide-position-absolute tide-top-0 tide-right-0 tide-margin-top-1 tide-margin-right-1 tide-margin-left-auto"
             v-if="!viewportStore.isLarge"
           />
 
           <ul
-            :class="viewportStore.isLarge ? '' : 'column font-white'"
-            class="flex gap-1 list-none"
+            :class="viewportStore.isLarge ? '' : 'tide-flex-column tide-font-white'"
+            class="tide-display-flex tide-gap-1 tide-list-none"
           >
             <li
               :key="item.href"
@@ -175,7 +179,7 @@
             >
               <a
                 :href="item.href"
-                class="underline-hover"
+                class="tide-underline-hover"
               >
                 {{ item.label }}
               </a>
@@ -185,7 +189,7 @@
       </div>
     </nav>
 
-    <div class="flex gap-1/2 ml-auto">
+    <div class="tide-display-flex tide-gap-1/2 tide-margin-left-auto">
       <BasicButtonIcon
         :icon="ICON.MAGNIFYING_GLASS"
         :priority="PRIORITY.TERTIARY"
@@ -213,25 +217,29 @@
 
     <div
       :class="{ open: isSearchOpen }"
-      class="top-search absolute top-0 left-0 w-full h-full font-white pointer-events-none z-1"
+      class="top-search tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full tide-font-white tide-pointer-events-none z-1"
       v-if="props.showSearchBar && isSearchOpen"
     >
       <div
-        :class="isSearchOpen ? 'pointer-events' : ''"
+        :class="isSearchOpen ? 'tide-pointer-events' : ''"
         @click="handleTopSearchClick"
-        class="overlay absolute top-0 left-0 w-full h-full"
+        class="overlay tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full"
       />
 
       <form
-        :class="viewportStore.isExtraSmall ? 'radius-bottom-1/2 w-full' : 'mt-1 mr-1 radius-1/2 w-475'"
+        :class="
+          viewportStore.isExtraSmall
+            ? 'radius-bottom-1/2 tide-width-full'
+            : 'tide-margin-top-1 tide-margin-right-1 tide-radius-1/2 width-475'
+        "
         ref="searchBarForm"
-        class="search-form absolute top-0 right-0 p-2 bg-gray-dark pointer-events shadow-b-1"
+        class="search-form tide-position-absolute tide-top-0 tide-right-0 tide-padding-2 tide-bg-gray-dark tide-pointer-events shadow-b-1"
       >
-        <div class="search-bar relative mb-2">
+        <div class="search-bar tide-position-relative tide-margin-bottom-2">
           <input
             :placeholder="`Search for ${realm.label.singularWithArticle}`"
             ref="searchInput"
-            class="search-bar-input border-2 border-white radius-full py-1 pr-2 pl-1 w-full"
+            class="search-bar-input tide-border-2 tide-border-white tide-radius-full tide-padding-y-1 tide-padding-right-2 tide-padding-left-1 tide-width-full"
             type="search"
           />
 
@@ -239,20 +247,34 @@
             :icon="ICON.MAGNIFYING_GLASS"
             @click="handleSearchBarTriggerClick"
             aria-label="Search"
-            class="absolute top-0 right-0 mt-1/2 mr-1/2 p-1/2"
+            class="tide-position-absolute tide-top-0 tide-right-0 tide-margin-top-1/2 tide-margin-right-1/2 tide-padding-1/2"
           />
         </div>
 
         <div class="suggestions">
-          <div class="mb-1 font-700">Recent searches</div>
+          <div class="tide-margin-bottom-1 tide-font-700">Recent searches</div>
 
-          <ul class="flex column list-none">
-            <li class="mb-1 border-b border-gray pb-1">Travel trailer</li>
-            <li class="mb-1 border-b border-gray pb-1">Toy hauler travel trailer</li>
-            <li class="mb-1 border-b border-gray pb-1">Fifth wheel livestock trailer</li>
-            <li class="mb-1 border-b border-gray pb-1">Bunkhouse</li>
-            <li class="mb-1 border-b border-gray pb-1">Dutchmen Aspen Trail</li>
-            <li class="mb-1 border-b border-gray pb-1">Heartland North Trail</li>
+          <ul class="tide-display-flex tide-flex-column tide-list-none">
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">
+              Travel trailer
+            </li>
+
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">
+              Toy hauler travel trailer
+            </li>
+
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">
+              Fifth wheel livestock trailer
+            </li>
+
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">Bunkhouse</li>
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">
+              Dutchmen Aspen Trail
+            </li>
+
+            <li class="tide-margin-bottom-1 tide-border-bottom tide-border-gray tide-padding-bottom-1">
+              Heartland North Trail
+            </li>
             <li>Dutchmen Aspen Trail 17bh</li>
           </ul>
         </div>
@@ -275,7 +297,7 @@
     border-bottom-left-radius: 0.5rem;
   }
 
-  .w-475 {
+  .width-475 {
     width: 475px;
   }
 

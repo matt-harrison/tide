@@ -40,10 +40,10 @@
       props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
       props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
-      'inline-block radius-full p-1/2',
-      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'underline-none' : '',
+      'tide-display-inline-block tide-radius-full tide-padding-1/2',
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
-      'font-700 select-none',
+      'tide-font-700 select-none',
     ]"
     :disabled="props.element === ELEMENT_TEXT_AS_ICON.BUTTON && props.disabled"
     :href="props.element === ELEMENT_TEXT_AS_ICON.LINK && props.href ? props.href : undefined"
@@ -56,7 +56,7 @@
         : 'div'
     "
   >
-    <span class="label flex axis1-center axis2-center">{{ props.label }}</span>
+    <span class="label tide-display-flex tide-axis1-center tide-axis2-center">{{ props.label }}</span>
   </component>
 </template>
 

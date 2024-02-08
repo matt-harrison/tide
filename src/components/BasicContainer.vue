@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div :class="['basic-container', isLarge ? 'mx-auto' : 'mx-1', 'w-container']">
+  <div :class="['basic-container', isLarge ? 'tide-margin-x-auto' : 'tide-margin-x-1', 'tide-width-container']">
     <slot />
   </div>
 </template>
