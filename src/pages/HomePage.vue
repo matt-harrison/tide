@@ -170,7 +170,7 @@
             >
               <BasicLink
                 :element="ELEMENT.LINK"
-                :icon-leading="ICON.PHONE"
+                :icon-leading="ICON.CALL"
                 class="tide-whitespace-nowrap"
                 href="tel:17575551234"
                 label="757 555-1234"

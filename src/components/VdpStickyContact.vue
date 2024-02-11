@@ -57,18 +57,18 @@
 
     <BasicButton
       :href="phoneHref"
-      :icon-leading="ICON.PHONE"
+      :icon-leading="ICON.CALL"
       class="vehicle-detail-call-cta tide-font-12 tide-font-600"
       label="call"
     />
     <BasicButton
-      :icon-leading="ICON.ENVELOPE"
+      :icon-leading="ICON.MAIL"
       class="vehicle-detail-email-cta tide-font-12 tide-font-600"
       label="email"
     />
 
     <BasicButton
-      :icon-leading="ICON.COMMENTS"
+      :icon-leading="ICON.FORUM"
       :priority="PRIORITY.SECONDARY"
       class="vehicle-detail-chat-cta tide-font-12 tide-font-600"
       label="chat"
@@ -78,15 +78,15 @@
 
 <style>
   .sticky-footer .vehicle-detail-call-cta {
-  ? 'tide-display-flex: 3;
+    flex: 3;
   }
 
   .sticky-footer .vehicle-detail-chat-cta,
   .sticky-footer .vehicle-detail-text-cta {
-  ? 'tide-display-flex: 1;
+    flex: 1;
   }
 
   .sticky-footer .vehicle-detail-email-cta {
-  ? 'tide-display-flex: 2;
+    flex: 2;
   }
 </style>

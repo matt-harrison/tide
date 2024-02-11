@@ -147,7 +147,7 @@
                     v-if="phone"
                   >
                     <BasicButtonIcon
-                      :icon="ICON.PHONE"
+                      :icon="ICON.CALL"
                       :priority="PRIORITY.TERTIARY"
                       href="/listing"
                     />
@@ -170,7 +170,7 @@
                     </a>
                   </div>
 
-                  <BasicButtonIcon :icon="ICON.ENVELOPE" />
+                  <BasicButtonIcon :icon="ICON.MAIL" />
                 </div>
               </div>
             </div>
@@ -190,8 +190,9 @@
 
         <div class="tide-position-absolute tide-top-0 tide-right-0 tide-margin-top-1 tide-margin-right-1">
           <BasicButtonIcon
-            :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
-            :priority="PRIORITY.FLOATING"
+            :icon="isFavorite ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
+            :is-floating="true"
+            :priority="PRIORITY.QUATERNARY"
             @click.prevent="handleFavoriteClick"
           />
         </div>

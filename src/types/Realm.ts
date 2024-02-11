@@ -1,7 +1,6 @@
 export const REALM = {
   AERO: 'aero',
   ATV: 'atv',
-  BOATLINE: 'boatline',
   CYCLE: 'cycle',
   EQUIP: 'equip',
   PWC: 'pwc',

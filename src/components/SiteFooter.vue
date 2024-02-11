@@ -171,13 +171,6 @@
             >
               Snowmobiles for sale
             </a>
-
-            <a
-              class="tide-underline-none"
-              href="#"
-            >
-              Boats for sale
-            </a>
           </div>
         </div>
 

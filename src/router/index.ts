@@ -22,11 +22,6 @@ const router = createRouter({
     },
     {
       component: () => import('@/pages/SearchResultsPage.vue'),
-      name: 'boats-for-sale',
-      path: '/boats-for-sale',
-    },
-    {
-      component: () => import('@/pages/SearchResultsPage.vue'),
       name: 'motorcycles-for-sale',
       path: '/motorcycles-for-sale',
     },

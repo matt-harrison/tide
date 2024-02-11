@@ -1,12 +1,13 @@
-/* name="slide-down-from-top" */
 .slide-down-from-top-enter-active,
 .slide-down-from-top-leave-active {
   transition: transform var(--animate);
 }
+
 .slide-down-from-top-enter-from,
 .slide-down-from-top-leave-to {
   transform: translateY(-100%);
 }
+
 .slide-down-from-top-enter-to,
 .slide-down-from-top-leave-from {
   transform: translateY(0);

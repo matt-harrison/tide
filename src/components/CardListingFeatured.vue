@@ -64,7 +64,7 @@
           </span>
 
           <BasicButtonIcon
-            :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
+            :icon="isFavorite ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
             :priority="PRIORITY.TERTIARY"
             @click.prevent="handleFavoriteClick"
           />

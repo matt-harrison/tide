@@ -1,62 +1,30 @@
 /* Atomic Utilities */
 /* Background */
-.bg-gradient {
-  background: linear-gradient(
-    to bottom right,
-    var(--ti-primary-button-tier-3-variant-background-rest) 50%,
-    var(--ti-primary-button-tier-1-background-rest) 150%
-  );
-}
+.tide-bg-primary   {background: var(--primary);}
+.tide-bg-secondary {background: var(--secondary);}
 
-.tide-bg-primary-tier-1 {background-color: var(--ti-primary-button-tier-1-background-rest);}
-.tide-bg-primary-tier-2 {background-color: var(--ti-primary-button-tier-2-background-rest);}
-.tide-bg-primary-tier-3 {background-color: var(--ti-primary-button-tier-3-background-rest);}
-
-.tide-bg-primary-variant-tier-1 {background-color: var(--ti-primary-button-tier-1-variant-background-rest);}
-.tide-bg-primary-variant-tier-2 {background-color: var(--ti-primary-button-tier-2-variant-background-rest);}
-.tide-bg-primary-variant-tier-3 {background-color: var(--ti-primary-button-tier-3-variant-background-rest);}
-
-.tide-bg-secondary {background-color: var(--ti-tertiary-button-background-rest);}
-.tide-bg-tertiary  {background-color: var(--ti-tertiary-button-background-rest);}
-
-.tide-bg-surface      {background-color: var(--ti-surface-background-default);}
-.tide-bg-surface-low  {background-color: var(--ti-surface-background-low);}
-.tide-bg-surface-high {background-color: var(--ti-surface-background-high);}
-
-.tide-bg-surface-variant         {background-color: var(--ti-surface-variant-background-default);}
-.tide-bg-surface-variant-low     {background-color: var(--ti-surface-variant-background-low);}
-.tide-bg-surface-variant-lowest  {background-color: var(--ti-surface-variant-background-lowest);}
-.tide-bg-surface-variant-high    {background-color: var(--ti-surface-variant-background-high);}
-.tide-bg-surface-variant-highest {background-color: var(--ti-surface-variant-background-highest);}
+.tide-bg-surface                {background: var(--surface);}
+.tide-bg-surface-variant        {background: var(--surface-variant);}
+.tide-bg-surface-brand          {background: var(--surface-brand);}
+.tide-bg-surface-accent         {background: var(--surface-accent);}
+.tide-bg-surface-accent-variant {background: var(--surface-accent-variant);}
+.tide-bg-surface-gradient       {background: var(--surface-gradient);}
+.tide-bg-surface-floating       {background: var(--surface-floating);}
 
 /* Border */
-.tide-border-primary-tier-1 {border-color: var(--ti-primary-button-tier-1-border-rest);}
-.tide-border-primary-tier-2 {border-color: var(--ti-primary-button-tier-2-border-rest);}
-.tide-border-primary-tier-3 {border-color: var(--ti-primary-button-tier-3-border-rest);}
+.tide-border-primary {border-color: var(--primary);}
 
-.tide-border-primary-variant-tier-1 {border-color: var(--ti-primary-button-tier-1-variant-border-rest);}
-.tide-border-primary-variant-tier-2 {border-color: var(--ti-primary-button-tier-2-variant-border-rest);}
-.tide-border-primary-variant-tier-3 {border-color: var(--ti-primary-button-tier-3-variant-border-rest);}
-
-.tide-border-secondary {border-color: var(--ti-secondary-button-border-rest);}
-.tide-border-tertiary  {border-color: var(--ti-tertiary-button-border-rest);}
-
-.tide-border-surface       {border-color: var(--ti-surface-border-rest);}
-.tide-border-surface-low   {border-color: var(--ti-surface-border-low);}
-.tide-border-surface-high  {border-color: var(--ti-surface-border-high);}
-.tide-border-surface-save  {border-color: var(--ti-surface-border-save-active);}
+.tide-border          {border-color: var(--border);}
+.tide-border-low      {border-color: var(--border-low);}
+.tide-border-high     {border-color: var(--border-high);}
+.tide-border-floating {border-color: var(--border-floating);}
 
 /* Foreground */
-.tide-font-primary-tier-1 {color: var(--ti-primary-button-tier-1-foreground-rest);}
-.tide-font-primary-tier-2 {color: var(--ti-primary-button-tier-2-foreground-rest);}
-.tide-font-primary-tier-3 {color: var(--ti-primary-button-tier-3-foreground-rest);}
+.tide-font-on-primary   {color: var(--on-primary);}
+.tide-font-on-secondary {color: var(--on-secondary);}
 
-.tide-font-primary-variant-tier-1 {color: var(--ti-primary-button-tier-1-variant-foreground-rest);}
-.tide-font-primary-variant-tier-2 {color: var(--ti-primary-button-tier-2-variant-foreground-rest);}
-.tide-font-primary-variant-tier-3 {color: var(--ti-primary-button-tier-3-variant-foreground-rest);}
-
-.tide-font-secondary {color: var(--ti-secondary-button-foreground-rest);}
-.tide-font-tertiary  {color: var(--ti-tertiary-button-foreground-rest);}
-
-.tide-font-surface         {color: var(--ti-surface-foreground);}
-.tide-font-surface-variant {color: var(--ti-surface-variant-foreground);}
+.tide-font-on-surface                 {color: var(--on-surface);}
+.tide-font-on-surface-variant         {color: var(--on-surface-variant);}
+.tide-font-on-surface-brand           {color: var(--on-surface-brand);}
+.tide-font-on-surface-inverse         {color: var(--on-surface-inverse);}
+.tide-font-on-surface-variant-inverse {color: var(--on-surface-variant-inverse);}

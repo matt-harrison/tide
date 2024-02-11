@@ -1,12 +1,8 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/StorybookStyles';
-import Color from '@/stories/FoundationsColor.stories';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
-const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
-const FONT_FAMILY = prependNoneAsEmpty(STYLES.FONT_FAMILY);
 const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
 const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 
@@ -19,7 +15,6 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.fontColor) classNames.push(args.fontColor);
   if (args.fontFamily) classNames.push(args.fontFamily);
   if (args.fontSize) classNames.push(args.fontSize);
   if (args.fontWeight) classNames.push(args.fontWeight);
@@ -55,12 +50,6 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    fontColor: Color.argTypes.fontColor,
-    fontFamily: {
-      ...formatArgType({ FONT_FAMILY }),
-      description: 'Applies font(s)<br />(Note: All font-family contexts are currently declared as Montserrat.)',
-      name: 'Font Family',
-    },
     fontSize: {
       ...formatArgType({ FONT_SIZE }),
       description: `Applies a font size (tide-position-relative to user's browser settings)`,
@@ -73,8 +62,6 @@ export default {
     },
   },
   args: {
-    fontColor: COLOR_FONT.None,
-    fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.None,
   },
@@ -85,30 +72,6 @@ export default {
 };
 
 export const Default = {};
-
-export const FontColorSurface = {
-  args: {
-    fontColor: COLOR_FONT['Surface'],
-  },
-};
-
-export const FontColorSurfaceVariant = {
-  args: {
-    fontColor: COLOR_FONT['Surface Variant'],
-  },
-};
-
-export const FontFamilyDefault = {
-  args: {
-    fontColor: FONT_FAMILY.Default,
-  },
-};
-
-export const FontFamilyTitle = {
-  args: {
-    fontColor: FONT_FAMILY.Title,
-  },
-};
 
 export const FontSize10 = {
   args: {

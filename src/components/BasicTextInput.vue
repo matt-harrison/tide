@@ -129,7 +129,7 @@
       </span>
 
       <SvgIcon
-        :icon="ICON.CIRCLE_EXCLAMATION"
+        :icon="ICON.ERROR"
         :size="SIZE.SMALL"
         class="tide-position-absolute tide-right-0 tide-margin-right-1/2 tide-pointer-events-none"
         v-if="hasError"

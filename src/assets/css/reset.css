@@ -1,6 +1,6 @@
 html,
 body {
-  color: var(--ti-surface-foreground);
+  color: var(--on-surface);
 }
 
 *,
@@ -11,16 +11,16 @@ body {
   border: 0;
   padding: 0;
   color: inherit;
-  font-family: var(--font-default);
+  font-family: Montserrat;
   font-weight: var(--font-500);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {font-size: var(--font-32);} /* 32px */
-h2 {font-size: var(--font-28);} /* 28px */
-h3 {font-size: var(--font-24);} /* 24px */
-h4 {font-size: var(--font-20);} /* 20px */
+h2 {font-size: var(--font-24);} /* 24px */
+h3 {font-size: var(--font-20);} /* 20px */
+h4 {font-size: var(--font-16);} /* 16px */
 h5 {font-size: var(--font-16);} /* 16px */
 
 h1,

@@ -1,13 +1,11 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/StorybookStyles';
-import Color from '@/stories/FoundationsColor.stories';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
-const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
 const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
-const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
+const BORDER_SIDE = prependNoneAsEmpty(STYLES.BORDER_SIDE);
+const BORDER_WIDTH = prependNoneAsEmpty(STYLES.BORDER_WIDTH);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -18,9 +16,11 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.borderColor) classNames.push(args.borderColor);
   if (args.borderRadius) classNames.push(args.borderRadius);
-  if (args.borderType) classNames.push(args.borderType);
+
+  if (args.borderWidth) {
+    classNames.push(`${args.borderSide}-${args.borderWidth}`);
+  }
 
   return classNames.join(' ');
 };
@@ -53,22 +53,26 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    borderColor: Color.argTypes.borderColor,
     borderRadius: {
       ...formatArgType({ BORDER_RADIUS }),
       description: 'Dictates severity of rounded corners',
       name: 'Border Radius',
     },
-    borderType: {
-      ...formatArgType({ BORDER_TYPE }),
-      description: 'Applies border width and determines to which edge(s) it applies',
-      name: 'Border Type',
+    borderSide: {
+      ...formatArgType({ BORDER_SIDE }),
+      description: 'Dictates to which edge(s) the border applies',
+      name: 'Border Side',
+    },
+    borderWidth: {
+      ...formatArgType({ BORDER_WIDTH }),
+      description: 'Applies a border width',
+      name: 'Border Width',
     },
   },
   args: {
-    borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
-    borderType: BORDER_TYPE.None,
+    borderSide: BORDER_SIDE.Full,
+    borderWidth: BORDER_WIDTH.None,
   },
   parameters,
   render,
@@ -78,56 +82,52 @@ export default {
 
 export const Default = {};
 
+export const BorderTop = {
+  args: {
+    borderSide: BORDER_SIDE.Top,
+    borderWidth: BORDER_WIDTH['1px'],
+  },
+};
+
+export const BorderRight = {
+  args: {
+    borderSide: BORDER_SIDE.Right,
+    borderWidth: BORDER_WIDTH['1px'],
+  },
+};
+
+export const BorderBottom = {
+  args: {
+    borderSide: BORDER_SIDE.Bottom,
+    borderWidth: BORDER_WIDTH['1px'],
+  },
+};
+
+export const BorderLeft = {
+  args: {
+    borderSide: BORDER_SIDE.Left,
+    borderWidth: BORDER_WIDTH['1px'],
+  },
+};
+
 export const Border1 = {
   args: {
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border 1px',
 };
 
 export const Border2 = {
   args: {
-    borderType: BORDER_TYPE['2px'],
+    borderWidth: BORDER_WIDTH['2px'],
   },
   name: 'Border 2px',
-};
-
-export const BorderTop = {
-  args: {
-    borderType: BORDER_TYPE.Top,
-  },
-};
-
-export const BorderRight = {
-  args: {
-    borderType: BORDER_TYPE.Right,
-  },
-};
-
-export const BorderBottom = {
-  args: {
-    borderType: BORDER_TYPE.Bottom,
-  },
-};
-
-export const BorderLeft = {
-  args: {
-    borderType: BORDER_TYPE.Left,
-  },
-};
-
-export const RadiusEighth = {
-  args: {
-    borderRadius: BORDER_RADIUS['0.125 REM'],
-    borderType: BORDER_TYPE['1px'],
-  },
-  name: 'Border Radius 0.125 REM',
 };
 
 export const RadiusQuarter = {
   args: {
     borderRadius: BORDER_RADIUS['0.25 REM'],
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 0.25 REM',
 };
@@ -135,7 +135,7 @@ export const RadiusQuarter = {
 export const RadiusHalf = {
   args: {
     borderRadius: BORDER_RADIUS['0.5 REM'],
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 0.5 REM',
 };
@@ -143,7 +143,7 @@ export const RadiusHalf = {
 export const Radius1 = {
   args: {
     borderRadius: BORDER_RADIUS['1 REM'],
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 1 REM',
 };
@@ -151,7 +151,7 @@ export const Radius1 = {
 export const RadiusFull = {
   args: {
     borderRadius: BORDER_RADIUS.Full,
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius Full',
 };
@@ -159,7 +159,7 @@ export const RadiusFull = {
 export const Circle = {
   args: {
     borderRadius: BORDER_RADIUS.Full,
-    borderType: BORDER_TYPE['1px'],
+    borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius Full (1/1 Aspect Ratio)',
   parameters,

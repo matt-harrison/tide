@@ -59,7 +59,7 @@
     <div>
       <BasicLink
         :element="ELEMENT.BUTTON"
-        :icon-trailing="isExpanded ? ICON.CHEVRON_UP : ICON.CHEVRON_DOWN"
+        :icon-trailing="isExpanded ? ICON.EXPAND_LESS : ICON.EXPAND_MORE"
         :label="isExpanded ? props.labelExpanded : props.labelCollapsed"
         @click="toggleIsExpanded"
       />

@@ -243,12 +243,12 @@
               v-if="isSingleColumn"
             >
               <BasicButton
-                :icon-leading="ICON.SLIDERS"
+                :icon-leading="ICON.TUNE"
                 label="Filters"
               />
 
               <div
-                class="search-results-filter-count tide-position-absolute tide-top-0 tide-right-0 tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-bg-primary-tier-1 tide-font-14 tide-font-700"
+                class="search-results-filter-count tide-position-absolute tide-top-0 tide-right-0 tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-bg-primary tide-font-14 tide-font-700"
                 v-if="isSingleColumn && filters.length > 0"
               >
                 {{ filters.length }}
@@ -257,7 +257,7 @@
 
             <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
               <BasicButton
-                :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
+                :icon-leading="isSavedSearch ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
                 :is-active="isSavedSearch"
                 :priority="PRIORITY.SECONDARY"
                 @click="toggleIsSavedSearch"
@@ -266,7 +266,7 @@
               />
 
               <BasicButton
-                :icon-leading="isSavedSearch ? ICON.HEART : ICON.HEART_OPEN"
+                :icon-leading="isSavedSearch ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
                 :is-active="isSavedSearch"
                 :priority="PRIORITY.TERTIARY"
                 @click="toggleIsSavedSearch"
@@ -275,8 +275,8 @@
               />
 
               <BasicButton
-                :icon-leading="ICON.ARROW_UP_ARROW_DOWN"
-                :icon-trailing="!isSingleColumn ? ICON.CHEVRON_DOWN : undefined"
+                :icon-leading="ICON.SWAP_VERT"
+                :icon-trailing="!isSingleColumn ? ICON.EXPAND_MORE : undefined"
                 :label="`Sort by ${!isSingleColumn ? '' : 'Premium'}`"
                 :priority="isSingleColumn ? PRIORITY.SECONDARY : PRIORITY.TERTIARY"
               />

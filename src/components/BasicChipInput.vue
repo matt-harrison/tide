@@ -11,12 +11,17 @@
 
 <template>
   <button
-    :class="`basic-chip-input primary-variant tier-3 tide-display-flex tide-axis2-center tide-gap-1/2 tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-font-14 tide-font-600`"
+    class="basic-chip-input tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface"
   >
     <span>{{ props.label }}</span>
 
-    <BasicIcon :icon="ICON.XMARK" />
+    <BasicIcon :icon="ICON.CLOSE" />
   </button>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
+<style scoped>
+  .basic-chip-input:hover {
+    background-color: var(--surface-variant);
+    border-color: var(--border-high);
+  }
+</style>

@@ -13,21 +13,17 @@
 <template>
   <button
     :class="[
-      'basic-chip-filter',
-      props.isActive && `primary-variant tier-3`,
-      'tide-display-flex tide-flex-column tide-axis1-center tide-axis2-center',
-      !props.isActive && 'tide-border-1 tide-border-gray',
-      'tide-radius-1/2 tide-padding-x-1 tide-padding-y-1/2',
-      !props.isActive && 'tide-bg-gray-light',
+      'basic-chip-filter tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface',
+      props.isActive ? 'active' : '',
       'tide-font-14 tide-font-600',
     ]"
     class=""
   >
     <slot />
-    <div class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2">
+    <div class="basic-chip-filter-content tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2">
       <span
         :class="props.isActive ? '' : 'icon-spacing'"
-        class="tide-font-700 tide-whitespace-nowrap"
+        class="tide-font-500 tide-whitespace-nowrap"
       >
         {{ props.label }}
       </span>
@@ -43,9 +39,16 @@
 <style scoped src="@/assets/css/dynamic-buttons.css" />
 
 <style scoped>
-  /* Button must be wide enough to account for icon when icon is not present so that toggling won't alter the button width. */
+  .basic-chip-filter:hover,
+  .basic-chip-filter.active {
+    background-color: var(--surface-variant);
+    border-color: var(--border-high);
+  }
+
+  /* Button must be sized to account for icon when icon is not present so that toggling won't alter the button dimensions. */
   .icon-spacing {
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
+    padding-right: 14px;
+    padding-left: 14px;
+    line-height: 20px;
   }
 </style>

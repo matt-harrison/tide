@@ -2,14 +2,11 @@
   import type { Element } from '@/types/Element';
   import type { Icon } from '@/types/Icon';
   import type { Priority } from '@/types/Priority';
-  import type { Size } from '@/types/Size';
-  import type { Tier } from '@/types/Tier';
 
   import BasicIcon from '@/components/BasicIcon.vue';
   import { ELEMENT } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
-  import { TIER } from '@/types/Tier';
   import { TARGET } from '@/types/Target';
 
   type Props = {
@@ -19,8 +16,6 @@
     icon: Icon;
     isNewTab?: boolean;
     priority?: Priority;
-    size?: Size;
-    tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -30,8 +25,6 @@
     icon: undefined,
     isNewTab: false,
     priority: PRIORITY.PRIMARY,
-    size: SIZE.SMALL,
-    tier: TIER.TIER_1,
   });
 </script>
 
@@ -39,9 +32,7 @@
   <component
     :class="[
       props.element === ELEMENT.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
-      props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
-      props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       'tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-padding-1/2',
       props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
     ]"
@@ -52,7 +43,7 @@
   >
     <BasicIcon
       :icon="props.icon"
-      :size="props.size"
+      :size="SIZE.LARGE"
       v-if="props.icon"
     />
   </component>

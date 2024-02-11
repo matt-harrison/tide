@@ -35,7 +35,7 @@
       break;
     case MEDIA_SLIDE_TYPES.VR:
       altText = 'Take a 3D tour of [whatever]';
-      icon = ICON.TOUR;
+      icon = ICON.THREE_D_ROTATION;
       break;
   }
 
@@ -83,7 +83,8 @@
 
       <BasicButtonIcon
         :icon="icon"
-        :priority="PRIORITY.FLOATING"
+        :is-floating="true"
+        :priority="PRIORITY.QUATERNARY"
         class="tide-position-absolute"
       />
     </div>

@@ -38,7 +38,7 @@
       :data-icon="icon"
       class="tide-display-block"
       fill="currentColor"
-      viewBox="0 0 64 64"
+      viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
       <Component
@@ -56,7 +56,7 @@
   }
 
   .basic-icon.small svg {
-    width: 1rem;
-    height: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 </style>

@@ -267,7 +267,7 @@
           <div class="tide-display-flex tide-axis2-center tide-font-600">
             <div class="tide-border-r tide-border-white tide-padding-right-1">
               <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
-                <BasicIcon :icon="ICON.CIRCLE_CHECK" />
+                <BasicIcon :icon="ICON.CHECK" />
 
                 <div>{{ sellerNameLocation }}</div>
               </div>
@@ -281,8 +281,9 @@
 
         <div class="tide-margin-left-auto">
           <BasicButtonIcon
-            :icon="ICON.XMARK"
-            :priority="PRIORITY.FLOATING"
+            :icon="ICON.CLOSE"
+            :is-floating="true"
+            :priority="PRIORITY.QUATERNARY"
             @click="handleClose"
           />
         </div>
@@ -306,7 +307,8 @@
               :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
               :disabled="currentSlide === 0"
               :icon="ICON.CHEVRON_LEFT"
-              :priority="PRIORITY.FLOATING"
+              :is-floating="true"
+              :priority="PRIORITY.QUATERNARY"
               @click="handlePrevClick"
             />
 
@@ -366,7 +368,8 @@
               :class="viewportStore.isLarge ? '' : 'tide-display-hidden'"
               :disabled="currentSlide === gallerySlides.length - 1"
               :icon="ICON.CHEVRON_RIGHT"
-              :priority="PRIORITY.FLOATING"
+              :is-floating="true"
+              :priority="PRIORITY.QUATERNARY"
               @click="handleNextClick"
             />
           </div>
@@ -413,7 +416,7 @@
               <div class="thumb-outline tide-position-absolute tide-top-0 tide-left-0 tide-width-full h-full" />
 
               <BasicIcon
-                :icon="slide.type === MEDIA_SLIDE_TYPES.VR ? ICON.TOUR : ICON.PLAY"
+                :icon="slide.type === MEDIA_SLIDE_TYPES.VR ? ICON.THREE_D_ROTATION : ICON.PLAY"
                 class="tide-position-absolute tide-bg-white tide-radius-full tide-padding-1/2"
                 v-if="getHasOverlay(slide.type)"
               />
@@ -511,7 +514,7 @@
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-text-transform-lower' : ''"
               :href="phoneHref"
-              :icon-leading="ICON.PHONE"
+              :icon-leading="ICON.CALL"
               label="Call"
             />
 
@@ -533,7 +536,7 @@
 
             <BasicButton
               :class="viewportStore.isLandscape && !viewportStore.isLarge ? 'tide-text-transform-lower' : ''"
-              :icon-leading="ICON.ENVELOPE"
+              :icon-leading="ICON.MAIL"
               @click="handleEmailClick"
               label="Email"
             />

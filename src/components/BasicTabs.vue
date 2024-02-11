@@ -23,17 +23,24 @@
 
 <template>
   <div
-    class="basic-tabs tide-display-flex tide-gap-1/4 tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-1/4 tide-bg-gray-light"
+    class="basic-tabs tide-display-flex tide-gap-1/4 tide-radius-1/2 tide-padding-1/4 tide-bg-surface-variant tide-xy-hidden"
   >
     <button
-      :class="index === activeTab ? 'tide-bg-white' : 'tide-border-gray-light tide-bg-gray-light'"
+      :class="
+        index === activeTab ? 'tide-bg-surface tide-font-on-surface tide-shadow-bottom' : 'tide-font-on-surface-variant'
+      "
       :key="tab.label"
       @click="(event: Event) => handleTabClick(event, index)"
-      class="basic-tabs-tab tide-border-1 tide-border-gray tide-radius-1/4 tide-padding-y-1/2 tide-padding-x-2 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
+      class="basic-tabs-tab tide-radius-1/4 tide-padding-y-1/4 tide-padding-x-2 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
       v-for="(tab, index) in props.tabs"
     >
-      <span>{{ tab.label }} </span>
-      <span v-if="tab.count && tab.count > 0">({{ tab.count }})</span>
+      <span class="tide-font-600">{{ tab.label }} </span>
+      <span
+        class="tide-font-600"
+        v-if="tab.count && tab.count > 0"
+      >
+        ({{ tab.count }})
+      </span>
     </button>
   </div>
 </template>
@@ -41,6 +48,9 @@
 <style scoped>
   .basic-tabs-tab {
     flex: 1;
-    transition: background-color var(--animate), border-color var(--animate);
+    transition: background-color var(--animate);
+  }
+
+  .basic-tabs-tab.active {
   }
 </style>

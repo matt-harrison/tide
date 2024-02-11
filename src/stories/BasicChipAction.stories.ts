@@ -1,5 +1,5 @@
 import BasicChipAction from '@/components/BasicChipAction.vue';
-import { parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { BasicChipAction },
@@ -16,6 +16,10 @@ export default {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
       },
+    },
+    isNewTab: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether to target a new browser tab',
     },
     label: {
       control: 'text',

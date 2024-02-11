@@ -40,7 +40,7 @@
       v-if="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO || props.slide.type === MEDIA_SLIDE_TYPES.VR"
     >
       <BasicIcon
-        :icon="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO ? ICON.PLAY : ICON.TOUR"
+        :icon="props.slide.type === MEDIA_SLIDE_TYPES.VIDEO ? ICON.PLAY : ICON.THREE_D_ROTATION"
         class="tide-font-24"
       />
     </div>

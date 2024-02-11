@@ -3,8 +3,6 @@ import { action } from '@storybook/addon-actions';
 import * as STANDARD_ELEMENT from '@/types/Element';
 import * as STANDARD_ICON from '@/types/Icon';
 import * as STANDARD_PRIORITY from '@/types/Priority';
-import * as STANDARD_SIZE_BUTTON from '@/types/Size';
-import * as STANDARD_TIER from '@/types/Tier';
 import BasicButton from '@/components/BasicButton.vue';
 import {
   argTypeBooleanUnrequired,
@@ -17,8 +15,6 @@ import {
 const ELEMENT = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
-const SIZE_BUTTON = prependNoneAsUndefined(STANDARD_SIZE_BUTTON.SIZE_BUTTON);
-const TIER = prependNoneAsUndefined(STANDARD_TIER.TIER);
 
 const render = (args: any) => ({
   components: { BasicButton },
@@ -85,21 +81,6 @@ export default {
         defaultValue: { summary: 'PRIMARY' },
       },
     },
-    size: {
-      ...formatArgType({ SIZE_BUTTON }),
-      description: 'Determines button spacing and font size',
-      table: {
-        defaultValue: { summary: 'MEDIUM' },
-      },
-    },
-    tier: {
-      ...formatArgType({ TIER }),
-      description: 'Determines brand colors<br />(Primary only)',
-      if: { arg: 'priority', eq: PRIORITY.PRIMARY },
-      table: {
-        defaultValue: { summary: 'TIER_1' },
-      },
-    },
   },
   args: {
     click: 'doSomething',
@@ -111,8 +92,6 @@ export default {
     isNewTab: undefined,
     label: 'Demo',
     priority: undefined,
-    size: undefined,
-    tier: TIER.None,
   },
   component: BasicButton,
   parameters,

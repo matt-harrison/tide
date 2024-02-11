@@ -93,34 +93,9 @@
       name: 'Realm Primary',
       swatches: [
         {
-          background: 'tide-bg-primary-tier-1',
-          border: 'tide-border-primary-tier-1',
-          foreground: 'tide-font-primary-tier-1',
-        },
-        {
-          background: 'tide-bg-primary-tier-2',
-          border: 'tide-border-primary-tier-2',
-          foreground: 'tide-font-primary-tier-2',
-        },
-        {
-          background: 'tide-bg-primary-tier-3',
-          border: 'tide-border-primary-tier-3',
-          foreground: 'tide-font-primary-tier-3',
-        },
-      ],
-    },
-    {
-      name: 'Realm Primary Variant',
-      swatches: [
-        {
-          background: 'tide-bg-primary-variant-tier-2',
-          border: 'tide-border-primary-variant-tier-2',
-          foreground: 'tide-font-primary-variant-tier-2',
-        },
-        {
-          background: 'tide-bg-primary-variant-tier-3',
-          border: 'tide-border-primary-variant-tier-3',
-          foreground: 'tide-font-primary-variant-tier-3',
+          background: 'tide-bg-primary',
+          border: 'tide-border-primary',
+          foreground: 'tide-font-primary',
         },
       ],
     },
@@ -648,7 +623,8 @@
             />
 
             <BasicButton
-              :priority="PRIORITY.FLOATING"
+              :is-floating="true"
+              :priority="PRIORITY.QUATERNARY"
               @click="handleButtonClick"
               label="Floating"
             />
@@ -676,7 +652,8 @@
             />
 
             <BasicButton
-              :priority="PRIORITY.FLOATING"
+              :is-floating="true"
+              :priority="PRIORITY.QUATERNARY"
               @click="handleButtonClick"
               disabled
               label="Floating"
@@ -691,7 +668,7 @@
             />
 
             <BasicButton
-              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :icon-trailing="ICON.IOS_SHARE"
               @click="handleButtonClick"
               label="Trailing Icon"
             />
@@ -713,7 +690,7 @@
 
             <BasicLink
               :element="ELEMENT.BUTTON"
-              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :icon-trailing="ICON.IOS_SHARE"
               href="#"
               label="Trailing Icon"
             />
@@ -764,8 +741,9 @@
           <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
+              :is-floating="true"
               :key="icon"
-              :priority="PRIORITY.FLOATING"
+              :priority="PRIORITY.QUATERNARY"
               :title="icon"
               @click="handleButtonClick"
               v-for="icon in ICON"
@@ -961,7 +939,7 @@
             />
 
             <BasicLink
-              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :icon-trailing="ICON.IOS_SHARE"
               href="/"
               label="Trailing Icon"
             />
@@ -999,7 +977,8 @@
 
             <BasicButton
               :element="ELEMENT.LINK"
-              :priority="PRIORITY.FLOATING"
+              :is-floating="true"
+              :priority="PRIORITY.QUATERNARY"
               href="#"
               label="Floating"
             />
@@ -1015,7 +994,7 @@
 
             <BasicButton
               :element="ELEMENT.LINK"
-              :icon-trailing="ICON.UP_RIGHT_FROM_SQUARE"
+              :icon-trailing="ICON.IOS_SHARE"
               href="#"
               label="Trailing Icon"
             />
@@ -1069,8 +1048,9 @@
           <div class="tide-display-flex tide-flex-wrap tide-gap-1 tide-margin-bottom-1 tide-margin-left-1">
             <BasicButtonIcon
               :icon="icon"
+              :is-floating="true"
               :key="icon"
-              :priority="PRIORITY.FLOATING"
+              :priority="PRIORITY.QUATERNARY"
               :title="icon"
               @click="handleButtonClick"
               href="#"

@@ -1,14 +1,10 @@
 <script lang="ts" setup>
   import type { ElementTextAsIcon } from '@/types/Element';
   import type { Priority } from '@/types/Priority';
-  import type { Size } from '@/types/Size';
-  import type { Tier } from '@/types/Tier';
 
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
-  import { SIZE } from '@/types/Size';
   import { TARGET } from '@/types/Target';
-  import { TIER } from '@/types/Tier';
 
   type Props = {
     disabled?: boolean;
@@ -17,8 +13,6 @@
     isNewTab?: boolean;
     label: string | number;
     priority?: Priority;
-    size?: Size;
-    tier?: Tier;
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -28,8 +22,6 @@
     isNewTab: false,
     label: undefined,
     priority: PRIORITY.PRIMARY,
-    size: SIZE.SMALL,
-    tier: TIER.TIER_1,
   });
 </script>
 
@@ -37,9 +29,7 @@
   <component
     :class="[
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
-      props.size === SIZE.MEDIUM ? 'medium' : 'small',
       props.priority && props.priority,
-      props.priority === PRIORITY.PRIMARY && props.tier && props.tier,
       'tide-display-inline-block tide-radius-full tide-padding-1/2',
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
@@ -62,15 +52,9 @@
 
 <style scoped src="@/assets/css/dynamic-buttons.css" />
 <style>
-  .basic-button-icon.medium .label,
-  .basic-link-as-button-icon.medium .label {
+  .basic-button-icon .label,
+  .basic-link-as-button-icon .label {
     width: 1.5rem;
     height: 1.5rem;
-  }
-
-  .basic-button-icon.small .label,
-  .basic-link-as-button-icon.small .label {
-    width: 1rem;
-    height: 1rem;
   }
 </style>

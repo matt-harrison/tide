@@ -1,126 +1,44 @@
-/* TODO: PLACEHOLDER ONLY - Snow Realm Colors */
+/* Commercial Truck Trader Realm Colors */
 :root {
-  /* Tonal Palette: These are only referenced by the context variables, so we don't actually need the same ones from realm to realm. Most are unused. */
-  --blue-100: #bfd6e6;
-  --blue-200: #7faece;
-  --blue-300: #3f86b5;
-  --blue-400: #005f9e;
-  --blue-500: #004776;
-  --blue-600: #002f4f;
-  --blue-700: #001727;
+  /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
+  --blue:  #005F9E;
+  --midnight-blue:   #172C4B;
+  --teal: #97D9E3;
 
-  --midnight-blue-100: #c4cad1;
-  --midnight-blue-200: #8a95a4;
-  --midnight-blue-300: #506077;
-  --midnight-blue-400: #172c4b;
-  --midnight-blue-500: #112138;
-  --midnight-blue-600: #0b1625;
-  --midnight-blue-700: #050b12;
+  --bg-gradient: linear-gradient(
+    to bottom right,
+    var(--midnight-blue) 50%,
+    var(--teal) 150%
+  );
 
-  --light-blue-100: #d2e4f2;
-  --light-blue-200: #a5c9e6;
-  --light-blue-300: #78aed9;
-  --light-blue-400: #4c94ce;
-  --light-blue-500: #396f9a;
-  --light-blue-600: #264a67;
-  --light-blue-700: #132533;
-
-  --green-100: #d0ecd1;
-  --green-200: #a2daa3;
-  --green-300: #74c775;
-  --green-400: #47b649;
-  --green-500: #358836;
-  --green-600: #235b24;
-  --green-700: #112d12;
-
-  --mist-100: #f3f6f6;
-  --mist-200: #e7eded;
-  --mist-300: #dbe4e4;
-  --mist-400: #d1dddd;
-  --mist-500: #9ca5a5;
-  --mist-600: #686e6e;
-  --mist-700: #343737;
+  --floating: rgba(255, 255, 255, 0);
 }
 
-/* Realm Palette: These variables will be declared separately for each realm. */
+/* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
 :root {
-  /* Primary Button Tiers */
-  --ti-primary-button-tier-1-background-rest: var(--blue-400);
-  --ti-primary-button-tier-1-border-rest: var(--blue-400);
-  --ti-primary-button-tier-1-foreground-rest: var(--white);
+  --primary:    var(--blue);
+  --on-primary: var(--white);
 
-  --ti-primary-button-tier-1-background-hover: var(--blue-400);
-  --ti-primary-button-tier-1-border-hover: var(--blue-300);
-  --ti-primary-button-tier-1-foreground-hover: var(--white);
+  --secondary:    var(--black);
+  --on-secondary: var(--white);
 
-  --ti-primary-button-tier-2-background-rest: var(--midnight-blue-400);
-  --ti-primary-button-tier-2-border-rest: var(--midnight-blue-400);
-  --ti-primary-button-tier-2-foreground-rest: var(--white);
+  --surface:                var(--white);
+  --surface-variant:        var(--gray-200);
+  --surface-brand:          var(--blue);
+  --surface-accent:         var(--teal);
+  --surface-accent-variant: var(--midnight-blue);
+  --surface-gradient:       var(--gradient);
+  --surface-floating:       var(--floating);
 
-  --ti-primary-button-tier-2-background-hover: var(--midnight-blue-400);
-  --ti-primary-button-tier-2-border-hover: var(--midnight-blue-500);
-  --ti-primary-button-tier-2-foreground-hover: var(--white);
+  --on-surface:         var(--black);
+  --on-surface-variant: var(--gray-800);
+  --on-surface-brand:   var(--blue);
 
-  --ti-primary-button-tier-3-background-rest: var(--green-400);
-  --ti-primary-button-tier-3-border-rest: var(--green-400);
-  --ti-primary-button-tier-3-foreground-rest: var(--midnight-blue-400);
+  --on-surface-inverse:         var(--white);
+  --on-surface-inverse-variant: var(--transparent-200);
 
-  --ti-primary-button-tier-3-background-hover: var(--green-400);
-  --ti-primary-button-tier-3-border-hover: var(--green-300);
-  --ti-primary-button-tier-3-foreground-hover: var(--midnight-blue-400);
-
-  /* Primary Button Tier Variants */
-  --ti-primary-button-tier-2-variant-background-rest: var(--light-blue-100);
-  --ti-primary-button-tier-2-variant-border-rest: var(--light-blue-200);
-  --ti-primary-button-tier-2-variant-foreground-rest: var(--midnight-blue-400);
-
-  --ti-primary-button-tier-2-variant-background-hover: var(--light-blue-100);
-  --ti-primary-button-tier-2-variant-border-hover: var(--light-blue-400);
-  --ti-primary-button-tier-2-variant-foreground-hover: var(--midnight-blue-400);
-
-  --ti-primary-button-tier-3-variant-background-rest: var(--green-100);
-  --ti-primary-button-tier-3-variant-border-rest: var(--green-200);
-  --ti-primary-button-tier-3-variant-foreground-rest:  var(--midnight-blue-400);
-
-  --ti-primary-button-tier-3-variant-background-hover: var(--green-100);
-  --ti-primary-button-tier-3-variant-border-hover: var(--green-500);
-  --ti-primary-button-tier-3-variant-foreground-hover:  var(--midnight-blue-400);
-
-  /* Secondary Buttons */
-  --ti-secondary-button-border-rest: var(--midnight-blue-400);
-  --ti-secondary-button-foreground-rest: var(--midnight-blue-400);
-
-  --ti-secondary-button-border-hover: var(--midnight-blue-300);
-  --ti-secondary-button-foreground-hover: var(--midnight-blue-400);
-
-  /* Tertiary Buttons */
-  --ti-tertiary-button-background-rest: var(--white);
-  --ti-tertiary-button-border-rest: var(--white);
-  --ti-tertiary-button-foreground-rest: var(--midnight-blue-400);
-
-  --ti-tertiary-button-background-hover: var(--white);
-  --ti-tertiary-button-border-hover: var(--gray);
-  --ti-tertiary-button-foreground-hover: var(--midnight-blue-400);
-
-  /* Surface BGs */
-  --ti-surface-background-default: var(--mist-100);
-  --ti-surface-background-dark: var(--mist-400);
-  --ti-surface-background-high: var(--white);
-
-  /* Surface Variant BGs */
-  --ti-surface-variant-background-dark: var(--mist-400);
-  --ti-surface-variant-background-lowest: var(--mist-500);
-  --ti-surface-variant-background-default: var(--mist-300);
-  --ti-surface-variant-background-high: var(--mist-200);
-  --ti-surface-variant-background-highest: var(--mist-100);
-
-  /* Surface FGs */
-  --ti-surface-foreground: var(--midnight-blue-400);
-  --ti-surface-variant-foreground: #4e5e75;
-
-  /* Borders */
-  --ti-surface-border-dark: var(--midnight-blue-400);
-  --ti-surface-border-default: var(--midnight-blue-200);
-  --ti-surface-border-high: var(--mist-300);
-  --ti-surface-border-save-active: var(--red-400); /* Naming convention? */
+  --border:          var(--gray-400);
+  --border-low:      var(--gray-600);
+  --border-high:     var(--black);
+  --border-floating: var(--gray-300);
 }

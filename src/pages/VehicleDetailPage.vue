@@ -150,7 +150,7 @@
 
         <div class="tide-display-flex tide-gap-1 tide-margin-left-auto">
           <BasicButtonIcon
-            :icon="ICON.ARROW_UP_FROM_BRACKET"
+            :icon="ICON.IOS_SHARE"
             :priority="PRIORITY.SECONDARY"
             @click="() => (shareModalIsOpen = true)"
           />
@@ -164,7 +164,7 @@
           </BasicModal>
 
           <BasicButtonIcon
-            :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
+            :icon="isFavorite ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
             :is-active="isFavorite"
             :priority="PRIORITY.SECONDARY"
             @click.prevent="toggleIsFavorite"
@@ -182,7 +182,7 @@
           >
             <BasicLink
               :href="dealerLinkHref"
-              :icon-leading="ICON.CIRCLE_CHECK"
+              :icon-leading="ICON.CHECK"
               class="tide-font-12"
               target="_blank"
             >
@@ -234,8 +234,6 @@
           >
             Loan Calculator
           </BasicModal>
-
-          <BasicIcon :icon="ICON.CALCULATOR" />
         </div>
       </div>
 
@@ -323,7 +321,7 @@
 
             <div class="tide-display-flex tide-flex-column tide-axis2-start tide-margin-top-1/4">
               <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
-                <BasicIcon :icon="ICON.CIRCLE_CHECK" />
+                <BasicIcon :icon="ICON.CHECK" />
                 <span class="tide-font-green tide-font-12 tide-font-600">15 Year Trusted Partner</span>
               </div>
 
@@ -355,7 +353,7 @@
           >
             Visit dealer's website
             <!-- replace with external link icon -->
-            <BasicIcon :icon="ICON.ARROW_UP_FROM_BRACKET" />
+            <BasicIcon :icon="ICON.IOS_SHARE" />
           </a>
 
           <BasicButton
@@ -441,7 +439,7 @@
           <div class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-shrink-none">
             <BasicButtonIcon
               :href="phoneHref"
-              :icon="ICON.PHONE"
+              :icon="ICON.CALL"
             />
 
             <a :href="phoneHref"> Call {{ phone }} </a>
@@ -516,7 +514,7 @@
       </div>
 
       <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
-        <BasicIcon :icon="ICON.HEART" />
+        <BasicIcon :icon="ICON.FAVORITE_FILLED" />
 
         <div>
           <span>Saved by </span>
@@ -538,7 +536,7 @@
       </div>
 
       <div class="tide-display-flex tide-axis2-center tide-gap-1/2">
-        <BasicIcon :icon="ICON.TAG" />
+        <BasicIcon :icon="ICON.SELL" />
 
         <span class="tide-font-12">The price has not decreased recently</span>
       </div>
@@ -656,7 +654,7 @@
 
         <div class="tide-display-flex tide-flex-column tide-axis2-start shrink tide-margin-left-1">
           <div class="tide-display-flex tide-axis2-center tide-font-12 tide-font-700">
-            <BasicIcon :icon="ICON.CIRCLE_CHECK" />
+            <BasicIcon :icon="ICON.CHECK" />
 
             <a
               :href="dealerLinkHref"
@@ -687,14 +685,14 @@
             class="tide-display-flex tide-gap-1/2 tide-axis2-center tide-font-20 tide-font-700"
           >
             <BasicIcon
-              :icon="ICON.PHONE"
+              :icon="ICON.CALL"
               class="tide-bg-gray-dark tide-font-white tide-padding-1/2 tide-font-16 tide-radius-full"
             />
             Call {{ phone }}
           </a>
 
           <BasicButton
-            :icon-leading="ICON.ENVELOPE"
+            :icon-leading="ICON.MAIL"
             @click="() => (emailModalIsOpen = true)"
             label="Email seller"
           />
@@ -712,7 +710,7 @@
           </BasicModal>
 
           <BasicButtonIcon
-            :icon="isFavorite ? ICON.HEART : ICON.HEART_OPEN"
+            :icon="isFavorite ? ICON.FAVORITE_FILLED : ICON.FAVORITE"
             :is-active="isFavorite"
             :priority="PRIORITY.SECONDARY"
             @click.prevent="toggleIsFavorite"

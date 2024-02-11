@@ -93,7 +93,7 @@
               class="tide-position-absolute tide-right-0 tide-margin-right-2"
               title="Close"
             >
-              <BasicIcon :icon="ICON.XMARK" />
+              <BasicIcon :icon="ICON.CLOSE" />
             </button>
           </header>
 

@@ -17,7 +17,7 @@ export default {
     },
   },
   args: {
-    icon: ICON.HEART,
+    icon: ICON.FAVORITE,
     size: undefined,
   },
   component: BasicIcon,

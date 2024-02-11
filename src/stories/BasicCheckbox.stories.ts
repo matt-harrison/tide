@@ -19,7 +19,7 @@ export default {
   argTypes: {
     disabled: {
       ...argTypeBooleanUnrequired,
-      description: 'Determines whether Checkbox is interactable',
+      description: 'Determines whether Checkbox state is interactable',
     },
     error: {
       table: {
@@ -27,9 +27,8 @@ export default {
       },
     },
     indeterminate: {
-      table: {
-        disable: true,
-      },
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether Checkbox is indeterminate',
     },
     inputId: {
       control: 'text',

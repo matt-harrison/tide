@@ -2,34 +2,28 @@
 
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STORYBOOK from '@/types/Storybook';
 import * as STYLES from '@/types/StorybookStyles';
 import Border from '@/stories/FoundationsBorder.stories';
-import Color from '@/stories/FoundationsColor.stories';
 import Font from '@/stories/FoundationsTypography.stories';
 import Gap from '@/stories/FoundationsGap.stories';
 import Margin from '@/stories/FoundationsMargin.stories';
 import Padding from '@/stories/FoundationsPadding.stories';
 import Shadow from '@/stories/FoundationsShadow.stories';
-import { argTypeDimension, formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { argTypeDimension, formatArgType, prependKeyValue, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
-const BORDER_TYPE = prependNoneAsEmpty(STYLES.BORDER_TYPE);
-const COLOR_BACKGROUND = prependNoneAsEmpty(STORYBOOK.COLOR_BACKGROUND);
-const COLOR_BORDER = prependNoneAsEmpty(STORYBOOK.COLOR_BORDER);
-const COLOR_FONT = prependNoneAsEmpty(STORYBOOK.COLOR_FONT);
-const DISPLAY = prependNoneAsEmpty(STYLES.DISPLAY);
+const BORDER_SIDE = prependNoneAsEmpty(STYLES.BORDER_SIDE);
+const BORDER_WIDTH = prependNoneAsEmpty(STYLES.BORDER_WIDTH);
+const DISPLAY = prependKeyValue(STYLES.DISPLAY, { 'None (Unspecified)': '' });
 const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
 const FLEX_AXIS2 = prependNoneAsEmpty(STYLES.FLEX_AXIS2);
 const FLEX_DIRECTION = prependNoneAsEmpty(STYLES.FLEX_DIRECTION);
-const FONT_FAMILY = prependNoneAsEmpty(STYLES.FONT_FAMILY);
 const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
 const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 const GAP = prependNoneAsEmpty(STYLES.GAP);
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
-const SHADOW_BOTTOM = prependNoneAsEmpty(STYLES.SHADOW_BOTTOM);
-const SHADOW_TOP = prependNoneAsEmpty(STYLES.SHADOW_TOP);
+const SHADOW = prependNoneAsEmpty(STYLES.SHADOW);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -41,24 +35,22 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.backgroundColor) classNames.push(args.backgroundColor);
-  if (args.borderColor) classNames.push(args.borderColor);
   if (args.borderRadius) classNames.push(args.borderRadius);
-  if (args.borderType) classNames.push(args.borderType);
   if (args.display) classNames.push(args.display);
   if (args.flexAxis1) classNames.push(args.flexAxis1);
   if (args.flexAxis2) classNames.push(args.flexAxis2);
   if (args.flexDirection) classNames.push(args.flexDirection);
   if (args.flexGap) classNames.push(args.flexGap);
   if (args.flexWrap) classNames.push('tide-flex-wrap');
-  if (args.fontColor) classNames.push(args.fontColor);
-  if (args.fontFamily) classNames.push(args.fontFamily);
   if (args.fontSize) classNames.push(args.fontSize);
   if (args.fontWeight) classNames.push(args.fontWeight);
   if (args.margin) classNames.push(args.margin);
   if (args.padding) classNames.push(args.padding);
-  if (args.shadowBottom) classNames.push(args.shadowBottom);
-  if (args.shadowTop) classNames.push(args.shadowTop);
+  if (args.shadow) classNames.push(args.shadow);
+
+  if (args.borderSide && args.borderWidth) {
+    classNames.push(`${args.borderSide}${args.borderWidth}`);
+  }
 
   return classNames.join(' ');
 };
@@ -107,7 +99,6 @@ export default {
     ...Font.argTypes,
     ...Gap.argTypes,
     ...Padding.argTypes,
-    backgroundColor: Color.argTypes.backgroundColor,
     children: {
       control: 'text',
       defaultValue: 'Demo',
@@ -138,25 +129,21 @@ export default {
     },
   },
   args: {
-    backgroundColor: COLOR_BACKGROUND.None,
-    borderColor: COLOR_BORDER.None,
     borderRadius: BORDER_RADIUS.None,
-    borderType: BORDER_TYPE.None,
+    borderSide: BORDER_SIDE.None,
+    borderWidth: BORDER_WIDTH.None,
     children: 'Demo',
-    display: DISPLAY.None,
+    display: DISPLAY['None (Unspecified)'],
     flexAxis1: FLEX_AXIS1.None,
     flexAxis2: FLEX_AXIS2.None,
     flexDirection: FLEX_DIRECTION.None,
     flexGap: GAP.None,
     flexWrap: undefined,
-    fontColor: COLOR_FONT.None,
-    fontFamily: FONT_FAMILY.None,
     fontSize: FONT_SIZE.None,
     fontWeight: FONT_WEIGHT.None,
     margin: MARGIN.None,
     padding: PADDING.None,
-    shadowBottom: SHADOW_BOTTOM.None,
-    shadowTop: SHADOW_TOP.None,
+    shadow: SHADOW.None,
   },
   parameters,
   render,

@@ -4,7 +4,7 @@ import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
 const render = (args: any) => ({
   components: { BasicAccordionItem },
   setup: () => ({ args }),
-  template: `<BasicAccordionItem :key="args.isExpandedInitial" class="tide-border-top tide-border-bottom tide-border-gray" v-bind="args"><p class="tide-margin-bottom-1">{{ args.default }}</p></BasicAccordionItem>`,
+  template: `<BasicAccordionItem :key="args.isExpandedInitial" v-bind="args">{{ args.default }}</BasicAccordionItem>`,
 });
 
 export default {
@@ -17,6 +17,14 @@ export default {
         type: { summary: 'HTML' },
       },
     },
+    hasBottomDivider: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether to include bottom divider',
+    },
+    hasTopDivider: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether to include bottom divider',
+    },
     isActive: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether to show "active" indicator (primarily for filters)',
@@ -25,6 +33,10 @@ export default {
       ...argTypeBooleanUnrequired,
       description:
         'Determines whether content should be expanded by default<br />(Subsequently managed within component)',
+    },
+    isOptional: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether to show "(optional)" indicator after label',
     },
     label: {
       control: 'text',
@@ -37,8 +49,11 @@ export default {
   },
   args: {
     default: 'Lorem Ipsum',
+    hasBottomDivider: undefined,
+    hasTopDivider: undefined,
     isActive: undefined,
     isExpandedInitial: undefined,
+    isOptional: undefined,
     label: 'Demo',
   },
   component: BasicAccordionItem,

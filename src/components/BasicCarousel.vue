@@ -164,14 +164,14 @@
     >
       <BasicButtonIcon
         :icon="ICON.CHEVRON_LEFT"
-        :priority="PRIORITY.FLOATING"
+        :priority="PRIORITY.QUATERNARY"
         @click="showPreviousSlide"
         class="tide-margin-left-1 tide-pointer-events"
       />
 
       <BasicButtonIcon
         :icon="ICON.CHEVRON_RIGHT"
-        :priority="PRIORITY.FLOATING"
+        :priority="PRIORITY.QUATERNARY"
         @click="showNextSlide"
         class="tide-margin-right-1 tide-pointer-events"
       />

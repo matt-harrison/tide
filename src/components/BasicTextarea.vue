@@ -106,7 +106,7 @@
       v-if="hasError"
     >
       <SvgIcon
-        :icon="ICON.CIRCLE_EXCLAMATION"
+        :icon="ICON.ERROR"
         :size="SIZE.SMALL"
         class="align-middle tide-font-16 tide-pointer-events-none"
         v-if="hasError"

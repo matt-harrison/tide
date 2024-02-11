@@ -1,11 +1,13 @@
 <script lang="ts" setup>
-  import { computed, getCurrentInstance } from 'vue';
+  import { computed, getCurrentInstance, onMounted, onUpdated, ref } from 'vue';
 
   import type { CheckboxField } from '@/types/Field';
 
   import { getCssUtils } from '@/utilities/styles';
 
   const UTILS = getCssUtils();
+
+  const input = ref<CheckboxField>();
 
   interface Props extends CheckboxField {
     inputId?: string;
@@ -16,7 +18,7 @@
   const props = withDefaults(defineProps<Props>(), {
     disabled: false,
     error: false, // TODO: Add markup to display "required" error message.
-    indeterminate: false, // TODO: Implement indeterminate state [-]
+    indeterminate: false,
     inputId: undefined,
     label: undefined,
     required: false,
@@ -26,6 +28,20 @@
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
   const uniqueInputId = computed(() => `${props.inputId ?? 'checkbox'}-${uid}`);
+
+  const setIndeterminate = (isIndeterminate: boolean) => {
+    if (input.value) {
+      input.value.indeterminate = isIndeterminate;
+    }
+  };
+
+  onMounted(() => {
+    setIndeterminate(props.indeterminate);
+  });
+
+  onUpdated(() => {
+    setIndeterminate(props.indeterminate);
+  });
 </script>
 
 <template>
@@ -37,6 +53,7 @@
       :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
       :disabled="props.disabled"
       :name="name"
+      ref="input"
       :id="uniqueInputId"
       type="checkbox"
     />

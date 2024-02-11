@@ -19,6 +19,10 @@ const render = (args: any, { updateArgs }: any) => ({
 export default {
   argTypes: {
     click,
+    disabled: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines clickability',
+    },
     isActive: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether toggle is active',
@@ -26,6 +30,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    disabled: undefined,
     isActive: undefined,
   },
   component: BasicToggle,

@@ -10,23 +10,23 @@
 }
 
 .block-field.error {
-  color: var(--global-role-error-on-surface);
+  color: var(--error-on-surface);
 }
 
 .block-field.error .field {
-  outline-color: var(--global-role-error-border-rest);
+  outline-color: var(--error-border-rest);
 }
 
 .block-field.error:focus-within .field {
-  outline-color: var(--global-role-error-border-rest);
+  outline-color: var(--error-border-rest);
 }
 
 .block-field.error:hover {
-  color: var(--global-role-error-on-surface-variant);
+  color: var(--error-on-surface-variant);
 }
 
 .block-field.error:hover .field {
-  outline-color: var(--global-role-error-border-high);
+  outline-color: var(--error-border-high);
 }
 
 .block-field.disabled {

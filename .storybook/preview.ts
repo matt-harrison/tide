@@ -3,6 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import type { Preview } from '@storybook/vue3';
 
 import '../src/assets/css/main.css';
+import '../src/assets/css/storybook.css';
 import BasicCarousel from '../src/stories/BasicCarousel.stories';
 import DemoCssUtilities from '../src/stories/DemoCssUtilities.stories';
 import DemoCssUtilitiesByTextInput from '../src/stories/DemoCssUtilitiesByTextInput.stories';
@@ -19,11 +20,12 @@ const preview: Preview = {
         DemoCssUtilitiesByTextInput.title,
         FoundationsMargin.title,
       ];
-      const decoratorCss = decoratorOptOuts.includes(context.title) ? 'pb-2' : 'p-2';
+
+      const decoratorCss = decoratorOptOuts.includes(context.title) ? '' : 'tide-padding-top-2 tide-padding-x-2';
 
       return {
         components: { story },
-        template: `<div class="${context.globals.theme} ${decoratorCss} ${context.globals.surface}"><story /></div>`
+        template: `<div class="${decoratorCss} tide-padding-bottom-4 ${context.globals.surface}"><story /></div>`
       };
     },
     (story, context) => {
@@ -48,8 +50,8 @@ const preview: Preview = {
             value: 'atv',
           },
           {
-            title: 'Realm: Boatline',
-            value: 'boatline',
+            title: 'Realm: Boatmart',
+            value: 'boatmart',
           },
           {
             title: 'Realm: Cycle',
@@ -79,6 +81,7 @@ const preview: Preview = {
         title: 'Realm',
       },
     },
+    /*
     surface: {
       description: 'Determines Background context of dynamic CSS utilities',
       defaultValue: 'bg-surface',
@@ -101,30 +104,13 @@ const preview: Preview = {
         title: 'Surface',
       },
     },
-    theme: {
-      description: 'Determines Theme context of dynamic CSS utilities',
-      defaultValue: 'theme-light',
-      toolbar: {
-        dynamicTitle: true,
-        items: [
-          {
-            title: 'Theme: Light',
-            value: 'theme-light',
-          },
-          {
-            title: 'Theme: Dark',
-            value: 'theme-dark',
-          },
-        ],
-        title: 'Theme',
-      },
-    },
+    */
   },
   parameters: {
     backgrounds: { disable: true },
     docs: {
       canvas: {
-        // sourceState: 'shown',
+        // sourceState:  'shown',
         withToolbar: false,
       },
       controls: { sort: 'requiredFirst' },

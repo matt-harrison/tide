@@ -3,8 +3,7 @@ import type { StoryContext } from '@storybook/vue3';
 import * as STYLES from '@/types/StorybookStyles';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
-const SHADOW_BOTTOM = prependNoneAsEmpty(STYLES.SHADOW_BOTTOM);
-const SHADOW_TOP = prependNoneAsEmpty(STYLES.SHADOW_TOP);
+const SHADOW = prependNoneAsEmpty(STYLES.SHADOW);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -15,8 +14,7 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.shadowTop) classNames.push(args.shadowTop);
-  if (args.shadowBottom) classNames.push(args.shadowBottom);
+  if (args.shadow) classNames.push(args.shadow);
 
   return classNames.join(' ');
 };
@@ -49,20 +47,14 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    shadowBottom: {
-      ...formatArgType({ SHADOW_BOTTOM }),
-      description: `Applies a bottom shadow at the element's boundaries`,
-      name: 'Shadow Bottom',
-    },
-    shadowTop: {
-      ...formatArgType({ SHADOW_TOP }),
-      description: `Applies a top shadow at the element's boundaries`,
-      name: 'Shadow Top',
+    shadow: {
+      ...formatArgType({ SHADOW }),
+      description: `Applies a shadow at the element's top or bottom boundary.<br />(Top shadows are for sticky footers only.)`,
+      name: 'Shadow',
     },
   },
   args: {
-    shadowBottom: SHADOW_BOTTOM.None,
-    shadowTop: SHADOW_TOP.None,
+    shadow: SHADOW.None,
   },
   parameters,
   render,
@@ -72,62 +64,14 @@ export default {
 
 export const Default = {};
 
-export const ShadowTopLevel1 = {
+export const ShadowBottom = {
   args: {
-    shadowTop: SHADOW_TOP['Level 1'],
+    shadow: SHADOW['Bottom'],
   },
 };
 
-export const ShadowTopLevel2 = {
+export const ShadowTop = {
   args: {
-    shadowTop: SHADOW_TOP['Level 2'],
-  },
-};
-
-export const ShadowTopLevel3 = {
-  args: {
-    shadowTop: SHADOW_TOP['Level 3'],
-  },
-};
-
-export const ShadowTopLevel4 = {
-  args: {
-    shadowTop: SHADOW_TOP['Level 4'],
-  },
-};
-
-export const ShadowTopLevel5 = {
-  args: {
-    shadowTop: SHADOW_TOP['Level 5'],
-  },
-};
-
-export const ShadowBottomLevel1 = {
-  args: {
-    shadowTop: SHADOW_BOTTOM['Level 1'],
-  },
-};
-
-export const ShadowBottomLevel2 = {
-  args: {
-    shadowTop: SHADOW_BOTTOM['Level 2'],
-  },
-};
-
-export const ShadowBottomLevel3 = {
-  args: {
-    shadowTop: SHADOW_BOTTOM['Level 3'],
-  },
-};
-
-export const ShadowBottomLevel4 = {
-  args: {
-    shadowTop: SHADOW_BOTTOM['Level 4'],
-  },
-};
-
-export const ShadowBottomLevel5 = {
-  args: {
-    shadowTop: SHADOW_BOTTOM['Level 5'],
+    shadow: SHADOW['Top'],
   },
 };

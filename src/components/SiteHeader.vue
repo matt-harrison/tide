@@ -20,7 +20,7 @@
     showSearchBar: true,
   });
 
-  const logosTall: string[] = [REALM.BOATLINE, REALM.EQUIP, REALM.TRUCK];
+  const logosTall: string[] = [REALM.EQUIP, REALM.TRUCK];
   const realmLogo = defineAsyncComponent(() => import(`@/assets/svg/logos/${formatPascalCase(realm.id)}Logo.vue`));
 
   const navItems = [
@@ -161,7 +161,7 @@
           class="nav-menu h-full tide-pointer-events"
         >
           <BasicButtonIcon
-            :icon="ICON.XMARK"
+            :icon="ICON.CLOSE"
             :priority="PRIORITY.TERTIARY"
             @click="handleNavMenuClose"
             aria-label="Close menu"
@@ -191,7 +191,7 @@
 
     <div class="tide-display-flex tide-gap-1/2 tide-margin-left-auto">
       <BasicButtonIcon
-        :icon="ICON.MAGNIFYING_GLASS"
+        :icon="ICON.SEARCH"
         :priority="PRIORITY.TERTIARY"
         @click="handleSearchBarTriggerClick"
         aria-label="Search"
@@ -201,13 +201,13 @@
       <BasicButtonIcon
         :element="ELEMENT.LINK"
         :href="`/style-guide?realm=${realm.id}`"
-        :icon="ICON.USER"
+        :icon="ICON.PERSON"
         :priority="PRIORITY.TERTIARY"
         aria-label="Sign in"
       />
 
       <BasicButtonIcon
-        :icon="ICON.BARS"
+        :icon="ICON.MENU"
         :priority="PRIORITY.TERTIARY"
         @click="handleBurgerClick"
         aria-label="Menu"
@@ -244,7 +244,7 @@
           />
 
           <BasicButtonIcon
-            :icon="ICON.MAGNIFYING_GLASS"
+            :icon="ICON.SEARCH"
             @click="handleSearchBarTriggerClick"
             aria-label="Search"
             class="tide-position-absolute tide-top-0 tide-right-0 tide-margin-top-1/2 tide-margin-right-1/2 tide-padding-1/2"

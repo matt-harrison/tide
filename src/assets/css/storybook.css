@@ -1,0 +1,8 @@
+/* Styles used for Storybook demonstration purposes only. Not bundled into distribution package. */
+.sb-bg-blue-light {
+  background-color: #CCDEF3;
+}
+
+.sb-font-blue {
+  color: blue;
+}

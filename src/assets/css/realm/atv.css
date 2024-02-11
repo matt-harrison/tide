@@ -1,142 +1,45 @@
-/* TODO: PLACEHOLDER ONLY - ATV Realm Colors */
+/* ATV Trader Realm Colors */
 :root {
-  /* Tonal Palette: These are only referenced by the context variables, so we don't actually need the same ones from realm to realm. Most are unused. */
-  --orange-100: #f1d3c5;
-  --orange-200: #e3a78c;
-  --orange-300: #d57b52;
-  --orange-400: #c8511a;
-  --orange-500: #963c13;
-  --orange-600: #64280d;
-  --orange-700: #321406;
+    /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
+    --charcoal: #33383B;
+    --maroon:   #9B2702;
+    --orange:   #C7521A;
+    --peach:    #EFBA88;
 
-  --maroon-100: #e5c8bf;
-  --maroon-200: #cc9280;
-  --maroon-300: #b35c40;
-  --maroon-400: #9b2702;
-  --maroon-500: #741d01;
-  --maroon-600: #4d1301;
-  --maroon-700: #260900;
+    --bg-gradient: linear-gradient(
+      to bottom right,
+      var(--charcoal) 50%,
+      var(--peach) 150%
+    );
 
-  --peach-100: #f9e7d7;
-  --peach-200: #f4d0af;
-  --peach-300: #eeb987;
-  --peach-400: #eaa361;
-  --peach-500: #af7a48;
-  --peach-600: #755130;
-  --peach-700: #3a2818;
+    --floating: rgba(0, 0, 0, 0);
+  }
 
-  --brown-100: #ebd7c5;
-  --brown-200: #d7b08b;
-  --brown-300: #c38851;
-  --brown-400: #b06218;
-  --brown-500: #844912;
-  --brown-600: #58310c;
-  --brown-700: #2c1806;
+  /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
+  :root {
+    --primary:    var(--orange);
+    --on-primary: var(--white);
 
-  --slate-100: #d4d7da;
-  --slate-200: #aab0b6;
-  --slate-300: #808992;
-  --slate-400: #57636f;
-  --slate-500: #414a53;
-  --slate-600: #2b3137;
-  --slate-700: #15181b;
+    --secondary:    var(--black);
+    --on-secondary: var(--white);
 
-  --blue-100: #f5f7f9;
-  --blue-200: #ecf0f4;
-  --blue-300: #e2e9ee;
-  --blue-400: #dae3ea;
-  --blue-500: #a3aaaf;
-  --blue-600: #6d7175;
-  --blue-700: #36383a;
+    --surface:                var(--white);
+    --surface-variant:        var(--gray-200);
+    --surface-brand:          var(--charcoal);
+    --surface-accent:         var(--peach);
+    --surface-accent-variant: var(--maroon);
+    --surface-gradient:       var(--gradient);
+    --surface-floating:       var(--floating);
 
-  --gray-100: #f8f7f6;
-  --gray-200: #f1efed;
-  --gray-300: #eae7e4;
-  --gray-400: #e4e0dc;
-  --gray-500: #aba8a5;
-  --gray-600: #72706e;
-  --gray-700: #393837;
-}
+    --on-surface:         var(--black);
+    --on-surface-variant: var(--gray-800);
+    --on-surface-brand:   var(--orange);
 
-/* Realm Palette: These variables will be declared separately for each realm. */
-:root {
-  /* Primary Button Tiers */
-  --ti-primary-button-tier-1-background-rest: var(--orange-400);
-  --ti-primary-button-tier-1-border-rest: var(--orange-400);
-  --ti-primary-button-tier-1-foreground-rest: var(--white);
+    --on-surface-inverse:         var(--white);
+    --on-surface-inverse-variant: var(--transparent-200);
 
-  --ti-primary-button-tier-1-background-hover: var(--orange-400);
-  --ti-primary-button-tier-1-border-hover: var(--orange-500);
-  --ti-primary-button-tier-1-foreground-hover: var(--white);
-
-  --ti-primary-button-tier-2-background-rest: var(--slate-700);
-  --ti-primary-button-tier-2-border-rest: var(--slate-700);
-  --ti-primary-button-tier-2-foreground-rest: var(--white);
-
-  --ti-primary-button-tier-2-background-hover: var(--slate-700);
-  --ti-primary-button-tier-2-border-hover: var(--slate-600);
-  --ti-primary-button-tier-2-foreground-hover: var(--white);
-
-  --ti-primary-button-tier-3-background-rest: var(--maroon-400);
-  --ti-primary-button-tier-3-border-rest: var(--maroon-400);
-  --ti-primary-button-tier-3-foreground-rest: var(--white);
-
-  --ti-primary-button-tier-3-background-hover: var(--maroon-400);
-  --ti-primary-button-tier-3-border-hover: var(--maroon-500);
-  --ti-primary-button-tier-3-foreground-hover: var(--white);
-
-  /* Primary Button Tier Variants */
-  --ti-primary-button-tier-2-variant-background-rest: var(--blue-100);
-  --ti-primary-button-tier-2-variant-border-rest: var(--blue-200);
-  --ti-primary-button-tier-2-variant-foreground-rest: var(--slate-700);
-
-  --ti-primary-button-tier-2-variant-background-hover: var(--blue-100);
-  --ti-primary-button-tier-2-variant-border-hover: var(--blue-400);
-  --ti-primary-button-tier-2-variant-foreground-hover: var(--slate-700);
-
-  --ti-primary-button-tier-3-variant-background-rest: var(--maroon-100);
-  --ti-primary-button-tier-3-variant-border-rest: var(--maroon-200);
-  --ti-primary-button-tier-3-variant-foreground-rest:  var(--slate-700);
-
-  --ti-primary-button-tier-3-variant-background-hover: var(--maroon-100);
-  --ti-primary-button-tier-3-variant-border-hover: var(--maroon-400);
-  --ti-primary-button-tier-3-variant-foreground-hover:  var(--slate-700);
-
-  /* Secondary Buttons */
-  --ti-secondary-button-border-rest: var(--slate-700);
-  --ti-secondary-button-foreground-rest: var(--slate-700);
-
-  --ti-secondary-button-border-hover: var(--slate-600);
-  --ti-secondary-button-foreground-hover: var(--slate-700);
-
-  /* Tertiary Buttons */
-  --ti-tertiary-button-background-rest: var(--white);
-  --ti-tertiary-button-border-rest: var(--white);
-  --ti-tertiary-button-foreground-rest: var(--slate-700);
-
-  --ti-tertiary-button-background-hover: var(--white);
-  --ti-tertiary-button-border-hover: var(--gray);
-  --ti-tertiary-button-foreground-hover: var(--slate-700);
-
-  /* Surface BGs */
-  --ti-surface-background-default: var(--beige);
-  --ti-surface-background-dark: var(--blue-400);
-  --ti-surface-background-high: var(--white);
-
-  /* Surface Variant BGs */
-  --ti-surface-variant-background-dark: var(--gray-400);
-  --ti-surface-variant-background-lowest: var(--gray-500);
-  --ti-surface-variant-background-default: var(--gray-300);
-  --ti-surface-variant-background-high: var(--gray-200);
-  --ti-surface-variant-background-highest: var(--gray-100);
-
-  /* Surface FGs */
-  --ti-surface-foreground: var(--blue-700);
-  --ti-surface-variant-foreground: #-4d5052;
-
-  /* Borders */
-  --ti-surface-border-dark: var(--slate-700);
-  --ti-surface-border-default: var(--gray-600);
-  --ti-surface-border-high: var(--gray-400);
-  --ti-surface-border-save-active: var(--maroon-400); /* Naming convention? */
-}
+    --border:          var(--gray-600);
+    --border-low:      var(--gray-400);
+    --border-high:     var(--black);
+    --border-floating: var(--gray-300);
+  }

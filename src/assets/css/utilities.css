@@ -114,7 +114,15 @@
 .tide-border-top,
 .tide-border-right,
 .tide-border-bottom,
-.tide-border-left {
+.tide-border-left,
+.tide-border-top-1,
+.tide-border-right-1,
+.tide-border-bottom-1,
+.tide-border-left-1,
+.tide-border-top-2,
+.tide-border-right-2,
+.tide-border-bottom-2,
+.tide-border-left-2 {
   border-style: solid;
 }
 
@@ -131,21 +139,8 @@
 .tide-border-bottom-2 {border-bottom-width: var(--border-width-2);}
 .tide-border-left-2   {border-left-width:   var(--border-width-2);}
 
-.tide-border-black      {border-color: var(--black);}
-.tide-border-blue       {border-color: var(--blue);}
-.tide-border-blue-dark  {border-color: var(--blue-dark);}
-.tide-border-blue-light {border-color: var(--blue-light);}
-.tide-border-gray       {border-color: var(--gray);}
-.tide-border-gray-dark  {border-color: var(--gray-dark);}
-.tide-border-gray-light {border-color: var(--gray-light);}
-.tide-border-green      {border-color: var(--green);}
-.tide-border-red        {border-color: var(--red);}
-.tide-border-white      {border-color: var(--white);}
-
-.tide-radius-1\/8 {border-radius: var(--radius-1\/8);}
 .tide-radius-1\/4 {border-radius: var(--radius-1\/4);}
 .tide-radius-1\/2 {border-radius: var(--radius-1\/2);}
-.tide-radius-3\/4 {border-radius: var(--radius-3\/4);}
 .tide-radius-1    {border-radius: var(--radius-1);}
 .tide-radius-full {border-radius: var(--radius-full);}
 
@@ -219,31 +214,11 @@
 .tide-height-0    {height: 0;}
 .tide-height-full {height: 0;}
 
-/* Background Color */
-.tide-bg-black       {background-color: var(--black);}
-.tide-bg-blue        {background-color: var(--blue);}
-.tide-bg-blue-dark   {background-color: var(--blue-dark);}
-.tide-bg-blue-light  {background-color: var(--blue-light);}
-.tide-bg-gray        {background-color: var(--gray);}
-.tide-bg-gray-dark   {background-color: var(--gray-dark);}
-.tide-bg-gray-light  {background-color: var(--gray-light);}
-.tide-bg-green       {background-color: var(--green);}
-.tide-bg-green-light {background-color: var(--green-light)}
-.tide-bg-red         {background-color: var(--red);}
-.tide-bg-white       {background-color: var(--white);}
-
-/* Font Color */
-.tide-font-black        {color: var(--black);}
-.tide-font-normal-black {color: var(--normal-black);}
-.tide-font-blue         {color: var(--blue);}
-.tide-font-blue-dark    {color: var(--blue-dark);}
-.tide-font-blue-light   {color: var(--blue-light);}
-.tide-font-gray         {color: var(--gray);}
-.tide-font-gray-dark    {color: var(--gray-dark);}
-.tide-font-gray-light   {color: var(--gray-light);}
-.tide-font-green        {color: var(--green);}
-.tide-font-red          {color: var(--red);}
-.tide-font-white        {color: var(--white);}
+/* Backgrounds */
+.tide-transparent-100 {background-color: var(--transparent-100);}
+.tide-transparent-200 {background-color: var(--transparent-200);}
+.tide-transparent-300 {background-color: var(--transparent-300);}
+.tide-transparent-400 {background-color: var(--transparent-400);}
 
 /* Font Size */
 .tide-font-10 {font-size: 0.625rem;} /* 10px */
@@ -255,12 +230,18 @@
 .tide-font-32 {font-size: 2rem;}     /* 32px */
 
 /* Font Weight */
+.tide-font-400 {font-weight: 400;}
 .tide-font-500 {font-weight: 500;}
 .tide-font-600 {font-weight: 600;}
 .tide-font-700 {font-weight: 700;}
 
 /* Misc */
 .tide-align-middle {vertical-align: middle;}
+
+.tide-blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
 
 .tide-break-word {overflow-wrap: break-word;}
 
@@ -314,17 +295,8 @@
   scroll-snap-align: start;
 }
 
-.shadow-b-1 {box-shadow: var(--shadow-b-1);}
-.shadow-b-2 {box-shadow: var(--shadow-b-2);}
-.shadow-b-3 {box-shadow: var(--shadow-b-3);}
-.shadow-b-4 {box-shadow: var(--shadow-b-4);}
-.shadow-b-5 {box-shadow: var(--shadow-b-5);}
-
-.shadow-t-1 {box-shadow: var(--shadow-t-1);}
-.shadow-t-2 {box-shadow: var(--shadow-t-2);}
-.shadow-t-3 {box-shadow: var(--shadow-t-3);}
-.shadow-t-4 {box-shadow: var(--shadow-t-4);}
-.shadow-t-5 {box-shadow: var(--shadow-t-5);}
+.tide-shadow-bottom {box-shadow: var(--shadow-bottom);}
+.tide-shadow-top    {box-shadow: var(--shadow-top);}
 
 .tide-text-center {text-align: center;}
 .tide-text-left   {text-align: left;}

@@ -4,6 +4,7 @@ export const PRIORITY = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   TERTIARY: 'tertiary',
+  QUATERNARY: 'quaternary',
   FLOATING: 'floating',
 } as const;
 

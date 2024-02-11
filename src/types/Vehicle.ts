@@ -32,7 +32,6 @@ export type Vehicle = {
   dealerFeatures: {
     deactivateContactDealer: boolean;
     hasAccessIndustryAero: boolean;
-    hasAccessIndustryBoatline: boolean;
     hasAccessIndustryCycle: boolean;
     hasAccessIndustryEquipment: boolean;
     hasAccessIndustryNextruck: boolean;
