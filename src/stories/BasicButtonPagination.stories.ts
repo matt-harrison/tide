@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 
 import * as STANDARD_ELEMENT from '@/types/Element';
 import * as STANDARD_PRIORITY from '@/types/Priority';
-import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
+import BasicButtonPagination from '@/components/BasicButtonPagination.vue';
 import {
   argTypeBooleanUnrequired,
   click,
@@ -15,14 +15,14 @@ const ELEMENT_TEXT_AS_ICON = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT_TEX
 const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
 
 const render = (args: any) => ({
-  components: { BasicButtonTextAsIcon },
+  components: { BasicButtonPagination },
   methods: {
     handleClick: (event: Event) => {
       if (args.click) action(args.click)(event);
     },
   },
   setup: () => ({ args }),
-  template: `<BasicButtonTextAsIcon @click="handleClick" v-bind="args" />`,
+  template: `<BasicButtonPagination @click="handleClick" v-bind="args" />`,
 });
 
 export default {
@@ -36,8 +36,7 @@ export default {
       description: 'Determines clickability<br />(Button only)',
       if: {
         arg: 'element',
-        neq: ELEMENT_TEXT_AS_ICON.LINK,
-        // TODO: neq: ELEMENT_TEXT_AS_ICON.LINK || ELEMENT_TEXT_AS_ICON.DIV
+        eq: ELEMENT_TEXT_AS_ICON.BUTTON,
       },
     },
     element: {
@@ -54,6 +53,10 @@ export default {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
       },
+    },
+    isActive: {
+      ...argTypeBooleanUnrequired,
+      description: 'Indicates whether Pagination Button is associated with the displayed page',
     },
     isNewTab: {
       ...argTypeBooleanUnrequired,
@@ -85,11 +88,11 @@ export default {
     label: '1',
     priority: undefined,
   },
-  component: BasicButtonTextAsIcon,
+  component: BasicButtonPagination,
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Basic Components/BasicButtonTextAsIcon',
+  title: 'Basic Components/BasicButtonPagination',
 };
 
 export const Demo = {};

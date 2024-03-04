@@ -8,12 +8,11 @@
   import BasicAccordionItem from '@/components/BasicAccordionItem.vue';
   import BasicBreadCrumbs from '@/components/BasicBreadCrumbs.vue';
   import BasicButton from '@/components/BasicButton.vue';
-  import BasicButtonIcon from '@/components/BasicButtonIcon.vue';
-  import BasicButtonTextAsIcon from '@/components/BasicButtonTextAsIcon.vue';
   import BasicCarousel from '@/components/BasicCarousel.vue';
   import BasicChipInput from '@/components/BasicChipInput.vue';
   import BasicContainer from '@/components/BasicContainer.vue';
   import BasicLink from '@/components/BasicLink.vue';
+  import BasicPagination from '@/components/BasicPagination.vue';
   import BasicSeoLinks from '@/components/BasicSeoLinks.vue';
   import BasicTabs from '@/components/BasicTabs.vue';
   import BasicToggle from '@/components/BasicToggle.vue';
@@ -26,7 +25,6 @@
   import SiteDisclaimer from '@/components/SiteDisclaimer.vue';
   import SubscribeToNewsletter from '@/components/SubscribeToNewsletter.vue';
   import { ELEMENT } from '@/types/Element';
-  import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { ICON } from '@/types/Icon';
   import { PRIORITY } from '@/types/Priority';
   import { formatKebabCase, formatNumber } from '@/utilities/format';
@@ -601,45 +599,14 @@
             </template>
           </ul>
 
-          <section
+          <BasicPagination
             :class="isSingleColumn ? 'tide-padding-x-2' : ''"
+            :page-current="filterStore.pageCurrent"
+            :page-total="paginationButtons.length"
+            @set-page="filterStore.setPageCurrent"
             class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1 tide-margin-bottom-2 tide-width-full"
             v-if="filterStore.pagesTotal > 1"
-          >
-            <BasicButtonIcon
-              :disabled="filterStore.pageCurrent === 1"
-              :icon="ICON.CHEVRON_LEFT"
-              :priority="PRIORITY.TERTIARY"
-              @click="filterStore.setPagePrevious"
-            />
-
-            <ul class="tide-display-flex tide-axis2-center tide-gap-1/4 tide-margin-x-2 tide-list-none">
-              <li
-                :key="paginationButton"
-                v-for="paginationButton in paginationButtons"
-              >
-                <BasicButtonTextAsIcon
-                  :element="ELEMENT_TEXT_AS_ICON.DIV"
-                  :label="paginationButton"
-                  v-if="filterStore.pageCurrent === paginationButton"
-                />
-
-                <BasicButtonTextAsIcon
-                  :label="paginationButton"
-                  :priority="PRIORITY.TERTIARY"
-                  @click="filterStore.setPageCurrent(paginationButton)"
-                  v-else
-                />
-              </li>
-            </ul>
-
-            <BasicButtonIcon
-              :disabled="filterStore.pageCurrent === paginationButtons[paginationButtons.length - 1]"
-              :icon="ICON.CHEVRON_RIGHT"
-              :priority="PRIORITY.TERTIARY"
-              @click="filterStore.setPageNext"
-            />
-          </section>
+          />
 
           <section
             :class="isSingleColumn ? 'tide-margin-x-2' : ''"

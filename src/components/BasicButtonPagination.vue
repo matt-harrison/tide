@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import type { ElementTextAsIcon } from '@/types/Element';
-  import type { Priority } from '@/types/Priority';
 
   import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
   import { PRIORITY } from '@/types/Priority';
@@ -12,7 +11,6 @@
     href?: string;
     isNewTab?: boolean;
     label: string | number;
-    priority?: Priority;
   };
 
   const props = withDefaults(defineProps<Props>(), {
@@ -29,11 +27,10 @@
   <component
     :class="[
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
-      props.priority && props.priority,
-      'tide-display-inline-block tide-radius-full tide-padding-1/2',
+      'quaternary tide-display-inline-block tide-radius-full tide-padding-1/2',
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
-      'tide-font-700 select-none',
+      'tide-font-700',
     ]"
     :disabled="props.element === ELEMENT_TEXT_AS_ICON.BUTTON && props.disabled"
     :href="props.element === ELEMENT_TEXT_AS_ICON.LINK && props.href ? props.href : undefined"
@@ -50,8 +47,24 @@
   </component>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
-<style>
+<style scoped>
+  .basic-button-icon,
+  .basic-link-as-button-icon {
+    background: var(--white);
+    border: 1px solid var(--white);
+    color: var(--secondary);
+  }
+
+  .basic-button-icon:not(:disabled):hover,
+  .basic-link-as-button-icon:not(:disabled):hover {
+    background: var(--surface-variant);
+  }
+
+  .basic-button-icon:disabled,
+  .basic-link-as-button-icon:disabled {
+    border: 1px solid var(--border-high);
+  }
+
   .basic-button-icon .label,
   .basic-link-as-button-icon .label {
     width: 1.5rem;
