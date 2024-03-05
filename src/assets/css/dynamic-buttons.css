@@ -31,7 +31,6 @@
 
 .quaternary {
   background: var(--white);
-  border: 1px solid var(--white);
   color: var(--secondary);
 }
 
