@@ -1,4 +1,14 @@
 /* Styles used for Storybook demonstration purposes only. Not bundled into distribution package. */
+:root {
+  --tier-1: var(--green);
+  --tier-2: var(--yellow);
+  --tier-3: var(--teal);
+}
+
+.tier-1 {background-color: var(--tier-1);}
+.tier-2 {background-color: var(--tier-2);}
+.tier-3 {background-color: var(--tier-3);}
+
 .sb-bg-blue-light {
   background-color: #CCDEF3;
 }
