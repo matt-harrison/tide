@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
 
 import * as STANDARD_ELEMENT from '@/types/Element';
-import * as STANDARD_PRIORITY from '@/types/Priority';
 import BasicButtonPagination from '@/components/BasicButtonPagination.vue';
 import {
   argTypeBooleanUnrequired,
@@ -12,7 +11,6 @@ import {
 } from '@/utilities/storybook';
 
 const ELEMENT_TEXT_AS_ICON = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT_TEXT_AS_ICON);
-const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
 
 const render = (args: any) => ({
   components: { BasicButtonPagination },
@@ -33,7 +31,7 @@ export default {
     },
     disabled: {
       ...argTypeBooleanUnrequired,
-      description: 'Determines clickability<br />(Button only)',
+      description: 'Indicates whether Pagination Button is associated with the displayed page',
       if: {
         arg: 'element',
         eq: ELEMENT_TEXT_AS_ICON.BUTTON,
@@ -54,10 +52,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    isActive: {
-      ...argTypeBooleanUnrequired,
-      description: 'Indicates whether Pagination Button is associated with the displayed page',
-    },
     isNewTab: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether to target a new browser tab<br />(Link only)',
@@ -71,13 +65,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    priority: {
-      ...formatArgType({ PRIORITY }),
-      description: 'Determines visual prominence',
-      table: {
-        defaultValue: { summary: 'PRIMARY' },
-      },
-    },
   },
   args: {
     click: 'doSomething',
@@ -86,7 +73,6 @@ export default {
     href: 'https://www.traderinteractive.com',
     isNewTab: undefined,
     label: '1',
-    priority: undefined,
   },
   component: BasicButtonPagination,
   parameters,
