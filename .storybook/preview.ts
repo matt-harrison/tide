@@ -25,7 +25,7 @@ const preview: Preview = {
 
       return {
         components: { story },
-        template: `<div class="${decoratorCss} tide-padding-bottom-4 ${context.globals.surface}"><story /></div>`
+        template: `<div class="${decoratorCss} tide-padding-bottom-4 ${context.globals.surfaceBg} ${context.globals.surfaceFg}"><story /></div>`
       };
     },
     (story, context) => {
@@ -81,30 +81,74 @@ const preview: Preview = {
         title: 'Realm',
       },
     },
-    /*
-    surface: {
+    surfaceBg: {
       description: 'Determines Background context of dynamic CSS utilities',
-      defaultValue: 'bg-surface',
+      defaultValue: 'tide-bg-surface',
       toolbar: {
         dynamicTitle: true,
         items: [
           {
             title: 'Surface: Default',
-            value: 'bg-surface',
+            value: 'tide-bg-surface',
           },
           {
-            title: 'Surface: Light',
-            value: 'bg-surface-light',
+            title: 'Surface: Variant',
+            value: 'tide-bg-surface-variant',
           },
           {
-            title: 'Surface: Dark',
-            value: 'bg-surface-dark',
+            title: 'Surface: Brand',
+            value: 'tide-bg-surface-brand',
+          },
+          {
+            title: 'Surface: Accent',
+            value: 'tide-bg-surface-accent',
+          },
+          {
+            title: 'Surface: Accent Variant',
+            value: 'tide-bg-surface-accent-variant',
+          },
+          {
+            title: 'Surface: Gradient',
+            value: 'tide-bg-surface-gradient',
+          },
+          {
+            title: 'Surface: Floating',
+            value: 'tide-bg-surface-floating',
           },
         ],
         title: 'Surface',
       },
     },
-    */
+    surfaceFg: {
+      description: 'Determines Foreground context of dynamic CSS utilities',
+      defaultValue: 'tide-on-surface',
+      toolbar: {
+        dynamicTitle: true,
+        items: [
+          {
+            title: 'On Surface: Default',
+            value: 'tide-font-on-surface',
+          },
+          {
+            title: 'On Surface: Variant',
+            value: 'tide-font-on-surface-variant',
+          },
+          {
+            title: 'On Surface: Brand',
+            value: 'tide-font-on-surface-brand',
+          },
+          {
+            title: 'On Surface: Inverse',
+            value: 'tide-font-on-surface-inverse',
+          },
+          {
+            title: 'On Surface: Variant Inverse',
+            value: 'tide-font-on-surface-variant-inverse',
+          },
+        ],
+        title: 'On Surface',
+      },
+    },
   },
   parameters: {
     backgrounds: { disable: true },
