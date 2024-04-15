@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
-  import { RouterLink } from 'vue-router';
 
   import type { Element } from '@/types/Element';
   import type { Icon } from '@/types/Icon';
@@ -28,7 +27,6 @@
     label: undefined,
   });
 
-  const linkElement = isSinglePageApp && props.isNewTab === false ? RouterLink : 'a';
   const hasIcon = computed(() => props.iconLeading || props.iconTrailing);
 </script>
 
@@ -41,7 +39,7 @@
     :href="isSinglePageApp ? undefined : props.href"
     :target="props.isNewTab ? TARGET.BLANK : TARGET.SELF"
     :to="isSinglePageApp ? props.href : undefined"
-    :is="props.element === ELEMENT.LINK ? linkElement : 'button'"
+    :is="props.element === ELEMENT.LINK ? ELEMENT.LINK : ELEMENT.BUTTON"
   >
     <BasicIcon
       :icon="props.iconLeading"

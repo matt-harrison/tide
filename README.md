@@ -27,34 +27,29 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
 ```
 
+```sh
+npm run lint:fix
+```
+
+### Type Check
+
+```sh
+npm run type-check
+```
+
+### Run Unit Tests with [Vitest](https://vitest.dev/)
+
+```sh
+npm run test
+```
+
 ## Project Demo
 
-1. `cd frontend/`
-2. `npm install`
-3. `npm run dev`
-
-[SPA](http://localhost:5173/)
+1. `npm install`
+2. `npm storybook`

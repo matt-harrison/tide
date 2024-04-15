@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-  import { storeToRefs } from 'pinia';
+  type Props = {
+    isDesktop?: boolean;
+  };
 
-  import { useViewportStore } from '@/stores/ViewportStore';
-
-  const viewportStore = useViewportStore();
-
-  const { isLarge } = storeToRefs(viewportStore);
+  const props = withDefaults(defineProps<Props>(), {
+    isDesktop: false,
+  });
 </script>
 
 <template>
-  <div :class="['basic-container', isLarge ? 'tide-margin-x-auto' : 'tide-margin-x-1', 'tide-width-container']">
+  <div :class="['basic-container', props.isDesktop ? 'tide-margin-x-auto' : 'tide-margin-x-1', 'tide-width-container']">
     <slot />
   </div>
 </template>
