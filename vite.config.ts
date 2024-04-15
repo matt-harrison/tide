@@ -14,7 +14,7 @@ export default defineConfig({
     outDir: dist,
     rollupOptions: {
       input: {
-        'app-single': resolve(`${__dirname}/`, 'index.html'),
+        spa: resolve(`${__dirname}/`, 'index.html'),
       },
       output: {
         assetFileNames: 'assets/[name].[ext]',

@@ -1,5 +1,12 @@
 <script lang="ts" setup>
   import { storeToRefs } from 'pinia';
+  import TideButton from 'tide2-design-system/components/TideButton';
+  import { ELEMENT } from 'tide2-design-system/types/Element';
+  import { ICON } from 'tide2-design-system/types/Icon';
+  import { PRIORITY } from 'tide2-design-system/types/Priority';
+  import { formatKebabCase } from 'tide2-design-system/utilities/format';
+  import { formatNumber } from 'tide2-design-system/utilities/format';
+  import { vehicleTypes } from 'tide2-design-system/types/VehicleType';
 
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
@@ -9,18 +16,12 @@
   import BasicLink from '@/components/BasicLink.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
-  import { ELEMENT } from '@/types/Element';
-  import { ICON } from '@/types/Icon';
-  import { PRIORITY } from '@/types/Priority';
-  import { formatKebabCase } from '@/utilities/format';
-  import { formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
   import { useHomeStore } from '@/stores/HomeStore';
   import { useUserAgentStore } from '@/stores/UserAgentStore';
   import { useViewportStore } from '@/stores/ViewportStore';
-  import { vehicleTypes } from '@/types/VehicleType';
 
   const favoriteStore = useFavoriteStore();
   const featuredListingStore = useFeaturedListingStore();
@@ -128,7 +129,7 @@
             </fieldset>
           </fieldset>
 
-          <BasicButton
+          <TideButton
             :element="ELEMENT.LINK"
             :href="`/${formatKebabCase(realm.label.plural)}-for-sale`"
             class="mb-1 w-full"
