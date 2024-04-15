@@ -4,15 +4,14 @@ import type { Realm } from '@/types/Realm';
 import { REALM } from '@/types/Realm';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import * as aero from './aero.config';
-import * as atv from './atv.config';
-import * as cycle from './cycle.config';
-import * as equip from './equip.config';
-
-import * as pwc from './pwc.config';
-import * as rv from './rv.config';
-import * as snow from './snow.config';
-import * as truck from './truck.config';
+import * as aero from '@/config/aero.config';
+import * as atv from '@/config/atv.config';
+import * as cycle from '@/config/cycle.config';
+import * as equip from '@/config/equip.config';
+import * as pwc from '@/config/pwc.config';
+import * as rv from '@/config/rv.config';
+import * as snow from '@/config/snow.config';
+import * as truck from '@/config/truck.config';
 
 // TIDE: Override Realm selection based on querystring param for DEMO purposes only.
 const params = new URLSearchParams(window.location.search);

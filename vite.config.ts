@@ -3,23 +3,18 @@ import { defineConfig } from 'vitest/config';
 import { fileURLToPath, URL } from 'node:url';
 import { resolve } from 'path';
 
-const dist = 'dist/';
-
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '',
   build: {
-    emptyOutDir: true,
-    outDir: dist,
+    cssCodeSplit: false,
+    lib: {
+      entry: resolve(__dirname, './index.ts'),
+      formats: ['es'],
+      name: 'tide2-design-system',
+    },
     rollupOptions: {
       external: ['vue'],
-      input: {
-        index: resolve(`${__dirname}/`, 'index.js'),
-      },
       output: {
-        assetFileNames: 'assets/[name].[ext]',
-        chunkFileNames: 'chunks/[name].js',
-        dir: dist,
-        entryFileNames: '[name].js',
         globals: {
           vue: 'Vue',
         },

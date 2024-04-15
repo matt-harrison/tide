@@ -1,4 +1,5 @@
 {
+  "declaration": true,
   "extends": [
     "@tsconfig/node18/tsconfig.json",
     "@vue/tsconfig/tsconfig.json"

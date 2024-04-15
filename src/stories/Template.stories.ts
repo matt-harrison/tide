@@ -1,7 +1,7 @@
 /* eslint-disable storybook/story-exports */
 
 // IMPORTS
-import BasicChipInput from '@/components/BasicChipInput.vue';
+import TideChipInput from '@/components/TideChipInput.vue';
 import { ICON } from '@/types/Icon';
 import { argTypeBooleanUnrequired, formatArgType, formatSnippet } from '@/utilities/storybook';
 
@@ -22,11 +22,11 @@ const formatArgs = (args: any) => {
 };
 
 const render = (args: any) => ({
-  components: { BasicChipInput },
+  components: { TideChipInput },
   setup() {
     return formatArgs(args);
   },
-  template: '<BasicChipInput class="tide-display-inline-flex" v-bind="args" />',
+  template: '<TideChipInput class="tide-display-inline-flex" v-bind="args" />',
   updated() {
     return formatArgs(args);
   },
@@ -63,7 +63,7 @@ export default {
   args: {
     label: 'Demo', // Value in Control column
   },
-  component: BasicChipInput,
+  component: TideChipInput,
   parameters,
   render,
   tags: ['autodocs'],
