@@ -11,14 +11,18 @@ export default defineConfig({
     emptyOutDir: true,
     outDir: dist,
     rollupOptions: {
+      external: ['vue'],
       input: {
-        'app-single': resolve(`${__dirname}/`, 'index.html'),
+        index: resolve(`${__dirname}/`, 'index.js'),
       },
       output: {
         assetFileNames: 'assets/[name].[ext]',
         chunkFileNames: 'chunks/[name].js',
         dir: dist,
         entryFileNames: '[name].js',
+        globals: {
+          vue: 'Vue',
+        },
       },
     },
   },

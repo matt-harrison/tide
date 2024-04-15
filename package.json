@@ -1,8 +1,24 @@
 {
-  "name": "tide2",
-  "version": "0.0.0",
-  "private": true,
+  "name": "tide2-design-system",
+  "version": "0.0.6",
+  "description": "",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
+  "files": ["dist"],
+  "module": "dist/index.js",
+  "repository": {
+    "url": "git:github.com/matt-harrison/tide.git"
+  },
+  "author": "Matt Harrison",
+  "license": "MIT",
+
   "scripts": {
+    "build": "run-p type-check build-only",
+    "build-only": "vite build",
     "build-storybook": "storybook build",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore",

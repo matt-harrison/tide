@@ -1,7 +1,3 @@
-[context.demo]
-  command = "npm run build"
-  publish = "/dist"
-
-[context.temp]
+[context.poc]
   command = "npm run build-storybook"
   publish = "/storybook-static"
