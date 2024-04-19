@@ -40,7 +40,7 @@
       props.element === ELEMENT.LINK ? 'tide-display-inline-flex' : 'tide-display-flex',
       'tide-axis1-center tide-axis2-center tide-gap-1/2 tide-radius-1/2',
       props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
-      'tide-padding-x-2 tide-font-600',
+      'tide-padding-y-1 tide-padding-x-2 tide-font-600',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"
