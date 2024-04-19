@@ -43,6 +43,7 @@
 /* Hover State */
 a.primary:hover,
 button.primary:enabled:hover {
+  border: 2px solid var(--primary);
   background: 2px solid var(--white);
   color: var(--primary);
 }
