@@ -3,6 +3,7 @@
 
   import TideDivider from '@/components/TideDivider.vue';
   import TideIcon from '@/components/TideIcon.vue';
+  import TideIndicator from '@/components/TideIndicator.vue';
   import { ICON } from '@/types/Icon';
 
   const props = defineProps({
@@ -75,10 +76,7 @@
           (optional)
         </span>
 
-        <div
-          class="basic-accordion-item-active tide-bg-surface-accent tide-radius-full"
-          v-if="props.isActive"
-        />
+        <TideIndicator v-if="props.isActive" />
       </div>
 
       <TideIcon :icon="isExpanded ? ICON.EXPAND_LESS : ICON.EXPAND_MORE" />
@@ -102,10 +100,5 @@
 <style scoped>
   .basic-accordion-body {
     transition: grid-template-rows var(--animate);
-  }
-
-  .basic-accordion-item-active {
-    width: 10px;
-    height: 10px;
   }
 </style>

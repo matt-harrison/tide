@@ -212,7 +212,7 @@
 .tide-width-full {width: 100%;}
 
 .tide-height-0    {height: 0;}
-.tide-height-full {height: 0;}
+.tide-height-full {height: 100%;}
 
 /* Backgrounds */
 .tide-transparent-100 {background-color: var(--transparent-100);}

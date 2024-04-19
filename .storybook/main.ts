@@ -1,7 +1,7 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
 
 const config: StorybookConfig = {
-  addons: ['@storybook/addon-essentials', '@storybook/addon-mdx-gfm'],
+  addons: ['@storybook/addon-essentials'],
   docs: {
     autodocs: 'tag',
   },
@@ -33,6 +33,7 @@ const config: StorybookConfig = {
     // '../src/stories/TideContainer.stories.ts',
     '../src/stories/TideDivider.stories.ts',
     '../src/stories/TideIcon.stories.ts',
+    '../src/stories/TideIndicator.stories.ts',
     // '../src/stories/TideImage.stories.ts',
     '../src/stories/TideLink.stories.ts',
     // '../src/stories/TideModal.stories.ts',
