@@ -1,13 +1,13 @@
 <script lang="ts" setup>
   import { computed, getCurrentInstance, ref, watch } from 'vue';
 
-  import type { TextareaField } from '@/types/Field';
+  import type { TextareaField } from '../types/Field';
 
-  import TideSvgIcon from '@/components/TideSvgIcon.vue';
-  import { ICON } from '@/types/Icon';
-  import { SIZE } from '@/types/Size';
-  import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
-  import { checkLength } from '@/utilities/validation';
+  import TideSvgIcon from './TideSvgIcon.vue';
+  import { ICON } from '../types/Icon';
+  import { SIZE } from '../types/Size';
+  import { getFieldHasError, getSupportingText, handleFieldValidation } from '../utilities/forms';
+  import { checkLength } from '../utilities/validation';
 
   interface Props extends TextareaField {
     rows?: number;
@@ -116,7 +116,7 @@
   </div>
 </template>
 
-<style scoped src="@/assets/css/dynamic-inputs.css" />
+<style scoped src="../assets/css/dynamic-inputs.css" />
 
 <style scoped>
   textarea {

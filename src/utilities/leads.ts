@@ -1,4 +1,4 @@
-import type { VehicleDetail } from '@/types/VehicleDetail';
+import type { VehicleDetail } from '../types/VehicleDetail';
 
 type EmailSellerFields = {
   message: string;

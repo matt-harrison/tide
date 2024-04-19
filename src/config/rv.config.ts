@@ -1,6 +1,6 @@
-import type { RealmConfig } from '@/types/RealmConfig';
+import type { RealmConfig } from '../types/RealmConfig';
 
-import { REALM } from '@/types/Realm';
+import { REALM } from '../types/Realm';
 
 const realm: RealmConfig = {
   cdn: {

@@ -1,11 +1,11 @@
 <script lang="ts" setup>
   import type { PropType } from 'vue';
 
-  import type { BreadCrumb } from '@/types/BreadCrumb';
+  import type { BreadCrumb } from '../types/BreadCrumb';
 
-  import TideIcon from '@/components/TideIcon.vue';
-  import { ICON } from '@/types/Icon';
-  import { SIZE } from '@/types/Size';
+  import TideIcon from './TideIcon.vue';
+  import { ICON } from '../types/Icon';
+  import { SIZE } from '../types/Size';
 
   const props = defineProps({
     breadCrumbs: {

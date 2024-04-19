@@ -1,4 +1,4 @@
-import type { Realm } from '@/types/Realm';
+import type { Realm } from './Realm';
 
 export type RealmConfig = {
   cdn: {

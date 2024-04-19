@@ -1,4 +1,4 @@
-import type { Vehicle } from '@/types/Vehicle';
+import type { Vehicle } from '../types/Vehicle';
 
 const dummyFiller: any = {
   adAttribs: {

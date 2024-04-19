@@ -1,4 +1,4 @@
-import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { BOOLEAN_UNREQUIRED } from '../types/Storybook';
 
 // Extensible object of key/value pairs
 type KeyValue = { [key: string]: any };
@@ -10,8 +10,8 @@ type KeyValueNamed = {
 
 import type { StoryContext } from '@storybook/vue3';
 
-import { formatKebabCase } from '@/utilities/format';
-import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
+import { formatKebabCase } from './format';
+import { NoneAsEmpty, NoneAsUndefined } from '../types/Storybook';
 
 export const argTypeBooleanUnrequired = {
   control: 'select',

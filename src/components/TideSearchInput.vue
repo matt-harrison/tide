@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
-  import TideTextInput from '@/components/TideTextInput.vue';
-  import { ICON } from '@/types/Icon';
-  import { TEXT_INPUT_TYPE } from '@/types/TextInput';
+  import TideTextInput from './TideTextInput.vue';
+  import { ICON } from '../types/Icon';
+  import { TEXT_INPUT_TYPE } from '../types/TextInput';
 
   const emit = defineEmits<{
     input: [value: string];

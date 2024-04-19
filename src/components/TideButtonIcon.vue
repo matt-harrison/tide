@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-  import type { Element } from '@/types/Element';
-  import type { Icon } from '@/types/Icon';
-  import type { Priority } from '@/types/Priority';
+  import type { Element } from '../types/Element';
+  import type { Icon } from '../types/Icon';
+  import type { Priority } from '../types/Priority';
 
-  import TideIcon from '@/components/TideIcon.vue';
-  import { ELEMENT } from '@/types/Element';
-  import { PRIORITY } from '@/types/Priority';
-  import { SIZE } from '@/types/Size';
-  import { TARGET } from '@/types/Target';
+  import TideIcon from './TideIcon.vue';
+  import { ELEMENT } from '../types/Element';
+  import { PRIORITY } from '../types/Priority';
+  import { SIZE } from '../types/Size';
+  import { TARGET } from '../types/Target';
 
   type Props = {
     disabled?: boolean;
@@ -49,4 +49,4 @@
   </component>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
+<style scoped src="../assets/css/dynamic-buttons.css" />

@@ -1,8 +1,8 @@
-import type { Formatted } from '@/types/Formatted';
-import type { Raw } from '@/types/Raw';
-import type { Vehicle } from '@/types/Vehicle';
+import type { Formatted } from '../types/Formatted';
+import type { Raw } from '../types/Raw';
+import type { Vehicle } from '../types/Vehicle';
 
-import { formatCamelCase } from '@/utilities/format';
+import { formatCamelCase } from './format';
 
 const jsonProperties = ['ad_attribs', 'ad_features', 'dealer_features'];
 

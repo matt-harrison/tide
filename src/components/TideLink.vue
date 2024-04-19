@@ -1,13 +1,13 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
 
-  import type { Element } from '@/types/Element';
-  import type { Icon } from '@/types/Icon';
+  import type { Element } from '../types/Element';
+  import type { Icon } from '../types/Icon';
 
-  import TideIcon from '@/components/TideIcon.vue';
-  import { ELEMENT } from '@/types/Element';
-  import { TARGET } from '@/types/Target';
-  import { isSinglePageApp } from '@/config/main.config';
+  import TideIcon from './TideIcon.vue';
+  import { ELEMENT } from '../types/Element';
+  import { TARGET } from '../types/Target';
+  import { isSinglePageApp } from '../config/main.config';
 
   type Props = {
     element?: Element;

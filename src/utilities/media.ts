@@ -1,5 +1,5 @@
-import { MEDIA_SLIDE_TYPES, type ListingMedia } from '@/types/ListingMedia';
-import type { VehicleDetail } from '@/types/VehicleDetail';
+import { MEDIA_SLIDE_TYPES, type ListingMedia } from '../types/ListingMedia';
+import type { VehicleDetail } from '../types/VehicleDetail';
 
 export function getIdFromYoutubeUrl(url: string): string {
   const prefixes = [

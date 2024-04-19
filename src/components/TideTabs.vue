@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
-  import type { Tab } from '@/types/Tab';
+  import type { Tab } from '../types/Tab';
 
   type Props = {
     activeTabInitial?: number;

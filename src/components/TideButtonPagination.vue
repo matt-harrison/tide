@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import type { ElementTextAsIcon } from '@/types/Element';
+  import type { ElementTextAsIcon } from '../types/Element';
 
-  import { ELEMENT_TEXT_AS_ICON } from '@/types/Element';
+  import { ELEMENT_TEXT_AS_ICON } from '../types/Element';
 
   type Props = {
     disabled?: boolean;

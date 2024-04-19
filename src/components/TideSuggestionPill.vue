@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import TideIcon from '@/components/TideIcon.vue';
-  import { ICON } from '@/types/Icon';
+  import TideIcon from './TideIcon.vue';
+  import { ICON } from '../types/Icon';
 </script>
 
 <template>

@@ -1,10 +1,10 @@
-import type { BreadCrumb } from '@/types/BreadCrumb';
-import type { Detail } from '@/types/Detail';
-import type { VehicleDetail } from '@/types/VehicleDetail';
+import type { BreadCrumb } from '../types/BreadCrumb';
+import type { Detail } from '../types/Detail';
+import type { VehicleDetail } from '../types/VehicleDetail';
 
-import dummyVehicleData from '@/data/dummy-vehicle-detail.json';
-import { formatPhone } from '@/utilities/format';
-import { realm } from '@/config/main.config';
+import dummyVehicleData from '../data/dummy-vehicle-detail.json';
+import { formatPhone } from './format';
+import { realm } from '../config/main.config';
 
 // hacky mapping of vehicle details into a VehicleDetail object.
 // TODO: do a proper API call or something once we're able to dedicate time to it.

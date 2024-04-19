@@ -1,14 +1,14 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
 
-  import type { Alert } from '@/types/Alert';
-  import type { Icon } from '@/types/Icon';
+  import type { Alert } from '../types/Alert';
+  import type { Icon } from '../types/Icon';
 
-  import TideIcon from '@/components/TideIcon.vue';
-  import TideButtonIcon from '@/components/TideButtonIcon.vue';
-  import { ALERT } from '@/types/Alert';
-  import { ICON } from '@/types/Icon';
-  import { PRIORITY } from '@/types/Priority';
+  import TideIcon from './TideIcon.vue';
+  import TideButtonIcon from './TideButtonIcon.vue';
+  import { ALERT } from '../types/Alert';
+  import { ICON } from '../types/Icon';
+  import { PRIORITY } from '../types/Priority';
 
   type Props = {
     heading?: string;

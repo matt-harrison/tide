@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-  import TideIcon from '@/components/TideIcon.vue';
-  import { ICON } from '@/types/Icon';
+  import TideIcon from './TideIcon.vue';
+  import { ICON } from '../types/Icon';
 
   type Props = {
     isActive: boolean;
@@ -36,7 +36,7 @@
   </button>
 </template>
 
-<style scoped src="@/assets/css/dynamic-buttons.css" />
+<style scoped src="../assets/css/dynamic-buttons.css" />
 
 <style scoped>
   .tide-chip-filter:hover,

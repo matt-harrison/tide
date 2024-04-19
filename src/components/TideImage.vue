@@ -1,8 +1,8 @@
 <script lang="ts" setup>
   import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-  import { getCdn } from '@/utilities/format';
-  import { realm } from '@/config/main.config';
+  import { getCdn } from '../utilities/format';
+  import { realm } from '../config/main.config';
 
   type Props = {
     alt?: string;

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
   import { getCurrentInstance, computed, ref, watch } from 'vue';
 
-  import type { Icon } from '@/types/Icon';
-  import type { SelectField } from '@/types/Field';
+  import type { Icon } from '../types/Icon';
+  import type { SelectField } from '../types/Field';
 
-  import TideSvgIcon from '@/components/TideSvgIcon.vue';
-  import { ICON } from '@/types/Icon';
-  import { SIZE } from '@/types/Size';
-  import { getFieldHasError, getSupportingText } from '@/utilities/forms';
+  import TideSvgIcon from './TideSvgIcon.vue';
+  import { ICON } from '../types/Icon';
+  import { SIZE } from '../types/Size';
+  import { getFieldHasError, getSupportingText } from '../utilities/forms';
 
   interface Props extends SelectField {
     iconLeading?: Icon;
@@ -129,7 +129,7 @@
   </div>
 </template>
 
-<style scoped src="@/assets/css/dynamic-inputs.css" />
+<style scoped src="../assets/css/dynamic-inputs.css" />
 
 <style scoped>
   select {

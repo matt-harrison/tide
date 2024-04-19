@@ -1,5 +1,5 @@
-import { FORMAT_REGEX } from '@/types/Formatted';
-import { checkFormat } from '@/utilities/validation';
+import { FORMAT_REGEX } from './Formatted';
+import { checkFormat } from '../utilities/validation';
 
 export const VALIDATOR = {
   ALPHA_NUMBER_EMPTY: checkFormat(FORMAT_REGEX.alphaNumberOrEmpty),
