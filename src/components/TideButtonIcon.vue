@@ -31,7 +31,7 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
+      props.element === ELEMENT.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
       props.priority && props.priority,
       'tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-padding-1/2',
       props.element === ELEMENT.LINK ? 'tide-underline-none' : '',

@@ -130,7 +130,7 @@
 <template>
   <section
     ref="carouselRef"
-    class="basic-carousel tide-position-relative tide-display-flex tide-axis2-center tide-max-width-full"
+    class="tide-carousel tide-position-relative tide-display-flex tide-axis2-center tide-max-width-full"
   >
     <div
       ref="frameRef"

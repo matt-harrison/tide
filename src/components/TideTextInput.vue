@@ -78,7 +78,7 @@
 <template>
   <div
     :class="[
-      'basic-text-input block-field tide-font-14 tide-font-surface-variant',
+      'tide-text-input block-field tide-font-14 tide-font-surface-variant',
       disabled && 'disabled',
       hasError && 'error',
     ]"

@@ -78,7 +78,7 @@ const FLEXBOX = {
   GAP_1_4: 'tide-gap-1/4',
   GAP_2: 'tide-gap-2',
   GAP_4: 'tide-gap-4',
-  GROW: 'tide-flex-grow',
+  GROW: 'tide-grow',
   GROW_NONE: 'tide-grow-none',
   ROW: 'tide-flex-row',
   ROW_REVERSE: 'tide-row-reverse',

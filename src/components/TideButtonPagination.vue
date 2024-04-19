@@ -21,7 +21,7 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'basic-link-as-button-icon' : 'basic-button-icon',
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
       'tide-display-inline-block tide-radius-full tide-padding-1/2',
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-underline-none' : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
@@ -42,24 +42,26 @@
 </template>
 
 <style scoped>
-  .basic-button-icon,
-  .basic-link-as-button-icon {
+  .tide-button-icon,
+  .tide-link-as-button-icon {
+    border: 1px solid var(--white);
     background: var(--white);
     color: var(--secondary);
   }
 
-  .basic-button-icon:not(:disabled):hover,
-  .basic-link-as-button-icon:not(:disabled):hover {
+  .tide-button-icon:not(:disabled):hover,
+  .tide-link-as-button-icon:not(:disabled):hover {
+    border: 1px solid var(--surface-variant);
     background: var(--surface-variant);
   }
 
-  .basic-button-icon:disabled,
-  .basic-link-as-button-icon:disabled {
+  .tide-button-icon:disabled,
+  .tide-link-as-button-icon:disabled {
     border: 1px solid var(--border-high);
   }
 
-  .basic-button-icon .label,
-  .basic-link-as-button-icon .label {
+  .tide-button-icon .label,
+  .tide-link-as-button-icon .label {
     width: 1.5rem;
     height: 1.5rem;
   }

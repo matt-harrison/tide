@@ -73,7 +73,7 @@
         :class="{ open: props.isOpen }"
         :style="{ '--modal-width': props.width, ...style }"
         @click.self="handleClose"
-        class="basic-modal tide-position-fixed tide-display-flex tide-axis1-center tide-axis2-center tide-top-0 tide-left-0 tide-width-full h-full"
+        class="tide-modal tide-position-fixed tide-display-flex tide-axis1-center tide-axis2-center tide-top-0 tide-left-0 tide-width-full h-full"
         v-show="props.isOpen"
       >
         <div
@@ -82,7 +82,7 @@
         >
           <header class="modal-header tide-position-relative tide-display-flex tide-axis2-center tide-padding-x-2">
             <div
-              class="tide-flex-grow tide-font-20 text-center tide-margin-x-2 tide-font-700"
+              class="tide-grow tide-font-20 text-center tide-margin-x-2 tide-font-700"
               v-if="title"
             >
               {{ title }}
@@ -115,7 +115,7 @@
 </template>
 
 <style lang="scss" scoped>
-  .basic-modal {
+  .tide-modal {
     transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4px);

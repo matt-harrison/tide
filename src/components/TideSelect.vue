@@ -50,7 +50,7 @@
 <template>
   <div
     :class="[
-      'basic-select block-field tide-font-14 tide-font-surface-variant',
+      'tide-select block-field tide-font-14 tide-font-surface-variant',
       disabled && 'disabled',
       hasError && 'error',
     ]"

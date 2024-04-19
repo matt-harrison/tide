@@ -23,7 +23,7 @@
 
 <template>
   <div
-    class="basic-tabs tide-display-flex tide-gap-1/4 tide-radius-1/2 tide-padding-1/4 tide-bg-surface-variant tide-xy-hidden"
+    class="tide-tabs tide-display-flex tide-gap-1/4 tide-radius-1/2 tide-padding-1/4 tide-width-full tide-bg-surface-variant tide-xy-hidden"
   >
     <button
       :class="
@@ -31,7 +31,7 @@
       "
       :key="tab.label"
       @click="(event: Event) => handleTabClick(event, index)"
-      class="basic-tabs-tab tide-radius-1/4 tide-padding-y-1/4 tide-padding-x-2 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
+      class="tide-tabs-tab tide-grow tide-shrink tide-radius-1/4 tide-padding-y-1/4 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
       v-for="(tab, index) in props.tabs"
     >
       <span class="tide-font-600">{{ tab.label }} </span>
@@ -46,11 +46,12 @@
 </template>
 
 <style scoped>
-  .basic-tabs-tab {
-    flex: 1;
-    transition: background-color var(--animate);
+  .tide-tabs {
+    max-width: 23.3rem;
   }
 
-  .basic-tabs-tab.active {
+  .tide-tabs-tab {
+    flex: 1;
+    transition: background-color var(--animate);
   }
 </style>

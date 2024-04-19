@@ -46,52 +46,53 @@
 </script>
 
 <template>
-  <div :class="[props.type, 'basic-alert tide-display-grid tide-radius-1/2 tide-padding-1']">
-    <div class="basic-alert-icon tide-display-flex tide-axis2-center">
+  <div :class="[props.type, 'tide-alert tide-display-grid tide-radius-1/2 tide-padding-1']">
+    <div class="tide-alert-icon tide-display-flex tide-axis2-center">
       <TideIcon
         :class="[props.type, 'tide-radius-full tide-padding-1/2 tide-font-on-surface-inverse']"
         :icon="icon"
       />
     </div>
 
-    <div class="basic-alert-heading tide-display-flex tide-axis2-center">
+    <div class="tide-alert-heading tide-display-flex tide-axis2-center">
       <h2 class="tide-font-16 tide-font-600 tide-font-on-surface">{{ props.heading }}</h2>
     </div>
 
     <TideButtonIcon
       :icon="ICON.CLOSE"
       :priority="PRIORITY.QUATERNARY"
-      class="basic-alert-close tide-display-flex tide-axis2-center tide-font-on-surface"
+      class="tide-alert-close tide-display-flex tide-axis2-center tide-font-on-surface"
     />
 
-    <div class="basic-alert-body tide-font-500 tide-font-on-surface-variant">
+    <div class="tide-alert-body tide-font-500 tide-font-on-surface-variant">
       <slot />
     </div>
   </div>
 </template>
 
 <style>
-  .basic-alert {
+  .tide-alert {
     grid-template-areas:
       'icon heading close'
       '. body .';
     grid-template-columns: auto 1fr auto;
     grid-column-gap: 0.5rem;
+    max-width: 40rem;
   }
 
-  .basic-alert-icon {
+  .tide-alert-icon {
     grid-area: icon;
   }
 
-  .basic-alert-heading {
+  .tide-alert-heading {
     grid-area: heading;
   }
 
-  .basic-alert-close {
+  .tide-alert-close {
     grid-area: close;
   }
 
-  .basic-alert-body {
+  .tide-alert-body {
     grid-area: body;
   }
 
@@ -111,19 +112,19 @@
     background-color: var(--warning-surface);
   }
 
-  .basic-icon.error {
+  .tide-icon.error {
     background-color: var(--error-primary);
   }
 
-  .basic-icon.info {
+  .tide-icon.info {
     background-color: var(--info-primary);
   }
 
-  .basic-icon.success {
+  .tide-icon.success {
     background-color: var(--success-primary);
   }
 
-  .basic-icon.warning {
+  .tide-icon.warning {
     background-color: var(--warning-primary);
   }
 </style>

@@ -45,9 +45,7 @@
 </script>
 
 <template>
-  <div
-    :class="['basic-checkbox', UTILS.FLEX, UTILS.AXIS2_CENTER, UTILS.GAP_1_2, UTILS.FONT_14, disabled && 'disabled']"
-  >
+  <div :class="['tide-checkbox', UTILS.FLEX, UTILS.AXIS2_CENTER, UTILS.GAP_1_2, UTILS.FONT_14, disabled && 'disabled']">
     <input
       :checked="props.value || undefined"
       :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
@@ -70,13 +68,13 @@
 </template>
 
 <style scoped>
-  .basic-checkbox input {
+  .tide-checkbox input {
     accent-color: var(--ti-surface-foreground);
     height: 1.5rem;
     width: 1.5rem;
   }
 
-  .basic-checkbox.disabled {
+  .tide-checkbox.disabled {
     opacity: 0.32;
   }
 </style>

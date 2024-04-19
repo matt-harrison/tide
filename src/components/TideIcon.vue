@@ -33,7 +33,7 @@
 </script>
 
 <template>
-  <div :class="['basic-icon', props.size]">
+  <div :class="['tide-icon', props.size]">
     <svg
       :data-icon="icon"
       class="tide-display-block"
@@ -50,12 +50,12 @@
 </template>
 
 <style scoped>
-  .basic-icon svg {
+  .tide-icon svg {
     width: 1.5rem;
     height: 1.5rem;
   }
 
-  .basic-icon.small svg {
+  .tide-icon.small svg {
     width: 1.25rem;
     height: 1.25rem;
   }

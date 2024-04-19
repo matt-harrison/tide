@@ -72,7 +72,7 @@
 <template>
   <div
     :class="[
-      'basic-textarea block-field tide-display-flex tide-flex-column tide-axis2-start tide-font-14 tide-font-surface-variant',
+      'tide-textarea block-field tide-display-flex tide-flex-column tide-axis2-start tide-font-14 tide-font-surface-variant',
       disabled && 'disabled',
       hasError && 'error',
     ]"

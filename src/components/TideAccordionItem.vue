@@ -59,7 +59,7 @@
 </script>
 
 <template>
-  <div class="basic-accordion-item">
+  <div class="tide-accordion-item">
     <TideDivider v-if="props.hasTopDivider" />
 
     <div
@@ -84,7 +84,7 @@
 
     <div
       ref="accordionBody"
-      class="basic-accordion-body tide-display-grid"
+      class="tide-accordion-body tide-display-grid"
     >
       <div class="tide-y-hidden">
         <div class="tide-margin-bottom-1 tide-font-400 tide-font-on-surface">
@@ -98,7 +98,7 @@
 </template>
 
 <style scoped>
-  .basic-accordion-body {
+  .tide-accordion-body {
     transition: grid-template-rows var(--animate);
   }
 </style>

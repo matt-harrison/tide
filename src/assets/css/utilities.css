@@ -27,7 +27,7 @@
 .tide-flex-row            {flex-direction: row;}
 .tide-flex-row-reverse    {flex-direction: row-reverse;}
 
-.tide-flex-grow      {flex-grow: 1;}
+.tide-grow      {flex-grow: 1;}
 .tide-grow-none {flex-grow: 0;}
 
 .tide-shrink      {flex-shrink: 1;}

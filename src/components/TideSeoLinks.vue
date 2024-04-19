@@ -14,7 +14,7 @@
 </script>
 
 <template>
-  <section class="basic-responsive-columns">
+  <section class="tide-responsive-columns">
     <h2 class="tide-margin-bottom-1/2 tide-font-16">{{ props.heading }}</h2>
 
     <ul class="tide-display-flex tide-flex-wrap tide-gap-2 tide-list-none">

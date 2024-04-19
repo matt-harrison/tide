@@ -1,11 +1,11 @@
-.basic-link-as-button,
-.basic-button {
+.tide-link-as-button,
+.tide-button {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
 
-.basic-link-as-button.quaternary,
-.basic-button.quaternary {
+.tide-link-as-button.quaternary,
+.tide-button.quaternary {
   padding-right: 1rem;
   padding-left: 1rem;
 }

@@ -11,8 +11,9 @@
 <template>
   <div
     :class="[
-      'tide-indicator tide-radius-full tide-bg-surface-accent',
-      props.label ? 'label tide-position-relative tide-font-700 tide-font-on-surface tide-font-12' : '',
+      props.label ? 'tide-indicator-label' : 'tide-indicator',
+      'tide-radius-full tide-bg-surface-accent',
+      props.label ? 'tide-position-relative tide-font-700 tide-font-on-surface tide-font-12' : '',
     ]"
   >
     <div
@@ -30,7 +31,7 @@
     height: 0.5rem;
   }
 
-  .tide-indicator.label {
+  .tide-indicator-label {
     width: 1rem;
     height: 1rem;
   }

@@ -18,7 +18,7 @@
     src: undefined,
   });
 
-  const basicImage = ref();
+  const tideImage = ref();
 
   const cdn = getCdn(realm);
   const imageDefault = `${cdn}/image-coming-soon-512.png`;
@@ -34,14 +34,14 @@
   };
 
   const setImageFromDefault = () => {
-    basicImage.value.src = imageDefault;
+    tideImage.value.src = imageDefault;
   };
 
   const setImageFromSrc = () => {
-    basicImage.value.src = props.src;
+    tideImage.value.src = props.src;
   };
 
-  defineExpose(basicImage.value);
+  defineExpose(tideImage.value);
 
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(
@@ -59,23 +59,23 @@
 
   onMounted(() => {
     if (props.isLazy) {
-      observer.observe(basicImage.value);
+      observer.observe(tideImage.value);
     } else {
       loadImage();
     }
   });
 
   onBeforeUnmount(() => {
-    observer.unobserve(basicImage.value);
+    observer.unobserve(tideImage.value);
   });
 </script>
 
 <template>
   <img
     :alt="alt"
-    ref="basicImage"
+    ref="tideImage"
     :src="isLazy && src ? src : imageDefault"
-    class="basic-image tide-object-center tide-object-cover"
+    class="tide-image tide-object-center tide-object-cover"
   />
 </template>
 

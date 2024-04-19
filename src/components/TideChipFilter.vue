@@ -13,14 +13,14 @@
 <template>
   <button
     :class="[
-      'basic-chip-filter tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface',
+      'tide-chip-filter tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface',
       props.isActive ? 'active' : '',
       'tide-font-14 tide-font-600',
     ]"
     class=""
   >
     <slot />
-    <div class="basic-chip-filter-content tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2">
+    <div class="tide-chip-filter-content tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1/2">
       <span
         :class="props.isActive ? '' : 'icon-spacing'"
         class="tide-font-500 tide-whitespace-nowrap"
@@ -39,8 +39,8 @@
 <style scoped src="@/assets/css/dynamic-buttons.css" />
 
 <style scoped>
-  .basic-chip-filter:hover,
-  .basic-chip-filter.active {
+  .tide-chip-filter:hover,
+  .tide-chip-filter.active {
     background-color: var(--surface-variant);
     border-color: var(--border-high);
   }

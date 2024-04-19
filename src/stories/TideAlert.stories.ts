@@ -43,7 +43,7 @@ export default {
   args: {
     default: '',
     heading: 'Heading',
-    isToast: false,
+    isToast: undefined,
     type: undefined,
   },
   component: TideAlert,

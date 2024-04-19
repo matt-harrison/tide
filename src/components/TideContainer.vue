@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div :class="['basic-container', props.isDesktop ? 'tide-margin-x-auto' : 'tide-margin-x-1', 'tide-width-container']">
+  <div :class="['tide-container', props.isDesktop ? 'tide-margin-x-auto' : 'tide-margin-x-1', 'tide-width-container']">
     <slot />
   </div>
 </template>

@@ -33,7 +33,7 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT.LINK ? 'basic-button-as-link' : 'basic-link',
+      props.element === ELEMENT.LINK ? 'tide-button-as-link' : 'tide-link',
       hasIcon ? 'tide-display-inline-flex tide-axis2-center tide-gap-1/2' : 'tide-font-700 tide-underline',
     ]"
     :href="isSinglePageApp ? undefined : props.href"
