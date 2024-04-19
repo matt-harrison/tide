@@ -16,9 +16,10 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.borderRadius) classNames.push(args.borderRadius);
+  if (args.borderSide === BORDER_SIDE.Full && args.borderWidth !== BORDER_WIDTH.None && args.borderRadius)
+    classNames.push(args.borderRadius);
 
-  if (args.borderWidth) {
+  if (args.borderSide && args.borderWidth) {
     classNames.push(`${args.borderSide}-${args.borderWidth}`);
   }
 
@@ -56,11 +57,13 @@ export default {
     borderRadius: {
       ...formatArgType({ BORDER_RADIUS }),
       description: 'Dictates severity of rounded corners',
+      if: { arg: 'borderSide', eq: BORDER_SIDE.Full },
       name: 'Border Radius',
     },
     borderSide: {
       ...formatArgType({ BORDER_SIDE }),
       description: 'Dictates to which edge(s) the border applies',
+      if: { arg: 'borderWidth', neq: BORDER_WIDTH.None },
       name: 'Border Side',
     },
     borderWidth: {
@@ -71,7 +74,7 @@ export default {
   },
   args: {
     borderRadius: BORDER_RADIUS.None,
-    borderSide: BORDER_SIDE.Full,
+    borderSide: BORDER_SIDE.None,
     borderWidth: BORDER_WIDTH.None,
   },
   parameters,
@@ -82,51 +85,90 @@ export default {
 
 export const Default = {};
 
-export const BorderTop = {
+export const BorderTop1px = {
   args: {
     borderSide: BORDER_SIDE.Top,
     borderWidth: BORDER_WIDTH['1px'],
   },
+  name: 'Border Top 1px',
 };
 
-export const BorderRight = {
+export const BorderRight1px = {
   args: {
     borderSide: BORDER_SIDE.Right,
     borderWidth: BORDER_WIDTH['1px'],
   },
+  name: 'Border Right 1px',
 };
 
-export const BorderBottom = {
+export const BorderBottom1px = {
   args: {
     borderSide: BORDER_SIDE.Bottom,
     borderWidth: BORDER_WIDTH['1px'],
   },
+  name: 'Border Bottom 1px',
 };
 
-export const BorderLeft = {
+export const BorderLeft1px = {
   args: {
     borderSide: BORDER_SIDE.Left,
     borderWidth: BORDER_WIDTH['1px'],
   },
+  name: 'Border Left 1px',
 };
 
-export const Border1 = {
+export const BorderFull1px = {
   args: {
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
-  name: 'Border 1px',
+  name: 'Border Full 1px',
 };
 
-export const Border2 = {
+export const BorderTop2px = {
   args: {
+    borderSide: BORDER_SIDE.Top,
     borderWidth: BORDER_WIDTH['2px'],
   },
-  name: 'Border 2px',
+  name: 'Border Top 2px',
+};
+
+export const BorderRight2px = {
+  args: {
+    borderSide: BORDER_SIDE.Right,
+    borderWidth: BORDER_WIDTH['2px'],
+  },
+  name: 'Border Right 2px',
+};
+
+export const BorderBottom2px = {
+  args: {
+    borderSide: BORDER_SIDE.Bottom,
+    borderWidth: BORDER_WIDTH['2px'],
+  },
+  name: 'Border Bottom 2px',
+};
+
+export const BorderLeft2px = {
+  args: {
+    borderSide: BORDER_SIDE.Left,
+    borderWidth: BORDER_WIDTH['2px'],
+  },
+  name: 'Border Left 2px',
+};
+
+export const BorderFull2px = {
+  args: {
+    borderSide: BORDER_SIDE.Full,
+    borderWidth: BORDER_WIDTH['2px'],
+  },
+  name: 'Border Full 2px',
 };
 
 export const RadiusQuarter = {
   args: {
     borderRadius: BORDER_RADIUS['0.25 REM'],
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 0.25 REM',
@@ -135,6 +177,7 @@ export const RadiusQuarter = {
 export const RadiusHalf = {
   args: {
     borderRadius: BORDER_RADIUS['0.5 REM'],
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 0.5 REM',
@@ -143,6 +186,7 @@ export const RadiusHalf = {
 export const Radius1 = {
   args: {
     borderRadius: BORDER_RADIUS['1 REM'],
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius 1 REM',
@@ -151,6 +195,7 @@ export const Radius1 = {
 export const RadiusFull = {
   args: {
     borderRadius: BORDER_RADIUS.Full,
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius Full',
@@ -159,6 +204,7 @@ export const RadiusFull = {
 export const Circle = {
   args: {
     borderRadius: BORDER_RADIUS.Full,
+    borderSide: BORDER_SIDE.Full,
     borderWidth: BORDER_WIDTH['1px'],
   },
   name: 'Border Radius Full (1/1 Aspect Ratio)',
