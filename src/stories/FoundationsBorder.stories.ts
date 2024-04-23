@@ -58,6 +58,13 @@ export default {
       ...formatArgType({ BORDER_RADIUS }),
       description: 'Dictates severity of rounded corners',
       if: { arg: 'borderSide', eq: BORDER_SIDE.Full },
+      /*
+      // Storybook can't yet implement the ideal rule:
+      if: [
+        { arg: 'borderSide', eq: BORDER_SIDE.Full },
+        { arg: 'borderWidth', neq: BORDER_SIDE.None },
+      ],
+      */
       name: 'Border Radius',
     },
     borderSide: {

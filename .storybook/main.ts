@@ -30,7 +30,6 @@ const config: StorybookConfig = {
     '../src/stories/TideChipFilter.stories.ts',
     '../src/stories/TideChipInput.stories.ts',
     '../src/stories/TideColumns.stories.ts',
-    // '../src/stories/TideContainer.stories.ts',
     '../src/stories/TideDivider.stories.ts',
     '../src/stories/TideIcon.stories.ts',
     '../src/stories/TideIndicator.stories.ts',

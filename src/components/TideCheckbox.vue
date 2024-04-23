@@ -3,9 +3,7 @@
 
   import type { CheckboxField } from '../types/Field';
 
-  import { getCssUtils } from '../utilities/styles';
-
-  const UTILS = getCssUtils();
+  import { CSS } from '../types/Styles';
 
   const input = ref<CheckboxField>();
 
@@ -45,10 +43,10 @@
 </script>
 
 <template>
-  <div :class="['tide-checkbox', UTILS.FLEX, UTILS.AXIS2_CENTER, UTILS.GAP_1_2, UTILS.FONT_14, disabled && 'disabled']">
+  <div :class="['tide-checkbox', CSS.FLEX, CSS.AXIS2_CENTER, CSS.GAP_1_2, CSS.FONT_14, disabled && 'disabled']">
     <input
       :checked="props.value || undefined"
-      :class="[UTILS.GROW_NONE, UTILS.SHRINK_NONE, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
+      :class="[CSS.GROW_NONE, CSS.SHRINK_NONE, disabled ? CSS.CURSOR_NOT_ALLOWED : CSS.CURSOR_POINTER]"
       :disabled="props.disabled"
       :name="name"
       ref="input"
@@ -57,7 +55,7 @@
     />
 
     <label
-      :class="[UTILS.PL_1_2, disabled ? UTILS.CURSOR_NOT_ALLOWED : UTILS.CURSOR_POINTER]"
+      :class="[CSS.PL_1_2, disabled ? CSS.CURSOR_NOT_ALLOWED : CSS.CURSOR_POINTER]"
       :for="uniqueInputId"
       @click.stop
       v-if="label"
@@ -78,3 +76,4 @@
     opacity: 0.32;
   }
 </style>
+../types/StylesOld../types/StylesNew
