@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
 import TideChipFilter from '@/components/TideChipFilter.vue';
-import { argTypeBooleanUnrequired, click, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click, dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideChipFilter },
@@ -19,6 +19,7 @@ const render = (args: any, { updateArgs }: any) => ({
 export default {
   argTypes: {
     click,
+    dataTrack,
     default: {
       control: 'text',
       defaultValue: 'None',
@@ -43,6 +44,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     default: '',
     isActive: undefined,
     label: 'Demo',

@@ -3,8 +3,14 @@ import { action } from '@storybook/addon-actions';
 import * as STANDARD_ICON from '@/types/Icon';
 import TideLink from '@/components/TideLink.vue';
 import { ELEMENT } from '@/types/Element';
-import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-import { click, formatArgType, parameters, prependNoneAsUndefined } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  click,
+  dataTrack,
+  formatArgType,
+  parameters,
+  prependNoneAsUndefined,
+} from '@/utilities/storybook';
 
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 
@@ -25,6 +31,7 @@ export default {
       ...click,
       if: { arg: 'element', eq: ELEMENT.BUTTON },
     },
+    dataTrack,
     element: {
       ...formatArgType({ ELEMENT }),
       description: 'HTML tag type',
@@ -65,6 +72,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     element: ELEMENT.LINK,
     href: '/',
     iconLeading: undefined,

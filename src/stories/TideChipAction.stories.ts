@@ -1,5 +1,5 @@
 import TideChipAction from '@/components/TideChipAction.vue';
-import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideChipAction },
@@ -9,6 +9,7 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    dataTrack,
     href: {
       control: 'text',
       description: 'URL to navigate to on click',
@@ -31,6 +32,7 @@ export default {
     },
   },
   args: {
+    dataTrack: '',
     href: 'https://www.traderinteractive.com',
     label: 'Demo',
   },

@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
 import TideChipInput from '@/components/TideChipInput.vue';
-import { click, parameters } from '@/utilities/storybook';
+import { click, dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideChipInput },
@@ -17,6 +17,7 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     click,
+    dataTrack,
     label: {
       control: 'text',
       description: 'Chip text',
@@ -28,6 +29,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     label: 'Demo',
   },
   component: TideChipInput,

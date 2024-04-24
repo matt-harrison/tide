@@ -45,6 +45,15 @@ export const click = {
   },
 };
 
+export const dataTrack = {
+  control: 'text',
+  description: 'Data attribute for external tracking',
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: 'string' },
+  },
+};
+
 // Accept a KeyValue as the value of an object with a retrievable key as a Storybook argType
 export const formatArgType = (collection: KeyValueNamed) => {
   const constant = getKey(collection);

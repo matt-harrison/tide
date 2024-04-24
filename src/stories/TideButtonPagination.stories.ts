@@ -5,6 +5,7 @@ import TideButtonPagination from '@/components/TideButtonPagination.vue';
 import {
   argTypeBooleanUnrequired,
   click,
+  dataTrack,
   formatArgType,
   parameters,
   prependNoneAsUndefined,
@@ -29,6 +30,7 @@ export default {
       ...click,
       if: { arg: 'element', neq: ELEMENT_TEXT_AS_ICON.LINK },
     },
+    dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Indicates whether Pagination Button is associated with the displayed page',
@@ -68,6 +70,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     disabled: undefined,
     element: undefined,
     href: 'https://www.traderinteractive.com',

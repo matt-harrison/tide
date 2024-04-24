@@ -7,6 +7,7 @@ import TideButton from '@/components/TideButton.vue';
 import {
   argTypeBooleanUnrequired,
   click,
+  dataTrack,
   formatArgType,
   parameters,
   prependNoneAsUndefined,
@@ -33,6 +34,7 @@ export default {
       ...click,
       if: { arg: 'element', neq: ELEMENT.LINK },
     },
+    dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines clickability<br />(Button only)',
@@ -84,6 +86,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     disabled: undefined,
     element: undefined,
     href: 'https://www.traderinteractive.com',

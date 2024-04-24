@@ -1,5 +1,5 @@
 import TideCard from '@/components/TideCard.vue';
-import { parameters } from '@/utilities/storybook';
+import { dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideCard },
@@ -14,6 +14,7 @@ export default {
         disable: true,
       },
     },
+    dataTrack,
     default: {
       control: 'text',
       description: 'Card content',
@@ -24,6 +25,7 @@ export default {
     },
   },
   args: {
+    dataTrack: '',
     default: 'Demo',
   },
   component: TideCard,
