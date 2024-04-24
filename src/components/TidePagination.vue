@@ -23,7 +23,9 @@
 </script>
 
 <template>
-  <section :class="[CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.ONE, CSS.WIDTH.FULL]">
+  <section
+    :class="['tide-pagination', CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.WIDTH.FULL]"
+  >
     <TideButtonIcon
       :disabled="props.pageCurrent === 1"
       :icon="ICON.CHEVRON_LEFT"
@@ -31,7 +33,7 @@
       @click="$emit('setPage', props.pageCurrent - 1)"
     />
 
-    <ul :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.X.TWO, CSS.LIST_BULLETS.OFF]">
+    <ul :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.LIST_BULLETS.OFF]">
       <li
         :key="paginationButton"
         v-for="paginationButton in paginationButtons"

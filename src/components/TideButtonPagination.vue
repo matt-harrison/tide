@@ -22,6 +22,7 @@
 <template>
   <component
     :class="[
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
       [CSS.DISPLAY.INLINE_BLOCK, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF],
       props.element === ELEMENT_TEXT_AS_ICON.LINK ? [CSS.UNDERLINE.OFF] : '',
       props.element === ELEMENT_TEXT_AS_ICON.DIV ? [CSS.CURSOR.POINTER] : '',
