@@ -1,5 +1,5 @@
 import TideAccordionItem from '@/components/TideAccordionItem.vue';
-import { argTypeBooleanUnrequired, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideAccordionItem },
@@ -9,6 +9,7 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
+    dataTrack,
     default: {
       control: 'text',
       description: 'Content exposed when expanded',
@@ -48,6 +49,7 @@ export default {
     },
   },
   args: {
+    dataTrack: '',
     default: 'Lorem Ipsum',
     hasBottomDivider: undefined,
     hasTopDivider: undefined,

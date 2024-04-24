@@ -33,6 +33,7 @@
       CSS.BORDER.RADIUS.HALF,
       CSS.PADDING.FULL.QUARTER,
       CSS.OVERFLOW.XY.HIDDEN,
+      CSS.WIDTH.FULL,
     ]"
   >
     <button

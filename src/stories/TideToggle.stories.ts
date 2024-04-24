@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
 import TideToggle from '@/components/TideToggle.vue';
-import { argTypeBooleanUnrequired, click, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click, dataTrack, parameters } from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideToggle },
@@ -19,6 +19,7 @@ const render = (args: any, { updateArgs }: any) => ({
 export default {
   argTypes: {
     click,
+    dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines clickability',
@@ -30,6 +31,7 @@ export default {
   },
   args: {
     click: 'doSomething',
+    dataTrack: '',
     disabled: undefined,
     isActive: undefined,
   },

@@ -5,10 +5,12 @@ import { parameters } from '@/utilities/storybook';
 
 const breadCrumbs: BreadCrumb[] = [
   {
+    dataTrack: 'Home Bread Crumb Click',
     label: 'Home',
     url: '/',
   },
   {
+    dataTrack: 'SRP Bread Crumb Click',
     label: 'Search Results',
     url: '/rvs-for-sale',
   },

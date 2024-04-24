@@ -26,6 +26,7 @@
       <li :class="[CSS.FONT.SIZE.FOURTEEN]">
         <a
           :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, 'tide-font-on-surface']"
+          :data-track="crumb.dataTrack || undefined"
           :href="crumb.url"
           v-if="crumb.url"
         >
@@ -34,6 +35,7 @@
 
         <span
           :class="[CSS.FONT.WEIGHT.FIVE_HUNDRED, 'tide-font-on-surface-variant']"
+          :data-track="crumb.dataTrack || undefined"
           v-else
         >
           {{ crumb.label }}

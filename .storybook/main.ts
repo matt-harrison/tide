@@ -43,7 +43,6 @@ const config: StorybookConfig = {
     // '../src/stories/TideInputTextarea.stories.ts',
     // '../src/stories/TideSearchInput.stories.ts',
     // '../src/stories/TideSeoLinks.stories.ts',
-    // '../src/stories/TideSuggestionPill.stories.ts',
     '../src/stories/TideTabs.stories.ts',
     '../src/stories/TideToggle.stories.ts',
   ],

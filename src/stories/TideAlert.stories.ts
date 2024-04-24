@@ -1,6 +1,12 @@
 import * as STANDARD_ALERT from '@/types/Alert';
 import TideAlert from '@/components/TideAlert.vue';
-import { argTypeBooleanUnrequired, formatArgType, parameters, prependNoneAsUndefined } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  dataTrack,
+  formatArgType,
+  parameters,
+  prependNoneAsUndefined,
+} from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideAlert },
@@ -12,6 +18,7 @@ const ALERT = prependNoneAsUndefined(STANDARD_ALERT.ALERT);
 
 export default {
   argTypes: {
+    dataTrack,
     default: {
       control: 'text',
       description: 'Body text',
@@ -40,12 +47,7 @@ export default {
       },
     },
   },
-  args: {
-    default: '',
-    heading: 'Heading',
-    isToast: undefined,
-    type: undefined,
-  },
+  args: { dataTrack: '', default: '', heading: 'Heading', isToast: undefined, type: undefined },
   component: TideAlert,
   parameters,
   render,
