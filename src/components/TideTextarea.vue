@@ -4,6 +4,7 @@
   import type { TextareaField } from '../types/Field';
 
   import TideSvgIcon from './TideSvgIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { SIZE } from '../types/Size';
   import { getFieldHasError, getSupportingText, handleFieldValidation } from '../utilities/forms';
@@ -78,14 +79,15 @@
     ]"
   >
     <label
+      :class="[CSS.MARGIN.BOTTOM.QUARTER, CSS.FONT.SIZE.FOURTEEN, CSS.FONT.WEIGHT.SEVEN_HUNDRED]"
       :for="uniqueTextareaId"
-      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
     <textarea
+      :class="['field', 'tide-bg-surface-low', 'tide-font-surface-variant', CSS.PADDING.FULL.HALF]"
       :disabled="disabled"
       :maxlength="maxlength"
       :minlength="minlength"
@@ -96,22 +98,31 @@
       @focusout="handleValidation"
       @input="handleInput"
       @keyup="handleValidation"
-      class="field tide-padding-1/2 tide-bg-surface-low tide-font-surface-variant"
       :id="uniqueTextareaId"
       v-model="value"
     />
 
     <div
-      class="supporting-text tide-display-flex tide-axis2-center tide-gap-1/2 tide-margin-top-1/4 break-word tide-font-12"
+      :class="[
+        'supporting-text',
+        CSS.DISPLAY.FLEX,
+        CSS.AXIS2.CENTER,
+        CSS.GAP.HALF,
+        CSS.MARGIN.TOP.QUARTER,
+        CSS.BREAK_WORD.ON,
+        CSS.FONT.SIZE.TWELVE,
+      ]"
       v-if="hasError"
     >
       <TideSvgIcon
+        :class="[CSS.ALIGN.Y.MIDDLE, CSS.FONT.SIZE.SIXTEEN, CSS.POINTER_EVENTS.OFF]"
         :icon="ICON.ERROR"
         :size="SIZE.SMALL"
-        class="align-middle tide-font-16 tide-pointer-events-none"
         v-if="hasError"
       />
-      <span class="align-middle">{{ supportingText }}</span>
+      <span :class="[CSS.ALIGN.Y.MIDDLE]">
+        {{ supportingText }}
+      </span>
     </div>
   </div>
 </template>

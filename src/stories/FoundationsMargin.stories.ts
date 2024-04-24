@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/StorybookStyles';
-import { argTypeDimension, formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 
@@ -65,7 +65,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div :class="getContainerClass(args)" class="tide-bg-blue-light"><div class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-white" v-bind="args">Demo</div></div>',
+    '<div :class="getContainerClass(args)" class="sb-bg-blue-light"><div class="tide-border-1 tide-padding-1 sb-bg-white" v-bind="args">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },
@@ -77,11 +77,6 @@ export default {
       ...formatArgType({ MARGIN }),
       description: 'Applies a margin',
       name: 'Margin',
-    },
-    width: {
-      ...argTypeDimension,
-      description: 'Width is required for Margin Auto<br />(for demonstration purposes only)',
-      name: 'Width*',
     },
   },
   args: {

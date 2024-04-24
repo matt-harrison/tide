@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { CSS } from '../types/Styles';
+
   const props = defineProps({
     disabled: {
       default: false,
@@ -15,14 +17,24 @@
 <template>
   <button
     :class="[
-      'tide-toggle tide-display-flex tide-axis2-center tide-radius-full tide-xy-hidden',
+      'tide-toggle',
+      CSS.DISPLAY.FLEX,
+      CSS.AXIS2.CENTER,
+      CSS.BORDER.RADIUS.FULL,
+      CSS.OVERFLOW.XY.HIDDEN,
       props.isActive ? 'tide-bg-secondary' : 'tide-bg-surface-variant',
     ]"
     :disabled="props.disabled"
   >
     <div
-      :class="props.isActive ? 'active' : ''"
-      class="tide-toggle-indicator tide-position-relative tide-radius-full tide-bg-surface tide-shadow-bottom"
+      :class="[
+        'tide-toggle-indicator',
+        'tide-bg-surface',
+        props.isActive ? 'active' : '',
+        CSS.POSITION.RELATIVE,
+        CSS.BORDER.RADIUS.FULL,
+        CSS.SHADOW.BOTTOM,
+      ]"
     />
   </button>
 </template>

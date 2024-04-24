@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { CSS } from '../types/Styles';
+
   type Props = {
     label?: string | number;
   };
@@ -12,12 +14,23 @@
   <div
     :class="[
       props.label ? 'tide-indicator-label' : 'tide-indicator',
-      'tide-radius-full tide-bg-surface-accent',
-      props.label ? 'tide-position-relative tide-font-700 tide-font-on-surface tide-font-12' : '',
+      'tide-bg-surface-accent',
+      CSS.BORDER.RADIUS.FULL,
+      props.label
+        ? [CSS.POSITION.RELATIVE, CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.SEVEN_HUNDRED, 'tide-font-on-surface']
+        : [],
     ]"
   >
     <div
-      class="tide-position-absolute tide-top-0 tide-display-flex tide-axis1-center tide-axis2-center tide-width-full tide-height-full"
+      :class="[
+        CSS.POSITION.ABSOLUTE,
+        CSS.POSITIONING.TOP_0,
+        CSS.DISPLAY.FLEX,
+        CSS.AXIS1.CENTER,
+        CSS.AXIS2.CENTER,
+        CSS.WIDTH.FULL,
+        CSS.HEIGHT.FULL,
+      ]"
       v-if="props.label"
     >
       {{ props.label }}

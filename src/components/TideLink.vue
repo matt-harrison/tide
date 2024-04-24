@@ -5,9 +5,9 @@
   import type { Icon } from '../types/Icon';
 
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ELEMENT } from '../types/Element';
   import { TARGET } from '../types/Target';
-  import { isSinglePageApp } from '../config/main.config';
 
   type Props = {
     element?: Element;
@@ -34,11 +34,12 @@
   <component
     :class="[
       props.element === ELEMENT.LINK ? 'tide-button-as-link' : 'tide-link',
-      hasIcon ? 'tide-display-inline-flex tide-axis2-center tide-gap-1/2' : 'tide-font-700 tide-underline',
+      hasIcon
+        ? [CSS.DISPLAY.INLINE_FLEX, CSS.AXIS2.CENTER, CSS.GAP.HALF]
+        : [CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE],
     ]"
-    :href="isSinglePageApp ? undefined : props.href"
+    :href="props.href"
     :target="props.isNewTab ? TARGET.BLANK : TARGET.SELF"
-    :to="isSinglePageApp ? props.href : undefined"
     :is="props.element === ELEMENT.LINK ? ELEMENT.LINK : ELEMENT.BUTTON"
   >
     <TideIcon
@@ -47,7 +48,7 @@
     />
 
     <div
-      class="tide-font-700 tide-underline"
+      :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE]"
       v-if="hasIcon"
     >
       {{ props.label }}

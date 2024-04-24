@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
 
   type Props = {
@@ -11,7 +12,21 @@
 
 <template>
   <button
-    class="tide-chip-input tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface"
+    :class="[
+      'tide-chip-input',
+      'tide-border',
+      'tide-font-on-surface',
+      'tide-bg-surface',
+      CSS.DISPLAY.FLEX,
+      CSS.AXIS2.CENTER,
+      CSS.GAP.HALF,
+      CSS.BORDER.FULL.TWO,
+      CSS.BORDER.RADIUS.FULL,
+      CSS.PADDING.X.ONE,
+      CSS.PADDING.Y.HALF,
+      CSS.FONT.SIZE.FOURTEEN,
+      CSS.FONT.WEIGHT.FIVE_HUNDRED,
+    ]"
   >
     <span>{{ props.label }}</span>
 

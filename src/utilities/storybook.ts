@@ -1,7 +1,4 @@
-import type { CssUtility } from '../types/Styles';
-
 import { BOOLEAN_UNREQUIRED } from '../types/Storybook';
-import { cssSortOrder, CSS } from '../types/Styles';
 
 // Extensible object of key/value pairs
 type KeyValue = { [key: string]: any };
@@ -198,32 +195,3 @@ export const prependKeyValue = (collection: KeyValue, keyValue: KeyValue) => ({
 export const prependNoneAsUndefined = (collection: KeyValue) => prependKeyValue(collection, NoneAsUndefined);
 
 export const prependNoneAsEmpty = (collection: KeyValue) => prependKeyValue(collection, NoneAsEmpty);
-
-export const sortClassConstants = (utilities: CssUtility[]): string[] => {
-  const classNamesSorted = utilities.sort((utility1: CssUtility, utility2: CssUtility) => {
-    return cssSortOrder.indexOf(utility1) - cssSortOrder.indexOf(utility2);
-  });
-
-  const constants = classNamesSorted.map((className: string) => {
-    return Object.entries(CSS).reduce((accumulator: string[], entry) => {
-      const [key, value] = entry;
-
-      if (value === className) {
-        accumulator.push(key);
-      }
-
-      return accumulator;
-    }, [])[0];
-  });
-
-  return constants;
-};
-
-export const sortClassNames = (classAttribute: string): string => {
-  const classNames = classAttribute.split(' ');
-  const classNamesSorted = classNames.sort(
-    (utility1: string, utility2: string) => cssSortOrder.indexOf(utility1) - cssSortOrder.indexOf(utility2)
-  );
-
-  return classNamesSorted.join(' ');
-};

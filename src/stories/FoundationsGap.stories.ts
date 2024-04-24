@@ -48,7 +48,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="tide-display-inline-flex tide-max-width-full tide-bg-blue-light tide-x-scroll" v-bind="args"><div :key="index" class="tide-border-1 tide-border-blue-dark tide-padding-1 tide-bg-white tide-whitespace-nowrap" v-for="(_child, index) in new Array(10)">Demo {{ index + 1 }}</div></div>',
+    '<div class="tide-display-inline-flex tide-max-width-full sb-bg-blue-light tide-x-scroll" v-bind="args"><div :key="index" class="tide-border-1 tide-padding-1 sb-bg-white tide-whitespace-nowrap" v-for="(_child, index) in new Array(10)">Demo {{ index + 1 }}</div></div>',
   updated() {
     return formatArgs(args);
   },

@@ -7,6 +7,7 @@
   import TideIcon from './TideIcon.vue';
   import TideButtonIcon from './TideButtonIcon.vue';
   import { ALERT } from '../types/Alert';
+  import { CSS } from '@/types/Styles';
   import { ICON } from '../types/Icon';
   import { PRIORITY } from '../types/Priority';
 
@@ -46,25 +47,27 @@
 </script>
 
 <template>
-  <div :class="[props.type, 'tide-alert tide-display-grid tide-radius-1/2 tide-padding-1']">
-    <div class="tide-alert-icon tide-display-flex tide-axis2-center">
+  <div :class="[props.type, 'tide-alert', CSS.DISPLAY.GRID, CSS.BORDER.RADIUS.HALF, CSS.PADDING.FULL.ONE]">
+    <div :class="['tide-alert-icon', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
       <TideIcon
-        :class="[props.type, 'tide-radius-full tide-padding-1/2 tide-font-on-surface-inverse']"
+        :class="[props.type, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF, 'tide-font-on-surface-inverse']"
         :icon="icon"
       />
     </div>
 
-    <div class="tide-alert-heading tide-display-flex tide-axis2-center">
-      <h2 class="tide-font-16 tide-font-600 tide-font-on-surface">{{ props.heading }}</h2>
+    <div :class="['tide-alert-heading', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
+      <h2 :class="[CSS.FONT.SIZE.SIXTEEN, CSS.FONT.WEIGHT.SIX_HUNDRED, 'tide-font-on-surface']">
+        {{ props.heading }}
+      </h2>
     </div>
 
     <TideButtonIcon
+      :class="['tide-alert-close', CSS.AXIS2.CENTER, 'tide-font-on-surface']"
       :icon="ICON.CLOSE"
       :priority="PRIORITY.QUATERNARY"
-      class="tide-alert-close tide-display-flex tide-axis2-center tide-font-on-surface"
     />
 
-    <div class="tide-alert-body tide-font-500 tide-font-on-surface-variant">
+    <div :class="['tide-alert-body', CSS.FONT.WEIGHT.FIVE_HUNDRED, 'tide-font-on-surface-variant']">
       <slot />
     </div>
   </div>

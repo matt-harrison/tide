@@ -29,7 +29,4 @@ const realms = {
 
 const realmCode: Realm = paramRealm && Object.keys(realms).includes(paramRealm) ? (paramRealm as Realm) : REALM.RV;
 
-// Once the SPA is released, we can purge all refernces to this structure.
-export const isSinglePageApp = false;
-
 export const realm: RealmConfig = realms[realmCode]?.realm;

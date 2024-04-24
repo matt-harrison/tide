@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import type { ElementTextAsIcon } from '../types/Element';
 
+  import { CSS } from '../types/Styles';
   import { ELEMENT_TEXT_AS_ICON } from '../types/Element';
 
   type Props = {
@@ -21,11 +22,10 @@
 <template>
   <component
     :class="[
-      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
-      'tide-display-inline-block tide-radius-full tide-padding-1/2',
-      props.element === ELEMENT_TEXT_AS_ICON.LINK ? 'tide-underline-none' : '',
-      props.element === ELEMENT_TEXT_AS_ICON.DIV ? 'cursor' : '',
-      'tide-font-700',
+      [CSS.DISPLAY.INLINE_BLOCK, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF],
+      props.element === ELEMENT_TEXT_AS_ICON.LINK ? [CSS.UNDERLINE.OFF] : '',
+      props.element === ELEMENT_TEXT_AS_ICON.DIV ? [CSS.CURSOR.POINTER] : '',
+      [CSS.FONT.WEIGHT.SEVEN_HUNDRED],
     ]"
     :disabled="props.element === ELEMENT_TEXT_AS_ICON.BUTTON && props.disabled"
     :href="props.element === ELEMENT_TEXT_AS_ICON.LINK && props.href ? props.href : undefined"
@@ -37,7 +37,9 @@
         : 'div'
     "
   >
-    <span class="label tide-display-flex tide-axis1-center tide-axis2-center">{{ props.label }}</span>
+    <span :class="['label', CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER]">
+      {{ props.label }}
+    </span>
   </component>
 </template>
 

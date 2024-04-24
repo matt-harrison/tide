@@ -5,6 +5,7 @@
   import type { SelectField } from '../types/Field';
 
   import TideSvgIcon from './TideSvgIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { SIZE } from '../types/Size';
   import { getFieldHasError, getSupportingText } from '../utilities/forms';
@@ -50,28 +51,33 @@
 <template>
   <div
     :class="[
-      'tide-select block-field tide-font-14 tide-font-surface-variant',
+      'tide-select',
+      'block-field',
+      'tide-font-surface-variant',
+      CSS.FONT.SIZE.FOURTEEN,
       disabled && 'disabled',
       hasError && 'error',
     ]"
   >
     <label
+      :class="[CSS.MARGIN.BOTTOM.QUARTER, CSS.FONT.SIZE.FOURTEEN, CSS.FONT.WEIGHT.SEVEN_HUNDRED]"
       :for="uniqueSelectId"
-      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
-    <div class="tide-position-relative tide-display-flex tide-axis2-center tide-width-full">
+    <div :class="[CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.WIDTH.FULL]">
       <select
         :class="[
           'field',
-          iconLeading && 'pl-2',
-          'tide-radius-1-8 tide-padding-1/2',
-          hasSuffix && 'pr-2',
-          'tide-width-full tide-bg-surface-low',
-          disabled && 'tide-cursor-not-allowed',
+          'tide-bg-surface-low',
+          iconLeading && [CSS.PADDING.LEFT.TWO],
+          [CSS.BORDER.RADIUS.QUARTER, CSS.PADDING.FULL.HALF],
+          hasSuffix && [CSS.PADDING.RIGHT.TWO],
+          'tide-width-full ',
+          [CSS.WIDTH.FULL],
+          disabled && [CSS.CURSOR.NOT_ALLOWED],
         ]"
         :disabled="disabled"
         :name="name"
@@ -100,23 +106,35 @@
       </select>
 
       <TideSvgIcon
+        :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.LEFT_0, CSS.MARGIN.LEFT.HALF, CSS.POINTER_EVENTS.OFF]"
         :icon="iconLeading"
         :size="SIZE.SMALL"
-        class="tide-position-absolute tide-left-0 tide-margin-left-1/2 tide-pointer-events-none"
         v-if="iconLeading"
       />
 
       <span
-        class="tide-position-absolute tide-right-0 tide-margin-right-2 tide-font-14 tide-pointer-events-none"
+        :class="[
+          CSS.POSITION.ABSOLUTE,
+          CSS.POSITIONING.RIGHT_0,
+          CSS.MARGIN.RIGHT.TWO,
+          CSS.FONT.SIZE.FOURTEEN,
+          CSS.POINTER_EVENTS.OFF,
+        ]"
         v-if="suffix"
       >
         {{ suffix }}
       </span>
 
       <TideSvgIcon
+        :class="[
+          'tide-bg-surface-low',
+          CSS.POSITION.ABSOLUTE,
+          CSS.POSITIONING.RIGHT_0,
+          CSS.MARGIN.RIGHT.HALF,
+          CSS.POINTER_EVENTS.OFF,
+        ]"
         :icon="ICON.EXPAND_MORE"
         :size="SIZE.SMALL"
-        class="tide-position-absolute tide-right-0 tide-margin-right-1/2 tide-bg-surface-low tide-pointer-events-none"
       />
     </div>
 

@@ -5,6 +5,7 @@
   import TideIcon from './TideIcon.vue';
   import TideIndicator from './TideIndicator.vue';
   import { ICON } from '../types/Icon';
+  import { CSS } from '@/types/Styles';
 
   const props = defineProps({
     hasBottomDivider: {
@@ -63,10 +64,10 @@
     <TideDivider v-if="props.hasTopDivider" />
 
     <div
+      :class="['accordion-head', CSS.DISPLAY.FLEX, CSS.AXIS1.BETWEEN, CSS.PADDING.Y.ONE, CSS.CURSOR.POINTER]"
       @click="toggleIsExpanded"
-      class="accordion-head tide-display-flex tide-axis1-between tide-padding-y-1 tide-cursor-pointer"
     >
-      <div class="tide-display-flex tide-axis2-center tide-gap-1/2 tide-font-700">
+      <div :class="['tide-display-flex', CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.FONT.WEIGHT.SEVEN_HUNDRED]">
         <span>{{ props.label }}</span>
 
         <span
@@ -83,11 +84,11 @@
     </div>
 
     <div
+      :class="['tide-accordion-body', CSS.DISPLAY.GRID]"
       ref="accordionBody"
-      class="tide-accordion-body tide-display-grid"
     >
-      <div class="tide-y-hidden">
-        <div class="tide-margin-bottom-1 tide-font-400 tide-font-on-surface">
+      <div :class="[CSS.OVERFLOW.Y.HIDDEN]">
+        <div :class="[CSS.MARGIN.BOTTOM.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, 'tide-font-on-surface']">
           <slot />
         </div>
       </div>

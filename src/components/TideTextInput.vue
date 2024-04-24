@@ -5,6 +5,7 @@
   import type { TextField } from '../types/Field';
 
   import TideSvgIcon from './TideSvgIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { SIZE } from '../types/Size';
   import { TEXT_INPUT_TYPE } from '../types/TextInput';
@@ -78,20 +79,23 @@
 <template>
   <div
     :class="[
-      'tide-text-input block-field tide-font-14 tide-font-surface-variant',
+      'tide-text-input',
+      'block-field',
+      'tide-font-surface-variant',
+      CSS.FONT.SIZE.FOURTEEN,
       disabled && 'disabled',
       hasError && 'error',
     ]"
   >
     <label
+      :class="[CSS.MARGIN.BOTTOM.QUARTER, CSS.FONT.SIZE.FOURTEEN, CSS.FONT.WEIGHT.SEVEN_HUNDRED]"
       :for="uniqueInputId"
-      class="tide-margin-bottom-1/4 tide-font-14 tide-font-700"
       v-if="label"
     >
       {{ formattedLabel }}
     </label>
 
-    <div class="tide-position-relative tide-display-flex tide-axis2-center tide-width-full">
+    <div :class="[CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.WIDTH.FULL]">
       <input
         :class="[
           'field tide-radius-1/4 tide-padding-1/2 tide-width-full tide-bg-surface-low',
@@ -114,30 +118,35 @@
       />
 
       <TideSvgIcon
+        :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.LEFT_0, CSS.MARGIN.LEFT.HALF, CSS.POINTER_EVENTS.OFF]"
         :icon="iconLeading"
         :size="SIZE.SMALL"
-        class="tide-position-absolute tide-left-0 tide-margin-left-1/2 tide-pointer-events-none"
         v-if="iconLeading"
       />
 
       <span
-        :class="hasError ? 'tide-margin-right-2' : 'tide-margin-right-1/2'"
-        class="tide-position-absolute tide-right-0 tide-font-14 tide-pointer-events-none"
+        :class="[
+          hasError ? [CSS.MARGIN.RIGHT.TWO] : [CSS.MARGIN.RIGHT.HALF],
+          CSS.POSITION.ABSOLUTE,
+          CSS.POSITIONING.RIGHT_0,
+          CSS.FONT.SIZE.FOURTEEN,
+          CSS.POINTER_EVENTS.OFF,
+        ]"
         v-if="hasSuffix"
       >
         {{ suffix }}
       </span>
 
       <TideSvgIcon
+        :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.HALF, CSS.POINTER_EVENTS.OFF]"
         :icon="ICON.ERROR"
         :size="SIZE.SMALL"
-        class="tide-position-absolute tide-right-0 tide-margin-right-1/2 tide-pointer-events-none"
         v-if="hasError"
       />
     </div>
 
     <div
-      class="supporting-text tide-font-12"
+      :class="['supporting-text', CSS.FONT.SIZE.TWELVE]"
       v-if="hasError"
     >
       {{ supportingText }}

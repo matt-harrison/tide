@@ -4,6 +4,7 @@
   import type { BreadCrumb } from '../types/BreadCrumb';
 
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { SIZE } from '../types/Size';
 
@@ -17,22 +18,22 @@
 </script>
 
 <template>
-  <ul class="bread-crumbs tide-display-flex tide-axis2-center tide-gap-1/4 tide-list-none">
+  <ul :class="['tide-bread-crumbs', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.LIST_BULLETS.OFF]">
     <template
       :key="crumb.label"
       v-for="(crumb, index) in props.breadCrumbs"
     >
-      <li class="tide-font-14">
+      <li :class="[CSS.FONT.SIZE.FOURTEEN]">
         <a
+          :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, 'tide-font-on-surface']"
           :href="crumb.url"
-          class="tide-font-700 tide-font-on-surface"
           v-if="crumb.url"
         >
           {{ crumb.label }}
         </a>
 
         <span
-          class="tide-font-500 tide-font-on-surface-variant"
+          :class="[CSS.FONT.WEIGHT.FIVE_HUNDRED, 'tide-font-on-surface-variant']"
           v-else
         >
           {{ crumb.label }}

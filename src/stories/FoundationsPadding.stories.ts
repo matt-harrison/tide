@@ -40,7 +40,7 @@ const render = (args: any) => ({
     return formatArgs(args);
   },
   template:
-    '<div class="tide-display-inline-block tide-border-1 tide-border-blue-dark tide-bg-blue-light" v-bind="args"><div class="tide-padding-1 tide-bg-white">Demo</div></div>',
+    '<div class="tide-display-inline-block tide-border-1 sb-bg-blue-light" v-bind="args"><div class="tide-padding-1 sb-bg-white">Demo</div></div>',
   updated() {
     return formatArgs(args);
   },

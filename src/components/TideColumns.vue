@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { CSS } from '../types/Styles';
+
   type Props = {
     heading?: string;
   };
@@ -12,7 +14,7 @@
   <section class="tide-columns">
     <h2 class="tide-margin-bottom-1/2 tide-font-16">{{ props.heading }}</h2>
 
-    <ul class="tide-display-flex tide-flex-wrap tide-gap-2 tide-list-none">
+    <ul :class="[CSS.DISPLAY.FLEX, CSS.FLEX.WRAP, CSS.GAP.TWO, CSS.LIST_BULLETS.OFF]">
       <li class="tide-columns-column">
         <slot name="section1" />
       </li>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import type { Link } from '../types/Link';
 
+  import { CSS } from '../types/Styles';
   import { TARGET } from '../types/Target';
 
   type Props = {
@@ -15,18 +16,20 @@
 
 <template>
   <section class="tide-responsive-columns">
-    <h2 class="tide-margin-bottom-1/2 tide-font-16">{{ props.heading }}</h2>
+    <h2 :class="[CSS.MARGIN.BOTTOM.HALF, CSS.FONT.SIZE.SIXTEEN]">
+      {{ props.heading }}
+    </h2>
 
-    <ul class="tide-display-flex tide-flex-wrap tide-gap-2 tide-list-none">
+    <ul :class="[CSS.DISPLAY.FLEX, CSS.FLEX.WRAP, CSS.GAP.TWO, CSS.LIST_BULLETS.OFF]">
       <li
+        :class="[CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.GAP.QUARTER, 'tide-width-1/', CSS.FONT.SIZE.FOURTEEN]"
         :key="link.label"
-        class="tide-display-flex tide-flex-column tide-gap-1/4 tide-width-1/4 tide-font-14"
         v-for="link in props.links"
       >
         <a
+          :class="[CSS.UNDERLINE.OFF]"
           :href="link.url"
           :target="link.isNewTab ? TARGET.BLANK : TARGET.SELF"
-          class="tide-underline-none"
         >
           {{ link.label }}
         </a>
@@ -36,6 +39,7 @@
 </template>
 
 <style>
+  /* TODO: Refactor to accept breakpoint prop in order to accomplish this with neither custom breakpoints nor dependency on ViewportStore. */
   ul.tide-display-flex.tide-flex-wrap > .tide-width-1\/4 {
     width: 100%;
   }

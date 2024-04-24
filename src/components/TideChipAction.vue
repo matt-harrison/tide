@@ -1,5 +1,6 @@
 <script lang="ts" setup>
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { TARGET } from '../types/Target';
 
@@ -16,9 +17,23 @@
 
 <template>
   <a
+    :class="[
+      'tide-chip-action',
+      CSS.AXIS2.CENTER,
+      CSS.GAP.HALF,
+      CSS.BORDER.FULL.TWO,
+      'tide-border',
+      CSS.BORDER.RADIUS.FULL,
+      CSS.PADDING.X.ONE,
+      CSS.PADDING.Y.HALF,
+      'tide-bg-surface',
+      CSS.FONT.SIZE.FOURTEEN,
+      CSS.FONT.WEIGHT.FIVE_HUNDRED,
+      'tide-font-on-surface',
+      CSS.UNDERLINE.OFF,
+    ]"
     :href="props.href"
     :target="props.isNewTab ? TARGET.BLANK : TARGET.SELF"
-    class="tide-chip-action tide-display-flex tide-axis2-center tide-gap-1/2 tide-border-2 tide-border tide-radius-full tide-padding-x-1 tide-padding-y-1/2 tide-bg-surface tide-font-14 tide-font-500 tide-font-on-surface tide-underline-none"
   >
     <TideIcon :icon="ICON.SEARCH" />
 

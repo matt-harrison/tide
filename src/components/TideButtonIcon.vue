@@ -4,6 +4,7 @@
   import type { Priority } from '../types/Priority';
 
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ELEMENT } from '../types/Element';
   import { PRIORITY } from '../types/Priority';
   import { SIZE } from '../types/Size';
@@ -33,8 +34,8 @@
     :class="[
       props.element === ELEMENT.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
       props.priority && props.priority,
-      'tide-display-flex tide-axis1-center tide-axis2-center tide-radius-full tide-padding-1/2',
-      props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
+      [CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF],
+      props.element === ELEMENT.LINK ? [CSS.UNDERLINE.OFF] : '',
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"

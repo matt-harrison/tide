@@ -3,6 +3,8 @@
 
   import type { Tab } from '../types/Tab';
 
+  import { CSS } from '../types/Styles';
+
   type Props = {
     activeTabInitial?: number;
     tabs: Tab[];
@@ -23,20 +25,38 @@
 
 <template>
   <div
-    class="tide-tabs tide-display-flex tide-gap-1/4 tide-radius-1/2 tide-padding-1/4 tide-width-full tide-bg-surface-variant tide-xy-hidden"
+    :class="[
+      'tide-tabs',
+      'tide-bg-surface-variant',
+      CSS.DISPLAY.FLEX,
+      CSS.GAP.QUARTER,
+      CSS.BORDER.RADIUS.HALF,
+      CSS.PADDING.FULL.QUARTER,
+      CSS.OVERFLOW.XY.HIDDEN,
+    ]"
   >
     <button
-      :class="
-        index === activeTab ? 'tide-bg-surface tide-font-on-surface tide-shadow-bottom' : 'tide-font-on-surface-variant'
-      "
+      :class="[
+        'tide-tabs-tab',
+        index === activeTab
+          ? ['tide-bg-surface', 'tide-font-on-surface', CSS.SHADOW.BOTTOM]
+          : ['tide-font-on-surface-variant'],
+        CSS.FLEX.GROW.ON,
+        CSS.BORDER.RADIUS.QUARTER,
+        CSS.PADDING.Y.QUARTER,
+        CSS.WIDTH.FULL,
+        CSS.FONT.WEIGHT.SIX_HUNDRED,
+        CSS.WHITESPACE_WRAP.OFF,
+      ]"
       :key="tab.label"
       @click="(event: Event) => handleTabClick(event, index)"
-      class="tide-tabs-tab tide-grow tide-shrink tide-radius-1/4 tide-padding-y-1/4 tide-width-full tide-font-14 tide-font-600 tide-whitespace-nowrap"
       v-for="(tab, index) in props.tabs"
     >
-      <span class="tide-font-600">{{ tab.label }} </span>
+      <span :class="[CSS.FONT.WEIGHT.SIX_HUNDRED]">
+        {{ tab.label }}
+      </span>
       <span
-        class="tide-font-600"
+        :class="[CSS.FONT.WEIGHT.SIX_HUNDRED]"
         v-if="tab.count && tab.count > 0"
       >
         ({{ tab.count }})

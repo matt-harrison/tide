@@ -43,10 +43,19 @@
 </script>
 
 <template>
-  <div :class="['tide-checkbox', CSS.FLEX, CSS.AXIS2_CENTER, CSS.GAP_1_2, CSS.FONT_14, disabled && 'disabled']">
+  <div
+    :class="[
+      'tide-checkbox',
+      CSS.DISPLAY.FLEX,
+      CSS.AXIS2.CENTER,
+      CSS.GAP.HALF,
+      CSS.FONT.SIZE.FOURTEEN,
+      disabled && 'disabled',
+    ]"
+  >
     <input
       :checked="props.value || undefined"
-      :class="[CSS.GROW_NONE, CSS.SHRINK_NONE, disabled ? CSS.CURSOR_NOT_ALLOWED : CSS.CURSOR_POINTER]"
+      :class="[CSS.FLEX.GROW.OFF, CSS.FLEX.SHRINK.OFF, disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.POINTER]"
       :disabled="props.disabled"
       :name="name"
       ref="input"
@@ -55,7 +64,7 @@
     />
 
     <label
-      :class="[CSS.PL_1_2, disabled ? CSS.CURSOR_NOT_ALLOWED : CSS.CURSOR_POINTER]"
+      :class="[CSS.PADDING.LEFT.HALF, disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.POINTER]"
       :for="uniqueInputId"
       @click.stop
       v-if="label"
@@ -76,4 +85,3 @@
     opacity: 0.32;
   }
 </style>
-../types/StylesOld../types/StylesNew

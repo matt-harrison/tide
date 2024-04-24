@@ -9,9 +9,8 @@
 .tier-2 {background-color: var(--tier-2);}
 .tier-3 {background-color: var(--tier-3);}
 
-.sb-bg-blue-light {
-  background-color: #CCDEF3;
-}
+.sb-bg-blue-light {background-color: #CCDEF3;}
+.sb-bg-white {background-color: #FFFFFF;}
 
 .sb-font-blue {
   color: blue;

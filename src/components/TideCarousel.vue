@@ -2,6 +2,7 @@
   import { onMounted, onUnmounted, onUpdated, ref, watch } from 'vue';
 
   import TideButtonIcon from './TideButtonIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { PRIORITY } from '../types/Priority';
 
@@ -129,51 +130,58 @@
 
 <template>
   <section
+    :class="['tide-carousel', CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.WIDTH.FULL]"
     ref="carouselRef"
-    class="tide-carousel tide-position-relative tide-display-flex tide-axis2-center tide-max-width-full"
   >
     <div
+      :class="[CSS.SCROLLBAR.OFF, CSS.SNAP.ON, CSS.OVERFLOW.X.SCROLL]"
       ref="frameRef"
       @scroll="handleScroll"
-      class="scrollbar-none tide-scroll-snap tide-x-scroll"
     >
       <ul
-        :class="props.isTouchscreen ? 'tide-x-auto' : ''"
+        :class="[props.isTouchscreen ? [CSS.OVERFLOW.X.AUTO] : '', CSS.DISPLAY.FLEX, CSS.GAP.ONE, CSS.LIST_BULLETS.OFF]"
         ref="contentRef"
-        class="tide-display-flex tide-gap-1 tide-list-none"
       >
         <li
+          :class="[CSS.FLEX.SHRINK.OFF, CSS.SNAP_ALIGN.START]"
           :style="{ width: `${props.offsetX - gap}px` }"
-          class="tide-shrink-none tide-scroll-snap-start"
           v-if="props.offsetX"
         />
 
         <slot />
 
         <li
+          :class="[CSS.FLEX.SHRINK.OFF, CSS.SNAP_ALIGN.START]"
           :style="{ width: `${props.offsetX - gap}px` }"
-          class="tide-shrink-none tide-scroll-snap-start"
           v-if="props.offsetX"
         />
       </ul>
     </div>
 
     <div
-      class="tide-position-absolute tide-display-flex tide-axis1-between tide-axis2-center tide-width-full h-full tide-pointer-events-none"
+      :class="[
+        CSS.POSITION.ABSOLUTE,
+        CSS.DISPLAY.FLEX,
+        CSS.AXIS1.BETWEEN,
+        CSS.AXIS2.CENTER,
+        CSS.WIDTH.FULL,
+        CSS.HEIGHT.FULL,
+        CSS.POINTER_EVENTS.OFF,
+      ]"
       v-if="showButtons"
     >
       <TideButtonIcon
+        :class="[CSS.MARGIN.LEFT.ONE, CSS.POINTER_EVENTS.ON]"
         :icon="ICON.CHEVRON_LEFT"
         :priority="PRIORITY.QUATERNARY"
         @click="showPreviousSlide"
-        class="tide-margin-left-1 tide-pointer-events"
       />
 
       <TideButtonIcon
+        :class="[CSS.MARGIN.RIGHT.ONE, CSS.POINTER_EVENTS]"
         :icon="ICON.CHEVRON_RIGHT"
         :priority="PRIORITY.QUATERNARY"
         @click="showNextSlide"
-        class="tide-margin-right-1 tide-pointer-events"
       />
     </div>
   </section>

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
   import { onMounted, onBeforeUnmount, ref } from 'vue';
 
+  import { CSS } from '../types/Styles';
   import { getCdn } from '../utilities/format';
   import { realm } from '../config/main.config';
 
@@ -73,9 +74,9 @@
 <template>
   <img
     :alt="alt"
+    :class="['tide-image', CSS.OBJECT.CENTER, CSS.OBJECT.COVER]"
     ref="tideImage"
     :src="isLazy && src ? src : imageDefault"
-    class="tide-image tide-object-center tide-object-cover"
   />
 </template>
 

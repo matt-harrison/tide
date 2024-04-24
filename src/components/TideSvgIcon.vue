@@ -5,6 +5,7 @@
   import type { Icon } from '../types/Icon';
   import type { Size } from '../types/Size';
 
+  import { CSS } from '../types/Styles';
   import { SIZE } from '../types/Size';
   import { formatPascalCase } from '../utilities/format';
 
@@ -37,9 +38,9 @@
 <template>
   <div :class="['tide-svg-icon', props.size]">
     <svg
+      :class="[CSS.DISPLAY.BLOCK]"
       :data-icon="icon"
       :fill="props.fill"
-      class="tide-display-block"
       viewBox="0 0 64 64"
       xmlns="http://www.w3.org/2000/svg"
     >

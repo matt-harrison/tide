@@ -3,6 +3,7 @@
 
   import TideButtonIcon from './TideButtonIcon.vue';
   import TideButtonPagination from './TideButtonPagination.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
   import { PRIORITY } from '../types/Priority';
 
@@ -22,7 +23,7 @@
 </script>
 
 <template>
-  <section class="tide-display-flex tide-axis1-center tide-axis2-center tide-gap-1 tide-width-full">
+  <section :class="[CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.ONE, CSS.WIDTH.FULL]">
     <TideButtonIcon
       :disabled="props.pageCurrent === 1"
       :icon="ICON.CHEVRON_LEFT"
@@ -30,7 +31,7 @@
       @click="$emit('setPage', props.pageCurrent - 1)"
     />
 
-    <ul class="tide-display-flex tide-axis2-center tide-gap-1/4 tide-margin-x-2 tide-list-none">
+    <ul :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.X.TWO, CSS.LIST_BULLETS.OFF]">
       <li
         :key="paginationButton"
         v-for="paginationButton in paginationButtons"

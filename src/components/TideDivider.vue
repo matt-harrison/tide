@@ -1,5 +1,7 @@
-<script setup></script>
+<script setup>
+  import { CSS } from '../types/Styles';
+</script>
 
 <template>
-  <div class="tide-margin-y-1/2 tide-border-bottom-1 tide-border-low" />
+  <div :class="['tide-border-low', CSS.MARGIN.Y.HALF, CSS.BORDER.BOTTOM.ONE]" />
 </template>

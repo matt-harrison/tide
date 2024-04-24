@@ -2,6 +2,7 @@
   import { onMounted, ref, watch, type CSSProperties } from 'vue';
 
   import TideIcon from './TideIcon.vue';
+  import { CSS } from '../types/Styles';
   import { ICON } from '../types/Icon';
 
   // TODO: replace body scroll lock with a global mixin
@@ -70,40 +71,69 @@
   <Teleport to="body">
     <Transition>
       <div
-        :class="{ open: props.isOpen }"
+        :class="[
+          'tide-modal',
+          { open: props.isOpen },
+          CSS.POSITION.FIXED,
+          CSS.DISPLAY.FLEX,
+          CSS.AXIS1.CENTER,
+          CSS.AXIS2.CENTER,
+          CSS.POSITIONING.TOP_0,
+          CSS.POSITIONING.LEFT_0,
+          CSS.WIDTH.FULL,
+          CSS.HEIGHT.FULL,
+        ]"
         :style="{ '--modal-width': props.width, ...style }"
         @click.self="handleClose"
-        class="tide-modal tide-position-fixed tide-display-flex tide-axis1-center tide-axis2-center tide-top-0 tide-left-0 tide-width-full h-full"
         v-show="props.isOpen"
       >
         <div
+          :class="[
+            'modal-body',
+            'tide-font-surface',
+            CSS.DISPLAY.FLEX,
+            CSS.FLEX.DIRECTION.COLUMN,
+            CSS.BORDER.RADIUS.HALF,
+            CSS.OVERFLOW.XY.HIDDEN,
+          ]"
           :style="{ ...modalStyle }"
-          class="modal-body tide-display-flex tide-flex-column tide-radius-1/2 tide-bg-surface tide-font-surface tide-xy-hidden"
         >
-          <header class="modal-header tide-position-relative tide-display-flex tide-axis2-center tide-padding-x-2">
+          <header
+            :class="['modal-header', CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.PADDING.X.TWO]"
+          >
             <div
-              class="tide-grow tide-font-20 text-center tide-margin-x-2 tide-font-700"
+              :class="[CSS.FLEX.GROW.ON, CSS.FONT.SIZE.TWENTY, CSS.ALIGN.X.CENTER, CSS.FONT.WEIGHT.SEVEN_HUNDRED]"
               v-if="title"
             >
               {{ title }}
             </div>
 
             <button
+              :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.TWO]"
               @click="handleClose"
-              class="tide-position-absolute tide-right-0 tide-margin-right-2"
               title="Close"
             >
               <TideIcon :icon="ICON.CLOSE" />
             </button>
           </header>
 
-          <div class="modal-content tide-y-auto">
+          <div :class="['model-content', CSS.OVERFLOW.Y.AUTO]">
             <slot />
           </div>
 
           <template v-if="$slots.footer">
             <footer
-              class="sticky tide-left-0 tide-bottom-0 tide-display-flex tide-axis1-end tide-gap-1 tide-padding-x-2 tide-padding-y-1/2 tide-bg-surface"
+              :class="[
+                'tide-bg-surface',
+                CSS.POSITION.STICKY,
+                CSS.POSITIONING.LEFT_0,
+                CSS.POSITIONING.BOTTOM_0,
+                CSS.DISPLAY.FLEX,
+                CSS.AXIS1.END,
+                CSS.GAP.ONE,
+                CSS.PADDING.X.TWO,
+                CSS.PADDING.Y.HALF,
+              ]"
             >
               <slot name="footer" />
             </footer>
