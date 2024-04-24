@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import * as STANDARD_FORMAT from '@/types/Formatted';
 import * as STANDARD_ICON from '@/types/Icon';
 import * as STANDARD_TEXT_INPUT_TYPE from '@/types/TextInput';
-import TideTextInput from '@/components/TideTextInput.vue';
+import TideInputText from '@/components/TideInputText.vue';
 import { VALIDATOR } from '@/types/Validation';
 import {
   argTypeBooleanUnrequired,
@@ -18,14 +18,14 @@ const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INPUT_TYPE);
 
 const render = (args: any) => ({
-  components: { TideTextInput },
+  components: { TideInputText },
   methods: {
     handleKeyUp: (event: KeyboardEvent) => {
-      action('TideTextInput changed')(event);
+      action('TideInputText changed')(event);
     },
   },
   setup: () => ({ args }),
-  template: `<TideTextInput @keyup="handleKeyUp" v-bind="args" />`,
+  template: `<TideInputText @keyup="handleKeyUp" v-bind="args" />`,
 });
 
 export default {
@@ -147,11 +147,11 @@ export default {
     validators: [],
     value: '',
   },
-  component: TideTextInput,
+  component: TideInputText,
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideTextInput',
+  title: 'Tide Components/TideInputText',
 };
 
 export const Demo = {};

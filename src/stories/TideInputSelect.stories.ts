@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import type { SelectOption } from '@/types/Select';
 
 import * as STANDARD_ICON from '@/types/Icon';
-import TideSelect from '@/components/TideSelect.vue';
+import TideInputSelect from '@/components/TideInputSelect.vue';
 import {
   argTypeBooleanUnrequired,
   formatArgType,
@@ -36,17 +36,17 @@ const selectOptions: SelectOption[] = [
 ];
 
 const render = (args: any, { updateArgs }: any) => ({
-  components: { TideSelect },
+  components: { TideInputSelect },
   methods: {
     handleChange: (event: Event) => {
       const value = parseInt((event?.target as HTMLSelectElement).value, 10);
 
-      action('TideSelect changed')(event);
+      action('TideInputSelect changed')(event);
       updateArgs({ ...args, value });
     },
   },
   setup: () => ({ args }),
-  template: `<TideSelect @change="handleChange" v-bind="args" />`,
+  template: `<TideInputSelect @change="handleChange" v-bind="args" />`,
 });
 
 export default {
@@ -135,11 +135,11 @@ export default {
     suffix: '',
     value: undefined,
   },
-  component: TideSelect,
+  component: TideInputSelect,
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideSelect',
+  title: 'Tide Components/TideInputSelect',
 };
 
 export const Demo = {};

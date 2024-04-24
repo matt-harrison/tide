@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 
 import * as STANDARD_FORMAT from '@/types/Formatted';
-import TideTextarea from '@/components/TideTextarea.vue';
+import TideInputTextarea from '@/components/TideInputTextarea.vue';
 import { VALIDATOR } from '@/types/Validation';
 import {
   argTypeBooleanUnrequired,
@@ -14,14 +14,14 @@ import {
 const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 
 const render = (args: any) => ({
-  components: { TideTextarea },
+  components: { TideInputTextarea },
   methods: {
     handleKeyUp: (event: KeyboardEvent) => {
-      action('TideTextarea changed')(event);
+      action('TideInputTextarea changed')(event);
     },
   },
   setup: () => ({ args }),
-  template: `<TideTextarea @keyup="handleKeyUp" v-bind="args" />`,
+  template: `<TideInputTextarea @keyup="handleKeyUp" v-bind="args" />`,
 });
 
 export default {
@@ -133,11 +133,11 @@ export default {
     validators: [],
     value: '',
   },
-  component: TideTextarea,
+  component: TideInputTextarea,
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideTextarea',
+  title: 'Tide Components/TideInputTextarea',
 };
 
 export const Demo = {};

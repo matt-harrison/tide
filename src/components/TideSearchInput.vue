@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
-  import TideTextInput from './TideTextInput.vue';
+  import TideInputText from './TideInputText.vue';
   import { ICON } from '../types/Icon';
   import { TEXT_INPUT_TYPE } from '../types/TextInput';
 
@@ -25,7 +25,7 @@
 </script>
 
 <template>
-  <TideTextInput
+  <TideInputText
     :icon-leading="ICON.SEARCH"
     :name="name"
     :type="TEXT_INPUT_TYPE.SEARCH"
