@@ -17,12 +17,15 @@ const options = {
 
 const tabs: Tab[] = [
   {
+    dataTrack: 'Tab 0 Click',
     label: 'First Tab',
   },
   {
+    dataTrack: 'Tab 1 Click',
     label: 'Second Tab',
   },
   {
+    dataTrack: 'Tab 2 Click',
     label: 'Third Tab',
   },
 ];
@@ -74,7 +77,7 @@ export default {
     },
     tabs: {
       control: 'object',
-      description: 'Determines label and callback for each tab',
+      description: 'Sets label and callback for each tab',
       isCustom: true,
       table: {
         defaultValue: { summary: 'None' },

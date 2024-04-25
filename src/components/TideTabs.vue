@@ -51,6 +51,7 @@
         CSS.FONT.WEIGHT.SIX_HUNDRED,
         CSS.WHITESPACE_WRAP.OFF,
       ]"
+      :data-track="tab.dataTrack || undefined"
       :key="tab.label"
       @click="(event: Event) => handleTabClick(event, index)"
       v-for="(tab, index) in props.tabs"
