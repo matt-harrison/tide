@@ -18,7 +18,7 @@ const config: StorybookConfig = {
 
     '../src/stories/TideAccordionItem.stories.ts',
     '../src/stories/TideAlert.stories.ts',
-    // '../src/stories/TideBadge.stories.ts',
+    '../src/stories/TideBadge.stories.ts',
     '../src/stories/TideBreadCrumbs.stories.ts',
     '../src/stories/TideButton.stories.ts',
     '../src/stories/TideButtonIcon.stories.ts',
