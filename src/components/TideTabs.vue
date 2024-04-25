@@ -14,12 +14,14 @@
     activeTabInitial: 0,
   });
 
+  const emit = defineEmits(['tabClick']);
+
   const activeTab = ref(props.activeTabInitial);
 
   const handleTabClick = (event: Event, index: number) => {
     activeTab.value = index;
 
-    props.tabs[index]?.callback(event);
+    emit('tabClick', event, index);
   };
 </script>
 

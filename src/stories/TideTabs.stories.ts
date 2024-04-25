@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import type { Tab } from '@/types/Tab';
 
 import TideTabs from '@/components/TideTabs.vue';
-import { getLabelsFromOptions, parameters } from '@/utilities/storybook';
+import { getLabelsFromOptions, doSomething, parameters } from '@/utilities/storybook';
 
 /* eslint-disable */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
@@ -17,29 +17,37 @@ const options = {
 
 const tabs: Tab[] = [
   {
-    callback: (event: Event) => {
-      action('Tab 1 click')(event);
-    },
-    label: 'Tab 1',
+    label: 'First Tab',
   },
   {
-    callback: (event: Event) => {
-      action('Tab 2 click')(event);
-    },
-    label: 'Tab 2',
+    label: 'Second Tab',
   },
   {
-    callback: (event: Event) => {
-      action('Tab 3 click')(event);
-    },
-    label: 'Tab 3',
+    label: 'Third Tab',
   },
 ];
 
 const render = (args: any) => ({
   components: { TideTabs },
+  methods: {
+    doSomething,
+    handleTabClick: (event: Event, index: number) => {
+      action(`Current tab ${index}`)(args);
+
+      try {
+        const tabClick = eval(args.tabClick);
+
+        if (tabClick) {
+          tabClick();
+        }
+      } catch {
+        alert('Please pass a valid function in the "tabClick" control.');
+      }
+    },
+  },
   setup: () => ({ args }),
-  template: '<TideTabs :key="args.activeTabInitial" class="tide-display-inline-flex" v-bind="args" />',
+  template:
+    '<TideTabs @tab-click="handleTabClick" :key="args.activeTabInitial" class="tide-display-inline-flex" v-bind="args" />',
 });
 
 export default {
@@ -56,6 +64,14 @@ export default {
         defaultValue: { summary: 'None' },
       },
     },
+    tabClick: {
+      control: 'text',
+      description: 'JS function to execute when tab is clicked',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: '(event: Event, tabIndex: number) => void' },
+      },
+    },
     tabs: {
       control: 'object',
       description: 'Determines label and callback for each tab',
@@ -68,6 +84,7 @@ export default {
   },
   args: {
     activeTabInitial: undefined,
+    tabClick: 'doSomething',
     tabs,
   },
   component: TideTabs,

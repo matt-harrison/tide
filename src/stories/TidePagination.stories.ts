@@ -10,7 +10,7 @@ const render = (args: any, { updateArgs }: any) => ({
   components: { TidePagination },
   methods: {
     handleSetPage: (page: number) => {
-      action('setPage')(args);
+      action(`Current page ${page}`)(args);
 
       updateArgs({ ...args, pageCurrent: page });
     },
@@ -43,10 +43,10 @@ export default {
     },
     setPage: {
       control: 'text',
-      description: 'JS function to execute on click',
+      description: 'JS function to execute when pagination button is clicked',
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: 'function' },
+        type: { summary: '(event: Event, pageIndex: number) => void' },
       },
     },
   },

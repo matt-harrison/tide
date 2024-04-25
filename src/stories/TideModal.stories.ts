@@ -1,12 +1,15 @@
+import { action } from '@storybook/addon-actions';
+
 import type { StoryContext } from '@storybook/vue3';
 
 import TideButton from '@/components/TideButton.vue';
 import TideModal from '@/components/TideModal.vue';
+import { doSomething } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
 
-  return `<TideModal @close="handleClose"><template #footer>${args.footer}</template>${args.default}</TideModal>`;
+  return `<TideModal @modal-close="handleModalClose">\r\t<template #footer>\r\t\t${args.footer}\r\t</template>\r\r\t${args.default}\r</TideModal>`;
 };
 
 const parameters = {
@@ -22,14 +25,27 @@ const parameters = {
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideButton, TideModal },
   methods: {
-    handleClose: () => {
+    doSomething,
+    handleModalClose: () => {
+      action('Modal closed')(args);
+
+      try {
+        const modalClose = eval(args.modalClose);
+
+        if (modalClose) {
+          modalClose();
+        }
+      } catch {
+        alert('Please pass a valid function in the "modalClose" control.');
+      }
+
       updateArgs({ ...args, isOpen: false });
     },
   },
   setup: () => ({ args }),
   template: `
   <p>Toggle "isOpen" prop below to preview.</p>
-  <TideModal v-bind="args" @close="handleClose">
+  <TideModal v-bind="args" @modal-close="handleModalClose">
     ${args.default}
     <template #footer>${args.footer}</template>
   </TideModal>`,
@@ -37,11 +53,6 @@ const render = (args: any, { updateArgs }: any) => ({
 
 export default {
   argTypes: {
-    close: {
-      table: {
-        disable: true,
-      },
-    },
     default: {
       control: 'text',
       description: 'Modal content',
@@ -62,6 +73,14 @@ export default {
       description: 'Determines whether the Modal is displayed',
       table: {
         defaultValue: { summary: 'False' },
+      },
+    },
+    modalClose: {
+      control: 'text',
+      description: 'JS function to execute when modal is closed',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: '() => void' },
       },
     },
     modalStyle: {
@@ -93,6 +112,7 @@ export default {
     default: '<div class="tide-margin-bottom-1 tide-padding-x-1 tide-width-full">Default Slot Demo</div>',
     footer: '<TideButton label="Footer Slot Demo" />',
     isOpen: false,
+    modalClose: 'doSomething',
     modalStyle: {},
     style: {},
     title: 'Modal Demo',

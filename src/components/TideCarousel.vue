@@ -178,7 +178,7 @@
       />
 
       <TideButtonIcon
-        :class="[CSS.MARGIN.RIGHT.ONE, CSS.POINTER_EVENTS]"
+        :class="[CSS.MARGIN.RIGHT.ONE, CSS.POINTER_EVENTS.ON]"
         :icon="ICON.CHEVRON_RIGHT"
         :priority="PRIORITY.QUATERNARY"
         @click="showNextSlide"

@@ -17,12 +17,12 @@
 
   const props = defineProps<Props>();
 
-  const emit = defineEmits(['close']);
+  const emit = defineEmits(['modalClose']);
 
   const savedScrollPosition = ref<number | null>(null);
 
-  const handleClose = () => {
-    emit('close');
+  const handleModalClose = () => {
+    emit('modalClose');
   };
 
   const updateScrollLock = () => {
@@ -38,7 +38,7 @@
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       e.stopPropagation();
-      handleClose();
+      handleModalClose();
     }
   };
 
@@ -84,7 +84,7 @@
           CSS.HEIGHT.FULL,
         ]"
         :style="{ '--modal-width': props.width, ...style }"
-        @click.self="handleClose"
+        @click.self="handleModalClose"
         v-show="props.isOpen"
       >
         <div
@@ -110,7 +110,7 @@
 
             <button
               :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.TWO]"
-              @click="handleClose"
+              @click="handleModalClose"
               title="Close"
             >
               <TideIcon :icon="ICON.CLOSE" />
