@@ -72,9 +72,8 @@
     <Transition>
       <div
         :class="[
-          'tide-modal',
-          { open: props.isOpen },
-          CSS.POSITION.FIXED,
+          'tide-modal-wrapper',
+          CSS.POSITION.ABSOLUTE,
           CSS.DISPLAY.FLEX,
           CSS.AXIS1.CENTER,
           CSS.AXIS2.CENTER,
@@ -83,14 +82,19 @@
           CSS.WIDTH.FULL,
           CSS.HEIGHT.FULL,
         ]"
-        :style="{ '--modal-width': props.width, ...style }"
-        @click.self="handleModalClose"
         v-show="props.isOpen"
       >
         <div
+          :class="['tide-modal-bg', CSS.POSITION.ABSOLUTE, CSS.WIDTH.FULL, CSS.HEIGHT.FULL]"
+          :style="{ '--modal-width': props.width, ...style }"
+          @click.self="handleModalClose"
+        />
+        <div
           :class="[
-            'modal-body',
+            'tide-modal',
+            'tide-bg-floating',
             'tide-font-surface',
+            CSS.POSITION.ABSOLUTE,
             CSS.DISPLAY.FLEX,
             CSS.FLEX.DIRECTION.COLUMN,
             CSS.BORDER.RADIUS.HALF,
@@ -145,13 +149,13 @@
 </template>
 
 <style lang="scss" scoped>
-  .tide-modal {
+  .tide-modal-bg {
     transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4px);
   }
 
-  .modal-body {
+  .tide-modal {
     width: var(--modal-width);
     max-width: calc(100% - 2rem);
     max-height: calc(100% - 2rem);
@@ -177,7 +181,7 @@
     backdrop-filter: blur(0px);
     background-color: rgba(255, 255, 255, 0);
 
-    & .modal-body {
+    & .tide-modal {
       transform: translateY(100vh);
     }
   }
@@ -186,7 +190,7 @@
   .v-leave-active {
     transition: backdrop-filter var(--animate), background-color var(--animate);
 
-    & .modal-body {
+    & .tide-modal {
       transition: transform var(--animate);
     }
   }
@@ -196,7 +200,7 @@
     backdrop-filter: blur(4px);
     background-color: rgba(255, 255, 255, 0.3);
 
-    & .modal-body {
+    & .tide-modal {
       transform: translateY(0);
     }
   }
