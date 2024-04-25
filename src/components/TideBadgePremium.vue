@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import type { Badge } from '../types/Badge';
+  import type { BadgePremium } from '../types/Badge';
 
   import { CSS } from '../types/Styles';
 
   type Props = {
-    label: Badge;
+    label: BadgePremium;
   };
 
   const props = defineProps<Props>();
@@ -15,13 +15,13 @@
     :class="[
       'tide-badge',
       'tide-on-surface',
-      'tide-bg-surface-floating',
+      'tide-bg-surface-variant',
       CSS.DISPLAY.INLINE_FLEX,
       CSS.GAP.QUARTER,
       CSS.BORDER.RADIUS.QUARTER,
       CSS.PADDING.Y.QUARTER,
       CSS.PADDING.X.HALF,
-      CSS.FONT.SIZE.FOURTEEN,
+      CSS.FONT.SIZE.TWELVE,
     ]"
   >
     {{ props.label }}

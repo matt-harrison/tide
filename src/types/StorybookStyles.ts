@@ -171,3 +171,9 @@ export const SHADOW = {
   Bottom: 'tide-shadow-bottom',
   Top: 'tide-shadow-top',
 };
+
+export const BADGE_TRUSTED = {
+  YEARS_5: '5',
+  YEARS_10: '10',
+  YEARS_15: '15',
+};

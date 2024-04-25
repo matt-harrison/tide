@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-  import type { Badge } from '../types/Badge';
-
   import { CSS } from '../types/Styles';
 
   type Props = {
-    label: Badge;
+    slideCurrent: number;
+    slideTotal: number;
   };
 
   const props = defineProps<Props>();
@@ -24,7 +23,7 @@
       CSS.FONT.SIZE.FOURTEEN,
     ]"
   >
-    {{ props.label }}
+    {{ props.slideCurrent }} / {{ props.slideTotal }}
   </div>
 </template>
 
