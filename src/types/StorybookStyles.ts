@@ -76,6 +76,12 @@ export const GAP = {
   '0.25 REM': 'tide-gap-1/4',
 };
 
+export const LINK_SIZE = {
+  TWELVE: 'tide-font-12',
+  FOURTEEN: 'tide-font-14',
+  SIXTEEN: 'tide-font-16',
+};
+
 export const MARGIN = {
   'Full 4 REM': 'tide-margin-4',
   'Full 2 REM': 'tide-margin-2',

@@ -93,6 +93,19 @@ export const formatArgTypeCheck = (collection: KeyValueNamed) => {
   };
 };
 
+export const formatValueAsConstant = (keyValue: KeyValue, argTypes: any) => {
+  const [key, value] = Object.entries(keyValue)[0];
+  let constant;
+
+  Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+    if (value === optionValue) {
+      constant = `${argTypes[key].constant}.${optionKey}`;
+    }
+  });
+
+  return constant;
+};
+
 export const formatSnippet = (code: string, context: StoryContext) => {
   const tag = context.component?.__name;
   const { args, argTypes } = context;
