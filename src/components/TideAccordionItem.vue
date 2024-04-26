@@ -64,7 +64,7 @@
     <TideDivider v-if="props.hasTopDivider" />
 
     <div
-      :class="['accordion-head', CSS.DISPLAY.FLEX, CSS.AXIS1.BETWEEN, CSS.PADDING.Y.ONE, CSS.CURSOR.POINTER]"
+      :class="['accordion-head', CSS.DISPLAY.FLEX, CSS.AXIS1.BETWEEN, CSS.PADDING.Y.HALF, CSS.CURSOR.POINTER]"
       @click="toggleIsExpanded"
     >
       <div :class="['tide-display-flex', CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.FONT.WEIGHT.SEVEN_HUNDRED]">
@@ -88,7 +88,7 @@
       ref="accordionBody"
     >
       <div :class="[CSS.OVERFLOW.Y.HIDDEN]">
-        <div :class="[CSS.MARGIN.BOTTOM.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, 'tide-font-on-surface']">
+        <div :class="[CSS.MARGIN.Y.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, 'tide-font-on-surface']">
           <slot />
         </div>
       </div>

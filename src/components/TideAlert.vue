@@ -47,7 +47,16 @@
 </script>
 
 <template>
-  <div :class="[props.type, 'tide-alert', CSS.DISPLAY.GRID, CSS.BORDER.RADIUS.HALF, CSS.PADDING.FULL.ONE]">
+  <div
+    :class="[
+      props.type,
+      'tide-alert',
+      CSS.DISPLAY.GRID,
+      CSS.BORDER.RADIUS.HALF,
+      CSS.PADDING.FULL.ONE,
+      props.isToast ? CSS.SHADOW.BOTTOM : '',
+    ]"
+  >
     <div :class="['tide-alert-icon', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
       <TideIcon
         :class="[props.type, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF, 'tide-font-on-surface-inverse']"

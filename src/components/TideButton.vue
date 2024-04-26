@@ -39,7 +39,7 @@
       props.element === ELEMENT.LINK ? 'tide-link-as-button' : 'tide-button',
       props.priority && props.priority,
       props.element === ELEMENT.LINK ? [CSS.DISPLAY.INLINE_FLEX] : [CSS.DISPLAY.FLEX],
-      [CSS.AXIS1.CENTER, CSS.AXIS1.CENTER, CSS.GAP.HALF, CSS.BORDER.RADIUS.HALF],
+      [CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.BORDER.RADIUS.HALF],
       props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
       'tide-padding-y-1 tide-padding-x-2 tide-font-600',
     ]"
