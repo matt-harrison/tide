@@ -8,6 +8,7 @@ import {
   argTypeBooleanUnrequired,
   click,
   dataTrack,
+  doSomething,
   formatArgType,
   parameters,
   prependNoneAsUndefined,
@@ -20,8 +21,19 @@ const PRIORITY = prependNoneAsUndefined(STANDARD_PRIORITY.PRIORITY);
 const render = (args: any) => ({
   components: { TideButton },
   methods: {
+    doSomething,
     handleClick: (event: Event) => {
-      if (args.element !== ELEMENT.LINK && args.click) action(args.click)(event);
+      action('TideButton clicked')(event);
+
+      try {
+        const buttonClick = eval(args.click);
+
+        if (buttonClick) {
+          buttonClick();
+        }
+      } catch {
+        alert('Please pass a valid function in the "click" control.');
+      }
     },
   },
   setup: () => ({ args }),

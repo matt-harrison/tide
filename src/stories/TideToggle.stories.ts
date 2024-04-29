@@ -1,15 +1,26 @@
 import { action } from '@storybook/addon-actions';
 
 import TideToggle from '@/components/TideToggle.vue';
-import { argTypeBooleanUnrequired, click, dataTrack, parameters } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, click, dataTrack, doSomething, parameters } from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideToggle },
   methods: {
+    doSomething,
     handleClick: (event: Event) => {
       updateArgs({ ...args, isActive: !args.isActive });
 
-      if (args.click) action(args.click)(event);
+      action('TideToggle clicked')(event);
+
+      try {
+        const toggleClick = eval(args.click);
+
+        if (toggleClick) {
+          toggleClick();
+        }
+      } catch {
+        alert('Please pass a valid function in the "click" control.');
+      }
     },
   },
   setup: () => ({ args }),
