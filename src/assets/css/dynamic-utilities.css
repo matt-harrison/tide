@@ -12,7 +12,7 @@
 .tide-bg-surface-floating       {background: var(--surface-floating);}
 
 /* Border */
-.tide-border-primary {border-color: var(--primary);}
+.tide-border-primary   {border-color: var(--primary);}
 
 .tide-border          {border-color: var(--border);}
 .tide-border-low      {border-color: var(--border-low);}

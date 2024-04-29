@@ -1,7 +1,5 @@
 <script lang="ts" setup>
-  import TideIcon from './TideIcon.vue';
   import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
 
   type Props = {
     isActive: boolean;
@@ -15,9 +13,9 @@
   <button
     :class="[
       'tide-chip-filter',
-      'tide-border',
-      'tide-bg-surface',
-      'tide-font-on-surface',
+      props.isActive
+        ? ['tide-bg-secondary', 'tide-font-on-secondary']
+        : ['tide-bg-surface-variant', 'tide-font-on-surface'],
       CSS.DISPLAY.FLEX,
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,
@@ -31,15 +29,10 @@
     ]"
   >
     <slot />
-    <div :class="['tide-chip-filter-content', CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.HALF]">
+    <div :class="[CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.HALF]">
       <span :class="[props.isActive ? '' : 'icon-spacing', CSS.FONT.WEIGHT.FIVE_HUNDRED, CSS.WHITESPACE_WRAP.OFF]">
         {{ props.label }}
       </span>
-
-      <TideIcon
-        :icon="ICON.CHECK"
-        v-if="props.isActive"
-      />
     </div>
   </button>
 </template>
@@ -47,16 +40,18 @@
 <style scoped src="../assets/css/dynamic-buttons.css" />
 
 <style scoped>
-  .tide-chip-filter:hover,
-  .tide-chip-filter.active {
-    background-color: var(--surface-variant);
-    border-color: var(--border-high);
+  /* Border must always exist to prevent resize on hover state, but match background color on rest state to blend in. */
+  .tide-chip-filter {
+    border-color: var(--surface-variant);
   }
 
-  /* Button must be sized to account for icon when icon is not present so that toggling won't alter the button dimensions. */
-  .icon-spacing {
-    padding-right: 14px;
-    padding-left: 14px;
-    line-height: 20px;
+  .tide-chip-filter.active {
+    border-color: var(--secondary);
+  }
+
+  .tide-chip-filter:hover {
+    background-color: var(--surface-variant);
+    border-color: var(--border);
+    color: var(--on-surface);
   }
 </style>
