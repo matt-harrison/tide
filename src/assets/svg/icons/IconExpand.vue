@@ -1,3 +1,0 @@
-<template>
-  <path d="M5 19V13H7V17H11V19H5ZM17 11V7H13V5H19V11H17Z" />
-</template>

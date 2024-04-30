@@ -41,7 +41,7 @@
       :class="[CSS.DISPLAY.BLOCK]"
       :data-icon="icon"
       :fill="props.fill"
-      viewBox="0 0 64 64"
+      viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
       <Component

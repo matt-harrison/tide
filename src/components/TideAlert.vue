@@ -38,7 +38,7 @@
         icon = ICON.CHECK;
         break;
       case ALERT.WARNING:
-        icon = ICON.VIEW_IN_AR;
+        icon = ICON.WARNING;
         break;
     }
 

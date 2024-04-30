@@ -1,3 +1,3 @@
 <template>
-  <path d="M10 17V7L15 12L10 17Z" />
+  <path d="M10 17V7l5 5-5 5Z" />
 </template>
