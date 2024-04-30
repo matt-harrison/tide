@@ -1,31 +1,19 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/StorybookStyles';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
-
-const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
-const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
+import { TYPOGRAPHY } from '@/types/StorybookStyles';
+import { formatArgType } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = args.type.join(' ');
 
   return { args };
 };
 
-const formatClassNames = (args: any) => {
-  const classNames: string[] = [];
-
-  if (args.fontFamily) classNames.push(args.fontFamily);
-  if (args.fontSize) classNames.push(args.fontSize);
-  if (args.fontWeight) classNames.push(args.fontWeight);
-
-  return classNames.join(' ');
-};
-
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const { type } = args as { type: string[] };
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return `<div class="${type.join(' ')}">${args.label}</div>`;
 };
 
 const parameters = {
@@ -42,7 +30,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template: '<div v-bind="args">Demo</div>',
+  template: `<div v-bind="args">{{ args.label }}</div>`,
   updated() {
     return formatArgs(args);
   },
@@ -50,20 +38,24 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    fontSize: {
-      ...formatArgType({ FONT_SIZE }),
-      description: `Applies a font size (tide-position-relative to user's browser settings)`,
-      name: 'Font Size',
+    label: {
+      control: 'text',
+      description: 'Sample text',
+      name: 'Label',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
     },
-    fontWeight: {
-      ...formatArgType({ FONT_WEIGHT }),
-      description: 'Dictates the thickness of the text',
-      name: 'Font Weight',
+    type: {
+      ...formatArgType({ TYPOGRAPHY }),
+      description: `Applies font rules`,
+      name: 'Type',
     },
   },
   args: {
-    fontSize: FONT_SIZE.None,
-    fontWeight: FONT_WEIGHT.None,
+    label: 'Aa',
+    type: TYPOGRAPHY.BODY_1,
   },
   parameters,
   render,
@@ -71,88 +63,104 @@ export default {
   title: 'Foundations/Typography',
 };
 
-export const Default = {};
-
-export const FontSize10 = {
+export const Display1 = {
   args: {
-    fontSize: FONT_SIZE['10px'],
+    type: TYPOGRAPHY.DISPLAY_1,
   },
-  name: 'Font Size 10px',
 };
 
-export const FontSize12 = {
+export const Headline1 = {
   args: {
-    fontSize: FONT_SIZE['12px'],
+    type: TYPOGRAPHY.HEADLINE_1,
   },
-  name: 'Font Size 12px',
 };
 
-export const FontSize14 = {
+export const Headline2 = {
   args: {
-    fontSize: FONT_SIZE['14px'],
+    type: TYPOGRAPHY.HEADLINE_2,
   },
-  name: 'Font Size 14px',
 };
 
-export const FontSize16 = {
+export const Headline3 = {
   args: {
-    fontSize: FONT_SIZE['16px'],
+    type: TYPOGRAPHY.HEADLINE_1,
   },
-  name: 'Font Size 16px',
 };
 
-export const FontSize18 = {
+export const Title1 = {
   args: {
-    fontSize: FONT_SIZE['18px'],
+    type: TYPOGRAPHY.TITLE_1,
   },
-  name: 'Font Size 18px',
 };
 
-export const FontSize20 = {
+export const Title2 = {
   args: {
-    fontSize: FONT_SIZE['20px'],
+    type: TYPOGRAPHY.TITLE_1,
   },
-  name: 'Font Size 20px',
 };
 
-export const FontSize24 = {
+export const Body1 = {
   args: {
-    fontSize: FONT_SIZE['24px'],
+    type: TYPOGRAPHY.BODY_1,
   },
-  name: 'Font Size 24px',
 };
 
-export const FontSize28 = {
+export const Body2 = {
   args: {
-    fontSize: FONT_SIZE['28px'],
+    type: TYPOGRAPHY.BODY_1,
   },
-  name: 'Font Size 28px',
 };
 
-export const FontSize32 = {
+export const Label1 = {
   args: {
-    fontSize: FONT_SIZE['32px'],
+    type: TYPOGRAPHY.LABEL_1,
   },
-  name: 'Font Size 32px',
 };
 
-export const FontWeight500 = {
+export const Label1Semibold = {
   args: {
-    fontWeight: FONT_WEIGHT['500 Medium'],
+    type: TYPOGRAPHY.LABEL_1_SEMIBOLD,
   },
-  name: 'Font Weight 500 Medium',
 };
 
-export const FontWeight600 = {
+export const Label2 = {
   args: {
-    fontWeight: FONT_WEIGHT['600 Semibold'],
+    type: TYPOGRAPHY.LABEL_2,
   },
-  name: 'Font Weight 600 Semibold',
 };
 
-export const FontWeight700 = {
+export const Label2Semibold = {
   args: {
-    fontWeight: FONT_WEIGHT['700 Bold'],
+    type: TYPOGRAPHY.LABEL_2_SEMIBOLD,
   },
-  name: 'Font Weight 700 Bold',
+};
+
+export const Label3 = {
+  args: {
+    type: TYPOGRAPHY.LABEL_3,
+  },
+};
+
+export const Link1 = {
+  args: {
+    type: TYPOGRAPHY.LINK_1,
+  },
+};
+
+export const Link2 = {
+  args: {
+    type: TYPOGRAPHY.LINK_2,
+  },
+};
+
+export const Link3 = {
+  args: {
+    type: TYPOGRAPHY.LINK_3,
+  },
+};
+
+export const Button1 = {
+  args: {
+    type: TYPOGRAPHY.BUTTON_1,
+  },
 };
