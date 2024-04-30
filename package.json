@@ -55,7 +55,7 @@
     "lint:fix": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore --fix",
     "sb": "npm run storybook",
     "storybook": "storybook dev -p 6006",
-    "test": "vitest",
+    "test": "vitest run",
     "type-check": "vue-tsc --noEmit"
   },
   "type": "module",

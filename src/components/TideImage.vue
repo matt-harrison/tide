@@ -2,11 +2,10 @@
   import { onMounted, onBeforeUnmount, ref } from 'vue';
 
   import { CSS } from '../types/Styles';
-  import { getCdn } from '../utilities/format';
-  import { realm } from '../config/main.config';
 
   type Props = {
     alt?: string;
+    cdn?: string;
     isLazy?: boolean;
     offset?: number;
     src?: string;
@@ -14,6 +13,7 @@
 
   const props = withDefaults(defineProps<Props>(), {
     alt: '',
+    cdn: undefined,
     isLazy: true,
     offset: 0,
     src: undefined,
@@ -21,8 +21,7 @@
 
   const tideImage = ref();
 
-  const cdn = getCdn(realm);
-  const imageDefault = `${cdn}/image-coming-soon-512.png`;
+  const imageDefault = `${props.cdn}/image-coming-soon-512.png`;
 
   const loadImage = () => {
     if (props.src) {
