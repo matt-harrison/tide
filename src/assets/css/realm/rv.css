@@ -1,5 +1,5 @@
 /* RV Trader Realm Colors */
-:root {
+.rv {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --green:  #006836;
   --teal:   #8ADCB9;
@@ -12,10 +12,8 @@
   );
 
   --floating: rgba(255, 255, 255, 0);
-}
 
-/* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-:root {
+  /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
   --primary:    var(--green);
   --on-primary: var(--gray-100);
 

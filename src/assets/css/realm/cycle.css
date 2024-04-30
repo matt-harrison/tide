@@ -1,5 +1,5 @@
 /* Cycle Trader Realm Colors */
-:root {
+.cycle {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --pure-black:  #000000;
   --red: #C50000;
@@ -12,10 +12,8 @@
   );
 
   --floating: rgba(255, 255, 255, 0);
-}
 
-/* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-:root {
+  /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
   --primary:    var(--pure-black);
   --on-primary: var(--white);
 

@@ -1,5 +1,5 @@
 /* Commercial Truck Trader Realm Colors */
-:root {
+.truck {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --blue:  #005F9E;
   --midnight-blue:   #172C4B;
@@ -12,10 +12,8 @@
   );
 
   --floating: rgba(255, 255, 255, 0);
-}
 
-/* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-:root {
+  /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
   --primary:    var(--blue);
   --on-primary: var(--white);
 

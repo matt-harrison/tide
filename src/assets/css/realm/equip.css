@@ -1,5 +1,5 @@
 /* Equipment Trader Realm Colors */
-:root {
+.equip {
     /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
     --evergreen: #468200;
     --steel:     #494949;
@@ -12,33 +12,31 @@
     );
 
   --floating: rgba(255, 255, 255, 0);
-  }
 
   /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-  :root {
-    --primary:    var(--steel);
-    --on-primary: var(--white);
+  --primary:    var(--steel);
+  --on-primary: var(--white);
 
-    --secondary:    var(--black);
-    --on-secondary: var(--white);
+  --secondary:    var(--black);
+  --on-secondary: var(--white);
 
-    --surface:                var(--white);
-    --surface-variant:        var(--gray-200);
-    --surface-brand:          var(--steel);
-    --surface-accent:         var(--yellow);
-    --surface-accent-variant: var(--evergreen);
-    --surface-gradient:       var(--gradient);
-    --surface-floating:       var(--floating);
+  --surface:                var(--white);
+  --surface-variant:        var(--gray-200);
+  --surface-brand:          var(--steel);
+  --surface-accent:         var(--yellow);
+  --surface-accent-variant: var(--evergreen);
+  --surface-gradient:       var(--gradient);
+  --surface-floating:       var(--floating);
 
-    --on-surface:         var(--black);
-    --on-surface-variant: var(--gray-800);
-    --on-surface-brand:   var(--steel);
+  --on-surface:         var(--black);
+  --on-surface-variant: var(--gray-800);
+  --on-surface-brand:   var(--steel);
 
-    --on-surface-inverse:         var(--white);
-    --on-surface-inverse-variant: var(--transparent-200);
+  --on-surface-inverse:         var(--white);
+  --on-surface-inverse-variant: var(--transparent-200);
 
-    --border:          var(--gray-400);
-    --border-low:      var(--gray-600);
-    --border-high:     var(--black);
-    --border-floating: var(--gray-300);
-  }
+  --border:          var(--gray-400);
+  --border-low:      var(--gray-600);
+  --border-high:     var(--black);
+  --border-floating: var(--gray-300);
+}
