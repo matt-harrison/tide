@@ -1,4 +1,5 @@
 import { BOOLEAN_UNREQUIRED } from '../types/Storybook';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '../types/Element';
 
 // Extensible object of key/value pairs
 type KeyValue = { [key: string]: any };
@@ -168,7 +169,11 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       return `:${formatKebabCase(key)}="${key}"`;
     }
 
-    if (isClick && value && (!args.element || args.element === 'button')) {
+    if (
+      isClick &&
+      value &&
+      (!args.element || args.element === ELEMENT.BUTTON || args.element === ELEMENT_TEXT_AS_ICON.BUTTON)
+    ) {
       return `@click="${value}"`;
     }
   });
@@ -181,7 +186,6 @@ export const formatSnippet = (code: string, context: StoryContext) => {
 
   if (attributes) attributes.unshift('');
 
-  // TODO: return with implementation of JS Beautify dev dependency.
   return args.default ? `<${tag}${attributes.join(' ')}>${args.default}</${tag}>` : `<${tag}${attributes.join(' ')} />`;
 };
 

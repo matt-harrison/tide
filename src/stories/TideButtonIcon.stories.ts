@@ -88,7 +88,7 @@ export default {
     dataTrack: '',
     disabled: undefined,
     element: undefined,
-    href: 'https://www.traderinteractive.com',
+    href: 'https://www.sample.com',
     icon: ICON.MAIL,
     isNewTab: undefined,
     priority: undefined,

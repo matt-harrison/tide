@@ -33,7 +33,7 @@ export default {
   },
   args: {
     dataTrack: '',
-    href: 'https://www.traderinteractive.com',
+    href: 'https://www.sample.com',
     label: 'Demo',
   },
   component: TideChipAction,
