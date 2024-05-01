@@ -1,3 +1,5 @@
+import type { ArgTypes } from '@storybook/vue3';
+
 import { BOOLEAN_UNREQUIRED } from '../types/Storybook';
 import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '../types/Element';
 
@@ -94,11 +96,13 @@ export const formatArgTypeCheck = (collection: KeyValueNamed) => {
   };
 };
 
-export const formatValueAsConstant = (keyValue: KeyValue, argTypes: any) => {
+export const formatValueAsConstant = (keyValue: KeyValue, argTypes: ArgTypes) => {
   const [key, value] = Object.entries(keyValue)[0];
   let constant;
 
-  Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+  const arg: ArgTypes = argTypes[key];
+
+  Object.entries(arg.options).forEach(([optionKey, optionValue]) => {
     if (value === optionValue) {
       constant = `${argTypes[key].constant}.${optionKey}`;
     }
@@ -116,33 +120,34 @@ export const formatSnippet = (code: string, context: StoryContext) => {
   let attributes = Object.entries(args).map((arg: any) => {
     const key = arg[0];
     let value = arg[1];
+    const argType: ArgTypes = argTypes[key];
+    const conditionKey = argType.if?.arg;
+    const conditionValue = argType.if?.eq;
 
-    // TODO: TypeScript doesn't believe the implict shapes of Storybook's native types.
-    const condition = argTypes[key].if as any;
-    const conditionKey = condition?.arg;
-    const conditionValue = condition?.eq;
+    // TODO: TypeScript doesn't seem to believe the implict shapes of Storybook's native types?
+    const controlType = argType?.control?.type as any;
 
     // If arg is conditional, hide when conditional is not met.
     const isClick = key === 'click';
-    const isConditionMet = condition ? args[conditionKey] == conditionValue : true;
-    const isConstant =
-      Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'select';
-    const isConstants =
-      Object.keys(argTypes).includes(key) && !!argTypes[key].constant && argTypes[key].control.type === 'check';
-    const isCustom = argTypes[key].isCustom;
-    const isDynamic = argTypes[key].isDynamic || isConstant || isConstants || typeof value === 'boolean';
+    const isConditionMet = argType.if ? args[conditionKey] === conditionValue : true;
+    const isConstant = Object.keys(argTypes).includes(key) && !!argType.constant && controlType === 'select';
+    const isConstants = Object.keys(argTypes).includes(key) && !!argType.constant && controlType === 'check';
+    const isCustom = argType.isCustom;
+    const isDynamic = argType.isDynamic || isConstant || isConstants || typeof value === 'boolean';
     const isEmpty = !isDynamic && value === '';
     const isSlot = key === 'default';
     const isExcluded = value === undefined || (Array.isArray(value) && !value.length);
 
-    if (argTypes[key].isCss) {
+    if (argType.isCss) {
       classNames.push(value);
     }
 
     if (isConstant && value !== 'None') {
-      Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+      const arg: ArgTypes = argType;
+
+      Object.entries(arg.options).forEach(([optionKey, optionValue]) => {
         if (value === optionValue) {
-          value = `${argTypes[key].constant}.${optionKey}`;
+          value = `${argType.constant}.${optionKey}`;
         }
       });
     }
@@ -150,7 +155,7 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     if (isConstants && value.length) {
       const constantSlots: string[] = [];
 
-      Object.entries(argTypes[key].options).forEach(([optionKey, optionValue]) => {
+      Object.entries(argType.options).forEach(([optionKey, optionValue]) => {
         value.forEach((valueSlot: any) => {
           if (valueSlot === optionValue) {
             constantSlots.push(`${argTypes[key].constant}.${optionKey}`);
