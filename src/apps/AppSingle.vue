@@ -9,6 +9,9 @@
 
   import(`@/assets/css/realm/${realm.id}.css`);
 
+  /* TODO: Implement dynamic import. POC in /frontend code on prod? */
+  import 'tide2-design-system/styles/realm/rv';
+
   const userAgentStore = useUserAgentStore();
   const viewportStore = useViewportStore();
 

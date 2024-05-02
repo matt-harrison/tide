@@ -4,6 +4,7 @@
 
   import SiteFooter from '@/components/SiteFooter.vue';
   import SiteHeader from '@/components/SiteHeader.vue';
+  import { realm } from '@/config/main.config';
 
   const route = useRoute();
 
@@ -18,11 +19,13 @@
 </script>
 
 <template>
-  <SiteHeader />
+  <div :class="realm.id">
+    <SiteHeader />
 
-  <div class="page-layout">
-    <router-view />
+    <div class="page-layout">
+      <router-view />
+    </div>
+
+    <SiteFooter />
   </div>
-
-  <SiteFooter />
 </template>

@@ -1,12 +1,13 @@
 <script lang="ts" setup>
-  import { storeToRefs } from 'pinia';
   import TideButton from 'tide2-design-system/components/TideButton';
   import { ELEMENT } from 'tide2-design-system/types/Element';
-  import { ICON } from 'tide2-design-system/types/Icon';
   import { PRIORITY } from 'tide2-design-system/types/Priority';
   import { formatKebabCase } from 'tide2-design-system/utilities/format';
   import { formatNumber } from 'tide2-design-system/utilities/format';
-  import { vehicleTypes } from 'tide2-design-system/types/VehicleType';
+  import { storeToRefs } from 'pinia';
+
+  import { ICON } from '@/types/Icon';
+  import { vehicleTypes } from '@/types/VehicleType';
 
   import AdPlaceholder from '@/components/AdPlaceholder.vue';
   import BasicButton from '@/components/BasicButton.vue';
