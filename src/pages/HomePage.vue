@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import TideButton from 'tide2-design-system/components/TideButton';
+  import { TideButton } from 'tide2-design-system';
   import { ELEMENT } from 'tide2-design-system/types/Element';
   import { PRIORITY } from 'tide2-design-system/types/Priority';
   import { formatKebabCase } from 'tide2-design-system/utilities/format';
