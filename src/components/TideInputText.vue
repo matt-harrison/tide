@@ -153,5 +153,3 @@
     </div>
   </div>
 </template>
-
-<style scoped src="../assets/css/dynamic-inputs.css" />

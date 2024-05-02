@@ -1,7 +1,7 @@
 /* Boatmart Trader Realm Colors */
 .boatmart {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
-  --green: #1D4977;
+  --navy: #1D4977;
   --mint:  #46CFD1;
   --sand:  #FFCF86;
 
@@ -14,7 +14,7 @@
   --floating: rgba(255, 255, 255, 0);
 
   /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-  --primary:    var(--green);
+  --primary:    var(--navy);
   --on-primary: var(--gray-100);
 
   --secondary:    var(--gray-900);
@@ -22,7 +22,7 @@
 
   --surface:                var(--gray-100);
   --surface-variant:        var(--gray-200);
-  --surface-brand:          var(--green);
+  --surface-brand:          var(--navy);
   --surface-accent:         var(--sand);
   --surface-accent-variant: var(--mint);
   --surface-gradient:       var(--gradient);
@@ -30,7 +30,7 @@
 
   --on-surface:         var(--gray-900);
   --on-surface-variant: var(--gray-700);
-  --on-surface-brand:   var(--green);
+  --on-surface-brand:   var(--navy);
 
   --on-surface-inverse:         var(--gray-100);
   --on-surface-inverse-variant: var(--transparent-200);

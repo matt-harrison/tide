@@ -127,8 +127,6 @@
   </div>
 </template>
 
-<style scoped src="../assets/css/dynamic-inputs.css" />
-
 <style scoped>
   textarea {
     resize: vertical;

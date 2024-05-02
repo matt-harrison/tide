@@ -37,8 +37,6 @@
   </button>
 </template>
 
-<style scoped src="../assets/css/dynamic-buttons.css" />
-
 <style scoped>
   /* Border must always exist to prevent resize on hover state, but match background color on rest state to blend in. */
   .tide-chip-filter {

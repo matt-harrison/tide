@@ -147,8 +147,6 @@
   </div>
 </template>
 
-<style scoped src="../assets/css/dynamic-inputs.css" />
-
 <style scoped>
   select {
     appearance: none;

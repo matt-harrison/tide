@@ -49,5 +49,3 @@
     />
   </component>
 </template>
-
-<style scoped src="../assets/css/dynamic-buttons.css" />
