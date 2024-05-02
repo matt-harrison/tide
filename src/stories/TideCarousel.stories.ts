@@ -4,7 +4,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import TideCard from '@/components/TideCard.vue';
 import TideCarousel from '@/components/TideCarousel.vue';
-import { argTypeBooleanUnrequired, doSomething } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, doSomething, lineBreak, tab } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
@@ -14,17 +14,22 @@ const formatSnippet = (code: string, context: StoryContext) => {
   if (args.isTouchscreen !== undefined) argsWithValues.push(`:is-touchscreen="${args.isTouchscreen}"`);
   if (args.offsetX) argsWithValues.push(`:offset-x="${args.offsetX}"`);
 
-  return `<TideCarousel ${argsWithValues.join(
-    ' '
-  )}>\r\t<li v-for="(_child, index) in new Array(12)" :class="tide-shrink-none${
-    args.hasPadding ? ' tide-padding-y-1' : ''
-  }">\r\t\t<TideCard class="tide-padding-1">Card {{ index + 1 }}</TideCard>\r\t</li>\r</TideCarousel>`;
+  return (
+    `<TideCarousel ${argsWithValues.join(' ')}>${lineBreak}` +
+    `${tab}<li${lineBreak}` +
+    `${tab}${tab}:class="tide-shrink-none${args.hasPadding ? ' tide-padding-y-1' : ''}"${lineBreak}` +
+    `${tab}${tab}v-for="(_child, index) in new Array(12)"${lineBreak}` +
+    `${tab}>${lineBreak}` +
+    `${tab}${tab}<TideCard class="tide-padding-1">Card {{ index + 1 }}</TideCard>${lineBreak}` +
+    `${tab}</li>${lineBreak}` +
+    `</TideCarousel>`
+  );
 };
 
 const parameters = {
   docs: {
     source: {
-      format: false,
+      format: 'vue',
       language: 'html',
       transform: formatSnippet,
     },

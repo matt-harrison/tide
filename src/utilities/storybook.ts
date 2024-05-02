@@ -16,6 +16,9 @@ import type { StoryContext } from '@storybook/vue3';
 import { formatKebabCase } from './format';
 import { NoneAsEmpty, NoneAsUndefined } from '../types/Storybook';
 
+export const lineBreak = '\r';
+export const tab = '  ';
+
 export const argTypeBooleanUnrequired = {
   control: 'select',
   description: 'True, False, or undefined<br />(for demonstration purposes)',
@@ -191,7 +194,9 @@ export const formatSnippet = (code: string, context: StoryContext) => {
 
   if (attributes) attributes.unshift('');
 
-  return args.default ? `<${tag}${attributes.join(' ')}>${args.default}</${tag}>` : `<${tag}${attributes.join(' ')} />`;
+  return args.default
+    ? `<${tag}${attributes.join(' ')}>${lineBreak}${tab}${args.default}${lineBreak}</${tag}>`
+    : `<${tag}${attributes.join(' ')} />`;
 };
 
 export const formatSnippetMinimal = (code: string) => {
@@ -214,7 +219,7 @@ export const getLabelsFromOptions = (options: any) => {
 export const parameters = {
   docs: {
     source: {
-      format: false,
+      format: 'vue',
       language: 'html',
       transform: formatSnippet,
     },

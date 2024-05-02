@@ -44,7 +44,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
 const parameters = {
   docs: {
     source: {
-      format: false,
+      format: 'vue',
       language: 'html',
       transform: formatSnippet,
     },

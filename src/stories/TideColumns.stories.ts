@@ -1,6 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import TideColumns from '@/components/TideColumns.vue';
+import { lineBreak, tab } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
@@ -9,17 +10,17 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   if (args.heading) argsWithValues.push(`:heading="${args.heading}"`);
 
-  return `<TideColumns ${argsWithValues.join(' ')}><template #section1>${args.section1}</template><template #section2>${
-    args.section2
-  }</template><template #section3>${args.section3}</template><template #section4>${
-    args.section4
-  }</template></TideColumns>`;
+  return `<TideColumns ${argsWithValues.join(' ')}>${lineBreak}${tab}<template #section1>${
+    args.section1
+  }</template>${lineBreak}${tab}<template #section2>${args.section2}</template>${lineBreak}${tab}<template #section3>${
+    args.section3
+  }</template>${lineBreak}${tab}<template #section4>${args.section4}</template>${lineBreak}</TideColumns>`;
 };
 
 const parameters = {
   docs: {
     source: {
-      format: false,
+      format: 'vue',
       language: 'html',
       transform: formatSnippet,
     },

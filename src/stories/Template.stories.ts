@@ -9,7 +9,7 @@ import { argTypeBooleanUnrequired, formatArgType, formatSnippet } from '@/utilit
 const parameters = {
   docs: {
     source: {
-      format: false,
+      format: 'vue',
       language: 'html',
       transform: formatSnippet,
     },
