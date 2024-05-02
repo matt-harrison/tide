@@ -20,7 +20,7 @@
     showSearchBar: true,
   });
 
-  const logosTall: string[] = [REALM.BOATLINE, REALM.EQUIP, REALM.TRUCK];
+  const logosTall: string[] = [REALM.BOATMART, REALM.EQUIP, REALM.TRUCK];
   const realmLogo = defineAsyncComponent(() => import(`@/assets/svg/logos/${formatPascalCase(realm.id)}Logo.vue`));
 
   const navItems = [

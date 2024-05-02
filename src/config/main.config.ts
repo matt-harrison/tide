@@ -6,10 +6,9 @@ import { REALM } from '@/types/Realm';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as aero from './aero.config';
 import * as atv from './atv.config';
-import * as boatline from './boatline.config';
+import * as boatmart from './boatmart.config';
 import * as cycle from './cycle.config';
 import * as equip from './equip.config';
-
 import * as pwc from './pwc.config';
 import * as rv from './rv.config';
 import * as snow from './snow.config';
@@ -21,7 +20,7 @@ const paramRealm = params.get('realm');
 const realms = {
   aero,
   atv,
-  boatline,
+  boatmart,
   cycle,
   equip,
   pwc,

@@ -5,7 +5,7 @@ const realm = {
     domain: 'rvtrader',
     version: 'vLatest',
   },
-  id: REALM.BOATLINE,
+  id: REALM.BOATMART,
   label: {
     plural: 'Boats',
     singular: 'Boat',
