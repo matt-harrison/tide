@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import type { BadgeTrustedYears } from '../types/Badge';
+  import type { BadgeTrustedYears } from '@/types/Badge';
 
-  import TideIcon from '../components/TideIcon.vue';
-  import { BADGE_TRUSTED } from '../types/Badge';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
+  import TideIcon from '@/components/TideIcon.vue';
+  import { BADGE_TRUSTED } from '@/types/Badge';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
 
   type Props = {
     years?: BadgeTrustedYears;

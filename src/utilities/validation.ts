@@ -1,6 +1,6 @@
 import type { Ref } from 'vue';
-import type { StringField } from '../types/Field';
-import type { ValidationResult } from '../types/Validation';
+import type { StringField } from '@/types/Field';
+import type { ValidationResult } from '@/types/Validation';
 
 export function checkFormat(format: RegExp) {
   return (value: string): ValidationResult => {

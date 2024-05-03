@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-  import type { BadgePremium } from '../types/Badge';
+  import type { BadgePremium } from '@/types/Badge';
 
-  import { CSS } from '../types/Styles';
+  import { CSS } from '@/types/Styles';
 
   type Props = {
     label: BadgePremium;

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { ref } from 'vue';
 
-  import type { Tab } from '../types/Tab';
+  import type { Tab } from '@/types/Tab';
 
-  import { CSS } from '../types/Styles';
+  import { CSS } from '@/types/Styles';
 
   type Props = {
     activeTabInitial?: number;

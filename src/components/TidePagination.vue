@@ -1,11 +1,11 @@
 <script lang="ts" setup>
   import { computed } from 'vue';
 
-  import TideButtonIcon from './TideButtonIcon.vue';
-  import TideButtonPagination from './TideButtonPagination.vue';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
-  import { PRIORITY } from '../types/Priority';
+  import TideButtonIcon from '@/components/TideButtonIcon.vue';
+  import TideButtonPagination from '@/components/TideButtonPagination.vue';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
 
   type Props = {
     pageCurrent?: number;

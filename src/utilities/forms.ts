@@ -1,8 +1,8 @@
 import type { Ref } from 'vue';
-import type { SelectOption } from '../types/Select';
-import type { ValidationError, Validator } from '../types/Validation';
+import type { SelectOption } from '@/types/Select';
+import type { ValidationError, Validator } from '@/types/Validation';
 
-import { errorMessageDefault, validateProperty } from './validation';
+import { errorMessageDefault, validateProperty } from '@/utilities/validation';
 
 export const getFieldHasError = (errorFromProps: ValidationError, errorFromRef: ValidationError) =>
   errorFromProps !== false || errorFromRef !== false;

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { onMounted, onBeforeUnmount, ref } from 'vue';
 
-  import { CSS } from '../types/Styles';
+  import { CSS } from '@/types/Styles';
 
   type Props = {
     alt?: string;

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import type { Link } from '../types/Link';
+  import type { Link } from '@/types/Link';
 
-  import { CSS } from '../types/Styles';
-  import { TARGET } from '../types/Target';
+  import { CSS } from '@/types/Styles';
+  import { TARGET } from '@/types/Target';
 
   type Props = {
     heading?: string;

@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   import { onMounted, onUnmounted, onUpdated, ref, watch } from 'vue';
 
-  import TideButtonIcon from './TideButtonIcon.vue';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
-  import { PRIORITY } from '../types/Priority';
+  import TideButtonIcon from '@/components/TideButtonIcon.vue';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
+  import { PRIORITY } from '@/types/Priority';
 
   type Props = {
     isTouchscreen?: boolean;

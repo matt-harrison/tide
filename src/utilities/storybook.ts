@@ -1,7 +1,7 @@
 import type { ArgTypes } from '@storybook/vue3';
 
-import { BOOLEAN_UNREQUIRED } from '../types/Storybook';
-import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '../types/Element';
+import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 
 // Extensible object of key/value pairs
 type KeyValue = { [key: string]: any };
@@ -13,8 +13,8 @@ type KeyValueNamed = {
 
 import type { StoryContext } from '@storybook/vue3';
 
-import { formatKebabCase } from './format';
-import { NoneAsEmpty, NoneAsUndefined } from '../types/Storybook';
+import { formatKebabCase } from '@/utilities/format';
+import { NoneAsEmpty, NoneAsUndefined } from '@/types/Storybook';
 
 export const lineBreak = '\r';
 export const tab = '  ';

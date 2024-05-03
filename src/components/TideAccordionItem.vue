@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   import { onMounted, ref } from 'vue';
 
-  import TideDivider from './TideDivider.vue';
-  import TideIcon from './TideIcon.vue';
-  import TideIndicator from './TideIndicator.vue';
-  import { ICON } from '../types/Icon';
+  import TideDivider from '@/components/TideDivider.vue';
+  import TideIcon from '@/components/TideIcon.vue';
+  import TideIndicator from '@/components/TideIndicator.vue';
+  import { ICON } from '@/types/Icon';
   import { CSS } from '@/types/Styles';
 
   const props = defineProps({

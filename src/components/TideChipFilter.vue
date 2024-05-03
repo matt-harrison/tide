@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { CSS } from '../types/Styles';
+  import { CSS } from '@/types/Styles';
 
   type Props = {
     isActive: boolean;

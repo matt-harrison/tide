@@ -1,4 +1,4 @@
-import { formatNumber, formatPhone, formatPrice } from '../utilities/format';
+import { formatNumber, formatPhone, formatPrice } from '@/utilities/format';
 
 export type Formatted = {
   [key: string]: string | string[] | number;

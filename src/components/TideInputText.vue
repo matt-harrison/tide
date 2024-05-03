@@ -1,16 +1,16 @@
 <script lang="ts" setup>
   import { computed, getCurrentInstance, ref, watch } from 'vue';
 
-  import type { Icon } from '../types/Icon';
-  import type { TextField } from '../types/Field';
+  import type { Icon } from '@/types/Icon';
+  import type { TextField } from '@/types/Field';
 
-  import TideSvgIcon from './TideSvgIcon.vue';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
-  import { SIZE } from '../types/Size';
-  import { TEXT_INPUT_TYPE } from '../types/TextInput';
-  import { checkLength } from '../utilities/validation';
-  import { getFieldHasError, getSupportingText, handleFieldValidation } from '../utilities/forms';
+  import TideSvgIcon from '@/components/TideSvgIcon.vue';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
+  import { SIZE } from '@/types/Size';
+  import { TEXT_INPUT_TYPE } from '@/types/TextInput';
+  import { checkLength } from '@/utilities/validation';
+  import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
 
   interface Props extends TextField {
     inputId?: string;

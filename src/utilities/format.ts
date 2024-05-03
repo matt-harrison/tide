@@ -1,4 +1,4 @@
-import type { RealmConfig } from '../types/RealmConfig';
+import type { RealmConfig } from '@/types/RealmConfig';
 
 const formatCamelCase = (input: string): string => {
   return input && typeof input === 'string'

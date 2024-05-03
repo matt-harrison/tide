@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { computed, getCurrentInstance, onMounted, onUpdated, ref } from 'vue';
 
-  import type { CheckboxField } from '../types/Field';
+  import type { CheckboxField } from '@/types/Field';
 
-  import { CSS } from '../types/Styles';
+  import { CSS } from '@/types/Styles';
 
   const input = ref<CheckboxField>();
 

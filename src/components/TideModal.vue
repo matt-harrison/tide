@@ -1,9 +1,9 @@
 <script lang="ts" setup>
   import { onMounted, ref, watch, type CSSProperties } from 'vue';
 
-  import TideIcon from './TideIcon.vue';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
+  import TideIcon from '@/components/TideIcon.vue';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
 
   // TODO: replace body scroll lock with a global mixin
 

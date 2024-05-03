@@ -2,12 +2,12 @@
   import { defineAsyncComponent, markRaw, ref, watch } from 'vue';
 
   import type { Component } from 'vue';
-  import type { Icon } from '../types/Icon';
-  import type { Size } from '../types/Size';
+  import type { Icon } from '@/types/Icon';
+  import type { Size } from '@/types/Size';
 
-  import { CSS } from '../types/Styles';
-  import { SIZE } from '../types/Size';
-  import { formatPascalCase } from '../utilities/format';
+  import { CSS } from '@/types/Styles';
+  import { SIZE } from '@/types/Size';
+  import { formatPascalCase } from '@/utilities/format';
 
   type Props = {
     fill?: string;

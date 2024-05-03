@@ -1,7 +1,7 @@
-import type { FormValueTransformer } from './Form';
-import type { SelectOption } from './Select';
-import type { TextInputType } from './TextInput';
-import type { ValidationError, Validator } from './Validation';
+import type { FormValueTransformer } from '@/types/Form';
+import type { SelectOption } from '@/types/Select';
+import type { TextInputType } from '@/types/TextInput';
+import type { ValidationError, Validator } from '@/types/Validation';
 
 interface BooleanValue {
   value?: boolean;

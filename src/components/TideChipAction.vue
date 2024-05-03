@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-  import TideIcon from './TideIcon.vue';
-  import { CSS } from '../types/Styles';
-  import { ICON } from '../types/Icon';
-  import { TARGET } from '../types/Target';
+  import TideIcon from '@/components/TideIcon.vue';
+  import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
+  import { TARGET } from '@/types/Target';
 
   type Props = {
     href: string;
