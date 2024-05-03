@@ -4,7 +4,6 @@ import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/StorybookStyles';
 import Border from '@/stories/FoundationsBorder.stories';
-import Font from '@/stories/FoundationsTypography.stories';
 import Gap from '@/stories/FoundationsGap.stories';
 import Margin from '@/stories/FoundationsMargin.stories';
 import Padding from '@/stories/FoundationsPadding.stories';
@@ -18,12 +17,11 @@ const DISPLAY = prependKeyValue(STYLES.DISPLAY, { 'None (Unspecified)': '' });
 const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
 const FLEX_AXIS2 = prependNoneAsEmpty(STYLES.FLEX_AXIS2);
 const FLEX_DIRECTION = prependNoneAsEmpty(STYLES.FLEX_DIRECTION);
-const FONT_SIZE = prependNoneAsEmpty(STYLES.FONT_SIZE);
-const FONT_WEIGHT = prependNoneAsEmpty(STYLES.FONT_WEIGHT);
 const GAP = prependNoneAsEmpty(STYLES.GAP);
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 const SHADOW = prependNoneAsEmpty(STYLES.SHADOW);
+const TYPOGRAPHY = prependNoneAsEmpty(STYLES.TYPOGRAPHY);
 
 const formatArgs = (args: any) => {
   args.class = formatClassNames(args);
@@ -42,8 +40,7 @@ const formatClassNames = (args: any) => {
   if (args.flexDirection) classNames.push(args.flexDirection);
   if (args.flexGap) classNames.push(args.flexGap);
   if (args.flexWrap) classNames.push('tide-flex-wrap');
-  if (args.fontSize) classNames.push(args.fontSize);
-  if (args.fontWeight) classNames.push(args.fontWeight);
+  if (args.typography) classNames.push(args.typography.join(' '));
   if (args.margin) classNames.push(args.margin);
   if (args.padding) classNames.push(args.padding);
   if (args.shadow) classNames.push(args.shadow);
@@ -96,7 +93,6 @@ export default {
   argTypes: {
     ...Border.argTypes,
     ...Shadow.argTypes,
-    ...Font.argTypes,
     ...Gap.argTypes,
     ...Padding.argTypes,
     children: {
@@ -122,6 +118,11 @@ export default {
     margin: {
       ...Margin.argTypes.margin,
     },
+    typography: {
+      ...formatArgType({ TYPOGRAPHY }),
+      description: `Applies font rules`,
+      name: 'Typography',
+    },
     width: {
       ...argTypeDimension,
       description: 'Apply a "width" to the style attribute<br />(for demonstration purposes only)',
@@ -139,8 +140,7 @@ export default {
     flexDirection: FLEX_DIRECTION.None,
     flexGap: GAP.None,
     flexWrap: undefined,
-    fontSize: FONT_SIZE.None,
-    fontWeight: FONT_WEIGHT.None,
+    typography: TYPOGRAPHY.None,
     margin: MARGIN.None,
     padding: PADDING.None,
     shadow: SHADOW.None,

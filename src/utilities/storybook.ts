@@ -64,7 +64,7 @@ export const doSomething = () => {
   alert('Did something.');
 };
 
-// Accept a KeyValue as the value of an object with a retrievable key as a Storybook argType
+// Accept a KeyValue as the value of an object with a retrievable key as a Storybook argType.
 export const formatArgType = (collection: KeyValueNamed) => {
   const constant = getKey(collection);
   const keyValues: KeyValue = collection[constant];

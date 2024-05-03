@@ -41,7 +41,8 @@
     "./utilities/*": "./dist/utilities/*.ts"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/utilities/storybook.js"
   ],
   "license": "MIT",
   "main": "./dist/tide2-design-system.js",
@@ -59,5 +60,5 @@
     "type-check": "vue-tsc --noEmit"
   },
   "type": "module",
-  "version": "0.2.9"
+  "version": "0.2.11"
 }
