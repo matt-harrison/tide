@@ -38,7 +38,7 @@
   "exports": {
     ".": "./dist/tide2-design-system.js",
     "./css": "./dist/style.css",
-    "./css/*": "./dist/assets/css/*.css",
+    "./css/*": "./dist/css/*.css",
     "./types/*": "./dist/types/*.ts",
     "./utilities/*": "./dist/utilities/*.ts"
   },
@@ -50,7 +50,7 @@
   "name": "tide2-design-system",
   "scripts": {
     "build": "run-p type-check build-only",
-    "build-only": "vite build && cp -r src/assets/ dist/assets/ && cp -r src/types/ dist/types/ && cp -r src/utilities/ dist/utilities/",
+    "build-only": "vite build && cp -r src/assets/css/ dist/css/ && cp -r src/types/ dist/types/ && cp -r src/utilities/ dist/utilities/",
     "build-storybook": "storybook build",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore",
@@ -61,5 +61,5 @@
     "type-check": "vue-tsc --noEmit"
   },
   "type": "module",
-  "version": "0.2.4"
+  "version": "0.2.5"
 }
