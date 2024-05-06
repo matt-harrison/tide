@@ -31,9 +31,64 @@ import TideSvgIcon from '@/components/TideSvgIcon.vue';
 import TideTabs from '@/components/TideTabs.vue';
 import TideToggle from '@/components/TideToggle.vue';
 
+import type { Alert } from '@/types/Alert';
+import type { Badge, BadgePremium, BadgeTrustedYears } from '@/types/Badge';
+import type { BreadCrumb } from '@/types/BreadCrumb';
+import type { CssUtility } from '@/types/Styles';
+import type { Detail } from '@/types/Detail';
+import type { Element, ElementTextAsIcon } from '@/types/Element';
+import type { Icon } from '@/types/Icon';
+import type { Link } from '@/types/Link';
+import type { Priority } from '@/types/Priority';
+import type { Realm } from '@/types/Realm';
+import type { Size } from '@/types/Size';
+import type { Tab } from '@/types/Tab';
+import type { Target } from '@/types/Target';
+
+import { ALERT } from '@/types/Alert';
+import { BADGE, BADGE_PREMIUM, BADGE_TRUSTED } from '@/types/Badge';
+import { CSS } from '@/types/Styles';
+import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
+import { ICON } from '@/types/Icon';
+import { PRIORITY } from '@/types/Priority';
+import { REALM } from '@/types/Realm';
+import { SIZE } from '@/types/Size';
+import { TARGET } from '@/types/Target';
+
 import '@/assets/css/main.css';
 
+export type {
+  Alert,
+  Badge,
+  BadgePremium,
+  BadgeTrustedYears,
+  BreadCrumb,
+  CssUtility,
+  Detail,
+  Element,
+  ElementTextAsIcon,
+  Icon,
+  Link,
+  Priority,
+  Realm,
+  Size,
+  Tab,
+  Target,
+};
+
 export {
+  ALERT,
+  BADGE,
+  BADGE_PREMIUM,
+  BADGE_TRUSTED,
+  CSS,
+  ELEMENT,
+  ELEMENT_TEXT_AS_ICON,
+  ICON,
+  PRIORITY,
+  REALM,
+  SIZE,
+  TARGET,
   TideAccordionItem,
   TideAlert,
   TideBadge,

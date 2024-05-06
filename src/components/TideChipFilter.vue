@@ -13,13 +13,11 @@
   <button
     :class="[
       'tide-chip-filter',
-      props.isActive
-        ? ['tide-bg-secondary', 'tide-font-on-secondary']
-        : ['tide-bg-surface-variant', 'tide-font-on-surface'],
+      props.isActive ? [CSS.BG.SECONDARY, CSS.FONT.COLOR.SECONDARY] : [CSS.BG.SURFACE.VARIANT, CSS.FONT.COLOR.SURFACE],
       CSS.DISPLAY.FLEX,
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,
-      CSS.BORDER.FULL.ONE,
+      CSS.BORDER.SIDE.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       CSS.PADDING.X.ONE,
       CSS.PADDING.Y.HALF,

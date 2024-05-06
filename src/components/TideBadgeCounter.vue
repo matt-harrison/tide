@@ -13,8 +13,8 @@
   <div
     :class="[
       'tide-badge',
-      'tide-on-surface',
-      'tide-bg-surface-floating',
+      CSS.FONT.COLOR.SURFACE,
+      CSS.BG.SURFACE.FLOATING,
       CSS.DISPLAY.INLINE_FLEX,
       CSS.GAP.QUARTER,
       CSS.BORDER.RADIUS.QUARTER,

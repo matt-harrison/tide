@@ -92,8 +92,8 @@
         <div
           :class="[
             'tide-modal',
-            'tide-bg-floating',
-            'tide-font-surface',
+            CSS.BG.SURFACE.FLOATING,
+            CSS.FONT.COLOR.SURFACE,
             CSS.POSITION.ABSOLUTE,
             CSS.DISPLAY.FLEX,
             CSS.FLEX.DIRECTION.COLUMN,

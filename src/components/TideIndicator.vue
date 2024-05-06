@@ -14,10 +14,12 @@
   <div
     :class="[
       props.label ? 'tide-indicator-label' : 'tide-indicator',
-      'tide-bg-surface-accent',
+      'border-white',
+      CSS.BG.SURFACE.ACCENT,
+      CSS.BORDER.SIDE.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       props.label
-        ? [CSS.POSITION.RELATIVE, CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.SEVEN_HUNDRED, 'tide-font-on-surface']
+        ? [CSS.POSITION.RELATIVE, CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.FONT.COLOR.SURFACE]
         : [],
     ]"
   >
@@ -47,5 +49,9 @@
   .tide-indicator-label {
     width: 1rem;
     height: 1rem;
+  }
+
+  .border-white {
+    border-color: white;
   }
 </style>

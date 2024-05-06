@@ -12,7 +12,7 @@
 
 <template>
   <section class="tide-columns">
-    <h2 class="tide-margin-bottom-1/2 tide-font-16">{{ props.heading }}</h2>
+    <h2 :class="[CSS.MARGIN.BOTTOM.HALF, CSS.FONT.SIZE.SIXTEEN]">{{ props.heading }}</h2>
 
     <ul :class="[CSS.DISPLAY.FLEX, CSS.FLEX.WRAP, CSS.GAP.TWO, CSS.LIST_BULLETS.OFF]">
       <li class="tide-columns-column">
@@ -34,19 +34,19 @@
   </section>
 </template>
 
-<style>
-  ul.tide-display-flex.tide-flex-wrap > .tide-columns-column {
+<style scoped>
+  .tide-columns-column {
     width: 100%;
   }
 
   @media (min-width: 992px) {
-    ul.tide-display-flex.tide-flex-wrap > .tide-columns-column {
+    .tide-columns-column {
       width: calc((100% - 2rem) / 2);
     }
   }
 
   @media (min-width: 1232px) {
-    ul.tide-display-flex.tide-flex-wrap > .tide-columns-column {
+    .tide-columns-column {
       width: calc((100% - 6rem) / 4);
     }
   }

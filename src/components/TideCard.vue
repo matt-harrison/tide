@@ -8,10 +8,10 @@
       'tide-card',
       CSS.HEIGHT.FULL,
       CSS.BORDER.RADIUS.HALF,
-      'tide-bg-surface-low',
-      'tide-shadow-bottom',
-      'tide-font-surface',
-      'tide-scroll-snap-start',
+      CSS.BG.SURFACE.DEFAULT,
+      CSS.SHADOW.BOTTOM,
+      CSS.FONT.COLOR.SURFACE.DEFAULT,
+      CSS.SNAP_ALIGN.START,
     ]"
   >
     <slot />

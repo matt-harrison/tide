@@ -64,14 +64,14 @@
     <TideDivider v-if="props.hasTopDivider" />
 
     <div
-      :class="['accordion-head', CSS.DISPLAY.FLEX, CSS.AXIS1.BETWEEN, CSS.PADDING.Y.HALF, CSS.CURSOR.POINTER]"
+      :class="['tide-accordion-head', CSS.DISPLAY.FLEX, CSS.AXIS1.BETWEEN, CSS.PADDING.Y.HALF, CSS.CURSOR.POINTER]"
       @click="toggleIsExpanded"
     >
-      <div :class="['tide-display-flex', CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.FONT.WEIGHT.SEVEN_HUNDRED]">
+      <div :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.FONT.WEIGHT.SEVEN_HUNDRED]">
         <span>{{ props.label }}</span>
 
         <span
-          class="tide-font-on-surface-variant"
+          :class="[CSS.FONT.COLOR.SURFACE.VARIANT]"
           v-if="props.isOptional"
         >
           (optional)
@@ -88,7 +88,7 @@
       ref="accordionBody"
     >
       <div :class="[CSS.OVERFLOW.Y.HIDDEN]">
-        <div :class="[CSS.MARGIN.Y.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, 'tide-font-on-surface']">
+        <div :class="[CSS.MARGIN.Y.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, CSS.FONT.COLOR.SURFACE]">
           <slot />
         </div>
       </div>

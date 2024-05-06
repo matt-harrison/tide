@@ -14,13 +14,12 @@
   <button
     :class="[
       'tide-chip-input',
-      'tide-border',
-      'tide-font-on-surface',
-      'tide-bg-surface',
+      CSS.BG.SURFACE,
+      CSS.FONT.COLOR.SURFACE,
       CSS.DISPLAY.FLEX,
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,
-      CSS.BORDER.FULL.ONE,
+      CSS.BORDER.SIDE.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       CSS.PADDING.X.ONE,
       CSS.PADDING.Y.HALF,

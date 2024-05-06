@@ -15,14 +15,14 @@
 </script>
 
 <template>
-  <section class="tide-responsive-columns">
+  <section class="tide-seo-links">
     <h2 :class="[CSS.MARGIN.BOTTOM.HALF, CSS.FONT.SIZE.SIXTEEN]">
       {{ props.heading }}
     </h2>
 
     <ul :class="[CSS.DISPLAY.FLEX, CSS.FLEX.WRAP, CSS.GAP.TWO, CSS.LIST_BULLETS.OFF]">
       <li
-        :class="[CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.GAP.QUARTER, 'tide-width-1/', CSS.FONT.SIZE.FOURTEEN]"
+        :class="['tide-seo-link', CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.GAP.QUARTER, CSS.FONT.SIZE.FOURTEEN]"
         :key="link.label"
         v-for="link in props.links"
       >
@@ -38,20 +38,20 @@
   </section>
 </template>
 
-<style>
+<style scoped>
   /* TODO: Refactor to accept breakpoint prop in order to accomplish this with neither custom breakpoints nor dependency on ViewportStore. */
-  ul.tide-display-flex.tide-flex-wrap > .tide-width-1\/4 {
+  .tide-seo-link {
     width: 100%;
   }
 
   @media (min-width: 992px) {
-    ul.tide-display-flex.tide-flex-wrap > .tide-width-1\/4 {
+    .tide-seo-link {
       width: calc((100% - 2rem) / 2);
     }
   }
 
   @media (min-width: 1232px) {
-    ul.tide-display-flex.tide-flex-wrap > .tide-width-1\/4 {
+    .tide-seo-link {
       width: calc((100% - 6rem) / 4);
     }
   }

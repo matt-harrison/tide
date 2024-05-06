@@ -81,7 +81,7 @@
     :class="[
       'tide-text-input',
       'block-field',
-      'tide-font-surface-variant',
+      CSS.FONT.COLOR.SURFACE.VARIANT,
       CSS.FONT.SIZE.FOURTEEN,
       disabled && 'disabled',
       hasError && 'error',
@@ -98,10 +98,13 @@
     <div :class="[CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.WIDTH.FULL]">
       <input
         :class="[
-          'field tide-radius-1/4 tide-padding-1/2 tide-width-full tide-bg-surface-low',
-          hasError ? 'tide-padding-right-2' : '',
-          iconLeading && 'tide-padding-left-2',
-          disabled && 'tide-cursor-not-allowed',
+          CSS.BORDER.RADIUS.QUARTER,
+          CSS.PADDING.FULL.HALF,
+          CSS.WIDTH.FULL,
+          CSS.BG.SURFACE.DEFAULT,
+          hasError ? CSS.PADDING.RIGHT.TWO : '',
+          iconLeading && CSS.PADDING.LEFT.TWO,
+          disabled && CSS.CURSOR.NOT_ALLOWED,
         ]"
         :disabled="disabled"
         :maxlength="maxlength"

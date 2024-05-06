@@ -29,7 +29,7 @@
   <div
     :class="[
       'tide-tabs',
-      'tide-bg-surface-variant',
+      CSS.BG.SURFACE.VARIANT,
       CSS.DISPLAY.FLEX,
       CSS.GAP.QUARTER,
       CSS.BORDER.RADIUS.HALF,
@@ -42,8 +42,8 @@
       :class="[
         'tide-tabs-tab',
         index === activeTab
-          ? ['tide-bg-surface', 'tide-font-on-surface', CSS.SHADOW.BOTTOM]
-          : ['tide-font-on-surface-variant'],
+          ? [CSS.BG.SURFACE.DEFAULT, CSS.FONT.COLOR.SURFACE.DEFAULT, CSS.SHADOW.BOTTOM]
+          : [CSS.FONT.COLOR.SURFACE.VARIANT],
         CSS.FLEX.GROW.ON,
         CSS.BORDER.RADIUS.QUARTER,
         CSS.PADDING.Y.QUARTER,

@@ -19,7 +19,7 @@
   <div
     :class="[
       'tide-badge-trusted-partner',
-      'tide-font-on-surface-brand',
+      CSS.FONT.COLOR.SURFACE.BRAND,
       CSS.DISPLAY.INLINE_FLEX,
       CSS.GAP.QUARTER,
       CSS.BORDER.RADIUS.QUARTER,

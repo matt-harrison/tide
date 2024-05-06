@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <div :class="['tide-border-low', CSS.MARGIN.Y.HALF, CSS.BORDER.BOTTOM.ONE]" />
+  <div :class="[CSS.BORDER.COLOR.LOW, CSS.MARGIN.Y.HALF, CSS.BORDER.BOTTOM.ONE]" />
 </template>

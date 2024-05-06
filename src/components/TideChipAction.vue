@@ -21,15 +21,14 @@
       'tide-chip-action',
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,
-      CSS.BORDER.FULL.ONE,
-      'tide-border',
+      CSS.BORDER.SIDE.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       CSS.PADDING.X.ONE,
       CSS.PADDING.Y.HALF,
-      'tide-bg-surface',
+      CSS.BG.SURFACE.DEFAULT,
       CSS.FONT.SIZE.FOURTEEN,
       CSS.FONT.WEIGHT.FIVE_HUNDRED,
-      'tide-font-on-surface',
+      CSS.FONT.COLOR.SURFACE.DEFAULT,
       CSS.UNDERLINE.OFF,
     ]"
     :href="props.href"

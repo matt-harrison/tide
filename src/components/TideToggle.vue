@@ -22,14 +22,14 @@
       CSS.AXIS2.CENTER,
       CSS.BORDER.RADIUS.FULL,
       CSS.OVERFLOW.XY.HIDDEN,
-      props.isActive ? 'tide-bg-secondary' : 'tide-bg-surface-variant',
+      props.isActive ? CSS.BG.SECONDARY : CSS.BG.SURFACE.VARIANT,
     ]"
     :disabled="props.disabled"
   >
     <div
       :class="[
         'tide-toggle-indicator',
-        'tide-bg-surface',
+        CSS.BG.SURFACE.DEFAULT,
         props.isActive ? 'active' : '',
         CSS.POSITION.RELATIVE,
         CSS.BORDER.RADIUS.FULL,

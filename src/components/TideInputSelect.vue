@@ -53,7 +53,7 @@
     :class="[
       'tide-select',
       'block-field',
-      'tide-font-surface-variant',
+      CSS.FONT.COLOR.SURFACE.VARIANT,
       CSS.FONT.SIZE.FOURTEEN,
       disabled && 'disabled',
       hasError && 'error',
@@ -71,12 +71,11 @@
       <select
         :class="[
           'field',
-          'tide-bg-surface-low',
+          CSS.BG.SURFACE.DEFAULT,
           iconLeading && [CSS.PADDING.LEFT.TWO],
           [CSS.BORDER.RADIUS.QUARTER, CSS.PADDING.FULL.HALF],
           hasSuffix && [CSS.PADDING.RIGHT.TWO],
-          'tide-width-full ',
-          [CSS.WIDTH.FULL],
+          CSS.WIDTH.FULL,
           disabled && [CSS.CURSOR.NOT_ALLOWED],
         ]"
         :disabled="disabled"
@@ -127,7 +126,7 @@
 
       <TideSvgIcon
         :class="[
-          'tide-bg-surface-low',
+          CSS.BG.SURFACE.DEFAULT,
           CSS.POSITION.ABSOLUTE,
           CSS.POSITIONING.RIGHT_0,
           CSS.MARGIN.RIGHT.HALF,
@@ -139,7 +138,7 @@
     </div>
 
     <div
-      :class="['supporting-text tide-margin-top-1/4 tide-font-12']"
+      :class="['supporting-text', CSS.MARGIN.TOP.QUARTER, CSS.FONT.SIZE.TWELVE]"
       v-if="hasError"
     >
       {{ supportingText }}

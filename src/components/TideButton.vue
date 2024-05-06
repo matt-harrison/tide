@@ -40,8 +40,10 @@
       props.priority && props.priority,
       props.element === ELEMENT.LINK ? [CSS.DISPLAY.INLINE_FLEX] : [CSS.DISPLAY.FLEX],
       [CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.HALF, CSS.BORDER.RADIUS.HALF],
-      props.element === ELEMENT.LINK ? 'tide-underline-none' : '',
-      'tide-padding-y-1 tide-padding-x-2 tide-font-600',
+      props.element === ELEMENT.LINK ? CSS.UNDERLINE.OFF : '',
+      CSS.PADDING.Y.ONE,
+      CSS.PADDING.X.TWO,
+      CSS.FONT.WEIGHT.SIX_HUNDRED,
     ]"
     :disabled="props.element === ELEMENT.BUTTON && props.disabled"
     :href="props.element === ELEMENT.LINK && props.href ? props.href : undefined"

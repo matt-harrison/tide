@@ -22,18 +22,26 @@ export const CSS = {
     END: 'tide-axis2-end',
     START: 'tide-axis2-start',
   },
+  BG: {
+    PRIMARY: 'tide-bg-primary',
+    SECONDARY: 'tide-bg-secondary',
+    SURFACE: {
+      ACCENT: 'tide-bg-surface-accent',
+      ACCENT_VARIANT: 'tide-bg-surface-accent-variant',
+      BRAND: 'tide-bg-surface-brand',
+      DEFAULT: 'tide-bg-surface',
+      FLOATING: 'tide-bg-surface-floating',
+      GRADIENT: 'tide-bg-surface-gradient',
+      VARIANT: 'tide-bg-surface-variant',
+    },
+  },
   BORDER: {
-    BOTTOM: {
-      ONE: 'tide-border-bottom-1',
-      TWO: 'tide-border-bottom-2',
-    },
-    FULL: {
-      ONE: 'tide-border-1',
-      TWO: 'tide-border-2',
-    },
-    LEFT: {
-      ONE: 'tide-border-left-1',
-      TWO: 'tide-border-left-2',
+    COLOR: {
+      DEFAULT: 'tide-border',
+      FLOATING: 'tide-border-floating',
+      HIGH: 'tide-border-high',
+      LOW: 'tide-border-low',
+      PRIMARY: 'tide-border-primary',
     },
     RADIUS: {
       FULL: 'tide-radius-full',
@@ -41,13 +49,27 @@ export const CSS = {
       ONE: 'tide-radius-1',
       QUARTER: 'tide-radius-1/4',
     },
-    RIGHT: {
-      ONE: 'tide-border-right-1',
-      TWO: 'tide-border-right-2',
-    },
-    TOP: {
-      ONE: 'tide-border-top-1',
-      TWO: 'tide-border-top-2',
+    SIDE: {
+      BOTTOM: {
+        ONE: 'tide-border-bottom-1',
+        TWO: 'tide-border-bottom-2',
+      },
+      FULL: {
+        ONE: 'tide-border-1',
+        TWO: 'tide-border-2',
+      },
+      LEFT: {
+        ONE: 'tide-border-left-1',
+        TWO: 'tide-border-left-2',
+      },
+      RIGHT: {
+        ONE: 'tide-border-right-1',
+        TWO: 'tide-border-right-2',
+      },
+      TOP: {
+        ONE: 'tide-border-top-1',
+        TWO: 'tide-border-top-2',
+      },
     },
   },
   BOX_SIZING: {
@@ -90,6 +112,17 @@ export const CSS = {
     WRAP: 'tide-flex-wrap',
   },
   FONT: {
+    COLOR: {
+      PRIMARY: 'tide-font-on-primary',
+      SECONDARY: 'tide-font-on-secondary',
+      SURFACE: {
+        BRAND: 'tide-font-on-surface-brand',
+        DEFAULT: 'tide-font-on-surface',
+        INVERSE: 'tide-font-on-surface-inverse',
+        VARIANT: 'tide-font-on-surface-variant',
+        VARIANT_INVERSE: 'tide-font-on-surface-variant-inverse',
+      },
+    },
     SIZE: {
       FOURTEEN: 'tide-font-14',
       SIXTEEN: 'tide-font-16',
@@ -379,16 +412,16 @@ export const cssSortOrder = [
   CSS.MARGIN.LEFT.TWO,
   CSS.MARGIN.LEFT.FOUR,
   CSS.MARGIN.LEFT.AUTO,
-  CSS.BORDER.FULL.ONE,
-  CSS.BORDER.FULL.TWO,
-  CSS.BORDER.TOP.ONE,
-  CSS.BORDER.TOP.TWO,
-  CSS.BORDER.RIGHT.ONE,
-  CSS.BORDER.RIGHT.TWO,
-  CSS.BORDER.BOTTOM.ONE,
-  CSS.BORDER.BOTTOM.TWO,
-  CSS.BORDER.LEFT.ONE,
-  CSS.BORDER.LEFT.TWO,
+  CSS.BORDER.SIDE.FULL.ONE,
+  CSS.BORDER.SIDE.FULL.TWO,
+  CSS.BORDER.SIDE.TOP.ONE,
+  CSS.BORDER.SIDE.TOP.TWO,
+  CSS.BORDER.SIDE.RIGHT.ONE,
+  CSS.BORDER.SIDE.RIGHT.TWO,
+  CSS.BORDER.SIDE.BOTTOM.ONE,
+  CSS.BORDER.SIDE.BOTTOM.TWO,
+  CSS.BORDER.SIDE.LEFT.ONE,
+  CSS.BORDER.SIDE.LEFT.TWO,
   CSS.BORDER.RADIUS.ONE,
   CSS.BORDER.RADIUS.HALF,
   CSS.BORDER.RADIUS.QUARTER,

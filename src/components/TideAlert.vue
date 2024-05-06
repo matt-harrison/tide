@@ -59,24 +59,24 @@
   >
     <div :class="['tide-alert-icon', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
       <TideIcon
-        :class="[props.type, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF, 'tide-font-on-surface-inverse']"
+        :class="[props.type, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF, CSS.FONT.COLOR.SURFACE.INVERSE]"
         :icon="icon"
       />
     </div>
 
     <div :class="['tide-alert-heading', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
-      <h2 :class="[CSS.FONT.SIZE.SIXTEEN, CSS.FONT.WEIGHT.SIX_HUNDRED, 'tide-font-on-surface']">
+      <h2 :class="[CSS.FONT.SIZE.SIXTEEN, CSS.FONT.WEIGHT.SIX_HUNDRED, CSS.FONT.COLOR.SURFACE]">
         {{ props.heading }}
       </h2>
     </div>
 
     <TideButtonIcon
-      :class="['tide-alert-close', CSS.AXIS2.CENTER, 'tide-font-on-surface']"
+      :class="['tide-alert-close', CSS.AXIS2.CENTER, CSS.FONT.COLOR.SURFACE]"
       :icon="ICON.CLOSE"
       :priority="PRIORITY.QUATERNARY"
     />
 
-    <div :class="['tide-alert-body', CSS.FONT.WEIGHT.FIVE_HUNDRED, 'tide-font-on-surface-variant']">
+    <div :class="['tide-alert-body', CSS.FONT.WEIGHT.FIVE_HUNDRED, CSS.FONT.COLOR.SURFACE.VARIANT]">
       <slot />
     </div>
   </div>

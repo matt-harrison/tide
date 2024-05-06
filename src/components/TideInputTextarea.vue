@@ -73,7 +73,12 @@
 <template>
   <div
     :class="[
-      'tide-textarea block-field tide-display-flex tide-flex-column tide-axis2-start tide-font-14 tide-font-surface-variant',
+      'tide-textarea',
+      CSS.DISPLAY.FLEX,
+      CSS.FLEX.DIRECTION.COLUMN,
+      CSS.AXIS2.START,
+      CSS.FONT.SIZE.FOURTEEN,
+      CSS.FONT.COLOR.SURFACE.VARIANT,
       disabled && 'disabled',
       hasError && 'error',
     ]"
@@ -87,7 +92,7 @@
     </label>
 
     <textarea
-      :class="['field', 'tide-bg-surface-low', 'tide-font-surface-variant', CSS.PADDING.FULL.HALF]"
+      :class="['field', CSS.BG.SURFACE.DEFAULT, CSS.FONT.COLOR.SURFACE.VARIANT, CSS.PADDING.FULL.HALF]"
       :disabled="disabled"
       :maxlength="maxlength"
       :minlength="minlength"

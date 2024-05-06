@@ -37,8 +37,7 @@
     ".": "./dist/tide2-design-system.js",
     "./css": "./dist/style.css",
     "./css/*": "./dist/css/*.css",
-    "./types/*": "./dist/types/*.ts",
-    "./utilities/*": "./dist/utilities/*.ts"
+    "./types/*": "./dist/types/*.ts"
   },
   "files": [
     "dist",
