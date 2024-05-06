@@ -1,6 +1,7 @@
 import type { ArgTypes } from '@storybook/vue3';
 
 import { BOOLEAN_UNREQUIRED } from '@/types/Storybook';
+import { CSS } from '@/types/Styles';
 import { ELEMENT, ELEMENT_TEXT_AS_ICON } from '@/types/Element';
 
 // Extensible object of key/value pairs
@@ -202,6 +203,35 @@ export const formatSnippet = (code: string, context: StoryContext) => {
 export const formatSnippetMinimal = (code: string) => {
   return code.replace(/<[/]*template>/g, '');
 };
+
+export const getConstantByValue = (value: string) => {
+  const compareRecursively = (basis: string, shape: string | object, depth: number = 0): string | void => {
+    let output;
+
+    Object.entries(shape).forEach((entry: string[]) => {
+      const key = entry[0];
+      const value = entry[1];
+      const type = typeof value;
+
+      if (type === 'string' && basis === value) {
+        output = key;
+      } else if (type === 'object') {
+        const match = compareRecursively(basis, value, depth + 1);
+
+        if (match) output = `${key}.${match}`;
+      }
+    });
+
+    return output;
+  };
+
+  const constant = compareRecursively(value, CSS);
+
+  return constant ? `CSS.${constant}` : undefined;
+};
+
+export const getConstantsByValues = (classNames: string[]) =>
+  classNames.map((className) => getConstantByValue(className));
 
 export const getKey = (input: any) => Object.keys(input)[0];
 

@@ -1,7 +1,8 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/Storybook';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { CSS } from '@/types/Styles';
+import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 
@@ -16,18 +17,27 @@ const formatClassNames = (args: any) => {
   const classNames: string[] = [];
   const hasMarginAuto = getHasMarginAuto(args);
 
-  if (hasMarginAuto) classNames.push('tide-display-flex', 'tide-axis1-center', 'tide-axis2-center');
+  if (hasMarginAuto) classNames.push(CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER);
   if (args.margin) classNames.push(args.margin);
 
-  return classNames.join(' ');
+  return classNames;
+};
+
+const formatClassNamesSnippet = (args: any) => {
+  const classNames = formatClassNames(args);
+
+  return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
   const styles = formatStyles(args);
   const styleAttribute = styles ? ` style="${styles}"` : '';
+  const classNames = formatClassNamesSnippet(args);
 
-  return `<div class="${formatClassNames(args)}"${styleAttribute}>Demo</div>`;
+  return classNames.length
+    ? `<div :class="[${classNames.join(', ')}]"${styleAttribute}>Demo</div>`
+    : `<div${styleAttribute}>Demo</div>`;
 };
 
 const formatStyles = (args: any) => {
@@ -45,7 +55,7 @@ const formatStyles = (args: any) => {
 const getHasMarginAuto = (args: any) =>
   [MARGIN['X-axis Auto'], MARGIN['Left Auto'], MARGIN['Right Auto']].includes(args.margin);
 
-const getContainerClass = (args: any) => (getHasMarginAuto(args) ? '' : 'tide-display-inline-block');
+const getContainerClass = (args: any) => (getHasMarginAuto(args) ? '' : CSS.DISPLAY.INLINE_BLOCK);
 
 const parameters = {
   docs: {
@@ -64,8 +74,7 @@ const render = (args: any) => ({
   setup() {
     return formatArgs(args);
   },
-  template:
-    '<div :class="getContainerClass(args)" class="sb-bg-blue-light"><div class="tide-border-1 tide-padding-1 sb-bg-white" v-bind="args">Demo</div></div>',
+  template: `<div :class="getContainerClass(args)" class="sb-bg-blue-light"><div class="tide-border-1 tide-padding-1 sb-bg-white sb-bg-white" v-bind="args">Demo</div></div>`,
   updated() {
     return formatArgs(args);
   },

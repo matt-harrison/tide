@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/Storybook';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);
 const BORDER_SIDE = prependNoneAsEmpty(STYLES.BORDER_SIDE);
@@ -16,20 +16,22 @@ const formatArgs = (args: any) => {
 const formatClassNames = (args: any) => {
   const classNames: string[] = [];
 
-  if (args.borderSide === BORDER_SIDE.Full && args.borderWidth !== BORDER_WIDTH.None && args.borderRadius)
+  if (args.borderSide === BORDER_SIDE.Full && args.borderWidth !== BORDER_WIDTH.None && args.borderRadius) {
     classNames.push(args.borderRadius);
+  }
 
   if (args.borderSide && args.borderWidth) {
     classNames.push(`${args.borderSide}-${args.borderWidth}`);
   }
 
-  return classNames.join(' ');
+  return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const classNames = formatClassNames(args);
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };
 
 const parameters = {
@@ -58,13 +60,6 @@ export default {
       ...formatArgType({ BORDER_RADIUS }),
       description: 'Dictates severity of rounded corners',
       if: { arg: 'borderSide', eq: BORDER_SIDE.Full },
-      /*
-      // Storybook can't yet implement the ideal rule:
-      if: [
-        { arg: 'borderSide', eq: BORDER_SIDE.Full },
-        { arg: 'borderWidth', neq: BORDER_SIDE.None },
-      ],
-      */
       name: 'Border Radius',
     },
     borderSide: {

@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import { TYPOGRAPHY } from '@/types/Storybook';
-import { formatArgType } from '@/utilities/storybook';
+import { formatArgType, getConstantsByValues } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {
   args.class = args.type.join(' ');
@@ -9,11 +9,17 @@ const formatArgs = (args: any) => {
   return { args };
 };
 
+const formatClassNames = (args: any) => {
+  const classNames: string[] = args.type;
+
+  return getConstantsByValues(classNames);
+};
+
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const { type } = args as { type: string[] };
+  const classNames = formatClassNames(args);
 
-  return `<div class="${type.join(' ')}">${args.label}</div>`;
+  return `<div :class="[${classNames.join(', ')}]">${args.label}</div>`;
 };
 
 const parameters = {

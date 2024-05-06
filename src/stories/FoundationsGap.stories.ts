@@ -2,7 +2,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/Storybook';
 import { argTypeBooleanUnrequired } from '@/utilities/storybook';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const FLEX_AXIS1 = prependNoneAsEmpty(STYLES.FLEX_AXIS1);
 const FLEX_AXIS2 = prependNoneAsEmpty(STYLES.FLEX_AXIS2);
@@ -24,13 +24,14 @@ const formatClassNames = (args: any) => {
   if (args.flexGap) classNames.push(args.flexGap);
   if (args.flexWrap) classNames.push('tide-flex-wrap');
 
-  return classNames.join(' ');
+  return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const classNames = formatClassNames(args);
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };
 
 const parameters = {

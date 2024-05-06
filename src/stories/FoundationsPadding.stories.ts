@@ -1,7 +1,7 @@
 import type { StoryContext } from '@storybook/vue3';
 
 import * as STYLES from '@/types/Storybook';
-import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
+import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 
@@ -16,13 +16,20 @@ const formatClassNames = (args: any) => {
 
   if (args.padding) classNames.push(args.padding);
 
-  return classNames.join(' ');
+  return classNames;
+};
+
+const formatClassNamesSnippet = (args: any) => {
+  const classNames = formatClassNames(args);
+
+  return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
+  const classNames = formatClassNamesSnippet(args);
 
-  return `<div class="${formatClassNames(args)}">Demo</div>`;
+  return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };
 
 const parameters = {
