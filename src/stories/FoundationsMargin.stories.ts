@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/StorybookStyles';
+import * as STYLES from '@/types/Storybook';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
@@ -106,25 +106,11 @@ export const Margin2 = {
   name: 'Margin 2 REM',
 };
 
-export const Margin3_2 = {
-  args: {
-    margin: MARGIN['Full 1.5 REM'],
-  },
-  name: 'Margin 1.5 REM',
-};
-
 export const Margin1 = {
   args: {
     margin: MARGIN['Full 1 REM'],
   },
   name: 'Margin 1 REM',
-};
-
-export const Margin3_4 = {
-  args: {
-    margin: MARGIN['Full 0.75 REM'],
-  },
-  name: 'Margin 0.75 REM',
 };
 
 export const MarginHalf = {
@@ -141,20 +127,6 @@ export const MarginQuarter = {
   name: 'Margin 0.25 REM',
 };
 
-export const MarginEighth = {
-  args: {
-    margin: MARGIN['Full 0.125 REM'],
-  },
-  name: 'Margin 0.125 REM',
-};
-
-export const MarginYAuto = {
-  args: {
-    margin: MARGIN['X-axis Auto'],
-  },
-  name: 'Margin X-axis Auto',
-};
-
 export const MarginRightAuto = {
   args: {
     margin: MARGIN['Right Auto'],
@@ -164,5 +136,11 @@ export const MarginRightAuto = {
 export const MarginLeftAuto = {
   args: {
     margin: MARGIN['Left Auto'],
+  },
+};
+
+export const MarginXAuto = {
+  args: {
+    margin: MARGIN['X-axis Auto'],
   },
 };

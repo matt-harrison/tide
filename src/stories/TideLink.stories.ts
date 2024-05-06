@@ -4,7 +4,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import * as STANDARD_ELEMENT from '@/types/Element';
 import * as STANDARD_ICON from '@/types/Icon';
-import * as STANDARD_LINK_SIZE from '@/types/StorybookStyles';
+import * as STANDARD_LINK_SIZE from '@/types/Storybook';
 import TideLink from '@/components/TideLink.vue';
 import {
   argTypeBooleanUnrequired,

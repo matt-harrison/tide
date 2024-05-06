@@ -2,7 +2,7 @@
 
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/StorybookStyles';
+import * as STYLES from '@/types/Storybook';
 import Border from '@/stories/FoundationsBorder.stories';
 import Gap from '@/stories/FoundationsGap.stories';
 import Margin from '@/stories/FoundationsMargin.stories';

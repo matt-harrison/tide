@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/StorybookStyles';
+import * as STYLES from '@/types/Storybook';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const BORDER_RADIUS = prependNoneAsEmpty(STYLES.BORDER_RADIUS);

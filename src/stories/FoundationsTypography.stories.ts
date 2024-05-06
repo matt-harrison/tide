@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import { TYPOGRAPHY } from '@/types/StorybookStyles';
+import { TYPOGRAPHY } from '@/types/Storybook';
 import { formatArgType } from '@/utilities/storybook';
 
 const formatArgs = (args: any) => {

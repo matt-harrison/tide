@@ -1,4 +1,4 @@
-import * as STANDARD_BADGE from '@/types/StorybookStyles';
+import * as STANDARD_BADGE from '@/types/Storybook';
 import TideBadgeTrustedPartner from '@/components/TideBadgeTrustedPartner.vue';
 import { formatArgType, parameters, prependNoneAsUndefined } from '@/utilities/storybook';
 

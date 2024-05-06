@@ -1,6 +1,6 @@
 import type { StoryContext } from '@storybook/vue3';
 
-import * as STYLES from '@/types/StorybookStyles';
+import * as STYLES from '@/types/Storybook';
 import { formatArgType, prependNoneAsEmpty } from '@/utilities/storybook';
 
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
@@ -79,25 +79,11 @@ export const Padding2 = {
   name: 'Padding 2 REM',
 };
 
-export const Padding3_2 = {
-  args: {
-    padding: PADDING['Full 1.5 REM'],
-  },
-  name: 'Padding 1.5 REM',
-};
-
 export const Padding1 = {
   args: {
     padding: PADDING['Full 1 REM'],
   },
   name: 'Padding 1 REM',
-};
-
-export const Padding3_4 = {
-  args: {
-    padding: PADDING['Full 0.75 REM'],
-  },
-  name: 'Padding 0.75 REM',
 };
 
 export const PaddingHalf = {
@@ -112,11 +98,4 @@ export const PaddingQuarter = {
     padding: PADDING['Full 0.25 REM'],
   },
   name: 'Padding 0.25 REM',
-};
-
-export const PaddingEighth = {
-  args: {
-    padding: PADDING['Full 0.125 REM'],
-  },
-  name: 'Padding 0.125 REM',
 };
