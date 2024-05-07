@@ -4,7 +4,6 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
-    '@storybook/addon-mdx-gfm',
   ],
   docs: {
     autodocs: 'tag',
