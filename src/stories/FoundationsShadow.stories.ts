@@ -6,7 +6,7 @@ import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utili
 const SHADOW = prependNoneAsEmpty(STYLES.SHADOW);
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = formatClassNames(args).join(' ');
 
   return { args };
 };
@@ -16,12 +16,18 @@ const formatClassNames = (args: any) => {
 
   if (args.shadow) classNames.push(args.shadow);
 
+  return classNames;
+};
+
+const formatClassNamesSnippet = (args: any) => {
+  const classNames = formatClassNames(args);
+
   return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const classNames = formatClassNames(args);
+  const classNames = formatClassNamesSnippet(args);
 
   return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };

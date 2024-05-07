@@ -10,7 +10,7 @@ const FLEX_DIRECTION = prependNoneAsEmpty(STYLES.FLEX_DIRECTION);
 const GAP = prependNoneAsEmpty(STYLES.GAP);
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = formatClassNames(args).join(' ');
 
   return { args };
 };
@@ -24,12 +24,18 @@ const formatClassNames = (args: any) => {
   if (args.flexGap) classNames.push(args.flexGap);
   if (args.flexWrap) classNames.push('tide-flex-wrap');
 
+  return classNames;
+};
+
+const formatClassNamesSnippet = (args: any) => {
+  const classNames = formatClassNames(args);
+
   return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const classNames = formatClassNames(args);
+  const classNames = formatClassNamesSnippet(args);
 
   return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };

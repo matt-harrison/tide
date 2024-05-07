@@ -215,10 +215,14 @@ export const getConstantByValue = (value: string) => {
 
       if (type === 'string' && basis === value) {
         output = key;
+        return;
       } else if (type === 'object') {
         const match = compareRecursively(basis, value, depth + 1);
 
-        if (match) output = `${key}.${match}`;
+        if (match) {
+          output = `${key}.${match}`;
+          return;
+        }
       }
     });
 

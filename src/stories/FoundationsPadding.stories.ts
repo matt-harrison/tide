@@ -6,7 +6,7 @@ import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utili
 const PADDING = prependNoneAsEmpty(STYLES.PADDING);
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = formatClassNames(args).join(' ');
 
   return { args };
 };

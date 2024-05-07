@@ -8,7 +8,7 @@ const BORDER_SIDE = prependNoneAsEmpty(STYLES.BORDER_SIDE);
 const BORDER_WIDTH = prependNoneAsEmpty(STYLES.BORDER_WIDTH);
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = formatClassNames(args).join(' ');
 
   return { args };
 };
@@ -24,12 +24,18 @@ const formatClassNames = (args: any) => {
     classNames.push(`${args.borderSide}-${args.borderWidth}`);
   }
 
+  return classNames;
+};
+
+const formatClassNamesSnippet = (args: any) => {
+  const classNames = formatClassNames(args);
+
   return getConstantsByValues(classNames);
 };
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
-  const classNames = formatClassNames(args);
+  const classNames = formatClassNamesSnippet(args);
 
   return classNames.length ? `<div :class="[${classNames.join(', ')}]">Demo</div>` : '<div>Demo</div>';
 };

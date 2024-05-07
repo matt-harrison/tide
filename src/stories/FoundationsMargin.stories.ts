@@ -7,7 +7,7 @@ import { formatArgType, getConstantsByValues, prependNoneAsEmpty } from '@/utili
 const MARGIN = prependNoneAsEmpty(STYLES.MARGIN);
 
 const formatArgs = (args: any) => {
-  args.class = formatClassNames(args);
+  args.class = formatClassNames(args).join(' ');
   args.style = formatStyles(args);
 
   return { args };
