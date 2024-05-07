@@ -82,6 +82,7 @@ export const CSS = {
   CURSOR: {
     NOT_ALLOWED: 'tide-cursor-not-allowed',
     POINTER: 'tide-cursor-pointer',
+    TEXT: 'tide-cursor-text',
   },
   DISPLAY: {
     BLOCK: 'tide-display-block',

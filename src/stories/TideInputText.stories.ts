@@ -17,11 +17,14 @@ const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
 const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INPUT_TYPE);
 
-const render = (args: any) => ({
+const render = (args: any, context: any) => ({
   components: { TideInputText },
   methods: {
     handleKeyUp: (event: KeyboardEvent) => {
+      const input = context.canvasElement.querySelector('input');
+
       action('TideInputText changed')(event);
+      context.updateArgs({ ...args, value: input.value });
     },
   },
   setup: () => ({ args }),
@@ -59,10 +62,7 @@ export default {
       },
     },
     maxlength: {
-      control: {
-        min: 1,
-        type: 'number',
-      },
+      control: 'text',
       description: 'Applies a maximum character count to the Text Field',
       table: {
         defaultValue: { summary: 'None' },
@@ -70,10 +70,7 @@ export default {
       },
     },
     minlength: {
-      control: {
-        min: 1,
-        type: 'number',
-      },
+      control: 'text',
       description: 'Applies a minimum character count to the Text Field',
       table: {
         defaultValue: { summary: 'None' },
@@ -88,9 +85,9 @@ export default {
         type: { summary: 'string' },
       },
     },
-    placeholder: {
+    prefix: {
       control: 'text',
-      description: 'Text Field placeholder',
+      description: 'Text Field prefix',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -103,6 +100,14 @@ export default {
     suffix: {
       control: 'text',
       description: 'Text Field suffix<br />(i.e. units)',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
+    },
+    supportingText: {
+      control: 'text',
+      description: 'Explainer text beneath input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -135,13 +140,14 @@ export default {
     error: undefined,
     iconLeading: undefined,
     inputId: '',
-    label: '',
-    maxlength: undefined,
-    minlength: undefined,
+    label: 'Input label',
+    maxlength: '',
+    minlength: '',
     name: '',
-    placeholder: '',
+    prefix: '',
     required: undefined,
     suffix: '',
+    supportingText: '',
     transformValue: undefined,
     type: undefined,
     validators: [],

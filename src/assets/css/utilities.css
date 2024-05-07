@@ -229,8 +229,9 @@
 
 .tide-break-word {overflow-wrap: break-word;}
 
-.tide-cursor-pointer     {cursor: pointer;}
 .tide-cursor-not-allowed {cursor: not-allowed;}
+.tide-cursor-pointer     {cursor: pointer;}
+.tide-cursor-text        {cursor: text;}
 
 .tide-leading-default {line-height: 100%;}
 .tide-leading-normal  {line-height: normal;}

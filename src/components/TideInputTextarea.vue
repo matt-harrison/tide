@@ -7,7 +7,7 @@
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
-  import { getFieldHasError, getSupportingText, handleFieldValidation } from '@/utilities/forms';
+  import { getFieldHasError, getErrorMessage, handleFieldValidation } from '@/utilities/forms';
   import { checkLength } from '@/utilities/validation';
 
   interface Props extends TextareaField {
@@ -43,7 +43,7 @@
 
   const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
-  const supportingText = computed(() => getSupportingText(props.error, error.value));
+  const supportingText = computed(() => getErrorMessage(props.error, error.value));
   const uniqueTextareaId = computed(() => `${props.textareaId ?? 'textarea'}-${uid}`);
 
   const handleInput = () => {

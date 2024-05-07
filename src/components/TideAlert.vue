@@ -82,7 +82,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
   .tide-alert {
     grid-template-areas:
       'icon heading close'

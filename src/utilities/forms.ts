@@ -16,7 +16,7 @@ export const getSelectOptionsFromStrings = (strings: string[]) =>
       } as SelectOption)
   );
 
-export const getSupportingText = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {
+export const getErrorMessage = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {
   // error in props takes precedence over validation error
   if (typeof errorFromProps === 'string' && errorFromProps.length > 0) return errorFromProps;
 

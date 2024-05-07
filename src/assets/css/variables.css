@@ -90,12 +90,12 @@
   --error-primary-border: var(--red-300);
   --error-surface:        var(--red-100);
 
-  --error-border:      var(--red-200);
+  --error-border:      var(--red-400);
   --error-border-low:  var(--red-200);
-  --error-border-high: var(--red-200);
+  --error-border-high: var(--red-500);
 
-  --error-on-surface:         var(--red-200);
-  --error-on-surface-variant: var(--red-200);
+  --error-on-surface:         var(--red-400);
+  --error-on-surface-variant: var(--red-500 );
 
   --info-primary:        var(--blue-400);
   --info-primary-border: var(--blue-300);

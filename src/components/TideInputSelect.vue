@@ -8,7 +8,7 @@
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
-  import { getFieldHasError, getSupportingText } from '@/utilities/forms';
+  import { getFieldHasError, getErrorMessage } from '@/utilities/forms';
 
   interface Props extends SelectField {
     iconLeading?: Icon;
@@ -38,7 +38,7 @@
   const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
   const hasSuffix = computed(() => props.suffix && props.suffix.length > 0);
-  const supportingText = computed(() => getSupportingText(props.error, error.value));
+  const supportingText = computed(() => getErrorMessage(props.error, error.value));
   const uniqueSelectId = computed(() => `${props.selectId ?? 'select'}-${uid}`);
 
   watch(props, () => {
