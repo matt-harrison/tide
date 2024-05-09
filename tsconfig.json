@@ -4,6 +4,7 @@
   "compilerOptions": {
     "allowJs": true,
     "baseUrl": ".",
+    "lib": ["dom", "es2022"],
     "module": "esnext",
     "paths": {
       "@/*": ["./src/*"]

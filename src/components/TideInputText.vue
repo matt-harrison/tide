@@ -13,10 +13,12 @@
   import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/TextInput';
-  import { checkLength } from '@/utilities/validation';
   import { getErrorMessage, getFieldHasError, handleFieldValidation } from '@/utilities/forms';
+  import { getFieldLengthIsValid } from '@/utilities/validation';
 
   type Props = {
+    autocomplete?: boolean;
+    dataTrack?: string;
     disabled?: boolean;
     error?: ValidationError;
     iconLeading?: Icon;
@@ -36,6 +38,8 @@
   };
 
   const props = withDefaults(defineProps<Props>(), {
+    autocomplete: false,
+    dataTrack: '',
     disabled: false,
     error: false,
     iconLeading: undefined,
@@ -50,18 +54,14 @@
     transformValue: undefined,
     type: TEXT_INPUT_TYPE.TEXT,
     validators: undefined,
-    value: undefined,
+    value: '',
   });
-
-  const formatValue = (input: string) => {
-    return props.transformValue ? props.transformValue(input) : input;
-  };
 
   const error = ref(props.error);
   const hasFocus = ref(false);
   const input = ref<HTMLInputElement | null>(null);
   const required = ref(props.required);
-  const value = ref(props.value ? formatValue(props.value) : '');
+  const value = ref(props.value);
 
   const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required && props.label ? `${props.label} *` : props.label));
@@ -72,6 +72,15 @@
 
   const instance = getCurrentInstance();
   const uid = instance?.uid ?? '';
+
+  const handleFocus = () => {
+    hasFocus.value = true;
+  };
+
+  const handleFocusOut = () => {
+    hasFocus.value = false;
+    handleValidation();
+  };
 
   const handleInput = () => {
     if (props.transformValue) {
@@ -85,16 +94,34 @@
     handleFieldValidation({
       error,
       errorFromProps: props.error,
-      validators: [checkLength(props.minlength, props.maxlength), ...(props.validators || [])],
+      validators: props.validators,
       value,
     });
 
-  watch(props, () => {
-    value.value = props.value ? formatValue(props.value) : '';
-    handleValidation();
-  });
+  const updateValue = (newValue: string) => {
+    value.value = newValue;
+  };
 
-  defineExpose({ error, required, value });
+  watch(
+    props,
+    (newValue, oldValue) => {
+      if (
+        newValue.value !== oldValue.value &&
+        newValue.value !== value.value &&
+        getFieldLengthIsValid({
+          maxlength: props.maxlength,
+          minlength: props.minlength,
+          value: props.value,
+        })
+      ) {
+        value.value = props.value;
+      }
+      handleValidation();
+    },
+    { deep: true }
+  );
+
+  defineExpose({ error, required, updateValue, value });
 </script>
 
 <template>
@@ -148,7 +175,9 @@
           <div v-if="props.prefix">{{ props.prefix }}</div>
 
           <input
+            :autocomplete="autocomplete ? 'on' : 'off'"
             :class="[CSS.WIDTH.FULL, disabled && CSS.CURSOR.NOT_ALLOWED]"
+            :data-track="dataTrack"
             :disabled="disabled"
             :maxlength="maxlength"
             :minlength="minlength"
@@ -156,8 +185,8 @@
             ref="input"
             :required="required"
             :type="type"
-            @focus="hasFocus = true"
-            @focusout="hasFocus = false"
+            @focus="handleFocus"
+            @focusout="handleFocusOut"
             @input="handleInput"
             @keyup="handleValidation"
             :id="uniqueInputId"

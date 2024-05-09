@@ -1,4 +1,5 @@
 import type { Ref } from 'vue';
+
 import type { SelectOption } from '@/types/Select';
 import type { ValidationError, Validator } from '@/types/Validation';
 
@@ -6,6 +7,13 @@ import { errorMessageDefault, validateProperty } from '@/utilities/validation';
 
 export const getFieldHasError = (errorFromProps: ValidationError, errorFromRef: ValidationError) =>
   errorFromProps !== false || errorFromRef !== false;
+
+export const getErrorMessage = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {
+  // error in props takes precedence over validation error
+  if (typeof errorFromProps === 'string' && errorFromProps.length > 0) return errorFromProps;
+
+  return typeof errorFromRef === 'string' && errorFromRef.length > 0 ? errorFromRef : errorMessageDefault;
+};
 
 export const getSelectOptionsFromStrings = (strings: string[]) =>
   strings.map(
@@ -15,13 +23,6 @@ export const getSelectOptionsFromStrings = (strings: string[]) =>
         value: option,
       } as SelectOption)
   );
-
-export const getErrorMessage = (errorFromProps: ValidationError, errorFromRef: ValidationError) => {
-  // error in props takes precedence over validation error
-  if (typeof errorFromProps === 'string' && errorFromProps.length > 0) return errorFromProps;
-
-  return typeof errorFromRef === 'string' && errorFromRef.length > 0 ? errorFromRef : errorMessageDefault;
-};
 
 export const handleFieldValidation = ({
   error,

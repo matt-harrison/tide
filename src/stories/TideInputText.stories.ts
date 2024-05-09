@@ -7,6 +7,7 @@ import TideInputText from '@/components/TideInputText.vue';
 import { VALIDATOR } from '@/types/Validation';
 import {
   argTypeBooleanUnrequired,
+  dataTrack,
   formatArgType,
   formatArgTypeCheck,
   parameters,
@@ -33,6 +34,11 @@ const render = (args: any, context: any) => ({
 
 export default {
   argTypes: {
+    autocomplete: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether browser attempts to autocomplete',
+    },
+    dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether Text Field is interactable',
@@ -136,6 +142,8 @@ export default {
     },
   },
   args: {
+    autocomplete: undefined,
+    dataTrack: '',
     disabled: undefined,
     error: undefined,
     iconLeading: undefined,
