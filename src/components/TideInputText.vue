@@ -106,8 +106,7 @@
     props,
     (newValue, oldValue) => {
       if (
-        newValue.value !== oldValue.value &&
-        newValue.value !== value.value &&
+        (newValue.value !== oldValue.value || newValue.value !== value.value) &&
         getFieldLengthIsValid({
           maxlength: props.maxlength,
           minlength: props.minlength,
@@ -116,6 +115,7 @@
       ) {
         value.value = props.value;
       }
+
       handleValidation();
     },
     { deep: true }

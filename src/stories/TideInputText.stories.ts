@@ -127,6 +127,11 @@ export default {
       ...formatArgType({ TEXT_INPUT_TYPE }),
       description: 'Determines the type(s) of values expected by the Text Field',
     },
+    updateValue: {
+      table: {
+        disable: true,
+      },
+    },
     validators: {
       ...formatArgTypeCheck({ VALIDATOR }),
       description:
