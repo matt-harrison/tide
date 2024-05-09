@@ -21,7 +21,7 @@ const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INP
 const render = (args: any, context: any) => ({
   components: { TideInputText },
   methods: {
-    handleKeyUp: (event: KeyboardEvent) => {
+    handleChange: (event: KeyboardEvent) => {
       const input = context.canvasElement.querySelector('input');
 
       action('TideInputText changed')(event);
@@ -29,7 +29,7 @@ const render = (args: any, context: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<TideInputText @keyup="handleKeyUp" v-bind="args" />`,
+  template: `<TideInputText @change="handleChange" v-bind="args" />`,
 });
 
 export default {
@@ -46,6 +46,11 @@ export default {
     error: {
       ...argTypeBooleanUnrequired,
       description: 'Reflects whether the Text Field value is valid',
+    },
+    hasClose: {
+      ...argTypeBooleanUnrequired,
+      description: 'Determines whether browser attempts to autocomplete',
+      if: { arg: 'type', neq: TEXT_INPUT_TYPE.PASSWORD },
     },
     iconLeading: {
       ...formatArgType({ ICON }),
@@ -151,6 +156,7 @@ export default {
     dataTrack: '',
     disabled: undefined,
     error: undefined,
+    hasClose: undefined,
     iconLeading: undefined,
     inputId: '',
     label: 'Input label',

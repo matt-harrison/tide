@@ -6,11 +6,9 @@
   import type { TextInputType } from '@/types/TextInput';
   import type { ValidationError, Validator } from '@/types/Validation';
 
-  import TideButtonIcon from './TideButtonIcon.vue';
   import TideSvgIcon from '@/components/TideSvgIcon.vue';
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
-  import { PRIORITY } from '@/types/Priority';
   import { SIZE } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/TextInput';
   import { getErrorMessage, getFieldHasError, handleFieldValidation } from '@/utilities/forms';
@@ -21,6 +19,7 @@
     dataTrack?: string;
     disabled?: boolean;
     error?: ValidationError;
+    hasClose?: boolean;
     iconLeading?: Icon;
     inputId?: string;
     label: string;
@@ -42,6 +41,7 @@
     dataTrack: '',
     disabled: false,
     error: false,
+    hasClose: false,
     iconLeading: undefined,
     inputId: undefined,
     label: undefined,
@@ -61,13 +61,17 @@
   const hasFocus = ref(false);
   const input = ref<HTMLInputElement | null>(null);
   const required = ref(props.required);
+  const showPassword = ref(false);
   const value = ref(props.value);
 
   const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required && props.label ? `${props.label} *` : props.label));
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
-  const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value || props.prefix);
+  const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value);
   const isEmpty = computed(() => value.value === '');
+  const type = computed(() =>
+    props.type === TEXT_INPUT_TYPE.PASSWORD && showPassword.value === true ? TEXT_INPUT_TYPE.TEXT : props.type
+  );
   const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
 
   const instance = getCurrentInstance();
@@ -142,9 +146,9 @@
         CSS.AXIS2.CENTER,
         CSS.GAP.HALF,
         CSS.POSITION.RELATIVE,
-        CSS.BORDER.RADIUS.QUARTER,
+        CSS.BORDER.RADIUS.HALF,
+        props.hasClose ? [CSS.PADDING.RIGHT.HALF, CSS.PADDING.LEFT.ONE] : [CSS.PADDING.X.ONE],
         CSS.PADDING.Y.HALF,
-        CSS.PADDING.X.ONE,
         props.disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.TEXT,
       ]"
     >
@@ -154,25 +158,31 @@
         v-if="props.iconLeading"
       />
 
-      <div
-        :class="[CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.WIDTH.FULL]"
-        @click.prevent="input?.focus()"
-      >
-        <label
-          :class="[
-            hasMinilabel ? ['minilabel', CSS.FONT.SIZE.TWELVE] : CSS.FONT.SIZE.SIXTEEN,
-            CSS.FONT.WEIGHT.FIVE_HUNDRED,
-            CSS.CURSOR.TEXT,
-          ]"
-          :for="uniqueInputId"
-          ref="label"
-          v-if="label"
+      <div :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.WIDTH.FULL]">
+        <div
+          :class="['tide-input-text-prefix', !hasError && CSS.FONT.COLOR.SURFACE.VARIANT, hasMinilabel ? '' : 'offset']"
+          v-if="props.prefix"
         >
-          {{ formattedLabel }}
-        </label>
+          {{ props.prefix }}
+        </div>
 
-        <div :class="[CSS.DISPLAY.FLEX, CSS.GAP.QUARTER]">
-          <div v-if="props.prefix">{{ props.prefix }}</div>
+        <div
+          :class="[CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.WIDTH.FULL]"
+          @click.prevent="input?.focus()"
+        >
+          <label
+            :class="[
+              hasMinilabel ? ['minilabel', CSS.FONT.SIZE.TWELVE] : CSS.FONT.SIZE.SIXTEEN,
+              !hasError && CSS.FONT.COLOR.SURFACE.VARIANT,
+              CSS.FONT.WEIGHT.FIVE_HUNDRED,
+              CSS.CURSOR.TEXT,
+            ]"
+            :for="uniqueInputId"
+            ref="label"
+            v-if="label"
+          >
+            {{ formattedLabel }}
+          </label>
 
           <input
             :autocomplete="autocomplete ? 'on' : 'off'"
@@ -185,23 +195,40 @@
             ref="input"
             :required="required"
             :type="type"
+            @change="handleValidation"
             @focus="handleFocus"
             @focusout="handleFocusOut"
             @input="handleInput"
-            @keyup="handleValidation"
             :id="uniqueInputId"
             v-model="value"
           />
+        </div>
 
-          <div v-if="props.suffix">{{ props.suffix }}</div>
+        <div
+          :class="['tide-input-text-suffix', !hasError && CSS.FONT.COLOR.SURFACE.VARIANT, hasMinilabel ? '' : 'offset']"
+          v-if="props.suffix"
+        >
+          {{ props.suffix }}
         </div>
       </div>
 
-      <TideButtonIcon
+      <TideSvgIcon
+        :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
         :icon="ICON.CLOSE"
-        :priority="PRIORITY.QUATERNARY"
         :size="SIZE.SMALL"
-        @click.stop="value = ''"
+        @click="value = ''"
+        v-if="props.hasClose && props.type !== TEXT_INPUT_TYPE.PASSWORD"
+      />
+
+      <TideSvgIcon
+        :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
+        :icon="ICON.VISIBILITY"
+        :size="SIZE.SMALL"
+        @click="
+          showPassword = !showPassword;
+          console.log(props.type === TEXT_INPUT_TYPE.PASSWORD, showPassword === true, type);
+        "
+        v-if="props.type === TEXT_INPUT_TYPE.PASSWORD"
       />
     </div>
 
@@ -229,8 +256,15 @@
     transition: font-size var(--animate), transform var(--animate);
   }
 
-  label:not(.minilabel) {
-    transform: translate(0, calc(9.5 / 16 * 1rem));
+  label:not(.minilabel),
+  .tide-input-text-prefix:not(.offset),
+  .tide-input-text-suffix:not(.offset) {
+    transform: translate(0, calc(9 / 16 * 1rem));
+  }
+
+  .tide-input-text-prefix,
+  .tide-input-text-suffix {
+    transition: transform var(--animate);
   }
 
   .tide-text-input.disabled {
@@ -255,14 +289,14 @@
     outline-color: var(--surface-border-high);
   }
 
+  .tide-text-input input {
+    outline: none;
+  }
+
   .tide-text-input-field {
     --input-outline-width: var(--border-width-1);
     outline: var(--input-outline-width) solid var(--border);
     outline-offset: calc(var(--input-outline-width) * -1);
     color: var(--surface-foreground);
-  }
-
-  .tide-text-input input {
-    outline: none;
   }
 </style>
