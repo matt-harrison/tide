@@ -66,16 +66,14 @@
 
   const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required && props.label ? `${props.label} *` : props.label));
+  const hasClose = computed(() => props.hasClose && value.value);
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
   const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value);
   const isEmpty = computed(() => value.value === '');
   const type = computed(() =>
     props.type === TEXT_INPUT_TYPE.PASSWORD && showPassword.value === true ? TEXT_INPUT_TYPE.TEXT : props.type
   );
-  const uniqueInputId = computed(() => `${props.inputId ?? 'text-input'}-${uid}`);
-
-  const instance = getCurrentInstance();
-  const uid = instance?.uid ?? '';
+  const uniqueId = computed(() => (props.inputId ? props.inputId : `text-input-${getCurrentInstance()?.uid || ''}`));
 
   const handleFocus = () => {
     hasFocus.value = true;
@@ -147,7 +145,7 @@
         CSS.GAP.HALF,
         CSS.POSITION.RELATIVE,
         CSS.BORDER.RADIUS.HALF,
-        props.hasClose ? [CSS.PADDING.RIGHT.HALF, CSS.PADDING.LEFT.ONE] : [CSS.PADDING.X.ONE],
+        hasClose ? [CSS.PADDING.RIGHT.HALF, CSS.PADDING.LEFT.ONE] : [CSS.PADDING.X.ONE],
         CSS.PADDING.Y.HALF,
         props.disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.TEXT,
       ]"
@@ -177,7 +175,7 @@
               CSS.FONT.WEIGHT.FIVE_HUNDRED,
               CSS.CURSOR.TEXT,
             ]"
-            :for="uniqueInputId"
+            :for="uniqueId"
             ref="label"
             v-if="label"
           >
@@ -199,7 +197,7 @@
             @focus="handleFocus"
             @focusout="handleFocusOut"
             @input="handleInput"
-            :id="uniqueInputId"
+            :id="uniqueId"
             v-model="value"
           />
         </div>
@@ -217,7 +215,7 @@
         :icon="ICON.CLOSE"
         :size="SIZE.SMALL"
         @click="value = ''"
-        v-if="props.hasClose && props.type !== TEXT_INPUT_TYPE.PASSWORD"
+        v-if="hasClose && props.type !== TEXT_INPUT_TYPE.PASSWORD"
       />
 
       <TideSvgIcon
