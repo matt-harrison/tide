@@ -21,7 +21,7 @@ const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INP
 const render = (args: any, context: any) => ({
   components: { TideInputText },
   methods: {
-    handleChange: (event: KeyboardEvent) => {
+    handleKeyUp: (event: KeyboardEvent) => {
       const input = context.canvasElement.querySelector('input');
 
       action('TideInputText changed')(event);
@@ -29,7 +29,7 @@ const render = (args: any, context: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<TideInputText @change="handleChange" v-bind="args" />`,
+  template: `<TideInputText @keyup="handleKeyUp" v-bind="args" />`,
 });
 
 export default {

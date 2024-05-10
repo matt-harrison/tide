@@ -60,7 +60,6 @@
   const error = ref(props.error);
   const hasFocus = ref(false);
   const input = ref<HTMLInputElement | null>(null);
-  const required = ref(props.required);
   const showPassword = ref(false);
   const value = ref(props.value);
 
@@ -123,13 +122,13 @@
     { deep: true }
   );
 
-  defineExpose({ error, required, updateValue, value });
+  defineExpose({ error, updateValue, value });
 </script>
 
 <template>
   <div
     :class="[
-      'tide-text-input',
+      'tide-input-text',
       CSS.DISPLAY.FLEX,
       CSS.FLEX.DIRECTION.COLUMN,
       CSS.GAP.QUARTER,
@@ -139,7 +138,7 @@
   >
     <div
       :class="[
-        'tide-text-input-field',
+        'tide-input-text-field',
         CSS.DISPLAY.FLEX,
         CSS.AXIS2.CENTER,
         CSS.GAP.HALF,
@@ -176,7 +175,6 @@
               CSS.CURSOR.TEXT,
             ]"
             :for="uniqueId"
-            ref="label"
             v-if="label"
           >
             {{ formattedLabel }}
@@ -185,13 +183,13 @@
           <input
             :autocomplete="autocomplete ? 'on' : 'off'"
             :class="[CSS.WIDTH.FULL, disabled && CSS.CURSOR.NOT_ALLOWED]"
-            :data-track="dataTrack"
-            :disabled="disabled"
-            :maxlength="maxlength"
-            :minlength="minlength"
-            :name="name"
+            :data-track="props.dataTrack"
+            :disabled="props.disabled"
+            :maxlength="props.maxlength"
+            :minlength="props.minlength"
+            :name="props.name"
             ref="input"
-            :required="required"
+            :required="props.required"
             :type="type"
             @change="handleValidation"
             @focus="handleFocus"
@@ -265,33 +263,33 @@
     transition: transform var(--animate);
   }
 
-  .tide-text-input.disabled {
+  .tide-input-text.disabled {
     opacity: 0.333;
   }
 
-  .tide-text-input.error {
+  .tide-input-text.error {
     color: var(--error-on-surface);
   }
 
-  .tide-text-input.error .tide-text-input-field {
+  .tide-input-text.error .tide-input-text-field {
     outline-color: var(--error-border);
     background-color: var(--error-surface);
   }
 
-  .tide-text-input.error:focus-within .tide-text-input-field {
+  .tide-input-text.error:focus-within .tide-input-text-field {
     outline-color: var(--error-border);
   }
 
-  .tide-text-input:focus-within .tide-text-input-field {
+  .tide-input-text:focus-within .tide-input-text-field {
     --input-outline-width: var(--border-width-2);
     outline-color: var(--surface-border-high);
   }
 
-  .tide-text-input input {
+  .tide-input-text input {
     outline: none;
   }
 
-  .tide-text-input-field {
+  .tide-input-text-field {
     --input-outline-width: var(--border-width-1);
     outline: var(--input-outline-width) solid var(--border);
     outline-offset: calc(var(--input-outline-width) * -1);

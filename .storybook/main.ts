@@ -44,7 +44,7 @@ const config: StorybookConfig = {
     // '../src/stories/TideInputRadio.stories.ts',
     // '../src/stories/TideInputSelect.stories.ts',
     '../src/stories/TideInputText.stories.ts',
-    // '../src/stories/TideInputTextarea.stories.ts',
+    '../src/stories/TideInputTextarea.stories.ts',
     '../src/stories/TideLink.stories.ts',
     '../src/stories/TideModal.stories.ts',
     '../src/stories/TidePagination.stories.ts',

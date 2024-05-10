@@ -1,23 +1,16 @@
 import { action } from '@storybook/addon-actions';
 
-import * as STANDARD_FORMAT from '@/types/Formatted';
 import TideInputTextarea from '@/components/TideInputTextarea.vue';
-import { VALIDATOR } from '@/types/Validation';
-import {
-  argTypeBooleanUnrequired,
-  formatArgType,
-  formatArgTypeCheck,
-  parameters,
-  prependNoneAsUndefined,
-} from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, dataTrack, parameters } from '@/utilities/storybook';
 
-const FORMAT = prependNoneAsUndefined(STANDARD_FORMAT.FORMAT);
-
-const render = (args: any) => ({
+const render = (args: any, context: any) => ({
   components: { TideInputTextarea },
   methods: {
     handleKeyUp: (event: KeyboardEvent) => {
+      const input = context.canvasElement.querySelector('textarea');
+
       action('TideInputTextarea changed')(event);
+      context.updateArgs({ ...args, value: input.value });
     },
   },
   setup: () => ({ args }),
@@ -26,13 +19,14 @@ const render = (args: any) => ({
 
 export default {
   argTypes: {
-    disabled: {
-      ...argTypeBooleanUnrequired,
-      description: 'Determines whether Textarea is interactable',
-    },
-    error: {
-      ...argTypeBooleanUnrequired,
-      description: 'Reflects whether the Textarea value is valid',
+    dataTrack,
+    inputId: {
+      control: 'text',
+      description: 'Unique ID attribute<br />(to bind Textarea label to input)',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
     },
     label: {
       control: 'text',
@@ -72,14 +66,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    placeholder: {
-      control: 'text',
-      description: 'Textarea placeholder',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'string' },
-      },
-    },
     required: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether Textarea is required',
@@ -92,22 +78,13 @@ export default {
         type: { summary: 'number' },
       },
     },
-    textareaId: {
+    supportingText: {
       control: 'text',
-      description: 'Unique ID attribute<br />(to bind Textarea label to input)',
+      description: 'Explainer text beneath input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
       },
-    },
-    transformValue: {
-      ...formatArgType({ FORMAT }),
-      description: 'Determines text formatting applied to Textarea value upon invoking relevant listener event(s)',
-    },
-    validators: {
-      ...formatArgTypeCheck({ VALIDATOR }),
-      description:
-        'Determines method(s) used to check for valid Textarea value upon invoking relevant listener event(s)',
     },
     value: {
       control: 'text',
@@ -119,18 +96,15 @@ export default {
     },
   },
   args: {
-    disabled: undefined,
-    error: undefined,
-    label: '',
-    maxlength: undefined,
-    minlength: undefined,
+    dataTrack: '',
+    inputId: '',
+    label: 'Input label',
+    maxlength: '',
+    minlength: '',
     name: '',
-    placeholder: '',
     required: undefined,
     rows: undefined,
-    textareaId: '',
-    transformValue: undefined,
-    validators: [],
+    supportingText: '',
     value: '',
   },
   component: TideInputTextarea,
