@@ -21,7 +21,7 @@ const TEXT_INPUT_TYPE = prependNoneAsUndefined(STANDARD_TEXT_INPUT_TYPE.TEXT_INP
 const render = (args: any, context: any) => ({
   components: { TideInputText },
   methods: {
-    handleKeyUp: (event: KeyboardEvent) => {
+    handleChange: (event: KeyboardEvent) => {
       const input = context.canvasElement.querySelector('input');
 
       action('TideInputText changed')(event);
@@ -29,7 +29,7 @@ const render = (args: any, context: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<TideInputText @keyup="handleKeyUp" v-bind="args" />`,
+  template: `<TideInputText @change="handleChange" v-bind="args" />`,
 });
 
 export default {
@@ -41,11 +41,11 @@ export default {
     dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
-      description: 'Determines whether Text Field is interactable',
+      description: 'Determines whether input is interactable',
     },
     error: {
       ...argTypeBooleanUnrequired,
-      description: 'Reflects whether the Text Field value is valid',
+      description: 'Reflects whether the input value is valid',
     },
     hasClose: {
       ...argTypeBooleanUnrequired,
@@ -54,11 +54,11 @@ export default {
     },
     iconLeading: {
       ...formatArgType({ ICON }),
-      description: 'Icon at left of Text Field value',
+      description: 'Icon at left of input value',
     },
     inputId: {
       control: 'text',
-      description: 'Unique ID attribute<br />(to bind Text Field label to input)',
+      description: 'Unique ID attribute<br />(to bind input label to input)',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -74,7 +74,7 @@ export default {
     },
     maxlength: {
       control: 'text',
-      description: 'Applies a maximum character count to the Text Field',
+      description: 'Applies a maximum character count to the input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -82,7 +82,7 @@ export default {
     },
     minlength: {
       control: 'text',
-      description: 'Applies a minimum character count to the Text Field',
+      description: 'Applies a minimum character count to the input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -98,7 +98,7 @@ export default {
     },
     prefix: {
       control: 'text',
-      description: 'Text Field prefix',
+      description: 'input prefix',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -106,11 +106,11 @@ export default {
     },
     required: {
       ...argTypeBooleanUnrequired,
-      description: 'Determines whether Text Field is required',
+      description: 'Determines whether input is required',
     },
     suffix: {
       control: 'text',
-      description: 'Text Field suffix<br />(i.e. units)',
+      description: 'input suffix<br />(i.e. units)',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -126,11 +126,11 @@ export default {
     },
     transformValue: {
       ...formatArgType({ FORMAT }),
-      description: 'Determines text formatting applied to Text Field value upon invoking relevant listener event(s)',
+      description: 'Determines text formatting applied to input value upon invoking relevant listener event(s)',
     },
     type: {
       ...formatArgType({ TEXT_INPUT_TYPE }),
-      description: 'Determines the type(s) of values expected by the Text Field',
+      description: 'Determines the type(s) of values expected by the input',
     },
     updateValue: {
       table: {
@@ -139,12 +139,11 @@ export default {
     },
     validators: {
       ...formatArgTypeCheck({ VALIDATOR }),
-      description:
-        'Determines method(s) used to check for valid Text Field value upon invoking relevant listener event(s)',
+      description: 'Determines method(s) used to check for valid input value upon invoking relevant listener event(s)',
     },
     value: {
       control: 'text',
-      description: 'Text Field value',
+      description: 'input value',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },

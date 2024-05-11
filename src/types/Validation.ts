@@ -11,8 +11,14 @@ export const VALIDATOR = {
 
 export type ValidationError = string | boolean;
 export type ValidationResult = {
-  valid: boolean;
   message: string;
+  valid: boolean;
+};
+
+export type ValidationLength = {
+  maxlength?: number;
+  minlength?: number;
+  value: string;
 };
 
 export type Validator = (value: string) => ValidationResult;

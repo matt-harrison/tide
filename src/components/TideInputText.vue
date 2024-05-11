@@ -11,8 +11,7 @@
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
   import { TEXT_INPUT_TYPE } from '@/types/TextInput';
-  import { getErrorMessage, getFieldHasError, handleFieldValidation } from '@/utilities/forms';
-  import { getFieldLengthIsValid } from '@/utilities/validation';
+  import { getErrorMessage, getFieldHasError, handleFieldValidation } from '@/utilities/validation';
 
   type Props = {
     autocomplete?: boolean;
@@ -91,13 +90,16 @@
     }
   };
 
-  const handleValidation = () =>
+  const handleValidation = () => {
     handleFieldValidation({
       error,
       errorFromProps: props.error,
+      maxlength: props.maxlength,
+      minlength: props.minlength,
       validators: props.validators,
       value,
     });
+  };
 
   const updateValue = (newValue: string) => {
     value.value = newValue;
@@ -106,18 +108,9 @@
   watch(
     props,
     (newValue, oldValue) => {
-      if (
-        (newValue.value !== oldValue.value || newValue.value !== value.value) &&
-        getFieldLengthIsValid({
-          maxlength: props.maxlength,
-          minlength: props.minlength,
-          value: props.value,
-        })
-      ) {
+      if (newValue.value !== oldValue.value || newValue.value !== value.value) {
         value.value = props.value;
       }
-
-      handleValidation();
     },
     { deep: true }
   );

@@ -8,7 +8,7 @@
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
-  import { getFieldHasError, getErrorMessage } from '@/utilities/forms';
+  import { getFieldHasError, getErrorMessage } from '@/utilities/validation';
 
   interface Props extends SelectField {
     iconLeading?: Icon;
