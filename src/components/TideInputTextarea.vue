@@ -1,14 +1,20 @@
 <script lang="ts" setup>
   import { computed, getCurrentInstance, ref, watch } from 'vue';
 
+  import type { ValidationError } from '@/types/Validation';
+
   import { CSS } from '@/types/Styles';
+  import { ICON } from '@/types/Icon';
+  import { SIZE } from '@/types/Size';
+  import { getErrorMessage, getFieldHasError, handleFieldValidation } from '@/utilities/validation';
 
   type Props = {
     dataTrack?: string;
+    error?: ValidationError;
     inputId?: string;
     label?: string;
-    maxlength?: number;
-    minlength?: number;
+    maxlength?: number | undefined;
+    minlength?: number | undefined;
     name?: string;
     required?: boolean;
     rows?: number;
@@ -18,6 +24,7 @@
 
   const props = withDefaults(defineProps<Props>(), {
     dataTrack: '',
+    error: false,
     inputId: undefined,
     label: undefined,
     maxlength: undefined,
@@ -29,11 +36,14 @@
     value: '',
   });
 
+  const error = ref(props.error);
   const hasFocus = ref(false);
   const input = ref<HTMLInputElement | null>(null);
   const value = ref(props.value);
 
+  const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
+  const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
   const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value);
   const isEmpty = computed(() => value.value === '');
   const uniqueId = computed(() => (props.inputId ? props.inputId : `text-input-${getCurrentInstance()?.uid || ''}`));
@@ -46,6 +56,16 @@
     hasFocus.value = false;
   };
 
+  const handleValidation = () => {
+    return handleFieldValidation({
+      error,
+      errorFromProps: props.error,
+      maxlength: props.maxlength,
+      minlength: props.minlength,
+      value,
+    });
+  };
+
   watch(props, (newValue, oldValue) => {
     if (newValue.value !== oldValue.value || newValue.value !== value.value) {
       value.value = props.value;
@@ -56,7 +76,9 @@
 </script>
 
 <template>
-  <div :class="['tide-input-textarea', CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.GAP.QUARTER]">
+  <div
+    :class="['tide-input-textarea', CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.GAP.QUARTER, hasError && 'error']"
+  >
     <div
       :class="[
         'tide-input-textarea-field',
@@ -71,7 +93,7 @@
       <label
         :class="[
           hasMinilabel ? ['minilabel', CSS.FONT.SIZE.TWELVE] : CSS.FONT.SIZE.SIXTEEN,
-          CSS.FONT.COLOR.SURFACE.VARIANT,
+          !hasError && CSS.FONT.COLOR.SURFACE.VARIANT,
           CSS.FONT.WEIGHT.FIVE_HUNDRED,
           CSS.CURSOR.TEXT,
         ]"
@@ -91,6 +113,7 @@
         ref="input"
         :required="props.required"
         :rows="props.rows"
+        @change="handleValidation"
         @focus="handleFocus"
         @focusout="handleFocusOut"
         :id="uniqueId"
@@ -99,10 +122,19 @@
     </div>
 
     <div
-      :class="[CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.FIVE_HUNDRED]"
-      v-if="props.supportingText"
+      :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.LEFT.ONE]"
+      v-if="props.supportingText || hasError"
     >
-      {{ props.supportingText }}
+      <TideSvgIcon
+        :class="[]"
+        :icon="ICON.ERROR"
+        :size="SIZE.SMALL"
+        v-if="hasError"
+      />
+
+      <div :class="[CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.FIVE_HUNDRED]">
+        {{ hasError ? errorMessage : props.supportingText }}
+      </div>
     </div>
   </div>
 </template>
@@ -117,6 +149,30 @@
   label {
     height: 1.1875rem;
     transition: font-size var(--animate), transform var(--animate);
+  }
+
+  label:not(.minilabel),
+  .tide-input-textarea-prefix:not(.offset),
+  .tide-input-textarea-suffix:not(.offset) {
+    transform: translate(0, calc(9 / 16 * 1rem));
+  }
+
+  .tide-input-textarea-prefix,
+  .tide-input-textarea-suffix {
+    transition: transform var(--animate);
+  }
+
+  .tide-input-textarea.error {
+    color: var(--error-on-surface);
+  }
+
+  .tide-input-textarea.error .tide-input-textarea-field {
+    outline-color: var(--error-border);
+    background-color: var(--error-surface);
+  }
+
+  .tide-input-textarea.error:focus-within .tide-input-textarea-field {
+    outline-color: var(--error-border);
   }
 
   .tide-input-textarea:focus-within .tide-input-textarea-field {

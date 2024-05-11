@@ -6,7 +6,7 @@ import { argTypeBooleanUnrequired, dataTrack, parameters } from '@/utilities/sto
 const render = (args: any, context: any) => ({
   components: { TideInputTextarea },
   methods: {
-    handleKeyUp: (event: KeyboardEvent) => {
+    handleChange: (event: KeyboardEvent) => {
       const input = context.canvasElement.querySelector('textarea');
 
       action('TideInputTextarea changed')(event);
@@ -14,15 +14,19 @@ const render = (args: any, context: any) => ({
     },
   },
   setup: () => ({ args }),
-  template: `<TideInputTextarea @keyup="handleKeyUp" v-bind="args" />`,
+  template: `<TideInputTextarea @change="handleChange" v-bind="args" />`,
 });
 
 export default {
   argTypes: {
     dataTrack,
+    error: {
+      ...argTypeBooleanUnrequired,
+      description: 'Reflects whether the input value is valid',
+    },
     inputId: {
       control: 'text',
-      description: 'Unique ID attribute<br />(to bind Textarea label to input)',
+      description: 'Unique ID attribute<br />(to bind input label to input)',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -37,22 +41,16 @@ export default {
       },
     },
     maxlength: {
-      control: {
-        min: 1,
-        type: 'number',
-      },
-      description: 'Applies a maximum character count to the Textarea',
+      control: 'text',
+      description: 'Applies a maximum character count to the input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
       },
     },
     minlength: {
-      control: {
-        min: 1,
-        type: 'number',
-      },
-      description: 'Applies a minimum character count to the Textarea',
+      control: 'text',
+      description: 'Applies a minimum character count to the input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -68,11 +66,11 @@ export default {
     },
     required: {
       ...argTypeBooleanUnrequired,
-      description: 'Determines whether Textarea is required',
+      description: 'Determines whether input is required',
     },
     rows: {
-      control: 'number',
-      description: 'Determines the height of the Textarea',
+      control: 'text',
+      description: 'Determines the height of the input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'number' },
@@ -88,7 +86,7 @@ export default {
     },
     value: {
       control: 'text',
-      description: 'Textarea value',
+      description: 'input value',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -97,6 +95,7 @@ export default {
   },
   args: {
     dataTrack: '',
+    error: undefined,
     inputId: '',
     label: 'Input label',
     maxlength: '',
