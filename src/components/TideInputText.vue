@@ -18,7 +18,7 @@
     dataTrack?: string;
     disabled?: boolean;
     error?: ValidationError;
-    hasClose?: boolean;
+    hasClear?: boolean;
     iconLeading?: Icon;
     inputId?: string;
     label: string;
@@ -40,7 +40,7 @@
     dataTrack: '',
     disabled: false,
     error: false,
-    hasClose: false,
+    hasClear: false,
     iconLeading: undefined,
     inputId: undefined,
     label: undefined,
@@ -64,7 +64,7 @@
 
   const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required && props.label ? `${props.label} *` : props.label));
-  const hasClose = computed(() => props.hasClose && value.value);
+  const hasClear = computed(() => props.hasClear && value.value);
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
   const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value);
   const isEmpty = computed(() => value.value === '');
@@ -73,6 +73,10 @@
   );
   const uniqueId = computed(() => (props.inputId ? props.inputId : `text-input-${getCurrentInstance()?.uid || ''}`));
 
+  const handleClear = () => {
+    value.value = '';
+    input.value?.focus();
+  };
   const handleFocus = () => {
     hasFocus.value = true;
   };
@@ -137,7 +141,7 @@
         CSS.GAP.HALF,
         CSS.POSITION.RELATIVE,
         CSS.BORDER.RADIUS.HALF,
-        hasClose ? [CSS.PADDING.RIGHT.HALF, CSS.PADDING.LEFT.ONE] : [CSS.PADDING.X.ONE],
+        hasClear ? [CSS.PADDING.RIGHT.HALF, CSS.PADDING.LEFT.ONE] : [CSS.PADDING.X.ONE],
         CSS.PADDING.Y.HALF,
         props.disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.TEXT,
       ]"
@@ -205,8 +209,8 @@
         :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
         :icon="ICON.CLOSE"
         :size="SIZE.SMALL"
-        @click="value = ''"
-        v-if="hasClose && props.type !== TEXT_INPUT_TYPE.PASSWORD"
+        @click="handleClear"
+        v-if="hasClear && props.type !== TEXT_INPUT_TYPE.PASSWORD"
       />
 
       <TideSvgIcon

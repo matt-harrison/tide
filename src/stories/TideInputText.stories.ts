@@ -47,7 +47,7 @@ export default {
       ...argTypeBooleanUnrequired,
       description: 'Reflects whether the input value is valid',
     },
-    hasClose: {
+    hasClear: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether browser attempts to autocomplete',
       if: { arg: 'type', neq: TEXT_INPUT_TYPE.PASSWORD },
@@ -155,7 +155,7 @@ export default {
     dataTrack: '',
     disabled: undefined,
     error: undefined,
-    hasClose: undefined,
+    hasClear: undefined,
     iconLeading: undefined,
     inputId: '',
     label: 'Input label',
