@@ -2,17 +2,14 @@ import { action } from '@storybook/addon-actions';
 
 import type { SelectOption } from '@/types/Select';
 
-import * as STANDARD_ICON from '@/types/Icon';
 import TideInputSelect from '@/components/TideInputSelect.vue';
 import {
   argTypeBooleanUnrequired,
+  dataTrack,
   formatArgType,
   getLabelsFromOptions,
   parameters,
-  prependNoneAsUndefined,
 } from '@/utilities/storybook';
-
-const ICON = prependNoneAsUndefined(STANDARD_ICON.ICON);
 
 const options = {
   'Option 1': 1,
@@ -51,6 +48,7 @@ const render = (args: any, { updateArgs }: any) => ({
 
 export default {
   argTypes: {
+    dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether Select is interactable',
@@ -59,9 +57,13 @@ export default {
       ...argTypeBooleanUnrequired,
       description: 'Reflects whether the Select value is valid',
     },
-    iconLeading: {
-      ...formatArgType({ ICON }),
-      description: 'Icon at left of Select value',
+    inputId: {
+      control: 'text',
+      description: 'Unique ID attribute<br />(to bind Select label to input)',
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
+      },
     },
     label: {
       control: 'text',
@@ -81,29 +83,13 @@ export default {
         type: { summary: 'SelectOption[]' },
       },
     },
-    placeholder: {
-      control: 'text',
-      description: 'Select placeholder',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'string' },
-      },
-    },
     required: {
       ...argTypeBooleanUnrequired,
       description: 'Determines whether Select is required',
     },
-    selectId: {
+    supportingText: {
       control: 'text',
-      description: 'Unique ID attribute<br />(to bind Select label to input)',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: 'string' },
-      },
-    },
-    suffix: {
-      control: 'text',
-      description: 'Select suffix<br />(i.e. units)',
+      description: 'Explainer text beneath input',
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: 'string' },
@@ -123,16 +109,15 @@ export default {
     },
   },
   args: {
+    dataTrack: '',
     disabled: undefined,
     error: undefined,
-    iconLeading: undefined,
-    label: '',
+    inputId: '',
+    label: 'Input label',
     name: '',
     options: selectOptions,
-    placeholder: '',
     required: undefined,
-    selectId: '',
-    suffix: '',
+    supportingText: '',
     value: undefined,
   },
   component: TideInputSelect,

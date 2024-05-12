@@ -26,7 +26,6 @@ interface GenericInput {
 
 interface SelectField extends GenericInput, StringValue {
   options: SelectOption[];
-  placeholder?: string;
 }
 
 interface StringValue {

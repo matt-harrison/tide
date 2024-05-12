@@ -3,6 +3,7 @@
 
   import type { ValidationError } from '@/types/Validation';
 
+  import TideSvgIcon from '@/components/TideSvgIcon.vue';
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
@@ -126,7 +127,6 @@
       v-if="props.supportingText || hasError"
     >
       <TideSvgIcon
-        :class="[]"
         :icon="ICON.ERROR"
         :size="SIZE.SMALL"
         v-if="hasError"

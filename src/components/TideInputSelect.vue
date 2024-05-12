@@ -1,7 +1,6 @@
 <script lang="ts" setup>
   import { getCurrentInstance, computed, ref, watch } from 'vue';
 
-  import type { Icon } from '@/types/Icon';
   import type { SelectField } from '@/types/Field';
 
   import TideSvgIcon from '@/components/TideSvgIcon.vue';
@@ -11,38 +10,52 @@
   import { getFieldHasError, getErrorMessage } from '@/utilities/validation';
 
   interface Props extends SelectField {
-    iconLeading?: Icon;
-    selectId?: string;
-    suffix?: string;
+    inputId?: string;
+    supportingText?: string;
   }
 
   const props = withDefaults(defineProps<Props>(), {
     disabled: false,
     error: false,
-    iconLeading: undefined,
+    inputId: undefined,
     label: undefined,
-    placeholder: '',
     required: false,
-    selectId: undefined,
-    suffix: '',
+    supportingText: undefined,
     value: '',
   });
 
   const error = ref(props.error);
+  const hasFocus = ref(false);
+  const input = ref<HTMLSelectElement | null>(null);
   const required = ref(props.required);
   const value = ref(props.value);
 
-  const instance = getCurrentInstance();
-  const uid = instance?.uid ?? '';
-
+  const errorMessage = computed(() => getErrorMessage(props.error, error.value));
   const formattedLabel = computed(() => (props.required ? `${props.label} *` : props.label));
   const hasError = computed(() => (props.required && !value.value) || getFieldHasError(error.value, props.error));
-  const hasSuffix = computed(() => props.suffix && props.suffix.length > 0);
-  const supportingText = computed(() => getErrorMessage(props.error, error.value));
-  const uniqueSelectId = computed(() => `${props.selectId ?? 'select'}-${uid}`);
+  const hasMinilabel = computed(() => hasFocus.value || !isEmpty.value);
+  const isEmpty = computed(() => value.value === '');
 
-  watch(props, () => {
-    value.value = props.value;
+  const uniqueId = computed(() => (props.inputId ? props.inputId : `text-input-${getCurrentInstance()?.uid || ''}`));
+
+  const expandOptions = () => {
+    console.log(input.value);
+    const event = new MouseEvent('mousedown');
+    input?.value?.dispatchEvent(event);
+  };
+
+  const handleFocus = () => {
+    hasFocus.value = true;
+  };
+
+  const handleFocusOut = () => {
+    hasFocus.value = false;
+  };
+
+  watch(props, (newValue, oldValue) => {
+    if (newValue.value !== oldValue.value || newValue.value !== value.value) {
+      value.value = props.value;
+    }
   });
 
   defineExpose({ error, required, value });
@@ -51,97 +64,88 @@
 <template>
   <div
     :class="[
-      'tide-select',
-      'block-field',
-      CSS.FONT.COLOR.SURFACE.VARIANT,
-      CSS.FONT.SIZE.FOURTEEN,
+      'tide-input-select',
+      CSS.DISPLAY.FLEX,
+      CSS.FLEX.DIRECTION.COLUMN,
+      CSS.GAP.QUARTER,
       disabled && 'disabled',
       hasError && 'error',
     ]"
   >
-    <label
-      :class="[CSS.MARGIN.BOTTOM.QUARTER, CSS.FONT.SIZE.FOURTEEN, CSS.FONT.WEIGHT.SEVEN_HUNDRED]"
-      :for="uniqueSelectId"
-      v-if="label"
+    <div
+      :class="[
+        'tide-input-border',
+        CSS.POSITION.RELATIVE,
+        CSS.DISPLAY.FLEX,
+        CSS.AXIS2.CENTER,
+        CSS.GAP.HALF,
+        CSS.BORDER.RADIUS.HALF,
+        props.disabled ? CSS.CURSOR.NOT_ALLOWED : '',
+        CSS.OVERFLOW.XY.HIDDEN,
+      ]"
+      @click="expandOptions"
     >
-      {{ formattedLabel }}
-    </label>
-
-    <div :class="[CSS.POSITION.RELATIVE, CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.WIDTH.FULL]">
-      <select
-        :class="[
-          'field',
-          CSS.BG.SURFACE.DEFAULT,
-          iconLeading && [CSS.PADDING.LEFT.TWO],
-          [CSS.BORDER.RADIUS.QUARTER, CSS.PADDING.FULL.HALF],
-          hasSuffix && [CSS.PADDING.RIGHT.TWO],
-          CSS.WIDTH.FULL,
-          disabled && [CSS.CURSOR.NOT_ALLOWED],
-        ]"
-        :disabled="disabled"
-        :name="name"
-        :required="required"
-        :id="uniqueSelectId"
-        v-model="value"
-      >
-        <option
-          :selected="!value"
-          disabled
-          hidden
-          v-if="placeholder"
-          value=""
+      <div :class="[CSS.DISPLAY.FLEX, CSS.FLEX.DIRECTION.COLUMN, CSS.WIDTH.FULL]">
+        <label
+          :class="[
+            hasMinilabel ? ['minilabel', CSS.FONT.SIZE.TWELVE] : CSS.FONT.SIZE.SIXTEEN,
+            CSS.POSITION.ABSOLUTE,
+            CSS.POSITIONING.LEFT_0,
+            CSS.MARGIN.TOP.HALF,
+            CSS.MARGIN.LEFT.ONE,
+            !hasError && CSS.FONT.COLOR.SURFACE.VARIANT,
+            CSS.FONT.WEIGHT.FIVE_HUNDRED,
+          ]"
+          :for="uniqueId"
+          v-if="label"
         >
-          {{ placeholder }}
-        </option>
+          {{ formattedLabel }}
+        </label>
 
-        <option
-          :key="option.value"
-          :selected="value === option.value ? true : undefined"
-          :value="option.value"
-          v-for="option in options"
+        <select
+          :class="[CSS.PADDING.BOTTOM.HALF, CSS.PADDING.X.ONE, CSS.WIDTH.FULL, disabled && CSS.CURSOR.NOT_ALLOWED]"
+          :disabled="disabled"
+          :name="name"
+          ref="input"
+          :required="required"
+          @focus="handleFocus"
+          @focusout="handleFocusOut"
+          :id="uniqueId"
+          v-model="value"
         >
-          {{ option.label }}
-        </option>
-      </select>
+          <option
+            :class="[CSS.WIDTH.FULL, CSS.BG.SURFACE.DEFAULT]"
+            :key="option.value"
+            :selected="value === option.value ? true : undefined"
+            :value="option.value"
+            v-for="option in options"
+          >
+            {{ option.label }}
+          </option>
+        </select>
+      </div>
 
       <TideSvgIcon
-        :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.LEFT_0, CSS.MARGIN.LEFT.HALF, CSS.POINTER_EVENTS.OFF]"
-        :icon="iconLeading"
-        :size="SIZE.SMALL"
-        v-if="iconLeading"
-      />
-
-      <span
-        :class="[
-          CSS.POSITION.ABSOLUTE,
-          CSS.POSITIONING.RIGHT_0,
-          CSS.MARGIN.RIGHT.TWO,
-          CSS.FONT.SIZE.FOURTEEN,
-          CSS.POINTER_EVENTS.OFF,
-        ]"
-        v-if="suffix"
-      >
-        {{ suffix }}
-      </span>
-
-      <TideSvgIcon
-        :class="[
-          CSS.BG.SURFACE.DEFAULT,
-          CSS.POSITION.ABSOLUTE,
-          CSS.POSITIONING.RIGHT_0,
-          CSS.MARGIN.RIGHT.HALF,
-          CSS.POINTER_EVENTS.OFF,
-        ]"
+        :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.ONE, CSS.POINTER_EVENTS.OFF]"
         :icon="ICON.EXPAND_MORE"
         :size="SIZE.SMALL"
       />
     </div>
 
     <div
-      :class="['supporting-text', CSS.MARGIN.TOP.QUARTER, CSS.FONT.SIZE.TWELVE]"
-      v-if="hasError"
+      :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.LEFT.ONE]"
+      v-if="props.supportingText || hasError"
     >
-      {{ supportingText }}
+      <TideSvgIcon
+        :class="[]"
+        :icon="ICON.ERROR"
+        :size="SIZE.SMALL"
+        v-if="hasError"
+      />
+
+      <div :class="[CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.FIVE_HUNDRED]">
+        {{ hasError ? errorMessage : props.supportingText }}
+      </div>
     </div>
   </div>
 </template>
@@ -149,5 +153,50 @@
 <style scoped>
   select {
     appearance: none;
+  }
+
+  label {
+    height: 1.1875rem;
+    transition: font-size var(--animate), transform var(--animate);
+  }
+
+  label:not(.minilabel) {
+    transform: translate(0, calc(9 / 16 * 1rem));
+  }
+
+  .tide-input-select.disabled {
+    opacity: 0.333;
+  }
+
+  .tide-input-select.error .tide-input-border {
+    outline-color: var(--error-border);
+    background-color: var(--error-surface);
+  }
+
+  .tide-input-select.error:focus-within .tide-input-border {
+    outline-color: var(--error-border);
+  }
+
+  .tide-input-select:focus-within .tide-input-border {
+    --input-outline-width: var(--border-width-2);
+    outline-color: var(--surface-border-high);
+  }
+
+  .tide-input-border {
+    --input-outline-width: var(--border-width-1);
+    outline: var(--input-outline-width) solid var(--border);
+    outline-offset: calc(var(--input-outline-width) * -1);
+  }
+
+  .tide-input-select.error {
+    color: var(--error-on-surface);
+  }
+
+  .tide-input-select.error option {
+    color: var(--on-surface);
+  }
+
+  select {
+    padding-top: 27px;
   }
 </style>

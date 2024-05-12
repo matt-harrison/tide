@@ -77,6 +77,7 @@
     value.value = '';
     input.value?.focus();
   };
+
   const handleFocus = () => {
     hasFocus.value = true;
   };
@@ -135,7 +136,7 @@
   >
     <div
       :class="[
-        'tide-input-text-field',
+        'tide-input-border',
         CSS.DISPLAY.FLEX,
         CSS.AXIS2.CENTER,
         CSS.GAP.HALF,
@@ -268,16 +269,16 @@
     color: var(--error-on-surface);
   }
 
-  .tide-input-text.error .tide-input-text-field {
+  .tide-input-text.error .tide-input-border {
     outline-color: var(--error-border);
     background-color: var(--error-surface);
   }
 
-  .tide-input-text.error:focus-within .tide-input-text-field {
+  .tide-input-text.error:focus-within .tide-input-border {
     outline-color: var(--error-border);
   }
 
-  .tide-input-text:focus-within .tide-input-text-field {
+  .tide-input-text:focus-within .tide-input-border {
     --input-outline-width: var(--border-width-2);
     outline-color: var(--surface-border-high);
   }
@@ -286,7 +287,7 @@
     outline: none;
   }
 
-  .tide-input-text-field {
+  .tide-input-border {
     --input-outline-width: var(--border-width-1);
     outline: var(--input-outline-width) solid var(--border);
     outline-offset: calc(var(--input-outline-width) * -1);
