@@ -1,3 +1,7 @@
+[context.main]
+  command = "npm run build-storybook"
+  publish = "/storybook-static"
+
 [context.library]
   command = "npm run build-storybook"
   publish = "/storybook-static"
