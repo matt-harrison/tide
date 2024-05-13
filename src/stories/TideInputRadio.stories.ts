@@ -10,8 +10,6 @@ const render = (args: any, context: any) => ({
       const input = context.canvasElement.querySelector('input');
 
       action('TideInputRadio changed')(event);
-
-      console.log(input.checked);
       context.updateArgs({ ...args, checked: input.checked });
     },
   },

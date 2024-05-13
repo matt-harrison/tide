@@ -218,10 +218,7 @@
         :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
         :icon="ICON.VISIBILITY"
         :size="SIZE.SMALL"
-        @click="
-          showPassword = !showPassword;
-          console.log(props.type === TEXT_INPUT_TYPE.PASSWORD, showPassword === true, type);
-        "
+        @click="showPassword = !showPassword"
         v-if="props.type === TEXT_INPUT_TYPE.PASSWORD"
       />
     </div>

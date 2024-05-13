@@ -39,7 +39,6 @@
   const uniqueId = computed(() => (props.inputId ? props.inputId : `text-input-${getCurrentInstance()?.uid || ''}`));
 
   const expandOptions = () => {
-    console.log(input.value);
     const event = new MouseEvent('mousedown');
     input?.value?.dispatchEvent(event);
   };
