@@ -9,9 +9,9 @@ export default defineConfig({
     cssCodeSplit: false,
     lib: {
       entry: resolve(__dirname, './index.ts'),
-      fileName: 'tide2-design-system',
+      fileName: 'tide-design-system',
       formats: ['es'],
-      name: 'tide2-design-system',
+      name: 'tide-design-system',
     },
     rollupOptions: {
       external: ['vue'],
