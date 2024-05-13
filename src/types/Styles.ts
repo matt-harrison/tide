@@ -89,11 +89,11 @@ export const CSS = {
     CONTENTS: 'tide-contents',
     FLEX: 'tide-display-flex',
     GRID: 'tide-display-grid',
-    HIDDEN: 'tide-display-hidden',
     INITIAL: 'initial',
     INLINE: 'tide-display-inline',
     INLINE_BLOCK: 'tide-display-inline-block',
     INLINE_FLEX: 'tide-display-inline-flex',
+    NONE: 'tide-display-none',
   },
   FLEX: {
     DIRECTION: {
@@ -337,7 +337,7 @@ export const cssSortOrder = [
   CSS.DISPLAY.CONTENTS,
   CSS.DISPLAY.FLEX,
   CSS.DISPLAY.GRID,
-  CSS.DISPLAY.HIDDEN,
+  CSS.DISPLAY.NONE,
   CSS.DISPLAY.INITIAL,
   CSS.DISPLAY.INLINE,
   CSS.DISPLAY.INLINE_BLOCK,

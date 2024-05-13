@@ -165,7 +165,7 @@
   }
 
   .tide-input-select.disabled {
-    opacity: 0.333;
+    opacity: var(--disabled);
   }
 
   .tide-input-select.error .tide-input-border {

@@ -262,7 +262,7 @@
   }
 
   .tide-input-text.disabled {
-    opacity: 0.333;
+    opacity: var(--disabled);
   }
 
   .tide-input-text.error {

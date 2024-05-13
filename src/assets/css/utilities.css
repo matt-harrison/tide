@@ -210,13 +210,13 @@
 .tide-transparent-400 {background-color: var(--transparent-400);}
 
 /* Font Size */
-.tide-font-10 {font-size: 0.625rem;} /* 10px */
-.tide-font-12 {font-size: 0.75rem;}  /* 12px */
-.tide-font-14 {font-size: 0.875rem;} /* 14px */
-.tide-font-16 {font-size: 1rem;}     /* 16px */
-.tide-font-20 {font-size: 1.25rem;}  /* 20px */
-.tide-font-24 {font-size: 1.5rem;}   /* 24px */
-.tide-font-32 {font-size: 2rem;}     /* 32px */
+.tide-font-10 {font-size: var(--font-10);}
+.tide-font-12 {font-size: var(--font-12);}
+.tide-font-14 {font-size: var(--font-14);}
+.tide-font-16 {font-size: var(--font-16);}
+.tide-font-20 {font-size: var(--font-20);}
+.tide-font-24 {font-size: var(--font-24);}
+.tide-font-32 {font-size: var(--font-32);}
 
 /* Font Weight */
 .tide-font-400 {font-weight: 400;}

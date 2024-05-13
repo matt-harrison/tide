@@ -47,7 +47,7 @@ export const DISPLAY = {
   'Inline Block': CSS.DISPLAY.INLINE_BLOCK,
   'Inline Flex': CSS.DISPLAY.INLINE_FLEX,
   'Inline': CSS.DISPLAY.INLINE,
-  'Hidden': CSS.DISPLAY.HIDDEN,
+  'Hidden': CSS.DISPLAY.NONE,
 };
 
 export const FLEX_AXIS1 = {
