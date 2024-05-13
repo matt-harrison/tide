@@ -5,8 +5,8 @@ import AppSingle from '@/apps/AppSingle.vue';
 import router from '@/router';
 
 import '@/assets/css/main.css';
-import 'tide2-design-system/css';
-import 'tide2-design-system/css/realm/rv';
+import 'tide-design-system/css';
+import 'tide-design-system/css/realm/rv';
 
 const app = createApp(AppSingle);
 

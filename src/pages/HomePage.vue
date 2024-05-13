@@ -1,9 +1,5 @@
 <script lang="ts" setup>
-  import { TideButton } from 'tide2-design-system';
-  import { ELEMENT } from 'tide2-design-system/types/Element';
-  import { PRIORITY } from 'tide2-design-system/types/Priority';
-  import { formatKebabCase } from 'tide2-design-system/utilities/format';
-  import { formatNumber } from 'tide2-design-system/utilities/format';
+  import { ELEMENT, PRIORITY, TideButton } from 'tide-design-system';
   import { storeToRefs } from 'pinia';
 
   import { ICON } from '@/types/Icon';
@@ -17,6 +13,7 @@
   import BasicLink from '@/components/BasicLink.vue';
   import CardCarouselListingDealer from '@/components/CardCarouselListingDealer.vue';
   import CardCarouselListingFeatured from '@/components/CardCarouselListingFeatured.vue';
+  import { formatKebabCase, formatNumber } from '@/utilities/format';
   import { realm } from '@/config/main.config';
   import { useFavoriteStore } from '@/stores/FavoriteStore';
   import { useFeaturedListingStore } from '@/stores/FeaturedListingStore';
