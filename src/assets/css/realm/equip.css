@@ -1,5 +1,5 @@
 /* Equipment Trader Realm Colors */
-.equip {
+:root {
     /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
     --evergreen: #468200;
     --steel:     #494949;

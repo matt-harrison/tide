@@ -1,5 +1,5 @@
 /* Aero Trader Realm Colors */
-.aero {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --color1: #4e9ac8;
   --color2: #006C97;
