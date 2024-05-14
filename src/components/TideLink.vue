@@ -36,7 +36,7 @@
       props.element === ELEMENT.LINK ? 'tide-button-as-link' : 'tide-link',
       hasIcon
         ? [CSS.DISPLAY.INLINE_FLEX, CSS.AXIS2.CENTER, CSS.GAP.HALF]
-        : [CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE],
+        : [CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE.ON],
     ]"
     :href="props.href"
     :target="props.isNewTab ? TARGET.BLANK : TARGET.SELF"
@@ -48,7 +48,7 @@
     />
 
     <div
-      :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE]"
+      :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.UNDERLINE.ON]"
       v-if="hasIcon"
     >
       {{ props.label }}
