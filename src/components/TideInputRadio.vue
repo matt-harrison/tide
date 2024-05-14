@@ -49,7 +49,7 @@
         CSS.DISPLAY.FLEX,
         CSS.AXIS1.CENTER,
         CSS.AXIS2.CENTER,
-        CSS.BORDER.SIDE.FULL.ONE,
+        CSS.BORDER.FULL.ONE,
         checked ? CSS.BORDER.COLOR.HIGH : CSS.BORDER.COLOR.DEFAULT,
         CSS.BORDER.RADIUS.FULL,
         checked && 'checked',

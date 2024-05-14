@@ -36,6 +36,10 @@ export const CSS = {
     },
   },
   BORDER: {
+    BOTTOM: {
+      ONE: 'tide-border-bottom-1',
+      TWO: 'tide-border-bottom-2',
+    },
     COLOR: {
       DEFAULT: 'tide-border',
       FLOATING: 'tide-border-floating',
@@ -43,33 +47,27 @@ export const CSS = {
       LOW: 'tide-border-low',
       PRIMARY: 'tide-border-primary',
     },
+    FULL: {
+      ONE: 'tide-border-1',
+      TWO: 'tide-border-2',
+    },
+    LEFT: {
+      ONE: 'tide-border-left-1',
+      TWO: 'tide-border-left-2',
+    },
     RADIUS: {
       FULL: 'tide-radius-full',
       HALF: 'tide-radius-1/2',
       ONE: 'tide-radius-1',
       QUARTER: 'tide-radius-1/4',
     },
-    SIDE: {
-      BOTTOM: {
-        ONE: 'tide-border-bottom-1',
-        TWO: 'tide-border-bottom-2',
-      },
-      FULL: {
-        ONE: 'tide-border-1',
-        TWO: 'tide-border-2',
-      },
-      LEFT: {
-        ONE: 'tide-border-left-1',
-        TWO: 'tide-border-left-2',
-      },
-      RIGHT: {
-        ONE: 'tide-border-right-1',
-        TWO: 'tide-border-right-2',
-      },
-      TOP: {
-        ONE: 'tide-border-top-1',
-        TWO: 'tide-border-top-2',
-      },
+    RIGHT: {
+      ONE: 'tide-border-right-1',
+      TWO: 'tide-border-right-2',
+    },
+    TOP: {
+      ONE: 'tide-border-top-1',
+      TWO: 'tide-border-top-2',
     },
   },
   BOX_SIZING: {
@@ -413,16 +411,16 @@ export const cssSortOrder = [
   CSS.MARGIN.LEFT.TWO,
   CSS.MARGIN.LEFT.FOUR,
   CSS.MARGIN.LEFT.AUTO,
-  CSS.BORDER.SIDE.FULL.ONE,
-  CSS.BORDER.SIDE.FULL.TWO,
-  CSS.BORDER.SIDE.TOP.ONE,
-  CSS.BORDER.SIDE.TOP.TWO,
-  CSS.BORDER.SIDE.RIGHT.ONE,
-  CSS.BORDER.SIDE.RIGHT.TWO,
-  CSS.BORDER.SIDE.BOTTOM.ONE,
-  CSS.BORDER.SIDE.BOTTOM.TWO,
-  CSS.BORDER.SIDE.LEFT.ONE,
-  CSS.BORDER.SIDE.LEFT.TWO,
+  CSS.BORDER.FULL.ONE,
+  CSS.BORDER.FULL.TWO,
+  CSS.BORDER.TOP.ONE,
+  CSS.BORDER.TOP.TWO,
+  CSS.BORDER.RIGHT.ONE,
+  CSS.BORDER.RIGHT.TWO,
+  CSS.BORDER.BOTTOM.ONE,
+  CSS.BORDER.BOTTOM.TWO,
+  CSS.BORDER.LEFT.ONE,
+  CSS.BORDER.LEFT.TWO,
   CSS.BORDER.RADIUS.ONE,
   CSS.BORDER.RADIUS.HALF,
   CSS.BORDER.RADIUS.QUARTER,

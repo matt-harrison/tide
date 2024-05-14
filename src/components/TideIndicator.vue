@@ -16,7 +16,7 @@
       props.label ? 'tide-indicator-label' : 'tide-indicator',
       'border-white',
       CSS.BG.SURFACE.ACCENT,
-      CSS.BORDER.SIDE.FULL.ONE,
+      CSS.BORDER.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       props.label
         ? [CSS.POSITION.RELATIVE, CSS.FONT.SIZE.TWELVE, CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.FONT.COLOR.SURFACE]

@@ -21,7 +21,7 @@
       'tide-chip-action',
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,
-      CSS.BORDER.SIDE.FULL.ONE,
+      CSS.BORDER.FULL.ONE,
       CSS.BORDER.RADIUS.FULL,
       CSS.PADDING.X.ONE,
       CSS.PADDING.Y.HALF,
