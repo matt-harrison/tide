@@ -7,7 +7,7 @@ const BADGE_TRUSTED = prependNoneAsUndefined(STANDARD_BADGE.BADGE_TRUSTED);
 const render = (args: any) => ({
   components: { TideBadgeTrustedPartner },
   setup: () => ({ args }),
-  template: `<TideBadgeTrustedPartner class="tide-shadow-bottom" v-bind="args" />`,
+  template: `<TideBadgeTrustedPartner v-bind="args" />`,
 });
 
 export default {

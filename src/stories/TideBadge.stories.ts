@@ -1,6 +1,5 @@
-import { BADGE } from '@/types/Badge';
 import TideBadge from '@/components/TideBadge.vue';
-import { formatArgType, parameters } from '@/utilities/storybook';
+import { parameters } from '@/utilities/storybook';
 
 const render = (args: any) => ({
   components: { TideBadge },
@@ -11,15 +10,16 @@ const render = (args: any) => ({
 export default {
   argTypes: {
     label: {
-      ...formatArgType({ BADGE }),
+      control: 'text',
       description: 'Badge text',
       table: {
         defaultValue: { summary: 'None' },
+        type: { summary: 'string' },
       },
     },
   },
   args: {
-    label: BADGE.JUST_LISTED,
+    label: 'Demo',
   },
   component: TideBadge,
   parameters,

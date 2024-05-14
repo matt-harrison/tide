@@ -1,8 +1,6 @@
 import TideAccordionItem from '@/components/TideAccordionItem.vue';
 import TideAlert from '@/components/TideAlert.vue';
 import TideBadge from '@/components/TideBadge.vue';
-import TideBadgeCounter from '@/components/TideBadgeCounter.vue';
-import TideBadgeMisc from '@/components/TideBadgeMisc.vue';
 import TideBadgePremium from '@/components/TideBadgePremium.vue';
 import TideBadgeTrustedPartner from '@/components/TideBadgeTrustedPartner.vue';
 import TideBreadCrumbs from '@/components/TideBreadCrumbs.vue';
@@ -92,8 +90,6 @@ export {
   TideAccordionItem,
   TideAlert,
   TideBadge,
-  TideBadgeCounter,
-  TideBadgeMisc,
   TideBadgePremium,
   TideBadgeTrustedPartner,
   TideBreadCrumbs,

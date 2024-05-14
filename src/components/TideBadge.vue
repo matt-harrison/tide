@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-  import type { Badge } from '@/types/Badge';
-
   import { CSS } from '@/types/Styles';
 
   type Props = {
-    label: Badge;
+    label: string;
   };
 
   const props = defineProps<Props>();
@@ -17,6 +15,7 @@
       CSS.FONT.COLOR.SURFACE,
       CSS.BG.SURFACE.FLOATING,
       CSS.DISPLAY.INLINE_FLEX,
+      CSS.AXIS2.CENTER,
       CSS.GAP.QUARTER,
       CSS.BORDER.RADIUS.QUARTER,
       CSS.PADDING.Y.QUARTER,
