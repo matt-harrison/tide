@@ -93,7 +93,7 @@
           :class="[
             'tide-modal',
             CSS.BG.SURFACE.FLOATING,
-            CSS.FONT.COLOR.SURFACE,
+            CSS.FONT.COLOR.SURFACE.DEFAULT,
             CSS.POSITION.ABSOLUTE,
             CSS.DISPLAY.FLEX,
             CSS.FLEX.DIRECTION.COLUMN,

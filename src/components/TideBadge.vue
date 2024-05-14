@@ -12,7 +12,7 @@
   <div
     :class="[
       'tide-badge',
-      CSS.FONT.COLOR.SURFACE,
+      CSS.FONT.COLOR.SURFACE.DEFAULT,
       CSS.BG.SURFACE.FLOATING,
       CSS.DISPLAY.INLINE_FLEX,
       CSS.AXIS2.CENTER,

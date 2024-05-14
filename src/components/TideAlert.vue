@@ -65,13 +65,13 @@
     </div>
 
     <div :class="['tide-alert-heading', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
-      <h2 :class="[CSS.FONT.SIZE.SIXTEEN, CSS.FONT.WEIGHT.SIX_HUNDRED, CSS.FONT.COLOR.SURFACE]">
+      <h2 :class="[CSS.FONT.SIZE.SIXTEEN, CSS.FONT.WEIGHT.SIX_HUNDRED, CSS.FONT.COLOR.SURFACE.DEFAULT]">
         {{ props.heading }}
       </h2>
     </div>
 
     <TideButtonIcon
-      :class="['tide-alert-close', CSS.AXIS2.CENTER, CSS.FONT.COLOR.SURFACE]"
+      :class="['tide-alert-close', CSS.AXIS2.CENTER, CSS.FONT.COLOR.SURFACE.DEFAULT]"
       :icon="ICON.CLOSE"
       :priority="PRIORITY.QUATERNARY"
     />

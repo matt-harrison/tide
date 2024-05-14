@@ -14,7 +14,7 @@
   <div
     :class="[
       'tide-badge',
-      CSS.FONT.COLOR.SURFACE,
+      CSS.FONT.COLOR.SURFACE.DEFAULT,
       CSS.BG.SURFACE.VARIANT,
       CSS.DISPLAY.INLINE_FLEX,
       CSS.GAP.QUARTER,

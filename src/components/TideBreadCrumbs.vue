@@ -25,7 +25,7 @@
     >
       <li :class="[CSS.FONT.SIZE.FOURTEEN]">
         <a
-          :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.FONT.COLOR.SURFACE]"
+          :class="[CSS.FONT.WEIGHT.SEVEN_HUNDRED, CSS.FONT.COLOR.SURFACE.DEFAULT]"
           :data-track="crumb.dataTrack || undefined"
           :href="crumb.url"
           v-if="crumb.url"

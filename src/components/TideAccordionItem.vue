@@ -88,7 +88,7 @@
       ref="accordionBody"
     >
       <div :class="[CSS.OVERFLOW.Y.HIDDEN]">
-        <div :class="[CSS.MARGIN.Y.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, CSS.FONT.COLOR.SURFACE]">
+        <div :class="[CSS.MARGIN.Y.ONE, CSS.FONT.WEIGHT.FOUR_HUNDRED, CSS.FONT.COLOR.SURFACE.DEFAULT]">
           <slot />
         </div>
       </div>

@@ -13,7 +13,9 @@
   <button
     :class="[
       'tide-chip-filter',
-      props.isActive ? [CSS.BG.SECONDARY, CSS.FONT.COLOR.SECONDARY] : [CSS.BG.SURFACE.VARIANT, CSS.FONT.COLOR.SURFACE],
+      props.isActive
+        ? [CSS.BG.SECONDARY, CSS.FONT.COLOR.SECONDARY]
+        : [CSS.BG.SURFACE.VARIANT, CSS.FONT.COLOR.SURFACE.DEFAULT],
       CSS.DISPLAY.FLEX,
       CSS.AXIS2.CENTER,
       CSS.GAP.HALF,

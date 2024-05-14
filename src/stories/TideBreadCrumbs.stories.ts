@@ -11,11 +11,11 @@ const breadCrumbs: BreadCrumb[] = [
   },
   {
     dataTrack: 'SRP Bread Crumb Click',
-    label: 'Search Results',
+    label: 'Search results',
     url: '/rvs-for-sale',
   },
   {
-    label: 'Vehicle Details',
+    label: 'Vehicle details',
   },
 ];
 

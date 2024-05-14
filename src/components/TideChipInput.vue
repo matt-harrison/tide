@@ -14,7 +14,7 @@
   <button
     :class="[
       'tide-chip-input',
-      CSS.BG.SURFACE,
+      CSS.BG.SURFACE.VARIANT,
       CSS.FONT.COLOR.SURFACE,
       CSS.DISPLAY.FLEX,
       CSS.AXIS2.CENTER,
@@ -34,8 +34,11 @@
 </template>
 
 <style scoped>
+  .tide-chip-input {
+    border-color: var(--border);
+  }
+
   .tide-chip-input:hover {
-    background-color: var(--surface-variant);
     border-color: var(--border-high);
   }
 </style>
