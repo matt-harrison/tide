@@ -8,11 +8,21 @@ import DemoCssUtilities from '../src/stories/DemoCssUtilities.stories';
 import DemoCssUtilitiesByTextInput from '../src/stories/DemoCssUtilitiesByTextInput.stories';
 import FoundationsMargin from '../src/stories/FoundationsMargin.stories';
 
+const replaceRealmStyles = (realm: string) => {
+    document.getElementById('realmStyles')?.remove();
+
+    const href = `/src/assets/css/realm/${realm}.css`;
+    const realmStyles = document.createElement('link');
+
+    realmStyles.href = href;
+    realmStyles.id = 'realmStyles';
+    realmStyles.rel = 'stylesheet';
+    document.body.append(realmStyles);
+};
+
 const preview: Preview = {
   decorators: [
     (story, context) => {
-      import(`../src/assets/css/realm/${context.globals.realm}.css`);
-
       const decoratorOptOuts = [
         TideCarousel.title,
         DemoCssUtilities.title,
@@ -21,6 +31,8 @@ const preview: Preview = {
       ];
 
       const decoratorCss = decoratorOptOuts.includes(context.title) ? '' : 'tide-padding-top-2 tide-padding-x-2';
+
+      replaceRealmStyles(context.globals.realm);
 
       return {
         components: { story },
