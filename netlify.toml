@@ -6,6 +6,10 @@
   command = "npm run build-storybook"
   publish = "/storybook-static"
 
+[context.tide72]
+  command = "npm run build-storybook"
+  publish = "/storybook-static"
+
 [context.consumer]
   command = "npm run build"
   publish = "/dist"
