@@ -2,18 +2,7 @@ import { useArgs } from '@storybook/preview-api';
 
 import type { Preview } from '@storybook/vue3';
 
-import '../src/assets/css/main.css';
-import '../src/assets/css/storybook.css';
-import '../src/assets/css/realm/aero.css';
-import '../src/assets/css/realm/atv.css';
-import '../src/assets/css/realm/boatmart.css';
-import '../src/assets/css/realm/cycle.css';
-import '../src/assets/css/realm/equip.css';
-import '../src/assets/css/realm/pwc.css';
-import '../src/assets/css/realm/rv.css';
-import '../src/assets/css/realm/snow.css';
-import '../src/assets/css/realm/truck.css';
-
+import '@/assets/css/main.css';
 import TideCarousel from '../src/stories/TideCarousel.stories';
 import DemoCssUtilities from '../src/stories/DemoCssUtilities.stories';
 import DemoCssUtilitiesByTextInput from '../src/stories/DemoCssUtilitiesByTextInput.stories';
@@ -22,6 +11,8 @@ import FoundationsMargin from '../src/stories/FoundationsMargin.stories';
 const preview: Preview = {
   decorators: [
     (story, context) => {
+      import(`../src/assets/css/realm/${context.globals.realm}.css`);
+
       const decoratorOptOuts = [
         TideCarousel.title,
         DemoCssUtilities.title,
@@ -33,7 +24,7 @@ const preview: Preview = {
 
       return {
         components: { story },
-        template: `<div class="${decoratorCss} tide-padding-bottom-4 ${context.globals.realm} ${context.globals.surfaceBg} ${context.globals.surfaceFg}"><story /></div>`
+        template: `<div class="${decoratorCss} tide-padding-bottom-4 ${context.globals.surfaceBg} ${context.globals.surfaceFg}"><story /></div>`
       };
     },
     (story, context) => {

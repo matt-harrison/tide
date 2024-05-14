@@ -1,5 +1,5 @@
 /* Boatmart Trader Realm Colors */
-.boatmart {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --navy: #1D4977;
   --mint:  #46CFD1;

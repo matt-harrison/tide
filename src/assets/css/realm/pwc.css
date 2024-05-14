@@ -1,5 +1,5 @@
 /* PWC Trader Realm Colors */
-.pwc {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --color1: #0B72B8;
   --color2: #085487;

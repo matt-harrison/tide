@@ -1,5 +1,5 @@
 /* Cycle Trader Realm Colors */
-.cycle {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --pure-black:  #000000;
   --red: #C50000;
