@@ -233,6 +233,8 @@
 .tide-cursor-pointer     {cursor: pointer;}
 .tide-cursor-text        {cursor: text;}
 
+.tide-isolate {isolation: isolate;}
+
 .tide-leading-default {line-height: 100%;}
 .tide-leading-normal  {line-height: normal;}
 

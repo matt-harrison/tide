@@ -1,7 +1,7 @@
-.page-layout {
+.tide-page-layout {
   --max-content-width:  1168px;
   --gap:                0px;
-  --column-count:       12;
+  --column-count:       6;
   --min-gutter-width:   var(--spacing-1);
   --gutter-width:       minmax(var(--min-gutter-width), 1fr);
   --max-column-size:    calc((var(--max-content-width) - (var(--gap) * (var(--column-count) - 1))) / var(--column-count));
@@ -13,8 +13,8 @@
   grid-template-columns:  [start] var(--gutter-width) [content-start] var(--content-columns) [content-end] var(--gutter-width) [end];
 }
 
-.page-layout > *,
-.layout-item {
+.tide-page-layout > *,
+.tide-layout-item {
   --start:      calc(var(--column-start) + 1);
   --end:        calc(var(--column-end) + 2);
   --start-end:  var(--start, content-start) / var(--end, content-end);
@@ -31,12 +31,6 @@
 .tide-start-4 {--column-start: 4;}
 .tide-start-5 {--column-start: 5;}
 .tide-start-6 {--column-start: 6;}
-.tide-start-7 {--column-start: 7;}
-.tide-start-8 {--column-start: 8;}
-.tide-start-9 {--column-start: 9;}
-.tide-start-10 {--column-start: 10;}
-.tide-start-11 {--column-start: 11;}
-.tide-start-12 {--column-start: 12;}
 
 .tide-end-1 {--column-end: 1;}
 .tide-end-2 {--column-end: 2;}
@@ -45,13 +39,3 @@
 .tide-end-5 {--column-end: 5;}
 .tide-end-6 {--column-end: 6;}
 .tide-end-7 {--column-end: 7;}
-.tide-end-8 {--column-end: 8;}
-.tide-end-9 {--column-end: 9;}
-.tide-end-10 {--column-end: 10;}
-.tide-end-11 {--column-end: 11;}
-.tide-end-12 {--column-end: 12;}
-.tide-end-13 {--column-end: 13;}
-
-.site-main {
-  isolation: isolate;
-}
