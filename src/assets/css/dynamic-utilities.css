@@ -1,29 +1,29 @@
 /* Background */
-.tide-bg-primary   {background: var(--primary);}
-.tide-bg-secondary {background: var(--secondary);}
+.tide-bg-primary   {background: var(--tide-primary);}
+.tide-bg-secondary {background: var(--tide-secondary);}
 
-.tide-bg-surface                {background: var(--surface);}
-.tide-bg-surface-variant        {background: var(--surface-variant);}
-.tide-bg-surface-brand          {background: var(--surface-brand);}
-.tide-bg-surface-accent         {background: var(--surface-accent);}
-.tide-bg-surface-accent-variant {background: var(--surface-accent-variant);}
-.tide-bg-surface-gradient       {background: var(--surface-gradient);}
-.tide-bg-surface-floating       {background: var(--surface-floating);}
+.tide-bg-surface                {background: var(--tide-surface);}
+.tide-bg-surface-variant        {background: var(--tide-surface-variant);}
+.tide-bg-surface-brand          {background: var(--tide-surface-brand);}
+.tide-bg-surface-accent         {background: var(--tide-surface-accent);}
+.tide-bg-surface-accent-variant {background: var(--tide-surface-accent-variant);}
+.tide-bg-surface-gradient       {background: var(--tide-surface-gradient);}
+.tide-bg-surface-floating       {background: var(--tide-surface-floating);}
 
 /* Border */
-.tide-border-primary   {border-color: var(--primary);}
+.tide-border-primary   {border-color: var(--tide-primary);}
 
-.tide-border          {border-color: var(--border);}
-.tide-border-low      {border-color: var(--border-low);}
-.tide-border-high     {border-color: var(--border-high);}
-.tide-border-floating {border-color: var(--border-floating);}
+.tide-border          {border-color: var(--tide-border);}
+.tide-border-low      {border-color: var(--tide-border-low);}
+.tide-border-high     {border-color: var(--tide-border-high);}
+.tide-border-floating {border-color: var(--tide-border-floating);}
 
 /* Foreground */
-.tide-font-on-primary   {color: var(--on-primary);}
-.tide-font-on-secondary {color: var(--on-secondary);}
+.tide-font-on-primary   {color: var(--tide-on-primary);}
+.tide-font-on-secondary {color: var(--tide-on-secondary);}
 
-.tide-font-on-surface                 {color: var(--on-surface);}
-.tide-font-on-surface-variant         {color: var(--on-surface-variant);}
-.tide-font-on-surface-brand           {color: var(--on-surface-brand);}
-.tide-font-on-surface-inverse         {color: var(--on-surface-inverse);}
-.tide-font-on-surface-variant-inverse {color: var(--on-surface-inverse-variant);}
+.tide-font-on-surface                 {color: var(--tide-on-surface);}
+.tide-font-on-surface-variant         {color: var(--tide-on-surface-variant);}
+.tide-font-on-surface-brand           {color: var(--tide-on-surface-brand);}
+.tide-font-on-surface-inverse         {color: var(--tide-on-surface-inverse);}
+.tide-font-on-surface-variant-inverse {color: var(--tide-on-surface-inverse-variant);}

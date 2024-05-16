@@ -86,7 +86,7 @@
       >
         <div
           :class="['tide-modal-bg', CSS.POSITION.ABSOLUTE, CSS.WIDTH.FULL, CSS.HEIGHT.FULL]"
-          :style="{ '--modal-width': props.width, ...style }"
+          :style="{ '--tide-modal-width': props.width, ...style }"
           @click.self="handleModalClose"
         />
         <div
@@ -156,7 +156,7 @@
   }
 
   .tide-modal {
-    width: var(--modal-width);
+    width: var(--tide-modal-width);
     max-width: calc(100% - 2rem);
     max-height: calc(100% - 2rem);
     box-shadow: 0px 10px 25px 0px rgba(18, 43, 58, 0.2);
@@ -188,10 +188,10 @@
 
   .v-enter-active,
   .v-leave-active {
-    transition: backdrop-filter var(--animate), background-color var(--animate);
+    transition: backdrop-filter var(--tide-animate), background-color var(--tide-animate);
 
     & .tide-modal {
-      transition: transform var(--animate);
+      transition: transform var(--tide-animate);
     }
   }
 

@@ -69,12 +69,12 @@
 
 <style scoped>
   .tide-input-radio.disabled {
-    opacity: var(--disabled);
+    opacity: var(--tide-disabled);
   }
 
   .tide-input-radio-custom {
-    width: var(--font-28);
-    height: var(--font-28);
+    width: var(--tide-font-28);
+    height: var(--tide-font-28);
   }
 
   .tide-input-radio-check {

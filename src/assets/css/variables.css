@@ -1,118 +1,118 @@
 /*.CSS Variables */
 :root {
   /* Font Size */
-  --font-10: 0.625rem; /* 10px */
-  --font-12: 0.75rem;  /* 12px */
-  --font-14: 0.875rem; /* 14px */
-  --font-16: 1rem;     /* 16px */
-  --font-20: 1.25rem;  /* 20px */
-  --font-24: 1.5rem;   /* 24px */
-  --font-28: 1.75rem;  /* 28px */
-  --font-32: 2rem;     /* 32px */
+  --tide-font-10: 0.625rem; /* 10px */
+  --tide-font-12: 0.75rem;  /* 12px */
+  --tide-font-14: 0.875rem; /* 14px */
+  --tide-font-16: 1rem;     /* 16px */
+  --tide-font-20: 1.25rem;  /* 20px */
+  --tide-font-24: 1.5rem;   /* 24px */
+  --tide-font-28: 1.75rem;  /* 28px */
+  --tide-font-32: 2rem;     /* 32px */
 
   /* Font Weight */
-  --font-400: 400;
-  --font-500: 500;
-  --font-600: 600;
-  --font-700: 700;
+  --tide-font-400: 400;
+  --tide-font-500: 500;
+  --tide-font-600: 600;
+  --tide-font-700: 700;
 
   /* Animation */
-  --animate: 300ms ease-in-out;
+  --tide-animate: 300ms ease-in-out;
 
   /* Spacing */
-  --spacing-0: 0rem;
-  --spacing-1\/4: 0.25rem;
-  --spacing-1\/2: 0.5rem;
-  --spacing-1: 1rem;
-  --spacing-2: 2rem;
-  --spacing-4: 4rem;
+  --tide-spacing-0: 0rem;
+  --tide-spacing-1\/4: 0.25rem;
+  --tide-spacing-1\/2: 0.5rem;
+  --tide-spacing-1: 1rem;
+  --tide-spacing-2: 2rem;
+  --tide-spacing-4: 4rem;
 
   /* Border */
-  --border-width-1: 1px;
-  --border-width-2: 2px;
+  --tide-border-width-1: 1px;
+  --tide-border-width-2: 2px;
 
-  --border-1: var(--border-width-1) solid var(--black);
-  --border-2: var(--border-width-2) solid var(--black);
+  --tide-border-1: var(--tide-border-width-1) solid var(--tide-black);
+  --tide-border-2: var(--tide-border-width-2) solid var(--tide-black);
 
   /* Border Radius */
-  --radius-1\/4: 4px;
-  --radius-1\/2: 8px;
-  --radius-1: 16px;
-  --radius-full: 99999px;
+  --tide-radius-1\/4: 4px;
+  --tide-radius-1\/2: 8px;
+  --tide-radius-1: 16px;
+  --tide-radius-full: 99999px;
 
-  --black: var(--gray-900);
-  --white: var(--gray-100);
+  --tide-black: var(--tide-gray-900);
+  --tide-white: var(--tide-gray-100);
 
   /* Opacity */
-  --disabled: 0.333;
+  --tide-disabled: 0.333;
 
   /* Shadow */
-  --shadow-bottom: 0px  2px 8px 2px rgba(0, 0, 0, 0.07);
-  --shadow-top:    0px -2px 8px 2px rgba(0, 0, 0, 0.07);
+  --tide-shadow-bottom: 0px  2px 8px 2px rgba(0, 0, 0, 0.07);
+  --tide-shadow-top:    0px -2px 8px 2px rgba(0, 0, 0, 0.07);
 
   /* Transparency */
-  --transparent-100: rgba(255, 255, 255, 0.9);
-  --transparent-200: rgba(255, 255, 255, 0.75);
-  --transparent-300: rgba(0, 0, 0, 0.1);
-  --transparent-400: rgba(0, 0, 0, 0.5);
+  --tide-transparent-100: rgba(255, 255, 255, 0.9);
+  --tide-transparent-200: rgba(255, 255, 255, 0.75);
+  --tide-transparent-300: rgba(0, 0, 0, 0.1);
+  --tide-transparent-400: rgba(0, 0, 0, 0.5);
 
   /* Global tonal palette */
-  --blue-100:  #D1E0EB;
-  --blue-200:  #A4C1D7;
-  --blue-300:  #76A3C4;
-  --blue-400:  #4984B0;
+  --tide-blue-100:  #D1E0EB;
+  --tide-blue-200:  #A4C1D7;
+  --tide-blue-300:  #76A3C4;
+  --tide-blue-400:  #4984B0;
 
-  --gray-100:  #FFFFFF;
-  --gray-200:  #F5F5F5;
-  --gray-300:  #E4E4E4;
-  --gray-400:  #C9CACB;
-  --gray-500:  #AEAFB2;
-  --gray-600:  #939598;
-  --gray-700:  #6E7072;
-  --gray-800:  #494A4C;
-  --gray-900:  #252526;
-  --gray-1000: #000000;
+  --tide-gray-100:  #FFFFFF;
+  --tide-gray-200:  #F5F5F5;
+  --tide-gray-300:  #E4E4E4;
+  --tide-gray-400:  #C9CACB;
+  --tide-gray-500:  #AEAFB2;
+  --tide-gray-600:  #939598;
+  --tide-gray-700:  #6E7072;
+  --tide-gray-800:  #494A4C;
+  --tide-gray-900:  #252526;
+  --tide-gray-1000: #000000;
 
-  --green-100:  #E6EFCF;
-  --green-200:  #CDE09E;
-  --green-300:  #B4D06E;
-  --green-400:  #9BC13D;
+  --tide-green-100:  #E6EFCF;
+  --tide-green-200:  #CDE09E;
+  --tide-green-300:  #B4D06E;
+  --tide-green-400:  #9BC13D;
 
-  --red-100:  #EFCFCF;
-  --red-200:  #E09E9E;
-  --red-300:  #D06E6E;
-  --red-400:  #C13D3D;
-  --red-500:  #912E2E;
+  --tide-red-100:  #EFCFCF;
+  --tide-red-200:  #E09E9E;
+  --tide-red-300:  #D06E6E;
+  --tide-red-400:  #C13D3D;
+  --tide-red-500:  #912E2E;
 
-  --yellow-100:  #FEF2CC;
-  --yellow-200:  #FCE499;
-  --yellow-300:  #FBD766;
-  --yellow-400:  #FACA33;
+  --tide-yellow-100:  #FEF2CC;
+  --tide-yellow-200:  #FCE499;
+  --tide-yellow-300:  #FBD766;
+  --tide-yellow-400:  #FACA33;
 
   /* Global color roles */
-  --error-primary:        var(--red-400);
-  --error-primary-border: var(--red-300);
-  --error-surface:        var(--red-100);
+  --tide-error-primary:        var(--tide-red-400);
+  --tide-error-primary-border: var(--tide-red-300);
+  --tide-error-surface:        var(--tide-red-100);
 
-  --error-border:      var(--red-400);
-  --error-border-low:  var(--red-200);
-  --error-border-high: var(--red-500);
+  --tide-error-border:      var(--tide-red-400);
+  --tide-error-border-low:  var(--tide-red-200);
+  --tide-error-border-high: var(--tide-red-500);
 
-  --error-on-surface:         var(--red-400);
-  --error-on-surface-variant: var(--red-500 );
+  --tide-error-on-surface:         var(--tide-red-400);
+  --tide-error-on-surface-variant: var(--tide-red-500 );
 
-  --info-primary:        var(--blue-400);
-  --info-primary-border: var(--blue-300);
-  --info-surface:        var(--blue-100);
-  --info-border:         var(--blue-200);
+  --tide-info-primary:        var(--tide-blue-400);
+  --tide-info-primary-border: var(--tide-blue-300);
+  --tide-info-surface:        var(--tide-blue-100);
+  --tide-info-border:         var(--tide-blue-200);
 
-  --success-primary:        var(--green-400);
-  --success-primary-border: var(--green-300);
-  --success-surface:        var(--green-100);
-  --success-border:         var(--green-200);
+  --tide-success-primary:        var(--tide-green-400);
+  --tide-success-primary-border: var(--tide-green-300);
+  --tide-success-surface:        var(--tide-green-100);
+  --tide-success-border:         var(--tide-green-200);
 
-  --warning-primary:        var(--yellow-400);
-  --warning-primary-border: var(--yellow-300);
-  --warning-surface:        var(--yellow-100);
-  --warning-border:         var(--yellow-200);
+  --tide-warning-primary:        var(--tide-yellow-400);
+  --tide-warning-primary-border: var(--tide-yellow-300);
+  --tide-warning-surface:        var(--tide-yellow-100);
+  --tide-warning-border:         var(--tide-yellow-200);
 }

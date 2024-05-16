@@ -1,43 +1,43 @@
 /* ATV Trader Realm Colors */
 .atv {
     /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
-    --charcoal: #33383B;
-    --maroon:   #9B2702;
-    --orange:   #C7521A;
-    --peach:    #EFBA88;
+    --tide-charcoal: #33383B;
+    --tide-maroon:   #9B2702;
+    --tide-orange:   #C7521A;
+    --tide-peach:    #EFBA88;
 
-    --bg-gradient: linear-gradient(
+    --tide-bg-gradient: linear-gradient(
       to bottom right,
-      var(--charcoal) 50%,
-      var(--peach) 150%
+      var(--tide-charcoal) 50%,
+      var(--tide-peach) 150%
     );
 
-    --floating: rgba(0, 0, 0, 0);
+    --tide-floating: rgba(0, 0, 0, 0);
 
   /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-  --primary:    var(--orange);
-  --on-primary: var(--white);
+  --tide-primary:    var(--tide-orange);
+  --tide-on-primary: var(--tide-white);
 
-  --secondary:    var(--black);
-  --on-secondary: var(--white);
+  --tide-secondary:    var(--tide-black);
+  --tide-on-secondary: var(--tide-white);
 
-  --surface:                var(--white);
-  --surface-variant:        var(--gray-200);
-  --surface-brand:          var(--charcoal);
-  --surface-accent:         var(--peach);
-  --surface-accent-variant: var(--maroon);
-  --surface-gradient:       var(--gradient);
-  --surface-floating:       var(--floating);
+  --tide-surface:                var(--tide-white);
+  --tide-surface-variant:        var(--tide-gray-200);
+  --tide-surface-brand:          var(--tide-charcoal);
+  --tide-surface-accent:         var(--tide-peach);
+  --tide-surface-accent-variant: var(--tide-maroon);
+  --tide-surface-gradient:       var(--tide-gradient);
+  --tide-surface-floating:       var(--tide-floating);
 
-  --on-surface:         var(--black);
-  --on-surface-variant: var(--gray-800);
-  --on-surface-brand:   var(--orange);
+  --tide-on-surface:         var(--tide-black);
+  --tide-on-surface-variant: var(--tide-gray-800);
+  --tide-on-surface-brand:   var(--tide-orange);
 
-  --on-surface-inverse:         var(--white);
-  --on-surface-inverse-variant: var(--transparent-200);
+  --tide-on-surface-inverse:         var(--tide-white);
+  --tide-on-surface-inverse-variant: var(--tide-transparent-200);
 
-  --border:          var(--gray-600);
-  --border-low:      var(--gray-400);
-  --border-high:     var(--black);
-  --border-floating: var(--gray-300);
+  --tide-border:          var(--tide-gray-600);
+  --tide-border-low:      var(--tide-gray-400);
+  --tide-border-high:     var(--tide-black);
+  --tide-border-floating: var(--tide-gray-300);
 }

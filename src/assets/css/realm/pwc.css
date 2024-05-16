@@ -1,42 +1,42 @@
 /* PWC Trader Realm Colors */
 .pwc {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
-  --color1: #0B72B8;
-  --color2: #085487;
-  --color3: #59A0EB;
+  --tide-color1: #0B72B8;
+  --tide-color2: #085487;
+  --tide-color3: #59A0EB;
 
-  --gradient: linear-gradient(
+  --tide-gradient: linear-gradient(
     to bottom right,
-    var(--color2) 50%,
-    var(--color3) 150%
+    var(--tide-color2) 50%,
+    var(--tide-color3) 150%
   );
 
-  --floating: rgba(255, 255, 255, 0);
+  --tide-floating: rgba(255, 255, 255, 0);
 
   /* Color Roles: Each realm will assign values to this same series of variables from a combination of the Global and Realm-specific Palettes. */
-  --primary:    var(--color1);
-  --on-primary: var(--gray-100);
+  --tide-primary:    var(--tide-color1);
+  --tide-on-primary: var(--tide-gray-100);
 
-  --secondary:    var(--gray-900);
-  --on-secondary: var(--gray-100);
+  --tide-secondary:    var(--tide-gray-900);
+  --tide-on-secondary: var(--tide-gray-100);
 
-  --surface:                var(--gray-100);
-  --surface-variant:        var(--gray-200);
-  --surface-brand:          var(--color1);
-  --surface-accent:         var(--color3);
-  --surface-accent-variant: var(--color2);
-  --surface-gradient:       var(--gradient);
-  --surface-floating:       var(--floating);
+  --tide-surface:                var(--tide-gray-100);
+  --tide-surface-variant:        var(--tide-gray-200);
+  --tide-surface-brand:          var(--tide-color1);
+  --tide-surface-accent:         var(--tide-color3);
+  --tide-surface-accent-variant: var(--tide-color2);
+  --tide-surface-gradient:       var(--tide-gradient);
+  --tide-surface-floating:       var(--tide-floating);
 
-  --on-surface:         var(--gray-900);
-  --on-surface-variant: var(--gray-700);
-  --on-surface-brand:   var(--color1);
+  --tide-on-surface:         var(--tide-gray-900);
+  --tide-on-surface-variant: var(--tide-gray-700);
+  --tide-on-surface-brand:   var(--tide-color1);
 
-  --on-surface-inverse:         var(--gray-100);
-  --on-surface-inverse-variant: var(--transparent-200);
+  --tide-on-surface-inverse:         var(--tide-gray-100);
+  --tide-on-surface-inverse-variant: var(--tide-transparent-200);
 
-  --border:          var(--gray-600);
-  --border-low:      var(--gray-400);
-  --border-high:     var(--gray-900);
-  --border-floating: var(--gray-300);
+  --tide-border:          var(--tide-gray-600);
+  --tide-border-low:      var(--tide-gray-400);
+  --tide-border-high:     var(--tide-gray-900);
+  --tide-border-floating: var(--tide-gray-300);
 }

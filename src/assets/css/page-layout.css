@@ -1,41 +1,41 @@
 .tide-page-layout {
-  --max-content-width:  1168px;
-  --gap:                0px;
-  --column-count:       6;
-  --min-gutter-width:   var(--spacing-1);
-  --gutter-width:       minmax(var(--min-gutter-width), 1fr);
-  --max-column-size:    calc((var(--max-content-width) - (var(--gap) * (var(--column-count) - 1))) / var(--column-count));
-  --content-columns:    repeat(var(--column-count), minmax(0px, var(--max-column-size)));
+  --tide-max-content-width:  1168px;
+  --tide-gap:                0px;
+  --tide-column-count:       6;
+  --tide-min-gutter-width:   var(--tide-spacing-1);
+  --tide-gutter-width:       minmax(var(--tide-min-gutter-width), 1fr);
+  --tide-max-column-size:    calc((var(--tide-max-content-width) - (var(--tide-gap) * (var(--tide-column-count) - 1))) / var(--tide-column-count));
+  --tide-content-columns:    repeat(var(--tide-column-count), minmax(0px, var(--tide-max-column-size)));
 
   display:                grid;
-  gap:                    0 var(--gap);
+  gap:                    0 var(--tide-gap);
   grid-auto-rows:         min-content;
-  grid-template-columns:  [start] var(--gutter-width) [content-start] var(--content-columns) [content-end] var(--gutter-width) [end];
+  grid-template-columns:  [start] var(--tide-gutter-width) [content-start] var(--tide-content-columns) [content-end] var(--tide-gutter-width) [end];
 }
 
 .tide-page-layout > *,
 .tide-layout-item {
-  --start:      calc(var(--column-start) + 1);
-  --end:        calc(var(--column-end) + 2);
-  --start-end:  var(--start, content-start) / var(--end, content-end);
+  --tide-start:      calc(var(--tide-column-start) + 1);
+  --tide-end:        calc(var(--tide-column-end) + 2);
+  --tide-start-end:  var(--tide-start, content-start) / var(--tide-end, content-end);
 
-  grid-column:  var(--column, var(--start-end));
+  grid-column:  var(--tide-column, var(--tide-start-end));
 }
 
 .tide-fluid {grid-column: 1 / -1;}
 
-.tide-start-0 {--column-start: 0;}
-.tide-start-1 {--column-start: 1;}
-.tide-start-2 {--column-start: 2;}
-.tide-start-3 {--column-start: 3;}
-.tide-start-4 {--column-start: 4;}
-.tide-start-5 {--column-start: 5;}
-.tide-start-6 {--column-start: 6;}
+.tide-start-0 {--tide-column-start: 0;}
+.tide-start-1 {--tide-column-start: 1;}
+.tide-start-2 {--tide-column-start: 2;}
+.tide-start-3 {--tide-column-start: 3;}
+.tide-start-4 {--tide-column-start: 4;}
+.tide-start-5 {--tide-column-start: 5;}
+.tide-start-6 {--tide-column-start: 6;}
 
-.tide-end-1 {--column-end: 1;}
-.tide-end-2 {--column-end: 2;}
-.tide-end-3 {--column-end: 3;}
-.tide-end-4 {--column-end: 4;}
-.tide-end-5 {--column-end: 5;}
-.tide-end-6 {--column-end: 6;}
-.tide-end-7 {--column-end: 7;}
+.tide-end-1 {--tide-column-end: 1;}
+.tide-end-2 {--tide-column-end: 2;}
+.tide-end-3 {--tide-column-end: 3;}
+.tide-end-4 {--tide-column-end: 4;}
+.tide-end-5 {--tide-column-end: 5;}
+.tide-end-6 {--tide-column-end: 6;}
+.tide-end-7 {--tide-column-end: 7;}

@@ -43,7 +43,7 @@
   .tide-toggle {
     width: 64px;
     height: 32px;
-    transition: background-color var(--animate);
+    transition: background-color var(--tide-animate);
   }
 
   .tide-toggle:disabled {
@@ -54,7 +54,7 @@
     left: 4px;
     width: 24px;
     height: 24px;
-    transition: left var(--animate);
+    transition: left var(--tide-animate);
   }
 
   .active {

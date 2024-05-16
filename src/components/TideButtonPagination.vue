@@ -47,20 +47,20 @@
 <style scoped>
   .tide-button-icon,
   .tide-link-as-button-icon {
-    border: 1px solid var(--white);
-    background: var(--white);
-    color: var(--secondary);
+    border: 1px solid var(--tide-white);
+    background: var(--tide-white);
+    color: var(--tide-secondary);
   }
 
   .tide-button-icon:not(:disabled):hover,
   .tide-link-as-button-icon:not(:disabled):hover {
-    border: 1px solid var(--surface-variant);
-    background: var(--surface-variant);
+    border: 1px solid var(--tide-surface-variant);
+    background: var(--tide-surface-variant);
   }
 
   .tide-button-icon:disabled,
   .tide-link-as-button-icon:disabled {
-    border: 1px solid var(--border-high);
+    border: 1px solid var(--tide-border-high);
   }
 
   .tide-button-icon .label,

@@ -35,10 +35,10 @@
 
 <style scoped>
   .tide-chip-input {
-    border-color: var(--border);
+    border-color: var(--tide-border);
   }
 
   .tide-chip-input:hover {
-    border-color: var(--border-high);
+    border-color: var(--tide-border-high);
   }
 </style>

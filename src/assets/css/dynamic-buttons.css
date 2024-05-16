@@ -12,61 +12,61 @@
 
 /* Rest State */
 .primary {
-  background: var(--primary);
-  border: 2px solid var(--primary);
-  color: var(--on-primary);
+  background: var(--tide-primary);
+  border: 2px solid var(--tide-primary);
+  color: var(--tide-on-primary);
 }
 
 .secondary {
-  background: 2px solid var(--surface);
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  background: 2px solid var(--tide-surface);
+  border: 2px solid var(--tide-primary);
+  color: var(--tide-primary);
 }
 
 .tertiary {
-  background: var(--white);
-  border: 1px solid var(--border);
-  color: var(--secondary);
+  background: var(--tide-white);
+  border: 1px solid var(--tide-border);
+  color: var(--tide-secondary);
 }
 
 .quaternary {
-  background: var(--white);
-  color: var(--secondary);
+  background: var(--tide-white);
+  color: var(--tide-secondary);
 }
 
 .floating {
-  background-color: var(--transparent-100);
-  color: var(--secondary);
-  box-shadow: var(--shadow-bottom);
+  background-color: var(--tide-transparent-100);
+  color: var(--tide-secondary);
+  box-shadow: var(--tide-shadow-bottom);
 }
 
 /* Hover State */
 a.primary:hover,
 button.primary:enabled:hover {
-  border: 2px solid var(--primary);
-  background: 2px solid var(--white);
-  color: var(--primary);
+  border: 2px solid var(--tide-primary);
+  background: 2px solid var(--tide-white);
+  color: var(--tide-primary);
 }
 
 a.secondary:hover,
 button.secondary:enabled:hover {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--tide-primary);
+  color: var(--tide-on-primary);
 }
 
 a.tertiary:hover,
 button.tertiary:enabled:hover {
-  border: 1px solid var(--border-high);
+  border: 1px solid var(--tide-border-high);
 }
 
 a.quaternary:hover,
 button.quaternary:enabled:hover {
-  background: var(--surface-variant);
+  background: var(--tide-surface-variant);
 }
 
 .floating:hover,
 button.floating:enabled:hover {
-  background-color: var(--white);
+  background-color: var(--tide-white);
 }
 
 /* Disabled State */

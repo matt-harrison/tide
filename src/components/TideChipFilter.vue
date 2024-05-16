@@ -40,16 +40,16 @@
 <style scoped>
   /* Border must always exist to prevent resize on hover state, but match background color on rest state to blend in. */
   .tide-chip-filter {
-    border-color: var(--surface-variant);
+    border-color: var(--tide-surface-variant);
   }
 
   .tide-chip-filter.active {
-    border-color: var(--secondary);
+    border-color: var(--tide-secondary);
   }
 
   .tide-chip-filter:hover {
-    background-color: var(--surface-variant);
-    border-color: var(--border);
-    color: var(--on-surface);
+    background-color: var(--tide-surface-variant);
+    border-color: var(--tide-border);
+    color: var(--tide-on-surface);
   }
 </style>

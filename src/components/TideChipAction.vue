@@ -42,7 +42,7 @@
 
 <style scoped>
   .tide-chip-action:hover {
-    background-color: var(--surface-variant);
-    border-color: var(--border-high);
+    background-color: var(--tide-surface-variant);
+    border-color: var(--tide-border-high);
   }
 </style>

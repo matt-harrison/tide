@@ -1,6 +1,6 @@
 html,
 body {
-  color: var(--on-surface);
+  color: var(--tide-on-surface);
 }
 
 *,
@@ -12,23 +12,23 @@ body {
   padding: 0;
   color: inherit;
   font-family: Montserrat;
-  font-weight: var(--font-500);
+  font-weight: var(--tide-font-500);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {font-size: var(--font-32);} /* 32px */
-h2 {font-size: var(--font-24);} /* 24px */
-h3 {font-size: var(--font-20);} /* 20px */
-h4 {font-size: var(--font-16);} /* 16px */
-h5 {font-size: var(--font-16);} /* 16px */
+h1 {font-size: var(--tide-font-32);} /* 32px */
+h2 {font-size: var(--tide-font-24);} /* 24px */
+h3 {font-size: var(--tide-font-20);} /* 20px */
+h4 {font-size: var(--tide-font-16);} /* 16px */
+h5 {font-size: var(--tide-font-16);} /* 16px */
 
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-weight: var(--font-700);
+  font-weight: var(--tide-font-700);
 }
 
 img,
@@ -66,7 +66,7 @@ button:disabled {
 
 /* cross-browser normalization */
 input::placeholder {
-  color: var(--gray); /* TODO: replace with an accessible light text color from design system */
+  color: var(--tide-gray); /* TODO: replace with an accessible light text color from design system */
   opacity: 1;
 }
 

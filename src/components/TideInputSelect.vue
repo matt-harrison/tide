@@ -156,7 +156,7 @@
 
   label {
     height: 1.1875rem;
-    transition: font-size var(--animate), transform var(--animate);
+    transition: font-size var(--tide-animate), transform var(--tide-animate);
   }
 
   label:not(.minilabel) {
@@ -164,35 +164,35 @@
   }
 
   .tide-input-select.disabled {
-    opacity: var(--disabled);
+    opacity: var(--tide-disabled);
   }
 
   .tide-input-select.error .tide-input-border {
-    outline-color: var(--error-border);
-    background-color: var(--error-surface);
+    outline-color: var(--tide-error-border);
+    background-color: var(--tide-error-surface);
   }
 
   .tide-input-select.error:focus-within .tide-input-border {
-    outline-color: var(--error-border);
+    outline-color: var(--tide-error-border);
   }
 
   .tide-input-select:focus-within .tide-input-border {
-    --input-outline-width: var(--border-width-2);
-    outline-color: var(--surface-border-high);
+    --tide-input-outline-width: var(--tide-border-width-2);
+    outline-color: var(--tide-surface-border-high);
   }
 
   .tide-input-border {
-    --input-outline-width: var(--border-width-1);
-    outline: var(--input-outline-width) solid var(--border);
-    outline-offset: calc(var(--input-outline-width) * -1);
+    --tide-input-outline-width: var(--tide-border-width-1);
+    outline: var(--tide-input-outline-width) solid var(--tide-border);
+    outline-offset: calc(var(--tide-input-outline-width) * -1);
   }
 
   .tide-input-select.error {
-    color: var(--error-on-surface);
+    color: var(--tide-error-on-surface);
   }
 
   .tide-input-select.error option {
-    color: var(--on-surface);
+    color: var(--tide-on-surface);
   }
 
   select {

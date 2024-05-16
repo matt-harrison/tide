@@ -100,6 +100,6 @@
 
 <style scoped>
   .tide-accordion-body {
-    transition: grid-template-rows var(--animate);
+    transition: grid-template-rows var(--tide-animate);
   }
 </style>

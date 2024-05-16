@@ -125,11 +125,11 @@
 
 <style scoped>
   .tide-input-checkbox.disabled {
-    opacity: var(--disabled);
+    opacity: var(--tide-disabled);
   }
 
   .tide-input-checkbox-custom {
-    width: var(--font-28);
-    height: var(--font-28);
+    width: var(--tide-font-28);
+    height: var(--tide-font-28);
   }
 </style>

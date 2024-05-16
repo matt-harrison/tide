@@ -1,6 +1,6 @@
 .slide-down-from-top-enter-active,
 .slide-down-from-top-leave-active {
-  transition: transform var(--animate);
+  transition: transform var(--tide-animate);
 }
 
 .slide-down-from-top-enter-from,

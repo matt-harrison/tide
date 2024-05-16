@@ -109,34 +109,34 @@
   }
 
   .error {
-    background-color: var(--error-surface);
+    background-color: var(--tide-error-surface);
   }
 
   .info {
-    background-color: var(--info-surface);
+    background-color: var(--tide-info-surface);
   }
 
   .success {
-    background-color: var(--success-surface);
+    background-color: var(--tide-success-surface);
   }
 
   .warning {
-    background-color: var(--warning-surface);
+    background-color: var(--tide-warning-surface);
   }
 
   .tide-icon.error {
-    background-color: var(--error-primary);
+    background-color: var(--tide-error-primary);
   }
 
   .tide-icon.info {
-    background-color: var(--info-primary);
+    background-color: var(--tide-info-primary);
   }
 
   .tide-icon.success {
-    background-color: var(--success-primary);
+    background-color: var(--tide-success-primary);
   }
 
   .tide-icon.warning {
-    background-color: var(--warning-primary);
+    background-color: var(--tide-warning-primary);
   }
 </style>

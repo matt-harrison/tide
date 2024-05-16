@@ -244,7 +244,7 @@
 <style scoped>
   label {
     height: 1.1875rem;
-    transition: font-size var(--animate), transform var(--animate);
+    transition: font-size var(--tide-animate), transform var(--tide-animate);
   }
 
   label:not(.minilabel),
@@ -255,29 +255,29 @@
 
   .tide-input-text-prefix,
   .tide-input-text-suffix {
-    transition: transform var(--animate);
+    transition: transform var(--tide-animate);
   }
 
   .tide-input-text.disabled {
-    opacity: var(--disabled);
+    opacity: var(--tide-disabled);
   }
 
   .tide-input-text.error {
-    color: var(--error-on-surface);
+    color: var(--tide-error-on-surface);
   }
 
   .tide-input-text.error .tide-input-border {
-    outline-color: var(--error-border);
-    background-color: var(--error-surface);
+    outline-color: var(--tide-error-border);
+    background-color: var(--tide-error-surface);
   }
 
   .tide-input-text.error:focus-within .tide-input-border {
-    outline-color: var(--error-border);
+    outline-color: var(--tide-error-border);
   }
 
   .tide-input-text:focus-within .tide-input-border {
-    --input-outline-width: var(--border-width-2);
-    outline-color: var(--surface-border-high);
+    --tide-input-outline-width: var(--tide-border-width-2);
+    outline-color: var(--tide-surface-border-high);
   }
 
   .tide-input-text input {
@@ -285,9 +285,9 @@
   }
 
   .tide-input-border {
-    --input-outline-width: var(--border-width-1);
-    outline: var(--input-outline-width) solid var(--border);
-    outline-offset: calc(var(--input-outline-width) * -1);
-    color: var(--surface-foreground);
+    --tide-input-outline-width: var(--tide-border-width-1);
+    outline: var(--tide-input-outline-width) solid var(--tide-border);
+    outline-offset: calc(var(--tide-input-outline-width) * -1);
+    color: var(--tide-surface-foreground);
   }
 </style>

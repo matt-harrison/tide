@@ -76,6 +76,6 @@
 
   .tide-tabs-tab {
     flex: 1;
-    transition: background-color var(--animate);
+    transition: background-color var(--tide-animate);
   }
 </style>
