@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import type { Tab } from '@/types/Tab';
 
 import TideTabs from '@/components/TideTabs.vue';
-import { getLabelsFromOptions, doSomething, parameters } from '@/utilities/storybook';
+import { change, disabledArgType, doSomething, getLabelsFromOptions, parameters } from '@/utilities/storybook';
 
 /* eslint-disable */
 // ^ Storybook controls are based on iterating over object properties instead of array slots (bad form), so these can't be ordered alphabetically.
@@ -34,23 +34,23 @@ const render = (args: any) => ({
   components: { TideTabs },
   methods: {
     doSomething,
-    handleTabClick: (event: Event, index: number) => {
-      action(`Current tab ${index}`)(args);
+    handleEmit: (event: Event, index: number) => {
+      action(`Current tab ${index}`)(event, { index });
 
       try {
-        const tabClick = eval(args.tabClick);
+        const performCallback = eval(args.handleEmit);
 
-        if (tabClick) {
-          tabClick();
+        if (performCallback) {
+          performCallback();
         }
       } catch {
-        alert('Please pass a valid function in the "tabClick" control.');
+        alert('Please specify a valid handler in the "change" control.');
       }
     },
   },
   setup: () => ({ args }),
   template:
-    '<TideTabs @tab-click="handleTabClick" :key="args.activeTabInitial" class="tide-display-inline-flex" v-bind="args" />',
+    '<TideTabs @change="handleEmit" :key="args.activeTabInitial" class="tide-display-inline-flex" v-bind="args" />',
 });
 
 export default {
@@ -67,9 +67,9 @@ export default {
         defaultValue: { summary: 'None' },
       },
     },
-    tabClick: {
-      control: 'text',
-      description: 'JS function to execute when tab is clicked',
+    change: disabledArgType,
+    handleEmit: {
+      ...change,
       table: {
         defaultValue: { summary: 'None' },
         type: { summary: '(event: Event, tabIndex: number) => void' },
@@ -87,7 +87,7 @@ export default {
   },
   args: {
     activeTabInitial: undefined,
-    tabClick: 'doSomething',
+    handleEmit: 'doSomething',
     tabs,
   },
   component: TideTabs,

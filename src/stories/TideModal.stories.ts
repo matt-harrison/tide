@@ -4,7 +4,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import TideButton from '@/components/TideButton.vue';
 import TideModal from '@/components/TideModal.vue';
-import { doSomething, lineBreak, tab } from '@/utilities/storybook';
+import { disabledArgType, doSomething, lineBreak, tab } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
@@ -12,7 +12,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
   const slotContentIndentationFixed = (args.default as string).replace(/(<\/[^>]+>)$/, `${tab}$1`);
 
   return (
-    `<TideModal @modal-close="handleModalClose">${lineBreak}` +
+    `<TideModal @close="handleClose">${lineBreak}` +
     `${tab}<template #footer>${lineBreak}` +
     `${tab}${tab}${args.footer}${lineBreak}` +
     `${tab}</template>${lineBreak}` +
@@ -35,26 +35,24 @@ const render = (args: any, { updateArgs }: any) => ({
   components: { TideButton, TideModal },
   methods: {
     doSomething,
-    handleModalClose: () => {
-      action('Modal closed')(args);
+    handleClose: (event: Event) => {
+      updateArgs({ ...args, isOpen: false });
+      action('Modal closed')(event);
 
       try {
-        const modalClose = eval(args.modalClose);
-
-        if (modalClose) {
-          modalClose();
+        const callback = eval(args.handleClose);
+        if (callback) {
+          callback();
         }
       } catch {
-        alert('Please pass a valid function in the "modalClose" control.');
+        alert('Please specify a valid function in the "close" control.');
       }
-
-      updateArgs({ ...args, isOpen: false });
     },
   },
   setup: () => ({ args }),
   template: `
   <p>Toggle "isOpen" prop below to preview.</p>
-  <TideModal v-bind="args" @modal-close="handleModalClose">
+  <TideModal v-bind="args" @close="handleClose">
     ${args.default}
     <template #footer>${args.footer}</template>
   </TideModal>`,
@@ -62,6 +60,7 @@ const render = (args: any, { updateArgs }: any) => ({
 
 export default {
   argTypes: {
+    close: disabledArgType,
     default: {
       control: 'text',
       description: 'Modal content',
@@ -78,18 +77,18 @@ export default {
         type: { summary: 'HTML' },
       },
     },
-    isOpen: {
-      description: 'Determines whether the Modal is displayed',
-      table: {
-        defaultValue: { summary: 'False' },
-      },
-    },
-    modalClose: {
+    handleClose: {
       control: 'text',
       description: 'JS function to execute when modal is closed',
       table: {
         defaultValue: { summary: 'None' },
-        type: { summary: '() => void' },
+        type: { summary: '(event: Event) => void' },
+      },
+    },
+    isOpen: {
+      description: 'Determines whether the Modal is displayed',
+      table: {
+        defaultValue: { summary: 'False' },
       },
     },
     modalStyle: {
@@ -120,8 +119,8 @@ export default {
   args: {
     default: `<div class="tide-margin-bottom-1 tide-padding-x-1 tide-width-full">${lineBreak}${tab}${tab}Default Slot Demo${lineBreak}</div>`,
     footer: '<TideButton label="Footer Slot Demo" />',
+    handleClose: 'doSomething',
     isOpen: false,
-    modalClose: 'doSomething',
     modalStyle: {},
     style: {},
     title: 'Modal Demo',

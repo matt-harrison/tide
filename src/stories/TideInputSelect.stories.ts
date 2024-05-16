@@ -5,7 +5,9 @@ import type { SelectOption } from '@/types/Select';
 import TideInputSelect from '@/components/TideInputSelect.vue';
 import {
   argTypeBooleanUnrequired,
+  change,
   dataTrack,
+  doSomething,
   formatArgType,
   getLabelsFromOptions,
   parameters,
@@ -35,11 +37,22 @@ const selectOptions: SelectOption[] = [
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideInputSelect },
   methods: {
+    doSomething,
     handleChange: (event: Event) => {
       const value = parseInt((event?.target as HTMLSelectElement).value, 10);
 
-      action('TideInputSelect changed')(event);
       updateArgs({ ...args, value });
+      action('TideInputSelect changed')(event);
+
+      try {
+        const performCallback = eval(args.change);
+
+        if (performCallback) {
+          performCallback();
+        }
+      } catch {
+        alert('Please specify a valid handler in the "change" control.');
+      }
     },
   },
   setup: () => ({ args }),
@@ -48,6 +61,7 @@ const render = (args: any, { updateArgs }: any) => ({
 
 export default {
   argTypes: {
+    change,
     dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
@@ -109,6 +123,7 @@ export default {
     },
   },
   args: {
+    change: 'doSomething',
     dataTrack: '',
     disabled: undefined,
     error: undefined,

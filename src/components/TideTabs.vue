@@ -14,14 +14,14 @@
     activeTabInitial: 0,
   });
 
-  const emit = defineEmits(['tabClick']);
+  const emit = defineEmits(['change']);
 
   const activeTab = ref(props.activeTabInitial);
 
-  const handleTabClick = (event: Event, index: number) => {
+  const handleClick = (event: Event, index: number) => {
     activeTab.value = index;
 
-    emit('tabClick', event, index);
+    emit('change', event, index);
   };
 </script>
 
@@ -53,7 +53,7 @@
       ]"
       :data-track="tab.dataTrack || undefined"
       :key="tab.label"
-      @click="(event: Event) => handleTabClick(event, index)"
+      @click="(event: Event) => handleClick(event, index)"
       v-for="(tab, index) in props.tabs"
     >
       <span :class="[CSS.FONT.WEIGHT.SIX_HUNDRED]">

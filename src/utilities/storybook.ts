@@ -43,12 +43,23 @@ export const argTypeDimension = {
   },
 };
 
-export const click = {
+export const change = {
   control: 'text',
-  description: 'JS function to execute on click',
+  description: 'JS code or function to execute on change event',
+  isEmit: true,
+  name: 'change',
   table: {
     defaultValue: { summary: 'None' },
-    type: { summary: 'function' },
+    type: { summary: '(event: Event) => void' },
+  },
+};
+
+export const click = {
+  control: 'text',
+  description: 'JS code or function to execute on click event',
+  table: {
+    defaultValue: { summary: 'None' },
+    type: { summary: '(event: Event) => void' },
   },
 };
 
@@ -58,6 +69,12 @@ export const dataTrack = {
   table: {
     defaultValue: { summary: 'None' },
     type: { summary: 'string' },
+  },
+};
+
+export const disabledArgType = {
+  table: {
+    disable: true,
   },
 };
 
@@ -139,8 +156,9 @@ export const formatSnippet = (code: string, context: StoryContext) => {
     const isCustom = argType.isCustom;
     const isDynamic = argType.isDynamic || isConstant || isConstants || typeof value === 'boolean';
     const isEmpty = !isDynamic && value === '';
-    const isSlot = key === 'default';
     const isExcluded = value === undefined || (Array.isArray(value) && !value.length);
+    const isEmit = argType.isEmit;
+    const isSlot = key === 'default';
 
     if (argType.isCss) {
       classNames.push(value);
@@ -170,10 +188,6 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       value = `[${constantSlots.join(', ')}]`;
     }
 
-    if (isConditionMet && !isClick && !isCustom && !isEmpty && !isExcluded && !isSlot) {
-      return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
-    }
-
     if (isCustom) {
       return `:${formatKebabCase(key)}="${key}"`;
     }
@@ -184,6 +198,16 @@ export const formatSnippet = (code: string, context: StoryContext) => {
       (!args.element || args.element === ELEMENT.BUTTON || args.element === ELEMENT_TEXT_AS_ICON.BUTTON)
     ) {
       return `@click="${value}"`;
+    }
+
+    if (isEmit) {
+      if (value) {
+        return `@change="${value}"`;
+      }
+    }
+
+    if (isConditionMet && !isClick && !isCustom && !isEmpty && !isExcluded && !isSlot) {
+      return `${isDynamic ? ':' : ''}${formatKebabCase(key)}="${value}"`;
     }
   });
 

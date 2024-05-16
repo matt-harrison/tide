@@ -1,39 +1,52 @@
 import { action } from '@storybook/addon-actions';
 
 import TideToggle from '@/components/TideToggle.vue';
-import { argTypeBooleanUnrequired, click, dataTrack, doSomething, parameters } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  change,
+  dataTrack,
+  disabledArgType,
+  doSomething,
+  parameters,
+} from '@/utilities/storybook';
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { TideToggle },
   methods: {
     doSomething,
-    handleClick: (event: Event) => {
-      updateArgs({ ...args, isActive: !args.isActive });
-
-      action('TideToggle clicked')(event);
+    handleEmit: (event: Event, isActive: boolean) => {
+      updateArgs({ ...args, isActive });
+      action('TideToggle changed')(event, { isActive });
 
       try {
-        const toggleClick = eval(args.click);
+        const performCallback = eval(args.handleEmit);
 
-        if (toggleClick) {
-          toggleClick();
+        if (performCallback) {
+          performCallback();
         }
       } catch {
-        alert('Please pass a valid function in the "click" control.');
+        alert('Please specify a valid handler in the "change" control.');
       }
     },
   },
   setup: () => ({ args }),
-  template: `<TideToggle @click="handleClick" v-bind="args" />`,
+  template: `<TideToggle @change="handleEmit" v-bind="args" />`,
 });
 
 export default {
   argTypes: {
-    click,
+    change: disabledArgType,
     dataTrack,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines clickability',
+    },
+    handleEmit: {
+      ...change,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: '(event: Event, tabIndex: number) => void' },
+      },
     },
     isActive: {
       ...argTypeBooleanUnrequired,
@@ -41,9 +54,9 @@ export default {
     },
   },
   args: {
-    click: 'doSomething',
     dataTrack: '',
     disabled: undefined,
+    handleEmit: 'doSomething',
     isActive: undefined,
   },
   component: TideToggle,

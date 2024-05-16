@@ -15,7 +15,7 @@
     offsetX: 0,
   });
 
-  const emit = defineEmits(['slideChange']);
+  const emit = defineEmits(['change']);
 
   let contentWidth = ref();
   let frameWidth = ref();
@@ -124,7 +124,7 @@
   });
 
   watch(currentSlide, () => {
-    emit('slideChange', currentSlide.value);
+    emit('change', currentSlide.value);
   });
 </script>
 

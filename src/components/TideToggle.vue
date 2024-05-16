@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+  import { ref } from 'vue';
+
   import { CSS } from '@/types/Styles';
 
   const props = defineProps({
@@ -12,6 +14,18 @@
       type: Boolean,
     },
   });
+
+  const emit = defineEmits(['change']);
+
+  const isActive = ref(props.isActive);
+
+  const handleClick = (event: Event) => {
+    if (!props.disabled) {
+      isActive.value = !isActive.value;
+
+      emit('change', event, isActive.value);
+    }
+  };
 </script>
 
 <template>
@@ -25,6 +39,7 @@
       props.isActive ? CSS.BG.SECONDARY : CSS.BG.SURFACE.VARIANT,
     ]"
     :disabled="props.disabled"
+    @click="handleClick"
   >
     <div
       :class="[

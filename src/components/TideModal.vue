@@ -17,28 +17,36 @@
 
   const props = defineProps<Props>();
 
-  const emit = defineEmits(['modalClose']);
+  const emit = defineEmits(['close']);
 
+  const isOpen = ref(props.isOpen);
   const savedScrollPosition = ref<number | null>(null);
 
-  const handleModalClose = () => {
-    emit('modalClose');
+  const handleClose = (event: Event) => {
+    isOpen.value = false;
+
+    updateModalDisplay();
+    emit('close', event);
   };
 
-  const updateScrollLock = () => {
-    if (props.isOpen) {
+  const updateModalDisplay = () => {
+    if (isOpen.value) {
       savedScrollPosition.value = window.scrollY;
       document.body.style.overflow = 'hidden';
       savedScrollPosition.value && window.scrollTo(0, savedScrollPosition.value);
+
+      addOpenListeners();
     } else {
       document.body.style.overflow = '';
+
+      removeOpenListeners();
     }
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      e.stopPropagation();
-      handleModalClose();
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') {
+      event.stopPropagation();
+      handleClose(event);
     }
   };
 
@@ -51,20 +59,14 @@
   };
 
   onMounted(() => {
-    updateScrollLock();
+    updateModalDisplay();
   });
 
-  watch(
-    () => props.isOpen,
-    (isOpen) => {
-      updateScrollLock();
-      if (isOpen) {
-        addOpenListeners();
-      } else {
-        removeOpenListeners();
-      }
-    }
-  );
+  watch(props, (newValue) => {
+    isOpen.value = newValue.isOpen;
+
+    updateModalDisplay();
+  });
 </script>
 
 <template>
@@ -82,12 +84,12 @@
           CSS.WIDTH.FULL,
           CSS.HEIGHT.FULL,
         ]"
-        v-show="props.isOpen"
+        v-show="isOpen"
       >
         <div
           :class="['tide-modal-bg', CSS.POSITION.ABSOLUTE, CSS.WIDTH.FULL, CSS.HEIGHT.FULL]"
           :style="{ '--tide-modal-width': props.width, ...style }"
-          @click.self="handleModalClose"
+          @click.self="handleClose"
         />
         <div
           :class="[
@@ -114,7 +116,7 @@
 
             <button
               :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.TWO]"
-              @click="handleModalClose"
+              @click="handleClose"
               title="Close"
             >
               <TideIcon :icon="ICON.CLOSE" />

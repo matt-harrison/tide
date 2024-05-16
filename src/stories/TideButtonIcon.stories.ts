@@ -31,7 +31,7 @@ const render = (args: any) => ({
           buttonClick();
         }
       } catch {
-        alert('Please pass a valid function in the "click" control.');
+        alert('Please specify a valid handler in the "click" control.');
       }
     },
   },

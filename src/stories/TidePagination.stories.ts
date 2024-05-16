@@ -2,31 +2,57 @@ import { action } from '@storybook/addon-actions';
 
 import * as STANDARD_ELEMENT from '@/types/Element';
 import TidePagination from '@/components/TidePagination.vue';
-import { argTypeBooleanUnrequired, parameters, prependNoneAsUndefined } from '@/utilities/storybook';
+import {
+  argTypeBooleanUnrequired,
+  change,
+  disabledArgType,
+  doSomething,
+  parameters,
+  prependNoneAsUndefined,
+} from '@/utilities/storybook';
 
 const ELEMENT_TEXT_AS_ICON = prependNoneAsUndefined(STANDARD_ELEMENT.ELEMENT_TEXT_AS_ICON);
 
 const render = (args: any, { updateArgs }: any) => ({
   components: { TidePagination },
   methods: {
-    handleSetPage: (page: number) => {
-      action(`Current page ${page}`)(args);
+    doSomething,
+    handleEmit: (event: Event, index: number) => {
+      action(`Current page ${index}`)(event, { index });
 
-      updateArgs({ ...args, pageCurrent: page });
+      updateArgs({ ...args, pageCurrent: index });
+
+      try {
+        const performCallback = eval(args.handleEmit);
+
+        if (performCallback) {
+          performCallback();
+        }
+      } catch {
+        alert('Please specify a valid handler in the "change" control.');
+      }
     },
   },
   setup: () => ({ args }),
-  template: `<TidePagination @set-page="handleSetPage" v-bind="args" />`,
+  template: `<TidePagination @change="handleEmit" v-bind="args" />`,
 });
 
 export default {
   argTypes: {
+    change: disabledArgType,
     disabled: {
       ...argTypeBooleanUnrequired,
       description: 'Determines clickability<br />(Button only)',
       if: {
         arg: 'element',
         eq: ELEMENT_TEXT_AS_ICON.BUTTON,
+      },
+    },
+    handleEmit: {
+      ...change,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: '(event: Event, pageIndex: number) => void' },
       },
     },
     pageCurrent: {
@@ -41,19 +67,11 @@ export default {
         type: 'number',
       },
     },
-    setPage: {
-      control: 'text',
-      description: 'JS function to execute when pagination button is clicked',
-      table: {
-        defaultValue: { summary: 'None' },
-        type: { summary: '(event: Event, pageIndex: number) => void' },
-      },
-    },
   },
   args: {
+    handleEmit: 'doSomething',
     pageCurrent: 1,
     pageTotal: 5,
-    setPage: 'doSomething',
   },
   component: TidePagination,
   parameters,

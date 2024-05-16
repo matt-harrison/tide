@@ -4,7 +4,7 @@ import type { StoryContext } from '@storybook/vue3';
 
 import TideCard from '@/components/TideCard.vue';
 import TideCarousel from '@/components/TideCarousel.vue';
-import { argTypeBooleanUnrequired, doSomething, lineBreak, tab } from '@/utilities/storybook';
+import { argTypeBooleanUnrequired, change, disabledArgType, doSomething, lineBreak, tab } from '@/utilities/storybook';
 
 const formatSnippet = (code: string, context: StoryContext) => {
   const { args } = context;
@@ -13,6 +13,7 @@ const formatSnippet = (code: string, context: StoryContext) => {
 
   if (args.isTouchscreen !== undefined) argsWithValues.push(`:is-touchscreen="${args.isTouchscreen}"`);
   if (args.offsetX) argsWithValues.push(`:offset-x="${args.offsetX}"`);
+  if (args.handleEmit) argsWithValues.push(`@change"${args.handleEmit}"`);
 
   return (
     `<TideCarousel ${argsWithValues.join(' ')}>${lineBreak}` +
@@ -40,29 +41,37 @@ const render = (args: any) => ({
   components: { TideCard, TideCarousel },
   methods: {
     doSomething,
-    handleSlideChange: (index: number) => {
-      action(`Current slide ${index}`)(args);
+    handleEmit: (index: number) => {
+      action(`Current slide ${index}`)({ index });
 
       try {
-        const slideChange = eval(args.slideChange);
+        const performCallback = eval(args.handleEmit);
 
-        if (slideChange) {
-          slideChange();
+        if (performCallback) {
+          performCallback();
         }
       } catch {
-        alert('Please pass a valid function in the "slideChange" control.');
+        alert('Please specify a valid handler in the "change" control.');
       }
     },
   },
   setup: () => ({ args }),
-  template: `<TideCarousel @slideChange="handleSlideChange" v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['tide-shrink-none', args.hasPadding ? ' tide-padding-y-1' : '']"><TideCard class="tide-padding-1">Card {{ index + 1 }}</TideCard></li></TideCarousel>`,
+  template: `<TideCarousel @change="handleEmit" v-bind="args"><li v-for="(_child, index) in new Array(12)" :class="['tide-shrink-none', args.hasPadding ? ' tide-padding-y-1' : '']"><TideCard class="tide-padding-1">Card {{ index + 1 }}</TideCard></li></TideCarousel>`,
 });
 
 export default {
   argTypes: {
+    change: disabledArgType,
     default: {
       table: {
         disable: true,
+      },
+    },
+    handleEmit: {
+      ...change,
+      table: {
+        defaultValue: { summary: 'None' },
+        type: { summary: '(event: Event, currentSlide: number) => void' },
       },
     },
     // TODO: adapt via formatSnippet
@@ -105,6 +114,7 @@ export default {
     },
   },
   args: {
+    handleEmit: 'doSomething',
     hasPadding: false,
     isTouchscreen: undefined,
     offsetX: 0,

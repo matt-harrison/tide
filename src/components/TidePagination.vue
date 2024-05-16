@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { computed } from 'vue';
+  import { computed, ref } from 'vue';
 
   import TideButtonIcon from '@/components/TideButtonIcon.vue';
   import TideButtonPagination from '@/components/TideButtonPagination.vue';
@@ -17,9 +17,17 @@
     pageTotal: 1,
   });
 
-  defineEmits(['setPage']);
+  const emit = defineEmits(['change']);
+
+  const pageCurrent = ref(props.pageCurrent);
 
   const paginationButtons = computed(() => new Array(props.pageTotal).fill('').map((empty, index) => index + 1));
+
+  const handleClick = (event: Event, index: number) => {
+    pageCurrent.value = index;
+
+    emit('change', event, index);
+  };
 </script>
 
 <template>
@@ -27,10 +35,10 @@
     :class="['tide-pagination', CSS.DISPLAY.FLEX, CSS.AXIS1.CENTER, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.WIDTH.FULL]"
   >
     <TideButtonIcon
-      :disabled="props.pageCurrent === 1"
+      :disabled="pageCurrent === 1"
       :icon="ICON.CHEVRON_LEFT"
       :priority="PRIORITY.QUATERNARY"
-      @click="$emit('setPage', props.pageCurrent - 1)"
+      @click="(event: Event) => handleClick(event, pageCurrent - 1)"
     />
 
     <ul :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.LIST_BULLETS.OFF]">
@@ -39,19 +47,19 @@
         v-for="paginationButton in paginationButtons"
       >
         <TideButtonPagination
-          :disabled="props.pageCurrent === paginationButton"
+          :disabled="pageCurrent === paginationButton"
           :label="paginationButton"
           :priority="PRIORITY.QUATERNARY"
-          @click="$emit('setPage', paginationButton)"
+          @click="(event: Event) => handleClick(event, paginationButton)"
         />
       </li>
     </ul>
 
     <TideButtonIcon
-      :disabled="props.pageCurrent === paginationButtons[paginationButtons.length - 1]"
+      :disabled="pageCurrent === paginationButtons[paginationButtons.length - 1]"
       :icon="ICON.CHEVRON_RIGHT"
       :priority="PRIORITY.QUATERNARY"
-      @click="$emit('setPage', props.pageCurrent + 1)"
+      @click="(event: Event) => handleClick(event, pageCurrent + 1)"
     />
   </section>
 </template>
