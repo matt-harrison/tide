@@ -73,7 +73,7 @@
     }
   });
 
-  defineExpose({ value });
+  defineExpose({ error, value });
 </script>
 
 <template>

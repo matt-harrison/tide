@@ -57,7 +57,7 @@
     }
   });
 
-  defineExpose({ error, required, value });
+  defineExpose({ error, value });
 </script>
 
 <template>
