@@ -3,7 +3,7 @@
 
   import type { SelectField } from '@/types/Field';
 
-  import TideSvgIcon from '@/components/TideSvgIcon.vue';
+  import TideIcon from '@/components/TideIcon.vue';
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
@@ -124,7 +124,7 @@
         </select>
       </div>
 
-      <TideSvgIcon
+      <TideIcon
         :class="[CSS.POSITION.ABSOLUTE, CSS.POSITIONING.RIGHT_0, CSS.MARGIN.RIGHT.ONE, CSS.POINTER_EVENTS.OFF]"
         :icon="ICON.EXPAND_MORE"
         :size="SIZE.SMALL"
@@ -135,7 +135,7 @@
       :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.LEFT.ONE]"
       v-if="props.supportingText || hasError"
     >
-      <TideSvgIcon
+      <TideIcon
         :class="[]"
         :icon="ICON.ERROR"
         :size="SIZE.SMALL"

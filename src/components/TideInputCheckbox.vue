@@ -1,7 +1,7 @@
 <script lang="ts" setup>
   import { computed, getCurrentInstance, ref, watch } from 'vue';
 
-  import TideSvgIcon from '@/components/TideSvgIcon.vue';
+  import TideIcon from '@/components/TideIcon.vue';
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
@@ -98,7 +98,7 @@
       ]"
       @click="handleClick"
     >
-      <TideSvgIcon
+      <TideIcon
         :class="[CSS.FONT.COLOR.SECONDARY]"
         :icon="indeterminate ? ICON.REMOVE : ICON.CHECK"
         :size="SIZE.SMALL"

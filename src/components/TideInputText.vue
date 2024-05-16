@@ -6,7 +6,7 @@
   import type { TextInputType } from '@/types/TextInput';
   import type { ValidationError, Validator } from '@/types/Validation';
 
-  import TideSvgIcon from '@/components/TideSvgIcon.vue';
+  import TideIcon from '@/components/TideIcon.vue';
   import { CSS } from '@/types/Styles';
   import { ICON } from '@/types/Icon';
   import { SIZE } from '@/types/Size';
@@ -147,7 +147,7 @@
         props.disabled ? CSS.CURSOR.NOT_ALLOWED : CSS.CURSOR.TEXT,
       ]"
     >
-      <TideSvgIcon
+      <TideIcon
         :icon="props.iconLeading"
         :size="SIZE.SMALL"
         v-if="props.iconLeading"
@@ -206,7 +206,7 @@
         </div>
       </div>
 
-      <TideSvgIcon
+      <TideIcon
         :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
         :icon="ICON.CLOSE"
         :size="SIZE.SMALL"
@@ -214,7 +214,7 @@
         v-if="hasClear && props.type !== TEXT_INPUT_TYPE.PASSWORD"
       />
 
-      <TideSvgIcon
+      <TideIcon
         :class="[CSS.PADDING.Y.HALF, CSS.PADDING.FULL.HALF, CSS.CURSOR.POINTER]"
         :icon="ICON.VISIBILITY"
         :size="SIZE.SMALL"
@@ -227,7 +227,7 @@
       :class="[CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER, CSS.GAP.QUARTER, CSS.MARGIN.LEFT.ONE]"
       v-if="props.supportingText || hasError"
     >
-      <TideSvgIcon
+      <TideIcon
         :class="[]"
         :icon="ICON.ERROR"
         :size="SIZE.SMALL"

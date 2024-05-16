@@ -25,7 +25,6 @@ import TideLink from '@/components/TideLink.vue';
 import TideModal from '@/components/TideModal.vue';
 import TidePagination from '@/components/TidePagination.vue';
 import TideSeoLinks from '@/components/TideSeoLinks.vue';
-import TideSvgIcon from '@/components/TideSvgIcon.vue';
 import TideTabs from '@/components/TideTabs.vue';
 import TideToggle from '@/components/TideToggle.vue';
 
@@ -114,7 +113,6 @@ export {
   TideModal,
   TidePagination,
   TideSeoLinks,
-  TideSvgIcon,
   TideTabs,
   TideToggle,
 };
