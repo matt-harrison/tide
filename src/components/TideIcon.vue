@@ -23,8 +23,8 @@
   watch(
     () => props.icon,
     () => {
-      const id = props.icon as unknown;
-      const name = formatPascalCase(id as string);
+      const id = props.icon as unknown as string;
+      const name = formatPascalCase(id);
       const component = defineAsyncComponent(() => import(`../assets/svg/icons/Icon${name}.vue`));
 
       innerSVG.value = markRaw(component);
