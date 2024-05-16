@@ -1,9 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
 @import './variables.css';
-@import './reset.css';
 @import './utilities.css';
 @import './dynamic-buttons.css';
 @import './dynamic-utilities.css';
-@import './animation.css';
 @import './page-layout.css';

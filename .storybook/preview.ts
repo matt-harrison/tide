@@ -3,6 +3,7 @@ import { useArgs } from '@storybook/preview-api';
 import type { Preview } from '@storybook/vue3';
 
 import '../src/assets/css/main.css';
+import '../src/assets/css/reset.css';
 import '../src/assets/css/storybook.css';
 import '../src/assets/css/realm/aero.css';
 import '../src/assets/css/realm/atv.css';

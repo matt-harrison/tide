@@ -1,4 +1,6 @@
 /* Styles used for Storybook demonstration purposes only. Not bundled into distribution package. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 .sb-bg-blue-light {background-color: #CCDEF3;}
 .sb-bg-white {background-color: #FFFFFF;}
 
