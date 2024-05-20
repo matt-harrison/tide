@@ -49,10 +49,11 @@
   "scripts": {
     "build": "run-p type-check build-only",
     "build-only": "vite build && cp -r src/assets/css/ dist/css/ && cp -r src/types/ dist/types/ && cp -r src/utilities/ dist/utilities/",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build && cp -r src/assets/css/realm/ storybook-static/public/",
     "coverage": "vitest run --coverage",
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore --fix",
+    "preview": "npm run build-storybook && npx http-server -a localhost storybook-static/",
     "sb": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",

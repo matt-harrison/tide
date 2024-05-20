@@ -1,5 +1,5 @@
 /* Commercial Truck Trader Realm Colors */
-.truck {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --tide-blue:  #005F9E;
   --tide-midnight-blue:   #172C4B;

@@ -1,5 +1,5 @@
 /* ATV Trader Realm Colors */
-.atv {
+:root {
     /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
     --tide-charcoal: #33383B;
     --tide-maroon:   #9B2702;

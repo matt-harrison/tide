@@ -1,5 +1,5 @@
 /* RV Trader Realm Colors */
-.rv {
+:root {
   /* Realm-specific Tonal Palette: Only to be referenced in the assignment of Color Roles below. */
   --tide-green:  #006836;
   --tide-teal:   #8ADCB9;
