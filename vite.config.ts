@@ -21,6 +21,7 @@ export default defineConfig({
         },
       },
     },
+    sourcemap: 'inline',
   },
   plugins: [vue()],
   resolve: {

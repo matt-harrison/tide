@@ -50,6 +50,10 @@ const config: StorybookConfig = {
     '../src/stories/TideTabs.stories.ts',
     '../src/stories/TideToggle.stories.ts',
   ],
+  viteFinal: async (config, { configType }) => {
+    if (config.build) config.build.sourcemap = 'inline'
+    return config;
+  },
 };
 
 export default config;
