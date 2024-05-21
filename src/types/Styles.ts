@@ -23,17 +23,25 @@ export const CSS = {
     START: 'tide-axis2-start',
   },
   BG: {
+    ERROR: 'tide-bg-error',
+    INFO: 'tide-bg-info',
     PRIMARY: 'tide-bg-primary',
     SECONDARY: 'tide-bg-secondary',
+    SUCCESS: 'tide-bg-success',
     SURFACE: {
       ACCENT: 'tide-bg-surface-accent',
       ACCENT_VARIANT: 'tide-bg-surface-accent-variant',
       BRAND: 'tide-bg-surface-brand',
       DEFAULT: 'tide-bg-surface',
+      ERROR: 'tide-bg-surface-error',
       FLOATING: 'tide-bg-surface-floating',
       GRADIENT: 'tide-bg-surface-gradient',
+      INFO: 'tide-bg-surface-info',
+      SUCCESS: 'tide-bg-surface-success',
       VARIANT: 'tide-bg-surface-variant',
+      WARNING: 'tide-bg-surface-warning',
     },
+    WARNING: 'tide-bg-warning',
   },
   BORDER: {
     BOTTOM: {

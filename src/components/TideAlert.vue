@@ -54,12 +54,25 @@
       CSS.DISPLAY.GRID,
       CSS.BORDER.RADIUS.HALF,
       CSS.PADDING.FULL.ONE,
+      props.type === ALERT.ERROR && CSS.BG.SURFACE.ERROR,
+      props.type === ALERT.INFO && CSS.BG.SURFACE.INFO,
+      props.type === ALERT.SUCCESS && CSS.BG.SURFACE.SUCCESS,
+      props.type === ALERT.WARNING && CSS.BG.SURFACE.WARNING,
       props.isToast ? CSS.SHADOW.BOTTOM : '',
     ]"
   >
     <div :class="['tide-alert-icon', CSS.DISPLAY.FLEX, CSS.AXIS2.CENTER]">
       <TideIcon
-        :class="[props.type, CSS.BORDER.RADIUS.FULL, CSS.PADDING.FULL.HALF, CSS.FONT.COLOR.SURFACE.INVERSE]"
+        :class="[
+          props.type,
+          CSS.BORDER.RADIUS.FULL,
+          CSS.PADDING.FULL.HALF,
+          CSS.FONT.COLOR.SURFACE.INVERSE,
+          props.type === ALERT.ERROR && CSS.BG.ERROR,
+          props.type === ALERT.INFO && CSS.BG.INFO,
+          props.type === ALERT.SUCCESS && CSS.BG.SUCCESS,
+          props.type === ALERT.WARNING && CSS.BG.WARNING,
+        ]"
         :icon="icon"
       />
     </div>
@@ -107,37 +120,5 @@
 
   .tide-alert-body {
     grid-area: body;
-  }
-
-  .error {
-    background-color: var(--tide-error-surface);
-  }
-
-  .info {
-    background-color: var(--tide-info-surface);
-  }
-
-  .success {
-    background-color: var(--tide-success-surface);
-  }
-
-  .warning {
-    background-color: var(--tide-warning-surface);
-  }
-
-  .tide-icon.error {
-    background-color: var(--tide-error-primary);
-  }
-
-  .tide-icon.info {
-    background-color: var(--tide-info-primary);
-  }
-
-  .tide-icon.success {
-    background-color: var(--tide-success-primary);
-  }
-
-  .tide-icon.warning {
-    background-color: var(--tide-warning-primary);
   }
 </style>

@@ -10,6 +10,16 @@
 .tide-bg-surface-gradient       {background: var(--tide-surface-gradient);}
 .tide-bg-surface-floating       {background: var(--tide-surface-floating);}
 
+.tide-bg-surface-error   {background-color: var(--tide-error-surface);}
+.tide-bg-surface-info    {background-color: var(--tide-info-surface);}
+.tide-bg-surface-success {background-color: var(--tide-success-surface);}
+.tide-bg-surface-warning {background-color: var(--tide-warning-surface);}
+
+.tide-bg-error   {background-color: var(--tide-error-primary);}
+.tide-bg-info    {background-color: var(--tide-info-primary);}
+.tide-bg-success {background-color: var(--tide-success-primary);}
+.tide-bg-warning {background-color: var(--tide-warning-primary);}
+
 /* Border */
 .tide-border-primary   {border-color: var(--tide-primary);}
 
