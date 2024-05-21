@@ -74,6 +74,7 @@
       :class="['tide-alert-close', CSS.AXIS2.CENTER, CSS.FONT.COLOR.SURFACE.DEFAULT]"
       :icon="ICON.CLOSE"
       :priority="PRIORITY.QUATERNARY"
+      aria-label="Close alert"
     />
 
     <div :class="['tide-alert-body', CSS.FONT.WEIGHT.FIVE_HUNDRED, CSS.FONT.COLOR.SURFACE.VARIANT]">

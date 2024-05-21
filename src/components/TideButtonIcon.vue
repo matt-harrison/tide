@@ -31,6 +31,7 @@
 
 <template>
   <component
+    :aria-label="props.icon"
     :class="[
       props.element === ELEMENT.LINK ? 'tide-link-as-button-icon' : 'tide-button-icon',
       props.priority && props.priority,

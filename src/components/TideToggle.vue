@@ -40,6 +40,7 @@
     ]"
     :disabled="props.disabled"
     @click="handleClick"
+    aria-label="Toggle"
   >
     <div
       :class="[
