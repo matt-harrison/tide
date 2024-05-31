@@ -1,25 +1,25 @@
 .tide-page-layout {
-  --tide-max-content-width:  1168px;
-  --tide-gap:                0px;
-  --tide-column-count:       6;
-  --tide-min-gutter-width:   var(--tide-spacing-1);
-  --tide-gutter-width:       minmax(var(--tide-min-gutter-width), 1fr);
-  --tide-max-column-size:    calc((var(--tide-max-content-width) - (var(--tide-gap) * (var(--tide-column-count) - 1))) / var(--tide-column-count));
-  --tide-content-columns:    repeat(var(--tide-column-count), minmax(0px, var(--tide-max-column-size)));
+  --tide-max-content-width: 1168px;
+  --tide-gap:               0px;
+  --tide-column-count:      12;
+  --tide-min-gutter-width:  var(--tide-spacing-1);
+  --tide-gutter-width:      minmax(var(--tide-min-gutter-width), 1fr);
+  --tide-max-column-size:   calc((var(--tide-max-content-width) - (var(--tide-gap) * (var(--tide-column-count) - 1))) / var(--tide-column-count));
+  --tide-content-columns:   repeat(var(--tide-column-count), minmax(0px, var(--tide-max-column-size)));
 
-  display:                grid;
-  gap:                    0 var(--tide-gap);
-  grid-auto-rows:         min-content;
-  grid-template-columns:  [start] var(--tide-gutter-width) [content-start] var(--tide-content-columns) [content-end] var(--tide-gutter-width) [end];
+  display:               grid;
+  gap:                   0 var(--tide-gap);
+  grid-auto-rows:        min-content;
+  grid-template-columns: [start] var(--tide-gutter-width) [content-start] var(--tide-content-columns) [content-end] var(--tide-gutter-width) [end];
 }
 
 .tide-page-layout > *,
 .tide-layout-item {
-  --tide-start:      calc(var(--tide-column-start) + 1);
-  --tide-end:        calc(var(--tide-column-end) + 2);
-  --tide-start-end:  var(--tide-start, content-start) / var(--tide-end, content-end);
+  --tide-start:     calc(var(--tide-column-start) + 1);
+  --tide-end:       calc(var(--tide-column-end) + 2);
+  --tide-start-end: var(--tide-start, content-start) / var(--tide-end, content-end);
 
-  grid-column:  var(--tide-column, var(--tide-start-end));
+  grid-column: var(--tide-column, var(--tide-start-end));
 }
 
 .tide-fluid {grid-column: 1 / -1;}
@@ -31,6 +31,12 @@
 .tide-start-4 {--tide-column-start: 4;}
 .tide-start-5 {--tide-column-start: 5;}
 .tide-start-6 {--tide-column-start: 6;}
+.tide-start-7 {--tide-column-start: 7;}
+.tide-start-8 {--tide-column-start: 8;}
+.tide-start-9 {--tide-column-start: 9;}
+.tide-start-10 {--tide-column-start: 10;}
+.tide-start-11 {--tide-column-start: 11;}
+.tide-start-12 {--tide-column-start: 12;}
 
 .tide-end-1 {--tide-column-end: 1;}
 .tide-end-2 {--tide-column-end: 2;}
@@ -39,3 +45,9 @@
 .tide-end-5 {--tide-column-end: 5;}
 .tide-end-6 {--tide-column-end: 6;}
 .tide-end-7 {--tide-column-end: 7;}
+.tide-end-8 {--tide-column-end: 8;}
+.tide-end-9 {--tide-column-end: 9;}
+.tide-end-10 {--tide-column-end: 10;}
+.tide-end-11 {--tide-column-end: 11;}
+.tide-end-12 {--tide-column-end: 12;}
+.tide-end-13 {--tide-column-end: 13;}
