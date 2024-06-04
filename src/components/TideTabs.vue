@@ -43,7 +43,7 @@
         'tide-tabs-tab',
         index === activeTab
           ? [CSS.BG.SURFACE.DEFAULT, CSS.FONT.COLOR.SURFACE.DEFAULT, CSS.SHADOW.BOTTOM]
-          : [CSS.FONT.COLOR.SURFACE.VARIANT],
+          : ['inactive', CSS.FONT.COLOR.SURFACE.VARIANT],
         CSS.FLEX.GROW.ON,
         CSS.BORDER.RADIUS.QUARTER,
         CSS.PADDING.Y.QUARTER,
@@ -77,5 +77,13 @@
   .tide-tabs-tab {
     flex: 1;
     transition: background-color var(--tide-animate);
+  }
+
+  .inactive:not(:hover) {
+    border: 1px solid var(--tide-surface-variant);
+  }
+
+  .inactive:hover {
+    border: 1px solid var(--tide-border);
   }
 </style>
