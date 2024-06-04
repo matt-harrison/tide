@@ -36,8 +36,7 @@
   "exports": {
     ".": "./dist/tide-design-system.js",
     "./css": "./dist/style.css",
-    "./css/*": "./dist/css/*.css",
-    "./types/*": "./dist/types/*.ts"
+    "./css/*": "./dist/css/*.css"
   },
   "files": [
     "dist",
@@ -54,11 +53,10 @@
     "lint": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.ts,.vue --ignore-path .gitignore --fix",
     "preview": "npm run build-storybook && npx http-server -a localhost storybook-static/",
-    "sb": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",
     "type-check": "vue-tsc --noEmit"
   },
   "type": "module",
-  "version": "2.0.3"
+  "version": "2.0.0.3"
 }
