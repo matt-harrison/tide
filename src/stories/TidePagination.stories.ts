@@ -77,7 +77,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TidePagination',
+  title: 'Basic Components/TidePagination',
 };
 
 export const Demo = {};

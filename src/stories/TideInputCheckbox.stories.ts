@@ -80,7 +80,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideInputCheckbox',
+  title: 'Basic Components/TideInputCheckbox',
 };
 
 export const Demo = {};

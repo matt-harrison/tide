@@ -65,7 +65,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideInputRadio',
+  title: 'Basic Components/TideInputRadio',
 };
 
 export const Demo = {};

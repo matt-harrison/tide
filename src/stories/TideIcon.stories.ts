@@ -23,7 +23,7 @@ export default {
   component: TideIcon,
   parameters,
   tags: ['autodocs'],
-  title: 'Tide Components/TideIcon',
+  title: 'Basic Components/TideIcon',
 };
 
 export const Demo = {};

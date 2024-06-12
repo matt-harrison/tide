@@ -97,7 +97,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideButtonIcon',
+  title: 'Basic Components/TideButtonIcon',
 };
 
 export const Demo = {};

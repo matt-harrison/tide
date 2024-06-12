@@ -14,7 +14,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideDivider',
+  title: 'Basic Components/TideDivider',
 };
 
 export const Demo = {};

@@ -36,7 +36,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideChipInput',
+  title: 'Basic Components/TideChipInput',
 };
 
 export const Demo = {};

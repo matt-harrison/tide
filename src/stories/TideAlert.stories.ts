@@ -52,7 +52,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideAlert',
+  title: 'Basic Components/TideAlert',
 };
 
 export const Demo = {};

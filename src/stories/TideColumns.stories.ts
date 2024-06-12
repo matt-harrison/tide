@@ -84,7 +84,7 @@ export default {
   component: TideColumns,
   parameters,
   tags: ['autodocs'],
-  title: 'Tide Components/TideColumns',
+  title: 'Basic Components/TideColumns',
 };
 
 export const Demo = {};

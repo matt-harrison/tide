@@ -32,7 +32,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideCard',
+  title: 'Basic Components/TideCard',
 };
 
 export const Demo = {};

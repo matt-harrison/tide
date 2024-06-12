@@ -63,7 +63,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideToggle',
+  title: 'Basic Components/TideToggle',
 };
 
 export const Demo = {};

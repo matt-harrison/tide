@@ -112,7 +112,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideButton',
+  title: 'Basic Components/TideButton',
 };
 
 export const Demo = {};

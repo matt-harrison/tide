@@ -124,7 +124,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideCarousel',
+  title: 'Basic Components/TideCarousel',
 };
 
 export const Demo = {};

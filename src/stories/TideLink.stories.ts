@@ -131,7 +131,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideLink',
+  title: 'Basic Components/TideLink',
 };
 
 export const Demo = {};

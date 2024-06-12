@@ -62,7 +62,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideAccordionItem',
+  title: 'Basic Components/TideAccordionItem',
 };
 
 export const Demo = {};

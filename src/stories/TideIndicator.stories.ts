@@ -25,7 +25,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideIndicator',
+  title: 'Basic Components/TideIndicator',
 };
 
 export const Demo = {};

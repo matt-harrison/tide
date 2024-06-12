@@ -53,7 +53,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideChipFilter',
+  title: 'Basic Components/TideChipFilter',
 };
 
 export const Demo = {};

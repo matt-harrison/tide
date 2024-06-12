@@ -94,7 +94,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideTabs',
+  title: 'Basic Components/TideTabs',
 };
 
 export const Demo = {};

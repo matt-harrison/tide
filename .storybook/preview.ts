@@ -182,7 +182,7 @@ const preview: Preview = {
         order: [
           'Welcome',
           'Foundations',
-          'Tide Components',
+          'Basic Components',
           'Proof of Concept', [
             'CSS Utilities Demo',
             'CSS Utilities By Text Input',

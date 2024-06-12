@@ -40,7 +40,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideChipAction',
+  title: 'Basic Components/TideChipAction',
 };
 
 export const Demo = {};

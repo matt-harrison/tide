@@ -46,7 +46,7 @@
   "main": "./dist/tide-design-system.js",
   "name": "tide-design-system",
   "scripts": {
-    "build": "run-p type-check build-only",
+    "build": "npm run lint && npm run type-check && npm run build-only",
     "build-only": "vite build && cp -r src/assets/css/ dist/css/ && cp -r src/types/ dist/types/ && cp -r src/utilities/ dist/utilities/",
     "build-storybook": "storybook build && cp -r src/assets/css/realm/ storybook-static/public/",
     "coverage": "vitest run --coverage",
@@ -58,5 +58,5 @@
     "type-check": "vue-tsc --noEmit"
   },
   "type": "module",
-  "version": "2.0.0.3"
+  "version": "2.0.6"
 }

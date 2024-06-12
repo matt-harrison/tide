@@ -110,7 +110,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideInputTextarea',
+  title: 'Basic Components/TideInputTextarea',
 };
 
 export const Demo = {};

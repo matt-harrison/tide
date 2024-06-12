@@ -61,7 +61,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideSeoLinks',
+  title: 'Basic Components/TideSeoLinks',
 };
 
 export const Demo = {};

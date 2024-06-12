@@ -25,7 +25,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideBadgePremium',
+  title: 'Basic Components/TideBadgePremium',
 };
 
 export const Demo = {};

@@ -37,7 +37,7 @@ export default {
   component: TideBreadCrumbs,
   parameters,
   tags: ['autodocs'],
-  title: 'Tide Components/TideBreadCrumbs',
+  title: 'Basic Components/TideBreadCrumbs',
 };
 
 export const Demo = {};

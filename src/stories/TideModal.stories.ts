@@ -130,7 +130,7 @@ export default {
   parameters,
   render,
   tags: ['autodocs'],
-  title: 'Tide Components/TideModal',
+  title: 'Basic Components/TideModal',
 };
 
 export const Demo = {};
